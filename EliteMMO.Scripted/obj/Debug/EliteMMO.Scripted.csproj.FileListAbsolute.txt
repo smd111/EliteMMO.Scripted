@@ -11,3 +11,16 @@ C:\Users\Christopher Malo\Documents\Visual Studio 2013\Projects\EliteMMO.Scripte
 C:\Users\Christopher Malo\Documents\Visual Studio 2013\Projects\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.ScriptNaviMap.resources
 C:\Users\Christopher Malo\Documents\Visual Studio 2013\Projects\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\Scripted.exe
 C:\Users\Christopher Malo\Documents\Visual Studio 2013\Projects\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\Scripted.pdb
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\Scripted.exe
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\Scripted.pdb
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\Scripted.exe
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\Scripted.pdb
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.csprojResolveAssemblyReference.cache
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Properties.Resources.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.MainWindow.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.ScriptFarmDNC.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.ScriptHealing.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.ScriptNaviMap.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.ScriptOnEventTool.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.csproj.GenerateResource.Cache

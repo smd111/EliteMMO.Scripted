@@ -72,7 +72,9 @@
             this.xpic = new System.Windows.Forms.PictureBox();
             this.EliteMMO_PROC = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.header5 = new System.Windows.Forms.Label();
+            this.header3 = new System.Windows.Forms.Label();
+            this.header4 = new System.Windows.Forms.Label();
             this.xmenu.SuspendLayout();
             this.xstatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xpic)).BeginInit();
@@ -230,25 +232,25 @@
             // melyonToolStripMenuItem
             // 
             this.melyonToolStripMenuItem.Name = "melyonToolStripMenuItem";
-            this.melyonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.melyonToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.melyonToolStripMenuItem.Text = "Melyon";
             // 
             // shamiToolStripMenuItem
             // 
             this.shamiToolStripMenuItem.Name = "shamiToolStripMenuItem";
-            this.shamiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.shamiToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.shamiToolStripMenuItem.Text = "Shami";
             // 
             // sparksToolStripMenuItem
             // 
             this.sparksToolStripMenuItem.Name = "sparksToolStripMenuItem";
-            this.sparksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sparksToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.sparksToolStripMenuItem.Text = "Sparks";
             // 
             // zaldonToolStripMenuItem
             // 
             this.zaldonToolStripMenuItem.Name = "zaldonToolStripMenuItem";
-            this.zaldonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zaldonToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.zaldonToolStripMenuItem.Text = "Zaldon";
             // 
             // optionsToolStripMenuItem
@@ -332,18 +334,17 @@
             // header1
             // 
             this.header1.AutoSize = true;
-            this.header1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header1.Location = new System.Drawing.Point(170, 32);
             this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(190, 18);
+            this.header1.Size = new System.Drawing.Size(170, 20);
             this.header1.TabIndex = 11;
             this.header1.Text = "Scripted (c) 2014/2015";
             // 
             // xpic
             // 
-            this.xpic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xpic.Image = global::EliteMMO.Scripted.Properties.Resources.xeyes_1_128x128x32;
-            this.xpic.Location = new System.Drawing.Point(0, 24);
+            this.xpic.Location = new System.Drawing.Point(0, 21);
             this.xpic.Name = "xpic";
             this.xpic.Size = new System.Drawing.Size(366, 163);
             this.xpic.TabIndex = 4;
@@ -368,33 +369,51 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "select process";
             // 
-            // button1
+            // header5
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(173, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(185, 27);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Donate";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.PaypalClick);
+            this.header5.AutoSize = true;
+            this.header5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header5.Location = new System.Drawing.Point(162, 160);
+            this.header5.Name = "header5";
+            this.header5.Size = new System.Drawing.Size(180, 14);
+            this.header5.TabIndex = 18;
+            this.header5.Text = "Made open source on 9/25/2015";
+            // 
+            // header3
+            // 
+            this.header3.AutoSize = true;
+            this.header3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header3.Location = new System.Drawing.Point(230, 64);
+            this.header3.Name = "header3";
+            this.header3.Size = new System.Drawing.Size(70, 14);
+            this.header3.TabIndex = 19;
+            this.header3.Text = "Modified by";
+            // 
+            // header4
+            // 
+            this.header4.AutoSize = true;
+            this.header4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header4.Location = new System.Drawing.Point(251, 78);
+            this.header4.Name = "header4";
+            this.header4.Size = new System.Drawing.Size(49, 14);
+            this.header4.TabIndex = 20;
+            this.header4.Text = "SMD111";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(366, 209);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.header5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EliteMMO_PROC);
-            this.Controls.Add(this.header2);
             this.Controls.Add(this.header1);
-            this.Controls.Add(this.xpic);
             this.Controls.Add(this.xstatus);
             this.Controls.Add(this.xmenu);
+            this.Controls.Add(this.header4);
+            this.Controls.Add(this.header2);
+            this.Controls.Add(this.header3);
+            this.Controls.Add(this.xpic);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -448,6 +467,8 @@
         public ToolStripMenuItem enableMaintenanceModeToolStripMenuItem;
         public ToolStripMenuItem navigationToolStripMenuItem;
         private ToolStripMenuItem onEventToolStripMenuItem;
-        private Button button1;
+        public Label header5;
+        public Label header3;
+        public Label header4;
     }
 }

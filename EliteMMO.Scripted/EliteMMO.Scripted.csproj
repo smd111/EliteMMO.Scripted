@@ -137,7 +137,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "C:\Users\Christopher Malo\Documents\Visual Studio 2015\Projects\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release\scripted.exe" "C:\Program Files (x86)\Ashita\e.apps\Scripted\Scripted.exe"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

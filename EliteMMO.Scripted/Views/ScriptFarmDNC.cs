@@ -395,5 +395,15 @@
             }
         }
         #endregion
+
+        private void bgw_script_npc_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+        }
+
+        private void stopstepsat_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

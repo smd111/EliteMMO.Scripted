@@ -289,6 +289,7 @@
             this.usedrainii = new System.Windows.Forms.RadioButton();
             this.usedrain = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.stopstepscount = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.usefeatherstepValue = new System.Windows.Forms.NumericUpDown();
             this.usestutterstepValue = new System.Windows.Forms.NumericUpDown();
@@ -410,14 +411,16 @@
             this.groupBox25 = new System.Windows.Forms.GroupBox();
             this.WyvernJA = new System.Windows.Forms.CheckedListBox();
             this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_pet = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
+            this.stopstepsat = new System.Windows.Forms.CheckBox();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -467,6 +470,7 @@
             this.tabPage14.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stopstepscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usefeatherstepValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usestutterstepValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.useboxstepValue)).BeginInit();
@@ -519,6 +523,7 @@
             this.groupBox26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RestoringBreathHP)).BeginInit();
             this.groupBox25.SuspendLayout();
+            this.tabPage13.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -2548,6 +2553,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.stopstepsat);
+            this.groupBox3.Controls.Add(this.stopstepscount);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.usefeatherstepValue);
             this.groupBox3.Controls.Add(this.usestutterstepValue);
@@ -2560,18 +2567,42 @@
             this.groupBox3.Controls.Add(this.useboxstep);
             this.groupBox3.Controls.Add(this.usestutterstep);
             this.groupBox3.Controls.Add(this.usefeatherstep);
-            this.groupBox3.Location = new System.Drawing.Point(212, 35);
+            this.groupBox3.Location = new System.Drawing.Point(212, 20);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(190, 167);
+            this.groupBox3.Size = new System.Drawing.Size(190, 182);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Steps";
+            // 
+            // stopstepscount
+            // 
+            this.stopstepscount.Enabled = false;
+            this.stopstepscount.Location = new System.Drawing.Point(130, 23);
+            this.stopstepscount.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.stopstepscount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.stopstepscount.Name = "stopstepscount";
+            this.stopstepscount.Size = new System.Drawing.Size(34, 20);
+            this.stopstepscount.TabIndex = 16;
+            this.stopstepscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.stopstepscount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Enabled = false;
-            this.label18.Location = new System.Drawing.Point(151, 143);
+            this.label18.Location = new System.Drawing.Point(154, 157);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(30, 13);
             this.label18.TabIndex = 10;
@@ -2580,7 +2611,7 @@
             // usefeatherstepValue
             // 
             this.usefeatherstepValue.Enabled = false;
-            this.usefeatherstepValue.Location = new System.Drawing.Point(130, 88);
+            this.usefeatherstepValue.Location = new System.Drawing.Point(130, 112);
             this.usefeatherstepValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -2594,7 +2625,7 @@
             // usestutterstepValue
             // 
             this.usestutterstepValue.Enabled = false;
-            this.usestutterstepValue.Location = new System.Drawing.Point(130, 65);
+            this.usestutterstepValue.Location = new System.Drawing.Point(130, 91);
             this.usestutterstepValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -2608,7 +2639,7 @@
             // useboxstepValue
             // 
             this.useboxstepValue.Enabled = false;
-            this.useboxstepValue.Location = new System.Drawing.Point(130, 43);
+            this.useboxstepValue.Location = new System.Drawing.Point(130, 68);
             this.useboxstepValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -2622,7 +2653,7 @@
             // StepsHPValue
             // 
             this.StepsHPValue.Enabled = false;
-            this.StepsHPValue.Location = new System.Drawing.Point(117, 139);
+            this.StepsHPValue.Location = new System.Drawing.Point(114, 155);
             this.StepsHPValue.Maximum = new decimal(new int[] {
             99,
             0,
@@ -2642,7 +2673,7 @@
             // usequickstepValue
             // 
             this.usequickstepValue.Enabled = false;
-            this.usequickstepValue.Location = new System.Drawing.Point(130, 19);
+            this.usequickstepValue.Location = new System.Drawing.Point(130, 46);
             this.usequickstepValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -2657,7 +2688,7 @@
             // 
             this.StepsHP.AutoSize = true;
             this.StepsHP.Enabled = false;
-            this.StepsHP.Location = new System.Drawing.Point(7, 141);
+            this.StepsHP.Location = new System.Drawing.Point(6, 158);
             this.StepsHP.Name = "StepsHP";
             this.StepsHP.Size = new System.Drawing.Size(112, 17);
             this.StepsHP.TabIndex = 8;
@@ -2668,7 +2699,7 @@
             // 
             this.NoSteps.AutoSize = true;
             this.NoSteps.Enabled = false;
-            this.NoSteps.Location = new System.Drawing.Point(22, 111);
+            this.NoSteps.Location = new System.Drawing.Point(14, 135);
             this.NoSteps.Name = "NoSteps";
             this.NoSteps.Size = new System.Drawing.Size(102, 17);
             this.NoSteps.TabIndex = 10;
@@ -2680,7 +2711,7 @@
             // 
             this.usequickstep.AutoSize = true;
             this.usequickstep.Enabled = false;
-            this.usequickstep.Location = new System.Drawing.Point(22, 20);
+            this.usequickstep.Location = new System.Drawing.Point(14, 46);
             this.usequickstep.Name = "usequickstep";
             this.usequickstep.Size = new System.Drawing.Size(75, 17);
             this.usequickstep.TabIndex = 2;
@@ -2692,7 +2723,7 @@
             // 
             this.useboxstep.AutoSize = true;
             this.useboxstep.Enabled = false;
-            this.useboxstep.Location = new System.Drawing.Point(22, 43);
+            this.useboxstep.Location = new System.Drawing.Point(14, 68);
             this.useboxstep.Name = "useboxstep";
             this.useboxstep.Size = new System.Drawing.Size(65, 17);
             this.useboxstep.TabIndex = 3;
@@ -2704,7 +2735,7 @@
             // 
             this.usestutterstep.AutoSize = true;
             this.usestutterstep.Enabled = false;
-            this.usestutterstep.Location = new System.Drawing.Point(22, 65);
+            this.usestutterstep.Location = new System.Drawing.Point(14, 91);
             this.usestutterstep.Name = "usestutterstep";
             this.usestutterstep.Size = new System.Drawing.Size(78, 17);
             this.usestutterstep.TabIndex = 4;
@@ -2716,7 +2747,7 @@
             // 
             this.usefeatherstep.AutoSize = true;
             this.usefeatherstep.Enabled = false;
-            this.usefeatherstep.Location = new System.Drawing.Point(22, 88);
+            this.usefeatherstep.Location = new System.Drawing.Point(14, 112);
             this.usefeatherstep.Name = "usefeatherstep";
             this.usefeatherstep.Size = new System.Drawing.Size(83, 17);
             this.usefeatherstep.TabIndex = 5;
@@ -4125,6 +4156,7 @@
             // 
             // tabPage13
             // 
+            this.tabPage13.Controls.Add(this.checkBox7);
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Size = new System.Drawing.Size(415, 247);
@@ -4132,9 +4164,19 @@
             this.tabPage13.Text = "SMN";
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(126, 130);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(107, 17);
+            this.checkBox7.TabIndex = 2;
+            this.checkBox7.Text = "Auto Engage Pet";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
             // tabPage12
             // 
-            this.tabPage12.Controls.Add(this.label2);
+            this.tabPage12.Controls.Add(this.checkBox8);
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
@@ -4143,15 +4185,15 @@
             this.tabPage12.Text = "PUP";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // checkBox8
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(108, 102);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 43);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "place holder";
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(140, 128);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(107, 17);
+            this.checkBox8.TabIndex = 3;
+            this.checkBox8.Text = "Auto Engage Pet";
+            this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // bgw_script_dnc
             // 
@@ -4171,6 +4213,10 @@
             this.bgw_script_pet.WorkerSupportsCancellation = true;
             this.bgw_script_pet.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptPetDoWork);
             // 
+            // bgw_script_npc
+            // 
+            this.bgw_script_npc.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw_script_npc_DoWork);
+            // 
             // DeathWarp
             // 
             this.DeathWarp.AutoSize = true;
@@ -4180,6 +4226,17 @@
             this.DeathWarp.TabIndex = 52;
             this.DeathWarp.Text = "Warp on Death";
             this.DeathWarp.UseVisualStyleBackColor = true;
+            // 
+            // stopstepsat
+            // 
+            this.stopstepsat.AutoSize = true;
+            this.stopstepsat.Enabled = false;
+            this.stopstepsat.Location = new System.Drawing.Point(13, 26);
+            this.stopstepsat.Name = "stopstepsat";
+            this.stopstepsat.Size = new System.Drawing.Size(88, 17);
+            this.stopstepsat.TabIndex = 17;
+            this.stopstepsat.Text = "Stop Steps #";
+            this.stopstepsat.UseVisualStyleBackColor = true;
             // 
             // ScriptFarmDNC
             // 
@@ -4263,6 +4320,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stopstepscount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usefeatherstepValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usestutterstepValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.useboxstepValue)).EndInit();
@@ -4330,6 +4388,8 @@
             this.groupBox26.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RestoringBreathHP)).EndInit();
             this.groupBox25.ResumeLayout(false);
+            this.tabPage13.ResumeLayout(false);
+            this.tabPage13.PerformLayout();
             this.tabPage12.ResumeLayout(false);
             this.tabPage12.PerformLayout();
             this.ResumeLayout(false);
@@ -4594,7 +4654,6 @@
         public System.Windows.Forms.CheckedListBox WyvernJA;
         public System.Windows.Forms.TabPage tabPage13;
         public System.Windows.Forms.TabPage tabPage12;
-        public System.Windows.Forms.Label label2;
         public System.ComponentModel.BackgroundWorker bgw_script_dnc;
         public System.ComponentModel.BackgroundWorker bgw_script_nav;
         public System.ComponentModel.BackgroundWorker bgw_script_pet;
@@ -4696,6 +4755,14 @@
             #region WAR JA
             if (api.Player.GetPlayerInfo().MainJob == 1)
             {
+                if (api.Player.GetPlayerInfo().MainJobLevel >= 1 &&
+                    !playerJA.Items.Contains("Mighty Strikes [1HR] - (Warrior)"))
+                {
+                    playerJA.Items.AddRange(new object[]
+                    {
+                        "Mighty Strikes [1HR] - (Warrior)",
+                    });
+                }
                 if (api.Player.GetPlayerInfo().MainJobLevel >= 15 &&
                     !playerJA.Items.Contains("Berserk - (Warrior)"))
                 {
@@ -4769,11 +4836,11 @@
                     });
                 }
                 if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Brazen Rush - (Warrior)"))
+                    !playerJA.Items.Contains("Brazen Rush [1HR] - (Warrior)"))
                 {
                     playerJA.Items.AddRange(new object[]
                     {
-                        "Brazen Rush - (Warrior)",
+                        "Brazen Rush [1HR] - (Warrior)",
                     });
                 }
             }
@@ -4781,6 +4848,14 @@
             #region MNK JA
             if (api.Player.GetPlayerInfo().MainJob == 2)
             {
+                if (api.Player.GetPlayerInfo().MainJobLevel >= 1 &&
+                    !playerJA.Items.Contains("Hundred Fists [1HR] - (Monk)"))
+                {
+                    playerJA.Items.AddRange(new object[]
+                    {
+                        "Hundred Fists [1HR] - (Monk)",
+                    });
+                }
                 if (api.Player.GetPlayerInfo().MainJobLevel >= 5 &&
                     !playerJA.Items.Contains("Boost - (Monk)"))
                 {
@@ -4870,11 +4945,71 @@
                     });
                 }
                 if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Inner Strength - (Monk)"))
+                    !playerJA.Items.Contains("Inner Strength [1HR] - (Monk)"))
                 {
                     playerJA.Items.AddRange(new object[]
                     {
-                        "Inner Strength - (Monk)",
+                        "Inner Strength [1HR] - (Monk)",
+                    });
+                }
+            }
+            #endregion
+            #region WHM JA
+            if (api.Player.GetPlayerInfo().MainJob == 3)
+            {
+                if (api.Player.GetPlayerInfo().MainJobLevel >= 1 &&
+                    !playerJA.Items.Contains("Benediction [1HR] - (White Mage)"))
+                {
+                    playerJA.Items.AddRange(new object[]
+                    {
+                        "Benediction [1HR] - (White Mage)",
+                    });
+                }
+                if (api.Player.GetPlayerInfo().MainJobLevel >= 40 &&
+                    !playerJA.Items.Contains("Afflatus Solace - (White Mage)"))
+                {
+                    playerJA.Items.AddRange(new object[]
+                    {
+                        "Afflatus Solace - (White Mage)",
+                    });
+                }
+                if (api.Player.GetPlayerInfo().MainJobLevel >= 40 &&
+                    !playerJA.Items.Contains("Afflatus Misery - (White Mage)"))
+                {
+                    playerJA.Items.AddRange(new object[]
+                    {
+                        "Afflatus Misery - (White Mage)",
+                    });
+                }
+                if (api.Player.GetPlayerInfo().MainJobLevel >= 95 &&
+                    !playerJA.Items.Contains("Sacrosanctity - (White Mage)"))
+                {
+                    playerJA.Items.AddRange(new object[]
+                    {
+                        "Sacrosanctity - (White Mage)",
+                    });
+                }
+                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
+                    !playerJA.Items.Contains("Asylum [1HR] - (White Mage)"))
+                {
+                    playerJA.Items.AddRange(new object[]
+                    {
+                        "Asylum [1HR] - (White Mage)",
+                    });
+                }
+            }
+            #endregion
+            /* #region BLM JA
+            #endregion */
+            #region RDM JA
+            if (api.Player.GetPlayerInfo().MainJob == 5)
+            {
+                if (api.Player.GetPlayerInfo().MainJobLevel >= 1 &&
+                    !playerJA.Items.Contains("Composure - (Red Mage)"))
+                {
+                    playerJA.Items.AddRange(new object[]
+                    {
+                        "Composure - (Red Mage)",
                     });
                 }
             }
@@ -6930,6 +7065,8 @@
             else if (PlayerInfo.HasBuff(385)) { retVal = 5; }
             else if (PlayerInfo.HasBuff(588)) { retVal = 6; }
 
+            if (stopstepsat.Checked && retVal >= stopstepscount.Value) return;
+
             if (usequickstep.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
                 !PlayerInfo.HasBuff(588) && Recast.GetAbilityRecast(220) == 0)
             {
@@ -6968,6 +7105,14 @@
                       select itemChecked.ToString()).ToList();
 
             #region WAR JA
+            if (ja.Contains("Mighty Strikes [1HR] - (Warrior)") && !PlayerInfo.HasBuff(16) &&
+                !PlayerInfo.HasBuff(44) && Recast.GetAbilityRecast(0) == 0 &&
+                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                api.ThirdParty.SendString("/ja \"Mighty Strikes\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
             if (ja.Contains("Berserk - (Warrior)") && !PlayerInfo.HasBuff(16) &&
                 !PlayerInfo.HasBuff(56) && Recast.GetAbilityRecast(1) == 0 &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
@@ -6983,7 +7128,7 @@
                 api.ThirdParty.SendString("/ja \"Defender\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
-            if (ja.Contains("Warcry - (Warrior)") && !PlayerInfo.HasBuff(16) &&
+            if (ja.Contains("Warcry - (Warrior)") && !PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(460) &&
                 !PlayerInfo.HasBuff(68) && Recast.GetAbilityRecast(2) == 0 &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
             {
@@ -7004,7 +7149,7 @@
                 api.ThirdParty.SendString("/ja \"Aggressor\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
-            if (ja.Contains("Warrior's Charge - (Warrior)") && !PlayerInfo.HasBuff(16) &&
+            if (ja.Contains("Warrior's Charge - (Warrior)") && !PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(490) &&
                 !PlayerInfo.HasBuff(340) && Recast.GetAbilityRecast(6) == 0 &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
             {
@@ -7025,14 +7170,14 @@
                 api.ThirdParty.SendString("/ja \"Restraint\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
-            if (ja.Contains("Blood Rage - (Warrior)") && !PlayerInfo.HasBuff(16) &&
+            if (ja.Contains("Blood Rage - (Warrior)") && !PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(68) &&
                 !PlayerInfo.HasBuff(460) && Recast.GetAbilityRecast(11) == 0 &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
             {
                 api.ThirdParty.SendString("/ja \"Blood Rage\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
-            if (ja.Contains("Brazen Rush - (Warrior)") && !PlayerInfo.HasBuff(16) &&
+            if (ja.Contains("Brazen Rush [1HR] - (Warrior)") && !PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(340) &&
                 !PlayerInfo.HasBuff(490) && Recast.GetAbilityRecast(254) == 0 &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
             {
@@ -7041,6 +7186,13 @@
             }
             #endregion
             #region MNK JA
+            if (ja.Contains("Hundred Fists [1HR] - (Monk)") && !PlayerInfo.HasBuff(16) &&
+                !PlayerInfo.HasBuff(46) && Recast.GetAbilityRecast(0) == 0 &&
+                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+            {
+                api.ThirdParty.SendString("/ja \"Hundred Fists\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
             if (ja.Contains("Boost - (Monk)") && !PlayerInfo.HasBuff(16) &&
                 !PlayerInfo.HasBuff(45) && Recast.GetAbilityRecast(16) == 0 &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
@@ -7118,11 +7270,59 @@
                 api.ThirdParty.SendString("/ja \"Impetus\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
-            if (ja.Contains("Inner Strength - (Monk)") && !PlayerInfo.HasBuff(16) &&
+            if (ja.Contains("Inner Strength [1HR] - (Monk)") && !PlayerInfo.HasBuff(16) &&
                 !PlayerInfo.HasBuff(491) && Recast.GetAbilityRecast(254) == 0 &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
             {
                 api.ThirdParty.SendString("/ja \"Inner Strength\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            #endregion
+            #region WHM JA
+            if (ja.Contains("Benediction [1HR] - (White Mage)") && !PlayerInfo.HasBuff(16) &&
+                !PlayerInfo.HasBuff(46) && Recast.GetAbilityRecast(0) == 0 && PlayerInfo.HPP <= 25 &&
+                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+            {
+                api.ThirdParty.SendString("/ja \"Benediction\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Afflatus Solace - (White Mage)") && !PlayerInfo.HasBuff(16) &&
+                !PlayerInfo.HasBuff(417) && Recast.GetAbilityRecast(29) == 0 &&
+                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+            {
+                api.ThirdParty.SendString("/ja \"Afflatus Solace\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Afflatus Misery - (White Mage)") && !PlayerInfo.HasBuff(16) &&
+                !PlayerInfo.HasBuff(418) && Recast.GetAbilityRecast(30) == 0 &&
+                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+            {
+                api.ThirdParty.SendString("/ja \"Afflatus Misery\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Sacrosanctity - (White Mage)") && !PlayerInfo.HasBuff(16) &&
+                !PlayerInfo.HasBuff(477) && Recast.GetAbilityRecast(33) == 0 &&
+                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+            {
+                api.ThirdParty.SendString("/ja \"Sacrosanctity\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Asylum [1HR] - (White Mage)") && !PlayerInfo.HasBuff(16) &&
+                !PlayerInfo.HasBuff(492) && Recast.GetAbilityRecast(254) == 0 &&
+                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+            {
+                api.ThirdParty.SendString("/ja \"Asylum\" <t>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            #endregion
+            /* #region BLM JA
+            #endregion */
+            #region RDM JA
+            if (ja.Contains("Composure - (Red Mage)") && !PlayerInfo.HasBuff(16) &&
+                !PlayerInfo.HasBuff(419) && Recast.GetAbilityRecast(50) == 0 &&
+                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+            {
+                api.ThirdParty.SendString("/ja \"Composure\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
             #endregion
@@ -7594,13 +7794,6 @@
                 api.ThirdParty.SendString("/ja \"Sekkanoki\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
-            if (ja.Contains("Konzen-ittai - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(140) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Konzen-ittai\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
             if (ja.Contains("Blade Bash - (Samurai)") && !PlayerInfo.HasBuff(16) &&
                 Recast.GetAbilityRecast(137) == 0 && PlayerInfo.Status == 1 &&
                 TargetInfo.ID > 0)
@@ -7615,25 +7808,11 @@
                 api.ThirdParty.SendString("/ja \"Shikikoyo\" <t>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
-            if (ja.Contains("Sengikori - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(440) && Recast.GetAbilityRecast(141) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Sengikori\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
             if (ja.Contains("Hamanoha - (Samurai)") && !PlayerInfo.HasBuff(16) &&
                 !PlayerInfo.HasBuff(465) && Recast.GetAbilityRecast(53) == 0 &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
             {
                 api.ThirdParty.SendString("/ja \"Hamanoha\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Hagakure - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(483) && Recast.GetAbilityRecast(54) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Hagakure\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
             if (ja.Contains("Yaegasumi - (Samurai)") && !PlayerInfo.HasBuff(16) &&
@@ -8086,6 +8265,7 @@
 
             if (wsam.Checked && amname.Text != "")
             {
+                
                 if (AfterMathTier.Value == 1 && PlayerInfo.TP >= 1000 &&
                    (TargetInfo.HPP >= numericUpDown23.Value &&
                     TargetInfo.HPP <= numericUpDown22.Value) &&
@@ -8117,6 +8297,33 @@
 
             if (ws.Checked && !wsam.Checked && PlayerInfo.Status == 1)
             {
+                if (api.Player.GetPlayerInfo().SubJob == 12)
+                {
+                    var ja = (from object itemChecked in playerJA.CheckedItems
+                              select itemChecked.ToString()).ToList();
+                              
+                    if (ja.Contains("Konzen-ittai - (Samurai)") && !PlayerInfo.HasBuff(16) &&
+                        Recast.GetAbilityRecast(140) == 0 && PlayerInfo.Status == 1 &&
+                        TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Konzen-ittai\" <t>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    } 
+                    if (ja.Contains("Hagakure - (Samurai)") && !PlayerInfo.HasBuff(16) &&
+                        !PlayerInfo.HasBuff(483) && Recast.GetAbilityRecast(54) == 0 &&
+                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Hagakure\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    } 
+                    if (ja.Contains("Sengikori - (Samurai)") && !PlayerInfo.HasBuff(16) &&
+                        !PlayerInfo.HasBuff(440) && Recast.GetAbilityRecast(141) == 0 &&
+                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Sengikori\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
                 if (PlayerInfo.TP >= numericUpDown24.Value &&
                     TargetInfo.HPP >= numericUpDown23.Value &&
                     TargetInfo.HPP <= numericUpDown22.Value &&
@@ -10376,6 +10583,8 @@
                 {"118", "\\ROM9\\6\\69.DAT"},
                 {"11B", "\\ROM9\\6\\72.DAT"},
                 {"11C", "\\ROM9\\6\\73.DAT"},
+                /* {"120", "\\ROM9\\6\\72.DAT"},
+                {"121", "\\ROM9\\6\\73.DAT"}, */
             };
             #endregion
             #region variables
@@ -11034,8 +11243,8 @@
                     var items = line.Split(':');
                     if (items[0] == "WAYPOINT")
                     {
-                        route[ipos].X = float.Parse(items[1]);
-                        route[ipos].Z = float.Parse(items[2]);
+                        navPathX[ipos] = double.Parse(items[1]);
+                        navPathZ[ipos] = double.Parse(items[2]);
 
                         ipos++;
                     }
@@ -11436,5 +11645,10 @@
         #endregion
 
         #endregion
+
+        public NumericUpDown stopstepscount;
+        public CheckBox checkBox7;
+        public CheckBox checkBox8;
+        public CheckBox stopstepsat;
     }
 }

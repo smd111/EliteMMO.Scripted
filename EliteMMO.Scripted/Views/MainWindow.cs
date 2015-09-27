@@ -90,8 +90,11 @@
             xpic.Hide();
             header1.Hide();
             header2.Hide();
+            header3.Hide();
+            header4.Hide();
+            header5.Hide();
             label1.Hide();
-            button1.Hide();
+            //button1.Hide();
             EliteMMO_PROC.Hide();
 
             x4.Hide();
@@ -114,8 +117,11 @@
             xpic.Hide();
             header1.Hide();
             header2.Hide();
+            header3.Hide();
+            header4.Hide();
+            header5.Hide();
             label1.Hide();
-            button1.Hide();
+            //button1.Hide();
             EliteMMO_PROC.Hide();
 
             x4.Hide();
@@ -136,8 +142,11 @@
             xpic.Show();
             header1.Show();
             header2.Show();
+            header3.Show();
+            header4.Show();
+            header5.Show();
             label1.Show();
-            button1.Show();
+            //button1.Show();
             EliteMMO_PROC.Show();
 
             x4.Hide();
@@ -147,11 +156,6 @@
             refreshCharactersToolStripMenuItem.Enabled = true;
 
             Size = new Size(372, 237);
-        }
-
-        private void PaypalClick(object sender, System.EventArgs e)
-        {
-            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7U7Q2GRT6KUJN");
         }
 
         private void CloseExitToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -172,8 +176,11 @@
             xpic.Hide();
             header1.Hide();
             header2.Hide();
+            header3.Hide();
+            header4.Hide();
+            header5.Hide();
             label1.Hide();
-            button1.Hide();
+            //button1.Hide();
             EliteMMO_PROC.Hide();
 
             x2.Hide();
@@ -186,6 +193,11 @@
             x4.Dock = DockStyle.Fill;
             Controls.Add(x4);
             Size = new Size(482, 488);
+        }
+
+        private void label3_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

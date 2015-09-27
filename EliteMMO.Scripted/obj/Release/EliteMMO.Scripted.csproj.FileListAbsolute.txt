@@ -20,3 +20,14 @@ C:\Users\Christopher Malo\Documents\Visual Studio 2015\Projects\EliteMMO.Scripte
 C:\Users\Christopher Malo\Documents\Visual Studio 2015\Projects\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.Views.ScriptNaviMap.resources
 C:\Users\Christopher Malo\Documents\Visual Studio 2015\Projects\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.Views.ScriptOnEventTool.resources
 C:\Users\Christopher Malo\Documents\Visual Studio 2015\Projects\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.csproj.GenerateResource.Cache
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\Scripted.exe
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\Scripted.pdb
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.Properties.Resources.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.Views.MainWindow.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.Views.ScriptFarmDNC.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.Views.ScriptHealing.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.Views.ScriptNaviMap.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.Views.ScriptOnEventTool.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.csproj.GenerateResource.Cache
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release\Scripted.exe
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release\Scripted.pdb
