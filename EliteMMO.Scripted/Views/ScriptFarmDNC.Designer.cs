@@ -4819,7 +4819,7 @@
                         "Retaliation - (Warrior)",
                     });
                 }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(593) &&
+                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(661) &&
                     !playerJA.Items.Contains("Warrior's Charge - (Warrior)"))
                 {
                     playerJA.Items.AddRange(new object[]
@@ -4827,7 +4827,7 @@
                         "Warrior's Charge - (Warrior)",
                     });
                 }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(594) &&
+                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(662) &&
                     !playerJA.Items.Contains("Tomahawk - (Warrior)"))
                 {
                     playerJA.Items.AddRange(new object[]
