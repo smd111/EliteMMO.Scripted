@@ -370,11 +370,17 @@
                 if (naviMove && usenav.Checked && selectedNavi.Text != "" && PlayerInfo.Status == 0 &&
                    (!PlayerInfo.HasBuff(10) || !PlayerInfo.HasBuff(11) || !PlayerInfo.HasBuff(0)))
                 {
-                    if (Circular.Checked && !runReverse.Checked)
+                    if (Circular.Checked)
                     {
                         var closestWayPoint = FindClosestWayPoint();
-
-                        closestWayPoint++;
+                        if (!runReverse.Checked)
+                        {
+                            closestWayPoint--;
+                        }
+                        else
+                        {
+                            closestWayPoint++;
+                        }
                         if (closestWayPoint >= navPathX.Count())
                         {
                             closestWayPoint = 0;
@@ -384,6 +390,47 @@
                                                         0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                         api.AutoFollow.IsAutoFollowing = true;
+                    }
+                    else if (Linear.Checked)
+                    {
+                       if (runReverse.Enabled)
+                       {
+                          runReverse.Enabled = false;
+                          runReverse.Checked = false;
+                       }
+
+                       var closestWayPoint = FindClosestWayPoint();
+                       if (closestWayPoint != -1)
+                       {
+                          if (!runReverse.Checked)
+                          {
+                             closestWayPoint++;
+                             if (closestWayPoint >= navPathX.Count())
+                             {
+                                closestWayPoint -= 2;
+                                runReverse.Checked = true;
+                             }
+
+                             api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
+                                                     0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+
+                             api.AutoFollow.IsAutoFollowing = true;
+                          }
+                          else
+                          {
+                             closestWayPoint--;
+                             if (closestWayPoint < 0)
+                             {
+                                closestWayPoint = 1;
+                                runReverse.Checked = false;
+                             }
+
+                             api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
+                                                     0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+
+                             api.AutoFollow.IsAutoFollowing = true;
+                          }
+                       }
                     }
                 }
                 else if (usenav.Checked && api.AutoFollow.IsAutoFollowing && !isMoving)

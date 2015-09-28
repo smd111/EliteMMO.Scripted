@@ -116,7 +116,23 @@
             "Toh Zonikki",
             "Rhalo Davigoh",
             "Pohka Chichiyowahl",
-            "??? Warmachine"
+            "??? Warmachine",
+            "Affi","Dremi",
+            "Eschan Portal #1",
+            "Eschan Portal #2",
+            "Eschan Portal #3",
+            "Eschan Portal #4",
+            "Eschan Portal #5",
+            "Eschan Portal #6",
+            "Eschan Portal #7",
+            "Eschan Portal #8",
+            "Eschan Portal #9",
+            "Eschan Portal #10",
+            "Eschan Portal #11",
+            "Eschan Portal #12",
+            "Eschan Portal #13",
+            "Eschan Portal #14",
+            "Eschan Portal #15"
         });
         #endregion
 
@@ -6521,28 +6537,32 @@
             if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 20 ||
                 api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 20)
             {
-                StepsHP.Enabled = true;
-                StepsHPValue.Enabled = true;
-                label18.Enabled = true;
-                NoSteps.Enabled = true;
             }
             else
             {
-                StepsHP.Enabled = false;
-                StepsHPValue.Enabled = false;
-                label18.Enabled = false;
-                NoSteps.Enabled = false;
             }
             if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 20 ||
                 api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 20)
             {
                 usequickstep.Enabled = true;
                 usequickstepValue.Enabled = true;
+                StepsHP.Enabled = true;
+                StepsHPValue.Enabled = true;
+                label18.Enabled = true;
+                NoSteps.Enabled = true;
+                stopstepsat.Enabled = true;
+                stopstepscount.Enabled = true;
             }
             else
             {
                 usequickstep.Enabled = false;
                 usequickstepValue.Enabled = false;
+                StepsHP.Enabled = false;
+                StepsHPValue.Enabled = false;
+                label18.Enabled = false;
+                NoSteps.Enabled = false;
+                stopstepsat.Enabled = false;
+                stopstepscount.Enabled = true;
             }
             if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 30 ||
                 api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 30)
@@ -10583,8 +10603,8 @@
                 {"118", "\\ROM9\\6\\69.DAT"},
                 {"11B", "\\ROM9\\6\\72.DAT"},
                 {"11C", "\\ROM9\\6\\73.DAT"},
-                /* {"120", "\\ROM9\\6\\72.DAT"},
-                {"121", "\\ROM9\\6\\73.DAT"}, */
+                {"120", "\\ROM\\332\\109.DAT"},
+                {"121", "\\ROM\\337\\66.DAT"},
             };
             #endregion
             #region variables
