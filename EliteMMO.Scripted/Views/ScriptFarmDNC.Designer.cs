@@ -437,7 +437,6 @@
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
-            this.stopstepsat = new System.Windows.Forms.CheckBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.playerMA = new System.Windows.Forms.CheckedListBox();
             this.GetSetMA = new System.Windows.Forms.MenuStrip();
