@@ -305,6 +305,7 @@
             this.usedrainii = new System.Windows.Forms.RadioButton();
             this.usedrain = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.stopstepsat = new System.Windows.Forms.CheckBox();
             this.stopstepscount = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.usefeatherstepValue = new System.Windows.Forms.NumericUpDown();
@@ -437,6 +438,11 @@
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
             this.stopstepsat = new System.Windows.Forms.CheckBox();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.playerMA = new System.Windows.Forms.CheckedListBox();
+            this.GetSetMA = new System.Windows.Forms.MenuStrip();
+            this.loadMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -541,6 +547,8 @@
             this.groupBox25.SuspendLayout();
             this.tabPage13.SuspendLayout();
             this.tabPage12.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.GetSetMA.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkZone
@@ -902,6 +910,7 @@
             this.tabControl2.Controls.Add(this.tabPage2);
             this.tabControl2.Controls.Add(this.tabPage1);
             this.tabControl2.Controls.Add(this.tabPage11);
+            this.tabControl2.Controls.Add(this.tabPage6);
             this.tabControl2.Location = new System.Drawing.Point(45, 127);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -2590,6 +2599,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Steps";
             // 
+            // stopstepsat
+            // 
+            this.stopstepsat.AutoSize = true;
+            this.stopstepsat.Enabled = false;
+            this.stopstepsat.Location = new System.Drawing.Point(13, 26);
+            this.stopstepsat.Name = "stopstepsat";
+            this.stopstepsat.Size = new System.Drawing.Size(88, 17);
+            this.stopstepsat.TabIndex = 17;
+            this.stopstepsat.Text = "Stop Steps #";
+            this.stopstepsat.UseVisualStyleBackColor = true;
+            // 
             // stopstepscount
             // 
             this.stopstepscount.Enabled = false;
@@ -4243,16 +4263,52 @@
             this.DeathWarp.Text = "Warp on Death";
             this.DeathWarp.UseVisualStyleBackColor = true;
             // 
-            // stopstepsat
+            // tabPage6
             // 
-            this.stopstepsat.AutoSize = true;
-            this.stopstepsat.Enabled = false;
-            this.stopstepsat.Location = new System.Drawing.Point(13, 26);
-            this.stopstepsat.Name = "stopstepsat";
-            this.stopstepsat.Size = new System.Drawing.Size(88, 17);
-            this.stopstepsat.TabIndex = 17;
-            this.stopstepsat.Text = "Stop Steps #";
-            this.stopstepsat.UseVisualStyleBackColor = true;
+            this.tabPage6.Controls.Add(this.playerMA);
+            this.tabPage6.Controls.Add(this.GetSetMA);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(327, 190);
+            this.tabPage6.TabIndex = 7;
+            this.tabPage6.Text = "MA\'s";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // playerMA
+            // 
+            this.playerMA.CheckOnClick = true;
+            this.playerMA.FormattingEnabled = true;
+            this.playerMA.Location = new System.Drawing.Point(57, 9);
+            this.playerMA.Name = "playerMA";
+            this.playerMA.Size = new System.Drawing.Size(213, 139);
+            this.playerMA.TabIndex = 15;
+            // 
+            // GetSetMA
+            // 
+            this.GetSetMA.Dock = System.Windows.Forms.DockStyle.None;
+            this.GetSetMA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadMAsToolStripMenuItem,
+            this.clearMAsToolStripMenuItem});
+            this.GetSetMA.Location = new System.Drawing.Point(89, 157);
+            this.GetSetMA.Name = "GetSetMA";
+            this.GetSetMA.Size = new System.Drawing.Size(251, 24);
+            this.GetSetMA.TabIndex = 14;
+            this.GetSetMA.Text = "GetSetMA";
+            // 
+            // loadMAsToolStripMenuItem
+            // 
+            this.loadMAsToolStripMenuItem.Name = "loadMAsToolStripMenuItem";
+            this.loadMAsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.loadMAsToolStripMenuItem.Text = "Load MA\'s";
+            this.loadMAsToolStripMenuItem.Click += new System.EventHandler(this.LoadMA_Click);
+            // 
+            // clearMAsToolStripMenuItem
+            // 
+            this.clearMAsToolStripMenuItem.Name = "clearMAsToolStripMenuItem";
+            this.clearMAsToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.clearMAsToolStripMenuItem.Text = "Clear MA\'s";
+            this.clearMAsToolStripMenuItem.Click += new System.EventHandler(this.ClearMA_Click);
             // 
             // ScriptFarmDNC
             // 
@@ -4408,6 +4464,10 @@
             this.tabPage13.PerformLayout();
             this.tabPage12.ResumeLayout(false);
             this.tabPage12.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.GetSetMA.ResumeLayout(false);
+            this.GetSetMA.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4699,6 +4759,7 @@
                 pInfo();
 
             LoadJA_Click(null, null);
+            LoadMA_Click(null, null);
 
             PopulateItems();
             //MessageBox.Show(ItemQuantityByName("Blind Bolt").ToString());
@@ -4766,1698 +4827,73 @@
             if (playerJA.Items.Count > 0)
                 playerJA.Items.Clear();
 
-            #region load MJ (main job)
-            
-            #region WAR JA
-            if (api.Player.GetPlayerInfo().MainJob == 1)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 1 &&
-                    !playerJA.Items.Contains("Mighty Strikes [1HR] - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Mighty Strikes [1HR] - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Berserk - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Berserk - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 25 &&
-                    !playerJA.Items.Contains("Defender - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Defender - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 35 &&
-                    !playerJA.Items.Contains("Warcry - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Warcry - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 45 &&
-                    !playerJA.Items.Contains("Aggressor - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Aggressor - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 60 &&
-                    !playerJA.Items.Contains("Retaliation - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Retaliation - (Warrior)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(661) &&
-                    !playerJA.Items.Contains("Warrior's Charge - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Warrior's Charge - (Warrior)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(662) &&
-                    !playerJA.Items.Contains("Tomahawk - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Tomahawk - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 77 &&
-                    !playerJA.Items.Contains("Restraint - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Restraint - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 87 &&
-                    !playerJA.Items.Contains("Blood Rage - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Blood Rage - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Brazen Rush [1HR] - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Brazen Rush [1HR] - (Warrior)",
-                    });
-                }
-            }
+            #region Ability list
+            List<uint> abilitylist = new List<uint>(new uint[] {528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542,
+            543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567,
+            568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592,
+            593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617,
+            618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642,
+            643, 644, 645, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668,
+            669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693,
+            708, 709, 722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 744, 745, 746,
+            747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771,
+            772, 773, 776, 777, 778, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799,
+            800, 803, 804, 805, 807, 808, 809, 810, 813, 814, 815, 816, 817, 821, 822, 823, 824, 825, 826, 828, 829, 830, 831, 832, 833,
+            834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858,
+            859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883,
+            884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 1024, 1025, 1026,
+            1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1048,
+            1049, 1050, 1051, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1072, 1073, 1074, 1075, 1076, 1077, 1078,
+            1079, 1080, 1081, 1082, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098, 1104, 1105, 1106, 1107, 1108, 1109,
+            1110, 1111, 1112, 1113, 1114, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1136, 1137, 1138, 1139, 1140,
+            1141, 1142, 1143, 1144, 1145, 1146, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165,
+            1166, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187,
+            1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208,
+            1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229,
+            1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247, 1248, 1249, 1250,
+            1252, 1253, 1255, 1256, 1257, 1258, 1259, 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271, 1272, 1273,
+            1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285, 1286, 1287, 1288, 1289, 1290, 1291, 1292, 1293, 1294,
+            1793, 1794, 1795, 1796, 1797, 1798, 1799, 1800, 1801, 1802, 1803, 1804, 1805, 1806, 1807, 1808, 1809, 1810, 1811, 1812, 1813,
+            1814, 1815, 1816, 1817, 1818, 1819, 1820, 1821, 1822, 1823, 1824, 1825, 1826, 1827, 1828, 1829, 1830, 1831, 1832, 1833, 1834,
+            1835, 1836, 1837, 1838, 1839, 1840, 1841, 1842, 1843, 1844, 1845, 1846, 1847, 1848, 1849, 1850, 1851, 1852, 1853, 1854, 1855,
+            1856, 1857, 1858, 1859, 1860, 1861, 1862, 1863, 1864, 1865, 1866, 1867, 1868, 1869, 1870, 1871, 1872, 1873, 1874, 1875, 1876,
+            1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884, 1885, 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894, 1895, 1896, 1897,
+            1898, 1899, 1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918,
+            1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939,
+            1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960,
+            1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981,
+            1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
+            2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023,
+            2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044,
+            2045, 2046, 2047, 2048, 2049, 2050, 2051, 2052, 2053, 2054, 2055, 2056, 2057, 2058, 2059, 2060, 2061, 2062, 2063, 2064, 2065,
+            2066, 2067, 2068, 2069, 2070, 2071, 2072, 2073, 2074, 2075, 2076, 2077, 2078, 2079, 2080, 2081, 2082, 2083, 2084, 2085, 2086,
+            2087, 2088, 2089, 2090, 2091, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099, 2100, 2101, 2102, 2103, 2104, 2105, 2106, 2107,
+            2108, 2109, 2110, 2111, 2112, 2113, 2114, 2115, 2116, 2117, 2118, 2119, 2120, 2121, 2122, 2123, 2124, 2125, 2126, 2127, 2128,
+            2129, 2130, 2131, 2132, 2133, 2134, 2135, 2136, 2137, 2138, 2139, 2140, 2141, 2142, 2143, 2144, 2145, 2146, 2147, 2148, 2149,
+            2150, 2151, 2152, 2153, 2154, 2155, 2156, 2157, 2158, 2159, 2160, 2161, 2162, 2163, 2164, 2165, 2166, 2167, 2168, 2169, 2170,
+            2171, 2172, 2173, 2174, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2188, 2189, 2190, 2191,
+            2192, 2193, 2194, 2195, 2196, 2197, 2198, 2199, 2200, 2201, 2202, 2203, 2204, 2205, 2206, 2207, 2208, 2209, 2210, 2211, 2212,
+            2213, 2214, 2215, 2216, 2217, 2218, 2219, 2220, 2221, 2222, 2223, 2224, 2225, 2226, 2227});
             #endregion
-            #region MNK JA
-            if (api.Player.GetPlayerInfo().MainJob == 2)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 1 &&
-                    !playerJA.Items.Contains("Hundred Fists [1HR] - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Hundred Fists [1HR] - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Boost - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Boost - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Dodge - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Dodge - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 25 &&
-                    !playerJA.Items.Contains("Focus - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Focus - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 35 &&
-                    !playerJA.Items.Contains("Chakra - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Chakra - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 41 &&
-                    !playerJA.Items.Contains("Chi Blast - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Chi Blast - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 45 &&
-                    !playerJA.Items.Contains("Counterstance - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Counterstance - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 65 &&
-                    !playerJA.Items.Contains("Footwork - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Footwork - (Monk)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(663) &&
-                    !playerJA.Items.Contains("Mantra - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Mantra - (Monk)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(664) &&
-                    !playerJA.Items.Contains("Formless Strikes - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Formless Strikes - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 79 &&
-                    !playerJA.Items.Contains("Perfect Counter - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Perfect Counter - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 88 &&
-                    !playerJA.Items.Contains("Impetus - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Impetus - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Inner Strength [1HR] - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Inner Strength [1HR] - (Monk)",
-                    });
-                }
-            }
-            #endregion
-            #region WHM JA
-            if (api.Player.GetPlayerInfo().MainJob == 3)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 1 &&
-                    !playerJA.Items.Contains("Benediction [1HR] - (White Mage)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Benediction [1HR] - (White Mage)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Afflatus Solace - (White Mage)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Afflatus Solace - (White Mage)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Afflatus Misery - (White Mage)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Afflatus Misery - (White Mage)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 95 &&
-                    !playerJA.Items.Contains("Sacrosanctity - (White Mage)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Sacrosanctity - (White Mage)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Asylum [1HR] - (White Mage)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Asylum [1HR] - (White Mage)",
-                    });
-                }
-            }
-            #endregion
-            /* #region BLM JA
-            #endregion */
-            #region RDM JA
-            if (api.Player.GetPlayerInfo().MainJob == 5)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 1 &&
-                    !playerJA.Items.Contains("Composure - (Red Mage)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Composure - (Red Mage)",
-                    });
-                }
-            }
-            #endregion
-            #region THF JA
-            if (api.Player.GetPlayerInfo().MainJob == 6)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Steal - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Steal - (Thief)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 35 &&
-                    !playerJA.Items.Contains("Mug - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Mug - (Thief)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(667) && 
-                    !playerJA.Items.Contains("Assassin's Charge - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Assassin's Charge - (Thief)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(668) &&
-                    !playerJA.Items.Contains("Feint - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Feint - (Thief)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 77 &&
-                    !playerJA.Items.Contains("Despoil - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Despoil - (Thief)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 87 &&
-                    !playerJA.Items.Contains("Conspirator - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Conspirator - (Thief)"
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 93 &&
-                    !playerJA.Items.Contains("Bully - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Bully - (Thief)"
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 93 &&
-                    !playerJA.Items.Contains("Bully + Sneak Attack - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Bully + Sneak Attack - (Thief)"
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Larceny - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Larceny - (Thief)"
-                    });
-                }
-            }
-            #endregion
-            #region PLD JA
-            if (api.Player.GetPlayerInfo().MainJob == 7)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Holy Circle - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Holy Circle - (Paladin)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Shield Bash - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Shield Bash - (Paladin)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 30 &&
-                    !playerJA.Items.Contains("Sentinel - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Sentinel - (Paladin)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 61 && PlayerInfo.HasSpell(97) &&
-                    !playerJA.Items.Contains("Reprisal - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Reprisal - (Paladin)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 62 &&
-                    !playerJA.Items.Contains("Rampart - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Rampart - (Paladin)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(669) &&
-                    !playerJA.Items.Contains("Fealty - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Fealty - (Paladin)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(670) &&
-                    !playerJA.Items.Contains("Chivalry TP > 100% - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Chivalry TP > 100% - (Paladin)",
-                        "Chivalry TP > 200% - (Paladin)",
-                        "Chivalry TP > 300% - (Paladin)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 77 && PlayerInfo.HasSpell(106) &&
-                    !playerJA.Items.Contains("Phanlax - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Phalanx - (Paladin)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 78 &&
-                    !playerJA.Items.Contains("Divine Emblem - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Divine Emblem - (Paladin)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 80 && PlayerInfo.HasSpell(310) &&
-                    !playerJA.Items.Contains("Enlight - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Enlight - (Paladin)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel > 98 && PlayerInfo.HasSpell(855) &&
-                    !playerJA.Items.Contains("Enlight II - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Enlight II - (Paladin)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 88 && PlayerInfo.HasSpell(476) &&
-                    !playerJA.Items.Contains("Crusade - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Crusade - (Paladin)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 95 &&
-                    !playerJA.Items.Contains("Palisade - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Palisade - (Paladin)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Intervene - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Intervene - (Paladin)",
-                    });
-                }
-            }
-            #endregion
-            #region DRK JA
-            if (api.Player.GetPlayerInfo().MainJob == 8)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Arcane Circle - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Arcane Circle - (Dark Knight)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Last Resort - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Last Resort - (Dark Knight)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 20 &&
-                    !playerJA.Items.Contains("Weapon Bash - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Weapon Bash - (Dark Knight)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 30 &&
-                    !playerJA.Items.Contains("Soul Eater - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Soul Eater - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 71 && PlayerInfo.HasSpell(277) &&
-                    !playerJA.Items.Contains("Dread Spikes - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Dread Spikes - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(671) &&
-                    !playerJA.Items.Contains("Dark Seal - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Dark Seal - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(672) &&
-                    !playerJA.Items.Contains("Diabolic Eye - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Diabolic Eye - (Dark Knight)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 78 &&
-                    !playerJA.Items.Contains("Nether Void - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Nether Void - (Dark Knight)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 87 &&
-                    !playerJA.Items.Contains("Arcane Crest - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Arcane Crest - (Dark Knight)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 95 &&
-                    !playerJA.Items.Contains("Scarlet Delirium - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Scarlet Delirium - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 43 && PlayerInfo.HasSpell(266) &&
-                    !playerJA.Items.Contains("Absorb-STR - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-STR - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 41 && PlayerInfo.HasSpell(267) &&
-                    !playerJA.Items.Contains("Absorb-DEX - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-DEX - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 35 && PlayerInfo.HasSpell(268) &&
-                    !playerJA.Items.Contains("Absorb-VIT - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-VIT - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 37 && PlayerInfo.HasSpell(269) &&
-                    !playerJA.Items.Contains("Absorb-AGI - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-AGI - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 39 && PlayerInfo.HasSpell(270) &&
-                    !playerJA.Items.Contains("Absorb-INT - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-INT - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 31 && PlayerInfo.HasSpell(271) &&
-                    !playerJA.Items.Contains("Absorb-MND - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-MND - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 33 && PlayerInfo.HasSpell(272) &&
-                    !playerJA.Items.Contains("Absorb-CHR - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-CHR - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 45 && PlayerInfo.HasSpell(275) &&
-                    !playerJA.Items.Contains("Absorb-TP - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-TP - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 61 && PlayerInfo.HasSpell(242) &&
-                    !playerJA.Items.Contains("Absorb-ACC - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-ACC - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 91 && PlayerInfo.HasSpell(243) &&
-                    !playerJA.Items.Contains("Absorb-Attri - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-Attri - (Dark Knight)",
-                    });
-                }
-            }
-            #endregion
-            #region BST JA
+
             if (PlayerInfo.MainJob == 9)
                 BSTGetJA();
-            #endregion
-            #region RNG JA
-            if (api.Player.GetPlayerInfo().MainJob == 11)
+            else
             {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 10 &&
-                    !playerJA.Items.Contains("Scavenge - (Ranger)"))
+                for (uint i = 528; i <= 2227; i++)
                 {
-                    playerJA.Items.AddRange(new object[]
+                    if (PlayerInfo.HasAbility(i))
                     {
-                        "Scavenge - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 1 &&
-                    !playerJA.Items.Contains("Sharpshot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Sharpshot - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 30 &&
-                    !playerJA.Items.Contains("Barrage - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Barrage - (Ranger)",
-                        "Sharpshot + Barrage - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Shadowbind - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Shadowbind - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 45 &&
-                    !playerJA.Items.Contains("Velocity Shot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Velocity Shot - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 51 &&
-                    !playerJA.Items.Contains("Unlimited Shot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Unlimited Shot - (Ranger)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(677) &&
-                    !playerJA.Items.Contains("Stealth Shot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Stealth Shot - (Ranger)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(678) &&
-                    !playerJA.Items.Contains("Flashy Shot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Flashy Shot - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 79 &&
-                    !playerJA.Items.Contains("Double Shot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Double Shot - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 87 &&
-                    !playerJA.Items.Contains("Bounty Shot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Bounty Shot - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 95 &&
-                    !playerJA.Items.Contains("Decoy Shot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Decoy Shot - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Overkill - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Overkill - (Ranger)",
-                    });
+                        var ability = api.Resources.GetAbility(i);
+                        if (!abilitylist.Contains(ability.ID)) { }
+                        else if (i >= 1024 && PlayerInfo.MainJob != 23) { }
+                        else if (!playerJA.Items.Contains(ability.Name))
+                        {
+                            playerJA.Items.Add(ability.Name);
+                        }
+                    }
                 }
             }
-            #endregion
-            #region SAM JA
-            if (api.Player.GetPlayerInfo().MainJob == 12)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Warding Circle - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Warding Circle - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Third Eye - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Third Eye - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 25 &&
-                    !playerJA.Items.Contains("Hasso - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Hasso - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 30 &&
-                    !playerJA.Items.Contains("Meditate - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Meditate - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 35 &&
-                    !playerJA.Items.Contains("Seigan - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Seigan - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Sekkanoki - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Sekkanoki - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 65 &&
-                    !playerJA.Items.Contains("Konzen-ittai - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Konzen-ittai - (Samurai)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(680) &&
-                    !playerJA.Items.Contains("Blade Bash - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Blade Bash - (Samurai)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(679) &&
-                    !playerJA.Items.Contains("Shikikoyo - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Shikikoyo - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 77 &&
-                    !playerJA.Items.Contains("Sengikori - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Sengikori - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 87 &&
-                    !playerJA.Items.Contains("Hamanoha - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Hamanoha - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 95 &&
-                    !playerJA.Items.Contains("Hagakure - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Hagakure - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Yaegasumi - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Yaegasumi - (Samurai)",
-                    });
-                }
-            }
-            #endregion
-            #region NIN JA
-            if (api.Player.GetPlayerInfo().MainJob == 13)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Yonin - (Ninja)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Yonin - (Ninja)",
-                        "Innin - (Ninja)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(683) &&
-                    !playerJA.Items.Contains("Sange - (Ninja)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Sange - (Ninja)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 77 && 
-                    !playerJA.Items.Contains("Futae - (Ninja"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Futae - (Ninja)"
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 88 && PlayerInfo.HasSpell(510) &&
-                    !playerJA.Items.Contains("Migawari: Ichi - (Ninja)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Migawari: Ichi - (Ninja)"
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 85 && PlayerInfo.HasSpell(507) &&
-                    !playerJA.Items.Contains("Myoshu: Ichi - (Ninja)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Myoshu: Ichi - (Ninja)"
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 93 && PlayerInfo.HasSpell(509) &&
-                    !playerJA.Items.Contains("Kakka: Ichi - (Ninja)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Kakka: Ichi - (Ninja)"
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 95 && 
-                    !playerJA.Items.Contains("Issekigan - (Ninja)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Issekigan - (Ninja)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Mikage - (Ninja)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Mikage - (Ninja)",
-                    });
-                }
-            }
-            #endregion
-            #region DRG JA
-            if (api.Player.GetPlayerInfo().MainJob == 14)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Ancient Circle - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Ancient Circle - (Dragoon)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 10 &&
-                    !playerJA.Items.Contains("Jump - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Jump - (Dragoon)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 35 &&
-                    !playerJA.Items.Contains("High Jump - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "High Jump - (Dragoon)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 50 &&
-                    !playerJA.Items.Contains("Super Jump - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Super Jump - (Dragoon)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(682) &&
-                    !playerJA.Items.Contains("Angon - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Angon - (Dragoon)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 77 &&
-                    !playerJA.Items.Contains("Spirit Jump - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Spirit Jump - (Dragoon)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 85 &&
-                    !playerJA.Items.Contains("Soul Jump - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Soul Jump - (Dragoon)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 87 &&
-                    !playerJA.Items.Contains("Dragon Breaker - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Dragon Breaker - (Dragoon)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Fly High - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Fly High - (Dragoon)",
-                    });
-                }
-            }
-            #endregion
-            #region COR JA
-            if (api.Player.GetPlayerInfo().MainJob == 17)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Phantom Roll - (Corsair)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Phantom Roll - (Corsair)",
-                        "Double-Up",
-                    });
-                }
-                /*if (api.Player.GetPlayerInfo().MainJobLevel >= 40 &&
-                    !checkedListBox1.Items.Contains("Quick Draw - (Corsair)"))
-                {
-                    checkedListBox1.Items.AddRange(new object[]
-                    {
-                        "Quick Draw - (Corsair)",
-                        "Dark Shot - (Corsair)",
-                        "Earth Shot - (Corsair)",
-                        "Ice Shot - (Corsair)",
-                        "Water Shot - (Corsair)",
-                        "Wind Shot - (Corsair)",
-                        "Fire Shot - (Corsair)",
-                        "Thunder Shot - (Corsair)",
-                        "Light Shot - (Corsair)",
-                    });
-                }*/
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 50 &&
-                    !playerJA.Items.Contains("Random Deal - (Corsair)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Random Deal - (Corsair)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(689) &&
-                    !playerJA.Items.Contains("Snake Eye - (Corsair)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Snake Eye - (Corsair)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(690) &&
-                    !playerJA.Items.Contains("Fold - (Corsair)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Fold - (Corsair)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 87 &&
-                    !playerJA.Items.Contains("Triple Shot - (Corsair)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Triple Shot - (Corsair)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Cutting Cards - (Corsair)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Cutting Cards - (Corsair)",
-                    });
-                }
-            }
-            #endregion
-            #region DNC JA
-            if (api.Player.GetPlayerInfo().MainJob == 19)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 25 && 
-                    !playerJA.Items.Contains("Spectral Jig - (DNC)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Spectral Jig - (DNC)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(749) &&
-                    !playerJA.Items.Contains("Saber Dance - (DNC)"))
-                {
-                    playerJA.Items.AddRange(new object[] 
-                    {
-           	            "Saber Dance - (DNC)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(750) &&
-                    !playerJA.Items.Contains("Fan Dance - (DNC)"))
-                {
-                    playerJA.Items.AddRange(new object[] 
-                    {
-                        "Fan Dance - (DNC)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(751) &&
-                    !playerJA.Items.Contains("No Foot Rise - (DNC)"))
-                {
-                    playerJA.Items.AddRange(new object[] 
-                    {
-			            "No Foot Rise - (DNC)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 77 && 
-                    !playerJA.Items.Contains("Presto - (DNC)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Presto - (DNC)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Grand Pas - (DNC)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Grand Pas - (DNC)",
-                    });
-                }
-            }
-            #endregion
-            #region RUN JA
-            if (api.Player.GetPlayerInfo().MainJob == 22)
-            {
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Ignis - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[] 
-                    {
-				        "Ignis - (Rune Fencer)",
-				        "Gelus - (Rune Fencer)",
-				        "Flabra - (Rune Fencer)",
-				        "Tellus - (Rune Fencer)",
-				        "Sulpor - (Rune Fencer)",
-				        "Unda - (Rune Fencer)",
-				        "Lux - (Rune Fencer)",
-				        "Tenebrae - (Rune Fencer)",
-			        });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 10 &&
-                    !playerJA.Items.Contains("Ward: Vallation - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Ward: Vallation - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 20 &&
-                    !playerJA.Items.Contains("Effusion: Lunge - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Effusion: Lunge - (Rune Fencer)",
-                        "Swordplay - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Ward: Pflug - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Ward: Pflug - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 50 &&
-                    !playerJA.Items.Contains("Ward: Valiance - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Ward: Valiance - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 60 &&
-                    !playerJA.Items.Contains("Embolden - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Embolden - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 70 &&
-                    !playerJA.Items.Contains("Effusion: Gambit - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Effusion: Gambit - (Rune Fencer)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(888) &&
-                    !playerJA.Items.Contains("Battuta - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Battuta - (Rune Fencer)",
-                    });
-                }
-                if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(887) &&
-                    !playerJA.Items.Contains("Rayke - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Rayke - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 85 &&
-                    !playerJA.Items.Contains("Ward: Liement - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Ward: Liement - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 88 &&
-                    !playerJA.Items.Contains("Crusade - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Crusade - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 95 &&
-                    !playerJA.Items.Contains("One for All - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "One for All - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().MainJobLevel >= 96 &&
-                    !playerJA.Items.Contains("Odyllic Subterfuge - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Odyllic Subterfuge - (Rune Fencer)",
-                    });
-                }
-            }
-            #endregion
-
-            #endregion
-            #region load SJ (sub job)
-            
-            #region WAR JA
-            if (api.Player.GetPlayerInfo().SubJob == 1)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Berserk - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Berserk - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 25 &&
-                    !playerJA.Items.Contains("Defender - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Defender - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 35 &&
-                    !playerJA.Items.Contains("Warcry - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Warcry - (Warrior)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 45 &&
-                    !playerJA.Items.Contains("Aggressor - (Warrior)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Aggressor - (Warrior)",
-                    });
-                }
-            }
-            #endregion
-            #region MNK JA
-            if (api.Player.GetPlayerInfo().SubJob == 2)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Boost - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Boost - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Dodge - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Dodge - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 25 &&
-                    !playerJA.Items.Contains("Focus - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Focus - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 35 &&
-                    !playerJA.Items.Contains("Chakra - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Chakra - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 41 &&
-                    !playerJA.Items.Contains("Chi Blast - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Chi Blast - (Monk)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 45 &&
-                    !playerJA.Items.Contains("Counterstance - (Monk)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Counterstance - (Monk)",
-                    });
-                }
-            }
-            #endregion
-            #region THF JA
-            if (api.Player.GetPlayerInfo().SubJob == 6)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Steal - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Steal - (Thief)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 35 &&
-                    !playerJA.Items.Contains("Mug - (Thief)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Mug - (Thief)",
-                    });
-                }
-            }
-            #endregion
-            #region PLD JA
-            if (api.Player.GetPlayerInfo().SubJob == 7)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Holy Circle - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Holy Circle - (Paladin)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Shield Bash - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Shield Bash - (Paladin)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 30 &&
-                    !playerJA.Items.Contains("Sentinel - (Paladin)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Sentinel - (Paladin)",
-                    });
-                }
-            }
-            #endregion
-            #region DRK JA
-            if (api.Player.GetPlayerInfo().SubJob == 8)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Arcane Circle - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Arcane Circle - (Dark Knight)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Last Resort - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Last Resort - (Dark Knight)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 20 &&
-                    !playerJA.Items.Contains("Weapon Bash - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Weapon Bash - (Dark Knight)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 30 &&
-                    !playerJA.Items.Contains("Soul Eater - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Soul Eater - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.SubJobLevel >= 43 && PlayerInfo.HasSpell(266) &&
-                    !playerJA.Items.Contains("Absorb-STR - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-STR - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.SubJobLevel >= 41 && PlayerInfo.HasSpell(267) &&
-                    !playerJA.Items.Contains("Absorb-DEX - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-DEX - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.SubJobLevel >= 35 && PlayerInfo.HasSpell(268) &&
-                    !playerJA.Items.Contains("Absorb-VIT - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-VIT - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.SubJobLevel >= 37 && PlayerInfo.HasSpell(269) &&
-                    !playerJA.Items.Contains("Absorb-AGI - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-AGI - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.SubJobLevel >= 39 && PlayerInfo.HasSpell(270) &&
-                    !playerJA.Items.Contains("Absorb-INT - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-INT - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.SubJobLevel >= 31 && PlayerInfo.HasSpell(271) &&
-                    !playerJA.Items.Contains("Absorb-MND - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-MND - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.SubJobLevel >= 33 && PlayerInfo.HasSpell(272) &&
-                    !playerJA.Items.Contains("Absorb-CHR - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-CHR - (Dark Knight)",
-                    });
-                }
-                if (PlayerInfo.SubJobLevel >= 45 && PlayerInfo.HasSpell(275) &&
-                    !playerJA.Items.Contains("Absorb-TP - (Dark Knight)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Absorb-TP - (Dark Knight)",
-                    });
-                }
-            }
-            #endregion
-            #region BST JA
-            if (api.Player.GetPlayerInfo().SubJob == 9)
-                BSTGetJA();
-            #endregion
-            #region RNG JA
-            if (api.Player.GetPlayerInfo().SubJob == 11)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 10 &&
-                    !playerJA.Items.Contains("Scavenge - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Scavenge - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 1 &&
-                    !playerJA.Items.Contains("Sharpshot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Sharpshot - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 30 &&
-                    !playerJA.Items.Contains("Barrage - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Barrage - (Ranger)",
-                        "Sharpshot + Barrage - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Shadowbind - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Shadowbind - (Ranger)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 45 &&
-                    !playerJA.Items.Contains("Velocity Shot - (Ranger)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Velocity Shot - (Ranger)",
-                    });
-                }
-            }
-            #endregion
-            #region SAM JA
-            if (api.Player.GetPlayerInfo().SubJob == 12)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Warding Circle - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Warding Circle - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 15 &&
-                    !playerJA.Items.Contains("Third Eye - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Third Eye - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 25 &&
-                    !playerJA.Items.Contains("Hasso - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Hasso - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 30 &&
-                    !playerJA.Items.Contains("Meditate - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Meditate - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 35 &&
-                    !playerJA.Items.Contains("Seigan - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Seigan - (Samurai)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Sekkanoki - (Samurai)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Sekkanoki - (Samurai)",
-                    });
-                }
-            }
-            #endregion
-            #region NIN JA
-            if (api.Player.GetPlayerInfo().SubJob == 13)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Yonin - (Ninja)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Yonin - (Ninja)",
-                        "Innin - (Ninja)",
-                    });
-                }
-            }
-            #endregion
-            #region DRG JA
-            if (api.Player.GetPlayerInfo().SubJob == 14)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Ancient Circle - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Ancient Circle - (Dragoon)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 10 &&
-                    !playerJA.Items.Contains("Jump - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Jump - (Dragoon)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 35 &&
-                    !playerJA.Items.Contains("High Jump - (Dragoon)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "High Jump - (Dragoon)",
-                    });
-                }
-            }
-            #endregion
-            #region COR JA
-            if (api.Player.GetPlayerInfo().SubJob == 17)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Phantom Roll - (Corsair)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Phantom Roll - (Corsair)",
-                        "Double-Up",
-                    });
-                }
-            }
-            #endregion
-            #region DNC JA
-            if (api.Player.GetPlayerInfo().SubJob == 19)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 25 && 
-                    !playerJA.Items.Contains("Spectral Jig - (DNC)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Spectral Jig - (DNC)",
-                    });
-                }
-            }
-            #endregion
-            #region RUN JA
-            if (api.Player.GetPlayerInfo().SubJob == 22)
-            {
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 5 &&
-                    !playerJA.Items.Contains("Ignis - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[] 
-                    {
-				        "Ignis - (Rune Fencer)",
-				        "Gelus - (Rune Fencer)",
-				        "Flabra - (Rune Fencer)",
-				        "Tellus - (Rune Fencer)",
-				        "Sulpor - (Rune Fencer)",
-				        "Unda - (Rune Fencer)",
-				        "Lux - (Rune Fencer)",
-				        "Tenebrae - (Rune Fencer)",
-			        });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 10 &&
-                    !playerJA.Items.Contains("Ward: Vallation - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Ward: Vallation - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 20 &&
-                    !playerJA.Items.Contains("Effusion: Lunge - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Effusion: Lunge - (Rune Fencer)",
-                        "Swordplay - (Rune Fencer)",
-                    });
-                }
-                if (api.Player.GetPlayerInfo().SubJobLevel >= 40 &&
-                    !playerJA.Items.Contains("Ward: Pflug - (Rune Fencer)"))
-                {
-                    playerJA.Items.AddRange(new object[]
-                    {
-                        "Ward: Pflug - (Rune Fencer)",
-                    });
-                }
-            }
-            #endregion
-
-            #endregion
         }
 
         private void ClearJA_Click(object sender, EventArgs e)
@@ -6471,6 +4907,47 @@
             label21.Text = @"Pet ID:";
             label22.Text = @"Pets HP%:";
             label23.Text = @"Pets TP%:";
+        }
+
+        private void LoadMA_Click(object sender, EventArgs e)
+        {
+            if (playerMA.Items.Count > 0)
+                playerMA.Items.Clear();
+
+            #region load MJ (main job)
+            for (uint mm = 14; mm <= 895; mm++)
+            {
+
+                var spellm = api.Resources.GetSpell(mm);
+                if (spellm == null) { }
+                else if (PlayerInfo.HasSpell(mm) &&
+                    PlayerInfo.MainJobLevel >= spellm?.RequiredLevel?[PlayerInfo.MainJob] &&
+                    spellm?.RequiredLevel?[PlayerInfo.MainJob] != -1 &&
+                    !playerMA.Items.Contains(spellm.Name))
+                {
+                    playerMA.Items.Add(spellm.Name);
+                }
+            }
+            #endregion
+            #region load SJ (sub job)
+            for (uint sm = 14; sm <= 895; sm++)
+            {
+                var spells = api.Resources.GetSpell(sm);
+                if (spells == null) { }
+                else if (PlayerInfo.HasSpell(sm) &&
+                        PlayerInfo.SubJobLevel >= spells?.RequiredLevel?[PlayerInfo.SubJob] &&
+                        spells?.RequiredLevel?[PlayerInfo.SubJob] != -1 &&
+                        !playerMA.Items.Contains(spells.Name))
+                {
+                    playerMA.Items.Add(spells.Name);
+                }
+            }
+            #endregion
+        }
+
+        private void ClearMA_Click(object sender, EventArgs e)
+        {
+            playerMA.Items.Clear();
         }
 
         public void CharacterUpdate()
@@ -6770,6 +5247,8 @@
 
             ClearJA_Click(null, null);
             LoadJA_Click(null, null);
+            ClearMA_Click(null, null);
+            LoadMA_Click(null, null);
         }
 
         #endregion
@@ -11670,5 +10149,10 @@
         public CheckBox checkBox7;
         public CheckBox checkBox8;
         public CheckBox stopstepsat;
+        private TabPage tabPage6;
+        public CheckedListBox playerMA;
+        public MenuStrip GetSetMA;
+        public ToolStripMenuItem loadMAsToolStripMenuItem;
+        public ToolStripMenuItem clearMAsToolStripMenuItem;
     }
 }
