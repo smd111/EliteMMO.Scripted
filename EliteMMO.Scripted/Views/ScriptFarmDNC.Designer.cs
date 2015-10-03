@@ -30,6 +30,7 @@
 
         public float SetEntityX = 0;
         public float SetEntityY = 0;
+        public int SchCharges;
 
         public string FFXIPath = "";
 
@@ -277,6 +278,14 @@
             this.GetSetJA = new System.Windows.Forms.MenuStrip();
             this.loadJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.MAtabs = new System.Windows.Forms.TabControl();
+            this.MAselesttab = new System.Windows.Forms.TabPage();
+            this.playerMA = new System.Windows.Forms.CheckedListBox();
+            this.GetSetMA = new System.Windows.Forms.MenuStrip();
+            this.loadMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Masetuptab = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pullDelay = new System.Windows.Forms.NumericUpDown();
@@ -433,15 +442,31 @@
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
+            this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_pet = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.playerMA = new System.Windows.Forms.CheckedListBox();
-            this.GetSetMA = new System.Windows.Forms.MenuStrip();
-            this.loadMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Curecount = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.CureIIcount = new System.Windows.Forms.NumericUpDown();
+            this.CureIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.CureIVcount = new System.Windows.Forms.NumericUpDown();
+            this.CureVcount = new System.Windows.Forms.NumericUpDown();
+            this.CureVIcount = new System.Windows.Forms.NumericUpDown();
+            this.label45 = new System.Windows.Forms.Label();
+            this.FullCurecount = new System.Windows.Forms.NumericUpDown();
+            this.label52 = new System.Windows.Forms.Label();
+            this.CuraIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.label53 = new System.Windows.Forms.Label();
+            this.Curacount = new System.Windows.Forms.NumericUpDown();
+            this.label54 = new System.Windows.Forms.Label();
+            this.CuraIIcount = new System.Windows.Forms.NumericUpDown();
+            this.label55 = new System.Windows.Forms.Label();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -480,6 +505,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).BeginInit();
             this.tabPage11.SuspendLayout();
             this.GetSetJA.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.MAtabs.SuspendLayout();
+            this.MAselesttab.SuspendLayout();
+            this.GetSetMA.SuspendLayout();
+            this.Masetuptab.SuspendLayout();
             this.groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pullDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown39)).BeginInit();
@@ -546,8 +576,16 @@
             this.groupBox25.SuspendLayout();
             this.tabPage13.SuspendLayout();
             this.tabPage12.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.GetSetMA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Curecount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIVcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureVcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureVIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FullCurecount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Curacount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIcount)).BeginInit();
             this.SuspendLayout();
             // 
             // checkZone
@@ -2185,6 +2223,104 @@
             this.clearJAsToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.clearJAsToolStripMenuItem.Text = "Clear JA\'s";
             this.clearJAsToolStripMenuItem.Click += new System.EventHandler(this.ClearJA_Click);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.MAtabs);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(327, 190);
+            this.tabPage6.TabIndex = 7;
+            this.tabPage6.Text = "MA\'s";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // MAtabs
+            // 
+            this.MAtabs.Controls.Add(this.MAselesttab);
+            this.MAtabs.Controls.Add(this.Masetuptab);
+            this.MAtabs.Location = new System.Drawing.Point(7, 7);
+            this.MAtabs.Name = "MAtabs";
+            this.MAtabs.SelectedIndex = 0;
+            this.MAtabs.Size = new System.Drawing.Size(314, 177);
+            this.MAtabs.TabIndex = 0;
+            // 
+            // MAselesttab
+            // 
+            this.MAselesttab.Controls.Add(this.playerMA);
+            this.MAselesttab.Controls.Add(this.GetSetMA);
+            this.MAselesttab.Location = new System.Drawing.Point(4, 22);
+            this.MAselesttab.Name = "MAselesttab";
+            this.MAselesttab.Padding = new System.Windows.Forms.Padding(3);
+            this.MAselesttab.Size = new System.Drawing.Size(306, 151);
+            this.MAselesttab.TabIndex = 0;
+            this.MAselesttab.Text = "Select";
+            this.MAselesttab.UseVisualStyleBackColor = true;
+            // 
+            // playerMA
+            // 
+            this.playerMA.CheckOnClick = true;
+            this.playerMA.FormattingEnabled = true;
+            this.playerMA.Location = new System.Drawing.Point(40, 6);
+            this.playerMA.Name = "playerMA";
+            this.playerMA.Size = new System.Drawing.Size(213, 109);
+            this.playerMA.TabIndex = 5;
+            // 
+            // GetSetMA
+            // 
+            this.GetSetMA.Dock = System.Windows.Forms.DockStyle.None;
+            this.GetSetMA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadMAsToolStripMenuItem,
+            this.clearMAsToolStripMenuItem});
+            this.GetSetMA.Location = new System.Drawing.Point(81, 114);
+            this.GetSetMA.Name = "GetSetMA";
+            this.GetSetMA.Size = new System.Drawing.Size(159, 24);
+            this.GetSetMA.TabIndex = 16;
+            this.GetSetMA.Text = "GetSetMA";
+            // 
+            // loadMAsToolStripMenuItem
+            // 
+            this.loadMAsToolStripMenuItem.Name = "loadMAsToolStripMenuItem";
+            this.loadMAsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.loadMAsToolStripMenuItem.Text = "Load MA\'s";
+            this.loadMAsToolStripMenuItem.Click += new System.EventHandler(this.LoadMA_Click);
+            // 
+            // clearMAsToolStripMenuItem
+            // 
+            this.clearMAsToolStripMenuItem.Name = "clearMAsToolStripMenuItem";
+            this.clearMAsToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.clearMAsToolStripMenuItem.Text = "Clear MA\'s";
+            this.clearMAsToolStripMenuItem.Click += new System.EventHandler(this.ClearMA_Click);
+            // 
+            // Masetuptab
+            // 
+            this.Masetuptab.Controls.Add(this.CuraIIcount);
+            this.Masetuptab.Controls.Add(this.label55);
+            this.Masetuptab.Controls.Add(this.CuraIIIcount);
+            this.Masetuptab.Controls.Add(this.label53);
+            this.Masetuptab.Controls.Add(this.Curacount);
+            this.Masetuptab.Controls.Add(this.label54);
+            this.Masetuptab.Controls.Add(this.FullCurecount);
+            this.Masetuptab.Controls.Add(this.label52);
+            this.Masetuptab.Controls.Add(this.CureVIcount);
+            this.Masetuptab.Controls.Add(this.label45);
+            this.Masetuptab.Controls.Add(this.CureVcount);
+            this.Masetuptab.Controls.Add(this.CureIVcount);
+            this.Masetuptab.Controls.Add(this.CureIIIcount);
+            this.Masetuptab.Controls.Add(this.CureIIcount);
+            this.Masetuptab.Controls.Add(this.label44);
+            this.Masetuptab.Controls.Add(this.label43);
+            this.Masetuptab.Controls.Add(this.label9);
+            this.Masetuptab.Controls.Add(this.label2);
+            this.Masetuptab.Controls.Add(this.label1);
+            this.Masetuptab.Controls.Add(this.Curecount);
+            this.Masetuptab.Location = new System.Drawing.Point(4, 22);
+            this.Masetuptab.Name = "Masetuptab";
+            this.Masetuptab.Padding = new System.Windows.Forms.Padding(3);
+            this.Masetuptab.Size = new System.Drawing.Size(306, 151);
+            this.Masetuptab.TabIndex = 1;
+            this.Masetuptab.Text = "Cure Config";
+            this.Masetuptab.UseVisualStyleBackColor = true;
             // 
             // groupBox14
             // 
@@ -4242,6 +4378,12 @@
             this.bgw_script_nav.WorkerSupportsCancellation = true;
             this.bgw_script_nav.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptNavDoWork);
             // 
+            // bgw_script_sch
+            // 
+            this.bgw_script_sch.WorkerReportsProgress = true;
+            this.bgw_script_sch.WorkerSupportsCancellation = true;
+            this.bgw_script_sch.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptSCHChargesDoWork);
+            // 
             // bgw_script_pet
             // 
             this.bgw_script_pet.WorkerReportsProgress = true;
@@ -4262,52 +4404,215 @@
             this.DeathWarp.Text = "Warp on Death";
             this.DeathWarp.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
+            // Curecount
             // 
-            this.tabPage6.Controls.Add(this.playerMA);
-            this.tabPage6.Controls.Add(this.GetSetMA);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(327, 190);
-            this.tabPage6.TabIndex = 7;
-            this.tabPage6.Text = "MA\'s";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.Curecount.Location = new System.Drawing.Point(75, 18);
+            this.Curecount.Name = "Curecount";
+            this.Curecount.Size = new System.Drawing.Size(44, 20);
+            this.Curecount.TabIndex = 0;
+            this.Curecount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
-            // playerMA
+            // label1
             // 
-            this.playerMA.CheckOnClick = true;
-            this.playerMA.FormattingEnabled = true;
-            this.playerMA.Location = new System.Drawing.Point(57, 9);
-            this.playerMA.Name = "playerMA";
-            this.playerMA.Size = new System.Drawing.Size(213, 139);
-            this.playerMA.TabIndex = 15;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Cure    %";
             // 
-            // GetSetMA
+            // label2
             // 
-            this.GetSetMA.Dock = System.Windows.Forms.DockStyle.None;
-            this.GetSetMA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadMAsToolStripMenuItem,
-            this.clearMAsToolStripMenuItem});
-            this.GetSetMA.Location = new System.Drawing.Point(89, 157);
-            this.GetSetMA.Name = "GetSetMA";
-            this.GetSetMA.Size = new System.Drawing.Size(251, 24);
-            this.GetSetMA.TabIndex = 14;
-            this.GetSetMA.Text = "GetSetMA";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "CureII  %";
             // 
-            // loadMAsToolStripMenuItem
+            // label9
             // 
-            this.loadMAsToolStripMenuItem.Name = "loadMAsToolStripMenuItem";
-            this.loadMAsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.loadMAsToolStripMenuItem.Text = "Load MA\'s";
-            this.loadMAsToolStripMenuItem.Click += new System.EventHandler(this.LoadMA_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(26, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "CureIII %";
             // 
-            // clearMAsToolStripMenuItem
+            // label43
             // 
-            this.clearMAsToolStripMenuItem.Name = "clearMAsToolStripMenuItem";
-            this.clearMAsToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.clearMAsToolStripMenuItem.Text = "Clear MA\'s";
-            this.clearMAsToolStripMenuItem.Click += new System.EventHandler(this.ClearMA_Click);
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(177, 19);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(50, 13);
+            this.label43.TabIndex = 4;
+            this.label43.Text = "CureIV %";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(177, 39);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(50, 13);
+            this.label44.TabIndex = 5;
+            this.label44.Text = "CureV  %";
+            // 
+            // CureIIcount
+            // 
+            this.CureIIcount.Location = new System.Drawing.Point(75, 40);
+            this.CureIIcount.Name = "CureIIcount";
+            this.CureIIcount.Size = new System.Drawing.Size(44, 20);
+            this.CureIIcount.TabIndex = 6;
+            this.CureIIcount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // CureIIIcount
+            // 
+            this.CureIIIcount.Location = new System.Drawing.Point(75, 62);
+            this.CureIIIcount.Name = "CureIIIcount";
+            this.CureIIIcount.Size = new System.Drawing.Size(44, 20);
+            this.CureIIIcount.TabIndex = 7;
+            this.CureIIIcount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // CureIVcount
+            // 
+            this.CureIVcount.Location = new System.Drawing.Point(226, 17);
+            this.CureIVcount.Name = "CureIVcount";
+            this.CureIVcount.Size = new System.Drawing.Size(44, 20);
+            this.CureIVcount.TabIndex = 8;
+            this.CureIVcount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // CureVcount
+            // 
+            this.CureVcount.Location = new System.Drawing.Point(226, 39);
+            this.CureVcount.Name = "CureVcount";
+            this.CureVcount.Size = new System.Drawing.Size(44, 20);
+            this.CureVcount.TabIndex = 9;
+            this.CureVcount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // CureVIcount
+            // 
+            this.CureVIcount.Location = new System.Drawing.Point(226, 61);
+            this.CureVIcount.Name = "CureVIcount";
+            this.CureVIcount.Size = new System.Drawing.Size(44, 20);
+            this.CureVIcount.TabIndex = 11;
+            this.CureVIcount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(177, 61);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(50, 13);
+            this.label45.TabIndex = 10;
+            this.label45.Text = "CureVI %";
+            // 
+            // FullCurecount
+            // 
+            this.FullCurecount.Location = new System.Drawing.Point(226, 113);
+            this.FullCurecount.Name = "FullCurecount";
+            this.FullCurecount.Size = new System.Drawing.Size(44, 20);
+            this.FullCurecount.TabIndex = 13;
+            this.FullCurecount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(167, 115);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(59, 13);
+            this.label52.TabIndex = 12;
+            this.label52.Text = "Full Cure %";
+            // 
+            // CuraIIIcount
+            // 
+            this.CuraIIIcount.Location = new System.Drawing.Point(226, 87);
+            this.CuraIIIcount.Name = "CuraIIIcount";
+            this.CuraIIIcount.Size = new System.Drawing.Size(44, 20);
+            this.CuraIIIcount.TabIndex = 17;
+            this.CuraIIIcount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(177, 87);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(49, 13);
+            this.label53.TabIndex = 16;
+            this.label53.Text = "CuraIII %";
+            // 
+            // Curacount
+            // 
+            this.Curacount.Location = new System.Drawing.Point(75, 88);
+            this.Curacount.Name = "Curacount";
+            this.Curacount.Size = new System.Drawing.Size(44, 20);
+            this.Curacount.TabIndex = 15;
+            this.Curacount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(26, 90);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(49, 13);
+            this.label54.TabIndex = 14;
+            this.label54.Text = "Cura    %";
+            // 
+            // CuraIIcount
+            // 
+            this.CuraIIcount.Location = new System.Drawing.Point(75, 110);
+            this.CuraIIcount.Name = "CuraIIcount";
+            this.CuraIIcount.Size = new System.Drawing.Size(44, 20);
+            this.CuraIIcount.TabIndex = 19;
+            this.CuraIIcount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(26, 112);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(46, 13);
+            this.label55.TabIndex = 18;
+            this.label55.Text = "CuraII %";
             // 
             // ScriptFarmDNC
             // 
@@ -4376,6 +4681,14 @@
             this.tabPage11.PerformLayout();
             this.GetSetJA.ResumeLayout(false);
             this.GetSetJA.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.MAtabs.ResumeLayout(false);
+            this.MAselesttab.ResumeLayout(false);
+            this.MAselesttab.PerformLayout();
+            this.GetSetMA.ResumeLayout(false);
+            this.GetSetMA.PerformLayout();
+            this.Masetuptab.ResumeLayout(false);
+            this.Masetuptab.PerformLayout();
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pullDelay)).EndInit();
@@ -4463,10 +4776,16 @@
             this.tabPage13.PerformLayout();
             this.tabPage12.ResumeLayout(false);
             this.tabPage12.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
-            this.GetSetMA.ResumeLayout(false);
-            this.GetSetMA.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Curecount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIVcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureVcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureVIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FullCurecount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Curacount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIcount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4731,6 +5050,7 @@
         public System.Windows.Forms.TabPage tabPage12;
         public System.ComponentModel.BackgroundWorker bgw_script_dnc;
         public System.ComponentModel.BackgroundWorker bgw_script_nav;
+        public System.ComponentModel.BackgroundWorker bgw_script_sch;
         public System.ComponentModel.BackgroundWorker bgw_script_pet;
         public System.ComponentModel.BackgroundWorker bgw_script_npc;
         public System.ComponentModel.BackgroundWorker bgw_script_scn;
@@ -4787,6 +5107,9 @@
 
             if (!bgw_script_nav.IsBusy)
                 bgw_script_nav.RunWorkerAsync();
+            
+            if (!bgw_script_sch.IsBusy)
+                bgw_script_sch.RunWorkerAsync();
         }
 
         private void ToolStopClick(object sender, EventArgs e)
@@ -4807,6 +5130,7 @@
             bgw_script_dnc.CancelAsync();
             bgw_script_pet.CancelAsync();
             bgw_script_nav.CancelAsync();
+            bgw_script_sch.CancelAsync();
         }
 
         private void PlayerDead()
@@ -4885,6 +5209,28 @@
                     {
                         var ability = api.Resources.GetAbility(i);
                         if (!abilitylist.Contains(ability.ID)) { }
+                        else if (i == 735)
+                        {
+                            var job = 0;
+                            if (PlayerInfo.MainJob == 20) job = PlayerInfo.MainJobLevel;
+                            if (PlayerInfo.SubJob == 20) job = PlayerInfo.SubJobLevel;
+                            if (!playerJA.Items.Contains("Addendum: White") && job >= 10) playerJA.Items.Add("Addendum: White");
+                            if (!playerJA.Items.Contains("Penury") && job >= 10) playerJA.Items.Add("Penury");
+                            if (!playerJA.Items.Contains("Celerity") && job >= 25) playerJA.Items.Add("Celerity");
+                            if (!playerJA.Items.Contains("Accession") && job >= 40) playerJA.Items.Add("Accession");
+                            if (!playerJA.Items.Contains("Rapture") && job >= 55) playerJA.Items.Add("Rapture");
+                            if (!playerJA.Items.Contains("Altruism") && job >= 75) playerJA.Items.Add("Altruism");
+                            if (!playerJA.Items.Contains("Tranquility") && job >= 75) playerJA.Items.Add("Tranquility");
+                            if (!playerJA.Items.Contains("Perpetuance") && job >= 87) playerJA.Items.Add("Perpetuance");
+                            if (!playerJA.Items.Contains("Parsimony") && job >= 10) playerJA.Items.Add("Parsimony");
+                            if (!playerJA.Items.Contains("Alacrity") && job >= 25) playerJA.Items.Add("Alacrity");
+                            if (!playerJA.Items.Contains("Addendum: Black") && job >= 30) playerJA.Items.Add("Addendum: Black");
+                            if (!playerJA.Items.Contains("Manifestation") && job >= 40) playerJA.Items.Add("Manifestation");
+                            if (!playerJA.Items.Contains("Ebullience") && job >= 55) playerJA.Items.Add("Ebullience");
+                            if (!playerJA.Items.Contains("Focalization") && job >= 75) playerJA.Items.Add("Focalization");
+                            if (!playerJA.Items.Contains("Equanimity") && job >= 75) playerJA.Items.Add("Equanimity");
+                            if (!playerJA.Items.Contains("Immanence") && job >= 87) playerJA.Items.Add("Immanence");
+                        }
                         else if (i >= 1024 && PlayerInfo.MainJob != 23) { }
                         else if (!playerJA.Items.Contains(ability.Name))
                         {
@@ -4913,12 +5259,33 @@
             if (playerMA.Items.Count > 0)
                 playerMA.Items.Clear();
 
+            List<uint> skipSpellList = new List<uint>(new uint[] {12, 13, 81, 82, 83, 120, 121, 122, 123, 124, 136, 137, 138, 139, 140, 241, 260, 261, 262,
+            263, 264, 265, 494, 512, 514, 516, 518, 520, 523, 525, 526, 528, 546, 550, 552, 553, 556, 558, 559, 562, 566, 568, 571, 580, 583, 586, 590, 600,
+            601, 602, 607, 609, 619, 624, 625, 627, 630, 635, 639, 729, 730, 731, 732, 733, 734,735, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764,
+            765, 766, 767, 992, 993, 994, 995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 7, 8, 9, 10, 11,
+            #region smn
+            288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 847,
+            #endregion
+           #region geo
+            768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795,
+            796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823,
+            824, 825, 826, 827,
+           #endregion
+           #region trust
+            896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923,
+            924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951,
+            952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979,
+            980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016,
+           #endregion
+            });
+            
             #region load MJ (main job)
-            for (uint mm = 14; mm <= 895; mm++)
+            for (uint mm = 1; mm <= 895; mm++) 
             {
 
                 var spellm = api.Resources.GetSpell(mm);
                 if (spellm == null) { }
+                else if (skipSpellList.Contains(mm)) {}
                 else if (PlayerInfo.HasSpell(mm) &&
                     PlayerInfo.MainJobLevel >= spellm?.RequiredLevel?[PlayerInfo.MainJob] &&
                     spellm?.RequiredLevel?[PlayerInfo.MainJob] != -1 &&
@@ -4929,10 +5296,11 @@
             }
             #endregion
             #region load SJ (sub job)
-            for (uint sm = 14; sm <= 895; sm++)
+            for (uint sm = 1; sm <= 895; sm++)
             {
                 var spells = api.Resources.GetSpell(sm);
                 if (spells == null) { }
+                else if (skipSpellList.Contains(sm)) {}
                 else if (PlayerInfo.HasSpell(sm) &&
                         PlayerInfo.SubJobLevel >= spells?.RequiredLevel?[PlayerInfo.SubJob] &&
                         spells?.RequiredLevel?[PlayerInfo.SubJob] != -1 &&
@@ -9857,6 +10225,8 @@
             public static int Status => (int)api.Entity.GetLocalPlayer().Status;
             public static int HPP => api.Party.GetPartyMembers().First().CurrentHPP;
             public static int MPP => api.Party.GetPartyMembers().First().CurrentMPP;
+            public static uint HP => api.Party.GetPartyMembers().First().CurrentHP;
+            public static uint MP => api.Party.GetPartyMembers().First().CurrentMP;
             public static int TP => (int)api.Party.GetPartyMembers().First().CurrentTP;
 
             public static int MainJob
@@ -10149,9 +10519,32 @@
         public CheckBox checkBox8;
         public CheckBox stopstepsat;
         private TabPage tabPage6;
+        private TabControl MAtabs;
+        private TabPage MAselesttab;
+        private TabPage Masetuptab;
         public CheckedListBox playerMA;
         public MenuStrip GetSetMA;
         public ToolStripMenuItem loadMAsToolStripMenuItem;
         public ToolStripMenuItem clearMAsToolStripMenuItem;
+        private Label label44;
+        private Label label43;
+        private Label label9;
+        private Label label2;
+        private Label label1;
+        private NumericUpDown Curecount;
+        private NumericUpDown CureVcount;
+        private NumericUpDown CureIVcount;
+        private NumericUpDown CureIIIcount;
+        private NumericUpDown CureIIcount;
+        private NumericUpDown CureVIcount;
+        private Label label45;
+        private NumericUpDown FullCurecount;
+        private Label label52;
+        private NumericUpDown CuraIIcount;
+        private Label label55;
+        private NumericUpDown CuraIIIcount;
+        private Label label53;
+        private NumericUpDown Curacount;
+        private Label label54;
     }
 }

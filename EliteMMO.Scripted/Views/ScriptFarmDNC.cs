@@ -442,18 +442,46 @@
             }
         }
         #endregion
+        #region Thread - SCH Charges
+        private void BgwScriptSCHChargesDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            while (botRunning)
+            {
+                if (PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 90)
+                {
+                    Thread.Sleep(TimeSpan.FromSeconds(48));
+                    SchCharges++;
+                    if (SchCharges > 5) SchCharges = 5;
+                }
+                else if (PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 70)
+                {
+                    Thread.Sleep(TimeSpan.FromSeconds(60));
+                    SchCharges++;
+                    if (SchCharges > 4) SchCharges = 4;
+                }
+                else if (PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 50)
+                {
+                    Thread.Sleep(TimeSpan.FromSeconds(80));
+                    SchCharges++;
+                    if (SchCharges > 3) SchCharges = 3;
+                }
+                else if ((PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 30) || (PlayerInfo.SubJob == 20 && PlayerInfo.SubJobLevel >= 30))
+                {
+                    Thread.Sleep(TimeSpan.FromSeconds(120));
+                    SchCharges++;
+                    if (SchCharges > 2) SchCharges = 2;
+                }
+                else if  ((PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 1) || (PlayerInfo.SubJob == 20 && PlayerInfo.SubJobLevel >= 1))
+                {
+                    Thread.Sleep(TimeSpan.FromSeconds(240));
+                    SchCharges++;
+                    if (SchCharges > 1) SchCharges = 1;
+                }
+            }
+        }
+        #endregion
 
         private void bgw_script_npc_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-
-        }
-
-        private void stopstepsat_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
