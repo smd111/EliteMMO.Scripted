@@ -495,30 +495,12 @@
                 }
                 else MonStagered = false;
             }
-            MonStagered = false;
         }
         #endregion
 
         private void bgw_script_npc_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
 
-        }
-
-        private void playerMA_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string curItem = playerMA.SelectedItem.ToString();
-            int index = playerMA.FindString(curItem);
-            bool state = (playerMA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
-            if (curItem == "Cure") Curecount.Enabled = state;
-            else if (curItem == "Cure II") CureIIcount.Enabled = state;
-            else if (curItem == "Cure III") CureIIIcount.Enabled = state;
-            else if (curItem == "Cure IV") CureIVcount.Enabled = state;
-            else if (curItem == "Cure V") CureVcount.Enabled = state;
-            else if (curItem == "Cure VI") CureVIcount.Enabled = state;
-            else if (curItem == "Cura") Curacount.Enabled = state;
-            else if (curItem == "Cura II") CuraIIcount.Enabled = state;
-            else if (curItem == "Cura III") CuraIIIcount.Enabled = state;
-            else if (curItem == "Full Cure") FullCurecount.Enabled = state;
         }
 
         private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
@@ -542,6 +524,23 @@
                 ConvertHPP.Enabled = state;
                 ConvertMPP.Enabled = state;
             }
+        }
+
+        private void playerMA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string curItem = playerMA.SelectedItem.ToString();
+            int index = playerMA.FindString(curItem);
+            bool state = (playerMA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
+            if (curItem == "Cure") Curecount.Enabled = state;
+            else if (curItem == "Cure II") CureIIcount.Enabled = state;
+            else if (curItem == "Cure III") CureIIIcount.Enabled = state;
+            else if (curItem == "Cure IV") CureIVcount.Enabled = state;
+            else if (curItem == "Cure V") CureVcount.Enabled = state;
+            else if (curItem == "Cure VI") CureVIcount.Enabled = state;
+            else if (curItem == "Cura") Curacount.Enabled = state;
+            else if (curItem == "Cura II") CuraIIcount.Enabled = state;
+            else if (curItem == "Cura III") CuraIIIcount.Enabled = state;
+            else if (curItem == "Full Cure") FullCurecount.Enabled = state;
         }
     }
 }
