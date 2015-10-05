@@ -489,7 +489,7 @@
                 var line = api.Chat.GetNextChatLine();
                 if (PlayerInfo.Status == 1 && staggerstopJA.Checked)
                 {
-                    if (!string.IsNullOrEmpty(line?.Text) && 
+                    if (!string.IsNullOrEmpty(line?.Text) &&
                     line.Text.Contains(String.Format("{0}'s attack staggers the fiend!", PlayerInfo.Name))) MonStagered = true;
                     //else if (!string.IsNullOrEmpty(line?.Text) && line.Text.Contains("")) MonStagered = false;
                 }
