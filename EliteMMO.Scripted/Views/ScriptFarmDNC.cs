@@ -495,12 +495,53 @@
                 }
                 else MonStagered = false;
             }
+            MonStagered = false;
         }
         #endregion
 
         private void bgw_script_npc_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
 
+        }
+
+        private void playerMA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string curItem = playerMA.SelectedItem.ToString();
+            int index = playerMA.FindString(curItem);
+            bool state = (playerMA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
+            if (curItem == "Cure") Curecount.Enabled = state;
+            else if (curItem == "Cure II") CureIIcount.Enabled = state;
+            else if (curItem == "Cure III") CureIIIcount.Enabled = state;
+            else if (curItem == "Cure IV") CureIVcount.Enabled = state;
+            else if (curItem == "Cure V") CureVcount.Enabled = state;
+            else if (curItem == "Cure VI") CureVIcount.Enabled = state;
+            else if (curItem == "Cura") Curacount.Enabled = state;
+            else if (curItem == "Cura II") CuraIIcount.Enabled = state;
+            else if (curItem == "Cura III") CuraIIIcount.Enabled = state;
+            else if (curItem == "Full Cure") FullCurecount.Enabled = state;
+        }
+
+        private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string curItem = playerJA.SelectedItem.ToString();
+            int index = playerJA.FindString(curItem);
+            bool state = (playerJA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
+            if (curItem == "Benediction") BenedictionHPPuse.Enabled = state;
+            else if (curItem == "Proboscis Shower") MONhpCount.Enabled = state;
+            else if (curItem == "Catharsis") MONhpCount.Enabled = state;
+            else if (curItem == "Plenilune Embrace") MONhpCount.Enabled = state;
+            else if (curItem == "Wild Carrot") MONhpCount.Enabled = state;
+            else if (curItem == "Pollen") MONhpCount.Enabled = state;
+            else if (curItem == "Magic Fruit") MONhpCount.Enabled = state;
+            else if (curItem == "Healing Breeze") MONhpCount.Enabled = state;
+            else if (curItem == "Proboscis") MONmpCount.Enabled = state;
+            else if (curItem == "Convert")
+            {
+                ConvertHP.Enabled = state;
+                ConvertMP.Enabled = state;
+                ConvertHPP.Enabled = state;
+                ConvertMPP.Enabled = state;
+            }
         }
     }
 }

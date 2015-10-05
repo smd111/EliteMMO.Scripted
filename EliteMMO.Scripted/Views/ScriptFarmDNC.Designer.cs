@@ -275,6 +275,12 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.autoRangeAttack = new System.Windows.Forms.CheckBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.MONmpCount = new System.Windows.Forms.NumericUpDown();
+            this.MONHealMP = new System.Windows.Forms.Label();
+            this.MONhpCount = new System.Windows.Forms.NumericUpDown();
+            this.MONHealHP = new System.Windows.Forms.Label();
+            this.BenedictionHPPuse = new System.Windows.Forms.NumericUpDown();
+            this.BenedictionHP = new System.Windows.Forms.Label();
             this.playerJA = new System.Windows.Forms.CheckedListBox();
             this.GetSetJA = new System.Windows.Forms.MenuStrip();
             this.loadJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -461,7 +467,9 @@
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.GEOtab = new System.Windows.Forms.TabPage();
             this.DynamisPage = new System.Windows.Forms.TabPage();
+            this.staggerstopJA = new System.Windows.Forms.CheckBox();
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
@@ -470,7 +478,13 @@
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
-            this.staggerstopJA = new System.Windows.Forms.CheckBox();
+            this.ConvertBox = new System.Windows.Forms.GroupBox();
+            this.ConvertHP = new System.Windows.Forms.CheckBox();
+            this.ConvertMP = new System.Windows.Forms.CheckBox();
+            this.ConvertHPP = new System.Windows.Forms.NumericUpDown();
+            this.ConvertMPP = new System.Windows.Forms.NumericUpDown();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -508,6 +522,9 @@
             this.groupBox15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).BeginInit();
             this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).BeginInit();
             this.GetSetJA.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.MAtabs.SuspendLayout();
@@ -591,6 +608,9 @@
             this.tabPage13.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.DynamisPage.SuspendLayout();
+            this.ConvertBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).BeginInit();
             this.SuspendLayout();
             // 
             // checkZone
@@ -2185,6 +2205,13 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.ConvertBox);
+            this.tabPage11.Controls.Add(this.MONmpCount);
+            this.tabPage11.Controls.Add(this.MONHealMP);
+            this.tabPage11.Controls.Add(this.MONhpCount);
+            this.tabPage11.Controls.Add(this.MONHealHP);
+            this.tabPage11.Controls.Add(this.BenedictionHPPuse);
+            this.tabPage11.Controls.Add(this.BenedictionHP);
             this.tabPage11.Controls.Add(this.playerJA);
             this.tabPage11.Controls.Add(this.GetSetJA);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
@@ -2195,14 +2222,66 @@
             this.tabPage11.Text = "JA\'s";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // MONmpCount
+            // 
+            this.MONmpCount.Enabled = false;
+            this.MONmpCount.Location = new System.Drawing.Point(278, 108);
+            this.MONmpCount.Name = "MONmpCount";
+            this.MONmpCount.Size = new System.Drawing.Size(38, 20);
+            this.MONmpCount.TabIndex = 19;
+            // 
+            // MONHealMP
+            // 
+            this.MONHealMP.AutoSize = true;
+            this.MONHealMP.Location = new System.Drawing.Point(183, 110);
+            this.MONHealMP.Name = "MONHealMP";
+            this.MONHealMP.Size = new System.Drawing.Size(90, 13);
+            this.MONHealMP.TabIndex = 18;
+            this.MONHealMP.Text = "(MON) Heal MP%";
+            // 
+            // MONhpCount
+            // 
+            this.MONhpCount.Enabled = false;
+            this.MONhpCount.Location = new System.Drawing.Point(278, 130);
+            this.MONhpCount.Name = "MONhpCount";
+            this.MONhpCount.Size = new System.Drawing.Size(38, 20);
+            this.MONhpCount.TabIndex = 17;
+            // 
+            // MONHealHP
+            // 
+            this.MONHealHP.AutoSize = true;
+            this.MONHealHP.Location = new System.Drawing.Point(183, 132);
+            this.MONHealHP.Name = "MONHealHP";
+            this.MONHealHP.Size = new System.Drawing.Size(89, 13);
+            this.MONHealHP.TabIndex = 16;
+            this.MONHealHP.Text = "(MON) Heal HP%";
+            // 
+            // BenedictionHPPuse
+            // 
+            this.BenedictionHPPuse.Enabled = false;
+            this.BenedictionHPPuse.Location = new System.Drawing.Point(278, 8);
+            this.BenedictionHPPuse.Name = "BenedictionHPPuse";
+            this.BenedictionHPPuse.Size = new System.Drawing.Size(38, 20);
+            this.BenedictionHPPuse.TabIndex = 15;
+            // 
+            // BenedictionHP
+            // 
+            this.BenedictionHP.AutoSize = true;
+            this.BenedictionHP.Location = new System.Drawing.Point(172, 10);
+            this.BenedictionHP.Name = "BenedictionHP";
+            this.BenedictionHP.Size = new System.Drawing.Size(100, 13);
+            this.BenedictionHP.TabIndex = 14;
+            this.BenedictionHP.Text = "Benediction @HP%";
+            // 
             // playerJA
             // 
             this.playerJA.CheckOnClick = true;
             this.playerJA.FormattingEnabled = true;
-            this.playerJA.Location = new System.Drawing.Point(57, 10);
+            this.playerJA.Location = new System.Drawing.Point(6, 6);
             this.playerJA.Name = "playerJA";
-            this.playerJA.Size = new System.Drawing.Size(213, 139);
+            this.playerJA.Size = new System.Drawing.Size(165, 139);
             this.playerJA.TabIndex = 13;
+            this.playerJA.SelectedIndexChanged += new System.EventHandler(this.playerJA_SelectedIndexChanged);
             // 
             // GetSetJA
             // 
@@ -2271,6 +2350,7 @@
             this.playerMA.Name = "playerMA";
             this.playerMA.Size = new System.Drawing.Size(213, 109);
             this.playerMA.TabIndex = 5;
+            this.playerMA.SelectedIndexChanged += new System.EventHandler(this.playerMA_SelectedIndexChanged);
             // 
             // GetSetMA
             // 
@@ -2330,15 +2410,11 @@
             // 
             // CuraIIcount
             // 
+            this.CuraIIcount.Enabled = false;
             this.CuraIIcount.Location = new System.Drawing.Point(75, 110);
             this.CuraIIcount.Name = "CuraIIcount";
             this.CuraIIcount.Size = new System.Drawing.Size(44, 20);
             this.CuraIIcount.TabIndex = 19;
-            this.CuraIIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label55
             // 
@@ -2351,15 +2427,11 @@
             // 
             // CuraIIIcount
             // 
+            this.CuraIIIcount.Enabled = false;
             this.CuraIIIcount.Location = new System.Drawing.Point(226, 87);
             this.CuraIIIcount.Name = "CuraIIIcount";
             this.CuraIIIcount.Size = new System.Drawing.Size(44, 20);
             this.CuraIIIcount.TabIndex = 17;
-            this.CuraIIIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label53
             // 
@@ -2372,15 +2444,11 @@
             // 
             // Curacount
             // 
+            this.Curacount.Enabled = false;
             this.Curacount.Location = new System.Drawing.Point(75, 88);
             this.Curacount.Name = "Curacount";
             this.Curacount.Size = new System.Drawing.Size(44, 20);
             this.Curacount.TabIndex = 15;
-            this.Curacount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label54
             // 
@@ -2393,15 +2461,11 @@
             // 
             // FullCurecount
             // 
+            this.FullCurecount.Enabled = false;
             this.FullCurecount.Location = new System.Drawing.Point(226, 113);
             this.FullCurecount.Name = "FullCurecount";
             this.FullCurecount.Size = new System.Drawing.Size(44, 20);
             this.FullCurecount.TabIndex = 13;
-            this.FullCurecount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label52
             // 
@@ -2414,15 +2478,11 @@
             // 
             // CureVIcount
             // 
+            this.CureVIcount.Enabled = false;
             this.CureVIcount.Location = new System.Drawing.Point(226, 61);
             this.CureVIcount.Name = "CureVIcount";
             this.CureVIcount.Size = new System.Drawing.Size(44, 20);
             this.CureVIcount.TabIndex = 11;
-            this.CureVIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label45
             // 
@@ -2435,51 +2495,35 @@
             // 
             // CureVcount
             // 
+            this.CureVcount.Enabled = false;
             this.CureVcount.Location = new System.Drawing.Point(226, 39);
             this.CureVcount.Name = "CureVcount";
             this.CureVcount.Size = new System.Drawing.Size(44, 20);
             this.CureVcount.TabIndex = 9;
-            this.CureVcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // CureIVcount
             // 
+            this.CureIVcount.Enabled = false;
             this.CureIVcount.Location = new System.Drawing.Point(226, 17);
             this.CureIVcount.Name = "CureIVcount";
             this.CureIVcount.Size = new System.Drawing.Size(44, 20);
             this.CureIVcount.TabIndex = 8;
-            this.CureIVcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // CureIIIcount
             // 
+            this.CureIIIcount.Enabled = false;
             this.CureIIIcount.Location = new System.Drawing.Point(75, 62);
             this.CureIIIcount.Name = "CureIIIcount";
             this.CureIIIcount.Size = new System.Drawing.Size(44, 20);
             this.CureIIIcount.TabIndex = 7;
-            this.CureIIIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // CureIIcount
             // 
+            this.CureIIcount.Enabled = false;
             this.CureIIcount.Location = new System.Drawing.Point(75, 40);
             this.CureIIcount.Name = "CureIIcount";
             this.CureIIcount.Size = new System.Drawing.Size(44, 20);
             this.CureIIcount.TabIndex = 6;
-            this.CureIIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label44
             // 
@@ -2528,15 +2572,11 @@
             // 
             // Curecount
             // 
+            this.Curecount.Enabled = false;
             this.Curecount.Location = new System.Drawing.Point(75, 18);
             this.Curecount.Name = "Curecount";
             this.Curecount.Size = new System.Drawing.Size(44, 20);
             this.Curecount.TabIndex = 0;
-            this.Curecount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // groupBox14
             // 
@@ -4081,6 +4121,7 @@
             this.petControl.Controls.Add(this.tabPage3);
             this.petControl.Controls.Add(this.tabPage13);
             this.petControl.Controls.Add(this.tabPage12);
+            this.petControl.Controls.Add(this.GEOtab);
             this.petControl.Location = new System.Drawing.Point(6, 66);
             this.petControl.Name = "petControl";
             this.petControl.SelectedIndex = 0;
@@ -4582,6 +4623,16 @@
             this.checkBox8.Text = "Auto Engage Pet";
             this.checkBox8.UseVisualStyleBackColor = true;
             // 
+            // GEOtab
+            // 
+            this.GEOtab.Location = new System.Drawing.Point(4, 22);
+            this.GEOtab.Name = "GEOtab";
+            this.GEOtab.Padding = new System.Windows.Forms.Padding(3);
+            this.GEOtab.Size = new System.Drawing.Size(415, 247);
+            this.GEOtab.TabIndex = 4;
+            this.GEOtab.Text = "GEO";
+            this.GEOtab.UseVisualStyleBackColor = true;
+            // 
             // DynamisPage
             // 
             this.DynamisPage.Controls.Add(this.staggerstopJA);
@@ -4592,6 +4643,16 @@
             this.DynamisPage.TabIndex = 8;
             this.DynamisPage.Text = "Dynamis";
             this.DynamisPage.UseVisualStyleBackColor = true;
+            // 
+            // staggerstopJA
+            // 
+            this.staggerstopJA.AutoSize = true;
+            this.staggerstopJA.Location = new System.Drawing.Point(32, 42);
+            this.staggerstopJA.Name = "staggerstopJA";
+            this.staggerstopJA.Size = new System.Drawing.Size(153, 17);
+            this.staggerstopJA.TabIndex = 0;
+            this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
+            this.staggerstopJA.UseVisualStyleBackColor = true;
             // 
             // bgw_script_dnc
             // 
@@ -4637,15 +4698,76 @@
             this.DeathWarp.Text = "Warp on Death";
             this.DeathWarp.UseVisualStyleBackColor = true;
             // 
-            // staggerstopJA
+            // ConvertBox
             // 
-            this.staggerstopJA.AutoSize = true;
-            this.staggerstopJA.Location = new System.Drawing.Point(32, 42);
-            this.staggerstopJA.Name = "staggerstopJA";
-            this.staggerstopJA.Size = new System.Drawing.Size(153, 17);
-            this.staggerstopJA.TabIndex = 0;
-            this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
-            this.staggerstopJA.UseVisualStyleBackColor = true;
+            this.ConvertBox.Controls.Add(this.label56);
+            this.ConvertBox.Controls.Add(this.ConvertMPP);
+            this.ConvertBox.Controls.Add(this.ConvertHPP);
+            this.ConvertBox.Controls.Add(this.ConvertMP);
+            this.ConvertBox.Controls.Add(this.ConvertHP);
+            this.ConvertBox.Controls.Add(this.label57);
+            this.ConvertBox.Location = new System.Drawing.Point(175, 34);
+            this.ConvertBox.Name = "ConvertBox";
+            this.ConvertBox.Size = new System.Drawing.Size(146, 63);
+            this.ConvertBox.TabIndex = 20;
+            this.ConvertBox.TabStop = false;
+            this.ConvertBox.Text = "Convert";
+            // 
+            // ConvertHP
+            // 
+            this.ConvertHP.AutoSize = true;
+            this.ConvertHP.Enabled = false;
+            this.ConvertHP.Location = new System.Drawing.Point(7, 15);
+            this.ConvertHP.Name = "ConvertHP";
+            this.ConvertHP.Size = new System.Drawing.Size(59, 17);
+            this.ConvertHP.TabIndex = 0;
+            this.ConvertHP.Text = "For HP";
+            this.ConvertHP.UseVisualStyleBackColor = true;
+            // 
+            // ConvertMP
+            // 
+            this.ConvertMP.AutoSize = true;
+            this.ConvertMP.Enabled = false;
+            this.ConvertMP.Location = new System.Drawing.Point(7, 37);
+            this.ConvertMP.Name = "ConvertMP";
+            this.ConvertMP.Size = new System.Drawing.Size(60, 17);
+            this.ConvertMP.TabIndex = 1;
+            this.ConvertMP.Text = "For MP";
+            this.ConvertMP.UseVisualStyleBackColor = true;
+            // 
+            // ConvertHPP
+            // 
+            this.ConvertHPP.Enabled = false;
+            this.ConvertHPP.Location = new System.Drawing.Point(102, 12);
+            this.ConvertHPP.Name = "ConvertHPP";
+            this.ConvertHPP.Size = new System.Drawing.Size(38, 20);
+            this.ConvertHPP.TabIndex = 16;
+            // 
+            // ConvertMPP
+            // 
+            this.ConvertMPP.Enabled = false;
+            this.ConvertMPP.Location = new System.Drawing.Point(102, 37);
+            this.ConvertMPP.Name = "ConvertMPP";
+            this.ConvertMPP.Size = new System.Drawing.Size(38, 20);
+            this.ConvertMPP.TabIndex = 17;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(72, 14);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(30, 13);
+            this.label56.TabIndex = 18;
+            this.label56.Text = "HP%";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(72, 38);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(31, 13);
+            this.label57.TabIndex = 19;
+            this.label57.Text = "MP%";
             // 
             // ScriptFarmDNC
             // 
@@ -4712,6 +4834,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).EndInit();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).EndInit();
             this.GetSetJA.ResumeLayout(false);
             this.GetSetJA.PerformLayout();
             this.tabPage6.ResumeLayout(false);
@@ -4821,6 +4946,10 @@
             this.tabPage12.PerformLayout();
             this.DynamisPage.ResumeLayout(false);
             this.DynamisPage.PerformLayout();
+            this.ConvertBox.ResumeLayout(false);
+            this.ConvertBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5191,54 +5320,53 @@
                 playerJA.Items.Clear();
 
             #region Ability list
-            List<uint> abilitylist = new List<uint>(new uint[] {528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542,
-            543, 544, 545, 546, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567,
-            568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592,
-            593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617,
-            618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642,
-            643, 644, 645, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668,
-            669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693,
-            708, 709, 722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 744, 745, 746,
-            747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771,
-            772, 773, 776, 777, 778, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799,
-            800, 803, 804, 805, 807, 808, 809, 810, 813, 814, 815, 816, 817, 821, 822, 823, 824, 825, 826, 828, 829, 830, 831, 832, 833,
-            834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858,
-            859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883,
-            884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 1024, 1025, 1026,
-            1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1048,
-            1049, 1050, 1051, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1072, 1073, 1074, 1075, 1076, 1077, 1078,
-            1079, 1080, 1081, 1082, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098, 1104, 1105, 1106, 1107, 1108, 1109,
-            1110, 1111, 1112, 1113, 1114, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1136, 1137, 1138, 1139, 1140,
-            1141, 1142, 1143, 1144, 1145, 1146, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165,
-            1166, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187,
-            1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208,
-            1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229,
-            1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247, 1248, 1249, 1250,
-            1252, 1253, 1255, 1256, 1257, 1258, 1259, 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271, 1272, 1273,
-            1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285, 1286, 1287, 1288, 1289, 1290, 1291, 1292, 1293, 1294,
-            1793, 1794, 1795, 1796, 1797, 1798, 1799, 1800, 1801, 1802, 1803, 1804, 1805, 1806, 1807, 1808, 1809, 1810, 1811, 1812, 1813,
-            1814, 1815, 1816, 1817, 1818, 1819, 1820, 1821, 1822, 1823, 1824, 1825, 1826, 1827, 1828, 1829, 1830, 1831, 1832, 1833, 1834,
-            1835, 1836, 1837, 1838, 1839, 1840, 1841, 1842, 1843, 1844, 1845, 1846, 1847, 1848, 1849, 1850, 1851, 1852, 1853, 1854, 1855,
-            1856, 1857, 1858, 1859, 1860, 1861, 1862, 1863, 1864, 1865, 1866, 1867, 1868, 1869, 1870, 1871, 1872, 1873, 1874, 1875, 1876,
-            1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884, 1885, 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894, 1895, 1896, 1897,
-            1898, 1899, 1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918,
-            1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939,
-            1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960,
-            1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981,
-            1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
-            2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023,
-            2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044,
-            2045, 2046, 2047, 2048, 2049, 2050, 2051, 2052, 2053, 2054, 2055, 2056, 2057, 2058, 2059, 2060, 2061, 2062, 2063, 2064, 2065,
-            2066, 2067, 2068, 2069, 2070, 2071, 2072, 2073, 2074, 2075, 2076, 2077, 2078, 2079, 2080, 2081, 2082, 2083, 2084, 2085, 2086,
-            2087, 2088, 2089, 2090, 2091, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099, 2100, 2101, 2102, 2103, 2104, 2105, 2106, 2107,
-            2108, 2109, 2110, 2111, 2112, 2113, 2114, 2115, 2116, 2117, 2118, 2119, 2120, 2121, 2122, 2123, 2124, 2125, 2126, 2127, 2128,
-            2129, 2130, 2131, 2132, 2133, 2134, 2135, 2136, 2137, 2138, 2139, 2140, 2141, 2142, 2143, 2144, 2145, 2146, 2147, 2148, 2149,
-            2150, 2151, 2152, 2153, 2154, 2155, 2156, 2157, 2158, 2159, 2160, 2161, 2162, 2163, 2164, 2165, 2166, 2167, 2168, 2169, 2170,
-            2171, 2172, 2173, 2174, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2188, 2189, 2190, 2191,
-            2192, 2193, 2194, 2195, 2196, 2197, 2198, 2199, 2200, 2201, 2202, 2203, 2204, 2205, 2206, 2207, 2208, 2209, 2210, 2211, 2212,
-            2213, 2214, 2215, 2216, 2217, 2218, 2219, 2220, 2221, 2222, 2223, 2224, 2225, 2226, 2227});
+            List<uint> abilitylist = new List<uint>(new uint[] {528, 529, 530, 533, 534, 535, 537, 538, 539, 540, 543, 544, 545, 546,
+            548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 568, 569, 570, 571, 572, 574, 575, 576, 577,
+            578, 579, 580, 588, 589, 594, 595, 598, 604, 605, 606, 607,
+            608, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632,
+            633, 634, 635, 637, 638, 639, 640, 641, 642, 643, 644, 645, 661, 662, 663, 664, 667, 668, 669, 672, 673, 675,
+            676, 677, 678, 680, 682, 683, 685, 686, 687, 688, 689, 690, 693, 708, 722, 723, 724, 726, 736, 738, 739, 740,
+            741, 745, 749, 750, 751, 756, 757, 758, 759, 760, 761, 764, 765, 769, 770, 772, 773, 777, 779, 781,
+            783, 784, 788, 789, 790, 791, 792, 795, 796, 797, 798, 799, 800, 803, 804, 805, 809, 813, 814, 815, 816, 817,
+            833, 835, 836, 837, 840, 841, 842, 844, 845, 846, 847, 848, 851, 853, 855, 856, 860, 864, 868, 870,
+            871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 895, 896,
+            898, 901, 902, 903, 904,
+            #region MON Ability list
+            1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044,
+            1045, 1046, 1048, 1049, 1050, 1051, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1072, 1073, 1074, 1075,
+            1076, 1077, 1078, 1079, 1080, 1081, 1082, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098, 1104, 1105, 1106,
+            1107, 1108, 1109, 1110, 1111, 1112, 1113, 1114, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1136, 1137,
+            1138, 1139, 1140, 1141, 1142, 1143, 1144, 1145, 1146, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162,
+            1163, 1164, 1165, 1166, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184,
+            1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205,
+            1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226,
+            1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247,
+            1248, 1249, 1250, 1252, 1253, 1255, 1256, 1257, 1258, 1259, 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270,
+            1271, 1272, 1273, 1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285, 1286, 1287, 1288, 1289, 1290, 1291,
+            1292, 1293, 1294, 1793, 1794, 1795, 1796, 1797, 1798, 1799, 1800, 1801, 1802, 1803, 1804, 1805, 1806, 1807, 1808, 1809, 1810,
+            1811, 1812, 1813, 1814, 1815, 1816, 1817, 1818, 1819, 1820, 1821, 1822, 1823, 1824, 1825, 1826, 1827, 1828, 1829, 1830, 1831,
+            1832, 1833, 1834, 1835, 1836, 1837, 1838, 1839, 1840, 1841, 1842, 1843, 1844, 1845, 1846, 1847, 1848, 1849, 1850, 1851, 1852,
+            1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1862, 1863, 1864, 1865, 1866, 1867, 1868, 1869, 1870, 1871, 1872, 1873,
+            1874, 1875, 1876, 1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884, 1885, 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894,
+            1895, 1896, 1897, 1898, 1899, 1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915,
+            1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936,
+            1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957,
+            1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978,
+            1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+            2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
+            2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041,
+            2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050, 2051, 2052, 2053, 2054, 2055, 2056, 2057, 2058, 2059, 2060, 2061, 2062,
+            2063, 2064, 2065, 2066, 2067, 2068, 2069, 2070, 2071, 2072, 2073, 2074, 2075, 2076, 2077, 2078, 2079, 2080, 2081, 2082, 2083,
+            2084, 2085, 2086, 2087, 2088, 2089, 2090, 2091, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099, 2100, 2101, 2102, 2103, 2104,
+            2105, 2106, 2107, 2108, 2109, 2110, 2111, 2112, 2113, 2114, 2115, 2116, 2117, 2118, 2119, 2120, 2121, 2122, 2123, 2124, 2125,
+            2126, 2127, 2128, 2129, 2130, 2131, 2132, 2133, 2134, 2135, 2136, 2137, 2138, 2139, 2140, 2141, 2142, 2143, 2144, 2145, 2146,
+            2147, 2148, 2149, 2150, 2151, 2152, 2153, 2154, 2155, 2156, 2157, 2158, 2159, 2160, 2161, 2162, 2163, 2164, 2165, 2166, 2167,
+            2168, 2169, 2170, 2171, 2172, 2173, 2174, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2188,
+            2189, 2190, 2191, 2192, 2193, 2194, 2195, 2196, 2197, 2198, 2199, 2200, 2201, 2202, 2203, 2204, 2205, 2206, 2207, 2208, 2209,
+            2210, 2211, 2212, 2213, 2214, 2215, 2216, 2217, 2218, 2219, 2220, 2221, 2222, 2223, 2224, 2225, 2226, 2227});
             #endregion
-
+            #endregion
+            
             if (PlayerInfo.MainJob == 9)
                 BSTGetJA();
             else
@@ -5248,6 +5376,7 @@
                     if (PlayerInfo.HasAbility(i))
                     {
                         var ability = api.Resources.GetAbility(i);
+                        
                         if (!abilitylist.Contains(ability.ID)) { }
                         else if (i == 735)
                         {
@@ -5273,12 +5402,39 @@
                         }
                         else if (i == 670)
                         {
+                            if (!playerJA.Items.Contains("Chivalry TP > 1000")) playerJA.Items.Add("Chivalry TP > 1000");
+                            if (!playerJA.Items.Contains("Chivalry TP > 2000")) playerJA.Items.Add("Chivalry TP > 2000");
+                            if (!playerJA.Items.Contains("Chivalry TP > 3000")) playerJA.Items.Add("Chivalry TP > 3000");
+                        }
+                        else if (i == 869)
+                        {
+                            if (!playerJA.Items.Contains("Ignis")) playerJA.Items.Add("Ignis");
+                            if (!playerJA.Items.Contains("Gelus")) playerJA.Items.Add("Gelus");
+                            if (!playerJA.Items.Contains("Flabra")) playerJA.Items.Add("Flabra");
+                            if (!playerJA.Items.Contains("Tellus")) playerJA.Items.Add("Tellus");
+                            if (!playerJA.Items.Contains("Sulpor")) playerJA.Items.Add("Sulpor");
+                            if (!playerJA.Items.Contains("Unda")) playerJA.Items.Add("Unda");
+                            if (!playerJA.Items.Contains("Lux")) playerJA.Items.Add("Lux");
+                            if (!playerJA.Items.Contains("Tenebrae")) playerJA.Items.Add("Tenebrae");
+                        }
+                        else if (i == 891)
+                        {
                             var job = 0;
-                            if (PlayerInfo.MainJob == 7) job = PlayerInfo.MainJobLevel;
-                            if (PlayerInfo.SubJob == 7) job = PlayerInfo.SubJobLevel;
-                            if (!playerJA.Items.Contains("Chivalry TP > 1000") && job >= 75) playerJA.Items.Add("Chivalry TP > 1000");
-                            if (!playerJA.Items.Contains("Chivalry TP > 2000") && job >= 75) playerJA.Items.Add("Chivalry TP > 2000");
-                            if (!playerJA.Items.Contains("Chivalry TP > 3000") && job >= 75) playerJA.Items.Add("Chivalry TP > 3000");
+                            if (PlayerInfo.MainJob == 22) job = PlayerInfo.MainJobLevel;
+                            if (PlayerInfo.SubJob == 22) job = PlayerInfo.SubJobLevel;
+                            if (!playerJA.Items.Contains("Vallation") && job >= 10) playerJA.Items.Add("Vallation");
+                            if (!playerJA.Items.Contains("Pflug") && job >= 40) playerJA.Items.Add("Pflug");
+                            if (!playerJA.Items.Contains("Valiance") && job >= 50) playerJA.Items.Add("Valiance");
+                            if (!playerJA.Items.Contains("Liement") && job >= 85) playerJA.Items.Add("Liement");
+                        }
+                        else if (i == 892)
+                        {
+                            var job = 0;
+                            if (PlayerInfo.MainJob == 22) job = PlayerInfo.MainJobLevel;
+                            if (PlayerInfo.SubJob == 22) job = PlayerInfo.SubJobLevel;
+                            if (!playerJA.Items.Contains("Swipe") && job >= 25) playerJA.Items.Add("Swipe");
+                            if (!playerJA.Items.Contains("Lunge") && job >= 25) playerJA.Items.Add("Lunge");
+                            if (!playerJA.Items.Contains("Gambit") && job >= 70) playerJA.Items.Add("Gambit");
                         }
                         else if (i >= 1024 && PlayerInfo.MainJob != 23) { }
                         else if (!playerJA.Items.Contains(ability.Name))
@@ -6019,1108 +6175,261 @@
 
             var ja = (from object itemChecked in playerJA.CheckedItems
                       select itemChecked.ToString()).ToList();
-                      
-            if (MonStagered) return;
-
-            #region WAR JA
-            if (ja.Contains("Mighty Strikes [1HR] - (Warrior)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(44) && Recast.GetAbilityRecast(0) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                api.ThirdParty.SendString("/ja \"Mighty Strikes\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Berserk - (Warrior)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(56) && Recast.GetAbilityRecast(1) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                api.ThirdParty.SendString("/ja \"Berserk\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Defender - (Warrior)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(57) && Recast.GetAbilityRecast(3) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Defender\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Warcry - (Warrior)") && !PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(460) &&
-                !PlayerInfo.HasBuff(68) && Recast.GetAbilityRecast(2) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Warcry\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Retaliation - (Warrior)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(405) && Recast.GetAbilityRecast(8) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Retaliation\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Aggressor - (Warrior)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(58) && Recast.GetAbilityRecast(4) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Aggressor\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Warrior's Charge - (Warrior)") && !PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(490) &&
-                !PlayerInfo.HasBuff(340) && Recast.GetAbilityRecast(6) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Warrior's Charge\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Tomahawk - (Warrior)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(7) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Tomahawk\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Restraint - (Warrior)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(435) && Recast.GetAbilityRecast(9) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Restraint\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Blood Rage - (Warrior)") && !PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(68) &&
-                !PlayerInfo.HasBuff(460) && Recast.GetAbilityRecast(11) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Blood Rage\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Brazen Rush [1HR] - (Warrior)") && !PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(340) &&
-                !PlayerInfo.HasBuff(490) && Recast.GetAbilityRecast(254) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Brazen Rush\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region MNK JA
-            if (ja.Contains("Hundred Fists [1HR] - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(46) && Recast.GetAbilityRecast(0) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Hundred Fists\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Boost - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(45) && Recast.GetAbilityRecast(16) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Boost\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Dodge - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(60) && Recast.GetAbilityRecast(14) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Dodge\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Focus - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(59) && Recast.GetAbilityRecast(13) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Focus\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Chi Blast - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(18) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Chi Blast\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Chakra - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                PlayerInfo.HPP <= 90 && Recast.GetAbilityRecast(15) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Chakra\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Counterstance - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(61) && Recast.GetAbilityRecast(17) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Counterstance\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Footwork - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(406) && Recast.GetAbilityRecast(21) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Footwork\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Mantra - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(19) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Mantra\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Formless Strikes - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(341) && Recast.GetAbilityRecast(20) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Formless Strikes\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Perfect Counter - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(436) && Recast.GetAbilityRecast(22) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Perfect Counter\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Impetus - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(461) && Recast.GetAbilityRecast(31) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Impetus\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Inner Strength [1HR] - (Monk)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(491) && Recast.GetAbilityRecast(254) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Inner Strength\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region WHM JA
-            if (ja.Contains("Benediction [1HR] - (White Mage)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(46) && Recast.GetAbilityRecast(0) == 0 && PlayerInfo.HPP <= 25 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Benediction\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Afflatus Solace - (White Mage)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(417) && Recast.GetAbilityRecast(29) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Afflatus Solace\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Afflatus Misery - (White Mage)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(418) && Recast.GetAbilityRecast(30) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Afflatus Misery\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Sacrosanctity - (White Mage)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(477) && Recast.GetAbilityRecast(33) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Sacrosanctity\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Asylum [1HR] - (White Mage)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(492) && Recast.GetAbilityRecast(254) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Asylum\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            /* #region BLM JA
-            #endregion */
-            #region RDM JA
-            if (ja.Contains("Composure - (Red Mage)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(419) && Recast.GetAbilityRecast(50) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Composure\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region THF JA
-            if (ja.Contains("Mug - (Thief)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(65) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Mug\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Feint - (Thief)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(68) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Feint\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Assassin's Charge - (Thief)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(67) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Assassin's Charge\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Conspirator - (Thief)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(40) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Conspirator\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Bully - (Thief)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(240) == 0 && TargetInfo.HPP > 10 && 
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Bully\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Bully + Sneak Attack - (Thief)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(64) == 0 &&
-                Recast.GetAbilityRecast(240) == 0 &&
-                TargetInfo.HPP > 10 && PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Bully\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                api.ThirdParty.SendString("/ja \"Sneak Attack\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Despoil - (Thief)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(61) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Despoil\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Steal - (Thief)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(61) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Steal\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Larceny - (Thief)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(254) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Larceny\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region PLD JA
-            if (ja.Contains("Holy Circle - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(74) && Recast.GetAbilityRecast(74) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Holy Circle\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Shield Bash - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(73) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Shield Bash\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Sentinel - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(62) && Recast.GetAbilityRecast(75) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Sentinel\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Rampart - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(77) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Rampart\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Fealty - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(344) && Recast.GetAbilityRecast(78) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Fealty\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Chivalry TP > 100% - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                PlayerInfo.TP >= 1000 && Recast.GetAbilityRecast(79) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Chivalry TP > 200% - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                PlayerInfo.TP >= 2000 && Recast.GetAbilityRecast(79) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Chivalry TP > 300% - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                PlayerInfo.TP >= 3000 && Recast.GetAbilityRecast(79) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Divine Emblem - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(438) && Recast.GetAbilityRecast(80) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Divine Emblem\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Palisade - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(478) && Recast.GetAbilityRecast(42) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Palisade\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Phalanx - (Paladin)") && !PlayerInfo.HasBuff(16) && PlayerInfo.MPP > 21 &&
-                !PlayerInfo.HasBuff(116) && Recast.GetSpellRecast(106) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ma \"Phalanx\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(11.0));
-            }
-            if (ja.Contains("Enlight - (Paladin)") && !PlayerInfo.HasBuff(16) && PlayerInfo.MPP > 24 &&
-                !PlayerInfo.HasBuff(274) && Recast.GetSpellRecast(310) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ma \"Enlight\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(14.0));
-            }
-            if (ja.Contains("Enlight II - (Paladin)") && !PlayerInfo.HasBuff(16) && PlayerInfo.MPP > 36 &&
-                !PlayerInfo.HasBuff(274) && Recast.GetSpellRecast(855) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ma \"Enlight II\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(14.0));
-            }
-            if (ja.Contains("Reprisal - (Paladin)") && !PlayerInfo.HasBuff(16) && PlayerInfo.MPP > 24 &&
-                !PlayerInfo.HasBuff(403) && Recast.GetSpellRecast(97) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ma \"Reprisal\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(6.0));
-            }
-            if (ja.Contains("Crusade - (Paladin)") && !PlayerInfo.HasBuff(16) && PlayerInfo.MPP > 18 &&
-                !PlayerInfo.HasBuff(289) && Recast.GetSpellRecast(476) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ma \"Crusade\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(12.0));
-            }
-            if (ja.Contains("Intervene - (Paladin)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetSpellRecast(476) == 0 && PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ma \"Intervene\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region DRK JA
-            if (ja.Contains("Arcane Circle - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(75) && Recast.GetAbilityRecast(86) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Arcane Circle\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Last Resort - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(64) && Recast.GetAbilityRecast(87) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Last Resort\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Weapon Bash - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(88) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Weapon Bash\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Souleater - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(63) && Recast.GetAbilityRecast(85) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Souleater\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Dark Seal - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(345) && Recast.GetAbilityRecast(89) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Dark Seal\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Diabolic Eye - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(346) && Recast.GetAbilityRecast(90) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Diabolic Eye\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Nether Void - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(439) && Recast.GetAbilityRecast(91) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Nether Void\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Arcane Crest - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(91) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Arcane Crest\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Scarlet Delirium - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(479) && Recast.GetAbilityRecast(44) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Scarlet Delirium\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Absorb-MND - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(85) && Recast.GetSpellRecast(271) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-MND\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Absorb-CHR - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(86) && Recast.GetSpellRecast(272) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-CHR\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Absorb-VIT - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(82) && Recast.GetSpellRecast(268) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-VIT\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Absorb-AGI - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(83) && Recast.GetSpellRecast(269) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-AGI\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Absorb-INT - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(84) && Recast.GetSpellRecast(270) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-INT\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Absorb-DEX - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(81) && Recast.GetSpellRecast(267) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-DEX\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Absorb-STR - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(80) && Recast.GetSpellRecast(266) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-STR\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Absorb-TP - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetSpellRecast(275) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-TP\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Absorb-ACC - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(90) && Recast.GetSpellRecast(242) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-ACC\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Absorb-Attri - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetSpellRecast(243) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0 && PlayerInfo.MPP > 33)
-            {
-                api.ThirdParty.SendString("/ma \"Absorb-Attri\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-            }
-            if (ja.Contains("Dread Spikes - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(173) && Recast.GetSpellRecast(277) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.MPP > 78)
-            {
-                api.ThirdParty.SendString("/ma \"Dread Spikes\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(8.0));
-            }
-            if (ja.Contains("Soul Enslavement - (Dark Knight)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(497) && Recast.GetAbilityRecast(254) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Soul Enslavement\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region RNG JA
-            if (ja.Contains("Scavenge - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(121) == 0 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Scavenge\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Sharpshot - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(72) && Recast.GetAbilityRecast(124) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Sharpshot\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Barrage - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(73) && Recast.GetAbilityRecast(125) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Barrage\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Sharpshot + Barrage - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(73) && Recast.GetAbilityRecast(125) == 0 &&
-                !PlayerInfo.HasBuff(72) && Recast.GetAbilityRecast(124) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Sharpshot\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                api.ThirdParty.SendString("/ja \"Barrage\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Shadowbind - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(122) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Shadowbind\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Velocity Shot - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(371) && Recast.GetAbilityRecast(129) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Velocity Shot\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Unlimited Shot - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(115) && Recast.GetAbilityRecast(126) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Unlimited Shot\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Flashy Shot - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(351) && Recast.GetAbilityRecast(128) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Flashy Shot\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Stealth Shot - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(350) && Recast.GetAbilityRecast(127) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Stealth Shot\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Double Shot - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(433) && Recast.GetAbilityRecast(126) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Double Shot\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Bounty Shot - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(51) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Bounty Shot\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Decoy Shot - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(482) && Recast.GetAbilityRecast(52) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Decoy Shot\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Overkill - (Ranger)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(500) && Recast.GetAbilityRecast(254) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Overkill\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region SAM JA
-            if (ja.Contains("Warding Circle - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(117) && Recast.GetAbilityRecast(135) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Warding Circle\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Third Eye - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(67) && Recast.GetAbilityRecast(133) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Third Eye\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Hasso - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(353) && Recast.GetAbilityRecast(138) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Hasso\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Meditate - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(134) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Meditate\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Seigan - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(354) && Recast.GetAbilityRecast(139) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Seigan\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Sekkanoki - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(408) && Recast.GetAbilityRecast(140) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Sekkanoki\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Blade Bash - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(137) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Blade Bash\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Shikikoyo - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Shikikoyo\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Hamanoha - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(465) && Recast.GetAbilityRecast(53) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Hamanoha\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Yaegasumi - (Samurai)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(501) && Recast.GetAbilityRecast(254) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Yaegasumi\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region NIN JA
-            if (ja.Contains("Yonin - (Ninja)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(420) && Recast.GetAbilityRecast(146) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Yonin\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Innin - (Ninja)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(421) && Recast.GetAbilityRecast(147) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Innin\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Sange - (Ninja)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(352) && Recast.GetAbilityRecast(145) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Sange\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Futae - (Ninja)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(441) && Recast.GetAbilityRecast(148) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Futae\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Issekigan - (Ninja)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(484) && Recast.GetAbilityRecast(57) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-
-                api.ThirdParty.SendString("/ja \"Issekigan\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Myoshu: Ichi - (Ninja)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(290) && Recast.GetAbilityRecast(507) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Myoshu: Ichi\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.5));
-            }
-            if (ja.Contains("Migawari: Ichi - (Ninja)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(471) && Recast.GetAbilityRecast(510) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Migawari: Ichi\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            if (ja.Contains("Kakka: Ichi - (Ninja)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(227) && Recast.GetAbilityRecast(509) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Kakka: Ichi\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.5));
-            }
-            if (ja.Contains("Mikage - (Ninja)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(502) && Recast.GetAbilityRecast(254) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Mikage\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region DRG JA
-            if (ja.Contains("Ancient Circle - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(118) && Recast.GetAbilityRecast(157) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Ancient Circle\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Jump - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(158) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Jump\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("High Jump - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(159) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"High Jump\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Super Jump - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(160) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Super Jump\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Angon - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(165) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Angon\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Spirit Jump - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(158) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Spirit Jump\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Soul Jump - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(159) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Soul Jump\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Dragon Breaker - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(58) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Dragon Breaker\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Fly High - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(254) == 0 && !PlayerInfo.HasBuff(503) &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Fly High\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region COR JA
-            if (ja.Contains("Phantom Roll - (Corsair)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(193) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Phantom Roll\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Double-Up - (Corsair)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(194) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Double-Up\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Random Deal - (Corsair)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(196) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Random Deal\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Snake Eye - (Corsair)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(357) && Recast.GetAbilityRecast(197) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Snake Eye\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Fold - (Corsair)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(198) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Fold\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Triple Shot - (Corsair)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(467) && Recast.GetAbilityRecast(84) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Triple Shot\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Cutting Cards - (Corsair)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(254) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Cutting Cards\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region DNC JA
-            if (ja.Contains("Saber Dance - (DNC)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(410) && Recast.GetAbilityRecast(219) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Saber Dance\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Fan Dance - (DNC)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(411) && Recast.GetAbilityRecast(224) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Fan Dance\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Presto - (DNC)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(442) && Recast.GetAbilityRecast(236) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Presto\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("No Foot Rise - (DNC)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(223) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                if (!PlayerInfo.HasBuff(385))
+                 
+            Dictionary<uint, dynamic> jacontrol = new Dictionary<uint, dynamic>
+            {
+                #region JA 
+                {528, new {buff1=44}}, {529, new {buff1=46}}, {530, new {}}, {533, new {}}, {534, new {}}, {535, new {}}, {537, new {}}, {538, new {}},
+                {540, new {}}, {543, new {buff1=56}}, {544, new {buff1=68,buff2=460}}, {545, new {buff1=57}}, {546, new {buff1=58}}, {548, new {buff1=59}},
+                {549, new {buff1=60}}, {550, new {hp=90}}, {551, new {buff1=45}}, {552, new {buff1=61}}, {553, new {}}, {556, new {}}, {557, new {}}, {558,
+                new {}}, {559, new {buff1=74}}, {560, new {buff1=62}}, {561, new {buff1=63}}, {562, new {buff1=75}}, {563, new {buff1=64}}, {568, new {}},
+                {569, new {}}, {570, new {}}, {571, new {buff1=172}}, {572, new {buff1=73}}, {574, new {buff1=67}}, {575, new {name="Meditate"}},
+                {576, new {buff1=117}}, {577, new {buff1=118}}, {578, new {}}, {579, new {}}, {580, new {}}, {588, new {buff1=87}}, {589, new {}},
+                {594, new {}}, {595, new {}}, {598, new {buff1=115}}, {604, new {}}, {605, new {}}, {606, new {buff1=164}}, {607, new {buff1=165}},
+                {608, new {}}, {610, new {name="Fighter's Roll"}}, {611, new {name="Monk's Roll"}}, {612, new {name="Healer's Roll"}},
+                {613, new {name="Wizard's Roll"}}, {614, new {name="Warlock's Roll"}}, {615, new {name="Rogue's Roll"}}, {616, new {name="Gallant's Roll"}},
+                {617, new {name="Chaos Roll"}}, {618, new {name="Beast Roll"}}, {619, new {name="Choral Roll"}}, {620, new {name="Hunter's Roll"}},
+                {621, new {name="Samurai Roll"}}, {622, new {name="Ninja Roll"}}, {623, new {name="Drachen Roll"}}, {624, new {name="Evoker's Roll"}},
+                {625, new {name="Magus's Roll"}}, {626, new {name="Corsair's Roll"}}, {627, new {name="Puppet Roll"}}, {628, new {name="Dancer's Roll"}},
+                {629, new {name="Scholar's Roll"}}, {630, new {name="Bolter's Roll"}}, {631, new {name="Caster's Roll"}}, {632, new {name="Courser's Roll"}},
+                {633, new {name="Blitzer's Roll"}}, {634, new {name="Tactician's Roll"}}, {635, new {buff3=308}}, {636, new {name="Quick Draw"}},
+                {637, new {name="Fire Shot"}}, {638, new {name="Ice Shot"}}, {639, new {name="Wind Shot"}}, {640, new {name="Earth Shot"}},
+                {641, new {name="Thunder Shot"}}, {642, new {name="Water Shot"}}, {643, new {name="Light Shot"}}, {644, new {name="Dark Shot"}},
+                {645, new {}}, {661, new {buff1=340,buff2=490}}, {662, new {}}, {663, new {buff1=19}}, {664, new {buff1=341}}, {667, new {buff1=342}},
+                {668, new {buff1=343}}, {669, new {buff1=344}}, {672, new {buff1=346}}, {673, new {}}, {677, new {buff1=350}}, {678, new {buff1=351}},
+                {680, new {}}, {682, new {}}, {683, new {buff1=352}}, {685, new {buff1=353}}, {686, new {buff1=354}}, {689, new {buff1=357}},
+                {690, new {buff3=309}}, {693, new {buff1=376}}, {708, new {buff1=71}}, {736, new {buff1=371}}, {738, new {buff1=405}}, {739, new {buff1=406}},
+                {740, new {}}, {749, new {buff1=410}}, {750, new {buff1=411}}, {757, new {buff1=417}}, {758, new {buff1=418}}, {759, new {buff1=419}},
+                {760, new {buff1=420}}, {761, new {nuff1=421}}, {764, new {buff1=435}}, {765, new {buff1=436}}, {769, new {buff1=433}}, {772, new {}},
+                {773, new {buff1=442}}, {777, new {}}, {779, new {buff1=460,buff2=68}}, {781, new {buff1=461}}, {783, new {buff1=477}}, {784, new {}},
+                {788, new {buff1=462}}, {789, new {}}, {790, new {buff1=478}}, {791, new {}}, {792, new {buff1=479}}, {797, new {}}, {798, new {buff1=482}},
+                {799, new {buff1=465}}, {803, new {buff1=484}}, {804, new {}}, {805, new {}}, {813, new {buff1=467}}, {814, new {name="Allies' Roll"}},
+                {815, new {name="Miser's Roll"}}, {816, new {name="Companion's Roll"}}, {817, new {name="Avenger's Roll"}}, {833, new {thp=10}},
+                {835, new {buff1=490,buff2=340}}, {836, new {buff1=491}}, {837, new {buff1=492}}, {840, new {}}, {841, new {}}, {842, new {buff1=497}},
+                {844, new {buff1=499}}, {845, new {buff1=500}}, {846, new {buff1=501}}, {847, new {buff1=502}}, {848, new {buff1=503}}, {851, new {}},
+                {853, new {buff1=507}}, {856, new {}}, {868, new {}}, {870, new {buff1=523}}, {871, new {buff1=524}}, {872, new {buff1=525}},
+                {873, new {buff1=526}}, {874, new {buff1=527}}, {875, new {buff1=528}}, {876, new {buff1=529}}, {877, new {buff1=530}}, {878, new {buff1=531}},
+                {879, new {buff1=532}}, {880, new {}}, {881, new {buff1=533}}, {882, new {buff1=534}}, {883, new {buff1=535}}, {884, new {}},
+                {885, new {buff1=537}}, {886, new {buff1=538}}, {887, new {}}, {888, new {buff1=570}}, {890, new {}}, {901, new {buff1=599}},
+                {902, new {name="Naturalist's Roll"}}, {903, new {name="Runeist's Roll"}}, {904, new {buff1=601}},
+                #endregion
+                #region monJA control
+                {1024, new {}}, {1025, new {}}, {1026, new {}}, {1027, new {}}, {1028, new {}}, {1029, new {}}, {1030, new {}}, {1031, new {}}, {1032, new {}},
+                {1033, new {}}, {1034, new {}}, {1035, new {}}, {1036, new {}}, {1037, new {}}, {1038, new {}}, {1039, new {}}, {1040, new {}}, {1041, new {}},
+                {1042, new {}}, {1043, new {}}, {1044, new {}}, {1045, new {}}, {1046, new {}}, {1048, new {}}, {1049, new {}}, {1050, new {}}, {1051, new {}},
+                {1056, new {}}, {1057, new {}}, {1058, new {}}, {1059, new {}}, {1060, new {}}, {1061, new {}}, {1062, new {}}, {1063, new {}}, {1064, new {}},
+                {1065, new {}}, {1066, new {}}, {1072, new {}}, {1073, new {}}, {1074, new {}}, {1075, new {}}, {1076, new {}}, {1077, new {}}, {1078, new {}},
+                {1079, new {}}, {1080, new {}}, {1081, new {}}, {1082, new {}}, {1088, new {}}, {1089, new {}}, {1090, new {}}, {1091, new {}}, {1092, new {}},
+                {1093, new {}}, {1094, new {}}, {1095, new {}}, {1096, new {}}, {1097, new {}}, {1098, new {}}, {1104, new {}}, {1105, new {}}, {1106, new {}},
+                {1107, new {}}, {1108, new {}}, {1109, new {}}, {1110, new {}}, {1111, new {}}, {1112, new {}}, {1113, new {}}, {1114, new {}}, {1120, new {}},
+                {1121, new {}}, {1122, new {}}, {1123, new {}}, {1124, new {}}, {1125, new {}}, {1126, new {}}, {1127, new {}}, {1128, new {}}, {1129, new {}},
+                {1130, new {}}, {1136, new {}}, {1137, new {}}, {1138, new {}}, {1139, new {}}, {1140, new {}}, {1141, new {}}, {1142, new {}}, {1143, new {}},
+                {1144, new {}}, {1145, new {}}, {1146, new {}}, {1151, new {}}, {1152, new {}}, {1153, new {}}, {1154, new {}}, {1155, new {}}, {1156, new {}},
+                {1157, new {}}, {1158, new {}}, {1159, new {}}, {1160, new {}}, {1161, new {}}, {1162, new {}}, {1163, new {}}, {1164, new {}}, {1165, new {}},
+                {1166, new {}}, {1168, new {}}, {1169, new {}}, {1170, new {}}, {1171, new {}}, {1172, new {}}, {1173, new {}}, {1174, new {}}, {1175, new {}},
+                {1176, new {}}, {1177, new {}}, {1178, new {}}, {1179, new {}}, {1180, new {}}, {1181, new {}}, {1182, new {}}, {1183, new {}}, {1184, new {}},
+                {1185, new {}}, {1186, new {}}, {1187, new {}}, {1188, new {}}, {1189, new {}}, {1190, new {}}, {1191, new {}}, {1192, new {}}, {1193, new {}},
+                {1194, new {}}, {1195, new {}}, {1196, new {}}, {1197, new {}}, {1198, new {}}, {1199, new {}}, {1200, new {}}, {1201, new {}}, {1202, new {}},
+                {1203, new {}}, {1204, new {}}, {1205, new {}}, {1206, new {}}, {1207, new {}}, {1208, new {}}, {1209, new {}}, {1210, new {}}, {1211, new {}},
+                {1212, new {}}, {1213, new {}}, {1214, new {}}, {1215, new {}}, {1216, new {}}, {1217, new {}}, {1218, new {}}, {1219, new {}}, {1220, new {}},
+                {1221, new {}}, {1222, new {}}, {1223, new {}}, {1224, new {}}, {1225, new {}}, {1226, new {}}, {1227, new {}}, {1228, new {}}, {1229, new {}},
+                {1230, new {}}, {1231, new {}}, {1232, new {}}, {1233, new {}}, {1234, new {}}, {1235, new {}}, {1236, new {}}, {1237, new {}}, {1238, new {}},
+                {1239, new {}}, {1240, new {}}, {1241, new {}}, {1242, new {}}, {1243, new {}}, {1244, new {}}, {1245, new {}}, {1246, new {}}, {1247, new {hp=75}},
+                {1248, new {}}, {1249, new {}}, {1250, new {}}, {1252, new {}}, {1253, new {}}, {1255, new {}}, {1256, new {}}, {1257, new {}}, {1258, new {}},
+                {1259, new {}}, {1260, new {}}, {1261, new {}}, {1262, new {}}, {1263, new {}}, {1264, new {}}, {1265, new {}}, {1266, new {}}, {1267, new {}},
+                {1268, new {}}, {1269, new {}}, {1270, new {}}, {1271, new {}}, {1272, new {}}, {1273, new {}}, {1274, new {}}, {1275, new {}}, {1276, new {}},
+                {1277, new {}}, {1278, new {}}, {1279, new {}}, {1280, new {}}, {1281, new {}}, {1282, new {}}, {1283, new {}}, {1284, new {}}, {1285, new {}},
+                {1286, new {}}, {1287, new {}}, {1288, new {}}, {1289, new {}}, {1290, new {}}, {1291, new {}}, {1292, new {}}, {1293, new {}}, {1294, new {}},
+                {1793, new {}}, {1794, new {}}, {1795, new {}}, {1796, new {}}, {1797, new {}}, {1798, new {}}, {1799, new {}}, {1800, new {}}, {1801, new {}},
+                {1802, new {}}, {1803, new {}}, {1804, new {}}, {1805, new {}}, {1806, new {}}, {1807, new {}}, {1808, new {}}, {1809, new {}}, {1810, new {}},
+                {1811, new {}}, {1812, new {}}, {1813, new {}}, {1814, new {}}, {1815, new {}}, {1816, new {}}, {1817, new {}}, {1818, new {hp=75}}, {1819, new {}},
+                {1820, new {}}, {1821, new {}}, {1822, new {}}, {1823, new {}}, {1824, new {}}, {1825, new {hp=75}}, {1826, new {}}, {1827, new {}}, {1828, new {}},
+                {1829, new {}}, {1830, new {}}, {1831, new {}}, {1832, new {}}, {1833, new {}}, {1834, new {}}, {1835, new {}}, {1836, new {}}, {1837, new {}},
+                {1838, new {}}, {1839, new {}}, {1840, new {}}, {1841, new {}}, {1842, new {}}, {1843, new {}}, {1844, new {}}, {1845, new {}}, {1846, new {}},
+                {1847, new {}}, {1848, new {}}, {1849, new {}}, {1850, new {hp=75}}, {1851, new {}}, {1852, new {}}, {1853, new {}}, {1854, new {}}, {1855, new {}},
+                {1856, new {hp=75}}, {1857, new {}}, {1858, new {}}, {1859, new {}}, {1860, new {}}, {1861, new {}}, {1862, new {}}, {1863, new {}}, {1864, new {}},
+                {1865, new {}}, {1866, new {}}, {1867, new {}}, {1868, new {}}, {1869, new {}}, {1870, new {}}, {1871, new {}}, {1872, new {}}, {1873, new {}},
+                {1874, new {}}, {1875, new {}}, {1876, new {}}, {1877, new {}}, {1878, new {}}, {1879, new {}}, {1880, new {}}, {1881, new {}}, {1882, new {}},
+                {1883, new {}}, {1884, new {}}, {1885, new {}}, {1886, new {}}, {1887, new {}}, {1888, new {}}, {1889, new {}}, {1890, new {}}, {1891, new {}},
+                {1892, new {}}, {1893, new {}}, {1894, new {}}, {1895, new {}}, {1896, new {}}, {1897, new {}}, {1898, new {}}, {1899, new {}}, {1900, new {}},
+                {1901, new {}}, {1902, new {}}, {1903, new {}}, {1904, new {}}, {1905, new {}}, {1906, new {}}, {1907, new {}}, {1908, new {}}, {1909, new {}},
+                {1910, new {}}, {1911, new {}}, {1912, new {}}, {1913, new {}}, {1914, new {}}, {1915, new {}}, {1916, new {}}, {1917, new {}}, {1918, new {}},
+                {1919, new {}}, {1920, new {}}, {1921, new {}}, {1922, new {}}, {1923, new {}}, {1924, new {}}, {1925, new {}}, {1926, new {}}, {1927, new {}},
+                {1928, new {}}, {1929, new {hp=75}}, {1930, new {}}, {1931, new {}}, {1932, new {}}, {1933, new {}}, {1934, new {}}, {1935, new {}}, {1936, new {}},
+                {1937, new {}}, {1938, new {}}, {1939, new {}}, {1940, new {}}, {1941, new {}}, {1942, new {}}, {1943, new {}}, {1944, new {}}, {1945, new {}},
+                {1946, new {}}, {1947, new {}}, {1948, new {}}, {1949, new {}}, {1950, new {}}, {1951, new {}}, {1952, new {}}, {1953, new {}}, {1954, new {}},
+                {1955, new {}}, {1956, new {}}, {1957, new {}}, {1958, new {}}, {1959, new {}}, {1960, new {}}, {1961, new {}}, {1962, new {}}, {1963, new {}},
+                {1964, new {}}, {1965, new {}}, {1966, new {}}, {1967, new {}}, {1968, new {}}, {1969, new {}}, {1970, new {}}, {1971, new {}}, {1972, new {}},
+                {1973, new {}}, {1974, new {}}, {1975, new {}}, {1976, new {}}, {1977, new {}}, {1978, new {}}, {1979, new {}}, {1980, new {}}, {1981, new {}},
+                {1982, new {}}, {1983, new {}}, {1984, new {}}, {1985, new {}}, {1986, new {}}, {1987, new {}}, {1988, new {}}, {1989, new {}}, {1990, new {}},
+                {1991, new {}}, {1992, new {}}, {1993, new {}}, {1994, new {}}, {1995, new {}}, {1996, new {}}, {1997, new {}}, {1998, new {}}, {1999, new {}},
+                {2000, new {}}, {2001, new {}}, {2002, new {}}, {2003, new {}}, {2004, new {}}, {2005, new {}}, {2006, new {}}, {2007, new {}}, {2008, new {}},
+                {2009, new {}}, {2010, new {}}, {2011, new {}}, {2012, new {}}, {2013, new {}}, {2014, new {}}, {2015, new {}}, {2016, new {}}, {2017, new {}},
+                {2018, new {}}, {2019, new {}}, {2020, new {}}, {2021, new {}}, {2022, new {}}, {2023, new {}}, {2024, new {}}, {2025, new {}}, {2026, new {}},
+                {2027, new {}}, {2028, new {}}, {2029, new {}}, {2030, new {}}, {2031, new {}}, {2032, new {}}, {2033, new {}}, {2034, new {}}, {2035, new {}},
+                {2036, new {}}, {2037, new {}}, {2038, new {}}, {2039, new {}}, {2040, new {}}, {2041, new {}}, {2042, new {}}, {2043, new {}}, {2044, new {}},
+                {2045, new {}}, {2046, new {}}, {2047, new {}}, {2048, new {}}, {2049, new {}}, {2050, new {}}, {2051, new {}}, {2052, new {}}, {2053, new {}},
+                {2054, new {}}, {2055, new {}}, {2056, new {}}, {2057, new {}}, {2058, new {}}, {2059, new {hp=75}}, {2060, new {}}, {2061, new {}}, {2062, new {}},
+                {2063, new {}}, {2064, new {}}, {2065, new {}}, {2066, new {}}, {2067, new {}}, {2068, new {}}, {2069, new {}}, {2070, new {}}, {2071, new {}},
+                {2072, new {}}, {2073, new {}}, {2074, new {}}, {2075, new {}}, {2076, new {}}, {2077, new {}}, {2078, new {}}, {2079, new {}}, {2080, new {}},
+                {2081, new {}}, {2082, new {}}, {2083, new {}}, {2084, new {}}, {2085, new {}}, {2086, new {}}, {2087, new {}}, {2088, new {mp=75}}, {2089, new {}},
+                {2090, new {hp=75}}, {2091, new {}}, {2092, new {}}, {2093, new {}}, {2094, new {}}, {2095, new {}}, {2096, new {}}, {2097, new {}}, {2098, new {}},
+                {2099, new {}}, {2100, new {}}, {2101, new {}}, {2102, new {}}, {2103, new {}}, {2104, new {}}, {2105, new {}}, {2106, new {}}, {2107, new {}},
+                {2108, new {}}, {2109, new {}}, {2110, new {}}, {2111, new {}}, {2112, new {}}, {2113, new {hp=75}}, {2114, new {hp=75}}, {2115, new {}},
+                {2116, new {}}, {2117, new {}}, {2118, new {}}, {2119, new {}}, {2120, new {}}, {2121, new {}}, {2122, new {}}, {2123, new {}}, {2124, new {}},
+                {2125, new {}}, {2126, new {}}, {2127, new {}}, {2128, new {}}, {2129, new {}}, {2130, new {}}, {2131, new {}}, {2132, new {}}, {2133, new {}},
+                {2134, new {}}, {2135, new {}}, {2136, new {}}, {2137, new {}}, {2138, new {}}, {2139, new {}}, {2140, new {}}, {2141, new {}}, {2142, new {}},
+                {2143, new {}}, {2144, new {}}, {2145, new {}}, {2146, new {}}, {2147, new {}}, {2148, new {}}, {2149, new {}}, {2150, new {}}, {2151, new {}},
+                {2152, new {}}, {2153, new {}}, {2154, new {}}, {2155, new {}}, {2156, new {}}, {2157, new {}}, {2158, new {}}, {2159, new {}}, {2160, new {}},
+                {2161, new {}}, {2162, new {}}, {2163, new {}}, {2164, new {}}, {2165, new {}}, {2166, new {}}, {2167, new {}}, {2168, new {}}, {2169, new {}},
+                {2170, new {}}, {2171, new {}}, {2172, new {}}, {2173, new {}}, {2174, new {}}, {2175, new {}}, {2176, new {}}, {2177, new {}}, {2178, new {}},
+                {2179, new {}}, {2180, new {}}, {2181, new {}}, {2182, new {}}, {2183, new {}}, {2184, new {}}, {2185, new {}}, {2186, new {}}, {2187, new {}},
+                {2188, new {}}, {2189, new {}}, {2190, new {}}, {2191, new {}}, {2192, new {}}, {2193, new {}}, {2194, new {}}, {2195, new {}}, {2196, new {}},
+                {2197, new {}}, {2198, new {}}, {2199, new {}}, {2200, new {}}, {2201, new {}}, {2202, new {}}, {2203, new {}}, {2204, new {}}, {2205, new {}},
+                {2206, new {}}, {2207, new {}}, {2208, new {}}, {2209, new {}}, {2210, new {}}, {2211, new {}}, {2212, new {}}, {2213, new {}}, {2214, new {}},
+                {2215, new {}}, {2216, new {}}, {2217, new {}}, {2218, new {}}, {2219, new {}}, {2220, new {}}, {2221, new {}}, {2222, new {}}, {2223, new {}},
+                {2224, new {}}, {2225, new {}}, {2226, new {}}, {2227, new {}},
+                #endregion
+            };
+                   
+            foreach (string J in ja)
+            {
+                var ability = api.Resources.GetAbility(J);
+                if (ability == null)
                 {
-                    api.ThirdParty.SendString("/ja \"No Foot Rise\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    if (J == "Chivalry TP > 1000" && !PlayerInfo.HasBuff(16) &&
+                        PlayerInfo.TP >= 1000 && Recast.GetAbilityRecast(79) == 0 &&
+                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (J == "Chivalry TP > 2000" && !PlayerInfo.HasBuff(16) &&
+                        PlayerInfo.TP >= 2000 && Recast.GetAbilityRecast(79) == 0 &&
+                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (J == "Chivalry TP > 3000" && !PlayerInfo.HasBuff(16) &&
+                        PlayerInfo.TP >= 3000 && Recast.GetAbilityRecast(79) == 0 &&
+                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (J == "Sharpshot + Barrage" && !PlayerInfo.HasBuff(16) &&
+                        !PlayerInfo.HasBuff(73) && Recast.GetAbilityRecast(125) == 0 &&
+                        !PlayerInfo.HasBuff(72) && Recast.GetAbilityRecast(124) == 0 &&
+                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Sharpshot\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        api.ThirdParty.SendString("/ja \"Barrage\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    /* else if (J == "Shikikoyo - (Samurai)" && !PlayerInfo.HasBuff(16) &&
+                        Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
+                        TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Shikikoyo\" <t>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    } */
                 }
+                else if (ability.ID >= 1024 && PlayerInfo.MainJob == 23)
+                {
+                    if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
+                         PlayerInfo.Status == 1 && TargetInfo.ID > 0 && ability.TP <= PlayerInfo.TP)
+                    {
+                        if (jacontrol[ability.ID].mp != null)
+                        {
+                            if (PlayerInfo.MPP <= MONmpCount.Value)
+                            {
+                                api.ThirdParty.SendString(String.Format("/echo /ja \"{0}\" {1}", J, ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")));
+                                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            }
+                        }
+                        else if (jacontrol[ability.ID].hp != null)
+                        {
+                            if (PlayerInfo.HPP <= MONhpCount.Value)
+                            {
+                                api.ThirdParty.SendString(String.Format("/echo /ja \"{0}\" {1}", J, ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")));
+                                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            }
+                        }
+                        else
+                        {
+                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" <t>", J));
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        }
+                    }
+                }
+                else if (jacontrol[ability.ID] == null) {}
+                else if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
+                     PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                {
+                    if (J == "Benediction" && PlayerInfo.HPP <= BenedictionHPPuse.Value)
+                    {
+                        api.ThirdParty.SendString("/ja \"Benediction\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (J == "Convert")
+                    {
+                        if (ConvertHP.Checked && ConvertHPP.Value >= PlayerInfo.HPP && ConvertMPP.Value <= PlayerInfo.MPP)
+                        {
+                            api.ThirdParty.SendString("/ja \"Convert\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        }
+                        else if (ConvertMP.Checked && ConvertHPP.Value <= PlayerInfo.HPP && ConvertMPP.Value >= PlayerInfo.MPP)
+                        {
+                            api.ThirdParty.SendString("/ja \"Convert\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        }
+                    }
+                    else if (jacontrol[ability.ID].buff2 != null && !PlayerInfo.HasBuff(jacontrol[ability.ID].buff1) &&
+                        !PlayerInfo.HasBuff(jacontrol[ability.ID].buff2))
+                    {
+                    }
+                    else if (jacontrol[ability.ID].buff1 != null)
+                    {
+                        if (!PlayerInfo.HasBuff(jacontrol[ability.ID].buff1))
+                        {
+                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", J, ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")));
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        }
+                    }
+                    else if (jacontrol[ability.ID].buff3 != null)
+                    {
+                        if (!PlayerInfo.HasBuff(jacontrol[ability.ID].buff3))
+                        {
+                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", J, ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")));
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        }
+                    }
+                    else if (jacontrol[ability.ID].hp != null)
+                    {
+                        if (PlayerInfo.HPP <= jacontrol[ability.ID].hp)
+                        {
+                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", J, ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")));
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        }
+                    }
+                    else if (jacontrol[ability.ID].thp != null)
+                    {
+                        if (TargetInfo.HPP <= jacontrol[ability.ID].thp)
+                        {
+                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", J, ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")));
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        }
+                    }
+                    else
+                    {
+                        api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", J, ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")));
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
+                    
             }
-            if (ja.Contains("Grand Pas - (DNC)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(507) && Recast.GetAbilityRecast(254) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Grand Pas\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-            #region RUN JA
-            if (ja.Contains("Ignis - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(523) && Recast.GetAbilityRecast(10) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Ignis\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Gelus - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(524) && Recast.GetAbilityRecast(10) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Gelus\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Flabra - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(525) && Recast.GetAbilityRecast(10) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Flabra\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Tellus - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(526) && Recast.GetAbilityRecast(10) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Tellus\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Sulpor - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(527) && Recast.GetAbilityRecast(10) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Sulpor\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Unda - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(528) && Recast.GetAbilityRecast(10) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Unda\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Lux - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(529) && Recast.GetAbilityRecast(10) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Lux\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Tenebrae - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(530) && Recast.GetAbilityRecast(10) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Tenebrae\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Vallation - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(531) && Recast.GetAbilityRecast(23) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Vallation\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            else if (ja.Contains("Valiance - (Rune Fencer)") && PlayerInfo.HasBuff(531) == false &&
-                     Recast.GetAbilityRecast(113) == 0 && PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Valiance\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Pflug - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(533) && Recast.GetAbilityRecast(59) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Pflug\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Valiance - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(535) &&
-                !PlayerInfo.HasBuff(531) &&
-                Recast.GetAbilityRecast(113) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Valiance\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Liement - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(537) && Recast.GetAbilityRecast(117) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Liement\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Lunge - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(25) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Lunge\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Gambit - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(116) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Gambit\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Swordplay - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(532) && Recast.GetAbilityRecast(24) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Swordplay\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Embolden - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(534) && Recast.GetAbilityRecast(72) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Embolden\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Battuta - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(570) && Recast.GetAbilityRecast(120) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Battuta\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Rayke - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(119) == 0 && PlayerInfo.Status == 1 &&
-                TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Rayke\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("One For All - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                !PlayerInfo.HasBuff(538) && Recast.GetAbilityRecast(118) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"One For All\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (ja.Contains("Crusade - (Rune Fencer)") && !PlayerInfo.HasBuff(16) && PlayerInfo.MPP > 18 &&
-                !PlayerInfo.HasBuff(289) && Recast.GetSpellRecast(476) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ma \"Crusade\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(10.0));
-            }
-            if (ja.Contains("Odyllic Subterfuge - (Rune Fencer)") && !PlayerInfo.HasBuff(16) &&
-                PlayerInfo.MPP > 18 && Recast.GetSpellRecast(476) == 0 &&
-                PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Odyllic Subterfuge\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            #endregion
-
         }
 
         #region JA: NIN (shadows)
@@ -10601,5 +9910,19 @@
         private Label label54;
         private TabPage DynamisPage;
         private CheckBox staggerstopJA;
+        private NumericUpDown BenedictionHPPuse;
+        private Label BenedictionHP;
+        private NumericUpDown MONhpCount;
+        private Label MONHealHP;
+        private TabPage GEOtab;
+        private NumericUpDown MONmpCount;
+        private Label MONHealMP;
+        private GroupBox ConvertBox;
+        private NumericUpDown ConvertMPP;
+        private NumericUpDown ConvertHPP;
+        private CheckBox ConvertMP;
+        private CheckBox ConvertHP;
+        private Label label56;
+        private Label label57;
     }
 }
