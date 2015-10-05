@@ -275,6 +275,13 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.autoRangeAttack = new System.Windows.Forms.CheckBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.ConvertBox = new System.Windows.Forms.GroupBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.ConvertMPP = new System.Windows.Forms.NumericUpDown();
+            this.ConvertHPP = new System.Windows.Forms.NumericUpDown();
+            this.ConvertMP = new System.Windows.Forms.CheckBox();
+            this.ConvertHP = new System.Windows.Forms.CheckBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.MONmpCount = new System.Windows.Forms.NumericUpDown();
             this.MONHealMP = new System.Windows.Forms.Label();
             this.MONhpCount = new System.Windows.Forms.NumericUpDown();
@@ -478,13 +485,11 @@
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
-            this.ConvertBox = new System.Windows.Forms.GroupBox();
-            this.ConvertHP = new System.Windows.Forms.CheckBox();
-            this.ConvertMP = new System.Windows.Forms.CheckBox();
-            this.ConvertHPP = new System.Windows.Forms.NumericUpDown();
-            this.ConvertMPP = new System.Windows.Forms.NumericUpDown();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage17 = new System.Windows.Forms.TabPage();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -522,6 +527,9 @@
             this.groupBox15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).BeginInit();
             this.tabPage11.SuspendLayout();
+            this.ConvertBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).BeginInit();
@@ -608,9 +616,10 @@
             this.tabPage13.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.DynamisPage.SuspendLayout();
-            this.ConvertBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.tabPage17.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkZone
@@ -2205,13 +2214,7 @@
             // 
             // tabPage11
             // 
-            this.tabPage11.Controls.Add(this.ConvertBox);
-            this.tabPage11.Controls.Add(this.MONmpCount);
-            this.tabPage11.Controls.Add(this.MONHealMP);
-            this.tabPage11.Controls.Add(this.MONhpCount);
-            this.tabPage11.Controls.Add(this.MONHealHP);
-            this.tabPage11.Controls.Add(this.BenedictionHPPuse);
-            this.tabPage11.Controls.Add(this.BenedictionHP);
+            this.tabPage11.Controls.Add(this.tabControl1);
             this.tabPage11.Controls.Add(this.playerJA);
             this.tabPage11.Controls.Add(this.GetSetJA);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
@@ -2222,10 +2225,81 @@
             this.tabPage11.Text = "JA\'s";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // ConvertBox
+            // 
+            this.ConvertBox.Controls.Add(this.label56);
+            this.ConvertBox.Controls.Add(this.ConvertMPP);
+            this.ConvertBox.Controls.Add(this.ConvertHPP);
+            this.ConvertBox.Controls.Add(this.ConvertHP);
+            this.ConvertBox.Controls.Add(this.label57);
+            this.ConvertBox.Controls.Add(this.ConvertMP);
+            this.ConvertBox.Location = new System.Drawing.Point(3, 6);
+            this.ConvertBox.Name = "ConvertBox";
+            this.ConvertBox.Size = new System.Drawing.Size(129, 88);
+            this.ConvertBox.TabIndex = 20;
+            this.ConvertBox.TabStop = false;
+            this.ConvertBox.Text = "Convert";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(65, 39);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(30, 13);
+            this.label56.TabIndex = 18;
+            this.label56.Text = "HP%";
+            // 
+            // ConvertMPP
+            // 
+            this.ConvertMPP.Enabled = false;
+            this.ConvertMPP.Location = new System.Drawing.Point(9, 55);
+            this.ConvertMPP.Name = "ConvertMPP";
+            this.ConvertMPP.Size = new System.Drawing.Size(38, 20);
+            this.ConvertMPP.TabIndex = 17;
+            // 
+            // ConvertHPP
+            // 
+            this.ConvertHPP.Enabled = false;
+            this.ConvertHPP.Location = new System.Drawing.Point(68, 55);
+            this.ConvertHPP.Name = "ConvertHPP";
+            this.ConvertHPP.Size = new System.Drawing.Size(38, 20);
+            this.ConvertHPP.TabIndex = 16;
+            // 
+            // ConvertMP
+            // 
+            this.ConvertMP.AutoSize = true;
+            this.ConvertMP.Enabled = false;
+            this.ConvertMP.Location = new System.Drawing.Point(6, 15);
+            this.ConvertMP.Name = "ConvertMP";
+            this.ConvertMP.Size = new System.Drawing.Size(60, 17);
+            this.ConvertMP.TabIndex = 1;
+            this.ConvertMP.Text = "For MP";
+            this.ConvertMP.UseVisualStyleBackColor = true;
+            // 
+            // ConvertHP
+            // 
+            this.ConvertHP.AutoSize = true;
+            this.ConvertHP.Enabled = false;
+            this.ConvertHP.Location = new System.Drawing.Point(67, 14);
+            this.ConvertHP.Name = "ConvertHP";
+            this.ConvertHP.Size = new System.Drawing.Size(59, 17);
+            this.ConvertHP.TabIndex = 0;
+            this.ConvertHP.Text = "For HP";
+            this.ConvertHP.UseVisualStyleBackColor = true;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(6, 39);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(31, 13);
+            this.label57.TabIndex = 19;
+            this.label57.Text = "MP%";
+            // 
             // MONmpCount
             // 
             this.MONmpCount.Enabled = false;
-            this.MONmpCount.Location = new System.Drawing.Point(278, 108);
+            this.MONmpCount.Location = new System.Drawing.Point(92, 5);
             this.MONmpCount.Name = "MONmpCount";
             this.MONmpCount.Size = new System.Drawing.Size(38, 20);
             this.MONmpCount.TabIndex = 19;
@@ -2233,16 +2307,16 @@
             // MONHealMP
             // 
             this.MONHealMP.AutoSize = true;
-            this.MONHealMP.Location = new System.Drawing.Point(183, 110);
+            this.MONHealMP.Location = new System.Drawing.Point(30, 5);
             this.MONHealMP.Name = "MONHealMP";
-            this.MONHealMP.Size = new System.Drawing.Size(90, 13);
+            this.MONHealMP.Size = new System.Drawing.Size(56, 13);
             this.MONHealMP.TabIndex = 18;
-            this.MONHealMP.Text = "(MON) Heal MP%";
+            this.MONHealMP.Text = "Heal MP%";
             // 
             // MONhpCount
             // 
             this.MONhpCount.Enabled = false;
-            this.MONhpCount.Location = new System.Drawing.Point(278, 130);
+            this.MONhpCount.Location = new System.Drawing.Point(92, 27);
             this.MONhpCount.Name = "MONhpCount";
             this.MONhpCount.Size = new System.Drawing.Size(38, 20);
             this.MONhpCount.TabIndex = 17;
@@ -2250,16 +2324,16 @@
             // MONHealHP
             // 
             this.MONHealHP.AutoSize = true;
-            this.MONHealHP.Location = new System.Drawing.Point(183, 132);
+            this.MONHealHP.Location = new System.Drawing.Point(31, 27);
             this.MONHealHP.Name = "MONHealHP";
-            this.MONHealHP.Size = new System.Drawing.Size(89, 13);
+            this.MONHealHP.Size = new System.Drawing.Size(55, 13);
             this.MONHealHP.TabIndex = 16;
-            this.MONHealHP.Text = "(MON) Heal HP%";
+            this.MONHealHP.Text = "Heal HP%";
             // 
             // BenedictionHPPuse
             // 
             this.BenedictionHPPuse.Enabled = false;
-            this.BenedictionHPPuse.Location = new System.Drawing.Point(278, 8);
+            this.BenedictionHPPuse.Location = new System.Drawing.Point(68, 23);
             this.BenedictionHPPuse.Name = "BenedictionHPPuse";
             this.BenedictionHPPuse.Size = new System.Drawing.Size(38, 20);
             this.BenedictionHPPuse.TabIndex = 15;
@@ -2267,7 +2341,7 @@
             // BenedictionHP
             // 
             this.BenedictionHP.AutoSize = true;
-            this.BenedictionHP.Location = new System.Drawing.Point(172, 10);
+            this.BenedictionHP.Location = new System.Drawing.Point(6, 7);
             this.BenedictionHP.Name = "BenedictionHP";
             this.BenedictionHP.Size = new System.Drawing.Size(100, 13);
             this.BenedictionHP.TabIndex = 14;
@@ -2279,7 +2353,7 @@
             this.playerJA.FormattingEnabled = true;
             this.playerJA.Location = new System.Drawing.Point(6, 6);
             this.playerJA.Name = "playerJA";
-            this.playerJA.Size = new System.Drawing.Size(165, 139);
+            this.playerJA.Size = new System.Drawing.Size(152, 139);
             this.playerJA.TabIndex = 13;
             this.playerJA.SelectedIndexChanged += new System.EventHandler(this.playerJA_SelectedIndexChanged);
             // 
@@ -4698,76 +4772,64 @@
             this.DeathWarp.Text = "Warp on Death";
             this.DeathWarp.UseVisualStyleBackColor = true;
             // 
-            // ConvertBox
+            // tabControl1
             // 
-            this.ConvertBox.Controls.Add(this.label56);
-            this.ConvertBox.Controls.Add(this.ConvertMPP);
-            this.ConvertBox.Controls.Add(this.ConvertHPP);
-            this.ConvertBox.Controls.Add(this.ConvertMP);
-            this.ConvertBox.Controls.Add(this.ConvertHP);
-            this.ConvertBox.Controls.Add(this.label57);
-            this.ConvertBox.Location = new System.Drawing.Point(175, 34);
-            this.ConvertBox.Name = "ConvertBox";
-            this.ConvertBox.Size = new System.Drawing.Size(146, 63);
-            this.ConvertBox.TabIndex = 20;
-            this.ConvertBox.TabStop = false;
-            this.ConvertBox.Text = "Convert";
+            this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Controls.Add(this.tabPage17);
+            this.tabControl1.Location = new System.Drawing.Point(168, 6);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(153, 139);
+            this.tabControl1.TabIndex = 14;
             // 
-            // ConvertHP
+            // tabPage7
             // 
-            this.ConvertHP.AutoSize = true;
-            this.ConvertHP.Enabled = false;
-            this.ConvertHP.Location = new System.Drawing.Point(7, 15);
-            this.ConvertHP.Name = "ConvertHP";
-            this.ConvertHP.Size = new System.Drawing.Size(59, 17);
-            this.ConvertHP.TabIndex = 0;
-            this.ConvertHP.Text = "For HP";
-            this.ConvertHP.UseVisualStyleBackColor = true;
+            this.tabPage7.Controls.Add(this.BenedictionHP);
+            this.tabPage7.Controls.Add(this.BenedictionHPPuse);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(145, 113);
+            this.tabPage7.TabIndex = 0;
+            this.tabPage7.Text = "WHM";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // ConvertMP
+            // tabPage8
             // 
-            this.ConvertMP.AutoSize = true;
-            this.ConvertMP.Enabled = false;
-            this.ConvertMP.Location = new System.Drawing.Point(7, 37);
-            this.ConvertMP.Name = "ConvertMP";
-            this.ConvertMP.Size = new System.Drawing.Size(60, 17);
-            this.ConvertMP.TabIndex = 1;
-            this.ConvertMP.Text = "For MP";
-            this.ConvertMP.UseVisualStyleBackColor = true;
+            this.tabPage8.Controls.Add(this.ConvertBox);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(145, 113);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "RDM";
+            this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // ConvertHPP
+            // tabPage9
             // 
-            this.ConvertHPP.Enabled = false;
-            this.ConvertHPP.Location = new System.Drawing.Point(102, 12);
-            this.ConvertHPP.Name = "ConvertHPP";
-            this.ConvertHPP.Size = new System.Drawing.Size(38, 20);
-            this.ConvertHPP.TabIndex = 16;
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(145, 113);
+            this.tabPage9.TabIndex = 2;
+            this.tabPage9.Text = "RUN";
+            this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // ConvertMPP
+            // tabPage17
             // 
-            this.ConvertMPP.Enabled = false;
-            this.ConvertMPP.Location = new System.Drawing.Point(102, 37);
-            this.ConvertMPP.Name = "ConvertMPP";
-            this.ConvertMPP.Size = new System.Drawing.Size(38, 20);
-            this.ConvertMPP.TabIndex = 17;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(72, 14);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(30, 13);
-            this.label56.TabIndex = 18;
-            this.label56.Text = "HP%";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(72, 38);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(31, 13);
-            this.label57.TabIndex = 19;
-            this.label57.Text = "MP%";
+            this.tabPage17.Controls.Add(this.MONmpCount);
+            this.tabPage17.Controls.Add(this.MONHealMP);
+            this.tabPage17.Controls.Add(this.MONHealHP);
+            this.tabPage17.Controls.Add(this.MONhpCount);
+            this.tabPage17.Location = new System.Drawing.Point(4, 22);
+            this.tabPage17.Name = "tabPage17";
+            this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage17.Size = new System.Drawing.Size(145, 113);
+            this.tabPage17.TabIndex = 3;
+            this.tabPage17.Text = "MON";
+            this.tabPage17.UseVisualStyleBackColor = true;
             // 
             // ScriptFarmDNC
             // 
@@ -4834,6 +4896,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).EndInit();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
+            this.ConvertBox.ResumeLayout(false);
+            this.ConvertBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).EndInit();
@@ -4946,10 +5012,12 @@
             this.tabPage12.PerformLayout();
             this.DynamisPage.ResumeLayout(false);
             this.DynamisPage.PerformLayout();
-            this.ConvertBox.ResumeLayout(false);
-            this.ConvertBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage17.ResumeLayout(false);
+            this.tabPage17.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6292,9 +6360,13 @@
                 #endregion
             };
                    
-            foreach (string J in ja)
+            //foreach (var J in ja)
+            for (var i = 0; i < ja.Count; i++)
             {
+                var J = ja[i];
+                api.ThirdParty.SendString(String.Format("/echo {0} {1}", J, ja.Count));
                 var ability = api.Resources.GetAbility(J);
+                api.ThirdParty.SendString(String.Format("/echo {0}", ability.Name));
                 if (ability == null)
                 {
                     if (J == "Chivalry TP > 1000" && !PlayerInfo.HasBuff(16) &&
@@ -6364,7 +6436,7 @@
                         }
                     }
                 }
-                else if (jacontrol[ability.ID] == null) {}
+                else if (jacontrol[ability.ID] == null) { }
                 else if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
                      PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                 {
@@ -6394,6 +6466,7 @@
                     {
                         if (!PlayerInfo.HasBuff(jacontrol[ability.ID].buff1))
                         {
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", J, ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")));
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         }
@@ -6427,8 +6500,7 @@
                         api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", J, ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")));
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                }
-                    
+                } 
             }
         }
 
@@ -9924,5 +9996,10 @@
         private CheckBox ConvertHP;
         private Label label56;
         private Label label57;
+        private TabControl tabControl1;
+        private TabPage tabPage7;
+        private TabPage tabPage8;
+        private TabPage tabPage9;
+        private TabPage tabPage17;
     }
 }
