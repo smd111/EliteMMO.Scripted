@@ -5,16 +5,35 @@
                 {
                     var magic = api.Resources.GetSpell(M);
                     
-                    if (M.contains("Protect") && !PlayerInfo.HasBuff(40) && Recast.GetSpellRecast(magic.TimerID) == 0)
+                    if (M.contains("Protect") && !PlayerInfo.HasBuff(40) &&
+                        (PlayerInfo.MP >= magic.MP || PlayerInfo.HasBuff(47) || PlayerInfo.HasBuff(229)) &&
+                        Recast.GetSpellRecast(magic.TimerID) == 0)
                     {
-                        api.ThirdParty.SendString("/ma \"Absorb-MND\" <me>");
-                        Thread.Sleep(TimeSpan.FromSeconds(4.0));
+                        api.ThirdParty.SendString(String.Format("/ma \"{0}\" <me>", M);
+                        isCasting();
+                    }
+                    else if (M.contains("Shell") && !PlayerInfo.HasBuff(41) &&
+                        (PlayerInfo.MP >= magic.MP || PlayerInfo.HasBuff(47) || PlayerInfo.HasBuff(229)) &&
+                        Recast.GetSpellRecast(magic.TimerID) == 0)
+                    {
+                        api.ThirdParty.SendString(String.Format("/ma \"{0}\" <me>", M);
+                        isCasting();
+                    }
+                    else
+                    {
+                        if ((PlayerInfo.MP >= magic.MP || PlayerInfo.HasBuff(47) || PlayerInfo.HasBuff(229)) &&
+                            Recast.GetSpellRecast(magic.TimerID) == 0))
+                        {
+                            api.ThirdParty.SendString(String.Format("/ma \"{0}\" <me>", M);
+                            isCasting();
+                        }
                     }
                 }
  
         MAautoJA(M, ja);
         private void MAautoJA(string M, List<string> ja)
         {
+            var magic = api.Resources.GetSpell(M);
             #region BLK MAJA
             if (PlayerInfo.MP < magic.MP && !PlayerInfo.HasBuff(47) && !PlayerInfo.HasBuff(229))
             {
@@ -140,10 +159,18 @@
                 }
             }
             #endregion
+            #region BRD MAJA
+            #endregion
             #region SCH MAJA
             #endregion
             #region GEO MAJA
             #endregion
             #region RUN MAJA
             #endregion
+        }
+        private void isCasting()
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            while (napi.CastBar.Percent) Thread.Sleep(TimeSpan.FromSeconds(0.1));
+            Thread.Sleep(TimeSpan.FromSeconds(0.3));
         }

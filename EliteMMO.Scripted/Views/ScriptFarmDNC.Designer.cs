@@ -4914,7 +4914,7 @@
             // 
             // bgw_script_npc
             // 
-            this.bgw_script_npc.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw_script_npc_DoWork);
+            //this.bgw_script_npc.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw_script_npc_DoWork);
             // 
             // DeathWarp
             // 
@@ -5438,9 +5438,6 @@
             if (!bgw_script_nav.IsBusy)
                 bgw_script_nav.RunWorkerAsync();
             
-            if (!bgw_script_sch.IsBusy)
-                bgw_script_sch.RunWorkerAsync();
-            
             if (!bgw_script_chat.IsBusy)
                 bgw_script_chat.RunWorkerAsync();
         }
@@ -5463,7 +5460,6 @@
             bgw_script_dnc.CancelAsync();
             bgw_script_pet.CancelAsync();
             bgw_script_nav.CancelAsync();
-            bgw_script_sch.CancelAsync();
             bgw_script_chat.CancelAsync();
         }
 
@@ -5488,7 +5484,7 @@
             List<uint> abilitylist = new List<uint>(new uint[] {528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542,
             543, 544, 545, 546, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567,
             568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592,
-            593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617,
+            593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611, 612, 613, 614, 615, 616, 617,
             618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642,
             643, 644, 645, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668,
             669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693,
@@ -5539,6 +5535,7 @@
             {
                 for (uint i = 528; i <= 2227; i++)
                 {
+                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
                     if (PlayerInfo.HasAbility(i))
                     {
                         var ability = api.Resources.GetAbility(i);
@@ -5582,6 +5579,8 @@
                     }
                 }
                 if (playerJA.Items.Contains("Sharpshot") && playerJA.Items.Contains("Barrage")) playerJA.Items.Add("Sharpshot + Barrage");
+                if (PlayerInfo.MainJob != 20 || PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
+                else bgw_script_sch.RunWorkerAsync();
             }
         }
 
@@ -6206,8 +6205,10 @@
         private void UseFlourish()
         {
             if (!botRunning || PlayerInfo.Status != 1 || PlayerInfo.HasBuff(16)) 
-                return;
+                return;;
 
+            if (MonStagered) return;
+            
             var retVal = 0;
 
             if (PlayerInfo.HasBuff(381)) { retVal = 1; }
@@ -6217,6 +6218,7 @@
             else if (PlayerInfo.HasBuff(385)) { retVal = 5; }
             else if (PlayerInfo.HasBuff(588)) { retVal = 6; }
 
+            
             if (PlayerInfo.Status == 1 && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
                 Recast.GetAbilityRecast(222) == 0 && Recast.GetAbilityRecast(226) == 0)
             {
@@ -6266,6 +6268,8 @@
             if (StepsHP.Checked && PlayerInfo.HPP < StepsHPValue.Value)
                 return;
 
+            if (MonStagered) return;
+            
             var retVal = 0;
 
                  if (PlayerInfo.HasBuff(381)) { retVal = 1; }
@@ -6327,13 +6331,13 @@
                     {569, new {}}, {570, new {}}, {571, new {buff1=172}}, {572, new {buff1=73}}, {574, new {buff1=67}}, {575, new {name="Meditate"}},
                     {576, new {buff1=117}}, {577, new {buff1=118}}, {578, new {}}, {579, new {}}, {580, new {}}, {588, new {buff1=87}}, {589, new {}},
                     {594, new {}}, {595, new {}}, {598, new {buff1=115}}, {604, new {}}, {605, new {}}, {606, new {buff1=164}}, {607, new {buff1=165}},
-                    {608, new {}}, {610, new {name="Fighter's Roll"}}, {611, new {name="Monk's Roll"}}, {612, new {name="Healer's Roll"}},
-                    {613, new {name="Wizard's Roll"}}, {614, new {name="Warlock's Roll"}}, {615, new {name="Rogue's Roll"}}, {616, new {name="Gallant's Roll"}},
-                    {617, new {name="Chaos Roll"}}, {618, new {name="Beast Roll"}}, {619, new {name="Choral Roll"}}, {620, new {name="Hunter's Roll"}},
-                    {621, new {name="Samurai Roll"}}, {622, new {name="Ninja Roll"}}, {623, new {name="Drachen Roll"}}, {624, new {name="Evoker's Roll"}},
-                    {625, new {name="Magus's Roll"}}, {626, new {name="Corsair's Roll"}}, {627, new {name="Puppet Roll"}}, {628, new {name="Dancer's Roll"}},
-                    {629, new {name="Scholar's Roll"}}, {630, new {name="Bolter's Roll"}}, {631, new {name="Caster's Roll"}}, {632, new {name="Courser's Roll"}},
-                    {633, new {name="Blitzer's Roll"}}, {634, new {name="Tactician's Roll"}}, {635, new {buff3=308}}, {636, new {name="Quick Draw"}},
+                    {608, new {}}, {610, new {buff1=310,buff2=309}}, {611, new {buff1=311,buff2=309}}, {612, new {buff1=312,buff2=309}}, 
+                    {613, new {buff1=313,buff2=309}}, {614, new {buff1=314,buff2=309}}, {615, new {buff1=315,buff2=309}}, {616, new {buff1=316,buff2=309}},
+                    {617, new {buff1=317,buff2=309}}, {618, new {buff1=318,buff2=309}}, {619, new {buff1=319,buff2=309}}, {620, new {buff1=320,buff2=309}},
+                    {621, new {buff1=321,buff2=309}}, {622, new {buff1=322,buff2=309}}, {623, new {buff1=323,buff2=309}}, {624, new {buff1=324,buff2=309}},
+                    {625, new {buff1=325,buff2=309}}, {626, new {buff1=326,buff2=309}}, {627, new {buff1=327,buff2=309}}, {628, new {buff1=328,buff2=309}},
+                    {629, new {buff1=329,buff2=309}}, {630, new {buff1=330,buff2=309}}, {631, new {buff1=331,buff2=309}}, {632, new {buff1=332,buff2=309}},
+                    {633, new {buff1=333,buff2=309}}, {634, new {buff1=334,buff2=309}}, {635, new {buff3=308}}, {636, new {name="Quick Draw"}},
                     {637, new {name="Fire Shot"}}, {638, new {name="Ice Shot"}}, {639, new {name="Wind Shot"}}, {640, new {name="Earth Shot"}},
                     {641, new {name="Thunder Shot"}}, {642, new {name="Water Shot"}}, {643, new {name="Light Shot"}}, {644, new {name="Dark Shot"}},
                     {645, new {}}, {661, new {buff1=340,buff2=490}}, {662, new {}}, {663, new {buff1=19}}, {664, new {buff1=341}}, {667, new {buff1=342}},
@@ -6344,99 +6348,25 @@
                     {760, new {buff1=420}}, {761, new {nuff1=421}}, {764, new {buff1=435}}, {765, new {buff1=436}}, {769, new {buff1=433}}, {772, new {}},
                     {773, new {buff1=442}}, {777, new {}}, {779, new {buff1=460,buff2=68}}, {781, new {buff1=461}}, {783, new {buff1=477}}, {784, new {}},
                     {788, new {buff1=462}}, {789, new {}}, {790, new {buff1=478}}, {791, new {}}, {792, new {buff1=479}}, {797, new {}}, {798, new {buff1=482}},
-                    {799, new {buff1=465}}, {803, new {buff1=484}}, {804, new {}}, {805, new {}}, {813, new {buff1=467}}, {814, new {name="Allies' Roll"}},
-                    {815, new {name="Miser's Roll"}}, {816, new {name="Companion's Roll"}}, {817, new {name="Avenger's Roll"}}, {833, new {thp=10}},
+                    {799, new {buff1=465}}, {803, new {buff1=484}}, {804, new {}}, {805, new {}}, {813, new {buff1=467}}, {814, new {buff1=335,buff2=309}},
+                    {815, new {buff1=336,buff2=309}}, {816, new {buff1=337,buff2=309}}, {817, new {buff1=338,buff2=309}}, {833, new {thp=10}},
                     {835, new {buff1=490,buff2=340}}, {836, new {buff1=491}}, {837, new {buff1=492}}, {840, new {}}, {841, new {}}, {842, new {buff1=497}},
                     {844, new {buff1=499}}, {845, new {buff1=500}}, {846, new {buff1=501}}, {847, new {buff1=502}}, {848, new {buff1=503}}, {851, new {}},
                     {853, new {buff1=507}}, {856, new {}}, {868, new {}}, {870, new {buff1=523}}, {871, new {buff1=524}}, {872, new {buff1=525}},
                     {873, new {buff1=526}}, {874, new {buff1=527}}, {875, new {buff1=528}}, {876, new {buff1=529}}, {877, new {buff1=530}}, {878, new {buff1=531}},
                     {879, new {buff1=532}}, {880, new {}}, {881, new {buff1=533}}, {882, new {buff1=534}}, {883, new {buff1=535}}, {884, new {}},
                     {885, new {buff1=537}}, {886, new {buff1=538}}, {887, new {}}, {888, new {buff1=570}}, {890, new {}}, {901, new {buff1=599}},
-                    {902, new {name="Naturalist's Roll"}}, {903, new {name="Runeist's Roll"}}, {904, new {buff1=601}},
+                    {902, new {buff1=339,buff2=309}}, {903, new {buff1=600,buff2=309}}, {904, new {buff1=601}},
                     #endregion
                     #region monJA control
-                    {1024, new {}}, {1025, new {}}, {1026, new {}}, {1027, new {}}, {1028, new {}}, {1029, new {}}, {1030, new {}}, {1031, new {}}, {1032, new {}},
-                    {1033, new {}}, {1034, new {}}, {1035, new {}}, {1036, new {}}, {1037, new {}}, {1038, new {}}, {1039, new {}}, {1040, new {}}, {1041, new {}},
-                    {1042, new {}}, {1043, new {}}, {1044, new {}}, {1045, new {}}, {1046, new {}}, {1048, new {}}, {1049, new {}}, {1050, new {}}, {1051, new {}},
-                    {1056, new {}}, {1057, new {}}, {1058, new {}}, {1059, new {}}, {1060, new {}}, {1061, new {}}, {1062, new {}}, {1063, new {}}, {1064, new {}},
-                    {1065, new {}}, {1066, new {}}, {1072, new {}}, {1073, new {}}, {1074, new {}}, {1075, new {}}, {1076, new {}}, {1077, new {}}, {1078, new {}},
-                    {1079, new {}}, {1080, new {}}, {1081, new {}}, {1082, new {}}, {1088, new {}}, {1089, new {}}, {1090, new {}}, {1091, new {}}, {1092, new {}},
-                    {1093, new {}}, {1094, new {}}, {1095, new {}}, {1096, new {}}, {1097, new {}}, {1098, new {}}, {1104, new {}}, {1105, new {}}, {1106, new {}},
-                    {1107, new {}}, {1108, new {}}, {1109, new {}}, {1110, new {}}, {1111, new {}}, {1112, new {}}, {1113, new {}}, {1114, new {}}, {1120, new {}},
-                    {1121, new {}}, {1122, new {}}, {1123, new {}}, {1124, new {}}, {1125, new {}}, {1126, new {}}, {1127, new {}}, {1128, new {}}, {1129, new {}},
-                    {1130, new {}}, {1136, new {}}, {1137, new {}}, {1138, new {}}, {1139, new {}}, {1140, new {}}, {1141, new {}}, {1142, new {}}, {1143, new {}},
-                    {1144, new {}}, {1145, new {}}, {1146, new {}}, {1151, new {}}, {1152, new {}}, {1153, new {}}, {1154, new {}}, {1155, new {}}, {1156, new {}},
-                    {1157, new {}}, {1158, new {}}, {1159, new {}}, {1160, new {}}, {1161, new {}}, {1162, new {}}, {1163, new {}}, {1164, new {}}, {1165, new {}},
-                    {1166, new {}}, {1168, new {}}, {1169, new {}}, {1170, new {}}, {1171, new {}}, {1172, new {}}, {1173, new {}}, {1174, new {}}, {1175, new {}},
-                    {1176, new {}}, {1177, new {}}, {1178, new {}}, {1179, new {}}, {1180, new {}}, {1181, new {}}, {1182, new {}}, {1183, new {}}, {1184, new {}},
-                    {1185, new {}}, {1186, new {}}, {1187, new {}}, {1188, new {}}, {1189, new {}}, {1190, new {}}, {1191, new {}}, {1192, new {}}, {1193, new {}},
-                    {1194, new {}}, {1195, new {}}, {1196, new {}}, {1197, new {}}, {1198, new {}}, {1199, new {}}, {1200, new {}}, {1201, new {}}, {1202, new {}},
-                    {1203, new {}}, {1204, new {}}, {1205, new {}}, {1206, new {}}, {1207, new {}}, {1208, new {}}, {1209, new {}}, {1210, new {}}, {1211, new {}},
-                    {1212, new {}}, {1213, new {}}, {1214, new {}}, {1215, new {}}, {1216, new {}}, {1217, new {}}, {1218, new {}}, {1219, new {}}, {1220, new {}},
-                    {1221, new {}}, {1222, new {}}, {1223, new {}}, {1224, new {}}, {1225, new {}}, {1226, new {}}, {1227, new {}}, {1228, new {}}, {1229, new {}},
-                    {1230, new {}}, {1231, new {}}, {1232, new {}}, {1233, new {}}, {1234, new {}}, {1235, new {}}, {1236, new {}}, {1237, new {}}, {1238, new {}},
-                    {1239, new {}}, {1240, new {}}, {1241, new {}}, {1242, new {}}, {1243, new {}}, {1244, new {}}, {1245, new {}}, {1246, new {}},
-                    {1247, new {hp=75}}, {1248, new {}}, {1249, new {}}, {1250, new {}}, {1252, new {}}, {1253, new {}}, {1255, new {}}, {1256, new {}},
-                    {1257, new {}}, {1258, new {}}, {1259, new {}}, {1260, new {}}, {1261, new {}}, {1262, new {}}, {1263, new {}}, {1264, new {}}, {1265, new {}},
-                    {1266, new {}}, {1267, new {}}, {1268, new {}}, {1269, new {}}, {1270, new {}}, {1271, new {}}, {1272, new {}}, {1273, new {}}, {1274, new {}},
-                    {1275, new {}}, {1276, new {}}, {1277, new {}}, {1278, new {}}, {1279, new {}}, {1280, new {}}, {1281, new {}}, {1282, new {}}, {1283, new {}},
-                    {1284, new {}}, {1285, new {}}, {1286, new {}}, {1287, new {}}, {1288, new {}}, {1289, new {}}, {1290, new {}}, {1291, new {}}, {1292, new {}},
-                    {1293, new {}}, {1294, new {}}, {1793, new {}}, {1794, new {}}, {1795, new {}}, {1796, new {}}, {1797, new {}}, {1798, new {}}, {1799, new {}},
-                    {1800, new {}}, {1801, new {}}, {1802, new {}}, {1803, new {}}, {1804, new {}}, {1805, new {}}, {1806, new {}}, {1807, new {}}, {1808, new {}},
-                    {1809, new {}}, {1810, new {}}, {1811, new {}}, {1812, new {}}, {1813, new {}}, {1814, new {}}, {1815, new {}}, {1816, new {}}, {1817, new {}},
-                    {1818, new {hp=75}}, {1819, new {}}, {1820, new {}}, {1821, new {}}, {1822, new {}}, {1823, new {}}, {1824, new {}}, {1825, new {hp=75}},
-                    {1826, new {}}, {1827, new {}}, {1828, new {}}, {1829, new {}}, {1830, new {}}, {1831, new {}}, {1832, new {}}, {1833, new {}}, {1834, new {}},
-                    {1835, new {}}, {1836, new {}}, {1837, new {}}, {1838, new {}}, {1839, new {}}, {1840, new {}}, {1841, new {}}, {1842, new {}}, {1843, new {}},
-                    {1844, new {}}, {1845, new {}}, {1846, new {}}, {1847, new {}}, {1848, new {}}, {1849, new {}}, {1850, new {hp=75}}, {1851, new {}},
-                    {1852, new {}}, {1853, new {}}, {1854, new {}}, {1855, new {}}, {1856, new {hp=75}}, {1857, new {}}, {1858, new {}}, {1859, new {}},
-                    {1860, new {}}, {1861, new {}}, {1862, new {}}, {1863, new {}}, {1864, new {}}, {1865, new {}}, {1866, new {}}, {1867, new {}}, {1868, new {}},
-                    {1869, new {}}, {1870, new {}}, {1871, new {}}, {1872, new {}}, {1873, new {}}, {1874, new {}}, {1875, new {}}, {1876, new {}}, {1877, new {}},
-                    {1878, new {}}, {1879, new {}}, {1880, new {}}, {1881, new {}}, {1882, new {}}, {1883, new {}}, {1884, new {}}, {1885, new {}}, {1886, new {}},
-                    {1887, new {}}, {1888, new {}}, {1889, new {}}, {1890, new {}}, {1891, new {}}, {1892, new {}}, {1893, new {}}, {1894, new {}}, {1895, new {}},
-                    {1896, new {}}, {1897, new {}}, {1898, new {}}, {1899, new {}}, {1900, new {}}, {1901, new {}}, {1902, new {}}, {1903, new {}}, {1904, new {}},
-                    {1905, new {}}, {1906, new {}}, {1907, new {}}, {1908, new {}}, {1909, new {}}, {1910, new {}}, {1911, new {}}, {1912, new {}}, {1913, new {}},
-                    {1914, new {}}, {1915, new {}}, {1916, new {}}, {1917, new {}}, {1918, new {}}, {1919, new {}}, {1920, new {}}, {1921, new {}}, {1922, new {}},
-                    {1923, new {}}, {1924, new {}}, {1925, new {}}, {1926, new {}}, {1927, new {}}, {1928, new {}}, {1929, new {hp=75}}, {1930, new {}},
-                    {1931, new {}}, {1932, new {}}, {1933, new {}}, {1934, new {}}, {1935, new {}}, {1936, new {}}, {1937, new {}}, {1938, new {}}, {1939, new {}},
-                    {1940, new {}}, {1941, new {}}, {1942, new {}}, {1943, new {}}, {1944, new {}}, {1945, new {}}, {1946, new {}}, {1947, new {}}, {1948, new {}},
-                    {1949, new {}}, {1950, new {}}, {1951, new {}}, {1952, new {}}, {1953, new {}}, {1954, new {}}, {1955, new {}}, {1956, new {}}, {1957, new {}},
-                    {1958, new {}}, {1959, new {}}, {1960, new {}}, {1961, new {}}, {1962, new {}}, {1963, new {}}, {1964, new {}}, {1965, new {}}, {1966, new {}},
-                    {1967, new {}}, {1968, new {}}, {1969, new {}}, {1970, new {}}, {1971, new {}}, {1972, new {}}, {1973, new {}}, {1974, new {}}, {1975, new {}},
-                    {1976, new {}}, {1977, new {}}, {1978, new {}}, {1979, new {}}, {1980, new {}}, {1981, new {}}, {1982, new {}}, {1983, new {}}, {1984, new {}},
-                    {1985, new {}}, {1986, new {}}, {1987, new {}}, {1988, new {}}, {1989, new {}}, {1990, new {}}, {1991, new {}}, {1992, new {}}, {1993, new {}},
-                    {1994, new {}}, {1995, new {}}, {1996, new {}}, {1997, new {}}, {1998, new {}}, {1999, new {}}, {2000, new {}}, {2001, new {}}, {2002, new {}},
-                    {2003, new {}}, {2004, new {}}, {2005, new {}}, {2006, new {}}, {2007, new {}}, {2008, new {}}, {2009, new {}}, {2010, new {}}, {2011, new {}},
-                    {2012, new {}}, {2013, new {}}, {2014, new {}}, {2015, new {}}, {2016, new {}}, {2017, new {}}, {2018, new {}}, {2019, new {}}, {2020, new {}},
-                    {2021, new {}}, {2022, new {}}, {2023, new {}}, {2024, new {}}, {2025, new {}}, {2026, new {}}, {2027, new {}}, {2028, new {}}, {2029, new {}},
-                    {2030, new {}}, {2031, new {}}, {2032, new {}}, {2033, new {}}, {2034, new {}}, {2035, new {}}, {2036, new {}}, {2037, new {}}, {2038, new {}},
-                    {2039, new {}}, {2040, new {}}, {2041, new {}}, {2042, new {}}, {2043, new {}}, {2044, new {}}, {2045, new {}}, {2046, new {}}, {2047, new {}},
-                    {2048, new {}}, {2049, new {}}, {2050, new {}}, {2051, new {}}, {2052, new {}}, {2053, new {}}, {2054, new {}}, {2055, new {}}, {2056, new {}},
-                    {2057, new {}}, {2058, new {}}, {2059, new {hp=75}}, {2060, new {}}, {2061, new {}}, {2062, new {}}, {2063, new {}}, {2064, new {}},
-                    {2065, new {}}, {2066, new {}}, {2067, new {}}, {2068, new {}}, {2069, new {}}, {2070, new {}}, {2071, new {}}, {2072, new {}}, {2073, new {}},
-                    {2074, new {}}, {2075, new {}}, {2076, new {}}, {2077, new {}}, {2078, new {}}, {2079, new {}}, {2080, new {}}, {2081, new {}}, {2082, new {}},
-                    {2083, new {}}, {2084, new {}}, {2085, new {}}, {2086, new {}}, {2087, new {}}, {2088, new {mp=75}}, {2089, new {}}, {2090, new {hp=75}},
-                    {2091, new {}}, {2092, new {}}, {2093, new {}}, {2094, new {}}, {2095, new {}}, {2096, new {}}, {2097, new {}}, {2098, new {}}, {2099, new {}},
-                    {2100, new {}}, {2101, new {}}, {2102, new {}}, {2103, new {}}, {2104, new {}}, {2105, new {}}, {2106, new {}}, {2107, new {}}, {2108, new {}},
-                    {2109, new {}}, {2110, new {}}, {2111, new {}}, {2112, new {}}, {2113, new {hp=75}}, {2114, new {hp=75}}, {2115, new {}}, {2116, new {}},
-                    {2117, new {}}, {2118, new {}}, {2119, new {}}, {2120, new {}}, {2121, new {}}, {2122, new {}}, {2123, new {}}, {2124, new {}}, {2125, new {}},
-                    {2126, new {}}, {2127, new {}}, {2128, new {}}, {2129, new {}}, {2130, new {}}, {2131, new {}}, {2132, new {}}, {2133, new {}}, {2134, new {}},
-                    {2135, new {}}, {2136, new {}}, {2137, new {}}, {2138, new {}}, {2139, new {}}, {2140, new {}}, {2141, new {}}, {2142, new {}}, {2143, new {}},
-                    {2144, new {}}, {2145, new {}}, {2146, new {}}, {2147, new {}}, {2148, new {}}, {2149, new {}}, {2150, new {}}, {2151, new {}}, {2152, new {}},
-                    {2153, new {}}, {2154, new {}}, {2155, new {}}, {2156, new {}}, {2157, new {}}, {2158, new {}}, {2159, new {}}, {2160, new {}}, {2161, new {}},
-                    {2162, new {}}, {2163, new {}}, {2164, new {}}, {2165, new {}}, {2166, new {}}, {2167, new {}}, {2168, new {}}, {2169, new {}}, {2170, new {}},
-                    {2171, new {}}, {2172, new {}}, {2173, new {}}, {2174, new {}}, {2175, new {}}, {2176, new {}}, {2177, new {}}, {2178, new {}}, {2179, new {}},
-                    {2180, new {}}, {2181, new {}}, {2182, new {}}, {2183, new {}}, {2184, new {}}, {2185, new {}}, {2186, new {}}, {2187, new {}}, {2188, new {}},
-                    {2189, new {}}, {2190, new {}}, {2191, new {}}, {2192, new {}}, {2193, new {}}, {2194, new {}}, {2195, new {}}, {2196, new {}}, {2197, new {}},
-                    {2198, new {}}, {2199, new {}}, {2200, new {}}, {2201, new {}}, {2202, new {}}, {2203, new {}}, {2204, new {}}, {2205, new {}}, {2206, new {}},
-                    {2207, new {}}, {2208, new {}}, {2209, new {}}, {2210, new {}}, {2211, new {}}, {2212, new {}}, {2213, new {}}, {2214, new {}}, {2215, new {}},
-                    {2216, new {}}, {2217, new {}}, {2218, new {}}, {2219, new {}}, {2220, new {}}, {2221, new {}}, {2222, new {}}, {2223, new {}}, {2224, new {}},
-                    {2225, new {}}, {2226, new {}}, {2227, new {}},
+                    {1247, new {hp=75}}, {1818, new {hp=75}}, {1825, new {hp=75}},{1850, new {hp=75}}, {1856, new {hp=75}}, {1929, new {hp=75}},
+                    {2059, new {hp=75}}, {2088, new {mp=75}}, {2090, new {hp=75}}, {2113, new {hp=75}}, {2114, new {hp=75}},
                    #endregion
             };
                
-            foreach (string abil in ja)
+            foreach (string J in ja)
             {
-                var ability = api.Resources.GetAbility(abil);
+                var ability = api.Resources.GetAbility(J);
                 var targ = ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
                 if (ability == null)
                 {
@@ -6477,25 +6407,25 @@
                     if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0 && ability.TP <= PlayerInfo.TP)
                     {
-                        if (jacontrol[ability.ID].mp != null)
+                        if (jacontrol[ability.ID].ToString().Contains("mp"))
                         {
                             if (PlayerInfo.MPP <= MONmpCount.Value)
                             {
-                                api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
+                                api.ThirdParty.SendString(String.Format("/ms \"{0}\" {1}", ability.Name, targ));
                                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             }
                         }
-                        else if (jacontrol[ability.ID].hp != null)
+                        else if (jacontrol[ability.ID].ToString().Contains("hp"))
                         {
                             if (PlayerInfo.HPP <= MONhpCount.Value)
                             {
-                                api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
+                                api.ThirdParty.SendString(String.Format("/ms \"{0}\" {1}", ability.Name, targ));
                                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             }
                         }
                         else
                         {
-                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
+                            api.ThirdParty.SendString(String.Format("/ms \"{0}\" {1}", ability.Name, targ));
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         }
                     }

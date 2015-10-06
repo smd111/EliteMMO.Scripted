@@ -47,4 +47,7 @@ List<uint> skipablis = new List<int>(new uint[] { 2, 3, 5 });
 
                 spells.Skill = 36 = Elemental Magic
                 
-                (byte magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>"
+                ((magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>")
+                
+                
+                while (n < 6)

@@ -240,7 +240,7 @@
         #region Thread - PET
         private void BgwScriptPetDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            while (botRunning)
+            while (botRunning && !bgw_script_pet.CancellationPending)
             {
                 #region pet: BST
                 if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
@@ -356,7 +356,7 @@
                         WyvernUseJA();
                     }
                 }
-                #endregion
+                #endregion;
 
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
@@ -373,7 +373,7 @@
                     if (Circular.Checked)
                     {
                         var closestWayPoint = FindClosestWayPoint();
-                        if (!runReverse.Checked)
+                        if (runReverse.Checked)
                         {
                             closestWayPoint--;
                         }
@@ -445,8 +445,9 @@
         #region Thread - SCH Charges
         private void BgwScriptSCHChargesDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            while (botRunning)
+            while (botRunning && !bgw_script_sch.CancellationPending)
             {
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
                 if (PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 90)
                 {
                     Thread.Sleep(TimeSpan.FromSeconds(48));
@@ -483,11 +484,11 @@
         #region Thread - Chat Watch
         private void BgwScriptchatWatchDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            while (botRunning)
+            while (botRunning && !bgw_script_chat.CancellationPending && staggerstopJA.Checked)
             {
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
                 var line = api.Chat.GetNextChatLine();
-                if (PlayerInfo.Status == 1 && staggerstopJA.Checked)
+                if (PlayerInfo.Status == 1)
                 {
                     if (!string.IsNullOrEmpty(line?.Text) && 
                     line.Text.Contains(String.Format("{0}'s attack staggers the fiend!", PlayerInfo.Name))) MonStagered = true;
@@ -495,14 +496,15 @@
                 }
                 else MonStagered = false;
             }
+            MonStagered = false;
         }
         #endregion
 
-        private void bgw_script_npc_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        /* private void bgw_script_npc_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
 
-        }
-
+        } */
+        #region Display Controle
         private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
         {
             string curItem = playerJA.SelectedItem.ToString();
@@ -542,5 +544,6 @@
             else if (curItem == "Cura III") CuraIIIcount.Enabled = state;
             else if (curItem == "Full Cure") FullCurecount.Enabled = state;
         }
+        #endregion
     }
 }
