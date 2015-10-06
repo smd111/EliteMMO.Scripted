@@ -6361,6 +6361,7 @@
                
             foreach (string J in ja)
             {
+                var useAbility = false;
                 var ability = api.Resources.GetAbility(J);
                 var targ = ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
                 if (ability == null)
@@ -6406,22 +6407,19 @@
                         {
                             if (PlayerInfo.MPP <= MONmpCount.Value)
                             {
-                                api.ThirdParty.SendString(String.Format("/ms \"{0}\" {1}", ability.Name, targ));
-                                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                                useAbility = true;
                             }
                         }
                         else if (jacontrol[ability.ID].ToString().Contains("hp"))
                         {
                             if (PlayerInfo.HPP <= MONhpCount.Value)
                             {
-                                api.ThirdParty.SendString(String.Format("/ms \"{0}\" {1}", ability.Name, targ));
-                                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                                useAbility = true;
                             }
                         }
                         else
                         {
-                            api.ThirdParty.SendString(String.Format("/ms \"{0}\" {1}", ability.Name, targ));
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                         }
                     }
                 }
@@ -6431,82 +6429,77 @@
                 {
                     if (ability.Name == "Benediction" && PlayerInfo.HPP <= BenedictionHPPuse.Value)
                     {
-                        api.ThirdParty.SendString("/ja \"Benediction\" <me>");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                     }
                     else if (ability.Name == "Convert")
                     {
                         if (ConvertHP.Checked && ConvertHPP.Value >= PlayerInfo.HPP && ConvertMPP.Value <= PlayerInfo.MPP)
                         {
-                            api.ThirdParty.SendString("/ja \"Convert\" <me>");
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                         }
                         else if (ConvertMP.Checked && ConvertHPP.Value <= PlayerInfo.HPP && ConvertMPP.Value >= PlayerInfo.MPP)
                         {
-                            api.ThirdParty.SendString("/ja \"Convert\" <me>");
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                         }
                     }
                     else if (ability.Name == "Vivacious Pulse" && PlayerInfo.HPP <= VivaciousPulseHP.Value &&
                         Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
                         TargetInfo.ID > 0)
                     {
-                        api.ThirdParty.SendString("/ja \"Vivacious Pulse\" <t>");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                     }
                     else if (ability.Name == "Shikikoyo - (Samurai)" && !PlayerInfo.HasBuff(16) &&
                         Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
                         TargetInfo.ID > 0)
                     {
-                        api.ThirdParty.SendString("/ja \"Shikikoyo\" <t>");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("b2"))
                     {
                         if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1) &&
                         !PlayerInfo.HasBuff((short)jacontrol[ability.ID].b2))
                         {
-                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                         }
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("b1"))
                     {
                         if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1))
                         {
-                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                         }
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("b3"))
                     {
                         if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b3))
                         {
-                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                         }
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("hp"))
                     {
                         if (PlayerInfo.HPP <= jacontrol[ability.ID].hp)
                         {
-                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                         }
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("thp"))
                     {
                         if (TargetInfo.HPP <= jacontrol[ability.ID].thp)
                         {
-                            api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            useAbility = true;
                         }
                     }
                     else
                     {
-                        api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
+                }
+                if (useAbility)
+                {
+                    var JAType = "/ja";
+                    if (ability.ID >= 1024) JAType = "/ms";
+                    api.ThirdParty.SendString(String.Format("{0} \"{1}\" {2}", JAType, ability.Name, targ));
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
         }
