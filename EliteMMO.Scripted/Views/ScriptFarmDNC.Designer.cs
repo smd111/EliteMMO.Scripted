@@ -5535,7 +5535,6 @@
             {
                 for (uint i = 528; i <= 2227; i++)
                 {
-                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
                     if (PlayerInfo.HasAbility(i))
                     {
                         var ability = api.Resources.GetAbility(i);
@@ -5625,7 +5624,6 @@
             #region load MJ (main job)
             for (uint mm = 1; mm <= 895; mm++) 
             {
-
                 var spellm = api.Resources.GetSpell(mm);
                 if (spellm == null) { }
                 else if (skipSpellList.Contains(mm)) {}
