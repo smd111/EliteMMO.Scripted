@@ -27,6 +27,7 @@
         public bool datsName = false;
         public bool isPulled = false;
         public bool isMoving = false;
+        public bool isCasting = false;
 
         public float SetEntityX = 0;
         public float SetEntityY = 0;
@@ -282,17 +283,17 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.autoRangeAttack = new System.Windows.Forms.CheckBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.JAtabselect = new System.Windows.Forms.TabControl();
+            this.selectPage = new System.Windows.Forms.TabPage();
             this.playerJA = new System.Windows.Forms.CheckedListBox();
             this.GetSetJA = new System.Windows.Forms.MenuStrip();
             this.loadJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.WHMpage = new System.Windows.Forms.TabPage();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.BenedictionHPPuse = new System.Windows.Forms.NumericUpDown();
             this.label56 = new System.Windows.Forms.Label();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.RDMpage = new System.Windows.Forms.TabPage();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.ConvertHPP = new System.Windows.Forms.NumericUpDown();
             this.ConvertMPP = new System.Windows.Forms.NumericUpDown();
@@ -300,20 +301,22 @@
             this.ConvertHP = new System.Windows.Forms.CheckBox();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.RUNpage = new System.Windows.Forms.TabPage();
+            this.VivaciousPulseHP = new System.Windows.Forms.NumericUpDown();
+            this.VivaciousPulse = new System.Windows.Forms.CheckBox();
+            this.MONpage = new System.Windows.Forms.TabPage();
             this.MONmpCount = new System.Windows.Forms.NumericUpDown();
             this.MONhpCount = new System.Windows.Forms.NumericUpDown();
             this.label60 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.MAtabs = new System.Windows.Forms.TabControl();
-            this.MAselesttab = new System.Windows.Forms.TabPage();
+            this.MASelectPage = new System.Windows.Forms.TabPage();
             this.playerMA = new System.Windows.Forms.CheckedListBox();
             this.GetSetMA = new System.Windows.Forms.MenuStrip();
             this.loadMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Masetuptab = new System.Windows.Forms.TabPage();
+            this.CureConfigPage = new System.Windows.Forms.TabPage();
             this.CuraIIcount = new System.Windows.Forms.NumericUpDown();
             this.label55 = new System.Windows.Forms.Label();
             this.CuraIIIcount = new System.Windows.Forms.NumericUpDown();
@@ -535,24 +538,26 @@
             this.groupBox15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).BeginInit();
             this.tabPage11.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage7.SuspendLayout();
+            this.JAtabselect.SuspendLayout();
+            this.selectPage.SuspendLayout();
             this.GetSetJA.SuspendLayout();
-            this.tabPage8.SuspendLayout();
+            this.WHMpage.SuspendLayout();
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).BeginInit();
-            this.tabPage9.SuspendLayout();
+            this.RDMpage.SuspendLayout();
             this.groupBox18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).BeginInit();
-            this.tabPage18.SuspendLayout();
+            this.RUNpage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VivaciousPulseHP)).BeginInit();
+            this.MONpage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).BeginInit();
             this.tabPage6.SuspendLayout();
             this.MAtabs.SuspendLayout();
-            this.MAselesttab.SuspendLayout();
+            this.MASelectPage.SuspendLayout();
             this.GetSetMA.SuspendLayout();
-            this.Masetuptab.SuspendLayout();
+            this.CureConfigPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CuraIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CuraIIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Curacount)).BeginInit();
@@ -2224,7 +2229,7 @@
             // 
             // tabPage11
             // 
-            this.tabPage11.Controls.Add(this.tabControl1);
+            this.tabPage11.Controls.Add(this.JAtabselect);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -2233,36 +2238,36 @@
             this.tabPage11.Text = "JA\'s";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // JAtabselect
             // 
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage8);
-            this.tabControl1.Controls.Add(this.tabPage9);
-            this.tabControl1.Controls.Add(this.tabPage17);
-            this.tabControl1.Controls.Add(this.tabPage18);
-            this.tabControl1.Location = new System.Drawing.Point(4, 4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(320, 186);
-            this.tabControl1.TabIndex = 0;
+            this.JAtabselect.Controls.Add(this.selectPage);
+            this.JAtabselect.Controls.Add(this.WHMpage);
+            this.JAtabselect.Controls.Add(this.RDMpage);
+            this.JAtabselect.Controls.Add(this.RUNpage);
+            this.JAtabselect.Controls.Add(this.MONpage);
+            this.JAtabselect.Location = new System.Drawing.Point(4, 4);
+            this.JAtabselect.Name = "JAtabselect";
+            this.JAtabselect.SelectedIndex = 0;
+            this.JAtabselect.Size = new System.Drawing.Size(320, 186);
+            this.JAtabselect.TabIndex = 0;
             // 
-            // tabPage7
+            // selectPage
             // 
-            this.tabPage7.Controls.Add(this.playerJA);
-            this.tabPage7.Controls.Add(this.GetSetJA);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(312, 160);
-            this.tabPage7.TabIndex = 0;
-            this.tabPage7.Text = "Select";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.selectPage.Controls.Add(this.playerJA);
+            this.selectPage.Controls.Add(this.GetSetJA);
+            this.selectPage.Location = new System.Drawing.Point(4, 22);
+            this.selectPage.Name = "selectPage";
+            this.selectPage.Padding = new System.Windows.Forms.Padding(3);
+            this.selectPage.Size = new System.Drawing.Size(312, 160);
+            this.selectPage.TabIndex = 0;
+            this.selectPage.Text = "Select";
+            this.selectPage.UseVisualStyleBackColor = true;
             // 
             // playerJA
             // 
             this.playerJA.CheckOnClick = true;
             this.playerJA.FormattingEnabled = true;
-            this.playerJA.Location = new System.Drawing.Point(41, 12);
+            this.playerJA.Location = new System.Drawing.Point(52, 9);
             this.playerJA.Name = "playerJA";
             this.playerJA.Size = new System.Drawing.Size(213, 109);
             this.playerJA.TabIndex = 13;
@@ -2294,16 +2299,16 @@
             this.clearJAsToolStripMenuItem.Text = "Clear JA\'s";
             this.clearJAsToolStripMenuItem.Click += new System.EventHandler(this.ClearJA_Click);
             // 
-            // tabPage8
+            // WHMpage
             // 
-            this.tabPage8.Controls.Add(this.groupBox17);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(312, 160);
-            this.tabPage8.TabIndex = 1;
-            this.tabPage8.Text = "WHM";
-            this.tabPage8.UseVisualStyleBackColor = true;
+            this.WHMpage.Controls.Add(this.groupBox17);
+            this.WHMpage.Location = new System.Drawing.Point(4, 22);
+            this.WHMpage.Name = "WHMpage";
+            this.WHMpage.Padding = new System.Windows.Forms.Padding(3);
+            this.WHMpage.Size = new System.Drawing.Size(312, 160);
+            this.WHMpage.TabIndex = 1;
+            this.WHMpage.Text = "WHM";
+            this.WHMpage.UseVisualStyleBackColor = true;
             // 
             // groupBox17
             // 
@@ -2338,16 +2343,16 @@
             this.label56.TabIndex = 0;
             this.label56.Text = "HP %";
             // 
-            // tabPage9
+            // RDMpage
             // 
-            this.tabPage9.Controls.Add(this.groupBox18);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(312, 160);
-            this.tabPage9.TabIndex = 2;
-            this.tabPage9.Text = "RDM";
-            this.tabPage9.UseVisualStyleBackColor = true;
+            this.RDMpage.Controls.Add(this.groupBox18);
+            this.RDMpage.Location = new System.Drawing.Point(4, 22);
+            this.RDMpage.Name = "RDMpage";
+            this.RDMpage.Padding = new System.Windows.Forms.Padding(3);
+            this.RDMpage.Size = new System.Drawing.Size(312, 160);
+            this.RDMpage.TabIndex = 2;
+            this.RDMpage.Text = "RDM";
+            this.RDMpage.UseVisualStyleBackColor = true;
             // 
             // groupBox18
             // 
@@ -2430,29 +2435,50 @@
             this.label57.TabIndex = 0;
             this.label57.Text = "HP %";
             // 
-            // tabPage17
+            // RUNpage
             // 
-            this.tabPage17.Location = new System.Drawing.Point(4, 22);
-            this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(312, 160);
-            this.tabPage17.TabIndex = 3;
-            this.tabPage17.Text = "RUN";
-            this.tabPage17.UseVisualStyleBackColor = true;
+            this.RUNpage.Controls.Add(this.VivaciousPulseHP);
+            this.RUNpage.Controls.Add(this.VivaciousPulse);
+            this.RUNpage.Location = new System.Drawing.Point(4, 22);
+            this.RUNpage.Name = "RUNpage";
+            this.RUNpage.Padding = new System.Windows.Forms.Padding(3);
+            this.RUNpage.Size = new System.Drawing.Size(312, 160);
+            this.RUNpage.TabIndex = 3;
+            this.RUNpage.Text = "RUN";
+            this.RUNpage.UseVisualStyleBackColor = true;
             // 
-            // tabPage18
+            // VivaciousPulseHP
             // 
-            this.tabPage18.Controls.Add(this.MONmpCount);
-            this.tabPage18.Controls.Add(this.MONhpCount);
-            this.tabPage18.Controls.Add(this.label60);
-            this.tabPage18.Controls.Add(this.label59);
-            this.tabPage18.Location = new System.Drawing.Point(4, 22);
-            this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(312, 160);
-            this.tabPage18.TabIndex = 4;
-            this.tabPage18.Text = "MON";
-            this.tabPage18.UseVisualStyleBackColor = true;
+            this.VivaciousPulseHP.Enabled = false;
+            this.VivaciousPulseHP.Location = new System.Drawing.Point(148, 8);
+            this.VivaciousPulseHP.Name = "VivaciousPulseHP";
+            this.VivaciousPulseHP.Size = new System.Drawing.Size(44, 20);
+            this.VivaciousPulseHP.TabIndex = 6;
+            // 
+            // VivaciousPulse
+            // 
+            this.VivaciousPulse.AutoSize = true;
+            this.VivaciousPulse.Enabled = false;
+            this.VivaciousPulse.Location = new System.Drawing.Point(7, 9);
+            this.VivaciousPulse.Name = "VivaciousPulse";
+            this.VivaciousPulse.Size = new System.Drawing.Size(144, 17);
+            this.VivaciousPulse.TabIndex = 0;
+            this.VivaciousPulse.Text = "Vivacious Pulse @ HP %";
+            this.VivaciousPulse.UseVisualStyleBackColor = true;
+            // 
+            // MONpage
+            // 
+            this.MONpage.Controls.Add(this.MONmpCount);
+            this.MONpage.Controls.Add(this.MONhpCount);
+            this.MONpage.Controls.Add(this.label60);
+            this.MONpage.Controls.Add(this.label59);
+            this.MONpage.Location = new System.Drawing.Point(4, 22);
+            this.MONpage.Name = "MONpage";
+            this.MONpage.Padding = new System.Windows.Forms.Padding(3);
+            this.MONpage.Size = new System.Drawing.Size(312, 160);
+            this.MONpage.TabIndex = 4;
+            this.MONpage.Text = "MON";
+            this.MONpage.UseVisualStyleBackColor = true;
             // 
             // MONmpCount
             // 
@@ -2511,33 +2537,33 @@
             // 
             // MAtabs
             // 
-            this.MAtabs.Controls.Add(this.MAselesttab);
-            this.MAtabs.Controls.Add(this.Masetuptab);
+            this.MAtabs.Controls.Add(this.MASelectPage);
+            this.MAtabs.Controls.Add(this.CureConfigPage);
             this.MAtabs.Location = new System.Drawing.Point(7, 7);
             this.MAtabs.Name = "MAtabs";
             this.MAtabs.SelectedIndex = 0;
             this.MAtabs.Size = new System.Drawing.Size(314, 177);
             this.MAtabs.TabIndex = 0;
             // 
-            // MAselesttab
+            // MASelectPage
             // 
-            this.MAselesttab.Controls.Add(this.playerMA);
-            this.MAselesttab.Controls.Add(this.GetSetMA);
-            this.MAselesttab.Location = new System.Drawing.Point(4, 22);
-            this.MAselesttab.Name = "MAselesttab";
-            this.MAselesttab.Padding = new System.Windows.Forms.Padding(3);
-            this.MAselesttab.Size = new System.Drawing.Size(306, 151);
-            this.MAselesttab.TabIndex = 0;
-            this.MAselesttab.Text = "Select";
-            this.MAselesttab.UseVisualStyleBackColor = true;
+            this.MASelectPage.Controls.Add(this.playerMA);
+            this.MASelectPage.Controls.Add(this.GetSetMA);
+            this.MASelectPage.Location = new System.Drawing.Point(4, 22);
+            this.MASelectPage.Name = "MASelectPage";
+            this.MASelectPage.Padding = new System.Windows.Forms.Padding(3);
+            this.MASelectPage.Size = new System.Drawing.Size(306, 151);
+            this.MASelectPage.TabIndex = 0;
+            this.MASelectPage.Text = "Select";
+            this.MASelectPage.UseVisualStyleBackColor = true;
             // 
             // playerMA
             // 
             this.playerMA.CheckOnClick = true;
             this.playerMA.FormattingEnabled = true;
-            this.playerMA.Location = new System.Drawing.Point(49, 3);
+            this.playerMA.Location = new System.Drawing.Point(49, 11);
             this.playerMA.Name = "playerMA";
-            this.playerMA.Size = new System.Drawing.Size(213, 109);
+            this.playerMA.Size = new System.Drawing.Size(213, 94);
             this.playerMA.TabIndex = 5;
             this.playerMA.SelectedIndexChanged += new System.EventHandler(this.playerMA_SelectedIndexChanged);
             // 
@@ -2567,35 +2593,35 @@
             this.clearMAsToolStripMenuItem.Text = "Clear MA\'s";
             this.clearMAsToolStripMenuItem.Click += new System.EventHandler(this.ClearMA_Click);
             // 
-            // Masetuptab
+            // CureConfigPage
             // 
-            this.Masetuptab.Controls.Add(this.CuraIIcount);
-            this.Masetuptab.Controls.Add(this.label55);
-            this.Masetuptab.Controls.Add(this.CuraIIIcount);
-            this.Masetuptab.Controls.Add(this.label53);
-            this.Masetuptab.Controls.Add(this.Curacount);
-            this.Masetuptab.Controls.Add(this.label54);
-            this.Masetuptab.Controls.Add(this.FullCurecount);
-            this.Masetuptab.Controls.Add(this.label52);
-            this.Masetuptab.Controls.Add(this.CureVIcount);
-            this.Masetuptab.Controls.Add(this.label45);
-            this.Masetuptab.Controls.Add(this.CureVcount);
-            this.Masetuptab.Controls.Add(this.CureIVcount);
-            this.Masetuptab.Controls.Add(this.CureIIIcount);
-            this.Masetuptab.Controls.Add(this.CureIIcount);
-            this.Masetuptab.Controls.Add(this.label44);
-            this.Masetuptab.Controls.Add(this.label43);
-            this.Masetuptab.Controls.Add(this.label9);
-            this.Masetuptab.Controls.Add(this.label2);
-            this.Masetuptab.Controls.Add(this.label1);
-            this.Masetuptab.Controls.Add(this.Curecount);
-            this.Masetuptab.Location = new System.Drawing.Point(4, 22);
-            this.Masetuptab.Name = "Masetuptab";
-            this.Masetuptab.Padding = new System.Windows.Forms.Padding(3);
-            this.Masetuptab.Size = new System.Drawing.Size(306, 151);
-            this.Masetuptab.TabIndex = 1;
-            this.Masetuptab.Text = "Cure Config";
-            this.Masetuptab.UseVisualStyleBackColor = true;
+            this.CureConfigPage.Controls.Add(this.CuraIIcount);
+            this.CureConfigPage.Controls.Add(this.label55);
+            this.CureConfigPage.Controls.Add(this.CuraIIIcount);
+            this.CureConfigPage.Controls.Add(this.label53);
+            this.CureConfigPage.Controls.Add(this.Curacount);
+            this.CureConfigPage.Controls.Add(this.label54);
+            this.CureConfigPage.Controls.Add(this.FullCurecount);
+            this.CureConfigPage.Controls.Add(this.label52);
+            this.CureConfigPage.Controls.Add(this.CureVIcount);
+            this.CureConfigPage.Controls.Add(this.label45);
+            this.CureConfigPage.Controls.Add(this.CureVcount);
+            this.CureConfigPage.Controls.Add(this.CureIVcount);
+            this.CureConfigPage.Controls.Add(this.CureIIIcount);
+            this.CureConfigPage.Controls.Add(this.CureIIcount);
+            this.CureConfigPage.Controls.Add(this.label44);
+            this.CureConfigPage.Controls.Add(this.label43);
+            this.CureConfigPage.Controls.Add(this.label9);
+            this.CureConfigPage.Controls.Add(this.label2);
+            this.CureConfigPage.Controls.Add(this.label1);
+            this.CureConfigPage.Controls.Add(this.Curecount);
+            this.CureConfigPage.Location = new System.Drawing.Point(4, 22);
+            this.CureConfigPage.Name = "CureConfigPage";
+            this.CureConfigPage.Padding = new System.Windows.Forms.Padding(3);
+            this.CureConfigPage.Size = new System.Drawing.Size(306, 151);
+            this.CureConfigPage.TabIndex = 1;
+            this.CureConfigPage.Text = "Cure Config";
+            this.CureConfigPage.UseVisualStyleBackColor = true;
             // 
             // CuraIIcount
             // 
@@ -4912,10 +4938,6 @@
             this.bgw_script_pet.WorkerSupportsCancellation = true;
             this.bgw_script_pet.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptPetDoWork);
             // 
-            // bgw_script_npc
-            // 
-            //this.bgw_script_npc.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw_script_npc_DoWork);
-            // 
             // DeathWarp
             // 
             this.DeathWarp.AutoSize = true;
@@ -4990,32 +5012,35 @@
             this.groupBox15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).EndInit();
             this.tabPage11.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
+            this.JAtabselect.ResumeLayout(false);
+            this.selectPage.ResumeLayout(false);
+            this.selectPage.PerformLayout();
             this.GetSetJA.ResumeLayout(false);
             this.GetSetJA.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
+            this.WHMpage.ResumeLayout(false);
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).EndInit();
-            this.tabPage9.ResumeLayout(false);
+            this.RDMpage.ResumeLayout(false);
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).EndInit();
-            this.tabPage18.ResumeLayout(false);
-            this.tabPage18.PerformLayout();
+            this.RUNpage.ResumeLayout(false);
+            this.RUNpage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VivaciousPulseHP)).EndInit();
+            this.MONpage.ResumeLayout(false);
+            this.MONpage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.MAtabs.ResumeLayout(false);
-            this.MAselesttab.ResumeLayout(false);
-            this.MAselesttab.PerformLayout();
+            this.MASelectPage.ResumeLayout(false);
+            this.MASelectPage.PerformLayout();
             this.GetSetMA.ResumeLayout(false);
             this.GetSetMA.PerformLayout();
-            this.Masetuptab.ResumeLayout(false);
-            this.Masetuptab.PerformLayout();
+            this.CureConfigPage.ResumeLayout(false);
+            this.CureConfigPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CuraIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CuraIIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Curacount)).EndInit();
@@ -5482,51 +5507,19 @@
 
             #region Ability list
             List<uint> abilitylist = new List<uint>(new uint[] {528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542,
-            543, 544, 545, 546, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567,
-            568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592,
-            593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611, 612, 613, 614, 615, 616, 617,
-            618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642,
-            643, 644, 645, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668,
-            669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693,
-            708, 709, 722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 744, 745, 746,
-            747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771,
-            772, 773, 776, 777, 778, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799,
-            800, 803, 804, 805, 807, 808, 809, 810, 813, 814, 815, 816, 817, 821, 822, 823, 824, 825, 826, 828, 829, 830, 831, 832, 833,
-            834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858,
-            859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883,
-            884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 1024, 1025, 1026,
-            1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1048,
-            1049, 1050, 1051, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1072, 1073, 1074, 1075, 1076, 1077, 1078,
-            1079, 1080, 1081, 1082, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098, 1104, 1105, 1106, 1107, 1108, 1109,
-            1110, 1111, 1112, 1113, 1114, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1136, 1137, 1138, 1139, 1140,
-            1141, 1142, 1143, 1144, 1145, 1146, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165,
-            1166, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187,
-            1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208,
-            1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229,
-            1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247, 1248, 1249, 1250,
-            1252, 1253, 1255, 1256, 1257, 1258, 1259, 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271, 1272, 1273,
-            1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285, 1286, 1287, 1288, 1289, 1290, 1291, 1292, 1293, 1294,
-            1793, 1794, 1795, 1796, 1797, 1798, 1799, 1800, 1801, 1802, 1803, 1804, 1805, 1806, 1807, 1808, 1809, 1810, 1811, 1812, 1813,
-            1814, 1815, 1816, 1817, 1818, 1819, 1820, 1821, 1822, 1823, 1824, 1825, 1826, 1827, 1828, 1829, 1830, 1831, 1832, 1833, 1834,
-            1835, 1836, 1837, 1838, 1839, 1840, 1841, 1842, 1843, 1844, 1845, 1846, 1847, 1848, 1849, 1850, 1851, 1852, 1853, 1854, 1855,
-            1856, 1857, 1858, 1859, 1860, 1861, 1862, 1863, 1864, 1865, 1866, 1867, 1868, 1869, 1870, 1871, 1872, 1873, 1874, 1875, 1876,
-            1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884, 1885, 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894, 1895, 1896, 1897,
-            1898, 1899, 1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918,
-            1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939,
-            1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960,
-            1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981,
-            1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
-            2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023,
-            2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044,
-            2045, 2046, 2047, 2048, 2049, 2050, 2051, 2052, 2053, 2054, 2055, 2056, 2057, 2058, 2059, 2060, 2061, 2062, 2063, 2064, 2065,
-            2066, 2067, 2068, 2069, 2070, 2071, 2072, 2073, 2074, 2075, 2076, 2077, 2078, 2079, 2080, 2081, 2082, 2083, 2084, 2085, 2086,
-            2087, 2088, 2089, 2090, 2091, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099, 2100, 2101, 2102, 2103, 2104, 2105, 2106, 2107,
-            2108, 2109, 2110, 2111, 2112, 2113, 2114, 2115, 2116, 2117, 2118, 2119, 2120, 2121, 2122, 2123, 2124, 2125, 2126, 2127, 2128,
-            2129, 2130, 2131, 2132, 2133, 2134, 2135, 2136, 2137, 2138, 2139, 2140, 2141, 2142, 2143, 2144, 2145, 2146, 2147, 2148, 2149,
-            2150, 2151, 2152, 2153, 2154, 2155, 2156, 2157, 2158, 2159, 2160, 2161, 2162, 2163, 2164, 2165, 2166, 2167, 2168, 2169, 2170,
-            2171, 2172, 2173, 2174, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2188, 2189, 2190, 2191,
-            2192, 2193, 2194, 2195, 2196, 2197, 2198, 2199, 2200, 2201, 2202, 2203, 2204, 2205, 2206, 2207, 2208, 2209, 2210, 2211, 2212,
-            2213, 2214, 2215, 2216, 2217, 2218, 2219, 2220, 2221, 2222, 2223, 2224, 2225, 2226, 2227});
+            543, 544, 545, 546, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568,
+            569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593,
+            594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619,
+            620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644,
+            645, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670,
+            671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 708, 709,
+            722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 744, 745, 746, 747, 748,
+            749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773,
+            776, 777, 778, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 803,
+            804, 805, 807, 808, 809, 810, 813, 814, 815, 816, 817, 821, 822, 823, 824, 825, 826, 828, 829, 830, 831, 832, 833, 834, 835,
+            836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860,
+            861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885,
+            886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904,});
             #endregion
 
             if (PlayerInfo.MainJob == 9)
@@ -5538,7 +5531,14 @@
                     if (PlayerInfo.HasAbility(i))
                     {
                         var ability = api.Resources.GetAbility(i);
-                        if (!abilitylist.Contains(ability.ID)) { }
+                        
+                        if (i >= 1024 && PlayerInfo.MainJob != 23) continue;
+                        else if (i >= 1024 && PlayerInfo.MainJob == 23)
+                        {
+                            playerJA.Items.Add(ability.Name);
+                            continue;
+                        }
+                        else if (!abilitylist.Contains(ability.ID)) continue;
                         else if (i == 735)
                         {
                             var job = 0;
@@ -5570,7 +5570,6 @@
                             if (!playerJA.Items.Contains("Chivalry TP > 2000") && job >= 75) playerJA.Items.Add("Chivalry TP > 2000");
                             if (!playerJA.Items.Contains("Chivalry TP > 3000") && job >= 75) playerJA.Items.Add("Chivalry TP > 3000");
                         }
-                        else if (i >= 1024 && PlayerInfo.MainJob != 23) { }
                         else if (!playerJA.Items.Contains(ability.Name))
                         {
                             playerJA.Items.Add(ability.Name);
@@ -5601,32 +5600,34 @@
             if (playerMA.Items.Count > 0)
                 playerMA.Items.Clear();
 
+            #region Skip MA List
             List<uint> skipSpellList = new List<uint>(new uint[] {12, 13, 81, 82, 83, 120, 121, 122, 123, 124, 136, 137, 138, 139, 140, 241, 260, 261, 262,
             263, 264, 265, 494, 512, 514, 516, 518, 520, 523, 525, 526, 528, 546, 550, 552, 553, 556, 558, 559, 562, 566, 568, 571, 580, 583, 586, 590, 600,
             601, 602, 607, 609, 619, 624, 625, 627, 630, 635, 639, 729, 730, 731, 732, 733, 734,735, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764,
-            765, 766, 767, 992, 993, 994, 995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 7, 8, 9, 10, 11,
+            765, 766, 767, 992, 993, 994, 995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 7, 8, 9, 10, 11, 308, 309,
+            318, 353, 354, 355, 465,
             #region smn
             288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 847,
             #endregion
-           #region geo
+            #region geo
             768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795,
             796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823,
             824, 825, 826, 827,
-           #endregion
-           #region trust
+            #endregion
+            #region trust
             896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923,
             924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951,
             952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979,
             980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016,
-           #endregion
+            #endregion
             });
+            #endregion
             
-            #region load MJ (main job)
+            #region load MJ MA(main job)
             for (uint mm = 1; mm <= 895; mm++) 
             {
                 var spellm = api.Resources.GetSpell(mm);
-                if (spellm == null) { }
-                else if (skipSpellList.Contains(mm)) {}
+                if (spellm == null || skipSpellList.Contains(mm)) continue;
                 else if (PlayerInfo.HasSpell(mm) &&
                     PlayerInfo.MainJobLevel >= spellm?.RequiredLevel?[PlayerInfo.MainJob] &&
                     spellm?.RequiredLevel?[PlayerInfo.MainJob] != -1 &&
@@ -5636,7 +5637,7 @@
                 }
             }
             #endregion
-            #region load SJ (sub job)
+            #region load SJ MA(sub job)
             for (uint sm = 1; sm <= 895; sm++)
             {
                 var spells = api.Resources.GetSpell(sm);
@@ -6322,43 +6323,39 @@
             Dictionary<uint, dynamic> jacontrol = new Dictionary<uint, dynamic>()
             {
                     #region JA 
-                    {528, new {}}, {529, new {}}, {530, new {}}, {533, new {}}, {534, new {}}, {535, new {}}, {537, new {}}, {538, new {}},
-                    {540, new {}}, {543, new {buff1=56}}, {544, new {buff1=68,buff2=460}}, {545, new {buff1=57}}, {546, new {buff1=58}}, {548, new {buff1=59}},
-                    {549, new {buff1=60}}, {550, new {hp=90}}, {551, new {buff1=45}}, {552, new {buff1=61}}, {553, new {}}, {556, new {}}, {557, new {}}, {558,
-                    new {}}, {559, new {buff1=74}}, {560, new {buff1=62}}, {561, new {buff1=63}}, {562, new {buff1=75}}, {563, new {buff1=64}}, {568, new {}},
-                    {569, new {}}, {570, new {}}, {571, new {buff1=172}}, {572, new {buff1=73}}, {574, new {buff1=67}}, {575, new {name="Meditate"}},
-                    {576, new {buff1=117}}, {577, new {buff1=118}}, {578, new {}}, {579, new {}}, {580, new {}}, {588, new {buff1=87}}, {589, new {}},
-                    {594, new {}}, {595, new {}}, {598, new {buff1=115}}, {604, new {}}, {605, new {}}, {606, new {buff1=164}}, {607, new {buff1=165}},
-                    {608, new {}}, {610, new {buff1=310,buff2=309}}, {611, new {buff1=311,buff2=309}}, {612, new {buff1=312,buff2=309}}, 
-                    {613, new {buff1=313,buff2=309}}, {614, new {buff1=314,buff2=309}}, {615, new {buff1=315,buff2=309}}, {616, new {buff1=316,buff2=309}},
-                    {617, new {buff1=317,buff2=309}}, {618, new {buff1=318,buff2=309}}, {619, new {buff1=319,buff2=309}}, {620, new {buff1=320,buff2=309}},
-                    {621, new {buff1=321,buff2=309}}, {622, new {buff1=322,buff2=309}}, {623, new {buff1=323,buff2=309}}, {624, new {buff1=324,buff2=309}},
-                    {625, new {buff1=325,buff2=309}}, {626, new {buff1=326,buff2=309}}, {627, new {buff1=327,buff2=309}}, {628, new {buff1=328,buff2=309}},
-                    {629, new {buff1=329,buff2=309}}, {630, new {buff1=330,buff2=309}}, {631, new {buff1=331,buff2=309}}, {632, new {buff1=332,buff2=309}},
-                    {633, new {buff1=333,buff2=309}}, {634, new {buff1=334,buff2=309}}, {635, new {buff3=308}}, {636, new {name="Quick Draw"}},
+                    {528, new {}}, {529, new {}}, {530, new {}}, {533, new {}}, {534, new {}}, {535, new {}}, {538, new {}}, {540, new {}}, {543, new {b1=56}},
+                    {544, new {b1=68,b2=460}}, {545, new {b1=57}}, {546, new {b1=58}}, {548, new {b1=59}}, {549, new {b1=60}}, {550, new {hp=90}},
+                    {551, new {b1=45}}, {552, new {b1=61}}, {553, new {}}, {556, new {}}, {557, new {}}, {558, new {}}, {559, new {b1=74}}, {560, new {b1=62}},
+                    {561, new {b1=63}}, {562, new {b1=75}}, {563, new {b1=64}}, {568, new {}}, {569, new {}}, {570, new {}}, {571, new {b1=172}},
+                    {572, new {b1=73}}, {574, new {b1=67}}, {575, new {name="Meditate"}}, {576, new {b1=117}}, {577, new {b1=118}}, {578, new {}},
+                    {579, new {}}, {580, new {}}, {588, new {b1=87}}, {589, new {}}, {594, new {}}, {595, new {}}, {598, new {b1=115}}, {604, new {}},
+                    {605, new {}}, {606, new {b1=164}}, {607, new {b1=165}}, {608, new {}}, {610, new {b1=310,b2=309}}, {611, new {b1=311,b2=309}},
+                    {612, new {b1=312,b2=309}}, {613, new {b1=313,b2=309}}, {614, new {b1=314,b2=309}}, {615, new {b1=315,b2=309}}, {616, new {b1=316,b2=309}},
+                    {617, new {b1=317,b2=309}}, {618, new {b1=318,b2=309}}, {619, new {b1=319,b2=309}}, {620, new {b1=320,b2=309}}, {621, new {b1=321,b2=309}},
+                    {622, new {b1=322,b2=309}}, {623, new {b1=323,b2=309}}, {624, new {b1=324,b2=309}}, {625, new {b1=325,b2=309}}, {626, new {b1=326,b2=309}},
+                    {627, new {b1=327,b2=309}}, {628, new {b1=328,b2=309}}, {629, new {b1=329,b2=309}}, {630, new {b1=330,b2=309}}, {631, new {b1=331,b2=309}},
+                    {632, new {b1=332,b2=309}}, {633, new {b1=333,b2=309}}, {634, new {b1=334,b2=309}}, {635, new {b3=308}}, {636, new {name="Quick Draw"}},
                     {637, new {name="Fire Shot"}}, {638, new {name="Ice Shot"}}, {639, new {name="Wind Shot"}}, {640, new {name="Earth Shot"}},
                     {641, new {name="Thunder Shot"}}, {642, new {name="Water Shot"}}, {643, new {name="Light Shot"}}, {644, new {name="Dark Shot"}},
-                    {645, new {}}, {661, new {buff1=340,buff2=490}}, {662, new {}}, {663, new {buff1=19}}, {664, new {buff1=341}}, {667, new {buff1=342}},
-                    {668, new {buff1=343}}, {669, new {buff1=344}}, {672, new {buff1=346}}, {673, new {}}, {677, new {buff1=350}}, {678, new {buff1=351}},
-                    {680, new {}}, {682, new {}}, {683, new {buff1=352}}, {685, new {buff1=353}}, {686, new {buff1=354}}, {689, new {buff1=357}},
-                    {690, new {buff3=309}}, {693, new {buff1=376}}, {708, new {buff1=71}}, {736, new {buff1=371}}, {738, new {buff1=405}}, {739, new {buff1=406}},
-                    {740, new {}}, {749, new {buff1=410}}, {750, new {buff1=411}}, {757, new {buff1=417}}, {758, new {buff1=418}}, {759, new {buff1=419}},
-                    {760, new {buff1=420}}, {761, new {nuff1=421}}, {764, new {buff1=435}}, {765, new {buff1=436}}, {769, new {buff1=433}}, {772, new {}},
-                    {773, new {buff1=442}}, {777, new {}}, {779, new {buff1=460,buff2=68}}, {781, new {buff1=461}}, {783, new {buff1=477}}, {784, new {}},
-                    {788, new {buff1=462}}, {789, new {}}, {790, new {buff1=478}}, {791, new {}}, {792, new {buff1=479}}, {797, new {}}, {798, new {buff1=482}},
-                    {799, new {buff1=465}}, {803, new {buff1=484}}, {804, new {}}, {805, new {}}, {813, new {buff1=467}}, {814, new {buff1=335,buff2=309}},
-                    {815, new {buff1=336,buff2=309}}, {816, new {buff1=337,buff2=309}}, {817, new {buff1=338,buff2=309}}, {833, new {thp=10}},
-                    {835, new {buff1=490,buff2=340}}, {836, new {buff1=491}}, {837, new {buff1=492}}, {840, new {}}, {841, new {}}, {842, new {buff1=497}},
-                    {844, new {buff1=499}}, {845, new {buff1=500}}, {846, new {buff1=501}}, {847, new {buff1=502}}, {848, new {buff1=503}}, {851, new {}},
-                    {853, new {buff1=507}}, {856, new {}}, {868, new {}}, {870, new {buff1=523}}, {871, new {buff1=524}}, {872, new {buff1=525}},
-                    {873, new {buff1=526}}, {874, new {buff1=527}}, {875, new {buff1=528}}, {876, new {buff1=529}}, {877, new {buff1=530}}, {878, new {buff1=531}},
-                    {879, new {buff1=532}}, {880, new {}}, {881, new {buff1=533}}, {882, new {buff1=534}}, {883, new {buff1=535}}, {884, new {}},
-                    {885, new {buff1=537}}, {886, new {buff1=538}}, {887, new {}}, {888, new {buff1=570}}, {890, new {}}, {901, new {buff1=599}},
-                    {902, new {buff1=339,buff2=309}}, {903, new {buff1=600,buff2=309}}, {904, new {buff1=601}},
+                    {645, new {}}, {661, new {b1=340,b2=490}}, {662, new {}}, {663, new {b1=19}}, {664, new {b1=341}}, {667, new {b1=342}}, {668, new {b1=343}},
+                    {669, new {b1=344}}, {672, new {b1=346}}, {673, new {}}, {677, new {b1=350}}, {678, new {b1=351}}, {680, new {}}, {682, new {}},
+                    {683, new {b1=352}}, {685, new {b1=353}}, {686, new {b1=354}}, {689, new {b1=357}}, {690, new {b3=309}}, {693, new {b1=376}},
+                    {708, new {b1=71}}, {736, new {b1=371}}, {738, new {b1=405}}, {739, new {b1=406}}, {740, new {}}, {749, new {b1=410}}, {750, new {b1=411}},
+                    {757, new {b1=417}}, {758, new {b1=418}}, {759, new {b1=419}}, {760, new {b1=420}}, {761, new {nuff1=421}}, {764, new {b1=435}},
+                    {765, new {b1=436}}, {769, new {b1=433}}, {772, new {}}, {773, new {b1=442}}, {777, new {}}, {779, new {b1=460,b2=68}}, {781, new {b1=461}},
+                    {783, new {b1=477}}, {784, new {}}, {788, new {b1=462}}, {789, new {}}, {790, new {b1=478}}, {791, new {}}, {792, new {b1=479}}, {797, new {}},
+                    {798, new {b1=482}}, {799, new {b1=465}}, {803, new {b1=484}}, {804, new {}}, {805, new {}}, {813, new {b1=467}}, {814, new {b1=335,b2=309}},
+                    {815, new {b1=336,b2=309}}, {816, new {b1=337,b2=309}}, {817, new {b1=338,b2=309}}, {833, new {thp=10}}, {835, new {b1=490,b2=340}},
+                    {836, new {b1=491}}, {837, new {b1=492}}, {840, new {}}, {841, new {}}, {842, new {b1=497}}, {845, new {b1=500}}, {846, new {b1=501}},
+                    {847, new {b1=502}}, {848, new {b1=503}}, {851, new {}}, {853, new {b1=507}}, {856, new {}}, {868, new {}}, {870, new {b1=523}},
+                    {871, new {b1=524}}, {872, new {b1=525}}, {873, new {b1=526}}, {874, new {b1=527}}, {875, new {b1=528}}, {876, new {b1=529}},
+                    {877, new {b1=530}}, {878, new {b1=531}}, {879, new {b1=532}}, {880, new {}}, {881, new {b1=533}}, {883, new {b1=535}}, {884, new {}},
+                    {895, new {}}, {885, new {b1=537}}, {886, new {b1=538}}, {887, new {}}, {888, new {b1=570}}, {890, new {}}, {901, new {b1=599}},
+                    {902, new {b1=339,b2=309}}, {903, new {b1=600,b2=309}}, {904, new {b1=601}},
                     #endregion
                     #region monJA control
-                    {1247, new {hp=75}}, {1818, new {hp=75}}, {1825, new {hp=75}},{1850, new {hp=75}}, {1856, new {hp=75}}, {1929, new {hp=75}},
-                    {2059, new {hp=75}}, {2088, new {mp=75}}, {2090, new {hp=75}}, {2113, new {hp=75}}, {2114, new {hp=75}},
+                    {1247, new {hp=75}}, {1818, new {hp=75}}, {1825, new {hp=75}},{1850, new {hp=75}}, {1856, new {hp=75}}, {1929, new {hp=75}}, {2059, new {hp=75}},
+                    {2088, new {mp=75}}, {2090, new {hp=75}}, {2113, new {hp=75}}, {2114, new {hp=75}},
                    #endregion
             };
                
@@ -6428,7 +6425,7 @@
                         }
                     }
                 }
-                else if (!jacontrol.ContainsKey(ability.ID)) {}
+                else if (!jacontrol.ContainsKey(ability.ID)) continue;
                 else if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                 {
@@ -6450,6 +6447,13 @@
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         }
                     }
+                    else if (ability.Name == "Vivacious Pulse" && PlayerInfo.HPP <= VivaciousPulseHP.Value &&
+                        Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
+                        TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Vivacious Pulse\" <t>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
                     else if (ability.Name == "Shikikoyo - (Samurai)" && !PlayerInfo.HasBuff(16) &&
                         Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
                         TargetInfo.ID > 0)
@@ -6457,26 +6461,26 @@
                         api.ThirdParty.SendString("/ja \"Shikikoyo\" <t>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("buff2"))
+                    else if (jacontrol[ability.ID].ToString().Contains("b2"))
                     {
-                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].buff1) &&
-                        !PlayerInfo.HasBuff((short)jacontrol[ability.ID].buff2))
+                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1) &&
+                        !PlayerInfo.HasBuff((short)jacontrol[ability.ID].b2))
                         {
                             api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         }
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("buff1"))
+                    else if (jacontrol[ability.ID].ToString().Contains("b1"))
                     {
-                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].buff1))
+                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1))
                         {
                             api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         }
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("buff3"))
+                    else if (jacontrol[ability.ID].ToString().Contains("b3"))
                     {
-                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].buff3))
+                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b3))
                         {
                             api.ThirdParty.SendString(String.Format("/ja \"{0}\" {1}", ability.Name, targ));
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -9957,8 +9961,8 @@
         public CheckBox stopstepsat;
         private TabPage tabPage6;
         private TabControl MAtabs;
-        private TabPage MAselesttab;
-        private TabPage Masetuptab;
+        private TabPage MASelectPage;
+        private TabPage CureConfigPage;
         public CheckedListBox playerMA;
         public MenuStrip GetSetMA;
         public ToolStripMenuItem loadMAsToolStripMenuItem;
@@ -9985,13 +9989,13 @@
         private Label label54;
         private TabPage DynamisPage;
         private CheckBox staggerstopJA;
-        private TabControl tabControl1;
-        private TabPage tabPage7;
-        private TabPage tabPage8;
+        private TabControl JAtabselect;
+        private TabPage selectPage;
+        private TabPage WHMpage;
         private GroupBox groupBox17;
         private NumericUpDown BenedictionHPPuse;
         private Label label56;
-        private TabPage tabPage9;
+        private TabPage RDMpage;
         private GroupBox groupBox18;
         private NumericUpDown ConvertHPP;
         private NumericUpDown ConvertMPP;
@@ -9999,11 +10003,13 @@
         private CheckBox ConvertHP;
         private Label label58;
         private Label label57;
-        private TabPage tabPage17;
-        private TabPage tabPage18;
+        private TabPage RUNpage;
+        private TabPage MONpage;
         private NumericUpDown MONmpCount;
         private NumericUpDown MONhpCount;
         private Label label60;
         private Label label59;
+        private CheckBox VivaciousPulse;
+        private NumericUpDown VivaciousPulseHP;
     }
 }

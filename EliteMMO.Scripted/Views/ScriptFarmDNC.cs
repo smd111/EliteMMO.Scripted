@@ -519,6 +519,11 @@
             else if (curItem == "Magic Fruit") MONhpCount.Enabled = state;
             else if (curItem == "Healing Breeze") MONhpCount.Enabled = state;
             else if (curItem == "Proboscis") MONmpCount.Enabled = state;
+            else if (curItem == "Vivacious Pulse")
+            {
+                VivaciousPulse.Enabled = state;
+                VivaciousPulseHP.Enabled = state;
+            }
             else if (curItem == "Convert")
             {
                 ConvertHP.Enabled = state;
