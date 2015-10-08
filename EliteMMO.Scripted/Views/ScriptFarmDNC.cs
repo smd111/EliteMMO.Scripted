@@ -531,6 +531,7 @@
                 ConvertHPP.Enabled = state;
                 ConvertMPP.Enabled = state;
             }
+            //api.ThirdParty.SendString(String.Format("/echo {0}", MainWindow.PID));
         }
 
         private void playerMA_SelectedIndexChanged(object sender, EventArgs e)

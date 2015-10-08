@@ -18,6 +18,7 @@
             if (data.Count() != 0)
             {
                 var proc = Process.GetProcessesByName("pol").First().Id;
+                PID = proc;
                 api = new EliteAPI(proc);
 
                 foreach (var dats in data)
@@ -74,6 +75,7 @@
 
             foreach (var dats in data.Where(dats => EliteMMO_PROC.Text == dats.MainWindowTitle))
             {
+                PID = dats.Id;
                 api.Reinitialize(dats.Id);
                 xStatusLabel.Text = @":: " + api.Entity.GetLocalPlayer().Name + @" ::";
             }
@@ -82,6 +84,7 @@
         private void FarmDncToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
+            //api.ThirdParty.SendString(System.String.Format("/echo {0}", PID));
 
             //if (InventoryItems.items.Count == 0)
             //    InventoryItems.PopulateItems();

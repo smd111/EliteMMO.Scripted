@@ -5,6 +5,8 @@
     partial class MainWindow
     {
         private EliteAPI api;
+        
+        public static int PID;
 
         private readonly UserControl x1;
         private readonly UserControl x2;
@@ -418,7 +420,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.Text = "scripted  - (open ßeta v0.37)";
+            this.Text = "scripted  - (open source ßeta v0.50)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.xmenu.ResumeLayout(false);
             this.xmenu.PerformLayout();

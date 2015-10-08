@@ -13,6 +13,8 @@
     using System.Text;
     using System.Security.Policy;
     using API;
+    using Embedded;
+
     partial class ScriptFarmDNC
     {
         private static EliteAPI api;
@@ -22,7 +24,6 @@
         public double DistanceTolerance { get; set; }
 
         public bool botRunning = false;
-
         public bool naviMove = false;
         public bool datsName = false;
         public bool isPulled = false;
@@ -44,8 +45,8 @@
 
         //public static Dictionary<double, double> route = new Dictionary<double, double>();
 
-        public List<int>    partyIDs = new List<int>();
-        public List<int> ignoreTarget = new List<int>(); 
+        public List<int> partyIDs = new List<int>();
+        public List<int> ignoreTarget = new List<int>();
 
         public static List<string> DebugLog = new List<string>();
 
@@ -203,7 +204,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.selecttargets = new System.Windows.Forms.GroupBox();
             this.SelectedTargets = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -290,25 +291,28 @@
             this.loadJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WHMpage = new System.Windows.Forms.TabPage();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.benedictiongroupBox = new System.Windows.Forms.GroupBox();
             this.BenedictionHPPuse = new System.Windows.Forms.NumericUpDown();
-            this.label56 = new System.Windows.Forms.Label();
+            this.benedictiontext = new System.Windows.Forms.Label();
             this.RDMpage = new System.Windows.Forms.TabPage();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.ConvertHPP = new System.Windows.Forms.NumericUpDown();
             this.ConvertMPP = new System.Windows.Forms.NumericUpDown();
             this.ConvertMP = new System.Windows.Forms.CheckBox();
             this.ConvertHP = new System.Windows.Forms.CheckBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
+            this.convertmptext = new System.Windows.Forms.Label();
+            this.converthptext = new System.Windows.Forms.Label();
             this.RUNpage = new System.Windows.Forms.TabPage();
             this.VivaciousPulseHP = new System.Windows.Forms.NumericUpDown();
             this.VivaciousPulse = new System.Windows.Forms.CheckBox();
             this.MONpage = new System.Windows.Forms.TabPage();
             this.MONmpCount = new System.Windows.Forms.NumericUpDown();
             this.MONhpCount = new System.Windows.Forms.NumericUpDown();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
+            this.monmptext = new System.Windows.Forms.Label();
+            this.monhptext = new System.Windows.Forms.Label();
+            this.Dynamispage = new System.Windows.Forms.TabPage();
+            this.Dynatxt = new System.Windows.Forms.Label();
+            this.staggerstopJA = new System.Windows.Forms.CheckBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.MAtabs = new System.Windows.Forms.TabControl();
             this.MASelectPage = new System.Windows.Forms.TabPage();
@@ -338,21 +342,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Curecount = new System.Windows.Forms.NumericUpDown();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.delaytext = new System.Windows.Forms.Label();
             this.pullDelay = new System.Windows.Forms.NumericUpDown();
             this.AutoLock = new System.Windows.Forms.CheckBox();
             this.numericUpDown39 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.mobheightdist = new System.Windows.Forms.CheckBox();
             this.runTarget = new System.Windows.Forms.CheckBox();
             this.runPullDistance = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.mobsearchdisttext = new System.Windows.Forms.Label();
             this.targetSearchDist = new System.Windows.Forms.NumericUpDown();
             this.pullTolorance = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
+            this.pulltolorancetext = new System.Windows.Forms.Label();
             this.numericUpDown21 = new System.Windows.Forms.NumericUpDown();
-            this.label19 = new System.Windows.Forms.Label();
+            this.pulldistance = new System.Windows.Forms.Label();
             this.pullCommand = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
+            this.pullcommandtext = new System.Windows.Forms.Label();
             this.dancer = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage14 = new System.Windows.Forms.TabPage();
@@ -367,7 +371,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.stopstepsat = new System.Windows.Forms.CheckBox();
             this.stopstepscount = new System.Windows.Forms.NumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
+            this.stopstepsathptext = new System.Windows.Forms.Label();
             this.usefeatherstepValue = new System.Windows.Forms.NumericUpDown();
             this.usestutterstepValue = new System.Windows.Forms.NumericUpDown();
             this.useboxstepValue = new System.Windows.Forms.NumericUpDown();
@@ -400,7 +404,7 @@
             this.usecureii = new System.Windows.Forms.CheckBox();
             this.usecure = new System.Windows.Forms.CheckBox();
             this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
+            this.addplayertext = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.label38 = new System.Windows.Forms.Label();
@@ -427,7 +431,7 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label15 = new System.Windows.Forms.Label();
             this.flourish = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.flourishesiiigroup = new System.Windows.Forms.GroupBox();
             this.useclmfloValue = new System.Windows.Forms.NumericUpDown();
             this.usestkfloValue = new System.Windows.Forms.NumericUpDown();
             this.useterfloValue = new System.Windows.Forms.NumericUpDown();
@@ -435,9 +439,9 @@
             this.useclmflo = new System.Windows.Forms.RadioButton();
             this.useterflo = new System.Windows.Forms.RadioButton();
             this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
+            this.finsishingmovetext = new System.Windows.Forms.Label();
             this.FlourishTPValue = new System.Windows.Forms.NumericUpDown();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.flourishesiigroup = new System.Windows.Forms.GroupBox();
             this.usewldfloValue = new System.Windows.Forms.NumericUpDown();
             this.usebldfloValue = new System.Windows.Forms.NumericUpDown();
             this.userevfloValue = new System.Windows.Forms.NumericUpDown();
@@ -445,7 +449,7 @@
             this.usebldflo = new System.Windows.Forms.RadioButton();
             this.userevflo = new System.Windows.Forms.RadioButton();
             this.FlourishTP = new System.Windows.Forms.CheckBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.flourishesigroup = new System.Windows.Forms.GroupBox();
             this.numericUpDown34 = new System.Windows.Forms.NumericUpDown();
             this.usedesflo = new System.Windows.Forms.RadioButton();
             this.pets = new System.Windows.Forms.TabPage();
@@ -456,23 +460,23 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.petControl = new System.Windows.Forms.TabControl();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.bstpettab = new System.Windows.Forms.TabPage();
             this.usepetja = new System.Windows.Forms.GroupBox();
             this.PetJA = new System.Windows.Forms.CheckedListBox();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.bstpetrdygroup = new System.Windows.Forms.GroupBox();
             this.PetReady = new System.Windows.Forms.CheckedListBox();
             this.usedpetfood = new System.Windows.Forms.ComboBox();
             this.jugpet = new System.Windows.Forms.ComboBox();
             this.juguse = new System.Windows.Forms.CheckBox();
             this.pethppfood = new System.Windows.Forms.NumericUpDown();
-            this.label24 = new System.Windows.Forms.Label();
+            this.pethptext = new System.Windows.Forms.Label();
             this.petfooduse = new System.Windows.Forms.CheckBox();
             this.autoengage = new System.Windows.Forms.CheckBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.drgpettab = new System.Windows.Forms.TabPage();
             this.DragonPetHP = new System.Windows.Forms.NumericUpDown();
-            this.label51 = new System.Windows.Forms.Label();
+            this.drgsteadywingtext = new System.Windows.Forms.Label();
             this.CallWyvern = new System.Windows.Forms.CheckBox();
-            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.drgspirtlinkgroup = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
             this.PlayerSpirit = new System.Windows.Forms.NumericUpDown();
             this.WyvernSpirit = new System.Windows.Forms.NumericUpDown();
@@ -481,18 +485,16 @@
             this.BreathMAX = new System.Windows.Forms.NumericUpDown();
             this.label48 = new System.Windows.Forms.Label();
             this.BreathMIN = new System.Windows.Forms.NumericUpDown();
-            this.label49 = new System.Windows.Forms.Label();
-            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.drgwyvernbreathptext = new System.Windows.Forms.Label();
+            this.drgrestoringbreathgroup = new System.Windows.Forms.GroupBox();
             this.RestoringBreathHP = new System.Windows.Forms.NumericUpDown();
             this.label50 = new System.Windows.Forms.Label();
-            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.drgjagroup = new System.Windows.Forms.GroupBox();
             this.WyvernJA = new System.Windows.Forms.CheckedListBox();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.smnpettab = new System.Windows.Forms.TabPage();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.puppettab = new System.Windows.Forms.TabPage();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.DynamisPage = new System.Windows.Forms.TabPage();
-            this.staggerstopJA = new System.Windows.Forms.CheckBox();
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
@@ -501,6 +503,7 @@
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
+            this.geopettab = new System.Windows.Forms.TabPage();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -511,7 +514,7 @@
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.GetSetTargets.SuspendLayout();
-            this.groupBox13.SuspendLayout();
+            this.selecttargets.SuspendLayout();
             this.combat.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -542,7 +545,7 @@
             this.selectPage.SuspendLayout();
             this.GetSetJA.SuspendLayout();
             this.WHMpage.SuspendLayout();
-            this.groupBox17.SuspendLayout();
+            this.benedictiongroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).BeginInit();
             this.RDMpage.SuspendLayout();
             this.groupBox18.SuspendLayout();
@@ -553,6 +556,7 @@
             this.MONpage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).BeginInit();
+            this.Dynamispage.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.MAtabs.SuspendLayout();
             this.MASelectPage.SuspendLayout();
@@ -603,38 +607,37 @@
             this.groupBox22.SuspendLayout();
             this.GetSetParty.SuspendLayout();
             this.flourish.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.flourishesiiigroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.useclmfloValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usestkfloValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.useterfloValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlourishTPValue)).BeginInit();
-            this.groupBox5.SuspendLayout();
+            this.flourishesiigroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usewldfloValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usebldfloValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userevfloValue)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.flourishesigroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown34)).BeginInit();
             this.pets.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox19.SuspendLayout();
             this.petControl.SuspendLayout();
-            this.tabPage10.SuspendLayout();
+            this.bstpettab.SuspendLayout();
             this.usepetja.SuspendLayout();
-            this.groupBox16.SuspendLayout();
+            this.bstpetrdygroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pethppfood)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.drgpettab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DragonPetHP)).BeginInit();
-            this.groupBox27.SuspendLayout();
+            this.drgspirtlinkgroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerSpirit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WyvernSpirit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BreathMAX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BreathMIN)).BeginInit();
-            this.groupBox26.SuspendLayout();
+            this.drgrestoringbreathgroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RestoringBreathHP)).BeginInit();
-            this.groupBox25.SuspendLayout();
-            this.tabPage13.SuspendLayout();
-            this.tabPage12.SuspendLayout();
-            this.DynamisPage.SuspendLayout();
+            this.drgjagroup.SuspendLayout();
+            this.smnpettab.SuspendLayout();
+            this.puppettab.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkZone
@@ -806,7 +809,6 @@
             this.dncControl.Controls.Add(this.dancer);
             this.dncControl.Controls.Add(this.flourish);
             this.dncControl.Controls.Add(this.pets);
-            this.dncControl.Controls.Add(this.DynamisPage);
             this.dncControl.Location = new System.Drawing.Point(10, 30);
             this.dncControl.Name = "dncControl";
             this.dncControl.SelectedIndex = 0;
@@ -818,7 +820,7 @@
             this.targets.Controls.Add(this.groupBox9);
             this.targets.Controls.Add(this.groupBox11);
             this.targets.Controls.Add(this.groupBox12);
-            this.targets.Controls.Add(this.groupBox13);
+            this.targets.Controls.Add(this.selecttargets);
             this.targets.Location = new System.Drawing.Point(4, 22);
             this.targets.Name = "targets";
             this.targets.Padding = new System.Windows.Forms.Padding(3);
@@ -941,15 +943,15 @@
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.ClearToolStripMenuItemClick);
             // 
-            // groupBox13
+            // selecttargets
             // 
-            this.groupBox13.Controls.Add(this.SelectedTargets);
-            this.groupBox13.Location = new System.Drawing.Point(12, 10);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(201, 276);
-            this.groupBox13.TabIndex = 7;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Selected Targets";
+            this.selecttargets.Controls.Add(this.SelectedTargets);
+            this.selecttargets.Location = new System.Drawing.Point(12, 10);
+            this.selecttargets.Name = "selecttargets";
+            this.selecttargets.Size = new System.Drawing.Size(201, 276);
+            this.selecttargets.TabIndex = 7;
+            this.selecttargets.TabStop = false;
+            this.selecttargets.Text = "Selected Targets";
             // 
             // SelectedTargets
             // 
@@ -2245,6 +2247,7 @@
             this.JAtabselect.Controls.Add(this.RDMpage);
             this.JAtabselect.Controls.Add(this.RUNpage);
             this.JAtabselect.Controls.Add(this.MONpage);
+            this.JAtabselect.Controls.Add(this.Dynamispage);
             this.JAtabselect.Location = new System.Drawing.Point(4, 4);
             this.JAtabselect.Name = "JAtabselect";
             this.JAtabselect.SelectedIndex = 0;
@@ -2301,7 +2304,7 @@
             // 
             // WHMpage
             // 
-            this.WHMpage.Controls.Add(this.groupBox17);
+            this.WHMpage.Controls.Add(this.benedictiongroupBox);
             this.WHMpage.Location = new System.Drawing.Point(4, 22);
             this.WHMpage.Name = "WHMpage";
             this.WHMpage.Padding = new System.Windows.Forms.Padding(3);
@@ -2310,16 +2313,16 @@
             this.WHMpage.Text = "WHM";
             this.WHMpage.UseVisualStyleBackColor = true;
             // 
-            // groupBox17
+            // benedictiongroupBox
             // 
-            this.groupBox17.Controls.Add(this.BenedictionHPPuse);
-            this.groupBox17.Controls.Add(this.label56);
-            this.groupBox17.Location = new System.Drawing.Point(7, 7);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(91, 40);
-            this.groupBox17.TabIndex = 0;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Benediction";
+            this.benedictiongroupBox.Controls.Add(this.BenedictionHPPuse);
+            this.benedictiongroupBox.Controls.Add(this.benedictiontext);
+            this.benedictiongroupBox.Location = new System.Drawing.Point(7, 7);
+            this.benedictiongroupBox.Name = "benedictiongroupBox";
+            this.benedictiongroupBox.Size = new System.Drawing.Size(91, 40);
+            this.benedictiongroupBox.TabIndex = 0;
+            this.benedictiongroupBox.TabStop = false;
+            this.benedictiongroupBox.Text = "Benediction";
             // 
             // BenedictionHPPuse
             // 
@@ -2334,14 +2337,14 @@
             0,
             0});
             // 
-            // label56
+            // benedictiontext
             // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(3, 16);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(33, 13);
-            this.label56.TabIndex = 0;
-            this.label56.Text = "HP %";
+            this.benedictiontext.AutoSize = true;
+            this.benedictiontext.Location = new System.Drawing.Point(3, 16);
+            this.benedictiontext.Name = "benedictiontext";
+            this.benedictiontext.Size = new System.Drawing.Size(33, 13);
+            this.benedictiontext.TabIndex = 0;
+            this.benedictiontext.Text = "HP %";
             // 
             // RDMpage
             // 
@@ -2360,8 +2363,8 @@
             this.groupBox18.Controls.Add(this.ConvertMPP);
             this.groupBox18.Controls.Add(this.ConvertMP);
             this.groupBox18.Controls.Add(this.ConvertHP);
-            this.groupBox18.Controls.Add(this.label58);
-            this.groupBox18.Controls.Add(this.label57);
+            this.groupBox18.Controls.Add(this.convertmptext);
+            this.groupBox18.Controls.Add(this.converthptext);
             this.groupBox18.Location = new System.Drawing.Point(7, 9);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(167, 69);
@@ -2417,23 +2420,23 @@
             this.ConvertHP.Text = "For HP";
             this.ConvertHP.UseVisualStyleBackColor = true;
             // 
-            // label58
+            // convertmptext
             // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(72, 42);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(34, 13);
-            this.label58.TabIndex = 1;
-            this.label58.Text = "MP %";
+            this.convertmptext.AutoSize = true;
+            this.convertmptext.Location = new System.Drawing.Point(72, 42);
+            this.convertmptext.Name = "convertmptext";
+            this.convertmptext.Size = new System.Drawing.Size(34, 13);
+            this.convertmptext.TabIndex = 1;
+            this.convertmptext.Text = "MP %";
             // 
-            // label57
+            // converthptext
             // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(72, 20);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(33, 13);
-            this.label57.TabIndex = 0;
-            this.label57.Text = "HP %";
+            this.converthptext.AutoSize = true;
+            this.converthptext.Location = new System.Drawing.Point(72, 20);
+            this.converthptext.Name = "converthptext";
+            this.converthptext.Size = new System.Drawing.Size(33, 13);
+            this.converthptext.TabIndex = 0;
+            this.converthptext.Text = "HP %";
             // 
             // RUNpage
             // 
@@ -2470,8 +2473,8 @@
             // 
             this.MONpage.Controls.Add(this.MONmpCount);
             this.MONpage.Controls.Add(this.MONhpCount);
-            this.MONpage.Controls.Add(this.label60);
-            this.MONpage.Controls.Add(this.label59);
+            this.MONpage.Controls.Add(this.monmptext);
+            this.MONpage.Controls.Add(this.monhptext);
             this.MONpage.Location = new System.Drawing.Point(4, 22);
             this.MONpage.Name = "MONpage";
             this.MONpage.Padding = new System.Windows.Forms.Padding(3);
@@ -2506,23 +2509,54 @@
             0,
             0});
             // 
-            // label60
+            // monmptext
             // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(7, 32);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(34, 13);
-            this.label60.TabIndex = 1;
-            this.label60.Text = "MP %";
+            this.monmptext.AutoSize = true;
+            this.monmptext.Location = new System.Drawing.Point(7, 32);
+            this.monmptext.Name = "monmptext";
+            this.monmptext.Size = new System.Drawing.Size(34, 13);
+            this.monmptext.TabIndex = 1;
+            this.monmptext.Text = "MP %";
             // 
-            // label59
+            // monhptext
             // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(7, 9);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(33, 13);
-            this.label59.TabIndex = 0;
-            this.label59.Text = "HP %";
+            this.monhptext.AutoSize = true;
+            this.monhptext.Location = new System.Drawing.Point(7, 9);
+            this.monhptext.Name = "monhptext";
+            this.monhptext.Size = new System.Drawing.Size(33, 13);
+            this.monhptext.TabIndex = 0;
+            this.monhptext.Text = "HP %";
+            // 
+            // Dynamispage
+            // 
+            this.Dynamispage.Controls.Add(this.Dynatxt);
+            this.Dynamispage.Controls.Add(this.staggerstopJA);
+            this.Dynamispage.Location = new System.Drawing.Point(4, 22);
+            this.Dynamispage.Name = "Dynamispage";
+            this.Dynamispage.Padding = new System.Windows.Forms.Padding(3);
+            this.Dynamispage.Size = new System.Drawing.Size(312, 160);
+            this.Dynamispage.TabIndex = 5;
+            this.Dynamispage.Text = "Dynamis";
+            this.Dynamispage.UseVisualStyleBackColor = true;
+            // 
+            // Dynatxt
+            // 
+            this.Dynatxt.AutoSize = true;
+            this.Dynatxt.Location = new System.Drawing.Point(15, 45);
+            this.Dynatxt.Name = "Dynatxt";
+            this.Dynatxt.Size = new System.Drawing.Size(285, 13);
+            this.Dynatxt.TabIndex = 2;
+            this.Dynatxt.Text = "This will stop all JA\'s when a mob is !Staggered! in Dynamis";
+            // 
+            // staggerstopJA
+            // 
+            this.staggerstopJA.AutoSize = true;
+            this.staggerstopJA.Location = new System.Drawing.Point(77, 23);
+            this.staggerstopJA.Name = "staggerstopJA";
+            this.staggerstopJA.Size = new System.Drawing.Size(153, 17);
+            this.staggerstopJA.TabIndex = 1;
+            this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
+            this.staggerstopJA.UseVisualStyleBackColor = true;
             // 
             // tabPage6
             // 
@@ -2845,21 +2879,21 @@
             // 
             // groupBox14
             // 
-            this.groupBox14.Controls.Add(this.label10);
+            this.groupBox14.Controls.Add(this.delaytext);
             this.groupBox14.Controls.Add(this.pullDelay);
             this.groupBox14.Controls.Add(this.AutoLock);
             this.groupBox14.Controls.Add(this.numericUpDown39);
-            this.groupBox14.Controls.Add(this.checkBox5);
+            this.groupBox14.Controls.Add(this.mobheightdist);
             this.groupBox14.Controls.Add(this.runTarget);
             this.groupBox14.Controls.Add(this.runPullDistance);
-            this.groupBox14.Controls.Add(this.label13);
+            this.groupBox14.Controls.Add(this.mobsearchdisttext);
             this.groupBox14.Controls.Add(this.targetSearchDist);
             this.groupBox14.Controls.Add(this.pullTolorance);
-            this.groupBox14.Controls.Add(this.label14);
+            this.groupBox14.Controls.Add(this.pulltolorancetext);
             this.groupBox14.Controls.Add(this.numericUpDown21);
-            this.groupBox14.Controls.Add(this.label19);
+            this.groupBox14.Controls.Add(this.pulldistance);
             this.groupBox14.Controls.Add(this.pullCommand);
-            this.groupBox14.Controls.Add(this.label26);
+            this.groupBox14.Controls.Add(this.pullcommandtext);
             this.groupBox14.Location = new System.Drawing.Point(45, 6);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(335, 119);
@@ -2867,14 +2901,14 @@
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Pull Options";
             // 
-            // label10
+            // delaytext
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(244, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 13);
-            this.label10.TabIndex = 55;
-            this.label10.Text = "Delay:";
+            this.delaytext.AutoSize = true;
+            this.delaytext.Location = new System.Drawing.Point(244, 20);
+            this.delaytext.Name = "delaytext";
+            this.delaytext.Size = new System.Drawing.Size(37, 13);
+            this.delaytext.TabIndex = 55;
+            this.delaytext.Text = "Delay:";
             // 
             // pullDelay
             // 
@@ -2945,16 +2979,16 @@
             0,
             0});
             // 
-            // checkBox5
+            // mobheightdist
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Enabled = false;
-            this.checkBox5.Location = new System.Drawing.Point(172, 93);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(105, 17);
-            this.checkBox5.TabIndex = 51;
-            this.checkBox5.Text = "Mob Height Dist.";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.mobheightdist.AutoSize = true;
+            this.mobheightdist.Enabled = false;
+            this.mobheightdist.Location = new System.Drawing.Point(172, 93);
+            this.mobheightdist.Name = "mobheightdist";
+            this.mobheightdist.Size = new System.Drawing.Size(105, 17);
+            this.mobheightdist.TabIndex = 51;
+            this.mobheightdist.Text = "Mob Height Dist.";
+            this.mobheightdist.UseVisualStyleBackColor = true;
             // 
             // runTarget
             // 
@@ -2976,14 +3010,14 @@
             this.runPullDistance.Text = "Run to Pull Distance";
             this.runPullDistance.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // mobsearchdisttext
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(21, 93);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 13);
-            this.label13.TabIndex = 48;
-            this.label13.Text = "Mob Search Dist.";
+            this.mobsearchdisttext.AutoSize = true;
+            this.mobsearchdisttext.Location = new System.Drawing.Point(21, 93);
+            this.mobsearchdisttext.Name = "mobsearchdisttext";
+            this.mobsearchdisttext.Size = new System.Drawing.Size(89, 13);
+            this.mobsearchdisttext.TabIndex = 48;
+            this.mobsearchdisttext.Text = "Mob Search Dist.";
             // 
             // targetSearchDist
             // 
@@ -3036,14 +3070,14 @@
             0,
             0});
             // 
-            // label14
+            // pulltolorancetext
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(21, 70);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(75, 13);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Pull Tolorance";
+            this.pulltolorancetext.AutoSize = true;
+            this.pulltolorancetext.Location = new System.Drawing.Point(21, 70);
+            this.pulltolorancetext.Name = "pulltolorancetext";
+            this.pulltolorancetext.Size = new System.Drawing.Size(75, 13);
+            this.pulltolorancetext.TabIndex = 10;
+            this.pulltolorancetext.Text = "Pull Tolorance";
             // 
             // numericUpDown21
             // 
@@ -3070,14 +3104,14 @@
             0,
             0});
             // 
-            // label19
+            // pulldistance
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(21, 48);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(69, 13);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "Pull Distance";
+            this.pulldistance.AutoSize = true;
+            this.pulldistance.Location = new System.Drawing.Point(21, 48);
+            this.pulldistance.Name = "pulldistance";
+            this.pulldistance.Size = new System.Drawing.Size(69, 13);
+            this.pulldistance.TabIndex = 8;
+            this.pulldistance.Text = "Pull Distance";
             // 
             // pullCommand
             // 
@@ -3088,14 +3122,14 @@
             this.pullCommand.TabStop = false;
             this.pullCommand.Text = "/ra <t>";
             // 
-            // label26
+            // pullcommandtext
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(21, 20);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(74, 13);
-            this.label26.TabIndex = 6;
-            this.label26.Text = "Pull Command";
+            this.pullcommandtext.AutoSize = true;
+            this.pullcommandtext.Location = new System.Drawing.Point(21, 20);
+            this.pullcommandtext.Name = "pullcommandtext";
+            this.pullcommandtext.Size = new System.Drawing.Size(74, 13);
+            this.pullcommandtext.TabIndex = 6;
+            this.pullcommandtext.Text = "Pull Command";
             // 
             // dancer
             // 
@@ -3236,7 +3270,7 @@
             // 
             this.groupBox3.Controls.Add(this.stopstepsat);
             this.groupBox3.Controls.Add(this.stopstepscount);
-            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.stopstepsathptext);
             this.groupBox3.Controls.Add(this.usefeatherstepValue);
             this.groupBox3.Controls.Add(this.usestutterstepValue);
             this.groupBox3.Controls.Add(this.useboxstepValue);
@@ -3290,15 +3324,15 @@
             0,
             0});
             // 
-            // label18
+            // stopstepsathptext
             // 
-            this.label18.AutoSize = true;
-            this.label18.Enabled = false;
-            this.label18.Location = new System.Drawing.Point(154, 157);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(30, 13);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "HP%";
+            this.stopstepsathptext.AutoSize = true;
+            this.stopstepsathptext.Enabled = false;
+            this.stopstepsathptext.Location = new System.Drawing.Point(154, 157);
+            this.stopstepsathptext.Name = "stopstepsathptext";
+            this.stopstepsathptext.Size = new System.Drawing.Size(30, 13);
+            this.stopstepsathptext.TabIndex = 10;
+            this.stopstepsathptext.Text = "HP%";
             // 
             // usefeatherstepValue
             // 
@@ -3727,7 +3761,7 @@
             // 
             // tabPage16
             // 
-            this.tabPage16.Controls.Add(this.label8);
+            this.tabPage16.Controls.Add(this.addplayertext);
             this.tabPage16.Controls.Add(this.textBox2);
             this.tabPage16.Controls.Add(this.groupBox21);
             this.tabPage16.Controls.Add(this.groupBox22);
@@ -3739,15 +3773,15 @@
             this.tabPage16.Text = "Party Waltz";
             this.tabPage16.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // addplayertext
             // 
-            this.label8.AutoSize = true;
-            this.label8.Enabled = false;
-            this.label8.Location = new System.Drawing.Point(207, 177);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 13);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Add Player";
+            this.addplayertext.AutoSize = true;
+            this.addplayertext.Enabled = false;
+            this.addplayertext.Location = new System.Drawing.Point(207, 177);
+            this.addplayertext.Name = "addplayertext";
+            this.addplayertext.Size = new System.Drawing.Size(58, 13);
+            this.addplayertext.TabIndex = 17;
+            this.addplayertext.Text = "Add Player";
             // 
             // textBox2
             // 
@@ -4019,13 +4053,13 @@
             // 
             // flourish
             // 
-            this.flourish.Controls.Add(this.groupBox6);
+            this.flourish.Controls.Add(this.flourishesiiigroup);
             this.flourish.Controls.Add(this.label40);
-            this.flourish.Controls.Add(this.label41);
+            this.flourish.Controls.Add(this.finsishingmovetext);
             this.flourish.Controls.Add(this.FlourishTPValue);
-            this.flourish.Controls.Add(this.groupBox5);
+            this.flourish.Controls.Add(this.flourishesiigroup);
             this.flourish.Controls.Add(this.FlourishTP);
-            this.flourish.Controls.Add(this.groupBox4);
+            this.flourish.Controls.Add(this.flourishesigroup);
             this.flourish.Location = new System.Drawing.Point(4, 22);
             this.flourish.Name = "flourish";
             this.flourish.Padding = new System.Windows.Forms.Padding(3);
@@ -4034,20 +4068,20 @@
             this.flourish.Text = "Flourishes";
             this.flourish.UseVisualStyleBackColor = true;
             // 
-            // groupBox6
+            // flourishesiiigroup
             // 
-            this.groupBox6.Controls.Add(this.useclmfloValue);
-            this.groupBox6.Controls.Add(this.usestkfloValue);
-            this.groupBox6.Controls.Add(this.useterfloValue);
-            this.groupBox6.Controls.Add(this.usestkflo);
-            this.groupBox6.Controls.Add(this.useclmflo);
-            this.groupBox6.Controls.Add(this.useterflo);
-            this.groupBox6.Location = new System.Drawing.Point(26, 188);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(195, 90);
-            this.groupBox6.TabIndex = 3;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Flourishes III";
+            this.flourishesiiigroup.Controls.Add(this.useclmfloValue);
+            this.flourishesiiigroup.Controls.Add(this.usestkfloValue);
+            this.flourishesiiigroup.Controls.Add(this.useterfloValue);
+            this.flourishesiiigroup.Controls.Add(this.usestkflo);
+            this.flourishesiiigroup.Controls.Add(this.useclmflo);
+            this.flourishesiiigroup.Controls.Add(this.useterflo);
+            this.flourishesiiigroup.Location = new System.Drawing.Point(26, 188);
+            this.flourishesiiigroup.Name = "flourishesiiigroup";
+            this.flourishesiiigroup.Size = new System.Drawing.Size(195, 90);
+            this.flourishesiiigroup.TabIndex = 3;
+            this.flourishesiiigroup.TabStop = false;
+            this.flourishesiiigroup.Text = "Flourishes III";
             // 
             // useclmfloValue
             // 
@@ -4136,14 +4170,14 @@
             this.label40.TabIndex = 64;
             this.label40.Text = "%";
             // 
-            // label41
+            // finsishingmovetext
             // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(23, 280);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(197, 13);
-            this.label41.TabIndex = 2;
-            this.label41.Text = "Finishing Moves Required / 0 = disabled";
+            this.finsishingmovetext.AutoSize = true;
+            this.finsishingmovetext.Location = new System.Drawing.Point(23, 280);
+            this.finsishingmovetext.Name = "finsishingmovetext";
+            this.finsishingmovetext.Size = new System.Drawing.Size(197, 13);
+            this.finsishingmovetext.TabIndex = 2;
+            this.finsishingmovetext.Text = "Finishing Moves Required / 0 = disabled";
             // 
             // FlourishTPValue
             // 
@@ -4169,20 +4203,20 @@
             0,
             0});
             // 
-            // groupBox5
+            // flourishesiigroup
             // 
-            this.groupBox5.Controls.Add(this.usewldfloValue);
-            this.groupBox5.Controls.Add(this.usebldfloValue);
-            this.groupBox5.Controls.Add(this.userevfloValue);
-            this.groupBox5.Controls.Add(this.usewldflo);
-            this.groupBox5.Controls.Add(this.usebldflo);
-            this.groupBox5.Controls.Add(this.userevflo);
-            this.groupBox5.Location = new System.Drawing.Point(26, 92);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(195, 90);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Flourishes II";
+            this.flourishesiigroup.Controls.Add(this.usewldfloValue);
+            this.flourishesiigroup.Controls.Add(this.usebldfloValue);
+            this.flourishesiigroup.Controls.Add(this.userevfloValue);
+            this.flourishesiigroup.Controls.Add(this.usewldflo);
+            this.flourishesiigroup.Controls.Add(this.usebldflo);
+            this.flourishesiigroup.Controls.Add(this.userevflo);
+            this.flourishesiigroup.Location = new System.Drawing.Point(26, 92);
+            this.flourishesiigroup.Name = "flourishesiigroup";
+            this.flourishesiigroup.Size = new System.Drawing.Size(195, 90);
+            this.flourishesiigroup.TabIndex = 1;
+            this.flourishesiigroup.TabStop = false;
+            this.flourishesiigroup.Text = "Flourishes II";
             // 
             // usewldfloValue
             // 
@@ -4272,16 +4306,16 @@
             this.FlourishTP.Text = "Flourish under TP";
             this.FlourishTP.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // flourishesigroup
             // 
-            this.groupBox4.Controls.Add(this.numericUpDown34);
-            this.groupBox4.Controls.Add(this.usedesflo);
-            this.groupBox4.Location = new System.Drawing.Point(26, 40);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(195, 46);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Flourishes I";
+            this.flourishesigroup.Controls.Add(this.numericUpDown34);
+            this.flourishesigroup.Controls.Add(this.usedesflo);
+            this.flourishesigroup.Location = new System.Drawing.Point(26, 40);
+            this.flourishesigroup.Name = "flourishesigroup";
+            this.flourishesigroup.Size = new System.Drawing.Size(195, 46);
+            this.flourishesigroup.TabIndex = 0;
+            this.flourishesigroup.TabStop = false;
+            this.flourishesigroup.Text = "Flourishes I";
             // 
             // numericUpDown34
             // 
@@ -4382,34 +4416,35 @@
             // 
             // petControl
             // 
-            this.petControl.Controls.Add(this.tabPage10);
-            this.petControl.Controls.Add(this.tabPage3);
-            this.petControl.Controls.Add(this.tabPage13);
-            this.petControl.Controls.Add(this.tabPage12);
+            this.petControl.Controls.Add(this.bstpettab);
+            this.petControl.Controls.Add(this.drgpettab);
+            this.petControl.Controls.Add(this.smnpettab);
+            this.petControl.Controls.Add(this.puppettab);
+            this.petControl.Controls.Add(this.geopettab);
             this.petControl.Location = new System.Drawing.Point(6, 66);
             this.petControl.Name = "petControl";
             this.petControl.SelectedIndex = 0;
             this.petControl.Size = new System.Drawing.Size(423, 273);
             this.petControl.TabIndex = 38;
             // 
-            // tabPage10
+            // bstpettab
             // 
-            this.tabPage10.Controls.Add(this.usepetja);
-            this.tabPage10.Controls.Add(this.groupBox16);
-            this.tabPage10.Controls.Add(this.usedpetfood);
-            this.tabPage10.Controls.Add(this.jugpet);
-            this.tabPage10.Controls.Add(this.juguse);
-            this.tabPage10.Controls.Add(this.pethppfood);
-            this.tabPage10.Controls.Add(this.label24);
-            this.tabPage10.Controls.Add(this.petfooduse);
-            this.tabPage10.Controls.Add(this.autoengage);
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(415, 247);
-            this.tabPage10.TabIndex = 0;
-            this.tabPage10.Text = "BST";
-            this.tabPage10.UseVisualStyleBackColor = true;
+            this.bstpettab.Controls.Add(this.usepetja);
+            this.bstpettab.Controls.Add(this.bstpetrdygroup);
+            this.bstpettab.Controls.Add(this.usedpetfood);
+            this.bstpettab.Controls.Add(this.jugpet);
+            this.bstpettab.Controls.Add(this.juguse);
+            this.bstpettab.Controls.Add(this.pethppfood);
+            this.bstpettab.Controls.Add(this.pethptext);
+            this.bstpettab.Controls.Add(this.petfooduse);
+            this.bstpettab.Controls.Add(this.autoengage);
+            this.bstpettab.Location = new System.Drawing.Point(4, 22);
+            this.bstpettab.Name = "bstpettab";
+            this.bstpettab.Padding = new System.Windows.Forms.Padding(3);
+            this.bstpettab.Size = new System.Drawing.Size(415, 247);
+            this.bstpettab.TabIndex = 0;
+            this.bstpettab.Text = "BST";
+            this.bstpettab.UseVisualStyleBackColor = true;
             // 
             // usepetja
             // 
@@ -4432,15 +4467,15 @@
             this.PetJA.Size = new System.Drawing.Size(170, 93);
             this.PetJA.TabIndex = 0;
             // 
-            // groupBox16
+            // bstpetrdygroup
             // 
-            this.groupBox16.Controls.Add(this.PetReady);
-            this.groupBox16.Location = new System.Drawing.Point(14, 129);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(176, 112);
-            this.groupBox16.TabIndex = 19;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Pet Ready";
+            this.bstpetrdygroup.Controls.Add(this.PetReady);
+            this.bstpetrdygroup.Location = new System.Drawing.Point(14, 129);
+            this.bstpetrdygroup.Name = "bstpetrdygroup";
+            this.bstpetrdygroup.Size = new System.Drawing.Size(176, 112);
+            this.bstpetrdygroup.TabIndex = 19;
+            this.bstpetrdygroup.TabStop = false;
+            this.bstpetrdygroup.Text = "Pet Ready";
             // 
             // PetReady
             // 
@@ -4580,14 +4615,14 @@
             0,
             0});
             // 
-            // label24
+            // pethptext
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(287, 38);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(72, 13);
-            this.label24.TabIndex = 5;
-            this.label24.Text = "<= Pets HP% ";
+            this.pethptext.AutoSize = true;
+            this.pethptext.Location = new System.Drawing.Point(287, 38);
+            this.pethptext.Name = "pethptext";
+            this.pethptext.Size = new System.Drawing.Size(72, 13);
+            this.pethptext.TabIndex = 5;
+            this.pethptext.Text = "<= Pets HP% ";
             // 
             // petfooduse
             // 
@@ -4609,26 +4644,26 @@
             this.autoengage.Text = "Auto Engage Pet";
             this.autoengage.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // drgpettab
             // 
-            this.tabPage3.Controls.Add(this.DragonPetHP);
-            this.tabPage3.Controls.Add(this.label51);
-            this.tabPage3.Controls.Add(this.CallWyvern);
-            this.tabPage3.Controls.Add(this.groupBox27);
-            this.tabPage3.Controls.Add(this.label47);
-            this.tabPage3.Controls.Add(this.BreathMAX);
-            this.tabPage3.Controls.Add(this.label48);
-            this.tabPage3.Controls.Add(this.BreathMIN);
-            this.tabPage3.Controls.Add(this.label49);
-            this.tabPage3.Controls.Add(this.groupBox26);
-            this.tabPage3.Controls.Add(this.groupBox25);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(415, 247);
-            this.tabPage3.TabIndex = 3;
-            this.tabPage3.Text = "DRG";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.drgpettab.Controls.Add(this.DragonPetHP);
+            this.drgpettab.Controls.Add(this.drgsteadywingtext);
+            this.drgpettab.Controls.Add(this.CallWyvern);
+            this.drgpettab.Controls.Add(this.drgspirtlinkgroup);
+            this.drgpettab.Controls.Add(this.label47);
+            this.drgpettab.Controls.Add(this.BreathMAX);
+            this.drgpettab.Controls.Add(this.label48);
+            this.drgpettab.Controls.Add(this.BreathMIN);
+            this.drgpettab.Controls.Add(this.drgwyvernbreathptext);
+            this.drgpettab.Controls.Add(this.drgrestoringbreathgroup);
+            this.drgpettab.Controls.Add(this.drgjagroup);
+            this.drgpettab.Location = new System.Drawing.Point(4, 22);
+            this.drgpettab.Name = "drgpettab";
+            this.drgpettab.Padding = new System.Windows.Forms.Padding(3);
+            this.drgpettab.Size = new System.Drawing.Size(415, 247);
+            this.drgpettab.TabIndex = 3;
+            this.drgpettab.Text = "DRG";
+            this.drgpettab.UseVisualStyleBackColor = true;
             // 
             // DragonPetHP
             // 
@@ -4643,14 +4678,14 @@
             this.DragonPetHP.TabIndex = 118;
             this.DragonPetHP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label51
+            // drgsteadywingtext
             // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(216, 146);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(108, 13);
-            this.label51.TabIndex = 110;
-            this.label51.Text = "Steady Wing @ HP%";
+            this.drgsteadywingtext.AutoSize = true;
+            this.drgsteadywingtext.Location = new System.Drawing.Point(216, 146);
+            this.drgsteadywingtext.Name = "drgsteadywingtext";
+            this.drgsteadywingtext.Size = new System.Drawing.Size(108, 13);
+            this.drgsteadywingtext.TabIndex = 110;
+            this.drgsteadywingtext.Text = "Steady Wing @ HP%";
             // 
             // CallWyvern
             // 
@@ -4662,18 +4697,18 @@
             this.CallWyvern.Text = "Auto-Call Wyvern";
             this.CallWyvern.UseVisualStyleBackColor = true;
             // 
-            // groupBox27
+            // drgspirtlinkgroup
             // 
-            this.groupBox27.Controls.Add(this.label16);
-            this.groupBox27.Controls.Add(this.PlayerSpirit);
-            this.groupBox27.Controls.Add(this.WyvernSpirit);
-            this.groupBox27.Controls.Add(this.label46);
-            this.groupBox27.Location = new System.Drawing.Point(17, 8);
-            this.groupBox27.Name = "groupBox27";
-            this.groupBox27.Size = new System.Drawing.Size(176, 70);
-            this.groupBox27.TabIndex = 108;
-            this.groupBox27.TabStop = false;
-            this.groupBox27.Text = "Spirit Link";
+            this.drgspirtlinkgroup.Controls.Add(this.label16);
+            this.drgspirtlinkgroup.Controls.Add(this.PlayerSpirit);
+            this.drgspirtlinkgroup.Controls.Add(this.WyvernSpirit);
+            this.drgspirtlinkgroup.Controls.Add(this.label46);
+            this.drgspirtlinkgroup.Location = new System.Drawing.Point(17, 8);
+            this.drgspirtlinkgroup.Name = "drgspirtlinkgroup";
+            this.drgspirtlinkgroup.Size = new System.Drawing.Size(176, 70);
+            this.drgspirtlinkgroup.TabIndex = 108;
+            this.drgspirtlinkgroup.TabStop = false;
+            this.drgspirtlinkgroup.Text = "Spirit Link";
             // 
             // label16
             // 
@@ -4783,25 +4818,25 @@
             0,
             0});
             // 
-            // label49
+            // drgwyvernbreathptext
             // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(216, 93);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(160, 13);
-            this.label49.TabIndex = 101;
-            this.label49.Text = "Mob HP% to use Wyvern Breath";
+            this.drgwyvernbreathptext.AutoSize = true;
+            this.drgwyvernbreathptext.Location = new System.Drawing.Point(216, 93);
+            this.drgwyvernbreathptext.Name = "drgwyvernbreathptext";
+            this.drgwyvernbreathptext.Size = new System.Drawing.Size(160, 13);
+            this.drgwyvernbreathptext.TabIndex = 101;
+            this.drgwyvernbreathptext.Text = "Mob HP% to use Wyvern Breath";
             // 
-            // groupBox26
+            // drgrestoringbreathgroup
             // 
-            this.groupBox26.Controls.Add(this.RestoringBreathHP);
-            this.groupBox26.Controls.Add(this.label50);
-            this.groupBox26.Location = new System.Drawing.Point(199, 34);
-            this.groupBox26.Name = "groupBox26";
-            this.groupBox26.Size = new System.Drawing.Size(200, 44);
-            this.groupBox26.TabIndex = 18;
-            this.groupBox26.TabStop = false;
-            this.groupBox26.Text = "Restoring Breath";
+            this.drgrestoringbreathgroup.Controls.Add(this.RestoringBreathHP);
+            this.drgrestoringbreathgroup.Controls.Add(this.label50);
+            this.drgrestoringbreathgroup.Location = new System.Drawing.Point(199, 34);
+            this.drgrestoringbreathgroup.Name = "drgrestoringbreathgroup";
+            this.drgrestoringbreathgroup.Size = new System.Drawing.Size(200, 44);
+            this.drgrestoringbreathgroup.TabIndex = 18;
+            this.drgrestoringbreathgroup.TabStop = false;
+            this.drgrestoringbreathgroup.Text = "Restoring Breath";
             // 
             // RestoringBreathHP
             // 
@@ -4825,15 +4860,15 @@
             this.label50.TabIndex = 116;
             this.label50.Text = "Use @ HP%";
             // 
-            // groupBox25
+            // drgjagroup
             // 
-            this.groupBox25.Controls.Add(this.WyvernJA);
-            this.groupBox25.Location = new System.Drawing.Point(17, 81);
-            this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(176, 159);
-            this.groupBox25.TabIndex = 13;
-            this.groupBox25.TabStop = false;
-            this.groupBox25.Text = "Pet JA";
+            this.drgjagroup.Controls.Add(this.WyvernJA);
+            this.drgjagroup.Location = new System.Drawing.Point(17, 81);
+            this.drgjagroup.Name = "drgjagroup";
+            this.drgjagroup.Size = new System.Drawing.Size(176, 159);
+            this.drgjagroup.TabIndex = 13;
+            this.drgjagroup.TabStop = false;
+            this.drgjagroup.Text = "Pet JA";
             // 
             // WyvernJA
             // 
@@ -4846,15 +4881,15 @@
             this.WyvernJA.Size = new System.Drawing.Size(170, 140);
             this.WyvernJA.TabIndex = 0;
             // 
-            // tabPage13
+            // smnpettab
             // 
-            this.tabPage13.Controls.Add(this.checkBox7);
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(415, 247);
-            this.tabPage13.TabIndex = 2;
-            this.tabPage13.Text = "SMN";
-            this.tabPage13.UseVisualStyleBackColor = true;
+            this.smnpettab.Controls.Add(this.checkBox7);
+            this.smnpettab.Location = new System.Drawing.Point(4, 22);
+            this.smnpettab.Name = "smnpettab";
+            this.smnpettab.Size = new System.Drawing.Size(415, 247);
+            this.smnpettab.TabIndex = 2;
+            this.smnpettab.Text = "SMN";
+            this.smnpettab.UseVisualStyleBackColor = true;
             // 
             // checkBox7
             // 
@@ -4866,16 +4901,16 @@
             this.checkBox7.Text = "Auto Engage Pet";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
-            // tabPage12
+            // puppettab
             // 
-            this.tabPage12.Controls.Add(this.checkBox8);
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(415, 247);
-            this.tabPage12.TabIndex = 1;
-            this.tabPage12.Text = "PUP";
-            this.tabPage12.UseVisualStyleBackColor = true;
+            this.puppettab.Controls.Add(this.checkBox8);
+            this.puppettab.Location = new System.Drawing.Point(4, 22);
+            this.puppettab.Name = "puppettab";
+            this.puppettab.Padding = new System.Windows.Forms.Padding(3);
+            this.puppettab.Size = new System.Drawing.Size(415, 247);
+            this.puppettab.TabIndex = 1;
+            this.puppettab.Text = "PUP";
+            this.puppettab.UseVisualStyleBackColor = true;
             // 
             // checkBox8
             // 
@@ -4886,27 +4921,6 @@
             this.checkBox8.TabIndex = 3;
             this.checkBox8.Text = "Auto Engage Pet";
             this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // DynamisPage
-            // 
-            this.DynamisPage.Controls.Add(this.staggerstopJA);
-            this.DynamisPage.Location = new System.Drawing.Point(4, 22);
-            this.DynamisPage.Name = "DynamisPage";
-            this.DynamisPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DynamisPage.Size = new System.Drawing.Size(439, 351);
-            this.DynamisPage.TabIndex = 8;
-            this.DynamisPage.Text = "Dynamis";
-            this.DynamisPage.UseVisualStyleBackColor = true;
-            // 
-            // staggerstopJA
-            // 
-            this.staggerstopJA.AutoSize = true;
-            this.staggerstopJA.Location = new System.Drawing.Point(32, 42);
-            this.staggerstopJA.Name = "staggerstopJA";
-            this.staggerstopJA.Size = new System.Drawing.Size(153, 17);
-            this.staggerstopJA.TabIndex = 0;
-            this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
-            this.staggerstopJA.UseVisualStyleBackColor = true;
             // 
             // bgw_script_dnc
             // 
@@ -4948,6 +4962,16 @@
             this.DeathWarp.Text = "Warp on Death";
             this.DeathWarp.UseVisualStyleBackColor = true;
             // 
+            // geopettab
+            // 
+            this.geopettab.Location = new System.Drawing.Point(4, 22);
+            this.geopettab.Name = "geopettab";
+            this.geopettab.Padding = new System.Windows.Forms.Padding(3);
+            this.geopettab.Size = new System.Drawing.Size(415, 247);
+            this.geopettab.TabIndex = 4;
+            this.geopettab.Text = "GEO";
+            this.geopettab.UseVisualStyleBackColor = true;
+            // 
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4979,7 +5003,7 @@
             this.groupBox12.PerformLayout();
             this.GetSetTargets.ResumeLayout(false);
             this.GetSetTargets.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
+            this.selecttargets.ResumeLayout(false);
             this.combat.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
@@ -5018,8 +5042,8 @@
             this.GetSetJA.ResumeLayout(false);
             this.GetSetJA.PerformLayout();
             this.WHMpage.ResumeLayout(false);
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox17.PerformLayout();
+            this.benedictiongroupBox.ResumeLayout(false);
+            this.benedictiongroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).EndInit();
             this.RDMpage.ResumeLayout(false);
             this.groupBox18.ResumeLayout(false);
@@ -5033,6 +5057,8 @@
             this.MONpage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).EndInit();
+            this.Dynamispage.ResumeLayout(false);
+            this.Dynamispage.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.MAtabs.ResumeLayout(false);
             this.MASelectPage.ResumeLayout(false);
@@ -5097,49 +5123,47 @@
             this.GetSetParty.PerformLayout();
             this.flourish.ResumeLayout(false);
             this.flourish.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.flourishesiiigroup.ResumeLayout(false);
+            this.flourishesiiigroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.useclmfloValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usestkfloValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.useterfloValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlourishTPValue)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.flourishesiigroup.ResumeLayout(false);
+            this.flourishesiigroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usewldfloValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usebldfloValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userevfloValue)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.flourishesigroup.ResumeLayout(false);
+            this.flourishesigroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown34)).EndInit();
             this.pets.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
             this.petControl.ResumeLayout(false);
-            this.tabPage10.ResumeLayout(false);
-            this.tabPage10.PerformLayout();
+            this.bstpettab.ResumeLayout(false);
+            this.bstpettab.PerformLayout();
             this.usepetja.ResumeLayout(false);
-            this.groupBox16.ResumeLayout(false);
+            this.bstpetrdygroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pethppfood)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.drgpettab.ResumeLayout(false);
+            this.drgpettab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DragonPetHP)).EndInit();
-            this.groupBox27.ResumeLayout(false);
-            this.groupBox27.PerformLayout();
+            this.drgspirtlinkgroup.ResumeLayout(false);
+            this.drgspirtlinkgroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerSpirit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WyvernSpirit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BreathMAX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BreathMIN)).EndInit();
-            this.groupBox26.ResumeLayout(false);
-            this.groupBox26.PerformLayout();
+            this.drgrestoringbreathgroup.ResumeLayout(false);
+            this.drgrestoringbreathgroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RestoringBreathHP)).EndInit();
-            this.groupBox25.ResumeLayout(false);
-            this.tabPage13.ResumeLayout(false);
-            this.tabPage13.PerformLayout();
-            this.tabPage12.ResumeLayout(false);
-            this.tabPage12.PerformLayout();
-            this.DynamisPage.ResumeLayout(false);
-            this.DynamisPage.PerformLayout();
+            this.drgjagroup.ResumeLayout(false);
+            this.smnpettab.ResumeLayout(false);
+            this.smnpettab.PerformLayout();
+            this.puppettab.ResumeLayout(false);
+            this.puppettab.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5177,7 +5201,7 @@
         public System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
-        public System.Windows.Forms.GroupBox groupBox13;
+        public System.Windows.Forms.GroupBox selecttargets;
         public System.Windows.Forms.ListView SelectedTargets;
         public System.Windows.Forms.ColumnHeader columnHeader1;
         public System.Windows.Forms.ColumnHeader columnHeader2;
@@ -5257,21 +5281,21 @@
         public System.Windows.Forms.ToolStripMenuItem loadJAsToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem clearJAsToolStripMenuItem;
         public System.Windows.Forms.GroupBox groupBox14;
-        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label delaytext;
         public System.Windows.Forms.NumericUpDown pullDelay;
         public System.Windows.Forms.CheckBox AutoLock;
         public System.Windows.Forms.NumericUpDown numericUpDown39;
-        public System.Windows.Forms.CheckBox checkBox5;
+        public System.Windows.Forms.CheckBox mobheightdist;
         public System.Windows.Forms.CheckBox runTarget;
         public System.Windows.Forms.CheckBox runPullDistance;
-        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label mobsearchdisttext;
         public System.Windows.Forms.NumericUpDown targetSearchDist;
         public System.Windows.Forms.NumericUpDown pullTolorance;
-        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.Label pulltolorancetext;
         public System.Windows.Forms.NumericUpDown numericUpDown21;
-        public System.Windows.Forms.Label label19;
+        public System.Windows.Forms.Label pulldistance;
         public System.Windows.Forms.TextBox pullCommand;
-        public System.Windows.Forms.Label label26;
+        public System.Windows.Forms.Label pullcommandtext;
         public System.Windows.Forms.TabPage dancer;
         public System.Windows.Forms.TabControl tabControl3;
         public System.Windows.Forms.TabPage tabPage14;
@@ -5284,7 +5308,7 @@
         public System.Windows.Forms.RadioButton usedrainii;
         public System.Windows.Forms.RadioButton usedrain;
         public System.Windows.Forms.GroupBox groupBox3;
-        public System.Windows.Forms.Label label18;
+        public System.Windows.Forms.Label stopstepsathptext;
         public System.Windows.Forms.NumericUpDown usefeatherstepValue;
         public System.Windows.Forms.NumericUpDown usestutterstepValue;
         public System.Windows.Forms.NumericUpDown useboxstepValue;
@@ -5317,7 +5341,7 @@
         public System.Windows.Forms.CheckBox usecureii;
         public System.Windows.Forms.CheckBox usecure;
         public System.Windows.Forms.TabPage tabPage16;
-        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label addplayertext;
         public System.Windows.Forms.TextBox textBox2;
         public System.Windows.Forms.GroupBox groupBox21;
         public System.Windows.Forms.Label label38;
@@ -5344,7 +5368,7 @@
         public System.Windows.Forms.ColumnHeader columnHeader9;
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.TabPage flourish;
-        public System.Windows.Forms.GroupBox groupBox6;
+        public System.Windows.Forms.GroupBox flourishesiiigroup;
         public System.Windows.Forms.NumericUpDown useclmfloValue;
         public System.Windows.Forms.NumericUpDown usestkfloValue;
         public System.Windows.Forms.NumericUpDown useterfloValue;
@@ -5352,9 +5376,9 @@
         public System.Windows.Forms.RadioButton useclmflo;
         public System.Windows.Forms.RadioButton useterflo;
         public System.Windows.Forms.Label label40;
-        public System.Windows.Forms.Label label41;
+        public System.Windows.Forms.Label finsishingmovetext;
         public System.Windows.Forms.NumericUpDown FlourishTPValue;
-        public System.Windows.Forms.GroupBox groupBox5;
+        public System.Windows.Forms.GroupBox flourishesiigroup;
         public System.Windows.Forms.NumericUpDown usewldfloValue;
         public System.Windows.Forms.NumericUpDown usebldfloValue;
         public System.Windows.Forms.NumericUpDown userevfloValue;
@@ -5362,30 +5386,30 @@
         public System.Windows.Forms.RadioButton usebldflo;
         public System.Windows.Forms.RadioButton userevflo;
         public System.Windows.Forms.CheckBox FlourishTP;
-        public System.Windows.Forms.GroupBox groupBox4;
+        public System.Windows.Forms.GroupBox flourishesigroup;
         public System.Windows.Forms.NumericUpDown numericUpDown34;
         public System.Windows.Forms.RadioButton usedesflo;
         public System.Windows.Forms.TabPage pets;
         public System.Windows.Forms.GroupBox groupBox10;
         public System.Windows.Forms.GroupBox groupBox19;
         public System.Windows.Forms.TabControl petControl;
-        public System.Windows.Forms.TabPage tabPage10;
+        public System.Windows.Forms.TabPage bstpettab;
         public System.Windows.Forms.GroupBox usepetja;
         public System.Windows.Forms.CheckedListBox PetJA;
-        public System.Windows.Forms.GroupBox groupBox16;
+        public System.Windows.Forms.GroupBox bstpetrdygroup;
         public System.Windows.Forms.CheckedListBox PetReady;
         public System.Windows.Forms.ComboBox usedpetfood;
         public System.Windows.Forms.ComboBox jugpet;
         public System.Windows.Forms.CheckBox juguse;
         public System.Windows.Forms.NumericUpDown pethppfood;
-        public System.Windows.Forms.Label label24;
+        public System.Windows.Forms.Label pethptext;
         public System.Windows.Forms.CheckBox petfooduse;
         public System.Windows.Forms.CheckBox autoengage;
-        public System.Windows.Forms.TabPage tabPage3;
+        public System.Windows.Forms.TabPage drgpettab;
         public System.Windows.Forms.NumericUpDown DragonPetHP;
-        public System.Windows.Forms.Label label51;
+        public System.Windows.Forms.Label drgsteadywingtext;
         public System.Windows.Forms.CheckBox CallWyvern;
-        public System.Windows.Forms.GroupBox groupBox27;
+        public System.Windows.Forms.GroupBox drgspirtlinkgroup;
         public System.Windows.Forms.Label label16;
         public System.Windows.Forms.NumericUpDown PlayerSpirit;
         public System.Windows.Forms.NumericUpDown WyvernSpirit;
@@ -5394,14 +5418,14 @@
         public System.Windows.Forms.NumericUpDown BreathMAX;
         public System.Windows.Forms.Label label48;
         public System.Windows.Forms.NumericUpDown BreathMIN;
-        public System.Windows.Forms.Label label49;
-        public System.Windows.Forms.GroupBox groupBox26;
+        public System.Windows.Forms.Label drgwyvernbreathptext;
+        public System.Windows.Forms.GroupBox drgrestoringbreathgroup;
         public System.Windows.Forms.NumericUpDown RestoringBreathHP;
         public System.Windows.Forms.Label label50;
-        public System.Windows.Forms.GroupBox groupBox25;
+        public System.Windows.Forms.GroupBox drgjagroup;
         public System.Windows.Forms.CheckedListBox WyvernJA;
-        public System.Windows.Forms.TabPage tabPage13;
-        public System.Windows.Forms.TabPage tabPage12;
+        public System.Windows.Forms.TabPage smnpettab;
+        public System.Windows.Forms.TabPage puppettab;
         public System.ComponentModel.BackgroundWorker bgw_script_dnc;
         public System.ComponentModel.BackgroundWorker bgw_script_nav;
         public System.ComponentModel.BackgroundWorker bgw_script_sch;
@@ -5420,6 +5444,60 @@
         public System.Windows.Forms.Label label21;
         public System.Windows.Forms.Label label20;
         public System.Windows.Forms.CheckBox DeathWarp;
+        public NumericUpDown stopstepscount;
+        public CheckBox checkBox7;
+        public CheckBox checkBox8;
+        public CheckBox stopstepsat;
+        private TabPage tabPage6;
+        private TabControl MAtabs;
+        private TabPage MASelectPage;
+        private TabPage CureConfigPage;
+        public CheckedListBox playerMA;
+        public MenuStrip GetSetMA;
+        public ToolStripMenuItem loadMAsToolStripMenuItem;
+        public ToolStripMenuItem clearMAsToolStripMenuItem;
+        private Label label44;
+        private Label label43;
+        private Label label9;
+        private Label label2;
+        private Label label1;
+        private NumericUpDown Curecount;
+        private NumericUpDown CureVcount;
+        private NumericUpDown CureIVcount;
+        private NumericUpDown CureIIIcount;
+        private NumericUpDown CureIIcount;
+        private NumericUpDown CureVIcount;
+        private Label label45;
+        private NumericUpDown FullCurecount;
+        private Label label52;
+        private NumericUpDown CuraIIcount;
+        private Label label55;
+        private NumericUpDown CuraIIIcount;
+        private Label label53;
+        private NumericUpDown Curacount;
+        private Label label54;
+        private TabControl JAtabselect;
+        private TabPage selectPage;
+        private TabPage WHMpage;
+        private GroupBox benedictiongroupBox;
+        private NumericUpDown BenedictionHPPuse;
+        private Label benedictiontext;
+        private TabPage RDMpage;
+        private GroupBox groupBox18;
+        private NumericUpDown ConvertHPP;
+        private NumericUpDown ConvertMPP;
+        private CheckBox ConvertMP;
+        private CheckBox ConvertHP;
+        private Label convertmptext;
+        private Label converthptext;
+        private TabPage RUNpage;
+        private TabPage MONpage;
+        private NumericUpDown MONmpCount;
+        private NumericUpDown MONhpCount;
+        private Label monmptext;
+        private Label monhptext;
+        private CheckBox VivaciousPulse;
+        private NumericUpDown VivaciousPulseHP;
 
         #region Methods: Start/Stop/Load
 
@@ -5453,7 +5531,7 @@
 
             startScriptToolStripMenuItem.Enabled = false;
             stopScriptToolStripMenuItem.Enabled = true;
-            
+
             if (!bgw_script_dnc.IsBusy)
                 bgw_script_dnc.RunWorkerAsync();
 
@@ -5462,7 +5540,7 @@
 
             if (!bgw_script_nav.IsBusy)
                 bgw_script_nav.RunWorkerAsync();
-            
+
             if (!bgw_script_chat.IsBusy)
                 bgw_script_chat.RunWorkerAsync();
         }
@@ -5531,7 +5609,7 @@
                     if (PlayerInfo.HasAbility(i))
                     {
                         var ability = api.Resources.GetAbility(i);
-                        
+
                         if (i >= 1024 && PlayerInfo.MainJob != 23) continue;
                         else if (i >= 1024 && PlayerInfo.MainJob == 23)
                         {
@@ -5622,9 +5700,9 @@
             #endregion
             });
             #endregion
-            
+
             #region load MJ MA(main job)
-            for (uint mm = 1; mm <= 895; mm++) 
+            for (uint mm = 1; mm <= 895; mm++)
             {
                 var spellm = api.Resources.GetSpell(mm);
                 if (spellm == null || skipSpellList.Contains(mm)) continue;
@@ -5642,7 +5720,7 @@
             {
                 var spells = api.Resources.GetSpell(sm);
                 if (spells == null) { }
-                else if (skipSpellList.Contains(sm)) {}
+                else if (skipSpellList.Contains(sm)) { }
                 else if (PlayerInfo.HasSpell(sm) &&
                         PlayerInfo.SubJobLevel >= spells?.RequiredLevel?[PlayerInfo.SubJob] &&
                         spells?.RequiredLevel?[PlayerInfo.SubJob] != -1 &&
@@ -5662,7 +5740,7 @@
         public void CharacterUpdate()
         {
             #region DNC Options Enable/Disable
-            
+
             #region sambas
             if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 5 ||
                 api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 5)
@@ -5734,7 +5812,7 @@
                 usequickstepValue.Enabled = true;
                 StepsHP.Enabled = true;
                 StepsHPValue.Enabled = true;
-                label18.Enabled = true;
+                stopstepsathptext.Enabled = true;
                 NoSteps.Enabled = true;
                 stopstepsat.Enabled = true;
                 stopstepscount.Enabled = true;
@@ -5745,7 +5823,7 @@
                 usequickstepValue.Enabled = false;
                 StepsHP.Enabled = false;
                 StepsHPValue.Enabled = false;
-                label18.Enabled = false;
+                stopstepsathptext.Enabled = false;
                 NoSteps.Enabled = false;
                 stopstepsat.Enabled = false;
                 stopstepscount.Enabled = true;
@@ -5962,6 +6040,13 @@
 
         #endregion
         #region Methods: Save/Load Config
+        public void saveConfig()
+        {
+            var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
+
+            if (!partyAssist.Checked || members.Count < 2)
+                return;
+        }
 
         #region config: save/load (player)
         #endregion
@@ -5992,7 +6077,7 @@
             for (var x = 0; x < members.Count; x++)
             {
                 var pID = members.SingleOrDefault(m => m.ID == x);
-                
+
                 if (!partyIDs.Contains((int)pID.ID))
                     partyIDs.Add((int)pID.ID);
             }
@@ -6009,7 +6094,7 @@
             {
                 var member = members.SingleOrDefault(m => m.Name == assistplayer.Text);
                 var assisted = api.Entity.GetEntity((int)member.ID);
-                
+
                 if (assisted.Status == 1 && assisted.Distance <= (float)assistDist.Value)
                 {
                     WindowInfo.SendText("/assist " + assistplayer.Text);
@@ -6089,44 +6174,44 @@
 
             #region CheckBuffs
 
-            if (PlayerInfo.HasBuff(4) && hw.Contains("Paralyze"))      { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(3) && hw.Contains("Poison"))        { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(5) && hw.Contains("Blind"))         { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(11) && hw.Contains("Bind"))         { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(9) && hw.Contains("Curse"))         { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(13) && hw.Contains("Slow"))         { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(6) && hw.Contains("Silence"))       { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(31) && hw.Contains("Plague"))       { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(8) && hw.Contains("Disease"))       { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(30) && hw.Contains("Bane"))         { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(135) && hw.Contains("Bio"))         { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(128) && hw.Contains("Burn"))        { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(130) && hw.Contains("Choke"))       { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(131) && hw.Contains("Rasp"))        { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(133) && hw.Contains("Drown"))       { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(129) && hw.Contains("Frost"))       { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(132) && hw.Contains("Shock"))       { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(134) && hw.Contains("Dia"))         { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(136) && hw.Contains("STR Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(137) && hw.Contains("DEX Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(138) && hw.Contains("VIT Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(139) && hw.Contains("AGI Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(141) && hw.Contains("MND Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(142) && hw.Contains("CHR Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(174) && hw.Contains("MACC Down"))   { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(148) && hw.Contains("EVA Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(149) && hw.Contains("DEF Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(147) && hw.Contains("ATT Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(146) && hw.Contains("ACC Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(404) && hw.Contains("MEVA Down"))   { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(175) && hw.Contains("MATT Down"))   { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(167) && hw.Contains("MDEF Down"))   { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(144) && hw.Contains("HP Down"))     { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(145) && hw.Contains("MP Down"))     { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(189) && hw.Contains("TP Down"))     { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(140) && hw.Contains("INT Down"))    { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(186) && hw.Contains("Helix"))       { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(12) && hw.Contains("Gravity"))      { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(4) && hw.Contains("Paralyze")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(3) && hw.Contains("Poison")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(5) && hw.Contains("Blind")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(11) && hw.Contains("Bind")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(9) && hw.Contains("Curse")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(13) && hw.Contains("Slow")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(6) && hw.Contains("Silence")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(31) && hw.Contains("Plague")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(8) && hw.Contains("Disease")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(30) && hw.Contains("Bane")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(135) && hw.Contains("Bio")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(128) && hw.Contains("Burn")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(130) && hw.Contains("Choke")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(131) && hw.Contains("Rasp")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(133) && hw.Contains("Drown")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(129) && hw.Contains("Frost")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(132) && hw.Contains("Shock")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(134) && hw.Contains("Dia")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(136) && hw.Contains("STR Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(137) && hw.Contains("DEX Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(138) && hw.Contains("VIT Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(139) && hw.Contains("AGI Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(141) && hw.Contains("MND Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(142) && hw.Contains("CHR Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(174) && hw.Contains("MACC Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(148) && hw.Contains("EVA Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(149) && hw.Contains("DEF Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(147) && hw.Contains("ATT Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(146) && hw.Contains("ACC Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(404) && hw.Contains("MEVA Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(175) && hw.Contains("MATT Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(167) && hw.Contains("MDEF Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(144) && hw.Contains("HP Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(145) && hw.Contains("MP Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(189) && hw.Contains("TP Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(140) && hw.Contains("INT Down")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(186) && hw.Contains("Helix")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(12) && hw.Contains("Gravity")) { CastHealingWatz(); }
 
             #endregion
         }
@@ -6203,11 +6288,11 @@
         #region JA: Flourishe (I,II,III)
         private void UseFlourish()
         {
-            if (!botRunning || PlayerInfo.Status != 1 || PlayerInfo.HasBuff(16)) 
-                return;;
+            if (!botRunning || PlayerInfo.Status != 1 || PlayerInfo.HasBuff(16))
+                return; ;
 
-            if (MonStagered) return;
-            
+            if (MonStagered && staggerstopJA.Checked) return;
+
             var retVal = 0;
 
             if (PlayerInfo.HasBuff(381)) { retVal = 1; }
@@ -6217,7 +6302,7 @@
             else if (PlayerInfo.HasBuff(385)) { retVal = 5; }
             else if (PlayerInfo.HasBuff(588)) { retVal = 6; }
 
-            
+
             if (PlayerInfo.Status == 1 && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
                 Recast.GetAbilityRecast(222) == 0 && Recast.GetAbilityRecast(226) == 0)
             {
@@ -6267,11 +6352,11 @@
             if (StepsHP.Checked && PlayerInfo.HPP < StepsHPValue.Value)
                 return;
 
-            if (MonStagered) return;
-            
+            if (MonStagered && staggerstopJA.Checked) return;
+
             var retVal = 0;
 
-                 if (PlayerInfo.HasBuff(381)) { retVal = 1; }
+            if (PlayerInfo.HasBuff(381)) { retVal = 1; }
             else if (PlayerInfo.HasBuff(382)) { retVal = 2; }
             else if (PlayerInfo.HasBuff(383)) { retVal = 3; }
             else if (PlayerInfo.HasBuff(384)) { retVal = 4; }
@@ -6316,9 +6401,9 @@
                 return;
 
             var ja = (from object itemChecked in playerJA.CheckedItems
-                    select itemChecked.ToString()).ToList();
+                      select itemChecked.ToString()).ToList();
 
-            if (MonStagered) return;
+            if (MonStagered && staggerstopJA.Checked) return;
 
             Dictionary<uint, dynamic> jacontrol = new Dictionary<uint, dynamic>()
             {
@@ -6358,7 +6443,7 @@
                     {2088, new {mp=75}}, {2090, new {hp=75}}, {2113, new {hp=75}}, {2114, new {hp=75}},
                    #endregion
             };
-               
+
             foreach (string J in ja)
             {
                 var useAbility = false;
@@ -6429,7 +6514,7 @@
                 {
                     if (ability.Name == "Benediction" && PlayerInfo.HPP <= BenedictionHPPuse.Value)
                     {
-                            useAbility = true;
+                        useAbility = true;
                     }
                     else if (ability.Name == "Convert")
                     {
@@ -6446,13 +6531,13 @@
                         Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
                         TargetInfo.ID > 0)
                     {
-                            useAbility = true;
+                        useAbility = true;
                     }
                     else if (ability.Name == "Shikikoyo - (Samurai)" && !PlayerInfo.HasBuff(16) &&
                         Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
                         TargetInfo.ID > 0)
                     {
-                            useAbility = true;
+                        useAbility = true;
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("b2"))
                     {
@@ -6539,7 +6624,7 @@
                     api.ThirdParty.SendString("/ma \"Utsusemi: Ni\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(3.0));
                 }
-                else if (Recast.GetAbilityRecast(338) == 0 && 
+                else if (Recast.GetAbilityRecast(338) == 0 &&
                          !PlayerInfo.HasBuff(444) &&
                          !PlayerInfo.HasBuff(445))
                 {
@@ -6564,7 +6649,7 @@
 
             if (wsam.Checked && amname.Text != "")
             {
-                
+
                 if (AfterMathTier.Value == 1 && PlayerInfo.TP >= 1000 &&
                    (TargetInfo.HPP >= numericUpDown23.Value &&
                     TargetInfo.HPP <= numericUpDown22.Value) &&
@@ -6600,21 +6685,21 @@
                 {
                     var ja = (from object itemChecked in playerJA.CheckedItems
                               select itemChecked.ToString()).ToList();
-                              
+
                     if (ja.Contains("Konzen-ittai - (Samurai)") && !PlayerInfo.HasBuff(16) &&
                         Recast.GetAbilityRecast(140) == 0 && PlayerInfo.Status == 1 &&
                         TargetInfo.ID > 0)
                     {
                         api.ThirdParty.SendString("/ja \"Konzen-ittai\" <t>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    } 
+                    }
                     if (ja.Contains("Hagakure - (Samurai)") && !PlayerInfo.HasBuff(16) &&
                         !PlayerInfo.HasBuff(483) && Recast.GetAbilityRecast(54) == 0 &&
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                     {
                         api.ThirdParty.SendString("/ja \"Hagakure\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    } 
+                    }
                     if (ja.Contains("Sengikori - (Samurai)") && !PlayerInfo.HasBuff(16) &&
                         !PlayerInfo.HasBuff(440) && Recast.GetAbilityRecast(141) == 0 &&
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
@@ -6664,7 +6749,7 @@
         #region Methods: PET
 
         #region PET: BST
-        
+
         #region JA: BST (get/set)
         private void BSTGetJA()
         {
@@ -7564,14 +7649,14 @@
                         });
                         }
                         break;
-                    #endregion
+                        #endregion
                 }
             }
 
             #region BST: Pet Ready
 
             #region Load MJ (main job)
-            if (PlayerInfo.MainJobLevel >= 25 && 
+            if (PlayerInfo.MainJobLevel >= 25 &&
                 !PetReady.Items.Contains("Sic - (BST)"))
             {
                 PetReady.Items.AddRange(new object[]
@@ -7579,7 +7664,7 @@
                     "Sic - (BST)",
                 });
             }
-            if (PlayerInfo.MainJobLevel >= 45 && 
+            if (PlayerInfo.MainJobLevel >= 45 &&
                 !PetReady.Items.Contains("Snarl - (BST)"))
             {
                 PetReady.Items.AddRange(new object[]
@@ -7603,7 +7688,7 @@
                     "Feral Howl - (BST)",
                 });
             }
-            if (PlayerInfo.MainJobLevel >= 83 && 
+            if (PlayerInfo.MainJobLevel >= 83 &&
                 !PetReady.Items.Contains("Spur - (BST)"))
             {
                 PetReady.Items.AddRange(new object[]
@@ -7611,7 +7696,7 @@
                     "Spur - (BST)",
                 });
             }
-            if (PlayerInfo.MainJobLevel >= 93 && 
+            if (PlayerInfo.MainJobLevel >= 93 &&
                 !PetReady.Items.Contains("Run Wild - (BST)"))
             {
                 PetReady.Items.AddRange(new object[]
@@ -8407,7 +8492,7 @@
                 return;
 
             #region JA: DRG
-            if ((PlayerInfo.MainJobLevel >= 25 || PlayerInfo.SubJobLevel >= 25) && 
+            if ((PlayerInfo.MainJobLevel >= 25 || PlayerInfo.SubJobLevel >= 25) &&
                  !WyvernJA.Items.Contains("Spirit Link - (Dragoon)"))
             {
                 WyvernJA.Items.AddRange(new object[]
@@ -8423,7 +8508,7 @@
                     "Deep Breathing - (Dragoon)",
                 });
             }
-            if (PlayerInfo.MainJobLevel >= 90 && 
+            if (PlayerInfo.MainJobLevel >= 90 &&
                 !WyvernJA.Items.Contains("Smiting Breath - (Dragoon)"))
             {
                 WyvernJA.Items.AddRange(new object[]
@@ -8432,7 +8517,7 @@
                     "Restoring Breath - (Dragoon)",
                 });
             }
-            if (PlayerInfo.MainJobLevel >= 95 && 
+            if (PlayerInfo.MainJobLevel >= 95 &&
                 !WyvernJA.Items.Contains("Steady Wing - (Dragoon)"))
             {
                 WyvernJA.Items.AddRange(new object[]
@@ -9058,7 +9143,7 @@
             if (!aggro.Checked || PlayerInfo.Status == 1 || isPulled)
                 return;
 
-            var searchID = (float) aggroRange.Value;
+            var searchID = (float)aggroRange.Value;
             var targetID = -1;
 
             for (var x = 0; x < 2048; x++)
@@ -9247,7 +9332,7 @@
                         TargetInfo.FaceTarget(TargetInfo.X, TargetInfo.Z);
                         Thread.Sleep(TimeSpan.FromSeconds(0.1));
 
-                        if (target.Distance > (float)targetSearchDist.Value && 
+                        if (target.Distance > (float)targetSearchDist.Value &&
                             target.ClaimID == PlayerInfo.ServerID)
                             break;
                     }
@@ -9333,7 +9418,7 @@
 
             var followed = api.Entity.GetEntity(Convert.ToInt32(followID));
 
-            if (followed.Distance >= (float) followDist.Value && followed.Status == 0)
+            if (followed.Distance >= (float)followDist.Value && followed.Status == 0)
             {
                 if (TargetInfo.ID != followed.TargetID)
                     TargetInfo.SetTarget(followID);
@@ -9342,10 +9427,10 @@
                     api.ThirdParty.SendString("/lockon <t>");
 
                 isMoving = true;
-                while (Math.Truncate(followed.Distance) >= (float) followDist.Value)
+                while (Math.Truncate(followed.Distance) >= (float)followDist.Value)
                 {
-                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X, 
-                                                       TargetInfo.Y - PlayerInfo.Y, 
+                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
+                                                       TargetInfo.Y - PlayerInfo.Y,
                                                        TargetInfo.Z - PlayerInfo.Z);
 
                     api.AutoFollow.IsAutoFollowing = true;
@@ -9395,12 +9480,12 @@
 
                 var move = true;
                 var time = 15;
-                
+
                 isMoving = true;
                 while (Math.Truncate(entity.Distance) >= (float)KeepTargetRange.Value && entity.ClaimID == 0)
                 {
-                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X, 
-                                                       TargetInfo.Y - PlayerInfo.Y, 
+                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
+                                                       TargetInfo.Y - PlayerInfo.Y,
                                                        TargetInfo.Z - PlayerInfo.Z);
 
                     api.AutoFollow.IsAutoFollowing = true;
@@ -9416,7 +9501,7 @@
                         if (move)
                         {
                             move = false;
-                            
+
                             if (time != 15)
                                 time = time + 10;
 
@@ -9622,8 +9707,8 @@
 
         public double DistanceTo(double x, double z) => Math.Abs(x) < .00001 && Math.Abs(z) < .00001 ? 0 : DistanceTo(x, api.Player.Y, z);
 
-        public double DistanceTo(double x, double y, double z) => Math.Sqrt(Math.Pow(api.Player.X - x, 2) + 
-                                                                            Math.Pow(api.Player.Y - y, 2) + 
+        public double DistanceTo(double x, double y, double z) => Math.Sqrt(Math.Pow(api.Player.X - x, 2) +
+                                                                            Math.Pow(api.Player.Y - y, 2) +
                                                                             Math.Pow(z - api.Player.Z, 2));
 
         public int GetIndexOfClosestPoint(int start = 0)
@@ -9662,52 +9747,34 @@
             public static uint HP => api.Party.GetPartyMembers().First().CurrentHP;
             public static uint MP => api.Party.GetPartyMembers().First().CurrentMP;
             public static int TP => (int)api.Party.GetPartyMembers().First().CurrentTP;
-
-            public static int MainJob
-            {
-                get { return api.Player.GetPlayerInfo().MainJob; }
-            }
-            public static int MainJobLevel
-            {
-                get { return api.Player.GetPlayerInfo().MainJobLevel; }
-            }
-            public static int SubJob
-            {
-                get { return api.Player.GetPlayerInfo().SubJob; }
-            }
-            public static int SubJobLevel
-            {
-                get { return api.Player.GetPlayerInfo().SubJobLevel; }
-            }
-            public static bool HasBuff(short id)
-            {
-                return api.Player.GetPlayerInfo().Buffs.Any(b => b == id);
-            }
+            public static int MainJob => api.Player.GetPlayerInfo().MainJob;
+            public static int MainJobLevel => api.Player.GetPlayerInfo().MainJobLevel;
+            public static int SubJob => api.Player.GetPlayerInfo().SubJob;
+            public static int SubJobLevel => api.Player.GetPlayerInfo().SubJobLevel;
+            public static bool HasBuff(short id) => api.Player.GetPlayerInfo().Buffs.Any(b => b == id);
             public static bool HasAbility(uint id) => api.Player.HasAbility(id);
-
             public static bool HasSpell(uint id) => api.Player.HasSpell(id);
-
-            public static bool HasWeaponSkill(uint id)
-            {
-                return api.Player.HasWeaponSkill(id);
-            }
-            public static int ServerID => (int) api.Entity.GetLocalPlayer().ServerID;
-
+            public static bool HasWeaponSkill(uint id) => api.Player.HasWeaponSkill(id);
+            public static int ServerID => (int)api.Entity.GetLocalPlayer().ServerID;
             public static int TargetID => (int)api.Entity.GetLocalPlayer().TargetID;
             public static float X => api.Entity.GetLocalPlayer().X;
-
-            public static float Y
+            public static float Y => api.Entity.GetLocalPlayer().Y;
+            public static float Z => api.Entity.GetLocalPlayer().Z;
+            public static float H => api.Entity.GetLocalPlayer().H;
+            /* public static string Indi
             {
-                get { return api.Entity.GetLocalPlayer().Y; }
-            }
-            public static float Z
-            {
-                get { return api.Entity.GetLocalPlayer().Z; }
-            }
-            public static float H
-            {
-                get { return api.Entity.GetLocalPlayer().H; }
-            }
+                get
+                {
+                    Byte[] bytes = BitConverter.GetBytes(api.Party.GetPartyMembers().First().ID);
+                    string pidstr = BitConverter.ToString(bytes);
+                    pidstr = System.Text.RegularExpressions.Regex.Replace(pidstr, "-", "");
+                    var hppstr = api.Party.GetPartyMembers().First().CurrentHPP.ToString("X2");
+                    //MainWindow.PID 
+                    var mask = "37??????????????????????????????????????????????????????????????????????" + pidstr + "????" + hppstr;
+                    //var x = SigScan.FindPattern()
+                    return mask;
+                }
+            } */
         }
         #endregion
         #region class: TargetInfo
@@ -9729,47 +9796,16 @@
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
-            public static string Name
-            {
-                get { return api.Entity.GetEntity((int) api.Target.GetTargetInfo().TargetIndex).Name; }
-            }
-            public static int ID
-            {
-                get
-                {
-                    return (int) api.Entity.GetEntity((int) api.Target.GetTargetInfo().TargetIndex).TargetID;
-                }
-            }
-            public static int HPP
-            {
-                get { return api.Entity.GetEntity((int) api.Target.GetTargetInfo().TargetIndex).HealthPercent; }
-            }
+            public static string Name => api.Entity.GetEntity((int) api.Target.GetTargetInfo().TargetIndex).Name;
+            public static int ID => (int) api.Entity.GetEntity((int) api.Target.GetTargetInfo().TargetIndex).TargetID;
+            public static int HPP => api.Entity.GetEntity((int) api.Target.GetTargetInfo().TargetIndex).HealthPercent;
             public static double Distance => Math.Truncate((10 * api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance) / 10);
-
-            public static bool LockedOn
-            {
-                get { return api.Target.GetTargetInfo().LockedOn; }
-            }
-            public static float X
-            {
-                get { return api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).X; }
-            }
-            public static float Y
-            {
-                get { return api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Y; }
-            }
-            public static float Z
-            {
-                get { return api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Z; }
-            }
-            public static float H
-            {
-                get { return api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).H; }
-            }
-            public static void SetTarget(int ID)
-            {
-                api.Target.SetTarget(ID);
-            }
+            public static bool LockedOn => api.Target.GetTargetInfo().LockedOn;
+            public static float X => api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).X;
+            public static float Y => api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Y;
+            public static float Z => api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Z;
+            public static float H => api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).H;
+            public static void SetTarget(int ID) => api.Target.SetTarget(ID);
             public static int GetTargetIdByName(string name)
             {
                 for (var x = 0; x < 2048; x++)
@@ -9812,11 +9848,7 @@
         #region class: RecastInfo
         public static class Recast
         {
-            public static int GetSpellRecast(int id)
-            {
-                return api.Recast.GetSpellRecast(id);
-            }
-
+            public static int GetSpellRecast(int id) => api.Recast.GetSpellRecast(id);
             public static int GetAbilityRecast(int id)
             {
                 var IDs = api.Recast.GetAbilityIds();
@@ -9832,36 +9864,17 @@
         #region class: WindowInfo
         public static class WindowInfo
         {
-            public static void SendText(string text)
-            {
-                api.ThirdParty.SendString(text);
-            }
-
-            public static void KeyPress(API.Keys key)
-            {
-                
-                api.ThirdParty.KeyPress(key);
-            }
-
-            public static void KeyUp(API.Keys key)
-            {
-                api.ThirdParty.KeyUp(key);
-            }
-
-            public static void KeyDown(API.Keys key)
-            {
-                api.ThirdParty.KeyDown(key);
-            }
+            public static void SendText(string text) => api.ThirdParty.SendString(text);
+            public static void KeyPress(API.Keys key) => api.ThirdParty.KeyPress(key);
+            public static void KeyUp(API.Keys key) => api.ThirdParty.KeyUp(key);
+            public static void KeyDown(API.Keys key) => api.ThirdParty.KeyDown(key);
         }
         #endregion
 
         #region class: PartyInfo
         public static class PartyInfo
         {
-            public static int Count
-            {
-                get { return api.Party.GetPartyMembers().Count; }
-            }
+            public static int Count => api.Party.GetPartyMembers().Count;
         }
         #endregion
         #region class: PetInfo
@@ -9890,20 +9903,9 @@
                 }
             }
 
-            public static int HPP
-            {
-                get { return api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).HealthPercent; }
-            }
-
-            public static int TPP
-            {
-                get { return (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).PetTP; }
-            }
-
-            public static int Status
-            {
-                get { return (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).Status; }
-            }
+            public static int HPP => api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).HealthPercent;
+            public static int TPP => (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).PetTP;
+            public static int Status => (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).Status;
         }
         #endregion
 
@@ -9948,61 +9950,9 @@
 
         #endregion
 
-        public NumericUpDown stopstepscount;
-        public CheckBox checkBox7;
-        public CheckBox checkBox8;
-        public CheckBox stopstepsat;
-        private TabPage tabPage6;
-        private TabControl MAtabs;
-        private TabPage MASelectPage;
-        private TabPage CureConfigPage;
-        public CheckedListBox playerMA;
-        public MenuStrip GetSetMA;
-        public ToolStripMenuItem loadMAsToolStripMenuItem;
-        public ToolStripMenuItem clearMAsToolStripMenuItem;
-        private Label label44;
-        private Label label43;
-        private Label label9;
-        private Label label2;
-        private Label label1;
-        private NumericUpDown Curecount;
-        private NumericUpDown CureVcount;
-        private NumericUpDown CureIVcount;
-        private NumericUpDown CureIIIcount;
-        private NumericUpDown CureIIcount;
-        private NumericUpDown CureVIcount;
-        private Label label45;
-        private NumericUpDown FullCurecount;
-        private Label label52;
-        private NumericUpDown CuraIIcount;
-        private Label label55;
-        private NumericUpDown CuraIIIcount;
-        private Label label53;
-        private NumericUpDown Curacount;
-        private Label label54;
-        private TabPage DynamisPage;
+        private TabPage Dynamispage;
+        private Label Dynatxt;
         private CheckBox staggerstopJA;
-        private TabControl JAtabselect;
-        private TabPage selectPage;
-        private TabPage WHMpage;
-        private GroupBox groupBox17;
-        private NumericUpDown BenedictionHPPuse;
-        private Label label56;
-        private TabPage RDMpage;
-        private GroupBox groupBox18;
-        private NumericUpDown ConvertHPP;
-        private NumericUpDown ConvertMPP;
-        private CheckBox ConvertMP;
-        private CheckBox ConvertHP;
-        private Label label58;
-        private Label label57;
-        private TabPage RUNpage;
-        private TabPage MONpage;
-        private NumericUpDown MONmpCount;
-        private NumericUpDown MONhpCount;
-        private Label label60;
-        private Label label59;
-        private CheckBox VivaciousPulse;
-        private NumericUpDown VivaciousPulseHP;
+        private TabPage geopettab;
     }
 }
