@@ -177,6 +177,7 @@
 
                     PlayerJA();
                     PlayerWS();
+                    PlayerMA();
 
                     if (PlayerInfo.HasBuff(381) ||
                         PlayerInfo.HasBuff(382) ||
@@ -205,6 +206,7 @@
                 if (usenav.Checked && api.AutoFollow.IsAutoFollowing && !naviMove)
                     api.AutoFollow.IsAutoFollowing = false;
 
+
                 if (ScanDelay.Checked && !naviMove)
                 {
                     Thread.Sleep(TimeSpan.FromSeconds((double)numericUpDown38.Value));
@@ -218,21 +220,37 @@
                 {
                     isPulled = false;
 
-                    if (aggro.Checked && PlayerInfo.Status == 0)
-                        DetectAggro();
+                    if (aggro.Checked && PlayerInfo.Status == 0) DetectAggro();
 
-                    if (PlayerInfo.Status == 0 && !isPulled)
-                        FindTarget();
+                    if (PlayerInfo.Status == 0 && ((HealHP.Checked && PlayerInfo.HPP <= healHPcount.Value) ||
+                        (HealMP.Checked && PlayerInfo.MPP <= healMPcount.Value)))
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        api.ThirdParty.SendString("/heal on");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+
+                    }
+                    if (PlayerInfo.Status == 0 && !isPulled) FindTarget();
                 }
+
 
                 if (usenav.Checked && !naviMove && PlayerInfo.Status == 0)
                 {
                     if (TargetInfo.ID > 0)
                         TargetInfo.SetTarget(0);
-
+                    
                     naviMove = true;
                 }
 
+                while (PlayerInfo.Status == 33)
+                {
+                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                    if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100)
+                    {
+                        api.ThirdParty.SendString("/heal off");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
                 #endregion
             }
         }
@@ -549,6 +567,20 @@
             else if (curItem == "Cura II") CuraIIcount.Enabled = state;
             else if (curItem == "Cura III") CuraIIIcount.Enabled = state;
             else if (curItem == "Full Cure") FullCurecount.Enabled = state;
+            else if (curItem == "Drain") DrainIcount.Enabled = state;
+            else if (curItem == "Drain II") DrainIIcount.Enabled = state;
+            else if (curItem == "Drain III") DrainIIIcount.Enabled = state;
+            else if (curItem == "Aspir") AspirIcount.Enabled = state;
+            else if (curItem == "Aspir II") AspirIIcount.Enabled = state;
+            else if (curItem == "Aspir III") AspirIIIcount.Enabled = state;
+            else if (curItem == "Pollen") Pollencount.Enabled = state;
+            else if (curItem == "Magic Fruit") MagicFruitcount.Enabled = state;
+            else if (curItem == "Healing Breeze") HealingBreezecount.Enabled = state;
+            else if (curItem == "Plenilune Embrace") PleniluneEmbracecount.Enabled = state;
+            else if (curItem == "White Wind") WhiteWindcount.Enabled = state;
+            else if (curItem == "Restoral") Restoralcount.Enabled = state;
+            else if (curItem == "Exuviation") Exuviationcount.Enabled = state;
+            else if (curItem == "Wild Carrot") WildCarrotcount.Enabled = state;
         }
         #endregion
     }

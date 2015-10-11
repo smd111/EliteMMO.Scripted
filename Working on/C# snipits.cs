@@ -51,3 +51,16 @@ List<uint> skipablis = new List<int>(new uint[] { 2, 3, 5 });
                 
                 
                 while (n < 6)
+List<string> Targets = new List<string>(new string[] {});
+var magic = api.Resources.GetSpell("Cure");
+if (magic.ValidTargets == 157) Targets.Add("Corpse");
+else
+{
+   if (magic.ValidTargets & (1 << 0)) Targets.Add("Self")
+   if (magic.ValidTargets & (1 << 1)) Targets.Add("Player")
+   if (magic.ValidTargets & (1 << 2)) Targets.Add("Party")
+   if (magic.ValidTargets & (1 << 3)) Targets.Add("Ally")
+   if (magic.ValidTargets & (1 << 4)) Targets.Add("NPC")
+   if (magic.ValidTargets & (1 << 5)) Targets.Add("Enemy")
+   if (magic.ValidTargets & (1 << 6)) Targets.Add("Object")
+}

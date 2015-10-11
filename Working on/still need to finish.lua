@@ -1,26 +1,9 @@
-                        //{687, new {name="Convergence",t=""}},--ma skill
-                        //{688, new {name="Diffusion",t=""}},--ma skill
-                        //{722, new {name="Tabula Rasa",t=""}},--ma skill
-                        //{723, new {name="Light Arts",t=""}},--ma skill
-                        //{724, new {name="Dark Arts",t=""}},--ma skill
-                        //{726, new {name="Modus Veritas",t=""}},--ma skill
-                        //{741, new {name="Pianissimo",t=""}},--ma skill
                         //{745, new {name="Sublimation",t=""}},--special ability
                         //{751, new {name="No Foot Rise",t=""}},----special ability
-                        //{756, new {name="Enlightenment",t=""}},--ma skill
-                        //{770, new {name="Sengikori",t=""}},---ws skill
-                        //{795, new {name="Tenuto",t=""}},--ma skill
-                        //{796, new {name="Marcato",t=""}},--ma skill
-                        //{800, new {name="Hagakure",t=""}},---ws skill
-                        //{809, new {name="Efflux",t=""}},--ma skill
-                        //{855, new {name="Bolster",t=""}},--ma skill
-                        //{860, new {name="Collimated Fervor",t=""}},--ma skill
-                        //{864, new {name="Theurgic Focus",t=""}},--ma skill
-                        //{895, new {name="Vivacious Pulse",t=""}}, hp restore
                         //{896, new {name="Contradance",t=""}},--waltz
-                        //{889, new {name="Widened Compass",t=""}},--ma skill
-                        //{898, new {name="Entrust",t=""}},--ma skill
                         
+                        
+            var NFRchecked = (playerJA.GetItemCheckState(playerJA.FindString("No Foot Rise")).ToString() == "Checked" ? true : false);
                         
                         
             #region Still to do
@@ -49,3 +32,46 @@
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
             #endregion
+            
+            
+            
+  
+          
+//{"Esuna", new{}},
+//{"Erase", new {buffh=}},
+{"Animating Wail", new {buff=}},--
+{"Regeneration", new {buff=}},--
+{"White Wind", new {buff=}},
+{"Nat. Meditation", new {buff=}},
+{"Pyric Bulwark", new {buff=}},
+{"Carcharian Verve", new {buff=}},
+/*{"Indi-Regen", new {indi=,buff=539}},
+{"Indi-Poison", new {indi=}},
+{"Indi-Refresh", new {indi=,buff=541}},
+{"Indi-Haste", new {indi=,buff=580}},
+{"Indi-STR", new {indi=,buff=542}},
+{"Indi-DEX", new {indi=,buff=543}},
+{"Indi-VIT", new {indi=,buff=544}},
+{"Indi-AGI", new {indi=,buff=545}},
+{"Indi-INT", new {indi=,buff=546}},
+{"Indi-MND", new {indi=,buff=547}},
+{"Indi-CHR", new {indi=,buff=548}},
+{"Indi-Fury", new {indi=,buff=549}},
+{"Indi-Barrier", new {indi=,buff=550}},
+{"Indi-Acumen", new {indi=,buff=551}},
+{"Indi-Fend", new {indi=,buff=552}},
+{"Indi-Precision", new {indi=,buff=553}},
+{"Indi-Voidance", new {indi=,buff=554}},
+{"Indi-Focus", new {indi=,buff=555}},
+{"Indi-Attunement", new {indi=,buff=556}},
+{"Indi-Wilt", new {indi=}},
+{"Indi-Frailty", new {indi=}},
+{"Indi-Fade", new {indi=}},
+{"Indi-Malaise", new {indi=}},
+{"Indi-Slip", new {indi=}},
+{"Indi-Torpor", new {indi=}},
+{"Indi-Vex", new {indi=}},
+{"Indi-Languor", new {indi=}},
+{"Indi-Slow", new {indi=}},
+{"Indi-Paralysis", new {indi=}},
+{"Indi-Gravity", new {indi=}},*/

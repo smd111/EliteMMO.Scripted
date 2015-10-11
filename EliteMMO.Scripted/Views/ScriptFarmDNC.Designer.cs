@@ -14,6 +14,7 @@
     using System.Security.Policy;
     using API;
     using Embedded;
+    using System.Text.RegularExpressions;
 
     partial class ScriptFarmDNC
     {
@@ -259,10 +260,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.useStaff = new System.Windows.Forms.CheckBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.numericUpDown25 = new System.Windows.Forms.NumericUpDown();
+            this.healMPcount = new System.Windows.Forms.NumericUpDown();
             this.usefood = new System.Windows.Forms.CheckBox();
             this.HealMP = new System.Windows.Forms.CheckBox();
-            this.numericUpDown26 = new System.Windows.Forms.NumericUpDown();
+            this.healHPcount = new System.Windows.Forms.NumericUpDown();
             this.RecordIdleLocation = new System.Windows.Forms.Button();
             this.WeakLocation = new System.Windows.Forms.CheckBox();
             this.HealHP = new System.Windows.Forms.CheckBox();
@@ -302,6 +303,9 @@
             this.ConvertHP = new System.Windows.Forms.CheckBox();
             this.convertmptext = new System.Windows.Forms.Label();
             this.converthptext = new System.Windows.Forms.Label();
+            this.SCHpage = new System.Windows.Forms.TabPage();
+            this.Sublimationcount = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             this.RUNpage = new System.Windows.Forms.TabPage();
             this.VivaciousPulseHP = new System.Windows.Forms.NumericUpDown();
             this.VivaciousPulse = new System.Windows.Forms.CheckBox();
@@ -341,6 +345,42 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Curecount = new System.Windows.Forms.NumericUpDown();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Aspirgroup = new System.Windows.Forms.GroupBox();
+            this.AspirIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.AspirIIcount = new System.Windows.Forms.NumericUpDown();
+            this.AspirIIItext = new System.Windows.Forms.Label();
+            this.AspirItext = new System.Windows.Forms.Label();
+            this.AspirIItext = new System.Windows.Forms.Label();
+            this.AspirIcount = new System.Windows.Forms.NumericUpDown();
+            this.Draingroup = new System.Windows.Forms.GroupBox();
+            this.DrainIItext = new System.Windows.Forms.Label();
+            this.DrainIcount = new System.Windows.Forms.NumericUpDown();
+            this.DrainItext = new System.Windows.Forms.Label();
+            this.DrainIIItext = new System.Windows.Forms.Label();
+            this.DrainIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.DrainIIcount = new System.Windows.Forms.NumericUpDown();
+            this.BLUCurespage = new System.Windows.Forms.TabPage();
+            this.MagicFruitcount = new System.Windows.Forms.NumericUpDown();
+            this.Pollencount = new System.Windows.Forms.NumericUpDown();
+            this.HealingBreezecount = new System.Windows.Forms.NumericUpDown();
+            this.PleniluneEmbracecount = new System.Windows.Forms.NumericUpDown();
+            this.Restoralcount = new System.Windows.Forms.NumericUpDown();
+            this.WhiteWindcount = new System.Windows.Forms.NumericUpDown();
+            this.Exuviationcount = new System.Windows.Forms.NumericUpDown();
+            this.WildCarrotcount = new System.Windows.Forms.NumericUpDown();
+            this.PleniluneEmbracetext = new System.Windows.Forms.Label();
+            this.MagicFruittext = new System.Windows.Forms.Label();
+            this.HealingBreezetext = new System.Windows.Forms.Label();
+            this.Pollentext = new System.Windows.Forms.Label();
+            this.WhiteWindtext = new System.Windows.Forms.Label();
+            this.Restoraltext = new System.Windows.Forms.Label();
+            this.Exuviationtext = new System.Windows.Forms.Label();
+            this.WildCarrottext = new System.Windows.Forms.Label();
+            this.MAconfigpage = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.MAreverse = new System.Windows.Forms.CheckBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.delaytext = new System.Windows.Forms.Label();
             this.pullDelay = new System.Windows.Forms.NumericUpDown();
@@ -495,6 +535,7 @@
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.puppettab = new System.Windows.Forms.TabPage();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.geopettab = new System.Windows.Forms.TabPage();
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
@@ -503,7 +544,6 @@
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
-            this.geopettab = new System.Windows.Forms.TabPage();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -534,8 +574,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.assistDist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.followDist)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healMPcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healHPcount)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.DropBox.SuspendLayout();
             this.groupBox15.SuspendLayout();
@@ -551,6 +591,8 @@
             this.groupBox18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).BeginInit();
+            this.SCHpage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Sublimationcount)).BeginInit();
             this.RUNpage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VivaciousPulseHP)).BeginInit();
             this.MONpage.SuspendLayout();
@@ -572,6 +614,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Curecount)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.Aspirgroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AspirIIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AspirIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AspirIcount)).BeginInit();
+            this.Draingroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DrainIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrainIIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrainIIcount)).BeginInit();
+            this.BLUCurespage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MagicFruitcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pollencount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HealingBreezecount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PleniluneEmbracecount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Restoralcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WhiteWindcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Exuviationcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WildCarrotcount)).BeginInit();
+            this.MAconfigpage.SuspendLayout();
             this.groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pullDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown39)).BeginInit();
@@ -1872,10 +1933,10 @@
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.useStaff);
             this.tabPage2.Controls.Add(this.textBox8);
-            this.tabPage2.Controls.Add(this.numericUpDown25);
+            this.tabPage2.Controls.Add(this.healMPcount);
             this.tabPage2.Controls.Add(this.usefood);
             this.tabPage2.Controls.Add(this.HealMP);
-            this.tabPage2.Controls.Add(this.numericUpDown26);
+            this.tabPage2.Controls.Add(this.healHPcount);
             this.tabPage2.Controls.Add(this.RecordIdleLocation);
             this.tabPage2.Controls.Add(this.WeakLocation);
             this.tabPage2.Controls.Add(this.HealHP);
@@ -1953,15 +2014,15 @@
             this.textBox8.TabIndex = 66;
             this.textBox8.TabStop = false;
             // 
-            // numericUpDown25
+            // healMPcount
             // 
-            this.numericUpDown25.Location = new System.Drawing.Point(128, 77);
-            this.numericUpDown25.Name = "numericUpDown25";
-            this.numericUpDown25.Size = new System.Drawing.Size(44, 20);
-            this.numericUpDown25.TabIndex = 64;
-            this.numericUpDown25.TabStop = false;
-            this.numericUpDown25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown25.Value = new decimal(new int[] {
+            this.healMPcount.Location = new System.Drawing.Point(128, 77);
+            this.healMPcount.Name = "healMPcount";
+            this.healMPcount.Size = new System.Drawing.Size(44, 20);
+            this.healMPcount.TabIndex = 64;
+            this.healMPcount.TabStop = false;
+            this.healMPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.healMPcount.Value = new decimal(new int[] {
             40,
             0,
             0,
@@ -1989,15 +2050,15 @@
             this.HealMP.Text = "Heal MP";
             this.HealMP.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown26
+            // healHPcount
             // 
-            this.numericUpDown26.Location = new System.Drawing.Point(128, 55);
-            this.numericUpDown26.Name = "numericUpDown26";
-            this.numericUpDown26.Size = new System.Drawing.Size(44, 20);
-            this.numericUpDown26.TabIndex = 62;
-            this.numericUpDown26.TabStop = false;
-            this.numericUpDown26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown26.Value = new decimal(new int[] {
+            this.healHPcount.Location = new System.Drawing.Point(128, 55);
+            this.healHPcount.Name = "healHPcount";
+            this.healHPcount.Size = new System.Drawing.Size(44, 20);
+            this.healHPcount.TabIndex = 62;
+            this.healHPcount.TabStop = false;
+            this.healHPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.healHPcount.Value = new decimal(new int[] {
             40,
             0,
             0,
@@ -2245,6 +2306,7 @@
             this.JAtabselect.Controls.Add(this.selectPage);
             this.JAtabselect.Controls.Add(this.WHMpage);
             this.JAtabselect.Controls.Add(this.RDMpage);
+            this.JAtabselect.Controls.Add(this.SCHpage);
             this.JAtabselect.Controls.Add(this.RUNpage);
             this.JAtabselect.Controls.Add(this.MONpage);
             this.JAtabselect.Controls.Add(this.Dynamispage);
@@ -2331,11 +2393,6 @@
             this.BenedictionHPPuse.Name = "BenedictionHPPuse";
             this.BenedictionHPPuse.Size = new System.Drawing.Size(44, 20);
             this.BenedictionHPPuse.TabIndex = 1;
-            this.BenedictionHPPuse.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // benedictiontext
             // 
@@ -2437,6 +2494,35 @@
             this.converthptext.Size = new System.Drawing.Size(33, 13);
             this.converthptext.TabIndex = 0;
             this.converthptext.Text = "HP %";
+            // 
+            // SCHpage
+            // 
+            this.SCHpage.Controls.Add(this.Sublimationcount);
+            this.SCHpage.Controls.Add(this.label8);
+            this.SCHpage.Location = new System.Drawing.Point(4, 22);
+            this.SCHpage.Name = "SCHpage";
+            this.SCHpage.Padding = new System.Windows.Forms.Padding(3);
+            this.SCHpage.Size = new System.Drawing.Size(312, 160);
+            this.SCHpage.TabIndex = 6;
+            this.SCHpage.Text = "SCH";
+            this.SCHpage.UseVisualStyleBackColor = true;
+            // 
+            // Sublimationcount
+            // 
+            this.Sublimationcount.Enabled = false;
+            this.Sublimationcount.Location = new System.Drawing.Point(98, 8);
+            this.Sublimationcount.Name = "Sublimationcount";
+            this.Sublimationcount.Size = new System.Drawing.Size(44, 20);
+            this.Sublimationcount.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Sublimation @MP";
             // 
             // RUNpage
             // 
@@ -2542,11 +2628,11 @@
             // Dynatxt
             // 
             this.Dynatxt.AutoSize = true;
-            this.Dynatxt.Location = new System.Drawing.Point(15, 45);
+            this.Dynatxt.Location = new System.Drawing.Point(12, 45);
             this.Dynatxt.Name = "Dynatxt";
-            this.Dynatxt.Size = new System.Drawing.Size(285, 13);
+            this.Dynatxt.Size = new System.Drawing.Size(288, 13);
             this.Dynatxt.TabIndex = 2;
-            this.Dynatxt.Text = "This will stop all JA\'s when a mob is !Staggered! in Dynamis";
+            this.Dynatxt.Text = "This will stop all JA\'s when a mob is !Staggered! in Dynamis.";
             // 
             // staggerstopJA
             // 
@@ -2573,6 +2659,9 @@
             // 
             this.MAtabs.Controls.Add(this.MASelectPage);
             this.MAtabs.Controls.Add(this.CureConfigPage);
+            this.MAtabs.Controls.Add(this.tabPage3);
+            this.MAtabs.Controls.Add(this.BLUCurespage);
+            this.MAtabs.Controls.Add(this.MAconfigpage);
             this.MAtabs.Location = new System.Drawing.Point(7, 7);
             this.MAtabs.Name = "MAtabs";
             this.MAtabs.SelectedIndex = 0;
@@ -2595,7 +2684,7 @@
             // 
             this.playerMA.CheckOnClick = true;
             this.playerMA.FormattingEnabled = true;
-            this.playerMA.Location = new System.Drawing.Point(49, 11);
+            this.playerMA.Location = new System.Drawing.Point(47, 11);
             this.playerMA.Name = "playerMA";
             this.playerMA.Size = new System.Drawing.Size(213, 94);
             this.playerMA.TabIndex = 5;
@@ -2607,7 +2696,7 @@
             this.GetSetMA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadMAsToolStripMenuItem,
             this.clearMAsToolStripMenuItem});
-            this.GetSetMA.Location = new System.Drawing.Point(81, 114);
+            this.GetSetMA.Location = new System.Drawing.Point(69, 121);
             this.GetSetMA.Name = "GetSetMA";
             this.GetSetMA.Size = new System.Drawing.Size(159, 24);
             this.GetSetMA.TabIndex = 16;
@@ -2654,7 +2743,7 @@
             this.CureConfigPage.Padding = new System.Windows.Forms.Padding(3);
             this.CureConfigPage.Size = new System.Drawing.Size(306, 151);
             this.CureConfigPage.TabIndex = 1;
-            this.CureConfigPage.Text = "Cure Config";
+            this.CureConfigPage.Text = "Cure";
             this.CureConfigPage.UseVisualStyleBackColor = true;
             // 
             // CuraIIcount
@@ -2664,11 +2753,6 @@
             this.CuraIIcount.Name = "CuraIIcount";
             this.CuraIIcount.Size = new System.Drawing.Size(44, 20);
             this.CuraIIcount.TabIndex = 19;
-            this.CuraIIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label55
             // 
@@ -2686,11 +2770,6 @@
             this.CuraIIIcount.Name = "CuraIIIcount";
             this.CuraIIIcount.Size = new System.Drawing.Size(44, 20);
             this.CuraIIIcount.TabIndex = 17;
-            this.CuraIIIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label53
             // 
@@ -2708,11 +2787,6 @@
             this.Curacount.Name = "Curacount";
             this.Curacount.Size = new System.Drawing.Size(44, 20);
             this.Curacount.TabIndex = 15;
-            this.Curacount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label54
             // 
@@ -2730,11 +2804,6 @@
             this.FullCurecount.Name = "FullCurecount";
             this.FullCurecount.Size = new System.Drawing.Size(44, 20);
             this.FullCurecount.TabIndex = 13;
-            this.FullCurecount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label52
             // 
@@ -2752,11 +2821,6 @@
             this.CureVIcount.Name = "CureVIcount";
             this.CureVIcount.Size = new System.Drawing.Size(44, 20);
             this.CureVIcount.TabIndex = 11;
-            this.CureVIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label45
             // 
@@ -2774,11 +2838,6 @@
             this.CureVcount.Name = "CureVcount";
             this.CureVcount.Size = new System.Drawing.Size(44, 20);
             this.CureVcount.TabIndex = 9;
-            this.CureVcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // CureIVcount
             // 
@@ -2787,11 +2846,6 @@
             this.CureIVcount.Name = "CureIVcount";
             this.CureIVcount.Size = new System.Drawing.Size(44, 20);
             this.CureIVcount.TabIndex = 8;
-            this.CureIVcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // CureIIIcount
             // 
@@ -2800,11 +2854,6 @@
             this.CureIIIcount.Name = "CureIIIcount";
             this.CureIIIcount.Size = new System.Drawing.Size(44, 20);
             this.CureIIIcount.TabIndex = 7;
-            this.CureIIIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // CureIIcount
             // 
@@ -2813,11 +2862,6 @@
             this.CureIIcount.Name = "CureIIcount";
             this.CureIIcount.Size = new System.Drawing.Size(44, 20);
             this.CureIIcount.TabIndex = 6;
-            this.CureIIcount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // label44
             // 
@@ -2871,11 +2915,353 @@
             this.Curecount.Name = "Curecount";
             this.Curecount.Size = new System.Drawing.Size(44, 20);
             this.Curecount.TabIndex = 0;
-            this.Curecount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.Aspirgroup);
+            this.tabPage3.Controls.Add(this.Draingroup);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(306, 151);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Drain/Aspir";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // Aspirgroup
+            // 
+            this.Aspirgroup.Controls.Add(this.AspirIIIcount);
+            this.Aspirgroup.Controls.Add(this.AspirIIcount);
+            this.Aspirgroup.Controls.Add(this.AspirIIItext);
+            this.Aspirgroup.Controls.Add(this.AspirItext);
+            this.Aspirgroup.Controls.Add(this.AspirIItext);
+            this.Aspirgroup.Controls.Add(this.AspirIcount);
+            this.Aspirgroup.Location = new System.Drawing.Point(154, 7);
+            this.Aspirgroup.Name = "Aspirgroup";
+            this.Aspirgroup.Size = new System.Drawing.Size(139, 138);
+            this.Aspirgroup.TabIndex = 1;
+            this.Aspirgroup.TabStop = false;
+            this.Aspirgroup.Text = "Aspir";
+            // 
+            // AspirIIIcount
+            // 
+            this.AspirIIIcount.Enabled = false;
+            this.AspirIIIcount.Location = new System.Drawing.Point(78, 94);
+            this.AspirIIIcount.Name = "AspirIIIcount";
+            this.AspirIIIcount.Size = new System.Drawing.Size(41, 20);
+            this.AspirIIIcount.TabIndex = 64;
+            // 
+            // AspirIIcount
+            // 
+            this.AspirIIcount.Enabled = false;
+            this.AspirIIcount.Location = new System.Drawing.Point(78, 56);
+            this.AspirIIcount.Name = "AspirIIcount";
+            this.AspirIIcount.Size = new System.Drawing.Size(41, 20);
+            this.AspirIIcount.TabIndex = 62;
+            // 
+            // AspirIIItext
+            // 
+            this.AspirIIItext.AutoSize = true;
+            this.AspirIIItext.Location = new System.Drawing.Point(26, 94);
+            this.AspirIIItext.Name = "AspirIIItext";
+            this.AspirIIItext.Size = new System.Drawing.Size(27, 13);
+            this.AspirIIItext.TabIndex = 63;
+            this.AspirIIItext.Text = "III %";
+            // 
+            // AspirItext
+            // 
+            this.AspirItext.AutoSize = true;
+            this.AspirItext.Location = new System.Drawing.Point(26, 21);
+            this.AspirItext.Name = "AspirItext";
+            this.AspirItext.Size = new System.Drawing.Size(27, 13);
+            this.AspirItext.TabIndex = 57;
+            this.AspirItext.Text = "I   %";
+            // 
+            // AspirIItext
+            // 
+            this.AspirIItext.AutoSize = true;
+            this.AspirIItext.Location = new System.Drawing.Point(26, 56);
+            this.AspirIItext.Name = "AspirIItext";
+            this.AspirIItext.Size = new System.Drawing.Size(27, 13);
+            this.AspirIItext.TabIndex = 58;
+            this.AspirIItext.Text = "II  %";
+            // 
+            // AspirIcount
+            // 
+            this.AspirIcount.Enabled = false;
+            this.AspirIcount.Location = new System.Drawing.Point(78, 19);
+            this.AspirIcount.Name = "AspirIcount";
+            this.AspirIcount.Size = new System.Drawing.Size(41, 20);
+            this.AspirIcount.TabIndex = 61;
+            // 
+            // Draingroup
+            // 
+            this.Draingroup.Controls.Add(this.DrainIItext);
+            this.Draingroup.Controls.Add(this.DrainIcount);
+            this.Draingroup.Controls.Add(this.DrainItext);
+            this.Draingroup.Controls.Add(this.DrainIIItext);
+            this.Draingroup.Controls.Add(this.DrainIIIcount);
+            this.Draingroup.Controls.Add(this.DrainIIcount);
+            this.Draingroup.Location = new System.Drawing.Point(9, 7);
+            this.Draingroup.Name = "Draingroup";
+            this.Draingroup.Size = new System.Drawing.Size(139, 138);
+            this.Draingroup.TabIndex = 0;
+            this.Draingroup.TabStop = false;
+            this.Draingroup.Text = "Drain";
+            // 
+            // DrainIItext
+            // 
+            this.DrainIItext.AutoSize = true;
+            this.DrainIItext.Location = new System.Drawing.Point(17, 58);
+            this.DrainIItext.Name = "DrainIItext";
+            this.DrainIItext.Size = new System.Drawing.Size(27, 13);
+            this.DrainIItext.TabIndex = 55;
+            this.DrainIItext.Text = "II  %";
+            // 
+            // DrainIcount
+            // 
+            this.DrainIcount.Enabled = false;
+            this.DrainIcount.Location = new System.Drawing.Point(69, 19);
+            this.DrainIcount.Name = "DrainIcount";
+            this.DrainIcount.Size = new System.Drawing.Size(41, 20);
+            this.DrainIcount.TabIndex = 53;
+            // 
+            // DrainItext
+            // 
+            this.DrainItext.AutoSize = true;
+            this.DrainItext.Location = new System.Drawing.Point(17, 21);
+            this.DrainItext.Name = "DrainItext";
+            this.DrainItext.Size = new System.Drawing.Size(27, 13);
+            this.DrainItext.TabIndex = 54;
+            this.DrainItext.Text = "I   %";
+            // 
+            // DrainIIItext
+            // 
+            this.DrainIIItext.AutoSize = true;
+            this.DrainIIItext.Location = new System.Drawing.Point(17, 94);
+            this.DrainIIItext.Name = "DrainIIItext";
+            this.DrainIIItext.Size = new System.Drawing.Size(27, 13);
+            this.DrainIIItext.TabIndex = 56;
+            this.DrainIIItext.Text = "III %";
+            // 
+            // DrainIIIcount
+            // 
+            this.DrainIIIcount.Enabled = false;
+            this.DrainIIIcount.Location = new System.Drawing.Point(69, 92);
+            this.DrainIIIcount.Name = "DrainIIIcount";
+            this.DrainIIIcount.Size = new System.Drawing.Size(41, 20);
+            this.DrainIIIcount.TabIndex = 60;
+            // 
+            // DrainIIcount
+            // 
+            this.DrainIIcount.Enabled = false;
+            this.DrainIIcount.Location = new System.Drawing.Point(69, 56);
+            this.DrainIIcount.Name = "DrainIIcount";
+            this.DrainIIcount.Size = new System.Drawing.Size(41, 20);
+            this.DrainIIcount.TabIndex = 59;
+            // 
+            // BLUCurespage
+            // 
+            this.BLUCurespage.Controls.Add(this.MagicFruitcount);
+            this.BLUCurespage.Controls.Add(this.Pollencount);
+            this.BLUCurespage.Controls.Add(this.HealingBreezecount);
+            this.BLUCurespage.Controls.Add(this.PleniluneEmbracecount);
+            this.BLUCurespage.Controls.Add(this.Restoralcount);
+            this.BLUCurespage.Controls.Add(this.WhiteWindcount);
+            this.BLUCurespage.Controls.Add(this.Exuviationcount);
+            this.BLUCurespage.Controls.Add(this.WildCarrotcount);
+            this.BLUCurespage.Controls.Add(this.PleniluneEmbracetext);
+            this.BLUCurespage.Controls.Add(this.MagicFruittext);
+            this.BLUCurespage.Controls.Add(this.HealingBreezetext);
+            this.BLUCurespage.Controls.Add(this.Pollentext);
+            this.BLUCurespage.Controls.Add(this.WhiteWindtext);
+            this.BLUCurespage.Controls.Add(this.Restoraltext);
+            this.BLUCurespage.Controls.Add(this.Exuviationtext);
+            this.BLUCurespage.Controls.Add(this.WildCarrottext);
+            this.BLUCurespage.Location = new System.Drawing.Point(4, 22);
+            this.BLUCurespage.Name = "BLUCurespage";
+            this.BLUCurespage.Padding = new System.Windows.Forms.Padding(3);
+            this.BLUCurespage.Size = new System.Drawing.Size(306, 151);
+            this.BLUCurespage.TabIndex = 3;
+            this.BLUCurespage.Text = "BLU Cures";
+            this.BLUCurespage.UseVisualStyleBackColor = true;
+            // 
+            // MagicFruitcount
+            // 
+            this.MagicFruitcount.Enabled = false;
+            this.MagicFruitcount.Location = new System.Drawing.Point(120, 46);
+            this.MagicFruitcount.Name = "MagicFruitcount";
+            this.MagicFruitcount.Size = new System.Drawing.Size(44, 20);
+            this.MagicFruitcount.TabIndex = 15;
+            // 
+            // Pollencount
+            // 
+            this.Pollencount.Enabled = false;
+            this.Pollencount.Location = new System.Drawing.Point(120, 13);
+            this.Pollencount.Name = "Pollencount";
+            this.Pollencount.Size = new System.Drawing.Size(44, 20);
+            this.Pollencount.TabIndex = 14;
+            // 
+            // HealingBreezecount
+            // 
+            this.HealingBreezecount.Enabled = false;
+            this.HealingBreezecount.Location = new System.Drawing.Point(120, 79);
+            this.HealingBreezecount.Name = "HealingBreezecount";
+            this.HealingBreezecount.Size = new System.Drawing.Size(44, 20);
+            this.HealingBreezecount.TabIndex = 13;
+            // 
+            // PleniluneEmbracecount
+            // 
+            this.PleniluneEmbracecount.Enabled = false;
+            this.PleniluneEmbracecount.Location = new System.Drawing.Point(120, 112);
+            this.PleniluneEmbracecount.Name = "PleniluneEmbracecount";
+            this.PleniluneEmbracecount.Size = new System.Drawing.Size(44, 20);
+            this.PleniluneEmbracecount.TabIndex = 12;
+            // 
+            // Restoralcount
+            // 
+            this.Restoralcount.Enabled = false;
+            this.Restoralcount.Location = new System.Drawing.Point(249, 46);
+            this.Restoralcount.Name = "Restoralcount";
+            this.Restoralcount.Size = new System.Drawing.Size(44, 20);
+            this.Restoralcount.TabIndex = 11;
+            // 
+            // WhiteWindcount
+            // 
+            this.WhiteWindcount.Enabled = false;
+            this.WhiteWindcount.Location = new System.Drawing.Point(249, 13);
+            this.WhiteWindcount.Name = "WhiteWindcount";
+            this.WhiteWindcount.Size = new System.Drawing.Size(44, 20);
+            this.WhiteWindcount.TabIndex = 10;
+            // 
+            // Exuviationcount
+            // 
+            this.Exuviationcount.Enabled = false;
+            this.Exuviationcount.Location = new System.Drawing.Point(249, 79);
+            this.Exuviationcount.Name = "Exuviationcount";
+            this.Exuviationcount.Size = new System.Drawing.Size(44, 20);
+            this.Exuviationcount.TabIndex = 9;
+            // 
+            // WildCarrotcount
+            // 
+            this.WildCarrotcount.Enabled = false;
+            this.WildCarrotcount.Location = new System.Drawing.Point(249, 112);
+            this.WildCarrotcount.Name = "WildCarrotcount";
+            this.WildCarrotcount.Size = new System.Drawing.Size(44, 20);
+            this.WildCarrotcount.TabIndex = 8;
+            // 
+            // PleniluneEmbracetext
+            // 
+            this.PleniluneEmbracetext.AutoSize = true;
+            this.PleniluneEmbracetext.Location = new System.Drawing.Point(5, 114);
+            this.PleniluneEmbracetext.Name = "PleniluneEmbracetext";
+            this.PleniluneEmbracetext.Size = new System.Drawing.Size(109, 13);
+            this.PleniluneEmbracetext.TabIndex = 5;
+            this.PleniluneEmbracetext.Text = "Plenilune Embrace @";
+            // 
+            // MagicFruittext
+            // 
+            this.MagicFruittext.AutoSize = true;
+            this.MagicFruittext.Location = new System.Drawing.Point(41, 48);
+            this.MagicFruittext.Name = "MagicFruittext";
+            this.MagicFruittext.Size = new System.Drawing.Size(73, 13);
+            this.MagicFruittext.TabIndex = 3;
+            this.MagicFruittext.Text = "Magic Fruit @";
+            // 
+            // HealingBreezetext
+            // 
+            this.HealingBreezetext.AutoSize = true;
+            this.HealingBreezetext.Location = new System.Drawing.Point(21, 81);
+            this.HealingBreezetext.Name = "HealingBreezetext";
+            this.HealingBreezetext.Size = new System.Drawing.Size(93, 13);
+            this.HealingBreezetext.TabIndex = 2;
+            this.HealingBreezetext.Text = "Healing Breeze @";
+            // 
+            // Pollentext
+            // 
+            this.Pollentext.AutoSize = true;
+            this.Pollentext.Location = new System.Drawing.Point(64, 15);
+            this.Pollentext.Name = "Pollentext";
+            this.Pollentext.Size = new System.Drawing.Size(50, 13);
+            this.Pollentext.TabIndex = 0;
+            this.Pollentext.Text = "Pollen @";
+            // 
+            // WhiteWindtext
+            // 
+            this.WhiteWindtext.AutoSize = true;
+            this.WhiteWindtext.Location = new System.Drawing.Point(166, 15);
+            this.WhiteWindtext.Name = "WhiteWindtext";
+            this.WhiteWindtext.Size = new System.Drawing.Size(77, 13);
+            this.WhiteWindtext.TabIndex = 6;
+            this.WhiteWindtext.Text = "White Wind @";
+            // 
+            // Restoraltext
+            // 
+            this.Restoraltext.AutoSize = true;
+            this.Restoraltext.Location = new System.Drawing.Point(183, 48);
+            this.Restoraltext.Name = "Restoraltext";
+            this.Restoraltext.Size = new System.Drawing.Size(60, 13);
+            this.Restoraltext.TabIndex = 7;
+            this.Restoraltext.Text = "Restoral @";
+            // 
+            // Exuviationtext
+            // 
+            this.Exuviationtext.AutoSize = true;
+            this.Exuviationtext.Location = new System.Drawing.Point(173, 81);
+            this.Exuviationtext.Name = "Exuviationtext";
+            this.Exuviationtext.Size = new System.Drawing.Size(70, 13);
+            this.Exuviationtext.TabIndex = 4;
+            this.Exuviationtext.Text = "Exuviation @";
+            // 
+            // WildCarrottext
+            // 
+            this.WildCarrottext.AutoSize = true;
+            this.WildCarrottext.Location = new System.Drawing.Point(173, 114);
+            this.WildCarrottext.Name = "WildCarrottext";
+            this.WildCarrottext.Size = new System.Drawing.Size(73, 13);
+            this.WildCarrottext.TabIndex = 1;
+            this.WildCarrottext.Text = "Wild Carrot @";
+            // 
+            // MAconfigpage
+            // 
+            this.MAconfigpage.Controls.Add(this.label13);
+            this.MAconfigpage.Controls.Add(this.label10);
+            this.MAconfigpage.Controls.Add(this.MAreverse);
+            this.MAconfigpage.Location = new System.Drawing.Point(4, 22);
+            this.MAconfigpage.Name = "MAconfigpage";
+            this.MAconfigpage.Padding = new System.Windows.Forms.Padding(3);
+            this.MAconfigpage.Size = new System.Drawing.Size(306, 151);
+            this.MAconfigpage.TabIndex = 4;
+            this.MAconfigpage.Text = "MAconfig";
+            this.MAconfigpage.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(62, 58);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(183, 13);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "of the way its listed on the Select tab.";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(54, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(199, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "This will cause all magic to run in reverse";
+            // 
+            // MAreverse
+            // 
+            this.MAreverse.AutoSize = true;
+            this.MAreverse.Location = new System.Drawing.Point(90, 16);
+            this.MAreverse.Name = "MAreverse";
+            this.MAreverse.Size = new System.Drawing.Size(126, 17);
+            this.MAreverse.TabIndex = 0;
+            this.MAreverse.Text = "Run magin in reverse";
+            this.MAreverse.UseVisualStyleBackColor = true;
             // 
             // groupBox14
             // 
@@ -3293,7 +3679,7 @@
             // 
             this.stopstepsat.AutoSize = true;
             this.stopstepsat.Enabled = false;
-            this.stopstepsat.Location = new System.Drawing.Point(13, 26);
+            this.stopstepsat.Location = new System.Drawing.Point(14, 24);
             this.stopstepsat.Name = "stopstepsat";
             this.stopstepsat.Size = new System.Drawing.Size(88, 17);
             this.stopstepsat.TabIndex = 17;
@@ -3337,7 +3723,7 @@
             // usefeatherstepValue
             // 
             this.usefeatherstepValue.Enabled = false;
-            this.usefeatherstepValue.Location = new System.Drawing.Point(130, 112);
+            this.usefeatherstepValue.Location = new System.Drawing.Point(130, 111);
             this.usefeatherstepValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -3351,7 +3737,7 @@
             // usestutterstepValue
             // 
             this.usestutterstepValue.Enabled = false;
-            this.usestutterstepValue.Location = new System.Drawing.Point(130, 91);
+            this.usestutterstepValue.Location = new System.Drawing.Point(130, 89);
             this.usestutterstepValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -3365,7 +3751,7 @@
             // useboxstepValue
             // 
             this.useboxstepValue.Enabled = false;
-            this.useboxstepValue.Location = new System.Drawing.Point(130, 68);
+            this.useboxstepValue.Location = new System.Drawing.Point(130, 67);
             this.useboxstepValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -3399,7 +3785,7 @@
             // usequickstepValue
             // 
             this.usequickstepValue.Enabled = false;
-            this.usequickstepValue.Location = new System.Drawing.Point(130, 46);
+            this.usequickstepValue.Location = new System.Drawing.Point(130, 45);
             this.usequickstepValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -3437,7 +3823,7 @@
             // 
             this.usequickstep.AutoSize = true;
             this.usequickstep.Enabled = false;
-            this.usequickstep.Location = new System.Drawing.Point(14, 46);
+            this.usequickstep.Location = new System.Drawing.Point(14, 42);
             this.usequickstep.Name = "usequickstep";
             this.usequickstep.Size = new System.Drawing.Size(75, 17);
             this.usequickstep.TabIndex = 2;
@@ -3449,7 +3835,7 @@
             // 
             this.useboxstep.AutoSize = true;
             this.useboxstep.Enabled = false;
-            this.useboxstep.Location = new System.Drawing.Point(14, 68);
+            this.useboxstep.Location = new System.Drawing.Point(14, 67);
             this.useboxstep.Name = "useboxstep";
             this.useboxstep.Size = new System.Drawing.Size(65, 17);
             this.useboxstep.TabIndex = 3;
@@ -3461,7 +3847,7 @@
             // 
             this.usestutterstep.AutoSize = true;
             this.usestutterstep.Enabled = false;
-            this.usestutterstep.Location = new System.Drawing.Point(14, 91);
+            this.usestutterstep.Location = new System.Drawing.Point(14, 89);
             this.usestutterstep.Name = "usestutterstep";
             this.usestutterstep.Size = new System.Drawing.Size(78, 17);
             this.usestutterstep.TabIndex = 4;
@@ -3473,7 +3859,7 @@
             // 
             this.usefeatherstep.AutoSize = true;
             this.usefeatherstep.Enabled = false;
-            this.usefeatherstep.Location = new System.Drawing.Point(14, 112);
+            this.usefeatherstep.Location = new System.Drawing.Point(14, 111);
             this.usefeatherstep.Name = "usefeatherstep";
             this.usefeatherstep.Size = new System.Drawing.Size(83, 17);
             this.usefeatherstep.TabIndex = 5;
@@ -4076,9 +4462,9 @@
             this.flourishesiiigroup.Controls.Add(this.usestkflo);
             this.flourishesiiigroup.Controls.Add(this.useclmflo);
             this.flourishesiiigroup.Controls.Add(this.useterflo);
-            this.flourishesiiigroup.Location = new System.Drawing.Point(26, 188);
+            this.flourishesiiigroup.Location = new System.Drawing.Point(26, 207);
             this.flourishesiiigroup.Name = "flourishesiiigroup";
-            this.flourishesiiigroup.Size = new System.Drawing.Size(195, 90);
+            this.flourishesiiigroup.Size = new System.Drawing.Size(383, 71);
             this.flourishesiiigroup.TabIndex = 3;
             this.flourishesiiigroup.TabStop = false;
             this.flourishesiiigroup.Text = "Flourishes III";
@@ -4086,7 +4472,7 @@
             // useclmfloValue
             // 
             this.useclmfloValue.Enabled = false;
-            this.useclmfloValue.Location = new System.Drawing.Point(137, 16);
+            this.useclmfloValue.Location = new System.Drawing.Point(139, 19);
             this.useclmfloValue.Maximum = new decimal(new int[] {
             7,
             0,
@@ -4100,7 +4486,7 @@
             // usestkfloValue
             // 
             this.usestkfloValue.Enabled = false;
-            this.usestkfloValue.Location = new System.Drawing.Point(137, 39);
+            this.usestkfloValue.Location = new System.Drawing.Point(139, 42);
             this.usestkfloValue.Maximum = new decimal(new int[] {
             7,
             0,
@@ -4114,7 +4500,7 @@
             // useterfloValue
             // 
             this.useterfloValue.Enabled = false;
-            this.useterfloValue.Location = new System.Drawing.Point(137, 62);
+            this.useterfloValue.Location = new System.Drawing.Point(328, 43);
             this.useterfloValue.Maximum = new decimal(new int[] {
             7,
             0,
@@ -4129,7 +4515,7 @@
             // 
             this.usestkflo.AutoSize = true;
             this.usestkflo.Enabled = false;
-            this.usestkflo.Location = new System.Drawing.Point(27, 39);
+            this.usestkflo.Location = new System.Drawing.Point(25, 43);
             this.usestkflo.Name = "usestkflo";
             this.usestkflo.Size = new System.Drawing.Size(99, 17);
             this.usestkflo.TabIndex = 20;
@@ -4141,7 +4527,7 @@
             // 
             this.useclmflo.AutoSize = true;
             this.useclmflo.Enabled = false;
-            this.useclmflo.Location = new System.Drawing.Point(27, 16);
+            this.useclmflo.Location = new System.Drawing.Point(25, 19);
             this.useclmflo.Name = "useclmflo";
             this.useclmflo.Size = new System.Drawing.Size(100, 17);
             this.useclmflo.TabIndex = 18;
@@ -4153,7 +4539,7 @@
             // 
             this.useterflo.AutoSize = true;
             this.useterflo.Enabled = false;
-            this.useterflo.Location = new System.Drawing.Point(27, 63);
+            this.useterflo.Location = new System.Drawing.Point(214, 42);
             this.useterflo.Name = "useterflo";
             this.useterflo.Size = new System.Drawing.Size(100, 17);
             this.useterflo.TabIndex = 19;
@@ -4211,9 +4597,9 @@
             this.flourishesiigroup.Controls.Add(this.usewldflo);
             this.flourishesiigroup.Controls.Add(this.usebldflo);
             this.flourishesiigroup.Controls.Add(this.userevflo);
-            this.flourishesiigroup.Location = new System.Drawing.Point(26, 92);
+            this.flourishesiigroup.Location = new System.Drawing.Point(26, 131);
             this.flourishesiigroup.Name = "flourishesiigroup";
-            this.flourishesiigroup.Size = new System.Drawing.Size(195, 90);
+            this.flourishesiigroup.Size = new System.Drawing.Size(383, 70);
             this.flourishesiigroup.TabIndex = 1;
             this.flourishesiigroup.TabStop = false;
             this.flourishesiigroup.Text = "Flourishes II";
@@ -4221,7 +4607,7 @@
             // usewldfloValue
             // 
             this.usewldfloValue.Enabled = false;
-            this.usewldfloValue.Location = new System.Drawing.Point(139, 62);
+            this.usewldfloValue.Location = new System.Drawing.Point(328, 38);
             this.usewldfloValue.Maximum = new decimal(new int[] {
             7,
             0,
@@ -4264,7 +4650,7 @@
             // 
             this.usewldflo.AutoSize = true;
             this.usewldflo.Enabled = false;
-            this.usewldflo.Location = new System.Drawing.Point(25, 63);
+            this.usewldflo.Location = new System.Drawing.Point(214, 39);
             this.usewldflo.Name = "usewldflo";
             this.usewldflo.Size = new System.Drawing.Size(85, 17);
             this.usewldflo.TabIndex = 18;
@@ -4312,7 +4698,7 @@
             this.flourishesigroup.Controls.Add(this.usedesflo);
             this.flourishesigroup.Location = new System.Drawing.Point(26, 40);
             this.flourishesigroup.Name = "flourishesigroup";
-            this.flourishesigroup.Size = new System.Drawing.Size(195, 46);
+            this.flourishesigroup.Size = new System.Drawing.Size(383, 76);
             this.flourishesigroup.TabIndex = 0;
             this.flourishesigroup.TabStop = false;
             this.flourishesigroup.Text = "Flourishes I";
@@ -4922,6 +5308,16 @@
             this.checkBox8.Text = "Auto Engage Pet";
             this.checkBox8.UseVisualStyleBackColor = true;
             // 
+            // geopettab
+            // 
+            this.geopettab.Location = new System.Drawing.Point(4, 22);
+            this.geopettab.Name = "geopettab";
+            this.geopettab.Padding = new System.Windows.Forms.Padding(3);
+            this.geopettab.Size = new System.Drawing.Size(415, 247);
+            this.geopettab.TabIndex = 4;
+            this.geopettab.Text = "GEO";
+            this.geopettab.UseVisualStyleBackColor = true;
+            // 
             // bgw_script_dnc
             // 
             this.bgw_script_dnc.WorkerReportsProgress = true;
@@ -4961,16 +5357,6 @@
             this.DeathWarp.TabIndex = 52;
             this.DeathWarp.Text = "Warp on Death";
             this.DeathWarp.UseVisualStyleBackColor = true;
-            // 
-            // geopettab
-            // 
-            this.geopettab.Location = new System.Drawing.Point(4, 22);
-            this.geopettab.Name = "geopettab";
-            this.geopettab.Padding = new System.Windows.Forms.Padding(3);
-            this.geopettab.Size = new System.Drawing.Size(415, 247);
-            this.geopettab.TabIndex = 4;
-            this.geopettab.Text = "GEO";
-            this.geopettab.UseVisualStyleBackColor = true;
             // 
             // ScriptFarmDNC
             // 
@@ -5027,8 +5413,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.followDist)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healMPcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healHPcount)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.DropBox.ResumeLayout(false);
             this.DropBox.PerformLayout();
@@ -5050,6 +5436,9 @@
             this.groupBox18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).EndInit();
+            this.SCHpage.ResumeLayout(false);
+            this.SCHpage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Sublimationcount)).EndInit();
             this.RUNpage.ResumeLayout(false);
             this.RUNpage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VivaciousPulseHP)).EndInit();
@@ -5077,6 +5466,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Curecount)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.Aspirgroup.ResumeLayout(false);
+            this.Aspirgroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AspirIIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AspirIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AspirIcount)).EndInit();
+            this.Draingroup.ResumeLayout(false);
+            this.Draingroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DrainIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrainIIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrainIIcount)).EndInit();
+            this.BLUCurespage.ResumeLayout(false);
+            this.BLUCurespage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MagicFruitcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pollencount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HealingBreezecount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PleniluneEmbracecount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Restoralcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WhiteWindcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Exuviationcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WildCarrotcount)).EndInit();
+            this.MAconfigpage.ResumeLayout(false);
+            this.MAconfigpage.PerformLayout();
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pullDelay)).EndInit();
@@ -5253,10 +5665,10 @@
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox textBox8;
-        public System.Windows.Forms.NumericUpDown numericUpDown25;
+        public System.Windows.Forms.NumericUpDown healMPcount;
         public System.Windows.Forms.CheckBox usefood;
         public System.Windows.Forms.CheckBox HealMP;
-        public System.Windows.Forms.NumericUpDown numericUpDown26;
+        public System.Windows.Forms.NumericUpDown healHPcount;
         public System.Windows.Forms.CheckBox HealHP;
         public System.Windows.Forms.TextBox textBox6;
         public System.Windows.Forms.Label label35;
@@ -5498,6 +5910,45 @@
         private Label monhptext;
         private CheckBox VivaciousPulse;
         private NumericUpDown VivaciousPulseHP;
+        private TabPage Dynamispage;
+        private Label Dynatxt;
+        private CheckBox staggerstopJA;
+        private TabPage geopettab;
+        private TabPage SCHpage;
+        private NumericUpDown Sublimationcount;
+        private Label label8;
+        private TabPage tabPage3;
+        private GroupBox Aspirgroup;
+        private NumericUpDown AspirIIIcount;
+        private NumericUpDown AspirIIcount;
+        private Label AspirIIItext;
+        private Label AspirItext;
+        private Label AspirIItext;
+        private NumericUpDown AspirIcount;
+        private GroupBox Draingroup;
+        private Label DrainIItext;
+        private NumericUpDown DrainIcount;
+        private Label DrainItext;
+        private Label DrainIIItext;
+        private NumericUpDown DrainIIIcount;
+        private NumericUpDown DrainIIcount;
+        private TabPage BLUCurespage;
+        private NumericUpDown MagicFruitcount;
+        private NumericUpDown Pollencount;
+        private NumericUpDown HealingBreezecount;
+        private NumericUpDown PleniluneEmbracecount;
+        private NumericUpDown Restoralcount;
+        private NumericUpDown WhiteWindcount;
+        private NumericUpDown Exuviationcount;
+        private NumericUpDown WildCarrotcount;
+        private Label PleniluneEmbracetext;
+        private Label MagicFruittext;
+        private Label HealingBreezetext;
+        private Label Pollentext;
+        private Label WhiteWindtext;
+        private Label Restoraltext;
+        private Label Exuviationtext;
+        private Label WildCarrottext;
 
         #region Methods: Start/Stop/Load
 
@@ -6397,12 +6848,10 @@
         private void PlayerJA()
         {
 
-            if (!botRunning || PlayerInfo.Status != 1 || naviMove || PlayerInfo.HasBuff(16))
-                return;
+            if (!botRunning || PlayerInfo.Status != 1 || naviMove || PlayerInfo.HasBuff(16)) return;
 
-            var ja = (from object itemChecked in playerJA.CheckedItems
-                      select itemChecked.ToString()).ToList();
-
+            var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
+            if (ja.Count == 0) return;
             if (MonStagered && staggerstopJA.Checked) return;
 
             Dictionary<uint, dynamic> jacontrol = new Dictionary<uint, dynamic>()
@@ -6419,29 +6868,28 @@
                     {617, new {b1=317,b2=309}}, {618, new {b1=318,b2=309}}, {619, new {b1=319,b2=309}}, {620, new {b1=320,b2=309}}, {621, new {b1=321,b2=309}},
                     {622, new {b1=322,b2=309}}, {623, new {b1=323,b2=309}}, {624, new {b1=324,b2=309}}, {625, new {b1=325,b2=309}}, {626, new {b1=326,b2=309}},
                     {627, new {b1=327,b2=309}}, {628, new {b1=328,b2=309}}, {629, new {b1=329,b2=309}}, {630, new {b1=330,b2=309}}, {631, new {b1=331,b2=309}},
-                    {632, new {b1=332,b2=309}}, {633, new {b1=333,b2=309}}, {634, new {b1=334,b2=309}}, {635, new {b3=308}}, {636, new {name="Quick Draw"}},
-                    {637, new {name="Fire Shot"}}, {638, new {name="Ice Shot"}}, {639, new {name="Wind Shot"}}, {640, new {name="Earth Shot"}},
-                    {641, new {name="Thunder Shot"}}, {642, new {name="Water Shot"}}, {643, new {name="Light Shot"}}, {644, new {name="Dark Shot"}},
-                    {645, new {}}, {661, new {b1=340,b2=490}}, {662, new {}}, {663, new {b1=19}}, {664, new {b1=341}}, {667, new {b1=342}}, {668, new {b1=343}},
-                    {669, new {b1=344}}, {672, new {b1=346}}, {673, new {}}, {677, new {b1=350}}, {678, new {b1=351}}, {680, new {}}, {682, new {}},
-                    {683, new {b1=352}}, {685, new {b1=353}}, {686, new {b1=354}}, {689, new {b1=357}}, {690, new {b3=309}}, {693, new {b1=376}},
-                    {708, new {b1=71}}, {736, new {b1=371}}, {738, new {b1=405}}, {739, new {b1=406}}, {740, new {}}, {749, new {b1=410}}, {750, new {b1=411}},
-                    {757, new {b1=417}}, {758, new {b1=418}}, {759, new {b1=419}}, {760, new {b1=420}}, {761, new {nuff1=421}}, {764, new {b1=435}},
-                    {765, new {b1=436}}, {769, new {b1=433}}, {772, new {}}, {773, new {b1=442}}, {777, new {}}, {779, new {b1=460,b2=68}}, {781, new {b1=461}},
-                    {783, new {b1=477}}, {784, new {}}, {788, new {b1=462}}, {789, new {}}, {790, new {b1=478}}, {791, new {}}, {792, new {b1=479}}, {797, new {}},
-                    {798, new {b1=482}}, {799, new {b1=465}}, {803, new {b1=484}}, {804, new {}}, {805, new {}}, {813, new {b1=467}}, {814, new {b1=335,b2=309}},
-                    {815, new {b1=336,b2=309}}, {816, new {b1=337,b2=309}}, {817, new {b1=338,b2=309}}, {833, new {thp=10}}, {835, new {b1=490,b2=340}},
-                    {836, new {b1=491}}, {837, new {b1=492}}, {840, new {}}, {841, new {}}, {842, new {b1=497}}, {845, new {b1=500}}, {846, new {b1=501}},
-                    {847, new {b1=502}}, {848, new {b1=503}}, {851, new {}}, {853, new {b1=507}}, {856, new {}}, {868, new {}}, {870, new {b1=523}},
-                    {871, new {b1=524}}, {872, new {b1=525}}, {873, new {b1=526}}, {874, new {b1=527}}, {875, new {b1=528}}, {876, new {b1=529}},
-                    {877, new {b1=530}}, {878, new {b1=531}}, {879, new {b1=532}}, {880, new {}}, {881, new {b1=533}}, {883, new {b1=535}}, {884, new {}},
-                    {895, new {}}, {885, new {b1=537}}, {886, new {b1=538}}, {887, new {}}, {888, new {b1=570}}, {890, new {}}, {901, new {b1=599}},
-                    {902, new {b1=339,b2=309}}, {903, new {b1=600,b2=309}}, {904, new {b1=601}},
+                    {632, new {b1=332,b2=309}}, {633, new {b1=333,b2=309}}, {634, new {b1=334,b2=309}}, {635, new {b3=308}},{637, new {item="Fire Card"}},
+                    {638, new {item="Ice Card"}},{639, new {item="Wind Card"}},{640, new {item="Earth Card"}},{641, new {item="Thunder Card"}},
+                    {642, new {item="Water Card"}},{643, new {item="Light Card"}},{644, new {item="Dark Card"}},{645, new {}}, {661, new {b1=340,b2=490}},
+                    {662, new {}}, {663, new {b1=19}}, {664, new {b1=341}}, {667, new {b1=342}}, {668, new {b1=343}},{669, new {b1=344}}, {672, new {b1=346}},
+                    {673, new {}}, {677, new {b1=350}}, {678, new {b1=351}}, {680, new {}}, {682, new {}},{683, new {b1=352}}, {685, new {b1=353}},
+                    {686, new {b1=354}}, {689, new {b1=357}}, {690, new {b3=309}}, {693, new {b1=376}},{708, new {b1=71}}, {736, new {b1=371}}, {738, new {b1=405}},
+                    {739, new {b1=406}}, {740, new {}}, {749, new {b1=410}}, {750, new {b1=411}},{757, new {b1=417}}, {758, new {b1=418}}, {759, new {b1=419}},
+                    {760, new {b1=420}}, {761, new {nuff1=421}}, {764, new {b1=435}},{765, new {b1=436}}, {769, new {b1=433}}, {772, new {}}, {773, new {b1=442}},
+                    {777, new {}}, {779, new {b1=460,b2=68}}, {781, new {b1=461}},{783, new {b1=477}}, {784, new {}}, {788, new {b1=462}}, {789, new {}},
+                    {790, new {b1=478}}, {791, new {}}, {792, new {b1=479}}, {797, new {}},{798, new {b1=482}}, {799, new {b1=465}}, {803, new {b1=484}},
+                    {804, new {}}, {805, new {}}, {813, new {b1=467}}, {814, new {b1=335,b2=309}},{815, new {b1=336,b2=309}}, {816, new {b1=337,b2=309}},
+                    {817, new {b1=338,b2=309}}, {833, new {thp=10}}, {835, new {b1=490,b2=340}},{836, new {b1=491}}, {837, new {b1=492}}, {840, new {}},
+                    {841, new {}}, {842, new {b1=497}}, {845, new {b1=500}}, {846, new {b1=501}},{847, new {b1=502}}, {848, new {b1=503}}, {851, new {}},
+                    {853, new {b1=507}}, {856, new {}}, {868, new {}}, {870, new {b1=523}},{871, new {b1=524}}, {872, new {b1=525}}, {873, new {b1=526}},
+                    {874, new {b1=527}}, {875, new {b1=528}}, {876, new {b1=529}},{877, new {b1=530}}, {878, new {b1=531}}, {879, new {b1=532}}, {880, new {}},
+                    {881, new {b1=533}}, {883, new {b1=535}}, {884, new {}},{895, new {}}, {885, new {b1=537}}, {886, new {b1=538}}, {887, new {}},
+                    {888, new {b1=570}}, {890, new {}}, {901, new {b1=599}},{902, new {b1=339,b2=309}}, {903, new {b1=600,b2=309}}, {904, new {b1=601}},
                     #endregion
                     #region monJA control
                     {1247, new {hp=75}}, {1818, new {hp=75}}, {1825, new {hp=75}},{1850, new {hp=75}}, {1856, new {hp=75}}, {1929, new {hp=75}}, {2059, new {hp=75}},
                     {2088, new {mp=75}}, {2090, new {hp=75}}, {2113, new {hp=75}}, {2114, new {hp=75}},
-                   #endregion
+                    #endregion
             };
 
             foreach (string J in ja)
@@ -6490,22 +6938,13 @@
                     {
                         if (jacontrol[ability.ID].ToString().Contains("mp"))
                         {
-                            if (PlayerInfo.MPP <= MONmpCount.Value)
-                            {
-                                useAbility = true;
-                            }
+                            if (PlayerInfo.MPP <= MONmpCount.Value) useAbility = true;
                         }
                         else if (jacontrol[ability.ID].ToString().Contains("hp"))
                         {
-                            if (PlayerInfo.HPP <= MONhpCount.Value)
-                            {
-                                useAbility = true;
-                            }
+                            if (PlayerInfo.HPP <= MONhpCount.Value) useAbility = true;
                         }
-                        else
-                        {
-                            useAbility = true;
-                        }
+                        else useAbility = true;
                     }
                 }
                 else if (!jacontrol.ContainsKey(ability.ID)) continue;
@@ -6518,66 +6957,46 @@
                     }
                     else if (ability.Name == "Convert")
                     {
-                        if (ConvertHP.Checked && ConvertHPP.Value >= PlayerInfo.HPP && ConvertMPP.Value <= PlayerInfo.MPP)
-                        {
-                            useAbility = true;
-                        }
-                        else if (ConvertMP.Checked && ConvertHPP.Value <= PlayerInfo.HPP && ConvertMPP.Value >= PlayerInfo.MPP)
-                        {
-                            useAbility = true;
-                        }
+                        if (ConvertHP.Checked && ConvertHPP.Value >= PlayerInfo.HPP && ConvertMPP.Value <= PlayerInfo.MPP) useAbility = true;
+                        else if (ConvertMP.Checked && ConvertHPP.Value <= PlayerInfo.HPP && ConvertMPP.Value >= PlayerInfo.MPP) useAbility = true;
+                    }
+                    else if (ability.Name == "Sublimation")
+                    {
+                        if (!PlayerInfo.HasBuff(187) && !PlayerInfo.HasBuff(188)) useAbility = true;
+                        else if (PlayerInfo.HasBuff(188) && PlayerInfo.HPP <= Sublimationcount.Value) useAbility = true;
                     }
                     else if (ability.Name == "Vivacious Pulse" && PlayerInfo.HPP <= VivaciousPulseHP.Value &&
                         Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
-                        TargetInfo.ID > 0)
-                    {
-                        useAbility = true;
-                    }
-                    else if (ability.Name == "Shikikoyo - (Samurai)" && !PlayerInfo.HasBuff(16) &&
+                        TargetInfo.ID > 0) useAbility = true;
+                    else if (ability.Name == "Shikikoyo" && !PlayerInfo.HasBuff(16) &&
                         Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
-                        TargetInfo.ID > 0)
+                        TargetInfo.ID > 0) useAbility = true;
+                    else if (jacontrol[ability.ID].ToString().Contains("item ="))
                     {
-                        useAbility = true;
+                        if (ItemQuantityByName(jacontrol[ability.ID].item) > 0 || ItemQuantityByName("Trump Card") > 0) useAbility = true;
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("b2"))
+                    else if (jacontrol[ability.ID].ToString().Contains("b2 ="))
                     {
                         if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1) &&
-                        !PlayerInfo.HasBuff((short)jacontrol[ability.ID].b2))
-                        {
-                            useAbility = true;
-                        }
+                        !PlayerInfo.HasBuff((short)jacontrol[ability.ID].b2)) useAbility = true;
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("b1"))
+                    else if (jacontrol[ability.ID].ToString().Contains("b1 ="))
                     {
-                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1))
-                        {
-                            useAbility = true;
-                        }
+                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1)) useAbility = true;
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("b3"))
+                    else if (jacontrol[ability.ID].ToString().Contains("b3 ="))
                     {
-                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b3))
-                        {
-                            useAbility = true;
-                        }
+                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b3)) useAbility = true;
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("hp"))
+                    else if (jacontrol[ability.ID].ToString().Contains("hp ="))
                     {
-                        if (PlayerInfo.HPP <= jacontrol[ability.ID].hp)
-                        {
-                            useAbility = true;
-                        }
+                        if (PlayerInfo.HPP <= jacontrol[ability.ID].hp) useAbility = true;
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("thp"))
+                    else if (jacontrol[ability.ID].ToString().Contains("thp ="))
                     {
-                        if (TargetInfo.HPP <= jacontrol[ability.ID].thp)
-                        {
-                            useAbility = true;
-                        }
+                        if (TargetInfo.HPP <= jacontrol[ability.ID].thp) useAbility = true;
                     }
-                    else
-                    {
-                    }
+                    else useAbility = true;
                 }
                 if (useAbility)
                 {
@@ -6639,6 +7058,522 @@
         #endregion
 
         #endregion
+
+        #region JA: Magic (use)
+        private void PlayerMA()
+        {
+            var ma = (from object itemChecked in playerMA.CheckedItems select itemChecked.ToString()).ToList();
+            if (ma.Count == 0) return;
+            Dictionary<uint, dynamic> macontrol = new Dictionary<uint, dynamic>()
+            {
+                {14, new {H=3}},{15, new {H=4}},{16, new {H=5}},{17, new {H=6}},{18, new {H=7}},{19, new {H=8}},{20, new {H=9}},
+                {53, new {B=36}},{54, new {B=37}},{55, new {B=39}},{57, new {B=33}},{60, new {B=100}},{61, new {B=101}},{62, new {B=102}},
+                {63, new {B=103}},{64, new {B=104}},{65, new {B=105}},{66, new {B=100}},{67, new {B=101}},{68, new {B=102}},{69, new {B=103}},
+                {70, new {B=104}},{71, new {B=105}},{72, new {B=106}},{73, new {B=107}},{74, new {B=108}},{75, new {B=109}},{76, new {B=110}},
+                {77, new {B=111}},{78, new {B=112}},{84, new {B=286}},{85, new {B=286}},{86, new {B=106}},{87, new {B=107}},{88, new {B=108}},
+                {89, new {B=109}},{90, new {B=110}},{91, new {B=111}},{92, new {B=112}},{96, new {B=275}},{97, new {B=403}},{99, new {W=8}},
+                {100, new {B=94}},{101, new {B=95}},{102, new {B=96}},{103, new {B=97}},{104, new {B=98}},{105, new {B=99}},{106, new {B=116}},
+                {107, new {B=116}},{113, new {W=6}},{114, new {W=10}},{115, new {W=4}},{116, new {W=12}},{117, new {W=14}},
+                {118, new {W=18}},{119, new {W=16}},{242, new {B=90}},{249, new {B=34}},{250, new {B=35}},{251, new {B=38}},
+                {266, new {B=119}},{267, new {B=120}},{268, new {B=121}},{269, new {B=122}},{270, new {B=123}},{271, new {B=124}},
+                {272, new {B=125}},{277, new {B=173}},{287, new {B=407}},{310, new {B=274}},{311, new {B=288}},{312, new {B=277}},
+                {313, new {B=278}},{314, new {B=279}},{315, new {B=280}},{316, new {B=281}},{317, new {B=282}},{358, new {B=33}},
+                {378, new {B=195}},{379, new {B=195}},{380, new {B=195}},{381, new {B=195}},{382, new {B=195}},{383, new {B=195}},
+                {384, new {B=195}},{385, new {B=195}},{386, new {B=196}},{387, new {B=196}},{388, new {B=196}},{389, new {B=197}},
+                {390, new {B=197}},{391, new {B=197}},{392, new {B=197}},{393, new {B=197}},{394, new {B=198}},{395, new {B=198}},
+                {396, new {B=198}},{397, new {B=198}},{398, new {B=198}},{399, new {B=199}},{400, new {B=199}},{401, new {B=200}},
+                {402, new {B=200}},{403, new {B=201}},{404, new {B=201}},{405, new {B=202}},{406, new {B=203}},{407, new {B=204}},
+                {408, new {B=205}},{409, new {B=206}},{410, new {B=206}},{411, new {B=206}},{412, new {B=207}},{413, new {B=208}},
+                {414, new {B=209}},{415, new {B=210}},{416, new {B=211}},{417, new {B=212}},{418, new {B=213}},{419, new {B=214}},
+                {420, new {B=214}},{423, new {B=194}},{424, new {B=215}},{425, new {B=215}},{426, new {B=215}},{427, new {B=215}},
+                {428, new {B=215}},{429, new {B=215}},{430, new {B=215}},{431, new {B=215}},{432, new {B=215}},{433, new {B=215}},
+                {434, new {B=215}},{435, new {B=215}},{436, new {B=215}},{437, new {B=215}},{438, new {B=216}},{439, new {B=216}},
+                {440, new {B=216}},{441, new {B=216}},{442, new {B=216}},{443, new {B=216}},{444, new {B=216}},{445, new {B=216}},
+                {446, new {B=216}},{447, new {B=216}},{448, new {B=216}},{449, new {B=216}},{450, new {B=216}},{451, new {B=216}},
+                {452, new {B=216}},{453, new {B=216}},{464, new {B=218}},{468, new {B=220}},{469, new {B=221}},{470, new {B=222}},
+                {476, new {B=289}},{478, new {B=228}},{479, new {B=119}},{480, new {B=120}},{481, new {B=121}},{482, new {B=122}},
+                {483, new {B=123}},{484, new {B=124}},{485, new {B=125}},{486, new {B=119}},{487, new {B=120}},{488, new {B=121}},
+                {489, new {B=122}},{490, new {B=123}},{491, new {B=124}},{492, new {B=125}},{493, new {B=432}},{495, new {B=170}},
+                {505, new {B=289}},{506, new {B=291}},{507, new {B=290}},{509, new {B=227}},{510, new {B=471}},{511, new {B=33}},
+                {517, new {B=37}},{530, new {B=33}},{538, new {B=190}},{547, new {B=93}},{613, new {B=93}},{615, new {B=38}},
+                {636, new {B=90,b=92}},{655, new {B=91}},{662, new {B=43}},{668, new {B=152}},{679, new {B=36}},{696, new {B=486}},
+                {737, new {B=93}},{750, new {B=604}},{840, new {B=568}},{845, new {B=581}},{846, new {B=581}},{855, new {B=274}},
+                {856, new {B=288}},{857, new {B=9}},{858, new {B=7}},{859, new {B=11}},{860, new {B=5}},{861, new {B=13}},{862, new {B=15}},
+                {863, new {B=19}},{864, new {B=17}},{879, new {B=597}},{895, new {B=432}},
+                };
+            
+            if (MAreverse.Checked) ma.Reverse();
+            foreach (string M in ma)
+            {
+                if (PlayerInfo.Status != 1) break;
+                bool castSpell = false;
+                var magic = api.Resources.GetSpell(M);
+                var targ = ((magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
+                if (!MAautoJA(magic.Name) || PlayerInfo.HasBuff(6)) continue;
+                if (PlayerInfo.MP < magic.MP && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229))) continue;
+                List<string> Handledspells = new List<string>(new string[] {"Protect","Protect II","Protect III","Protect IV","Protect V","Protectra",
+                "Protectra II","Protectra III","Protectra IV","Protectra V","Shell","Shell II","Shell III","Shell IV","Shell V","Shellra","Shellra II",
+                "Shellra III","Shellra IV","Shellra V","Regen","Regen II","Regen III","Regen IV","Regen V","Refresh","Refresh II","Refresh III","Reraise",
+                "Reraise II","Reraise III","Reraise IV","Cure","Cure II","Cure III","Cure IV","Cure V","Cure VI","Cura","Cura II","Cura III","Full Cure",
+                "Drain","Drain II","Drain III","Aspir","Aspir II","Aspir III","Pollen","Magic Fruit","Healing Breeze","Plenilune Embrace","White Wind",
+                "Restoral","Exuviation","Wild Carrot"});
+                if (Handledspells.Contains(magic.Name))
+                { 
+                    if (magic.Name.Contains("Protect") && !PlayerInfo.HasBuff(40) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name.Contains("Shell") && !PlayerInfo.HasBuff(41) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name.Contains("Regen") && !PlayerInfo.HasBuff(42) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name.Contains("Refresh") && !PlayerInfo.HasBuff(43) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name.Contains("Reraise") && !PlayerInfo.HasBuff(113) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Cure" && Curecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Cure II" && CureIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Cure III" && CureIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Cure IV" && CureIVcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Cure V" && CureVcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Cure VI" && CureVIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Cura" && Curacount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Cura II" && CuraIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Cura III" && CuraIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Full Cure" && FullCurecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Drain" && DrainIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Drain II" && DrainIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Drain III" && DrainIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Aspir" && AspirIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Aspir II" && AspirIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Aspir III" && AspirIIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Pollen" && Pollencount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Magic Fruit" && MagicFruitcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Healing Breeze" && HealingBreezecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Plenilune Embrace" && PleniluneEmbracecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "White Wind" && WhiteWindcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Restoral" && Restoralcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Exuviation" && Exuviationcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Wild Carrot" && WildCarrotcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                }
+                else
+                {
+                    if (macontrol.ContainsKey(magic.ID))
+                    {
+                        if (macontrol[magic.ID].ToString().Contains("I =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        {
+                            if (!macontrol[magic.ID].ToString().Contains("B =")) continue;
+                            else if (!PlayerInfo.HasBuff((short)macontrol[magic.ID].B)) castSpell = true;
+                        }
+                        else if (macontrol[magic.ID].ToString().Contains("b =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        {
+                            if (!PlayerInfo.HasBuff((short)macontrol[magic.ID].B) && !PlayerInfo.HasBuff((short)macontrol[magic.ID].b)) castSpell = true;
+                        }
+                        else if (macontrol[magic.ID].ToString().Contains("H =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        {
+                            if (PlayerInfo.HasBuff((short)macontrol[magic.ID].H)) castSpell = true;
+                        }
+                        else if (macontrol[magic.ID].ToString().Contains("B =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        {
+                            if (!PlayerInfo.HasBuff((short)macontrol[magic.ID].B)) castSpell = true;
+                        }
+                        else if (macontrol[magic.ID].ToString().Contains("W =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        {
+                            if (macontrol[magic.ID].W == api.Weather.CurrentWeather) castSpell = true;
+                        }
+                    }
+                    else
+                    {
+                        if (Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    }
+                }
+                if (castSpell)
+                {
+                    api.ThirdParty.SendString(String.Format("/ma \"{0}\" {1}", magic.Name, targ));
+                    Casting();
+                }
+            }
+        }
+        
+        private bool MAautoJA(string M)
+        {
+            var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
+            var magic = api.Resources.GetSpell(M);
+            #region BLK MAJA
+            if (PlayerInfo.MP < magic.MP && !PlayerInfo.HasBuff(47) && !PlayerInfo.HasBuff(229))
+            {
+                if (ja.Contains("Manafont") && Recast.GetAbilityRecast(0) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Manafont\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                else if (ja.Contains("Manawell") && Recast.GetAbilityRecast(35) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Manawell\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                else return false;
+            }
+            if (ja.Contains("Elemental Seal") && !PlayerInfo.HasBuff(79) && Recast.GetAbilityRecast(38) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Elemental Seal\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Cascade") && !PlayerInfo.HasBuff(598) && magic.Skill == 36 && Recast.GetAbilityRecast(12) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Cascade\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Subtle Sorcery") && !PlayerInfo.HasBuff(493) && magic.Skill == 36 && Recast.GetAbilityRecast(254) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Subtle Sorcery\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            #endregion
+            #region WHM MAJA
+            List<string> DivineSealList = new List<string>(new string[] {"Cure", "Cure II", "Cure III", "Cure IV", "Cure V", "Cure VI", "Full Cure", "Pollen",
+            "Healing Breeze", "Wild Carrot", "Magic Fruit", "Exuviation", "Plenilune Embrace", "White Wind", "Restoral", "Poisona", "Paralyna", "Blindna",
+            "Silena", "Cursna", "Stona", "Erase", "Cura", "Cura II", "Cura III"});
+            
+            if (DivineSealList.Contains(magic.Name) && ja.Contains("Divine Seal") && !PlayerInfo.HasBuff(78))
+            {
+                if (Recast.GetAbilityRecast(26) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Divine Seal\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+            }
+            List<string> DivineCaressList = new List<string>(new string[] {"Poisona", "Paralyna", "Blindna", "Silena", "Cursna", "Stona"});
+            
+            if (DivineCaressList.Contains(magic.Name) && ja.Contains("Divine Caress") && !PlayerInfo.HasBuff(453))
+            {
+                if (Recast.GetAbilityRecast(32) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Divine Caress\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+            }
+            #endregion
+            #region RDM MAJA
+            if (ja.Contains("Chainspell") && !PlayerInfo.HasBuff(48) && Recast.GetAbilityRecast(0) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Chainspell\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Saboteur") && !PlayerInfo.HasBuff(454) && magic.Skill == 35 && Recast.GetAbilityRecast(36) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Saboteur\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Spontaneity") && !PlayerInfo.HasBuff(230) && !PlayerInfo.HasBuff(48) && Recast.GetAbilityRecast(37) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Spontaneity\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Stymie") && !PlayerInfo.HasBuff(494) && magic.Skill == 35 && Recast.GetAbilityRecast(254) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Stymie\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            #endregion
+            #region PLD MAJA
+            if (ja.Contains("Divine Emblem") && !PlayerInfo.HasBuff(438) && magic.Skill == 32 && Recast.GetAbilityRecast(80) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Divine Emblem\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            #endregion
+            #region DRK MAJA
+            if (ja.Contains("Dark Seal") && !PlayerInfo.HasBuff(345) && magic.Skill == 37 && Recast.GetAbilityRecast(89) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Dark Seal\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            List<string> NetherVoidList = new List<string>(new string[] {"Absorb-MND", "Absorb-CHR", "Absorb-VIT", "Absorb-AGI", "Absorb-INT", "Absorb-DEX",
+            "Absorb-STR", "Absorb-TP", "Absorb-ACC", "Absorb-Attri", "Drain", "Drain II", "Aspir", "Aspir II"});
+            if (NetherVoidList.Contains(magic.Name) && ja.Contains("Nether Void") && !PlayerInfo.HasBuff(439) && Recast.GetAbilityRecast(91) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Nether Void\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            #endregion
+            #region NIN MAJA
+            List<string> FutaeList = new List<string>(new string[] {"Katon", "Hyoton", "Huton", "Doton", "Raiton", "Suiton", "Kurayami", "Hojo"});
+            if (FutaeList.Contains(Regex.Replace(magic.Name, ":.*", "")) && ja.Contains("Futae") &&
+            !PlayerInfo.HasBuff(441) && Recast.GetAbilityRecast(148) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Futae\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            #endregion
+            #region BLU MAJA
+            List<string> UnbridledLearningList = new List<string>(new string[] {"Harden Shell", "Thunderbolt", "Absolute Terror", "Gates of Hades", "Tourbillion",
+            "Pyric Bulwark", "Bilgestorm", "Bloodrake", "Droning Whirlwind", "Carcharian Verve", "Blistering Roar", "Mighty Guard", "Cruel Joke", "Cesspool",
+            "Tearing Gust"});
+            if (UnbridledLearningList.Contains(magic.Name) && !PlayerInfo.HasBuff(485) && !PlayerInfo.HasBuff(505))
+            {
+                if (ja.Contains("Unbridled Learning") && Recast.GetAbilityRecast(81) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Unbridled Learning\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                else if (ja.Contains("Unbridled Wisdom") && Recast.GetAbilityRecast(254) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Unbridled Wisdom\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+            }
+            #endregion
+            #region BRD MAJA
+            if (magic.Skill == 41 || magic.Skill == 42)
+            {
+                if (ja.Contains("Soul Voice") && !PlayerInfo.HasBuff(52) && Recast.GetAbilityRecast(0) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Soul Voice\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Pianissimo") && !PlayerInfo.HasBuff(409) && Recast.GetAbilityRecast(112) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Pianissimo\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Nightingale") && !PlayerInfo.HasBuff(347) && Recast.GetAbilityRecast(109) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Nightingale\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Troubadour") && !PlayerInfo.HasBuff(348) && Recast.GetAbilityRecast(110) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Troubadour\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Tenuto") && !PlayerInfo.HasBuff(455) && Recast.GetAbilityRecast(47) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Tenuto\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Marcato") && !PlayerInfo.HasBuff(231) && Recast.GetAbilityRecast(48) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Marcato\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Clarion Call") && !PlayerInfo.HasBuff(499) && Recast.GetAbilityRecast(254) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Clarion Call\" <me>");
+                }
+            }
+            #endregion
+            #region SCH MAJA
+            if (PlayerInfo.MainJob == 20 || PlayerInfo.SubJob == 20)
+            {
+                List<string> TabulaRasa = new List<string>(new string[] {"Embrava", "Kaustra"});
+                List<string> AddendumWhite = new List<string>(new string[] {"Poisona","Paralyna","Blindna","Silena","Cursna","Reraise","Erase","Viruna","Stona",
+                "Raise II","Reraise II","Raise III","Reraise III"});
+                List<string> AddendumBlack = new List<string>(new string[] {"Sleep","Dispel","Sleep II","Stone IV","Water IV","Aero IV","Fire IV","Blizzard IV",
+                "Thunder IV","Stone V","Water V","Aero V","Break","Fire V","Blizzard V","Thunder V"});
+                if (ja.Contains("Tabula Rasa") && !PlayerInfo.HasBuff(377) && Recast.GetAbilityRecast(0) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Tabula Rasa\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Light Arts") && magic.MagicType == 1 && !PlayerInfo.HasBuff(358) && Recast.GetAbilityRecast(228) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Light Arts\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Dark Arts") && magic.MagicType == 2 && !PlayerInfo.HasBuff(359) && Recast.GetAbilityRecast(228) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Dark Arts\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Enlightenment") && !PlayerInfo.HasBuff(359) && !PlayerInfo.HasBuff(359) &&
+                    !PlayerInfo.HasBuff(416) && Recast.GetAbilityRecast(235) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Enlightenment\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                /* if (magic.Name.Contains("helix") && ja.Contains("Modus Veritas") && !PlayerInfo.HasBuff(416) && Recast.GetAbilityRecast(235) == 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Modus Veritas\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                } */
+                if (SchCharges >= 1 || PlayerInfo.HasBuff(377))
+                {   
+                    if (magic.MagicType == 1 && PlayerInfo.HasBuff(358))
+                    {
+                        #region SCH White MA Stragems
+                        if (SchCharges >= 1 && AddendumWhite.Contains(magic.Name) && ja.Contains("Addendum: White") &&
+                            !PlayerInfo.HasBuff(401))
+                        {
+                            api.ThirdParty.SendString("/ja \"Addendum: White\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        else if (AddendumWhite.Contains(magic.Name)) return false;
+                        if (SchCharges >= 1 && ja.Contains("Penury") && !PlayerInfo.HasBuff(360))
+                        {
+                            api.ThirdParty.SendString("/ja \"Penury\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Celerity") && !PlayerInfo.HasBuff(362))
+                        {
+                            api.ThirdParty.SendString("/ja \"Celerity\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Accession") && !PlayerInfo.HasBuff(366) &&
+                            Recast.GetAbilityRecast(231) == 0 && (magic.Skill == 33 || magic.Skill == 34))
+                        {
+                            api.ThirdParty.SendString("/ja \"Accession\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Rapture") && !PlayerInfo.HasBuff(364))
+                        {
+                            api.ThirdParty.SendString("/ja \"Rapture\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 2 && ja.Contains("Altruism") && !PlayerInfo.HasBuff(412))
+                        {
+                            api.ThirdParty.SendString("/ja \"Altruism\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 2;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Tranquility") && !PlayerInfo.HasBuff(414))
+                        {
+                            api.ThirdParty.SendString("/ja \"Tranquility\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Perpetuance") && !PlayerInfo.HasBuff(469))
+                        {
+                            api.ThirdParty.SendString("/ja \"Perpetuance\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        #endregion
+                    }
+                    else if (magic.MagicType == 2 && PlayerInfo.HasBuff(359))
+                    {
+                        #region SCH Black MA Stragems
+                        if (SchCharges >= 1 && AddendumBlack.Contains(magic.Name) && ja.Contains("Addendum: Black") &&
+                            !PlayerInfo.HasBuff(402))
+                        {
+                            api.ThirdParty.SendString("/ja \"Addendum: Black\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        else if (AddendumBlack.Contains(magic.Name)) return false;
+                        if (SchCharges >= 1 && ja.Contains("Parsimony") && !PlayerInfo.HasBuff(361))
+                        {
+                            api.ThirdParty.SendString("/ja \"Parsimony\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Alacrity") && !PlayerInfo.HasBuff(363))
+                        {
+                            api.ThirdParty.SendString("/ja \"Alacrity\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Manifestation") && !PlayerInfo.HasBuff(367) &&
+                            Recast.GetAbilityRecast(231) == 0 && magic.Skill == 35)
+                        {
+                            api.ThirdParty.SendString("/ja \"Manifestation\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Ebullience") && !PlayerInfo.HasBuff(365))
+                        {
+                            api.ThirdParty.SendString("/ja \"Ebullience\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Focalization") && !PlayerInfo.HasBuff(412))
+                        {
+                            api.ThirdParty.SendString("/ja \"Focalization\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Equanimity") && !PlayerInfo.HasBuff(415))
+                        {
+                            api.ThirdParty.SendString("/ja \"Equanimity\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        if (SchCharges >= 1 && ja.Contains("Immanence") && !PlayerInfo.HasBuff(470))
+                        {
+                            api.ThirdParty.SendString("/ja \"Immanence\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
+                        }
+                        #endregion
+                    }
+                }
+                if (AddendumWhite.Contains(magic.Name) && !PlayerInfo.HasBuff(401) && !PlayerInfo.HasBuff(377)) return false;
+                if (AddendumBlack.Contains(magic.Name) && !PlayerInfo.HasBuff(402) && !PlayerInfo.HasBuff(377)) return false;
+            }
+            #endregion
+            #region GEO MAJA
+            if (ja.Contains("Bolster") && magic.Skill == 44 && !PlayerInfo.HasBuff(513) &&
+                Recast.GetAbilityRecast(0) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Bolster\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Collimated Fervor") && !PlayerInfo.HasBuff(517) && Recast.GetAbilityRecast(245) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Collimated Fervor\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Theurgic Focus") && magic.Skill == 36 && !PlayerInfo.HasBuff(519) &&
+                Recast.GetAbilityRecast(249) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Theurgic Focus\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            if (ja.Contains("Widened Compass") && magic.Skill == 44 && !PlayerInfo.HasBuff(508) &&
+                Recast.GetAbilityRecast(130) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Widened Compass\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            #endregion
+            #region RUN MAJA
+            if (ja.Contains("Embolden") && magic.Skill == 34 && !PlayerInfo.HasBuff(534) &&
+                Recast.GetAbilityRecast(72) == 0)
+            {
+                api.ThirdParty.SendString("/ja \"Embolden\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            #endregion
+             return true;
+        }
+
+        private void Casting()
+        {
+            isCasting = true;
+            Thread.Sleep(TimeSpan.FromSeconds(0.5));
+            var count = 0;
+            float lastPercent = 0;
+            while (api.CastBar.Percent < 100)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                if (lastPercent != api.CastBar.Percent)
+                {
+                    count = 0;
+                    lastPercent = api.CastBar.Percent;
+                }
+                else if (count == 10)
+                {
+                    break;
+                }
+                else
+                {
+                    count++;
+                    lastPercent = api.CastBar.Percent;
+                }
+            }
+            isCasting = false;
+            Thread.Sleep(TimeSpan.FromSeconds(2.0));
+        }
+        #endregion
+
         #region WS: WeaponSkill (use)
         private void PlayerWS()
         {
@@ -6681,26 +7616,26 @@
 
             if (ws.Checked && !wsam.Checked && PlayerInfo.Status == 1)
             {
-                if (api.Player.GetPlayerInfo().SubJob == 12)
+                if (api.Player.GetPlayerInfo().MainJob == 12 || api.Player.GetPlayerInfo().SubJob == 12)
                 {
                     var ja = (from object itemChecked in playerJA.CheckedItems
                               select itemChecked.ToString()).ToList();
 
-                    if (ja.Contains("Konzen-ittai - (Samurai)") && !PlayerInfo.HasBuff(16) &&
+                    if (ja.Contains("Konzen-ittai") && !PlayerInfo.HasBuff(16) &&
                         Recast.GetAbilityRecast(140) == 0 && PlayerInfo.Status == 1 &&
                         TargetInfo.ID > 0)
                     {
                         api.ThirdParty.SendString("/ja \"Konzen-ittai\" <t>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    if (ja.Contains("Hagakure - (Samurai)") && !PlayerInfo.HasBuff(16) &&
+                    if (ja.Contains("Hagakure") && !PlayerInfo.HasBuff(16) &&
                         !PlayerInfo.HasBuff(483) && Recast.GetAbilityRecast(54) == 0 &&
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                     {
                         api.ThirdParty.SendString("/ja \"Hagakure\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    if (ja.Contains("Sengikori - (Samurai)") && !PlayerInfo.HasBuff(16) &&
+                    if (ja.Contains("Sengikori") && !PlayerInfo.HasBuff(16) &&
                         !PlayerInfo.HasBuff(440) && Recast.GetAbilityRecast(141) == 0 &&
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                     {
@@ -9950,9 +10885,9 @@
 
         #endregion
 
-        private TabPage Dynamispage;
-        private Label Dynatxt;
-        private CheckBox staggerstopJA;
-        private TabPage geopettab;
+        private TabPage MAconfigpage;
+        private CheckBox MAreverse;
+        private Label label13;
+        private Label label10;
     }
 }

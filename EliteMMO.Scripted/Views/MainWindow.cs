@@ -84,7 +84,6 @@
         private void FarmDncToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
-            //api.ThirdParty.SendString(System.String.Format("/echo {0}", PID));
 
             //if (InventoryItems.items.Count == 0)
             //    InventoryItems.PopulateItems();
