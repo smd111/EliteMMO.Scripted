@@ -365,7 +365,7 @@
                     if (PetInfo.ID != 0)
                         pInfo();
 
-                    if (WyvernJA.Items.Count == 0 && PetInfo.ID > 0)
+                    if (WyvernJA.Items.Count == 0)
                         WyvernGetJA();
 
                     if (PetInfo.ID > 0 && WyvernJA.Items.Count > 0 &&

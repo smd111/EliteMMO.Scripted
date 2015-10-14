@@ -35,6 +35,8 @@
         public float SetEntityY = 0;
         public int SchCharges;
         public bool MonStagered = false;
+        public int mainJOB = 0;
+        public int subJOB = 0;
 
         public string FFXIPath = "";
 
@@ -210,8 +212,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.combat = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.CombatSettingsTabs = new System.Windows.Forms.TabControl();
+            this.Options1MainTab = new System.Windows.Forms.TabPage();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
@@ -235,7 +237,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.numericUpDown23 = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.Options2MainTab = new System.Windows.Forms.TabPage();
             this.numericUpDown38 = new System.Windows.Forms.NumericUpDown();
             this.aggroRange = new System.Windows.Forms.NumericUpDown();
             this.ScanDelay = new System.Windows.Forms.CheckBox();
@@ -253,7 +255,7 @@
             this.assistplayer = new System.Windows.Forms.TextBox();
             this.aggro = new System.Windows.Forms.CheckBox();
             this.mobdist = new System.Windows.Forms.CheckBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Options3MainTab = new System.Windows.Forms.TabPage();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.SignetStaff = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -270,7 +272,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.IdleLocation = new System.Windows.Forms.CheckBox();
             this.label35 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Options4MainTab = new System.Windows.Forms.TabPage();
             this.DropBox = new System.Windows.Forms.GroupBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
@@ -284,7 +286,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.autoRangeAttack = new System.Windows.Forms.CheckBox();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.OptionsJAMainTab = new System.Windows.Forms.TabPage();
             this.JAtabselect = new System.Windows.Forms.TabControl();
             this.selectPage = new System.Windows.Forms.TabPage();
             this.playerJA = new System.Windows.Forms.CheckedListBox();
@@ -317,7 +319,7 @@
             this.Dynamispage = new System.Windows.Forms.TabPage();
             this.Dynatxt = new System.Windows.Forms.Label();
             this.staggerstopJA = new System.Windows.Forms.CheckBox();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.OptionsMAMainTab = new System.Windows.Forms.TabPage();
             this.MAtabs = new System.Windows.Forms.TabControl();
             this.MASelectPage = new System.Windows.Forms.TabPage();
             this.playerMA = new System.Windows.Forms.CheckedListBox();
@@ -345,7 +347,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Curecount = new System.Windows.Forms.NumericUpDown();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.DrainAspirpage = new System.Windows.Forms.TabPage();
             this.Aspirgroup = new System.Windows.Forms.GroupBox();
             this.AspirIIIcount = new System.Windows.Forms.NumericUpDown();
             this.AspirIIcount = new System.Windows.Forms.NumericUpDown();
@@ -556,8 +558,8 @@
             this.GetSetTargets.SuspendLayout();
             this.selecttargets.SuspendLayout();
             this.combat.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage5.SuspendLayout();
+            this.CombatSettingsTabs.SuspendLayout();
+            this.Options1MainTab.SuspendLayout();
             this.groupBox23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
@@ -567,20 +569,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).BeginInit();
-            this.tabPage4.SuspendLayout();
+            this.Options2MainTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aggroRange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KeepTargetRange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistDist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.followDist)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.Options3MainTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.healMPcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.healHPcount)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.Options4MainTab.SuspendLayout();
             this.DropBox.SuspendLayout();
             this.groupBox15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).BeginInit();
-            this.tabPage11.SuspendLayout();
+            this.OptionsJAMainTab.SuspendLayout();
             this.JAtabselect.SuspendLayout();
             this.selectPage.SuspendLayout();
             this.GetSetJA.SuspendLayout();
@@ -599,7 +601,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).BeginInit();
             this.Dynamispage.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.OptionsMAMainTab.SuspendLayout();
             this.MAtabs.SuspendLayout();
             this.MASelectPage.SuspendLayout();
             this.GetSetMA.SuspendLayout();
@@ -614,7 +616,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Curecount)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.DrainAspirpage.SuspendLayout();
             this.Aspirgroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AspirIIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AspirIIcount)).BeginInit();
@@ -1043,7 +1045,7 @@
             // 
             // combat
             // 
-            this.combat.Controls.Add(this.tabControl2);
+            this.combat.Controls.Add(this.CombatSettingsTabs);
             this.combat.Controls.Add(this.groupBox14);
             this.combat.Location = new System.Drawing.Point(4, 22);
             this.combat.Name = "combat";
@@ -1053,31 +1055,31 @@
             this.combat.Text = "Combat Settings";
             this.combat.UseVisualStyleBackColor = true;
             // 
-            // tabControl2
+            // CombatSettingsTabs
             // 
-            this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Controls.Add(this.tabPage2);
-            this.tabControl2.Controls.Add(this.tabPage1);
-            this.tabControl2.Controls.Add(this.tabPage11);
-            this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Location = new System.Drawing.Point(45, 127);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(335, 216);
-            this.tabControl2.TabIndex = 22;
+            this.CombatSettingsTabs.Controls.Add(this.Options1MainTab);
+            this.CombatSettingsTabs.Controls.Add(this.Options2MainTab);
+            this.CombatSettingsTabs.Controls.Add(this.Options3MainTab);
+            this.CombatSettingsTabs.Controls.Add(this.Options4MainTab);
+            this.CombatSettingsTabs.Controls.Add(this.OptionsJAMainTab);
+            this.CombatSettingsTabs.Controls.Add(this.OptionsMAMainTab);
+            this.CombatSettingsTabs.Location = new System.Drawing.Point(45, 127);
+            this.CombatSettingsTabs.Name = "CombatSettingsTabs";
+            this.CombatSettingsTabs.SelectedIndex = 0;
+            this.CombatSettingsTabs.Size = new System.Drawing.Size(335, 216);
+            this.CombatSettingsTabs.TabIndex = 22;
             // 
-            // tabPage5
+            // Options1MainTab
             // 
-            this.tabPage5.Controls.Add(this.groupBox23);
-            this.tabPage5.Controls.Add(this.groupBox20);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(327, 190);
-            this.tabPage5.TabIndex = 6;
-            this.tabPage5.Text = "Options 1";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.Options1MainTab.Controls.Add(this.groupBox23);
+            this.Options1MainTab.Controls.Add(this.groupBox20);
+            this.Options1MainTab.Location = new System.Drawing.Point(4, 22);
+            this.Options1MainTab.Name = "Options1MainTab";
+            this.Options1MainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.Options1MainTab.Size = new System.Drawing.Size(327, 190);
+            this.Options1MainTab.TabIndex = 6;
+            this.Options1MainTab.Text = "Options 1";
+            this.Options1MainTab.UseVisualStyleBackColor = true;
             // 
             // groupBox23
             // 
@@ -1659,32 +1661,32 @@
             this.label27.TabIndex = 96;
             this.label27.Text = "Mob HP% to WS";
             // 
-            // tabPage4
+            // Options2MainTab
             // 
-            this.tabPage4.Controls.Add(this.numericUpDown38);
-            this.tabPage4.Controls.Add(this.aggroRange);
-            this.tabPage4.Controls.Add(this.ScanDelay);
-            this.tabPage4.Controls.Add(this.KeepTargetRange);
-            this.tabPage4.Controls.Add(this.assistDist);
-            this.tabPage4.Controls.Add(this.followDist);
-            this.tabPage4.Controls.Add(this.partyAssist);
-            this.tabPage4.Controls.Add(this.facetarget);
-            this.tabPage4.Controls.Add(this.label12);
-            this.tabPage4.Controls.Add(this.assist);
-            this.tabPage4.Controls.Add(this.followplayer);
-            this.tabPage4.Controls.Add(this.followName);
-            this.tabPage4.Controls.Add(this.useshadows);
-            this.tabPage4.Controls.Add(this.label11);
-            this.tabPage4.Controls.Add(this.assistplayer);
-            this.tabPage4.Controls.Add(this.aggro);
-            this.tabPage4.Controls.Add(this.mobdist);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(327, 190);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "Options 2";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.Options2MainTab.Controls.Add(this.numericUpDown38);
+            this.Options2MainTab.Controls.Add(this.aggroRange);
+            this.Options2MainTab.Controls.Add(this.ScanDelay);
+            this.Options2MainTab.Controls.Add(this.KeepTargetRange);
+            this.Options2MainTab.Controls.Add(this.assistDist);
+            this.Options2MainTab.Controls.Add(this.followDist);
+            this.Options2MainTab.Controls.Add(this.partyAssist);
+            this.Options2MainTab.Controls.Add(this.facetarget);
+            this.Options2MainTab.Controls.Add(this.label12);
+            this.Options2MainTab.Controls.Add(this.assist);
+            this.Options2MainTab.Controls.Add(this.followplayer);
+            this.Options2MainTab.Controls.Add(this.followName);
+            this.Options2MainTab.Controls.Add(this.useshadows);
+            this.Options2MainTab.Controls.Add(this.label11);
+            this.Options2MainTab.Controls.Add(this.assistplayer);
+            this.Options2MainTab.Controls.Add(this.aggro);
+            this.Options2MainTab.Controls.Add(this.mobdist);
+            this.Options2MainTab.Location = new System.Drawing.Point(4, 22);
+            this.Options2MainTab.Name = "Options2MainTab";
+            this.Options2MainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.Options2MainTab.Size = new System.Drawing.Size(327, 190);
+            this.Options2MainTab.TabIndex = 1;
+            this.Options2MainTab.Text = "Options 2";
+            this.Options2MainTab.UseVisualStyleBackColor = true;
             // 
             // numericUpDown38
             // 
@@ -1925,31 +1927,31 @@
             this.mobdist.Text = "Keep Within Melee Range";
             this.mobdist.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // Options3MainTab
             // 
-            this.tabPage2.Controls.Add(this.comboBox4);
-            this.tabPage2.Controls.Add(this.SignetStaff);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.useStaff);
-            this.tabPage2.Controls.Add(this.textBox8);
-            this.tabPage2.Controls.Add(this.healMPcount);
-            this.tabPage2.Controls.Add(this.usefood);
-            this.tabPage2.Controls.Add(this.HealMP);
-            this.tabPage2.Controls.Add(this.healHPcount);
-            this.tabPage2.Controls.Add(this.RecordIdleLocation);
-            this.tabPage2.Controls.Add(this.WeakLocation);
-            this.tabPage2.Controls.Add(this.HealHP);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.IdleLocation);
-            this.tabPage2.Controls.Add(this.label35);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(327, 190);
-            this.tabPage2.TabIndex = 0;
-            this.tabPage2.Text = "Options 3";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.Options3MainTab.Controls.Add(this.comboBox4);
+            this.Options3MainTab.Controls.Add(this.SignetStaff);
+            this.Options3MainTab.Controls.Add(this.label7);
+            this.Options3MainTab.Controls.Add(this.label3);
+            this.Options3MainTab.Controls.Add(this.useStaff);
+            this.Options3MainTab.Controls.Add(this.textBox8);
+            this.Options3MainTab.Controls.Add(this.healMPcount);
+            this.Options3MainTab.Controls.Add(this.usefood);
+            this.Options3MainTab.Controls.Add(this.HealMP);
+            this.Options3MainTab.Controls.Add(this.healHPcount);
+            this.Options3MainTab.Controls.Add(this.RecordIdleLocation);
+            this.Options3MainTab.Controls.Add(this.WeakLocation);
+            this.Options3MainTab.Controls.Add(this.HealHP);
+            this.Options3MainTab.Controls.Add(this.textBox6);
+            this.Options3MainTab.Controls.Add(this.IdleLocation);
+            this.Options3MainTab.Controls.Add(this.label35);
+            this.Options3MainTab.Location = new System.Drawing.Point(4, 22);
+            this.Options3MainTab.Name = "Options3MainTab";
+            this.Options3MainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.Options3MainTab.Size = new System.Drawing.Size(327, 190);
+            this.Options3MainTab.TabIndex = 0;
+            this.Options3MainTab.Text = "Options 3";
+            this.Options3MainTab.UseVisualStyleBackColor = true;
             // 
             // comboBox4
             // 
@@ -2123,17 +2125,17 @@
             this.label35.TabIndex = 59;
             this.label35.Text = "On Heal Equip Item";
             // 
-            // tabPage1
+            // Options4MainTab
             // 
-            this.tabPage1.Controls.Add(this.DropBox);
-            this.tabPage1.Controls.Add(this.groupBox15);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(327, 190);
-            this.tabPage1.TabIndex = 5;
-            this.tabPage1.Text = "Options 4";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.Options4MainTab.Controls.Add(this.DropBox);
+            this.Options4MainTab.Controls.Add(this.groupBox15);
+            this.Options4MainTab.Location = new System.Drawing.Point(4, 22);
+            this.Options4MainTab.Name = "Options4MainTab";
+            this.Options4MainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.Options4MainTab.Size = new System.Drawing.Size(327, 190);
+            this.Options4MainTab.TabIndex = 5;
+            this.Options4MainTab.Text = "Options 4";
+            this.Options4MainTab.UseVisualStyleBackColor = true;
             // 
             // DropBox
             // 
@@ -2290,16 +2292,16 @@
             this.autoRangeAttack.Text = "Auto (Range Attack)";
             this.autoRangeAttack.UseVisualStyleBackColor = true;
             // 
-            // tabPage11
+            // OptionsJAMainTab
             // 
-            this.tabPage11.Controls.Add(this.JAtabselect);
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(327, 190);
-            this.tabPage11.TabIndex = 4;
-            this.tabPage11.Text = "JA\'s";
-            this.tabPage11.UseVisualStyleBackColor = true;
+            this.OptionsJAMainTab.Controls.Add(this.JAtabselect);
+            this.OptionsJAMainTab.Location = new System.Drawing.Point(4, 22);
+            this.OptionsJAMainTab.Name = "OptionsJAMainTab";
+            this.OptionsJAMainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.OptionsJAMainTab.Size = new System.Drawing.Size(327, 190);
+            this.OptionsJAMainTab.TabIndex = 4;
+            this.OptionsJAMainTab.Text = "JA\'s";
+            this.OptionsJAMainTab.UseVisualStyleBackColor = true;
             // 
             // JAtabselect
             // 
@@ -2310,7 +2312,7 @@
             this.JAtabselect.Controls.Add(this.RUNpage);
             this.JAtabselect.Controls.Add(this.MONpage);
             this.JAtabselect.Controls.Add(this.Dynamispage);
-            this.JAtabselect.Location = new System.Drawing.Point(4, 4);
+            this.JAtabselect.Location = new System.Drawing.Point(4, 3);
             this.JAtabselect.Name = "JAtabselect";
             this.JAtabselect.SelectedIndex = 0;
             this.JAtabselect.Size = new System.Drawing.Size(320, 186);
@@ -2644,22 +2646,22 @@
             this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
             this.staggerstopJA.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
+            // OptionsMAMainTab
             // 
-            this.tabPage6.Controls.Add(this.MAtabs);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(327, 190);
-            this.tabPage6.TabIndex = 7;
-            this.tabPage6.Text = "MA\'s";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.OptionsMAMainTab.Controls.Add(this.MAtabs);
+            this.OptionsMAMainTab.Location = new System.Drawing.Point(4, 22);
+            this.OptionsMAMainTab.Name = "OptionsMAMainTab";
+            this.OptionsMAMainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.OptionsMAMainTab.Size = new System.Drawing.Size(327, 190);
+            this.OptionsMAMainTab.TabIndex = 7;
+            this.OptionsMAMainTab.Text = "MA\'s";
+            this.OptionsMAMainTab.UseVisualStyleBackColor = true;
             // 
             // MAtabs
             // 
             this.MAtabs.Controls.Add(this.MASelectPage);
             this.MAtabs.Controls.Add(this.CureConfigPage);
-            this.MAtabs.Controls.Add(this.tabPage3);
+            this.MAtabs.Controls.Add(this.DrainAspirpage);
             this.MAtabs.Controls.Add(this.BLUCurespage);
             this.MAtabs.Controls.Add(this.MAconfigpage);
             this.MAtabs.Location = new System.Drawing.Point(7, 7);
@@ -2916,17 +2918,17 @@
             this.Curecount.Size = new System.Drawing.Size(44, 20);
             this.Curecount.TabIndex = 0;
             // 
-            // tabPage3
+            // DrainAspirpage
             // 
-            this.tabPage3.Controls.Add(this.Aspirgroup);
-            this.tabPage3.Controls.Add(this.Draingroup);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(306, 151);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Drain/Aspir";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.DrainAspirpage.Controls.Add(this.Aspirgroup);
+            this.DrainAspirpage.Controls.Add(this.Draingroup);
+            this.DrainAspirpage.Location = new System.Drawing.Point(4, 22);
+            this.DrainAspirpage.Name = "DrainAspirpage";
+            this.DrainAspirpage.Padding = new System.Windows.Forms.Padding(3);
+            this.DrainAspirpage.Size = new System.Drawing.Size(306, 151);
+            this.DrainAspirpage.TabIndex = 2;
+            this.DrainAspirpage.Text = "Drain/Aspir";
+            this.DrainAspirpage.UseVisualStyleBackColor = true;
             // 
             // Aspirgroup
             // 
@@ -5265,7 +5267,7 @@
             this.WyvernJA.Location = new System.Drawing.Point(3, 16);
             this.WyvernJA.Name = "WyvernJA";
             this.WyvernJA.Size = new System.Drawing.Size(170, 140);
-            this.WyvernJA.TabIndex = 0;
+            this.WyvernJA.TabIndex = 1;
             // 
             // smnpettab
             // 
@@ -5391,8 +5393,8 @@
             this.GetSetTargets.PerformLayout();
             this.selecttargets.ResumeLayout(false);
             this.combat.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
+            this.CombatSettingsTabs.ResumeLayout(false);
+            this.Options1MainTab.ResumeLayout(false);
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
@@ -5404,24 +5406,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
+            this.Options2MainTab.ResumeLayout(false);
+            this.Options2MainTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown38)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aggroRange)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KeepTargetRange)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistDist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.followDist)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.Options3MainTab.ResumeLayout(false);
+            this.Options3MainTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.healMPcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.healHPcount)).EndInit();
-            this.tabPage1.ResumeLayout(false);
+            this.Options4MainTab.ResumeLayout(false);
             this.DropBox.ResumeLayout(false);
             this.DropBox.PerformLayout();
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).EndInit();
-            this.tabPage11.ResumeLayout(false);
+            this.OptionsJAMainTab.ResumeLayout(false);
             this.JAtabselect.ResumeLayout(false);
             this.selectPage.ResumeLayout(false);
             this.selectPage.PerformLayout();
@@ -5448,7 +5450,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).EndInit();
             this.Dynamispage.ResumeLayout(false);
             this.Dynamispage.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
+            this.OptionsMAMainTab.ResumeLayout(false);
             this.MAtabs.ResumeLayout(false);
             this.MASelectPage.ResumeLayout(false);
             this.MASelectPage.PerformLayout();
@@ -5466,7 +5468,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Curecount)).EndInit();
-            this.tabPage3.ResumeLayout(false);
+            this.DrainAspirpage.ResumeLayout(false);
             this.Aspirgroup.ResumeLayout(false);
             this.Aspirgroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AspirIIIcount)).EndInit();
@@ -5618,8 +5620,8 @@
         public System.Windows.Forms.ColumnHeader columnHeader1;
         public System.Windows.Forms.ColumnHeader columnHeader2;
         public System.Windows.Forms.TabPage combat;
-        public System.Windows.Forms.TabControl tabControl2;
-        public System.Windows.Forms.TabPage tabPage5;
+        public System.Windows.Forms.TabControl CombatSettingsTabs;
+        public System.Windows.Forms.TabPage Options1MainTab;
         public System.Windows.Forms.GroupBox groupBox23;
         public System.Windows.Forms.NumericUpDown numericUpDown6;
         public System.Windows.Forms.NumericUpDown numericUpDown7;
@@ -5643,7 +5645,7 @@
         public System.Windows.Forms.Label label28;
         public System.Windows.Forms.NumericUpDown numericUpDown23;
         public System.Windows.Forms.Label label27;
-        public System.Windows.Forms.TabPage tabPage4;
+        public System.Windows.Forms.TabPage Options2MainTab;
         public System.Windows.Forms.NumericUpDown numericUpDown38;
         public System.Windows.Forms.NumericUpDown aggroRange;
         public System.Windows.Forms.CheckBox ScanDelay;
@@ -5661,7 +5663,7 @@
         public System.Windows.Forms.TextBox assistplayer;
         public System.Windows.Forms.CheckBox aggro;
         public System.Windows.Forms.CheckBox mobdist;
-        public System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabPage Options3MainTab;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox textBox8;
@@ -5672,7 +5674,7 @@
         public System.Windows.Forms.CheckBox HealHP;
         public System.Windows.Forms.TextBox textBox6;
         public System.Windows.Forms.Label label35;
-        public System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TabPage Options4MainTab;
         public System.Windows.Forms.ComboBox comboBox4;
         public System.Windows.Forms.ComboBox SignetStaff;
         public System.Windows.Forms.CheckBox useStaff;
@@ -5687,7 +5689,7 @@
         public System.Windows.Forms.Button RecordIdleLocation;
         public System.Windows.Forms.CheckBox IdleLocation;
         public System.Windows.Forms.CheckBox WeakLocation;
-        public System.Windows.Forms.TabPage tabPage11;
+        public System.Windows.Forms.TabPage OptionsJAMainTab;
         public System.Windows.Forms.CheckedListBox playerJA;
         public System.Windows.Forms.MenuStrip GetSetJA;
         public System.Windows.Forms.ToolStripMenuItem loadJAsToolStripMenuItem;
@@ -5860,7 +5862,7 @@
         public CheckBox checkBox7;
         public CheckBox checkBox8;
         public CheckBox stopstepsat;
-        private TabPage tabPage6;
+        private TabPage OptionsMAMainTab;
         private TabControl MAtabs;
         private TabPage MASelectPage;
         private TabPage CureConfigPage;
@@ -5917,7 +5919,7 @@
         private TabPage SCHpage;
         private NumericUpDown Sublimationcount;
         private Label label8;
-        private TabPage tabPage3;
+        private TabPage DrainAspirpage;
         private GroupBox Aspirgroup;
         private NumericUpDown AspirIIIcount;
         private NumericUpDown AspirIIcount;
@@ -6044,8 +6046,8 @@
             671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 708, 709,
             722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 744, 745, 746, 747, 748,
             749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773,
-            776, 777, 778, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 803,
-            804, 805, 807, 808, 809, 810, 813, 814, 815, 816, 817, 821, 822, 823, 824, 825, 826, 828, 829, 830, 831, 832, 833, 834, 835,
+            777, 778, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 803,
+            804, 805, 807, 808, 809, 810, 813, 814, 815, 816, 817, 821, 822, 828, 829, 830, 831, 832, 833, 834, 835,
             836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860,
             861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885,
             886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904,});
@@ -6106,7 +6108,7 @@
                     }
                 }
                 if (playerJA.Items.Contains("Sharpshot") && playerJA.Items.Contains("Barrage")) playerJA.Items.Add("Sharpshot + Barrage");
-                if (PlayerInfo.MainJob != 20 || PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
+                if (PlayerInfo.MainJob != 20 && PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
                 else bgw_script_sch.RunWorkerAsync();
             }
         }
@@ -6139,9 +6141,8 @@
             288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 847,
             #endregion
             #region geo
-            768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795,
-            796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823,
-            824, 825, 826, 827,
+            769, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814,
+            815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827,
             #endregion
             #region trust
             896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923,
@@ -6190,298 +6191,85 @@
 
         public void CharacterUpdate()
         {
-            #region DNC Options Enable/Disable
-
-            #region sambas
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 5 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 5)
+            this.JAtabselect.Controls.Remove(this.WHMpage);
+            this.JAtabselect.Controls.Remove(this.RDMpage);
+            this.JAtabselect.Controls.Remove(this.SCHpage);
+            this.JAtabselect.Controls.Remove(this.RUNpage);
+            this.JAtabselect.Controls.Remove(this.MONpage);
+            this.JAtabselect.Controls.Remove(this.Dynamispage);
+            if (PlayerInfo.MainJob == 3 || PlayerInfo.SubJob == 3) this.JAtabselect.Controls.Add(this.WHMpage);
+            if (PlayerInfo.MainJob == 5 || PlayerInfo.SubJob == 5) this.JAtabselect.Controls.Add(this.RDMpage);
+            if (PlayerInfo.MainJob == 20 || PlayerInfo.SubJob == 20) this.JAtabselect.Controls.Add(this.SCHpage);
+            if (PlayerInfo.MainJob == 22 || PlayerInfo.SubJob == 22) this.JAtabselect.Controls.Add(this.RUNpage);
+            if (PlayerInfo.MainJob == 23 || PlayerInfo.SubJob == 23) this.JAtabselect.Controls.Add(this.MONpage);
+            this.JAtabselect.Controls.Add(this.Dynamispage);
+            List<int> MAjobs = new List<int>(new int[] {3,4,5,7,8,10,13,15,16,20,21,22});
+            if (MAjobs.Contains(PlayerInfo.MainJob) || MAjobs.Contains(PlayerInfo.SubJob))
             {
-                usedrain.Enabled = true;
-                noSamba.Enabled = true;
+                this.MAtabs.Controls.Remove(this.CureConfigPage);
+                this.MAtabs.Controls.Remove(this.DrainAspirpage);
+                this.MAtabs.Controls.Remove(this.MAconfigpage);
+                this.MAtabs.Controls.Remove(this.BLUCurespage);
+                this.CombatSettingsTabs.Controls.Remove(this.OptionsMAMainTab);
+                List<int> Curejobs = new List<int>(new int[] {3,5,7,20});
+                if  (Curejobs.Contains(PlayerInfo.MainJob) || Curejobs.Contains(PlayerInfo.SubJob)) this.MAtabs.Controls.Add(this.CureConfigPage);
+                List<int> Drainjobs = new List<int>(new int[] {4,8,20,21});
+                if  (Drainjobs.Contains(PlayerInfo.MainJob) || Drainjobs.Contains(PlayerInfo.SubJob)) this.MAtabs.Controls.Add(this.DrainAspirpage);
+                if  (PlayerInfo.MainJob == 16 || PlayerInfo.SubJob == 16) this.MAtabs.Controls.Add(this.BLUCurespage);
+                this.MAtabs.Controls.Add(this.MAconfigpage);
+                this.CombatSettingsTabs.Controls.Add(this.OptionsMAMainTab);
+            }
+            else this.CombatSettingsTabs.Controls.Remove(this.OptionsMAMainTab);
+            if (PlayerInfo.MainJob == 19 || PlayerInfo.SubJob == 19)
+            {
+                this.dncControl.Controls.Remove(this.dancer);
+                this.dncControl.Controls.Remove(this.flourish);
+                this.dncControl.Controls.Add(this.dancer);
+                this.dncControl.Controls.Add(this.flourish);
+                Dictionary<string, uint> DNCenable = new Dictionary<string, uint>()
+                {
+                    {"usedrain", 5},{"usecure", 15},{"usecureValue", 15},{"numericUpDown33", 15},{"ptusecure", 15},{"usequickstep", 20},{"usequickstepValue", 20},
+                    {"StepsHP", 20},{"StepsHPValue", 20},{"stopstepsathptext", 20},{"NoSteps", 20},{"stopstepsat", 20},{"useaspir", 25},
+                    {"useboxstep", 30},{"useboxstepValue", 30},{"usecureii", 30},{"usecureiiValue", 30},{"ptusecureii", 30},{"numericUpDown32", 30},{"usedesflo", 30},
+                    {"numericUpDown34", 30},{"usedrainii", 35},{"groupBox7", 35},{"usestutterstep", 40},{"usestutterstepValue", 40},{"userevflo", 40},
+                    {"userevfloValue", 40},{"usehaste", 45},{"usecureiii", 45},{"usecureiiiValue", 45},{"ptusecureiii", 45},{"numericUpDown29", 45},{"usebldflo", 50},
+                    {"usebldfloValue", 50},{"useaspirii", 60},{"usewldflo", 60},{"usewldfloValue", 60},{"usedrainiii", 65},{"usecureiv", 70},{"usecureivValue", 70},
+                    {"ptusecureiv", 70},{"numericUpDown28", 70},{"useclmflo", 80},{"useclmfloValue", 80},{"usefeatherstep", 83},{"usefeatherstepValue", 83},
+                    {"usecurev", 87},{"usecurevValue", 87},{"ptusecurev", 87},{"numericUpDown27", 87},{"usestkflo", 89},{"usestkfloValue", 89},{"useterflo", 93},
+                    {"useterfloValue", 93},
+                };
+                foreach (KeyValuePair<string, uint> kvp in DNCenable)
+                {
+                    Control c = this.Controls.Find(kvp.Key, true).Single();
+                    if (c == null) continue;
+                    if ((PlayerInfo.MainJob == 19 && kvp.Value <= PlayerInfo.MainJobLevel) ||
+                        (PlayerInfo.SubJob == 19 && kvp.Value <= PlayerInfo.SubJobLevel))
+                        c.Enabled = true;
+                    else c.Enabled = false;
+                }
             }
             else
             {
-                usedrain.Enabled = false;
-                noSamba.Enabled = false;
+                this.dncControl.Controls.Remove(this.dancer);
+                this.dncControl.Controls.Remove(this.flourish);
             }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 35 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 35)
+            List<int> PETjobs = new List<int>(new int[] { 9, 14, 15, 18, 21 });
+            if (PETjobs.Contains(PlayerInfo.MainJob) || PETjobs.Contains(PlayerInfo.SubJob))
             {
-                usedrainii.Enabled = true;
+                this.petControl.Controls.Remove(this.bstpettab);
+                this.petControl.Controls.Remove(this.drgpettab);
+                this.petControl.Controls.Remove(this.smnpettab);
+                this.petControl.Controls.Remove(this.puppettab);
+                this.petControl.Controls.Remove(this.geopettab);
+                this.dncControl.Controls.Remove(this.pets);
+                if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9) this.petControl.Controls.Add(this.bstpettab);
+                if (PlayerInfo.MainJob == 14 || PlayerInfo.SubJob == 14) this.petControl.Controls.Add(this.drgpettab);
+                if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15) this.petControl.Controls.Add(this.smnpettab);
+                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18) this.petControl.Controls.Add(this.puppettab);
+                if (PlayerInfo.MainJob == 21 || PlayerInfo.SubJob == 21) this.petControl.Controls.Add(this.geopettab);
+                this.dncControl.Controls.Add(this.pets);
             }
-            else
-            {
-                usedrainii.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 25 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 25)
-            {
-                useaspir.Enabled = true;
-            }
-            else
-            {
-                useaspir.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 60)
-            {
-                useaspirii.Enabled = true;
-            }
-            else
-            {
-                useaspirii.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 45 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 45)
-            {
-                usehaste.Enabled = true;
-            }
-            else
-            {
-                usehaste.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 65)
-            {
-                usedrainiii.Enabled = true;
-            }
-            else
-            {
-                usedrainiii.Enabled = false;
-            }
-            #endregion
-            #region steps
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 20 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 20)
-            {
-            }
-            else
-            {
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 20 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 20)
-            {
-                usequickstep.Enabled = true;
-                usequickstepValue.Enabled = true;
-                StepsHP.Enabled = true;
-                StepsHPValue.Enabled = true;
-                stopstepsathptext.Enabled = true;
-                NoSteps.Enabled = true;
-                stopstepsat.Enabled = true;
-                stopstepscount.Enabled = true;
-            }
-            else
-            {
-                usequickstep.Enabled = false;
-                usequickstepValue.Enabled = false;
-                StepsHP.Enabled = false;
-                StepsHPValue.Enabled = false;
-                stopstepsathptext.Enabled = false;
-                NoSteps.Enabled = false;
-                stopstepsat.Enabled = false;
-                stopstepscount.Enabled = true;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 30 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 30)
-            {
-                useboxstep.Enabled = true;
-                useboxstepValue.Enabled = true;
-            }
-            else
-            {
-                useboxstep.Enabled = false;
-                useboxstepValue.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 40 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 40)
-            {
-                usestutterstep.Enabled = true;
-                usestutterstepValue.Enabled = true;
-            }
-            else
-            {
-                usestutterstep.Enabled = false;
-                usestutterstepValue.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 83)
-            {
-                usefeatherstep.Enabled = true;
-                usefeatherstepValue.Enabled = true;
-            }
-            else
-            {
-                usefeatherstep.Enabled = false;
-                usefeatherstepValue.Enabled = false;
-            }
-            #endregion
-            #region waltz
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 15 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 15)
-            {
-                usecure.Enabled = true;
-                usecureValue.Enabled = true;
-
-                ptusecure.Enabled = true;
-                numericUpDown33.Enabled = true;
-            }
-            else
-            {
-                usecure.Enabled = false;
-                usecureValue.Enabled = false;
-
-                ptusecure.Enabled = false;
-                numericUpDown33.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 30 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 30)
-            {
-                usecureii.Enabled = true;
-                usecureiiValue.Enabled = true;
-
-                ptusecureii.Enabled = true;
-                numericUpDown32.Enabled = true;
-            }
-            else
-            {
-                usecureii.Enabled = false;
-                usecureiiValue.Enabled = false;
-
-                ptusecureii.Enabled = false;
-                numericUpDown32.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 35 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 35)
-            {
-                groupBox7.Enabled = true;
-            }
-            else
-            {
-                groupBox7.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 45 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 45)
-            {
-                usecureiii.Enabled = true;
-                usecureiiiValue.Enabled = true;
-
-                ptusecureiii.Enabled = true;
-                numericUpDown29.Enabled = true;
-            }
-            else
-            {
-                usecureiii.Enabled = false;
-                usecureiiiValue.Enabled = false;
-
-                ptusecureiii.Enabled = false;
-                numericUpDown29.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 70)
-            {
-                usecureiv.Enabled = true;
-                usecureivValue.Enabled = true;
-
-                ptusecureiv.Enabled = true;
-                numericUpDown28.Enabled = true;
-            }
-            else
-            {
-                usecureiv.Enabled = false;
-                usecureivValue.Enabled = false;
-
-                ptusecureiv.Enabled = false;
-                numericUpDown28.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 87)
-            {
-                usecurev.Enabled = true;
-                usecurevValue.Enabled = true;
-
-                ptusecurev.Enabled = true;
-                numericUpDown27.Enabled = true;
-            }
-            else
-            {
-                usecurev.Enabled = false;
-                usecurevValue.Enabled = false;
-
-                ptusecurev.Enabled = false;
-                numericUpDown27.Enabled = false;
-            }
-            #endregion
-            #region flourish
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 30 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 30)
-            {
-                usedesflo.Enabled = true;
-                numericUpDown34.Enabled = true;
-            }
-            else
-            {
-                usedesflo.Enabled = false;
-                numericUpDown34.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 40 ||
-                api.Player.GetPlayerInfo().SubJob == 19 && api.Player.GetPlayerInfo().SubJobLevel >= 40)
-            {
-                userevflo.Enabled = true;
-                userevfloValue.Enabled = true;
-            }
-            else
-            {
-                userevflo.Enabled = false;
-                userevfloValue.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 50)
-            {
-                usebldflo.Enabled = true;
-                usebldfloValue.Enabled = true;
-            }
-            else
-            {
-                usebldflo.Enabled = false;
-                usebldfloValue.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 60)
-            {
-                usewldflo.Enabled = true;
-                usewldfloValue.Enabled = true;
-            }
-            else
-            {
-                usewldflo.Enabled = false;
-                usewldfloValue.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 80)
-            {
-                useclmflo.Enabled = true;
-                useclmfloValue.Enabled = true;
-            }
-            else
-            {
-                useclmflo.Enabled = false;
-                useclmfloValue.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 89)
-            {
-                usestkflo.Enabled = true;
-                usestkfloValue.Enabled = true;
-            }
-            else
-            {
-                usestkflo.Enabled = false;
-                usestkfloValue.Enabled = false;
-            }
-            if (api.Player.GetPlayerInfo().MainJob == 19 && api.Player.GetPlayerInfo().MainJobLevel >= 93)
-            {
-                useterflo.Enabled = true;
-                useterfloValue.Enabled = true;
-            }
-            else
-            {
-                useterflo.Enabled = false;
-                useterfloValue.Enabled = false;
-            }
-            #endregion
-
-            #endregion
+            else this.dncControl.Controls.Remove(this.pets);
 
             ClearJA_Click(null, null);
             LoadJA_Click(null, null);
@@ -6951,10 +6739,7 @@
                 else if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                 {
-                    if (ability.Name == "Benediction" && PlayerInfo.HPP <= BenedictionHPPuse.Value)
-                    {
-                        useAbility = true;
-                    }
+                    if (ability.Name == "Benediction" && PlayerInfo.HPP <= BenedictionHPPuse.Value) useAbility = true;
                     else if (ability.Name == "Convert")
                     {
                         if (ConvertHP.Checked && ConvertHPP.Value >= PlayerInfo.HPP && ConvertMPP.Value <= PlayerInfo.MPP) useAbility = true;
@@ -6965,20 +6750,15 @@
                         if (!PlayerInfo.HasBuff(187) && !PlayerInfo.HasBuff(188)) useAbility = true;
                         else if (PlayerInfo.HasBuff(188) && PlayerInfo.HPP <= Sublimationcount.Value) useAbility = true;
                     }
-                    else if (ability.Name == "Vivacious Pulse" && PlayerInfo.HPP <= VivaciousPulseHP.Value &&
-                        Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
-                        TargetInfo.ID > 0) useAbility = true;
-                    else if (ability.Name == "Shikikoyo" && !PlayerInfo.HasBuff(16) &&
-                        Recast.GetAbilityRecast(136) == 0 && PlayerInfo.Status == 1 &&
-                        TargetInfo.ID > 0) useAbility = true;
+                    else if (ability.Name == "Vivacious Pulse" && PlayerInfo.HPP <= VivaciousPulseHP.Value && Recast.GetAbilityRecast(242) == 0) useAbility = true;
+                    else if (ability.Name == "Shikikoyo" && !PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(136) == 0) useAbility = true;
                     else if (jacontrol[ability.ID].ToString().Contains("item ="))
                     {
                         if (ItemQuantityByName(jacontrol[ability.ID].item) > 0 || ItemQuantityByName("Trump Card") > 0) useAbility = true;
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("b2 ="))
                     {
-                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1) &&
-                        !PlayerInfo.HasBuff((short)jacontrol[ability.ID].b2)) useAbility = true;
+                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1) && !PlayerInfo.HasBuff((short)jacontrol[ability.ID].b2)) useAbility = true;
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("b1 ="))
                     {
@@ -7099,7 +6879,12 @@
                 {636, new {B=90,b=92}},{655, new {B=91}},{662, new {B=43}},{668, new {B=152}},{679, new {B=36}},{696, new {B=486}},
                 {737, new {B=93}},{750, new {B=604}},{840, new {B=568}},{845, new {B=581}},{846, new {B=581}},{855, new {B=274}},
                 {856, new {B=288}},{857, new {B=9}},{858, new {B=7}},{859, new {B=11}},{860, new {B=5}},{861, new {B=13}},{862, new {B=15}},
-                {863, new {B=19}},{864, new {B=17}},{879, new {B=597}},{895, new {B=432}},
+                {863, new {B=19}},{864, new {B=17}},{879, new {B=597}},{895, new {B=432}},{768, new {I=0,B=539}},{769, new {I=0}},
+                {770, new {I=0,B=541}},{771, new {I=0,B=580}},{772, new {I=0,B=542}},{773, new {I=0,B=543}},{774, new {I=0,B=544}},
+                {775, new {I=0,B=545}},{776, new {I=0,B=546}},{777, new {I=0,B=547}},{778, new {I=0,B=548}},{779, new {I=0,B=549}},
+                {780, new {I=0,B=550}},{781, new {I=0,B=551}},{782, new {I=0,B=552}},{783, new {I=0,B=553}},{784, new {I=0,B=554}},
+                {785, new {I=0,B=555}},{786, new {I=0,B=556}},{787, new {I=0}},{788, new {I=0}},{789, new {I=0}},{790, new {I=0}},
+                {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
                 };
             
             if (MAreverse.Checked) ma.Reverse();
@@ -7622,7 +7407,7 @@
                               select itemChecked.ToString()).ToList();
 
                     if (ja.Contains("Konzen-ittai") && !PlayerInfo.HasBuff(16) &&
-                        Recast.GetAbilityRecast(140) == 0 && PlayerInfo.Status == 1 &&
+                        Recast.GetAbilityRecast(140) == 0 &&
                         TargetInfo.ID > 0)
                     {
                         api.ThirdParty.SendString("/ja \"Konzen-ittai\" <t>");
@@ -9423,60 +9208,33 @@
             if (WyvernJA.Items.Count > 0)
                 WyvernJA.Items.Clear();
 
-            if (PlayerInfo.MainJob != 14 || PlayerInfo.SubJob != 14)
-                return;
+            if (PlayerInfo.MainJob != 14 && PlayerInfo.SubJob != 14) return;
 
             #region JA: DRG
-            if ((PlayerInfo.MainJobLevel >= 25 || PlayerInfo.SubJobLevel >= 25) &&
-                 !WyvernJA.Items.Contains("Spirit Link - (Dragoon)"))
+            if ((PlayerInfo.MainJobLevel >= 25 || PlayerInfo.SubJobLevel >= 25) && !WyvernJA.Items.Contains("Spirit Link")) WyvernJA.Items.Add("Spirit Link");
+            if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(169) && !WyvernJA.Items.Contains("Deep Breathing")) WyvernJA.Items.Add("Deep Breathing");
+            if (PlayerInfo.MainJobLevel >= 95 && !WyvernJA.Items.Contains("Steady Wing")) WyvernJA.Items.Add("Steady Wing");
+            if (PlayerInfo.MainJobLevel >= 90 && !WyvernJA.Items.Contains("Smiting Breath - (Dragoon)"))
             {
-                WyvernJA.Items.AddRange(new object[]
-                {
-                    "Spirit Link - (Dragoon)",
-                });
-            }
-            if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(169) &&
-                !WyvernJA.Items.Contains("Deep Breathing - (Dragoon)"))
-            {
-                WyvernJA.Items.AddRange(new object[]
-                {
-                    "Deep Breathing - (Dragoon)",
-                });
-            }
-            if (PlayerInfo.MainJobLevel >= 90 &&
-                !WyvernJA.Items.Contains("Smiting Breath - (Dragoon)"))
-            {
-                WyvernJA.Items.AddRange(new object[]
-                {
-                    "Smiting Breath - (Dragoon)",
-                    "Restoring Breath - (Dragoon)",
-                });
-            }
-            if (PlayerInfo.MainJobLevel >= 95 &&
-                !WyvernJA.Items.Contains("Steady Wing - (Dragoon)"))
-            {
-                WyvernJA.Items.AddRange(new object[]
-                {
-                    "Steady Wing - (Dragoon)",
-                });
+                 WyvernJA.Items.Add("Smiting Breath");
+                 WyvernJA.Items.Add("Restoring Breath");
             }
             #endregion
+            api.ThirdParty.SendString(String.Format("/echo {0}", WyvernJA.Items.Count));
         }
 
         #endregion
         #region JA: DRG (use)
         private void WyvernUseJA()
         {
-            var petja = (from object itemChecked in WyvernJA.CheckedItems
-                         select itemChecked.ToString()).ToList();
+            var petja = (from object itemChecked in WyvernJA.CheckedItems select itemChecked.ToString()).ToList();
 
-            if (petja.Count == 0 || PlayerInfo.Status == 0 || !PlayerInfo.HasBuff(16))
-                return;
+            if (petja.Count == 0 || PlayerInfo.Status == 0 || !PlayerInfo.HasBuff(16)) return;
 
-            if (petja.Contains("Restoring Breath - (Dragoon)") && PlayerInfo.Status == 1 &&
+            if (petja.Contains("Restoring Breath") && PlayerInfo.Status == 1 &&
                 PlayerInfo.HPP <= RestoringBreathHP.Value && Recast.GetAbilityRecast(239) == 0)
             {
-                if (petja.Contains("Deep Breathing - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
+                if (petja.Contains("Deep Breathing") && !PlayerInfo.HasBuff(16) &&
                     Recast.GetAbilityRecast(164) == 0 && TargetInfo.ID > 0)
                 {
                     api.ThirdParty.SendString("/ja \"Deep Breathing\" <me>");
@@ -9491,14 +9249,14 @@
                 }
             }
 
-            if (petja.Contains("Steady Wing - (Dragoon)") && PlayerInfo.Status == 1 &&
+            if (petja.Contains("Steady Wing") && PlayerInfo.Status == 1 &&
                 PetInfo.HPP < DragonPetHP.Value && !PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(70) == 0)
             {
                 api.ThirdParty.SendString("/pet \"Steady Wing\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
 
-            if (petja.Contains("Spirit Link - (Dragoon)") && PlayerInfo.Status == 1 &&
+            if (petja.Contains("Spirit Link") && PlayerInfo.Status == 1 &&
                 PetInfo.HPP < WyvernSpirit.Value && PlayerInfo.HPP > PlayerSpirit.Value &&
                 Recast.GetAbilityRecast(162) == 0 && !PlayerInfo.HasBuff(16))
             {
@@ -9506,11 +9264,11 @@
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
 
-            if (petja.Contains("Smiting Breath - (Dragoon)") && PlayerInfo.Status == 1 &&
+            if (petja.Contains("Smiting Breath") && PlayerInfo.Status == 1 &&
                 TargetInfo.HPP > BreathMIN.Value && TargetInfo.HPP <= BreathMAX.Value &&
                 Recast.GetAbilityRecast(238) == 0 && !PlayerInfo.HasBuff(16))
             {
-                if (petja.Contains("Deep Breathing - (Dragoon)") && !PlayerInfo.HasBuff(16) &&
+                if (petja.Contains("Deep Breathing") && !PlayerInfo.HasBuff(16) &&
                     Recast.GetAbilityRecast(164) == 0 && TargetInfo.ID > 0)
                 {
                     api.ThirdParty.SendString("/ja \"Deep Breathing\" <me>");
