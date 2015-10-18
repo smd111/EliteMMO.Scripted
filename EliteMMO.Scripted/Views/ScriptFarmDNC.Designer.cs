@@ -14,6 +14,7 @@
     using System.Security.Policy;
     using API;
     using System.Text.RegularExpressions;
+    using FormSerialisation;
     partial class ScriptFarmDNC
     {
         private static EliteAPI api;
@@ -570,6 +571,8 @@
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -5649,10 +5652,32 @@
             this.DeathWarp.Text = "Warp on Death";
             this.DeathWarp.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(463, 186);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 23);
+            this.button1.TabIndex = 53;
+            this.button1.Text = "Save Settings";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(617, 186);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(86, 23);
+            this.button2.TabIndex = 54;
+            this.button2.Text = "Load Settings";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.DeathWarp);
             this.Controls.Add(this.checkZone);
             this.Controls.Add(this.StopFullInventory);
@@ -6280,7 +6305,7 @@
         {
             dncControl.SelectTab("combat");
             PopulateTargetLists("ID");
-            CharacterUpdate();
+            CharacterUpdate(true);
 
             if (PetInfo.Name != null)
                 pInfo();
@@ -6294,7 +6319,7 @@
 
         private void UpdateJobToolStripMenuItemClick(object sender, EventArgs e)
         {
-            CharacterUpdate();
+            CharacterUpdate(true);
 
             if (PetInfo.Name != null)
                 pInfo();
@@ -6511,7 +6536,7 @@
             playerMA.Items.Clear();
         }
 
-        public void CharacterUpdate()
+        public void CharacterUpdate(bool a)
         {
             this.JAtabselect.Controls.Remove(this.WHMpage);
             this.JAtabselect.Controls.Remove(this.RDMpage);
@@ -6556,7 +6581,7 @@
                 Dictionary<string, uint> DNCenable = new Dictionary<string, uint>()
                 {
                     {"usedrain", 5},{"usecure", 15},{"usecureValue", 15},{"numericUpDown33", 15},{"ptusecure", 15},{"usequickstep", 20},{"usequickstepValue", 20},
-                    {"StepsHP", 20},{"StepsHPValue", 20},{"stopstepsathptext", 20},{"NoSteps", 20},{"stopstepsat", 20},{"useaspir", 25},
+                    {"StepsHP", 20},{"StepsHPValue", 20},{"stopstepsathptext", 20},{"NoSteps", 20},{"stopstepsat", 20},{"stopstepscount", 20},{"useaspir", 25},
                     {"useboxstep", 30},{"useboxstepValue", 30},{"usecureii", 30},{"usecureiiValue", 30},{"ptusecureii", 30},{"numericUpDown32", 30},{"usedesflo", 30},
                     {"numericUpDown34", 30},{"usedrainii", 35},{"groupBox7", 35},{"usestutterstep", 40},{"usestutterstepValue", 40},{"userevflo", 40},
                     {"userevfloValue", 40},{"usehaste", 45},{"usecureiii", 45},{"usecureiiiValue", 45},{"ptusecureiii", 45},{"numericUpDown29", 45},{"usebldflo", 50},
@@ -6591,7 +6616,7 @@
                     };
                     foreach (KeyValuePair<string, uint> kvp in SMNAdd)
                     {
-                        if (PlayerInfo.HasSpell(kvp.Value)) SMNSelect.Items.Add(kvp.Key);
+                        if (PlayerInfo.HasSpell(kvp.Value) && !SMNSelect.Items.Contains(kvp.Key)) SMNSelect.Items.Add(kvp.Key);
                     }
                 }
                 if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18) 
@@ -6604,11 +6629,13 @@
                 }
                 this.dncControl.Controls.Add(this.pets);
             }
-
-            ClearJA_Click(null, null);
-            LoadJA_Click(null, null);
-            ClearMA_Click(null, null);
-            LoadMA_Click(null, null);
+            if (a)
+            {
+                ClearJA_Click(null, null);
+                LoadJA_Click(null, null);
+                ClearMA_Click(null, null);
+                LoadMA_Click(null, null);
+            }
         }
 
         #endregion
@@ -6616,9 +6643,29 @@
         #region config: save/load (player)
         public void saveConfig()
         {
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = @"settings file (*.xml)|*.xml";
+            saveFile.InitialDirectory = Application.StartupPath + @"\settings";
+            saveFile.Title = @"save a settings file";
+            switch (saveFile.ShowDialog())
+            {
+                case DialogResult.OK:
+                    FormSerialisor.Serialise(this, saveFile.FileName);
+                    break;
+            }
         }
         public void loadConfig()
         {
+            var openFile = new OpenFileDialog();
+            openFile.Filter = @"mob files (*.xml)|*.xml";
+            openFile.InitialDirectory = Application.StartupPath + @"\settings";
+            openFile.Title = @"save a settings file";
+            switch (openFile.ShowDialog())
+            {
+                case DialogResult.OK:
+                    FormSerialisor.Deserialise(this, openFile.FileName);
+                    break;
+            }
         }
         #endregion
         #region config: save/load (target)
@@ -6969,7 +7016,7 @@
         {
 
             if (!botRunning || PlayerInfo.Status != 1 || naviMove || PlayerInfo.HasBuff(16)) return;
-
+            api.ThirdParty.SendString(String.Format("/echo {0}", playerJA.CheckedItems));
             var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
             if (ja.Count == 0) return;
             if (MonStagered && staggerstopJA.Checked) return;
@@ -9865,7 +9912,7 @@
 
             var openFile = new OpenFileDialog();
             openFile.Filter = @"mob files (*.xml)|*.xml";
-            openFile.InitialDirectory = Application.StartupPath + @"\\Plugins\\scripted_data";
+            openFile.InitialDirectory = Application.StartupPath + @"\mob lists";
             openFile.Title = @"select a mob list file";
 
             switch (openFile.ShowDialog())
@@ -9892,7 +9939,7 @@
 
             var saveFile = new SaveFileDialog();
             saveFile.Filter = @"mob files (*.xml)|*.xml";
-            saveFile.InitialDirectory = Application.StartupPath + @"\\Plugins\\scripted_data";
+            saveFile.InitialDirectory = Application.StartupPath + @"\mob lists";
             saveFile.Title = @"save mob list file";
 
             switch (saveFile.ShowDialog())
@@ -10911,6 +10958,10 @@
         }
         private void RefreshToolStripMenuItemClick(object sender, EventArgs e)
         {
+            updatenav();
+        }
+        private void updatenav()
+        {
             selectedNavi.Items.Clear();
 
             var path = string.Format("{0}\\Nav\\", Application.StartupPath);
@@ -10918,8 +10969,8 @@
             {
                 selectedNavi.Items.Add(new FileInfo(file).Name);
             }
-        }
-        private void SelectedNaviSelectedIndexChanged(object sender, EventArgs e)
+}
+private void SelectedNaviSelectedIndexChanged(object sender, EventArgs e)
         {
             if (selectedNavi.Text == "") return;
 
@@ -11000,6 +11051,7 @@
             public static int SubJob => api.Player.GetPlayerInfo().SubJob;
             public static int SubJobLevel => api.Player.GetPlayerInfo().SubJobLevel;
             public static bool HasBuff(short id) => api.Player.GetPlayerInfo().Buffs.Any(b => b == id);
+            public static int HasBuffcount(short id) => api.Player.GetPlayerInfo().Buffs.Where(b => b == id).Count();
             public static bool HasAbility(uint id) => api.Player.HasAbility(id);
             public static bool HasSpell(uint id) => api.Player.HasSpell(id);
             public static bool HasWeaponSkill(uint id) => api.Player.HasWeaponSkill(id);
@@ -11209,5 +11261,7 @@
         private NumericUpDown ApogeeMPPset;
         private Label SMNpetMPUSEtext;
         private NumericUpDown SMNpetMPUSEset;
+        private Button button1;
+        private Button button2;
     }
 }

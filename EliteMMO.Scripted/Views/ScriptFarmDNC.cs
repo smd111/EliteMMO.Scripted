@@ -6,6 +6,8 @@
     using System.Linq;
     using API;
     using Embedded;
+    using System.IO;
+
     public partial class ScriptFarmDNC : UserControl
     {
         public ScriptFarmDNC(EliteAPI core)
@@ -647,6 +649,19 @@
                 SMNpetTPUSEtext.Enabled = true;
                 SMNpetTPUSEset.Enabled = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            saveConfig();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            updatenav();
+            loadConfig();
+            updatenav();
+            CharacterUpdate(false);
         }
     }
 }

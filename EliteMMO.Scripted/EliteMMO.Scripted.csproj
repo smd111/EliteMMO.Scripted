@@ -76,6 +76,7 @@
     <Compile Include="Embedded\SigScan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\FormSerialisor.cs" />
     <Compile Include="Views\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

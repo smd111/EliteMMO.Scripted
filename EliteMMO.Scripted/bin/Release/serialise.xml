@@ -1,0 +1,1038 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<ChildForm>
+  <Control Type="System.Windows.Forms.Button" Name="button2">
+    <Visible>True</Visible>
+  </Control>
+  <Control Type="System.Windows.Forms.Button" Name="button1">
+    <Visible>True</Visible>
+  </Control>
+  <Control Type="System.Windows.Forms.CheckBox" Name="DeathWarp">
+    <Checked>False</Checked>
+    <Visible>True</Visible>
+  </Control>
+  <Control Type="System.Windows.Forms.CheckBox" Name="checkZone">
+    <Checked>False</Checked>
+    <Visible>True</Visible>
+  </Control>
+  <Control Type="System.Windows.Forms.CheckBox" Name="StopFullInventory">
+    <Checked>False</Checked>
+    <Visible>True</Visible>
+  </Control>
+  <Control Type="System.Windows.Forms.GroupBox" Name="groupBox8">
+    <Visible>True</Visible>
+    <Control Type="System.Windows.Forms.ComboBox" Name="comboBox3">
+      <Text />
+      <SelectedIndex>-1</SelectedIndex>
+      <Visible>True</Visible>
+    </Control>
+    <Control Type="System.Windows.Forms.CheckBox" Name="firstPersonView">
+      <Checked>False</Checked>
+      <Visible>True</Visible>
+    </Control>
+    <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
+      <Checked>False</Checked>
+      <Visible>True</Visible>
+    </Control>
+    <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
+      <Visible>True</Visible>
+    </Control>
+    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
+      <Visible>True</Visible>
+    </Control>
+    <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
+      <Text>test.xin</Text>
+      <SelectedIndex>5</SelectedIndex>
+      <Visible>True</Visible>
+    </Control>
+    <Control Type="System.Windows.Forms.MenuStrip" Name="GetSetNavi">
+      <Visible>True</Visible>
+    </Control>
+  </Control>
+  <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
+    <Checked>True</Checked>
+    <Visible>True</Visible>
+  </Control>
+  <Control Type="System.Windows.Forms.MenuStrip" Name="StartStopScript">
+    <Visible>True</Visible>
+  </Control>
+  <Control Type="System.Windows.Forms.TabControl" Name="dncControl">
+    <Visible>True</Visible>
+    <Control Type="System.Windows.Forms.TabPage" Name="targets">
+      <Visible>True</Visible>
+      <Control Type="System.Windows.Forms.GroupBox" Name="groupBox9">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.MenuStrip" Name="ZoneTargets">
+          <Visible>True</Visible>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="groupBox11">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.ListView" Name="TargetList">
+          <Visible>True</Visible>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="groupBox12">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.MenuStrip" Name="GetSetTargets">
+          <Visible>True</Visible>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="selecttargets">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.ListView" Name="SelectedTargets">
+          <Visible>True</Visible>
+        </Control>
+      </Control>
+    </Control>
+    <Control Type="System.Windows.Forms.TabPage" Name="combat">
+      <Visible>False</Visible>
+      <Control Type="System.Windows.Forms.TabControl" Name="CombatSettingsTabs">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.TabPage" Name="Options1MainTab">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox23">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown6">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>100</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown7">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>10</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.ComboBox" Name="selectedHateControl">
+              <Text />
+              <SelectedIndex>-1</SelectedIndex>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="tank">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox20">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.ComboBox" Name="amname">
+              <Text />
+              <SelectedIndex>-1</SelectedIndex>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="AfterMathTier">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>1</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="wsam">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="checkBox6">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.ComboBox" Name="comboBox2">
+              <Text />
+              <SelectedIndex>-1</SelectedIndex>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown40">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>1.0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="ws">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown24">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>1000</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown22">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>100</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown23">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>15</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="Options2MainTab">
+          <Visible>False</Visible>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown38">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+              <Text>5.0</Text>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="aggroRange">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+              <Text>8.5</Text>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="ScanDelay">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="KeepTargetRange">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+              <Text>3.0</Text>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="assistDist">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+              <Text>5.0</Text>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="followDist">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+              <Text>3.0</Text>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="partyAssist">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="facetarget">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="assist">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="followplayer">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.TextBox" Name="followName">
+            <Text />
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="useshadows">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.TextBox" Name="assistplayer">
+            <Text />
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="aggro">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="mobdist">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="Options3MainTab">
+          <Visible>False</Visible>
+          <Control Type="System.Windows.Forms.ComboBox" Name="comboBox4">
+            <Text />
+            <SelectedIndex>-1</SelectedIndex>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.ComboBox" Name="SignetStaff">
+            <Text />
+            <SelectedIndex>-1</SelectedIndex>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="useStaff">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.TextBox" Name="textBox8">
+            <Text />
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="healMPcount">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+              <Text>40</Text>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="usefood">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="HealMP">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="healHPcount">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+              <Text>40</Text>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.Button" Name="RecordIdleLocation">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="WeakLocation">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="HealHP">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.TextBox" Name="textBox6">
+            <Text />
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="IdleLocation">
+            <Checked>False</Checked>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="Options4MainTab">
+          <Visible>False</Visible>
+          <Control Type="System.Windows.Forms.GroupBox" Name="DropBox">
+            <Visible>False</Visible>
+            <Control Type="System.Windows.Forms.ComboBox" Name="comboBox7">
+              <Text />
+              <SelectedIndex>-1</SelectedIndex>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.ComboBox" Name="comboBox6">
+              <Text />
+              <SelectedIndex>-1</SelectedIndex>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="checkBox3">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="checkBox2">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox15">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="autoRangeDelay">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>5.0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.TextBox" Name="textBox7">
+              <Text>/ra &lt;t&gt;</Text>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="rangeaggro">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.ComboBox" Name="comboBox1">
+              <Text />
+              <SelectedIndex>-1</SelectedIndex>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="checkBox4">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="autoRangeAttack">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="OptionsJAMainTab">
+          <Visible>False</Visible>
+          <Control Type="System.Windows.Forms.TabControl" Name="JAtabselect">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.TabPage" Name="selectPage">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.CheckedListBox" Name="playerJA">
+                <SelectedIndex>-1</SelectedIndex>
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.MenuStrip" Name="GetSetJA">
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.TabPage" Name="Dynamispage">
+              <Visible>False</Visible>
+              <Control Type="System.Windows.Forms.CheckBox" Name="staggerstopJA">
+                <Checked>False</Checked>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+          </Control>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="groupBox14">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="pullDelay">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>4.0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.CheckBox" Name="AutoLock">
+          <Checked>False</Checked>
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown39">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>1.0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.CheckBox" Name="mobheightdist">
+          <Checked>False</Checked>
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.CheckBox" Name="runTarget">
+          <Checked>False</Checked>
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.CheckBox" Name="runPullDistance">
+          <Checked>False</Checked>
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="targetSearchDist">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>24.5</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="pullTolorance">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>1.0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown21">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>16.0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TextBox" Name="pullCommand">
+          <Text>test</Text>
+          <Visible>True</Visible>
+        </Control>
+      </Control>
+    </Control>
+    <Control Type="System.Windows.Forms.TabPage" Name="dancer">
+      <Visible>False</Visible>
+      <Control Type="System.Windows.Forms.TabControl" Name="tabControl3">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.TabPage" Name="tabPage14">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox1">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.RadioButton" Name="noSamba">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="usedrainiii">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="usehaste">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="useaspirii">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="useaspir">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="usedrainii">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="usedrain">
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox3">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.CheckBox" Name="stopstepsat">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="stopstepscount">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>1</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="usefeatherstepValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="usestutterstepValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="useboxstepValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="StepsHPValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>40</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="usequickstepValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="StepsHP">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="NoSteps">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="usequickstep">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="useboxstep">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="usestutterstep">
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="usefeatherstep">
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="tabPage15">
+          <Visible>False</Visible>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox7">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.CheckBox" Name="checkBox1">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckedListBox" Name="HealingWaltzItems">
+              <SelectedIndex>-1</SelectedIndex>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox2">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="usecurevValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureivValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiiValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureValue">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="usecurev">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="usecureiv">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="usecureiii">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="usecureii">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="usecure">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="tabPage16">
+          <Visible>False</Visible>
+          <Control Type="System.Windows.Forms.TextBox" Name="textBox2">
+            <Text />
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox21">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown27">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown28">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown29">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown32">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown33">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="ptusecurev">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="ptusecureiv">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="ptusecureiii">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="ptusecureii">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="ptusecure">
+              <Checked>False</Checked>
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox22">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.MenuStrip" Name="GetSetParty">
+              <Visible>True</Visible>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.ListView" Name="listView4">
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+      </Control>
+    </Control>
+    <Control Type="System.Windows.Forms.TabPage" Name="flourish">
+      <Visible>False</Visible>
+      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiiigroup">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useclmfloValue">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usestkfloValue">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useterfloValue">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usestkflo">
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="useclmflo">
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="useterflo">
+          <Visible>True</Visible>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.NumericUpDown" Name="FlourishTPValue">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+          <Text>400</Text>
+          <Visible>True</Visible>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiigroup">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usewldfloValue">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usebldfloValue">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="userevfloValue">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usewldflo">
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usebldflo">
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="userevflo">
+          <Visible>True</Visible>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.CheckBox" Name="FlourishTP">
+        <Checked>False</Checked>
+        <Visible>True</Visible>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesigroup">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown34">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+            <Visible>True</Visible>
+          </Control>
+          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+            <Text>0</Text>
+            <Visible>True</Visible>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usedesflo">
+          <Visible>True</Visible>
+        </Control>
+      </Control>
+    </Control>
+    <Control Type="System.Windows.Forms.TabPage" Name="pets">
+      <Visible>False</Visible>
+      <Control Type="System.Windows.Forms.GroupBox" Name="groupBox10">
+        <Visible>True</Visible>
+        <Control Type="System.Windows.Forms.GroupBox" Name="groupBox19">
+          <Visible>True</Visible>
+        </Control>
+        <Control Type="System.Windows.Forms.TabControl" Name="petControl">
+          <Visible>True</Visible>
+          <Control Type="System.Windows.Forms.TabPage" Name="smnpettab">
+            <Visible>True</Visible>
+            <Control Type="System.Windows.Forms.GroupBox" Name="ManaCedegroup">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="ManaCedeTPset">
+                <Visible>True</Visible>
+                <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                  <Visible>True</Visible>
+                </Control>
+                <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                  <Text>0</Text>
+                  <Visible>True</Visible>
+                </Control>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="ManaCedeMPPset">
+                <Visible>True</Visible>
+                <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                  <Visible>True</Visible>
+                </Control>
+                <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                  <Text>0</Text>
+                  <Visible>True</Visible>
+                </Control>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="ApogeeMPPset">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="SMNpetMPUSEset">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>20</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="SMNHPPset1">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="SMNHPPset2">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="SMNpetTPUSEset">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="">
+                <Visible>True</Visible>
+              </Control>
+              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
+                <Text>0</Text>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.GroupBox" Name="SMNJAgroup">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.CheckedListBox" Name="SMNJA">
+                <SelectedIndex>-1</SelectedIndex>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.ComboBox" Name="SMNSelect">
+              <Text />
+              <SelectedIndex>-1</SelectedIndex>
+              <Visible>True</Visible>
+            </Control>
+            <Control Type="System.Windows.Forms.GroupBox" Name="SMNAbilitysgroup">
+              <Visible>True</Visible>
+              <Control Type="System.Windows.Forms.CheckedListBox" Name="SMNAbilityList">
+                <SelectedIndex>-1</SelectedIndex>
+                <Visible>True</Visible>
+              </Control>
+            </Control>
+          </Control>
+        </Control>
+      </Control>
+    </Control>
+  </Control>
+</ChildForm>
