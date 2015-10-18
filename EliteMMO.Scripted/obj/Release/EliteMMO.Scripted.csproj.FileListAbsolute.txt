@@ -32,3 +32,4 @@ C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release\Scripted.exe
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release\Scripted.pdb
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.csprojResolveAssemblyReference.cache
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release\Scripted.exe.config

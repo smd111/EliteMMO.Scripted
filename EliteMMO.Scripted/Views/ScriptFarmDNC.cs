@@ -21,6 +21,7 @@
 
             while (botRunning && !bgw_script_dnc.CancellationPending)
             {
+                if (isCasting) continue;
                 if (DeathWarp.Checked && (PlayerInfo.Status == 2 || PlayerInfo.Status == 3))
                     PlayerDead();
 
@@ -226,8 +227,17 @@
                         (HealMP.Checked && PlayerInfo.MPP <= healMPcount.Value)))
                     {
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        if ((PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15) && PetInfo.ID > 0)
+                        {
+                            if (SMNPetNames.Contains(PetInfo.Name))
+                            {
+                                api.ThirdParty.SendString("/pet \"Release\" <me>");
+                                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                            }
+                        }
                         api.ThirdParty.SendString("/heal on");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        TargetInfo.SetTarget(0);
 
                     }
                     if (PlayerInfo.Status == 0 && !isPulled) FindTarget();
@@ -260,6 +270,8 @@
         {
             while (botRunning && !bgw_script_pet.CancellationPending)
             {
+
+                if (PetInfo.Name != null) pInfo();
                 #region pet: BST
                 if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
                 {
@@ -302,9 +314,6 @@
                         if (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID && !TargetInfo.LockedOn)
                             WindowInfo.SendText("/lockon <t>");
                     }
-
-                    if (PetInfo.Name != null)
-                        pInfo();
 
                     if (PetInfo.ID > 0 && autoengage.Checked &&
                         PlayerInfo.Status == 1 && PetInfo.Status == 0 &&
@@ -362,9 +371,6 @@
                         Thread.Sleep(TimeSpan.FromSeconds(2.0));
                     }
 
-                    if (PetInfo.ID != 0)
-                        pInfo();
-
                     if (WyvernJA.Items.Count == 0)
                         WyvernGetJA();
 
@@ -375,7 +381,7 @@
                     }
                 }
                 #endregion;
-
+                if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15 && SMNSelect.SelectedItem.ToString() != "") SMNUseJA();
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }
@@ -549,7 +555,6 @@
                 ConvertHPP.Enabled = state;
                 ConvertMPP.Enabled = state;
             }
-            //api.ThirdParty.SendString(String.Format("/echo {0}", MainWindow.PID));
         }
 
         private void playerMA_SelectedIndexChanged(object sender, EventArgs e)
@@ -583,5 +588,65 @@
             else if (curItem == "Wild Carrot") WildCarrotcount.Enabled = state;
         }
         #endregion
+
+        private void SMNSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SMNGetJA();
+            if (SMNSelect.SelectedItem.ToString().Contains("Spirit"))
+            {
+                SMNHealTEXT1.Enabled = true;
+                SMNHealTEXT1.Text = "Elemental Siphon at MP%";
+                SMNHealTEXT2.Enabled = false;
+                SMNHealTEXT2.Text = "(Not Needed)";
+                SMNHPPset1.Enabled = true;
+                SMNHPPset2.Enabled = false;
+                SMNpetTPUSEtext.Enabled = false;
+                SMNpetTPUSEset.Enabled = false;
+            }
+            else if ((string)SMNSelect.SelectedItem == "Carbuncle")
+            {
+                SMNHealTEXT1.Enabled = true;
+                SMNHealTEXT1.Text = "Healing Ruby HPP%";
+                SMNHealTEXT2.Enabled = true;
+                SMNHealTEXT2.Text = "Healing Ruby II HPP%";
+                SMNHPPset1.Enabled = true;
+                SMNHPPset2.Enabled = true;
+                SMNpetTPUSEtext.Enabled = true;
+                SMNpetTPUSEset.Enabled = true;
+            }
+            else if ((string)SMNSelect.SelectedItem == "Leviathan")
+            {
+                SMNHealTEXT1.Enabled = true;
+                SMNHealTEXT1.Text = "Spring Water HPP%";
+                SMNHealTEXT2.Enabled = false;
+                SMNHealTEXT2.Text = "(Not Needed)";
+                SMNHPPset1.Enabled = true;
+                SMNHPPset2.Enabled = false;
+                SMNpetTPUSEtext.Enabled = true;
+                SMNpetTPUSEset.Enabled = true;
+            }
+            else if ((string)SMNSelect.SelectedItem == "Garuda")
+            {
+                SMNHealTEXT1.Enabled = true;
+                SMNHealTEXT1.Text = "Whispering Wind HPP%";
+                SMNHealTEXT2.Enabled = false;
+                SMNHealTEXT2.Text = "(Not Needed)";
+                SMNHPPset1.Enabled = true;
+                SMNHPPset2.Enabled = false;
+                SMNpetTPUSEtext.Enabled = true;
+                SMNpetTPUSEset.Enabled = true;
+            }
+            else
+            {
+                SMNHealTEXT1.Enabled = false;
+                SMNHealTEXT1.Text = "(Not Needed)";
+                SMNHealTEXT2.Enabled = false;
+                SMNHealTEXT2.Text = "(Not Needed)";
+                SMNHPPset1.Enabled = false;
+                SMNHPPset2.Enabled = false;
+                SMNpetTPUSEtext.Enabled = true;
+                SMNpetTPUSEset.Enabled = true;
+            }
+        }
     }
 }

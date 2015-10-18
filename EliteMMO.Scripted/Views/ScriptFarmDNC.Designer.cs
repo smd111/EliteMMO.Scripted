@@ -13,15 +13,15 @@
     using System.Text;
     using System.Security.Policy;
     using API;
-    using Embedded;
     using System.Text.RegularExpressions;
-
     partial class ScriptFarmDNC
     {
         private static EliteAPI api;
-
         List<WayPoint> route = new List<WayPoint>();
 
+        List<string> SMNPetNames = new List<string>(new string[] {"Carbuncle","Fenrir","Ifrit","Titan","Leviathan","Garuda","Shiva","Ramuh",
+                             "Diabolos","Cait Sith","Fire Spirit","Ice Spirit","Air Spirit","Earth Spirit","Thunder Spirit","Water Spirit","Light Spirit",
+                             "Dark Spirit"});
         public double DistanceTolerance { get; set; }
 
         public bool botRunning = false;
@@ -534,10 +534,34 @@
             this.drgjagroup = new System.Windows.Forms.GroupBox();
             this.WyvernJA = new System.Windows.Forms.CheckedListBox();
             this.smnpettab = new System.Windows.Forms.TabPage();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.ManaCedegroup = new System.Windows.Forms.GroupBox();
+            this.ManaCedePETTPtext = new System.Windows.Forms.Label();
+            this.ManaCedeTPset = new System.Windows.Forms.NumericUpDown();
+            this.ManaCedePMPPtext = new System.Windows.Forms.Label();
+            this.ManaCedeMPPset = new System.Windows.Forms.NumericUpDown();
+            this.Apogeetext = new System.Windows.Forms.Label();
+            this.ApogeeMPPset = new System.Windows.Forms.NumericUpDown();
+            this.SMNpetMPUSEtext = new System.Windows.Forms.Label();
+            this.SMNpetMPUSEset = new System.Windows.Forms.NumericUpDown();
+            this.SMNHPPset1 = new System.Windows.Forms.NumericUpDown();
+            this.SMNHPPset2 = new System.Windows.Forms.NumericUpDown();
+            this.SMNHealTEXT2 = new System.Windows.Forms.Label();
+            this.SMNHealTEXT1 = new System.Windows.Forms.Label();
+            this.SMNpetTPUSEtext = new System.Windows.Forms.Label();
+            this.SMNpetTPUSEset = new System.Windows.Forms.NumericUpDown();
+            this.SMNJAgroup = new System.Windows.Forms.GroupBox();
+            this.SMNJA = new System.Windows.Forms.CheckedListBox();
+            this.SelectSMNtext = new System.Windows.Forms.Label();
+            this.SMNSelect = new System.Windows.Forms.ComboBox();
+            this.SMNAbilitysgroup = new System.Windows.Forms.GroupBox();
+            this.SMNAbilityList = new System.Windows.Forms.CheckedListBox();
             this.puppettab = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.PUPJA = new System.Windows.Forms.CheckedListBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.geopettab = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.GEOJA = new System.Windows.Forms.CheckedListBox();
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
@@ -700,7 +724,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.RestoringBreathHP)).BeginInit();
             this.drgjagroup.SuspendLayout();
             this.smnpettab.SuspendLayout();
+            this.ManaCedegroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ManaCedeTPset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ManaCedeMPPset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ApogeeMPPset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMNpetMPUSEset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMNHPPset1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMNHPPset2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMNpetTPUSEset)).BeginInit();
+            this.SMNJAgroup.SuspendLayout();
+            this.SMNAbilitysgroup.SuspendLayout();
             this.puppettab.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.geopettab.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkZone
@@ -4769,11 +4806,11 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(241, 29);
+            this.label23.Location = new System.Drawing.Point(249, 29);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(59, 13);
+            this.label23.Size = new System.Drawing.Size(51, 13);
             this.label23.TabIndex = 9;
-            this.label23.Text = "Pets TP%: ";
+            this.label23.Text = "Pets TP: ";
             // 
             // label22
             // 
@@ -5271,7 +5308,21 @@
             // 
             // smnpettab
             // 
-            this.smnpettab.Controls.Add(this.checkBox7);
+            this.smnpettab.Controls.Add(this.ManaCedegroup);
+            this.smnpettab.Controls.Add(this.Apogeetext);
+            this.smnpettab.Controls.Add(this.ApogeeMPPset);
+            this.smnpettab.Controls.Add(this.SMNpetMPUSEtext);
+            this.smnpettab.Controls.Add(this.SMNpetMPUSEset);
+            this.smnpettab.Controls.Add(this.SMNHPPset1);
+            this.smnpettab.Controls.Add(this.SMNHPPset2);
+            this.smnpettab.Controls.Add(this.SMNHealTEXT2);
+            this.smnpettab.Controls.Add(this.SMNHealTEXT1);
+            this.smnpettab.Controls.Add(this.SMNpetTPUSEtext);
+            this.smnpettab.Controls.Add(this.SMNpetTPUSEset);
+            this.smnpettab.Controls.Add(this.SMNJAgroup);
+            this.smnpettab.Controls.Add(this.SelectSMNtext);
+            this.smnpettab.Controls.Add(this.SMNSelect);
+            this.smnpettab.Controls.Add(this.SMNAbilitysgroup);
             this.smnpettab.Location = new System.Drawing.Point(4, 22);
             this.smnpettab.Name = "smnpettab";
             this.smnpettab.Size = new System.Drawing.Size(415, 247);
@@ -5279,18 +5330,213 @@
             this.smnpettab.Text = "SMN";
             this.smnpettab.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // ManaCedegroup
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(126, 130);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(107, 17);
-            this.checkBox7.TabIndex = 2;
-            this.checkBox7.Text = "Auto Engage Pet";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.ManaCedegroup.Controls.Add(this.ManaCedePETTPtext);
+            this.ManaCedegroup.Controls.Add(this.ManaCedeTPset);
+            this.ManaCedegroup.Controls.Add(this.ManaCedePMPPtext);
+            this.ManaCedegroup.Controls.Add(this.ManaCedeMPPset);
+            this.ManaCedegroup.Location = new System.Drawing.Point(14, 30);
+            this.ManaCedegroup.Name = "ManaCedegroup";
+            this.ManaCedegroup.Size = new System.Drawing.Size(150, 69);
+            this.ManaCedegroup.TabIndex = 28;
+            this.ManaCedegroup.TabStop = false;
+            this.ManaCedegroup.Text = "Mana Cede";
+            // 
+            // ManaCedePETTPtext
+            // 
+            this.ManaCedePETTPtext.AutoSize = true;
+            this.ManaCedePETTPtext.Location = new System.Drawing.Point(35, 41);
+            this.ManaCedePETTPtext.Name = "ManaCedePETTPtext";
+            this.ManaCedePETTPtext.Size = new System.Drawing.Size(49, 13);
+            this.ManaCedePETTPtext.TabIndex = 30;
+            this.ManaCedePETTPtext.Text = "Pet TP <";
+            // 
+            // ManaCedeTPset
+            // 
+            this.ManaCedeTPset.Location = new System.Drawing.Point(90, 39);
+            this.ManaCedeTPset.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.ManaCedeTPset.Name = "ManaCedeTPset";
+            this.ManaCedeTPset.Size = new System.Drawing.Size(43, 20);
+            this.ManaCedeTPset.TabIndex = 29;
+            // 
+            // ManaCedePMPPtext
+            // 
+            this.ManaCedePMPPtext.AutoSize = true;
+            this.ManaCedePMPPtext.Location = new System.Drawing.Point(13, 16);
+            this.ManaCedePMPPtext.Name = "ManaCedePMPPtext";
+            this.ManaCedePMPPtext.Size = new System.Drawing.Size(71, 13);
+            this.ManaCedePMPPtext.TabIndex = 30;
+            this.ManaCedePMPPtext.Text = "Player MPP >";
+            // 
+            // ManaCedeMPPset
+            // 
+            this.ManaCedeMPPset.Location = new System.Drawing.Point(90, 14);
+            this.ManaCedeMPPset.Name = "ManaCedeMPPset";
+            this.ManaCedeMPPset.Size = new System.Drawing.Size(43, 20);
+            this.ManaCedeMPPset.TabIndex = 29;
+            // 
+            // Apogeetext
+            // 
+            this.Apogeetext.AutoSize = true;
+            this.Apogeetext.Location = new System.Drawing.Point(14, 107);
+            this.Apogeetext.Name = "Apogeetext";
+            this.Apogeetext.Size = new System.Drawing.Size(111, 13);
+            this.Apogeetext.TabIndex = 27;
+            this.Apogeetext.Text = "Apogee When MPP >";
+            // 
+            // ApogeeMPPset
+            // 
+            this.ApogeeMPPset.Location = new System.Drawing.Point(131, 105);
+            this.ApogeeMPPset.Name = "ApogeeMPPset";
+            this.ApogeeMPPset.Size = new System.Drawing.Size(43, 20);
+            this.ApogeeMPPset.TabIndex = 26;
+            // 
+            // SMNpetMPUSEtext
+            // 
+            this.SMNpetMPUSEtext.AutoSize = true;
+            this.SMNpetMPUSEtext.Location = new System.Drawing.Point(197, 82);
+            this.SMNpetMPUSEtext.Name = "SMNpetMPUSEtext";
+            this.SMNpetMPUSEtext.Size = new System.Drawing.Size(149, 13);
+            this.SMNpetMPUSEtext.TabIndex = 25;
+            this.SMNpetMPUSEtext.Text = "Don not call SMN below MP%";
+            // 
+            // SMNpetMPUSEset
+            // 
+            this.SMNpetMPUSEset.Location = new System.Drawing.Point(349, 80);
+            this.SMNpetMPUSEset.Name = "SMNpetMPUSEset";
+            this.SMNpetMPUSEset.Size = new System.Drawing.Size(43, 20);
+            this.SMNpetMPUSEset.TabIndex = 24;
+            this.SMNpetMPUSEset.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // SMNHPPset1
+            // 
+            this.SMNHPPset1.Enabled = false;
+            this.SMNHPPset1.Location = new System.Drawing.Point(349, 30);
+            this.SMNHPPset1.Name = "SMNHPPset1";
+            this.SMNHPPset1.Size = new System.Drawing.Size(44, 20);
+            this.SMNHPPset1.TabIndex = 21;
+            // 
+            // SMNHPPset2
+            // 
+            this.SMNHPPset2.Enabled = false;
+            this.SMNHPPset2.Location = new System.Drawing.Point(349, 55);
+            this.SMNHPPset2.Name = "SMNHPPset2";
+            this.SMNHPPset2.Size = new System.Drawing.Size(44, 20);
+            this.SMNHPPset2.TabIndex = 20;
+            // 
+            // SMNHealTEXT2
+            // 
+            this.SMNHealTEXT2.Enabled = false;
+            this.SMNHealTEXT2.Location = new System.Drawing.Point(225, 57);
+            this.SMNHealTEXT2.Name = "SMNHealTEXT2";
+            this.SMNHealTEXT2.Size = new System.Drawing.Size(121, 18);
+            this.SMNHealTEXT2.TabIndex = 19;
+            this.SMNHealTEXT2.Text = "(Not Needed)";
+            this.SMNHealTEXT2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // SMNHealTEXT1
+            // 
+            this.SMNHealTEXT1.Enabled = false;
+            this.SMNHealTEXT1.Location = new System.Drawing.Point(212, 32);
+            this.SMNHealTEXT1.Name = "SMNHealTEXT1";
+            this.SMNHealTEXT1.Size = new System.Drawing.Size(134, 20);
+            this.SMNHealTEXT1.TabIndex = 18;
+            this.SMNHealTEXT1.Text = "(Not Needed)";
+            this.SMNHealTEXT1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // SMNpetTPUSEtext
+            // 
+            this.SMNpetTPUSEtext.AutoSize = true;
+            this.SMNpetTPUSEtext.Location = new System.Drawing.Point(209, 107);
+            this.SMNpetTPUSEtext.Name = "SMNpetTPUSEtext";
+            this.SMNpetTPUSEtext.Size = new System.Drawing.Size(134, 13);
+            this.SMNpetTPUSEtext.TabIndex = 23;
+            this.SMNpetTPUSEtext.Text = "Use Ward/Rage at Pet TP";
+            // 
+            // SMNpetTPUSEset
+            // 
+            this.SMNpetTPUSEset.Location = new System.Drawing.Point(349, 105);
+            this.SMNpetTPUSEset.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.SMNpetTPUSEset.Name = "SMNpetTPUSEset";
+            this.SMNpetTPUSEset.Size = new System.Drawing.Size(44, 20);
+            this.SMNpetTPUSEset.TabIndex = 22;
+            // 
+            // SMNJAgroup
+            // 
+            this.SMNJAgroup.Controls.Add(this.SMNJA);
+            this.SMNJAgroup.Location = new System.Drawing.Point(14, 131);
+            this.SMNJAgroup.Name = "SMNJAgroup";
+            this.SMNJAgroup.Size = new System.Drawing.Size(176, 100);
+            this.SMNJAgroup.TabIndex = 17;
+            this.SMNJAgroup.TabStop = false;
+            this.SMNJAgroup.Text = "Pet JA";
+            // 
+            // SMNJA
+            // 
+            this.SMNJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SMNJA.CheckOnClick = true;
+            this.SMNJA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SMNJA.FormattingEnabled = true;
+            this.SMNJA.Location = new System.Drawing.Point(3, 16);
+            this.SMNJA.Name = "SMNJA";
+            this.SMNJA.Size = new System.Drawing.Size(170, 81);
+            this.SMNJA.TabIndex = 1;
+            // 
+            // SelectSMNtext
+            // 
+            this.SelectSMNtext.AutoSize = true;
+            this.SelectSMNtext.Location = new System.Drawing.Point(11, 6);
+            this.SelectSMNtext.Name = "SelectSMNtext";
+            this.SelectSMNtext.Size = new System.Drawing.Size(64, 13);
+            this.SelectSMNtext.TabIndex = 16;
+            this.SelectSMNtext.Text = "Select SMN";
+            // 
+            // SMNSelect
+            // 
+            this.SMNSelect.FormattingEnabled = true;
+            this.SMNSelect.Location = new System.Drawing.Point(81, 3);
+            this.SMNSelect.Name = "SMNSelect";
+            this.SMNSelect.Size = new System.Drawing.Size(121, 21);
+            this.SMNSelect.TabIndex = 15;
+            this.SMNSelect.SelectedIndexChanged += new System.EventHandler(this.SMNSelect_SelectedIndexChanged);
+            // 
+            // SMNAbilitysgroup
+            // 
+            this.SMNAbilitysgroup.Controls.Add(this.SMNAbilityList);
+            this.SMNAbilitysgroup.Location = new System.Drawing.Point(225, 131);
+            this.SMNAbilitysgroup.Name = "SMNAbilitysgroup";
+            this.SMNAbilitysgroup.Size = new System.Drawing.Size(176, 104);
+            this.SMNAbilitysgroup.TabIndex = 14;
+            this.SMNAbilitysgroup.TabStop = false;
+            this.SMNAbilitysgroup.Text = "SMN Abilitys";
+            // 
+            // SMNAbilityList
+            // 
+            this.SMNAbilityList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SMNAbilityList.CheckOnClick = true;
+            this.SMNAbilityList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SMNAbilityList.FormattingEnabled = true;
+            this.SMNAbilityList.Location = new System.Drawing.Point(3, 16);
+            this.SMNAbilityList.Name = "SMNAbilityList";
+            this.SMNAbilityList.Size = new System.Drawing.Size(170, 85);
+            this.SMNAbilityList.TabIndex = 1;
             // 
             // puppettab
             // 
+            this.puppettab.Controls.Add(this.groupBox5);
             this.puppettab.Controls.Add(this.checkBox8);
             this.puppettab.Location = new System.Drawing.Point(4, 22);
             this.puppettab.Name = "puppettab";
@@ -5300,10 +5546,31 @@
             this.puppettab.Text = "PUP";
             this.puppettab.UseVisualStyleBackColor = true;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.PUPJA);
+            this.groupBox5.Location = new System.Drawing.Point(14, 73);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(176, 159);
+            this.groupBox5.TabIndex = 14;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Pet JA";
+            // 
+            // PUPJA
+            // 
+            this.PUPJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PUPJA.CheckOnClick = true;
+            this.PUPJA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PUPJA.FormattingEnabled = true;
+            this.PUPJA.Location = new System.Drawing.Point(3, 16);
+            this.PUPJA.Name = "PUPJA";
+            this.PUPJA.Size = new System.Drawing.Size(170, 140);
+            this.PUPJA.TabIndex = 1;
+            // 
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(140, 128);
+            this.checkBox8.Location = new System.Drawing.Point(305, 6);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(107, 17);
             this.checkBox8.TabIndex = 3;
@@ -5312,6 +5579,7 @@
             // 
             // geopettab
             // 
+            this.geopettab.Controls.Add(this.groupBox6);
             this.geopettab.Location = new System.Drawing.Point(4, 22);
             this.geopettab.Name = "geopettab";
             this.geopettab.Padding = new System.Windows.Forms.Padding(3);
@@ -5319,6 +5587,27 @@
             this.geopettab.TabIndex = 4;
             this.geopettab.Text = "GEO";
             this.geopettab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.GEOJA);
+            this.groupBox6.Location = new System.Drawing.Point(14, 73);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(176, 159);
+            this.groupBox6.TabIndex = 14;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Pet JA";
+            // 
+            // GEOJA
+            // 
+            this.GEOJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GEOJA.CheckOnClick = true;
+            this.GEOJA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GEOJA.FormattingEnabled = true;
+            this.GEOJA.Location = new System.Drawing.Point(3, 16);
+            this.GEOJA.Name = "GEOJA";
+            this.GEOJA.Size = new System.Drawing.Size(170, 140);
+            this.GEOJA.TabIndex = 1;
             // 
             // bgw_script_dnc
             // 
@@ -5576,8 +5865,22 @@
             this.drgjagroup.ResumeLayout(false);
             this.smnpettab.ResumeLayout(false);
             this.smnpettab.PerformLayout();
+            this.ManaCedegroup.ResumeLayout(false);
+            this.ManaCedegroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ManaCedeTPset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ManaCedeMPPset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ApogeeMPPset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMNpetMPUSEset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMNHPPset1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMNHPPset2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMNpetTPUSEset)).EndInit();
+            this.SMNJAgroup.ResumeLayout(false);
+            this.SMNAbilitysgroup.ResumeLayout(false);
             this.puppettab.ResumeLayout(false);
             this.puppettab.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.geopettab.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5585,6 +5888,7 @@
 
         #endregion
 
+        #region sysform
         public System.Windows.Forms.CheckBox checkZone;
         public System.Windows.Forms.CheckBox StopFullInventory;
         public System.Windows.Forms.GroupBox groupBox8;
@@ -5859,7 +6163,6 @@
         public System.Windows.Forms.Label label20;
         public System.Windows.Forms.CheckBox DeathWarp;
         public NumericUpDown stopstepscount;
-        public CheckBox checkBox7;
         public CheckBox checkBox8;
         public CheckBox stopstepsat;
         private TabPage OptionsMAMainTab;
@@ -5951,6 +6254,25 @@
         private Label Restoraltext;
         private Label Exuviationtext;
         private Label WildCarrottext;
+        private TabPage MAconfigpage;
+        private CheckBox MAreverse;
+        private Label label13;
+        private Label label10;
+        public GroupBox SMNAbilitysgroup;
+        public CheckedListBox SMNAbilityList;
+        public GroupBox groupBox5;
+        public CheckedListBox PUPJA;
+        public GroupBox groupBox6;
+        public CheckedListBox GEOJA;
+        private ComboBox SMNSelect;
+        private Label SelectSMNtext;
+        public GroupBox SMNJAgroup;
+        public CheckedListBox SMNJA;
+        private NumericUpDown SMNHPPset1;
+        private NumericUpDown SMNHPPset2;
+        private Label SMNHealTEXT2;
+        private Label SMNHealTEXT1;
+        #endregion
 
         #region Methods: Start/Stop/Load
 
@@ -6037,24 +6359,24 @@
                 playerJA.Items.Clear();
 
             #region Ability list
-            List<uint> abilitylist = new List<uint>(new uint[] {528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542,
+            List<uint> abilitylist = new List<uint>(new uint[] {528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541,
             543, 544, 545, 546, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568,
-            569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593,
+            569, 570, 571, 572, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 593,
             594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619,
             620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644,
             645, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670,
-            671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 708, 709,
-            722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 744, 745, 746, 747, 748,
+            671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 708, 709,
+            722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 745, 746, 747, 748,
             749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773,
             777, 778, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 803,
-            804, 805, 807, 808, 809, 810, 813, 814, 815, 816, 817, 821, 822, 828, 829, 830, 831, 832, 833, 834, 835,
-            836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860,
+            804, 805, 807, 809, 810, 813, 814, 815, 816, 817, 821, 822, 828, 829, 830, 831, 832, 833, 834, 835,
+            836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860,
             861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885,
-            886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904,});
+            886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 898, 899, 900, 901, 902, 903, 904,});
             #endregion
 
-            if (PlayerInfo.MainJob == 9)
-                BSTGetJA();
+            if (PlayerInfo.MainJob == 14) WyvernGetJA();
+            if (PlayerInfo.MainJob == 9) BSTGetJA();
             else
             {
                 for (uint i = 528; i <= 2227; i++)
@@ -6123,7 +6445,7 @@
             label20.Text = "Pets Name:";
             label21.Text = @"Pet ID:";
             label22.Text = @"Pets HP%:";
-            label23.Text = @"Pets TP%:";
+            label23.Text = @"Pets TP:";
         }
 
         private void LoadMA_Click(object sender, EventArgs e)
@@ -6197,20 +6519,28 @@
             this.JAtabselect.Controls.Remove(this.RUNpage);
             this.JAtabselect.Controls.Remove(this.MONpage);
             this.JAtabselect.Controls.Remove(this.Dynamispage);
+            this.petControl.Controls.Remove(this.bstpettab);
+            this.petControl.Controls.Remove(this.drgpettab);
+            this.petControl.Controls.Remove(this.smnpettab);
+            this.petControl.Controls.Remove(this.puppettab);
+            this.petControl.Controls.Remove(this.geopettab);
+            this.MAtabs.Controls.Remove(this.CureConfigPage);
+            this.MAtabs.Controls.Remove(this.DrainAspirpage);
+            this.MAtabs.Controls.Remove(this.MAconfigpage);
+            this.MAtabs.Controls.Remove(this.BLUCurespage);
+            this.CombatSettingsTabs.Controls.Remove(this.OptionsMAMainTab);
+            this.dncControl.Controls.Remove(this.pets);
+            this.dncControl.Controls.Remove(this.dancer);
+            this.dncControl.Controls.Remove(this.flourish);
             if (PlayerInfo.MainJob == 3 || PlayerInfo.SubJob == 3) this.JAtabselect.Controls.Add(this.WHMpage);
             if (PlayerInfo.MainJob == 5 || PlayerInfo.SubJob == 5) this.JAtabselect.Controls.Add(this.RDMpage);
             if (PlayerInfo.MainJob == 20 || PlayerInfo.SubJob == 20) this.JAtabselect.Controls.Add(this.SCHpage);
             if (PlayerInfo.MainJob == 22 || PlayerInfo.SubJob == 22) this.JAtabselect.Controls.Add(this.RUNpage);
             if (PlayerInfo.MainJob == 23 || PlayerInfo.SubJob == 23) this.JAtabselect.Controls.Add(this.MONpage);
             this.JAtabselect.Controls.Add(this.Dynamispage);
-            List<int> MAjobs = new List<int>(new int[] {3,4,5,7,8,10,13,15,16,20,21,22});
+            List<int> MAjobs = new List<int>(new int[] {3,4,5,7,8,10,13,16,20,21,22});
             if (MAjobs.Contains(PlayerInfo.MainJob) || MAjobs.Contains(PlayerInfo.SubJob))
             {
-                this.MAtabs.Controls.Remove(this.CureConfigPage);
-                this.MAtabs.Controls.Remove(this.DrainAspirpage);
-                this.MAtabs.Controls.Remove(this.MAconfigpage);
-                this.MAtabs.Controls.Remove(this.BLUCurespage);
-                this.CombatSettingsTabs.Controls.Remove(this.OptionsMAMainTab);
                 List<int> Curejobs = new List<int>(new int[] {3,5,7,20});
                 if  (Curejobs.Contains(PlayerInfo.MainJob) || Curejobs.Contains(PlayerInfo.SubJob)) this.MAtabs.Controls.Add(this.CureConfigPage);
                 List<int> Drainjobs = new List<int>(new int[] {4,8,20,21});
@@ -6219,11 +6549,8 @@
                 this.MAtabs.Controls.Add(this.MAconfigpage);
                 this.CombatSettingsTabs.Controls.Add(this.OptionsMAMainTab);
             }
-            else this.CombatSettingsTabs.Controls.Remove(this.OptionsMAMainTab);
             if (PlayerInfo.MainJob == 19 || PlayerInfo.SubJob == 19)
             {
-                this.dncControl.Controls.Remove(this.dancer);
-                this.dncControl.Controls.Remove(this.flourish);
                 this.dncControl.Controls.Add(this.dancer);
                 this.dncControl.Controls.Add(this.flourish);
                 Dictionary<string, uint> DNCenable = new Dictionary<string, uint>()
@@ -6248,28 +6575,35 @@
                     else c.Enabled = false;
                 }
             }
-            else
-            {
-                this.dncControl.Controls.Remove(this.dancer);
-                this.dncControl.Controls.Remove(this.flourish);
-            }
             List<int> PETjobs = new List<int>(new int[] { 9, 14, 15, 18, 21 });
             if (PETjobs.Contains(PlayerInfo.MainJob) || PETjobs.Contains(PlayerInfo.SubJob))
             {
-                this.petControl.Controls.Remove(this.bstpettab);
-                this.petControl.Controls.Remove(this.drgpettab);
-                this.petControl.Controls.Remove(this.smnpettab);
-                this.petControl.Controls.Remove(this.puppettab);
-                this.petControl.Controls.Remove(this.geopettab);
-                this.dncControl.Controls.Remove(this.pets);
                 if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9) this.petControl.Controls.Add(this.bstpettab);
                 if (PlayerInfo.MainJob == 14 || PlayerInfo.SubJob == 14) this.petControl.Controls.Add(this.drgpettab);
-                if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15) this.petControl.Controls.Add(this.smnpettab);
-                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18) this.petControl.Controls.Add(this.puppettab);
-                if (PlayerInfo.MainJob == 21 || PlayerInfo.SubJob == 21) this.petControl.Controls.Add(this.geopettab);
+                if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15) 
+                {
+                    this.petControl.Controls.Add(this.smnpettab);
+                    Dictionary<string, uint> SMNAdd = new Dictionary<string, uint>()
+                    {
+                        {"Carbuncle", 296},{"Fenrir", 297},{"Ifrit", 298},{"Titan", 299},{"Leviathan", 300},{"Garuda", 301},{"Shiva", 302},{"Ramuh", 303},
+                        {"Diabolos", 304},{"Cait Sith", 307},{"Fire Spirit", 288},{"Ice Spirit", 289},{"Air Spirit", 290},{"Earth Spirit", 291},
+                        {"Thunder Spirit", 292},{"Water Spirit", 293},{"Light Spirit", 294},{"Dark Spirit", 295},
+                    };
+                    foreach (KeyValuePair<string, uint> kvp in SMNAdd)
+                    {
+                        if (PlayerInfo.HasSpell(kvp.Value)) SMNSelect.Items.Add(kvp.Key);
+                    }
+                }
+                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18) 
+                {
+                    this.petControl.Controls.Add(this.puppettab);
+                }
+                if (PlayerInfo.MainJob == 21 || PlayerInfo.SubJob == 21) 
+                {
+                    this.petControl.Controls.Add(this.geopettab);
+                }
                 this.dncControl.Controls.Add(this.pets);
             }
-            else this.dncControl.Controls.Remove(this.pets);
 
             ClearJA_Click(null, null);
             LoadJA_Click(null, null);
@@ -6279,15 +6613,13 @@
 
         #endregion
         #region Methods: Save/Load Config
+        #region config: save/load (player)
         public void saveConfig()
         {
-            var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
-
-            if (!partyAssist.Checked || members.Count < 2)
-                return;
         }
-
-        #region config: save/load (player)
+        public void loadConfig()
+        {
+        }
         #endregion
         #region config: save/load (target)
         #endregion
@@ -8462,7 +8794,7 @@
             label20.Text = "Pets Name: " + PetInfo.Name;
             label21.Text = @"Pet ID: " + PetInfo.ID;
             label22.Text = @"Pets HP%: " + PetInfo.HPP;
-            label23.Text = @"Pets TP%: " + PetInfo.TPP;
+            label23.Text = @"Pets TP: " + PetInfo.TPP;
         }
 
         #endregion
@@ -9211,16 +9543,16 @@
             if (PlayerInfo.MainJob != 14 && PlayerInfo.SubJob != 14) return;
 
             #region JA: DRG
-            if ((PlayerInfo.MainJobLevel >= 25 || PlayerInfo.SubJobLevel >= 25) && !WyvernJA.Items.Contains("Spirit Link")) WyvernJA.Items.Add("Spirit Link");
-            if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(169) && !WyvernJA.Items.Contains("Deep Breathing")) WyvernJA.Items.Add("Deep Breathing");
-            if (PlayerInfo.MainJobLevel >= 95 && !WyvernJA.Items.Contains("Steady Wing")) WyvernJA.Items.Add("Steady Wing");
-            if (PlayerInfo.MainJobLevel >= 90 && !WyvernJA.Items.Contains("Smiting Breath - (Dragoon)"))
+            if ((PlayerInfo.MainJobLevel >= 25 || PlayerInfo.SubJobLevel >= 25) &&
+                 PlayerInfo.HasAbility(592) && !WyvernJA.Items.Contains("Spirit Link")) WyvernJA.Items.Add("Spirit Link");
+            if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(681) && !WyvernJA.Items.Contains("Deep Breathing")) WyvernJA.Items.Add("Deep Breathing");
+            if (PlayerInfo.MainJobLevel >= 90 && !WyvernJA.Items.Contains("Smiting Breath"))
             {
                  WyvernJA.Items.Add("Smiting Breath");
                  WyvernJA.Items.Add("Restoring Breath");
             }
+            if (PlayerInfo.MainJobLevel >= 95 && !WyvernJA.Items.Contains("Steady Wing")) WyvernJA.Items.Add("Steady Wing");
             #endregion
-            api.ThirdParty.SendString(String.Format("/echo {0}", WyvernJA.Items.Count));
         }
 
         #endregion
@@ -9298,7 +9630,231 @@
         #endregion
 
         #endregion
-
+        
+        #region PET: SMN
+        #region JA: SMN (get/set)
+        private void SMNGetJA()
+        {
+            if (SMNAbilityList.Items.Count > 0) SMNAbilityList.Items.Clear();
+            if (SMNJA.Items.Count > 0) SMNJA.Items.Clear();
+            if (PlayerInfo.MainJob != 15 && PlayerInfo.SubJob != 15) return;
+            var joblvl = 0;
+            if (PlayerInfo.MainJob == 15) joblvl = PlayerInfo.MainJobLevel;
+            else if (PlayerInfo.SubJob == 15) joblvl = PlayerInfo.SubJobLevel;
+            Dictionary<string, uint> SumJA = new Dictionary<string, uint>()
+            {
+                {"Astral Flow", 1},{"Apogee", 70},{"Mana Cede", 87},{"Astral Conduit", 96}
+            };
+            foreach (KeyValuePair<string, uint> kvp in SumJA)
+            {
+                if (SMNSelect.SelectedItem.ToString().Contains("Spirit"))
+                {
+                    if (joblvl >= 50 && !SMNJA.Items.Contains("Elemental Siphon")) SMNJA.Items.Add("Elemental Siphon");
+                }
+                else if (joblvl >= kvp.Value) SMNJA.Items.Add(kvp.Key);
+            }
+            Dictionary<string, dynamic> SummoningJA = new Dictionary<string, dynamic>()
+            {
+                {"Carbuncle", new Dictionary<string, uint>() {{"Searing Light", 1},{"Healing Ruby", 1},{"Poison Nails", 5},{"Shining Ruby", 24},
+                    {"Glittering Ruby", 44},{"Meteorite", 55},{"Healing Ruby II", 65},{"Holy Mist", 76},{"Soothing Ruby", 94},{"Pacifying Ruby", 99}}},
+                {"Fenrir", new  Dictionary<string, uint>() {{"Howling Moon", 1},{"Moonlit Charge", 10},{"Crescent Fang", 10},{"Lunar Cry", 21},
+                    {"Lunar Roar", 32},{"Ecliptic Growl", 43},{"Ecliptic Howl", 54},{"Eclipse Bite", 65},{"Lunar Bay", 78},{"Heavenward Howl", 96},
+                    {"Impact", 99}}},
+                {"Ifrit", new  Dictionary<string, uint>() {{"Inferno", 1},{"Punch", 1},{"Fire II", 10},{"Burning Strike", 23},{"Double Punch", 30},
+                    {"Crimson Howl", 38},{"Fire IV", 60},{"Flaming Crush", 70},{"Meteor Strike", 75},{"Inferno Howl", 88},{"Conflag Strike", 99}}},
+                {"Titan", new  Dictionary<string, uint>() {{"Earthen Fury", 1},{"Rock Throw", 1},{"Stone II", 10},{"Rock Buster", 21},{"Megalith Throw", 35},
+                    {"Earthen Ward", 46},{"Stone IV", 60},{"Mountain Buster", 70},{"Geocrush", 75},{"Earthen Armor", 82},{"Crag Throw", 99}}},
+                {"Leviathan", new  Dictionary<string, uint>() {{"Tidal Wave", 1},{"Barracuda Dive", 1},{"Water II", 10},{"Tail Whip", 26},{"Slowga", 33},
+                    {"Spring Water", 47},{"Water IV", 60},{"Spinning Dive", 70},{"Grand Fall", 75},{"Tidal Roar", 84},{"Soothing Current", 99}}},
+                {"Garuda", new  Dictionary<string, uint>() {{"Aerial Blast", 1},{"Claw", 1},{"Aero II", 10},{"Aerial Armor", 25},{"Whispering Wind", 36},
+                    {"Hastega", 48},{"Aero IV", 60},{"Predator Claws", 70},{"Wind Blade", 75},{"Fleet Wind", 86},{"Hastega II", 99}}},
+                {"Shiva", new  Dictionary<string, uint>() {{"Diamond Dust", 1},{"Axe Kick", 1},{"Blizzard II", 10},{"Frost Armor", 28},{"Sleepga", 39},
+                    {"Double Slap", 50},{"Blizzard IV", 60},{"Rush", 70},{"Heavenly Strike", 75},{"Diamond Storm", 90},{"Crystal Blessing", 99}}},
+                {"Ramuh", new  Dictionary<string, uint>() {{"Judgment Bolt", 1},{"Shock Strike", 1},{"Thunder II", 10},{"Thunderspark", 19},
+                    {"Rolling Thunder", 31},{"Lightning Armor", 42},{"Thunder IV", 60},{"Chaotic Strike", 70},{"Thunderstorm", 75},{"Shock Squall", 92},
+                    {"Volt Strike", 99}}},
+                {"Diabolos", new  Dictionary<string, uint>() {{"Ruinous Omen", 1},{"Camisado", 1},{"Somnolence", 20},{"Nightmare", 29},{"Ultimate Terror", 37},
+                    {"Noctoshield", 49},{"Dream Shroud", 56},{"Nether Blast", 65},{"Night Terror", 80},{"Pavor Nocturnus", 98},{"Blindside", 99}}},
+                {"Cait Sith", new  Dictionary<string, uint>() {{"Altana's Favor", 1},{"Regal Scratch", 1},/*{"Raise II", 15},*/{"Mewing Lullaby", 25},
+                    {"Reraise II", 30},{"Eerie Eye", 55},{"Level ? Holy", 75},{"Regal Gash", 99}}},
+            };
+            if (!SummoningJA.ContainsKey((string)SMNSelect.SelectedItem)) return;
+            foreach (KeyValuePair<string, uint> kvp in SummoningJA[(string)SMNSelect.SelectedItem])
+            {
+                if (joblvl >= kvp.Value) SMNAbilityList.Items.Add(kvp.Key);
+            }
+            if (joblvl >= 55) SMNAbilityList.Items.Add("Avatar's Favor");
+        }
+        #endregion
+        
+        #region JA: SMN (use)
+        private void SMNUseJA()
+        {
+            if (PlayerInfo.Status == 0 || PlayerInfo.Status == 33) return;
+            var petja = (from object itemChecked in SMNAbilityList.CheckedItems select itemChecked.ToString()).ToList();
+            var ja = (from object itemChecked in SMNJA.CheckedItems select itemChecked.ToString()).ToList();
+            if (PlayerInfo.Status == 0 || PlayerInfo.HasBuff(16)) return;
+            var magic = api.Resources.GetSpell((string)SMNSelect.SelectedItem);
+            var joblvl = 0;
+            if (PlayerInfo.MainJob == 15) joblvl = PlayerInfo.MainJobLevel;
+            else if (PlayerInfo.SubJob == 15) joblvl = PlayerInfo.SubJobLevel;
+            if (PetInfo.ID == 0 && PlayerInfo.MP >= magic.MP && SMNpetMPUSEset.Value <= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0)
+            {
+                api.ThirdParty.SendString("/ma \""+magic.Name+"\" <me>");
+                Casting();
+            }
+            Dictionary<string, uint> AvatarFavorbuff = new Dictionary<string, uint>()
+            {
+                {"Carbuncle", 422},{"Fenrir", 429},{"Ifrit", 423},{"Titan", 426},{"Leviathan", 428},{"Garuda", 425},{"Shiva", 424},{"Ramuh", 427},
+                {"Diabolos", 430},{"Cait Sith", 577}
+            };
+            if (PetInfo.Status == 0) return;
+            if (PetInfo.ID != 0 && petja.Contains("Avatar's Favor") && Recast.GetAbilityRecast(176) == 0 &&
+                !PlayerInfo.HasBuff((short)AvatarFavorbuff[magic.Name]) && !PlayerInfo.HasBuff(431))
+            {
+                api.ThirdParty.SendString("/pet \"Avatar's Favor\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            Dictionary<string, dynamic> SMNcontrol = new Dictionary<string, dynamic>()
+            {
+                {"Carbuncle", new Dictionary<string, dynamic>() 
+                    {
+                    {"Healing Ruby II", new {ward=0,hp2=0,tp=0}},{"Healing Ruby", new {ward=0,hp1=0,tp=0}},{"Shining Ruby", new {ward=0,buff=40,buff2=41}},
+                    {"Glittering Ruby", new {ward=0}},{"Pacifying Ruby", new {ward=0}},{"Soothing Ruby", new {ward=0}},{"Poison Nails", new {rage=0}},
+                    {"Meteorite", new {rage=0,tp=0}},{"Holy Mist", new {rage=0,tp=0}},{"Searing Light", new {af=0,rage=0,tp=0}}
+                    }},
+                {"Fenrir", new  Dictionary<string, dynamic>() 
+                    {
+                    {"Heavenward Howl", new {ward=0,buff=487,buff2=488}},{"Ecliptic Howl", new {ward=0,buff=90,buff2=92}},{"Ecliptic Growl", new {ward=0,buff=0}},
+                    {"Lunar Roar", new {ward=0}},{"Lunar Cry", new {ward=0}},{"Lunar Bay", new {rage=0,tp=0}},{"Eclipse Bite", new {rage=0}},
+                    {"Crescent Fang", new {rage=0}},{"Moonlit Charge", new {rage=0}},{"Impact", new {rage=0}},{"Howling Moon", new {af=0,rage=0}}
+                    }},
+                {"Ifrit", new  Dictionary<string, dynamic>() 
+                    {
+                    {"Crimson Howl", new {ward=0,buff=68}},{"Inferno Howl", new {ward=0,buff=94}},{"Meteor Strike", new {rage=0,tp=0}},{"Fire IV", new {rage=0,tp=0}},
+                    {"Fire II", new {rage=0,tp=0}},{"Conflag Strike", new {rage=0}},{"Flaming Crush", new {rage=0}},{"Double Punch", new {rage=0}},
+                    {"Burning Strike", new {rage=0}},{"Punch", new {rage=0}},{"Inferno", new {af=0,rage=0,tp=0}}
+                    }},
+                {"Titan", new  Dictionary<string, dynamic>() 
+                    {
+                    {"Earthen Armor", new {ward=0,buff=458}},{"Earthen Ward", new {ward=0,buff=07}},{"Geocrush", new {rage=0,tp=0}},{"Mountain Buster", new {rage=0}},
+                    {"Crag Throw", new {rage=0}},{"Stone IV", new {rage=0,tp=0}},{"Stone II", new {rage=0,tp=0}},{"Megalith Throw", new {rage=0}},
+                    {"Rock Throw", new {rage=0}},{"Rock Buster", new {rage=0}},{"Earthen Fury", new {af=0,rage=0,tp=0}}
+                    }},
+                {"Leviathan", new  Dictionary<string, dynamic>() 
+                    {
+                    {"Spring Water", new {ward=0,hp1=0,tp=0}},{"Soothing Current", new {ward=0,buff=586}},{"Tidal Roar", new {ward=0}},{"Slowga", new {ward=0}},
+                    {"Grand Fall", new {rage=0,tp=0}},{"Water IV", new {rage=0,tp=0}},{"Water II", new {rage=0,tp=0}},{"Barracuda Dive", new {rage=0}},
+                    {"Tail Whip", new {rage=0}},{"Spinning Dive", new {rage=0}},{"Tidal Wave", new {af=0,rage=0,tp=0}}
+                    }},
+                {"Garuda", new  Dictionary<string, dynamic>() 
+                    {
+                    {"Whispering Wind", new {ward=0,hp1=0,tp=0}},{"Hastega II", new {ward=0,buff=33}},{"Hastega", new {ward=0,buff=33}},
+                    {"Aerial Armor", new {ward=0,buff=36}},{"Fleet Wind", new {ward=0,buff=176}},{"Aero IV", new {rage=0,tp=0}},{"Aero II", new {rage=0,tp=0}},
+                    {"Wind Blade", new {rage=0,tp=0}},{"Predator Claws", new {rage=0}},{"Claw", new {rage=0}},{"Aerial Blast", new {af=0,rage=0,tp=0}}
+                    }},
+                {"Shiva", new  Dictionary<string, dynamic>() 
+                    {
+                    {"Crystal Blessing", new {ward=0,buff=587}},{"Frost Armor", new {ward=0,buff=05}},{"Diamond Storm", new {ward=0}},{"Sleepga", new {ward=0}},
+                    {"Heavenly Strike", new {rage=0,tp=0}},{"Blizzard IV", new {rage=0,tp=0}},{"Blizzard II", new {rage=0,tp=0}},{"Rush", new {rage=0}},
+                    {"Double Slap", new {rage=0}},{"Axe Kick", new {rage=0}},{"Diamond Dust", new {af=0,rage=0,tp=0}}
+                    }},
+                {"Ramuh", new  Dictionary<string, dynamic>() 
+                    {
+                    {"Rolling Thunder", new {ward=0,buff=89}},{"Lightning Armor", new {ward=0,buff=08}},{"Shock Squall", new {ward=0}},{"Volt Strike", new {rage=0}},
+                    {"Thunderstorm", new {rage=0,tp=0}},{"Thunder IV", new {rage=0,tp=0}},{"Thunderspark", new {rage=0,tp=0}},{"Thunder II", new {rage=0,tp=0}},
+                    {"Chaotic Strike", new {rage=0}},{"Shock Strike", new {rage=0}},{"Judgment Bolt", new {af=0,rage=0,tp=0}}
+                    }},
+                {"Diabolos", new  Dictionary<string, dynamic>() 
+                    {
+                    {"Dream Shroud", new {ward=0,buff=190,buff2=191}},{"Noctoshield", new {ward=0,buff=116}},{"Pavor Nocturnus", new {ward=0}},
+                    {"Somnolence", new {ward=0,tp=0}},{"Ultimate Terror", new {ward=0}},{"Nightmare", new {ward=0}},{"Blindside", new {rage=0}},
+                    {"Night Terror", new {rage=0,tp=0}},{"Nether Blast", new {rage=0,tp=0}},{"Camisado", new {rage=0}},{"Ruinous Omen", new {af=0,rage=0,tp=0}}
+                    }},
+                {"Cait Sith", new  Dictionary<string, dynamic>() 
+                    {
+                    {"Reraise II", new {ward=0,buff=113}},{"Eerie Eye", new {ward=0}},{"Mewing Lullaby", new {ward=0}},/*{"Raise II", new {ward=0}},*/
+                    {"Regal Scratch", new {rage=0}},{"Regal Gash", new {rage=0}},{"Level ? Holy", new {rage=0}},{"Altana's Favor", new {af=0,ward=0,buff=113}}
+                    }},
+                };
+            if (!SMNcontrol.ContainsKey((string)SMNSelect.SelectedItem))
+            {
+                if (ja.Contains("Elemental Siphon") && Recast.GetAbilityRecast(175) == 0 && SMNHPPset1.Value >= PlayerInfo.MPP)
+                {
+                    api.ThirdParty.SendString("/ja \"Elemental Siphon\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+            }
+            else if (petja.Count == 0) return;
+            else
+            {
+                foreach (KeyValuePair<string, dynamic> kvp in SMNcontrol[(string)SMNSelect.SelectedItem])
+                {
+                    var useAbility = false;
+                    var Ability = api.Resources.GetAbility(kvp.Key);
+                    var targ = ((Ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
+                    if (kvp.Value.ToString().Contains("tp =") && SMNpetTPUSEset.Value > PetInfo.TPP) continue;
+                    if (ja.Contains("Astral Conduit") && Ability.MP >= PlayerInfo.MP && Recast.GetAbilityRecast(254) == 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Astral Conduit\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    if (ja.Contains("Apogee") && ApogeeMPPset.Value >= PlayerInfo.MPP && Recast.GetAbilityRecast(108) == 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Apogee\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    if (ja.Contains("Mana Cede") && ManaCedeMPPset.Value >= PlayerInfo.MPP && ManaCedeTPset.Value <= PetInfo.TPP && Recast.GetAbilityRecast(71) == 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Mana Cede\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    if (kvp.Value.ToString().Contains("af =") && petja.Contains(kvp.Key) && ja.Contains("Astral Flow"))
+                    {
+                        if (kvp.Value.ToString().Contains("rage =") && Recast.GetAbilityRecast(174) != 0) continue;
+                        if (kvp.Value.ToString().Contains("ward =") && Recast.GetAbilityRecast(173) != 0) continue;
+                        if ((joblvl * 2) <= PlayerInfo.MP) useAbility = true;
+                        {
+                            useAbility = true;
+                            api.ThirdParty.SendString("/ja \"Astral Flow\" <me>");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        }
+                    }
+                    else if (kvp.Value.ToString().Contains("rage =") && petja.Contains(kvp.Key) && Recast.GetAbilityRecast(174) == 0)
+                    {
+                        if (Ability.MP <= PlayerInfo.MP) useAbility = true;
+                    }
+                    else if (kvp.Value.ToString().Contains("ward =") && petja.Contains(kvp.Key) && Recast.GetAbilityRecast(173) == 0)
+                    {
+                        if (kvp.Value.ToString().Contains("hp1 =") && SMNHPPset1.Value >= PlayerInfo.HPP && Ability.MP <= PlayerInfo.MP) useAbility = true;
+                        else if (kvp.Value.ToString().Contains("hp2 =") && SMNHPPset2.Value >= PlayerInfo.HPP && Ability.MP <= PlayerInfo.MP) useAbility = true;
+                        else if (kvp.Value.ToString().Contains("buff2 =") && Ability.MP <= PlayerInfo.MP)
+                        {
+                            if (!PlayerInfo.HasBuff((short)kvp.Value.buff2) || !PlayerInfo.HasBuff((short)kvp.Value.buff)) useAbility = true;
+                        }
+                        else if (kvp.Value.ToString().Contains("buff =") && Ability.MP <= PlayerInfo.MP)
+                        {
+                            if (Ability.Name == "Glittering Ruby" || Ability.Name == "Ecliptic Growl")
+                            {
+                                if (!PlayerInfo.HasBuff(119) && !PlayerInfo.HasBuff(120) && !PlayerInfo.HasBuff(121) && !PlayerInfo.HasBuff(122) &&
+                                !PlayerInfo.HasBuff(123) && !PlayerInfo.HasBuff(124) && !PlayerInfo.HasBuff(125))
+                                    useAbility = true;
+                            }
+                            else if (!PlayerInfo.HasBuff((short)kvp.Value.buff)) useAbility = true;
+                        }
+                        else useAbility = true;
+                    }
+                    if (useAbility)
+                    {
+                        api.ThirdParty.SendString(String.Format("/pet \"{0}\" {1}", Ability.Name, targ));
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
+            }
+        }
+        #endregion
+        #endregion
+        
         #endregion
         #region Methods: FRM
 
@@ -9870,7 +10426,6 @@
 
             if (usenav.Checked && naviMove)
                 naviMove = false;
-
             api.AutoFollow.IsAutoFollowing = false;
 
             if (TargetInfo.ID != targetID)
@@ -10643,9 +11198,16 @@
 
         #endregion
 
-        private TabPage MAconfigpage;
-        private CheckBox MAreverse;
-        private Label label13;
-        private Label label10;
+        private Label SMNpetTPUSEtext;
+        private NumericUpDown SMNpetTPUSEset;
+        private GroupBox ManaCedegroup;
+        private Label ManaCedePETTPtext;
+        private NumericUpDown ManaCedeTPset;
+        private Label ManaCedePMPPtext;
+        private NumericUpDown ManaCedeMPPset;
+        private Label Apogeetext;
+        private NumericUpDown ApogeeMPPset;
+        private Label SMNpetMPUSEtext;
+        private NumericUpDown SMNpetMPUSEset;
     }
 }
