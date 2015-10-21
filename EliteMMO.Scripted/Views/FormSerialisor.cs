@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Xml;
 using System.Diagnostics;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FormSerialisation
 {
@@ -35,7 +37,12 @@ namespace FormSerialisation
         {
             foreach (Control childCtrl in c.Controls)
             {
-                if (!(childCtrl is Label) && !(childCtrl is CheckedListBox))
+                //List<string> skipthesenames = new List<string>(new string[] {"HealingWaltzItems",});
+                //if (skipthesenames.Contains(childCtrl.Name)) return;
+                //api.ThirdParty.SendString(String.Format("/echo {0}", childCtrl.GetType().ToString()));
+                if (!(childCtrl is Label) && !(childCtrl is ListView) && !(childCtrl is MenuStrip) &&
+                      childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownEdit" &&
+                      childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownButtons")
                 {
                     // serialise this control
                     xmlSerialisedForm.WriteStartElement("Control");
@@ -52,22 +59,33 @@ namespace FormSerialisation
                     else if (childCtrl is NumericUpDown)
                     {
                         xmlSerialisedForm.WriteElementString("Value", ((NumericUpDown)childCtrl).Value.ToString());
+                        xmlSerialisedForm.WriteElementString("Enabled", ((NumericUpDown)childCtrl).Enabled.ToString());
                     }
-                    /*else if (childCtrl is CheckedListBox)
+                    else if (childCtrl is GroupBox)
+                    {
+                        xmlSerialisedForm.WriteElementString("Enabled", ((GroupBox)childCtrl).Enabled.ToString());
+                    }
+                    else if (childCtrl is CheckedListBox)
                     {
                         // need to account for multiply selected items
                         CheckedListBox lst = (CheckedListBox)childCtrl;
-                        for (int i = 0; i < lst.SelectedIndices.Count; i++)
+                        for (int i = 0; i < lst.Items.Count; i++)
                         {
-                            xmlSerialisedForm.WriteElementString("SelectedIndex", (lst.SelectedIndices[i].ToString()));
+                            xmlSerialisedForm.WriteElementString("list"+i.ToString(), (lst.Items[i].ToString()));
                         }
-                    }*/
+                        xmlSerialisedForm.WriteElementString("listcount", (lst.Items.Count.ToString()));
+                        for (int i = 0; i < lst.CheckedIndices.Count; i++)
+                        {
+                            xmlSerialisedForm.WriteElementString("SelectedIndex" + i.ToString(), (lst.CheckedIndices[i].ToString()));
+                        }
+                        xmlSerialisedForm.WriteElementString("SelectedIndexcount", (lst.CheckedIndices.Count.ToString()));
+                    }
                     else if (childCtrl is ComboBox)
                     {
                         xmlSerialisedForm.WriteElementString("Text", ((ComboBox)childCtrl).Text);
-                        xmlSerialisedForm.WriteElementString("SelectedIndex", ((ComboBox)childCtrl).SelectedIndex.ToString());
+                        //xmlSerialisedForm.WriteElementString("SelectedIndex", ((ComboBox)childCtrl).SelectedIndex.ToString());
                     }
-                    else if (childCtrl is ListBox)
+                    /*else if (childCtrl is ListBox)
                     {
                         // need to account for multiply selected items
                         ListBox lst = (ListBox)childCtrl;
@@ -82,16 +100,17 @@ namespace FormSerialisation
                                 xmlSerialisedForm.WriteElementString("SelectedIndex", (lst.SelectedIndices[i].ToString()));
                             }
                         }
-                    }
+                    }*/
                     else if (childCtrl is CheckBox)
                     {
                         xmlSerialisedForm.WriteElementString("Checked", ((CheckBox)childCtrl).Checked.ToString());
+                        xmlSerialisedForm.WriteElementString("Enabled", ((CheckBox)childCtrl).Enabled.ToString());
                     }
                     // this next line was taken from http://stackoverflow.com/questions/391888/how-to-get-the-real-value-of-the-visible-property
                     // which dicusses the problem of child controls claiming to have Visible=false even when they haven't, based on the parent
                     // having Visible=true
-                    bool visible = (bool)typeof(Control).GetMethod("GetState", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(childCtrl, new object[] { 2 });
-                    xmlSerialisedForm.WriteElementString("Visible", visible.ToString());
+                    //bool visible = (bool)typeof(Control).GetMethod("GetState", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(childCtrl, new object[] { 2 });
+                    //xmlSerialisedForm.WriteElementString("Visible", visible.ToString());
                     // see if this control has any children, and if so, serialise them
                     if (childCtrl.HasChildren)
                     {
@@ -145,27 +164,38 @@ namespace FormSerialisation
                         // the right type too ;-)
                         switch (controlType)
                         {
-                            /*case "System.Windows.Forms.CheckedListBox":
+                            case "System.Windows.Forms.CheckedListBox":
                                 // need to account for multiply selected items
                                 CheckedListBox ltr = (CheckedListBox)ctrlToSet;
-                                XmlNodeList tSelectedIndex = n.SelectNodes("SelectedIndex");
-                                for (int i = 0; i < tSelectedIndex.Count; i++)
+                                var Lcount=Convert.ToInt32(n["listcount"].InnerText);
+                                var Icount=Convert.ToInt32(n["SelectedIndexcount"].InnerText);
+                                ltr.Items.Clear();
+                                for (int i = 0; i < Lcount; i++)
                                 {
-                                    ltr.SetItemChecked(Convert.ToInt64(tSelectedIndex[i].InnerText), true);
+                                    if (!ltr.Items.Contains(n["list" + i.ToString()].InnerText))
+                                        ltr.Items.Add(n["list"+i.ToString()].InnerText);
                                 }
-                                break;*/
+                                for (int i = 0; i < Icount; i++)
+                                {
+                                    ltr.SetItemChecked(Convert.ToInt16(n["SelectedIndex" + i.ToString()].InnerText), true);
+                                }
+                                break;
                             case "System.Windows.Forms.RadioButton":
                                 ((System.Windows.Forms.RadioButton)ctrlToSet).Checked = Convert.ToBoolean(n["Checked"].InnerText);
                                 break;
+                            case "System.Windows.Forms.GroupBox":
+                                ((System.Windows.Forms.GroupBox)ctrlToSet).Enabled = Convert.ToBoolean(n["Enabled"].InnerText);
+                                break;
                             case "System.Windows.Forms.NumericUpDown":
                                 ((System.Windows.Forms.NumericUpDown)ctrlToSet).Value = Convert.ToDecimal(n["Value"].InnerText);
+                                ((System.Windows.Forms.NumericUpDown)ctrlToSet).Enabled = Convert.ToBoolean(n["Enabled"].InnerText);
                                 break;
                             case "System.Windows.Forms.TextBox":
                                 ((System.Windows.Forms.TextBox)ctrlToSet).Text = n["Text"].InnerText;
                                 break;
                             case "System.Windows.Forms.ComboBox":
                                 ((System.Windows.Forms.ComboBox)ctrlToSet).Text = n["Text"].InnerText;
-                                ((System.Windows.Forms.ComboBox)ctrlToSet).SelectedIndex = Convert.ToInt32(n["SelectedIndex"].InnerText);
+                                //((System.Windows.Forms.ComboBox)ctrlToSet).SelectedIndex = Convert.ToInt32(n["SelectedIndex"].InnerText);
                                 break;
                             case "System.Windows.Forms.ListBox":
                                 // need to account for multiply selected items
@@ -180,7 +210,7 @@ namespace FormSerialisation
                                 ((System.Windows.Forms.CheckBox)ctrlToSet).Checked = Convert.ToBoolean(n["Checked"].InnerText);
                                 break;
                         }
-                        ctrlToSet.Visible = Convert.ToBoolean(n["Visible"].InnerText);
+                        //ctrlToSet.Visible = Convert.ToBoolean(n["Visible"].InnerText);
                         // if n has any children that are controls, deserialise them as well
                         if (n.HasChildNodes && ctrlToSet.HasChildren)
                         {

@@ -31,6 +31,7 @@
         public bool isPulled = false;
         public bool isMoving = false;
         public bool isCasting = false;
+        public bool isLoading = false;
 
         public float SetEntityX = 0;
         public float SetEntityY = 0;
@@ -299,11 +300,11 @@
             this.BenedictionHPPuse = new System.Windows.Forms.NumericUpDown();
             this.benedictiontext = new System.Windows.Forms.Label();
             this.RDMpage = new System.Windows.Forms.TabPage();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.Convertgroup = new System.Windows.Forms.GroupBox();
             this.ConvertHPP = new System.Windows.Forms.NumericUpDown();
             this.ConvertMPP = new System.Windows.Forms.NumericUpDown();
-            this.ConvertMP = new System.Windows.Forms.CheckBox();
-            this.ConvertHP = new System.Windows.Forms.CheckBox();
+            this.ConvertMP = new System.Windows.Forms.RadioButton();
+            this.ConvertHP = new System.Windows.Forms.RadioButton();
             this.convertmptext = new System.Windows.Forms.Label();
             this.converthptext = new System.Windows.Forms.Label();
             this.SCHpage = new System.Windows.Forms.TabPage();
@@ -557,12 +558,61 @@
             this.SMNAbilitysgroup = new System.Windows.Forms.GroupBox();
             this.SMNAbilityList = new System.Windows.Forms.CheckedListBox();
             this.puppettab = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.PUPAbilitypage = new System.Windows.Forms.TabPage();
+            this.Maneuversgroup = new System.Windows.Forms.GroupBox();
+            this.Maneuver3select = new System.Windows.Forms.ComboBox();
+            this.Maneuver2select = new System.Windows.Forms.ComboBox();
+            this.Maneuver1set = new System.Windows.Forms.NumericUpDown();
+            this.Maneuver2set = new System.Windows.Forms.NumericUpDown();
+            this.Maneuver3set = new System.Windows.Forms.NumericUpDown();
+            this.Maneuver1select = new System.Windows.Forms.ComboBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.healforAutomatonMP = new System.Windows.Forms.CheckBox();
+            this.healforAutomatonHP = new System.Windows.Forms.CheckBox();
+            this.healforAutomatonMPset = new System.Windows.Forms.NumericUpDown();
+            this.healforAutomatonHPsaet = new System.Windows.Forms.NumericUpDown();
+            this.AutoCallPUP = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.PUPJA = new System.Windows.Forms.CheckedListBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.PUPautoengage = new System.Windows.Forms.CheckBox();
+            this.PUPOtherpage = new System.Windows.Forms.TabPage();
+            this.Ventriloquygroup = new System.Windows.Forms.GroupBox();
+            this.VentriloquyPet = new System.Windows.Forms.RadioButton();
+            this.VentriloquyPlayer = new System.Windows.Forms.RadioButton();
+            this.Repairgroup = new System.Windows.Forms.GroupBox();
+            this.Repairselect = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.Repairset = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TacticalSwitchgroup = new System.Windows.Forms.GroupBox();
+            this.TSPET = new System.Windows.Forms.RadioButton();
+            this.TSPlayer = new System.Windows.Forms.RadioButton();
+            this.TSPetTPset = new System.Windows.Forms.NumericUpDown();
+            this.TSPlayerTPset = new System.Windows.Forms.NumericUpDown();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.RoleReversalgroup = new System.Windows.Forms.GroupBox();
+            this.RRPET = new System.Windows.Forms.RadioButton();
+            this.RRPlayer = new System.Windows.Forms.RadioButton();
+            this.RRPetHPPset = new System.Windows.Forms.NumericUpDown();
+            this.RRPlayerHPPset = new System.Windows.Forms.NumericUpDown();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.geopettab = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.GEOJA = new System.Windows.Forms.CheckedListBox();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
@@ -617,7 +667,7 @@
             this.benedictiongroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).BeginInit();
             this.RDMpage.SuspendLayout();
-            this.groupBox18.SuspendLayout();
+            this.Convertgroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).BeginInit();
             this.SCHpage.SuspendLayout();
@@ -738,15 +788,42 @@
             this.SMNJAgroup.SuspendLayout();
             this.SMNAbilitysgroup.SuspendLayout();
             this.puppettab.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.PUPAbilitypage.SuspendLayout();
+            this.Maneuversgroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Maneuver1set)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Maneuver2set)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Maneuver3set)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonMPset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonHPsaet)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.PUPOtherpage.SuspendLayout();
+            this.Ventriloquygroup.SuspendLayout();
+            this.Repairgroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Repairset)).BeginInit();
+            this.TacticalSwitchgroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TSPetTPset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TSPlayerTPset)).BeginInit();
+            this.RoleReversalgroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RRPetHPPset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RRPlayerHPPset)).BeginInit();
             this.geopettab.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // checkZone
             // 
             this.checkZone.AutoSize = true;
-            this.checkZone.Location = new System.Drawing.Point(617, 236);
+            this.checkZone.Location = new System.Drawing.Point(617, 205);
             this.checkZone.Name = "checkZone";
             this.checkZone.Size = new System.Drawing.Size(91, 17);
             this.checkZone.TabIndex = 51;
@@ -756,7 +833,7 @@
             // StopFullInventory
             // 
             this.StopFullInventory.AutoSize = true;
-            this.StopFullInventory.Location = new System.Drawing.Point(463, 219);
+            this.StopFullInventory.Location = new System.Drawing.Point(463, 188);
             this.StopFullInventory.Name = "StopFullInventory";
             this.StopFullInventory.Size = new System.Drawing.Size(129, 17);
             this.StopFullInventory.TabIndex = 50;
@@ -773,7 +850,7 @@
             this.groupBox8.Controls.Add(this.selectedNavi);
             this.groupBox8.Controls.Add(this.GetSetNavi);
             this.groupBox8.Enabled = false;
-            this.groupBox8.Location = new System.Drawing.Point(463, 250);
+            this.groupBox8.Location = new System.Drawing.Point(463, 219);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(253, 128);
             this.groupBox8.TabIndex = 49;
@@ -862,7 +939,7 @@
             // usenav
             // 
             this.usenav.AutoSize = true;
-            this.usenav.Location = new System.Drawing.Point(463, 236);
+            this.usenav.Location = new System.Drawing.Point(463, 205);
             this.usenav.Name = "usenav";
             this.usenav.Size = new System.Drawing.Size(118, 17);
             this.usenav.TabIndex = 48;
@@ -877,7 +954,7 @@
             this.startScriptToolStripMenuItem,
             this.stopScriptToolStripMenuItem,
             this.updateJobToolStripMenuItem});
-            this.StartStopScript.Location = new System.Drawing.Point(470, 383);
+            this.StartStopScript.Location = new System.Drawing.Point(470, 352);
             this.StartStopScript.Name = "StartStopScript";
             this.StartStopScript.Size = new System.Drawing.Size(238, 24);
             this.StartStopScript.TabIndex = 47;
@@ -2447,7 +2524,7 @@
             // 
             // RDMpage
             // 
-            this.RDMpage.Controls.Add(this.groupBox18);
+            this.RDMpage.Controls.Add(this.Convertgroup);
             this.RDMpage.Location = new System.Drawing.Point(4, 22);
             this.RDMpage.Name = "RDMpage";
             this.RDMpage.Padding = new System.Windows.Forms.Padding(3);
@@ -2456,24 +2533,24 @@
             this.RDMpage.Text = "RDM";
             this.RDMpage.UseVisualStyleBackColor = true;
             // 
-            // groupBox18
+            // Convertgroup
             // 
-            this.groupBox18.Controls.Add(this.ConvertHPP);
-            this.groupBox18.Controls.Add(this.ConvertMPP);
-            this.groupBox18.Controls.Add(this.ConvertMP);
-            this.groupBox18.Controls.Add(this.ConvertHP);
-            this.groupBox18.Controls.Add(this.convertmptext);
-            this.groupBox18.Controls.Add(this.converthptext);
-            this.groupBox18.Location = new System.Drawing.Point(7, 9);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(167, 69);
-            this.groupBox18.TabIndex = 0;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Convert";
+            this.Convertgroup.Controls.Add(this.ConvertHPP);
+            this.Convertgroup.Controls.Add(this.ConvertMPP);
+            this.Convertgroup.Controls.Add(this.ConvertMP);
+            this.Convertgroup.Controls.Add(this.ConvertHP);
+            this.Convertgroup.Controls.Add(this.convertmptext);
+            this.Convertgroup.Controls.Add(this.converthptext);
+            this.Convertgroup.Enabled = false;
+            this.Convertgroup.Location = new System.Drawing.Point(7, 9);
+            this.Convertgroup.Name = "Convertgroup";
+            this.Convertgroup.Size = new System.Drawing.Size(167, 69);
+            this.Convertgroup.TabIndex = 0;
+            this.Convertgroup.TabStop = false;
+            this.Convertgroup.Text = "Convert";
             // 
             // ConvertHPP
             // 
-            this.ConvertHPP.Enabled = false;
             this.ConvertHPP.Location = new System.Drawing.Point(111, 18);
             this.ConvertHPP.Name = "ConvertHPP";
             this.ConvertHPP.Size = new System.Drawing.Size(44, 20);
@@ -2486,7 +2563,6 @@
             // 
             // ConvertMPP
             // 
-            this.ConvertMPP.Enabled = false;
             this.ConvertMPP.Location = new System.Drawing.Point(111, 40);
             this.ConvertMPP.Name = "ConvertMPP";
             this.ConvertMPP.Size = new System.Drawing.Size(44, 20);
@@ -2500,10 +2576,9 @@
             // ConvertMP
             // 
             this.ConvertMP.AutoSize = true;
-            this.ConvertMP.Enabled = false;
             this.ConvertMP.Location = new System.Drawing.Point(6, 43);
             this.ConvertMP.Name = "ConvertMP";
-            this.ConvertMP.Size = new System.Drawing.Size(60, 17);
+            this.ConvertMP.Size = new System.Drawing.Size(59, 17);
             this.ConvertMP.TabIndex = 3;
             this.ConvertMP.Text = "For MP";
             this.ConvertMP.UseVisualStyleBackColor = true;
@@ -2511,10 +2586,9 @@
             // ConvertHP
             // 
             this.ConvertHP.AutoSize = true;
-            this.ConvertHP.Enabled = false;
             this.ConvertHP.Location = new System.Drawing.Point(6, 19);
             this.ConvertHP.Name = "ConvertHP";
-            this.ConvertHP.Size = new System.Drawing.Size(59, 17);
+            this.ConvertHP.Size = new System.Drawing.Size(58, 17);
             this.ConvertHP.TabIndex = 2;
             this.ConvertHP.Text = "For HP";
             this.ConvertHP.UseVisualStyleBackColor = true;
@@ -5372,9 +5446,9 @@
             this.ManaCedePMPPtext.AutoSize = true;
             this.ManaCedePMPPtext.Location = new System.Drawing.Point(13, 16);
             this.ManaCedePMPPtext.Name = "ManaCedePMPPtext";
-            this.ManaCedePMPPtext.Size = new System.Drawing.Size(71, 13);
+            this.ManaCedePMPPtext.Size = new System.Drawing.Size(72, 13);
             this.ManaCedePMPPtext.TabIndex = 30;
-            this.ManaCedePMPPtext.Text = "Player MPP >";
+            this.ManaCedePMPPtext.Text = "Player MP% >";
             // 
             // ManaCedeMPPset
             // 
@@ -5539,8 +5613,7 @@
             // 
             // puppettab
             // 
-            this.puppettab.Controls.Add(this.groupBox5);
-            this.puppettab.Controls.Add(this.checkBox8);
+            this.puppettab.Controls.Add(this.tabControl1);
             this.puppettab.Location = new System.Drawing.Point(4, 22);
             this.puppettab.Name = "puppettab";
             this.puppettab.Padding = new System.Windows.Forms.Padding(3);
@@ -5549,12 +5622,269 @@
             this.puppettab.Text = "PUP";
             this.puppettab.UseVisualStyleBackColor = true;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.PUPAbilitypage);
+            this.tabControl1.Controls.Add(this.PUPOtherpage);
+            this.tabControl1.Location = new System.Drawing.Point(6, 6);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(403, 235);
+            this.tabControl1.TabIndex = 36;
+            // 
+            // PUPAbilitypage
+            // 
+            this.PUPAbilitypage.Controls.Add(this.Maneuversgroup);
+            this.PUPAbilitypage.Controls.Add(this.groupBox4);
+            this.PUPAbilitypage.Controls.Add(this.AutoCallPUP);
+            this.PUPAbilitypage.Controls.Add(this.groupBox5);
+            this.PUPAbilitypage.Controls.Add(this.PUPautoengage);
+            this.PUPAbilitypage.Location = new System.Drawing.Point(4, 22);
+            this.PUPAbilitypage.Name = "PUPAbilitypage";
+            this.PUPAbilitypage.Padding = new System.Windows.Forms.Padding(3);
+            this.PUPAbilitypage.Size = new System.Drawing.Size(395, 209);
+            this.PUPAbilitypage.TabIndex = 0;
+            this.PUPAbilitypage.Text = "Ability\'s";
+            this.PUPAbilitypage.UseVisualStyleBackColor = true;
+            // 
+            // Maneuversgroup
+            // 
+            this.Maneuversgroup.Controls.Add(this.Maneuver3select);
+            this.Maneuversgroup.Controls.Add(this.Maneuver2select);
+            this.Maneuversgroup.Controls.Add(this.Maneuver1set);
+            this.Maneuversgroup.Controls.Add(this.Maneuver2set);
+            this.Maneuversgroup.Controls.Add(this.Maneuver3set);
+            this.Maneuversgroup.Controls.Add(this.Maneuver1select);
+            this.Maneuversgroup.Controls.Add(this.label49);
+            this.Maneuversgroup.Controls.Add(this.label56);
+            this.Maneuversgroup.Controls.Add(this.label51);
+            this.Maneuversgroup.Location = new System.Drawing.Point(172, 92);
+            this.Maneuversgroup.Name = "Maneuversgroup";
+            this.Maneuversgroup.Size = new System.Drawing.Size(214, 105);
+            this.Maneuversgroup.TabIndex = 15;
+            this.Maneuversgroup.TabStop = false;
+            this.Maneuversgroup.Text = "Maneuver\'s";
+            // 
+            // Maneuver3select
+            // 
+            this.Maneuver3select.FormattingEnabled = true;
+            this.Maneuver3select.Items.AddRange(new object[] {
+            "Dark Maneuver",
+            "Earth Maneuver",
+            "Fire Maneuver",
+            "Ice Maneuver",
+            "Light Maneuver",
+            "Thunder Maneuver",
+            "Water Maneuver",
+            "Wind Maneuver",
+            "Not Selected"});
+            this.Maneuver3select.Location = new System.Drawing.Point(10, 74);
+            this.Maneuver3select.Name = "Maneuver3select";
+            this.Maneuver3select.Size = new System.Drawing.Size(116, 21);
+            this.Maneuver3select.TabIndex = 44;
+            this.Maneuver3select.Text = "Not Selected";
+            this.Maneuver3select.SelectedIndexChanged += new System.EventHandler(this.Maneuver3select_SelectedIndexChanged);
+            // 
+            // Maneuver2select
+            // 
+            this.Maneuver2select.FormattingEnabled = true;
+            this.Maneuver2select.Items.AddRange(new object[] {
+            "Dark Maneuver",
+            "Earth Maneuver",
+            "Fire Maneuver",
+            "Ice Maneuver",
+            "Light Maneuver",
+            "Thunder Maneuver",
+            "Water Maneuver",
+            "Wind Maneuver",
+            "Not Selected"});
+            this.Maneuver2select.Location = new System.Drawing.Point(10, 47);
+            this.Maneuver2select.Name = "Maneuver2select";
+            this.Maneuver2select.Size = new System.Drawing.Size(116, 21);
+            this.Maneuver2select.TabIndex = 43;
+            this.Maneuver2select.Text = "Not Selected";
+            this.Maneuver2select.SelectedIndexChanged += new System.EventHandler(this.Maneuver2select_SelectedIndexChanged);
+            // 
+            // Maneuver1set
+            // 
+            this.Maneuver1set.Enabled = false;
+            this.Maneuver1set.Location = new System.Drawing.Point(176, 21);
+            this.Maneuver1set.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.Maneuver1set.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Maneuver1set.Name = "Maneuver1set";
+            this.Maneuver1set.Size = new System.Drawing.Size(28, 20);
+            this.Maneuver1set.TabIndex = 36;
+            this.Maneuver1set.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // Maneuver2set
+            // 
+            this.Maneuver2set.Enabled = false;
+            this.Maneuver2set.Location = new System.Drawing.Point(176, 48);
+            this.Maneuver2set.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.Maneuver2set.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Maneuver2set.Name = "Maneuver2set";
+            this.Maneuver2set.Size = new System.Drawing.Size(28, 20);
+            this.Maneuver2set.TabIndex = 37;
+            this.Maneuver2set.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // Maneuver3set
+            // 
+            this.Maneuver3set.Enabled = false;
+            this.Maneuver3set.Location = new System.Drawing.Point(176, 75);
+            this.Maneuver3set.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.Maneuver3set.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Maneuver3set.Name = "Maneuver3set";
+            this.Maneuver3set.Size = new System.Drawing.Size(28, 20);
+            this.Maneuver3set.TabIndex = 38;
+            this.Maneuver3set.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // Maneuver1select
+            // 
+            this.Maneuver1select.FormattingEnabled = true;
+            this.Maneuver1select.Items.AddRange(new object[] {
+            "Dark Maneuver",
+            "Earth Maneuver",
+            "Fire Maneuver",
+            "Ice Maneuver",
+            "Light Maneuver",
+            "Thunder Maneuver",
+            "Water Maneuver",
+            "Wind Maneuver",
+            "Not Selected"});
+            this.Maneuver1select.Location = new System.Drawing.Point(10, 20);
+            this.Maneuver1select.Name = "Maneuver1select";
+            this.Maneuver1select.Size = new System.Drawing.Size(116, 21);
+            this.Maneuver1select.TabIndex = 42;
+            this.Maneuver1select.Text = "Not Selected";
+            this.Maneuver1select.SelectedIndexChanged += new System.EventHandler(this.Maneuver1select_SelectedIndexChanged);
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(132, 50);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(38, 13);
+            this.label49.TabIndex = 39;
+            this.label49.Text = "Count:";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(132, 77);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(38, 13);
+            this.label56.TabIndex = 41;
+            this.label56.Text = "Count:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(132, 23);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(38, 13);
+            this.label51.TabIndex = 40;
+            this.label51.Text = "Count:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.healforAutomatonMP);
+            this.groupBox4.Controls.Add(this.healforAutomatonHP);
+            this.groupBox4.Controls.Add(this.healforAutomatonMPset);
+            this.groupBox4.Controls.Add(this.healforAutomatonHPsaet);
+            this.groupBox4.Enabled = false;
+            this.groupBox4.Location = new System.Drawing.Point(259, 16);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(127, 70);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Auto /Heal";
+            // 
+            // healforAutomatonMP
+            // 
+            this.healforAutomatonMP.AutoSize = true;
+            this.healforAutomatonMP.Location = new System.Drawing.Point(9, 43);
+            this.healforAutomatonMP.Name = "healforAutomatonMP";
+            this.healforAutomatonMP.Size = new System.Drawing.Size(64, 17);
+            this.healforAutomatonMP.TabIndex = 6;
+            this.healforAutomatonMP.Text = "MP% @";
+            this.healforAutomatonMP.UseVisualStyleBackColor = true;
+            // 
+            // healforAutomatonHP
+            // 
+            this.healforAutomatonHP.AutoSize = true;
+            this.healforAutomatonHP.Location = new System.Drawing.Point(9, 20);
+            this.healforAutomatonHP.Name = "healforAutomatonHP";
+            this.healforAutomatonHP.Size = new System.Drawing.Size(63, 17);
+            this.healforAutomatonHP.TabIndex = 5;
+            this.healforAutomatonHP.Text = "HP% @";
+            this.healforAutomatonHP.UseVisualStyleBackColor = true;
+            // 
+            // healforAutomatonMPset
+            // 
+            this.healforAutomatonMPset.Location = new System.Drawing.Point(77, 42);
+            this.healforAutomatonMPset.Name = "healforAutomatonMPset";
+            this.healforAutomatonMPset.Size = new System.Drawing.Size(38, 20);
+            this.healforAutomatonMPset.TabIndex = 4;
+            // 
+            // healforAutomatonHPsaet
+            // 
+            this.healforAutomatonHPsaet.Location = new System.Drawing.Point(77, 19);
+            this.healforAutomatonHPsaet.Name = "healforAutomatonHPsaet";
+            this.healforAutomatonHPsaet.Size = new System.Drawing.Size(38, 20);
+            this.healforAutomatonHPsaet.TabIndex = 3;
+            // 
+            // AutoCallPUP
+            // 
+            this.AutoCallPUP.AutoSize = true;
+            this.AutoCallPUP.Location = new System.Drawing.Point(8, 6);
+            this.AutoCallPUP.Name = "AutoCallPUP";
+            this.AutoCallPUP.Size = new System.Drawing.Size(122, 17);
+            this.AutoCallPUP.TabIndex = 15;
+            this.AutoCallPUP.Text = "Auto Call Automaton";
+            this.AutoCallPUP.UseVisualStyleBackColor = true;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.PUPJA);
-            this.groupBox5.Location = new System.Drawing.Point(14, 73);
+            this.groupBox5.Location = new System.Drawing.Point(8, 48);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(176, 159);
+            this.groupBox5.Size = new System.Drawing.Size(158, 152);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Pet JA";
@@ -5567,18 +5897,266 @@
             this.PUPJA.FormattingEnabled = true;
             this.PUPJA.Location = new System.Drawing.Point(3, 16);
             this.PUPJA.Name = "PUPJA";
-            this.PUPJA.Size = new System.Drawing.Size(170, 140);
+            this.PUPJA.Size = new System.Drawing.Size(152, 133);
             this.PUPJA.TabIndex = 1;
+            this.PUPJA.SelectedIndexChanged += new System.EventHandler(this.PUPJA_SelectedIndexChanged);
             // 
-            // checkBox8
+            // PUPautoengage
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(305, 6);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(107, 17);
-            this.checkBox8.TabIndex = 3;
-            this.checkBox8.Text = "Auto Engage Pet";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.PUPautoengage.AutoSize = true;
+            this.PUPautoengage.Location = new System.Drawing.Point(8, 25);
+            this.PUPautoengage.Name = "PUPautoengage";
+            this.PUPautoengage.Size = new System.Drawing.Size(142, 17);
+            this.PUPautoengage.TabIndex = 3;
+            this.PUPautoengage.Text = "Auto Engage Automaton";
+            this.PUPautoengage.UseVisualStyleBackColor = true;
+            // 
+            // PUPOtherpage
+            // 
+            this.PUPOtherpage.Controls.Add(this.Ventriloquygroup);
+            this.PUPOtherpage.Controls.Add(this.Repairgroup);
+            this.PUPOtherpage.Controls.Add(this.TacticalSwitchgroup);
+            this.PUPOtherpage.Controls.Add(this.RoleReversalgroup);
+            this.PUPOtherpage.Location = new System.Drawing.Point(4, 22);
+            this.PUPOtherpage.Name = "PUPOtherpage";
+            this.PUPOtherpage.Padding = new System.Windows.Forms.Padding(3);
+            this.PUPOtherpage.Size = new System.Drawing.Size(395, 209);
+            this.PUPOtherpage.TabIndex = 2;
+            this.PUPOtherpage.Text = "Other";
+            this.PUPOtherpage.UseVisualStyleBackColor = true;
+            // 
+            // Ventriloquygroup
+            // 
+            this.Ventriloquygroup.Controls.Add(this.VentriloquyPet);
+            this.Ventriloquygroup.Controls.Add(this.VentriloquyPlayer);
+            this.Ventriloquygroup.Enabled = false;
+            this.Ventriloquygroup.Location = new System.Drawing.Point(226, 93);
+            this.Ventriloquygroup.Name = "Ventriloquygroup";
+            this.Ventriloquygroup.Size = new System.Drawing.Size(157, 66);
+            this.Ventriloquygroup.TabIndex = 6;
+            this.Ventriloquygroup.TabStop = false;
+            this.Ventriloquygroup.Text = "Ventriloquy";
+            // 
+            // VentriloquyPet
+            // 
+            this.VentriloquyPet.AutoSize = true;
+            this.VentriloquyPet.Location = new System.Drawing.Point(12, 42);
+            this.VentriloquyPet.Name = "VentriloquyPet";
+            this.VentriloquyPet.Size = new System.Drawing.Size(118, 17);
+            this.VentriloquyPet.TabIndex = 1;
+            this.VentriloquyPet.TabStop = true;
+            this.VentriloquyPet.Text = "Keep Target on Pet";
+            this.VentriloquyPet.UseVisualStyleBackColor = true;
+            // 
+            // VentriloquyPlayer
+            // 
+            this.VentriloquyPlayer.AutoSize = true;
+            this.VentriloquyPlayer.Location = new System.Drawing.Point(12, 19);
+            this.VentriloquyPlayer.Name = "VentriloquyPlayer";
+            this.VentriloquyPlayer.Size = new System.Drawing.Size(131, 17);
+            this.VentriloquyPlayer.TabIndex = 0;
+            this.VentriloquyPlayer.TabStop = true;
+            this.VentriloquyPlayer.Text = "Keep Target on Player";
+            this.VentriloquyPlayer.UseVisualStyleBackColor = true;
+            // 
+            // Repairgroup
+            // 
+            this.Repairgroup.Controls.Add(this.Repairselect);
+            this.Repairgroup.Controls.Add(this.label18);
+            this.Repairgroup.Controls.Add(this.Repairset);
+            this.Repairgroup.Controls.Add(this.label14);
+            this.Repairgroup.Enabled = false;
+            this.Repairgroup.Location = new System.Drawing.Point(226, 11);
+            this.Repairgroup.Name = "Repairgroup";
+            this.Repairgroup.Size = new System.Drawing.Size(163, 76);
+            this.Repairgroup.TabIndex = 5;
+            this.Repairgroup.TabStop = false;
+            this.Repairgroup.Text = "Repair";
+            // 
+            // Repairselect
+            // 
+            this.Repairselect.FormattingEnabled = true;
+            this.Repairselect.Items.AddRange(new object[] {
+            "Automaton Oil",
+            "Automaton Oil +1",
+            "Automaton Oil +2",
+            "Automaton Oil +3"});
+            this.Repairselect.Location = new System.Drawing.Point(45, 19);
+            this.Repairselect.Name = "Repairselect";
+            this.Repairselect.Size = new System.Drawing.Size(112, 21);
+            this.Repairselect.TabIndex = 35;
+            this.Repairselect.Text = "Automaton Oil";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(9, 22);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(32, 13);
+            this.label18.TabIndex = 34;
+            this.label18.Text = "With:";
+            // 
+            // Repairset
+            // 
+            this.Repairset.Location = new System.Drawing.Point(118, 46);
+            this.Repairset.Name = "Repairset";
+            this.Repairset.Size = new System.Drawing.Size(39, 20);
+            this.Repairset.TabIndex = 32;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(42, 48);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 13);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "@ Pet HP% <";
+            // 
+            // TacticalSwitchgroup
+            // 
+            this.TacticalSwitchgroup.Controls.Add(this.TSPET);
+            this.TacticalSwitchgroup.Controls.Add(this.TSPlayer);
+            this.TacticalSwitchgroup.Controls.Add(this.TSPetTPset);
+            this.TacticalSwitchgroup.Controls.Add(this.TSPlayerTPset);
+            this.TacticalSwitchgroup.Controls.Add(this.label26);
+            this.TacticalSwitchgroup.Controls.Add(this.label41);
+            this.TacticalSwitchgroup.Enabled = false;
+            this.TacticalSwitchgroup.Location = new System.Drawing.Point(8, 82);
+            this.TacticalSwitchgroup.Name = "TacticalSwitchgroup";
+            this.TacticalSwitchgroup.Size = new System.Drawing.Size(211, 66);
+            this.TacticalSwitchgroup.TabIndex = 1;
+            this.TacticalSwitchgroup.TabStop = false;
+            this.TacticalSwitchgroup.Text = "Tactical Switch";
+            // 
+            // TSPET
+            // 
+            this.TSPET.AutoSize = true;
+            this.TSPET.Location = new System.Drawing.Point(7, 41);
+            this.TSPET.Name = "TSPET";
+            this.TSPET.Size = new System.Drawing.Size(94, 17);
+            this.TSPET.TabIndex = 5;
+            this.TSPET.Text = "For Automaton";
+            this.TSPET.UseVisualStyleBackColor = true;
+            // 
+            // TSPlayer
+            // 
+            this.TSPlayer.AutoSize = true;
+            this.TSPlayer.Location = new System.Drawing.Point(7, 16);
+            this.TSPlayer.Name = "TSPlayer";
+            this.TSPlayer.Size = new System.Drawing.Size(72, 17);
+            this.TSPlayer.TabIndex = 4;
+            this.TSPlayer.Text = "For Player";
+            this.TSPlayer.UseVisualStyleBackColor = true;
+            // 
+            // TSPetTPset
+            // 
+            this.TSPetTPset.Location = new System.Drawing.Point(159, 40);
+            this.TSPetTPset.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.TSPetTPset.Name = "TSPetTPset";
+            this.TSPetTPset.Size = new System.Drawing.Size(46, 20);
+            this.TSPetTPset.TabIndex = 3;
+            // 
+            // TSPlayerTPset
+            // 
+            this.TSPlayerTPset.Location = new System.Drawing.Point(160, 14);
+            this.TSPlayerTPset.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.TSPlayerTPset.Name = "TSPlayerTPset";
+            this.TSPlayerTPset.Size = new System.Drawing.Size(45, 20);
+            this.TSPlayerTPset.TabIndex = 2;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(113, 42);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(40, 13);
+            this.label26.TabIndex = 1;
+            this.label26.Text = "Pet TP";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(101, 16);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(53, 13);
+            this.label41.TabIndex = 0;
+            this.label41.Text = "Player TP";
+            // 
+            // RoleReversalgroup
+            // 
+            this.RoleReversalgroup.Controls.Add(this.RRPET);
+            this.RoleReversalgroup.Controls.Add(this.RRPlayer);
+            this.RoleReversalgroup.Controls.Add(this.RRPetHPPset);
+            this.RoleReversalgroup.Controls.Add(this.RRPlayerHPPset);
+            this.RoleReversalgroup.Controls.Add(this.label24);
+            this.RoleReversalgroup.Controls.Add(this.label19);
+            this.RoleReversalgroup.Enabled = false;
+            this.RoleReversalgroup.Location = new System.Drawing.Point(8, 11);
+            this.RoleReversalgroup.Name = "RoleReversalgroup";
+            this.RoleReversalgroup.Size = new System.Drawing.Size(211, 65);
+            this.RoleReversalgroup.TabIndex = 0;
+            this.RoleReversalgroup.TabStop = false;
+            this.RoleReversalgroup.Text = "Role Reversal";
+            // 
+            // RRPET
+            // 
+            this.RRPET.AutoSize = true;
+            this.RRPET.Location = new System.Drawing.Point(7, 41);
+            this.RRPET.Name = "RRPET";
+            this.RRPET.Size = new System.Drawing.Size(94, 17);
+            this.RRPET.TabIndex = 5;
+            this.RRPET.Text = "For Automaton";
+            this.RRPET.UseVisualStyleBackColor = true;
+            // 
+            // RRPlayer
+            // 
+            this.RRPlayer.AutoSize = true;
+            this.RRPlayer.Location = new System.Drawing.Point(7, 16);
+            this.RRPlayer.Name = "RRPlayer";
+            this.RRPlayer.Size = new System.Drawing.Size(72, 17);
+            this.RRPlayer.TabIndex = 4;
+            this.RRPlayer.Text = "For Player";
+            this.RRPlayer.UseVisualStyleBackColor = true;
+            // 
+            // RRPetHPPset
+            // 
+            this.RRPetHPPset.Location = new System.Drawing.Point(167, 40);
+            this.RRPetHPPset.Name = "RRPetHPPset";
+            this.RRPetHPPset.Size = new System.Drawing.Size(38, 20);
+            this.RRPetHPPset.TabIndex = 3;
+            // 
+            // RRPlayerHPPset
+            // 
+            this.RRPlayerHPPset.Location = new System.Drawing.Point(167, 14);
+            this.RRPlayerHPPset.Name = "RRPlayerHPPset";
+            this.RRPlayerHPPset.Size = new System.Drawing.Size(38, 20);
+            this.RRPlayerHPPset.TabIndex = 2;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(113, 42);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(49, 13);
+            this.label24.TabIndex = 1;
+            this.label24.Text = "Pet HP%";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(101, 16);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(62, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Player HP%";
             // 
             // geopettab
             // 
@@ -5611,6 +6189,102 @@
             this.GEOJA.Name = "GEOJA";
             this.GEOJA.Size = new System.Drawing.Size(170, 140);
             this.GEOJA.TabIndex = 1;
+            // 
+            // numericUpDown8
+            // 
+            this.numericUpDown8.Location = new System.Drawing.Point(333, 137);
+            this.numericUpDown8.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.Size = new System.Drawing.Size(28, 20);
+            this.numericUpDown8.TabIndex = 31;
+            // 
+            // numericUpDown9
+            // 
+            this.numericUpDown9.Location = new System.Drawing.Point(333, 96);
+            this.numericUpDown9.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown9.Name = "numericUpDown9";
+            this.numericUpDown9.Size = new System.Drawing.Size(28, 20);
+            this.numericUpDown9.TabIndex = 30;
+            // 
+            // numericUpDown10
+            // 
+            this.numericUpDown10.Location = new System.Drawing.Point(333, 55);
+            this.numericUpDown10.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown10.Name = "numericUpDown10";
+            this.numericUpDown10.Size = new System.Drawing.Size(28, 20);
+            this.numericUpDown10.TabIndex = 29;
+            // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Location = new System.Drawing.Point(333, 14);
+            this.numericUpDown5.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.Size = new System.Drawing.Size(28, 20);
+            this.numericUpDown5.TabIndex = 28;
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(139, 138);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(28, 20);
+            this.numericUpDown4.TabIndex = 27;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(139, 96);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(28, 20);
+            this.numericUpDown3.TabIndex = 26;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(139, 55);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(28, 20);
+            this.numericUpDown2.TabIndex = 25;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(139, 14);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(28, 20);
+            this.numericUpDown1.TabIndex = 24;
             // 
             // bgw_script_dnc
             // 
@@ -5645,7 +6319,7 @@
             // DeathWarp
             // 
             this.DeathWarp.AutoSize = true;
-            this.DeathWarp.Location = new System.Drawing.Point(617, 219);
+            this.DeathWarp.Location = new System.Drawing.Point(617, 188);
             this.DeathWarp.Name = "DeathWarp";
             this.DeathWarp.Size = new System.Drawing.Size(99, 17);
             this.DeathWarp.TabIndex = 52;
@@ -5654,7 +6328,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(463, 186);
+            this.button1.Location = new System.Drawing.Point(463, 384);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 23);
             this.button1.TabIndex = 53;
@@ -5664,7 +6338,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(617, 186);
+            this.button2.Location = new System.Drawing.Point(630, 384);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 23);
             this.button2.TabIndex = 54;
@@ -5748,8 +6422,8 @@
             this.benedictiongroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BenedictionHPPuse)).EndInit();
             this.RDMpage.ResumeLayout(false);
-            this.groupBox18.ResumeLayout(false);
-            this.groupBox18.PerformLayout();
+            this.Convertgroup.ResumeLayout(false);
+            this.Convertgroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).EndInit();
             this.SCHpage.ResumeLayout(false);
@@ -5902,10 +6576,43 @@
             this.SMNJAgroup.ResumeLayout(false);
             this.SMNAbilitysgroup.ResumeLayout(false);
             this.puppettab.ResumeLayout(false);
-            this.puppettab.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.PUPAbilitypage.ResumeLayout(false);
+            this.PUPAbilitypage.PerformLayout();
+            this.Maneuversgroup.ResumeLayout(false);
+            this.Maneuversgroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Maneuver1set)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Maneuver2set)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Maneuver3set)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonMPset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonHPsaet)).EndInit();
             this.groupBox5.ResumeLayout(false);
+            this.PUPOtherpage.ResumeLayout(false);
+            this.Ventriloquygroup.ResumeLayout(false);
+            this.Ventriloquygroup.PerformLayout();
+            this.Repairgroup.ResumeLayout(false);
+            this.Repairgroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Repairset)).EndInit();
+            this.TacticalSwitchgroup.ResumeLayout(false);
+            this.TacticalSwitchgroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TSPetTPset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TSPlayerTPset)).EndInit();
+            this.RoleReversalgroup.ResumeLayout(false);
+            this.RoleReversalgroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RRPetHPPset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RRPlayerHPPset)).EndInit();
             this.geopettab.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6188,7 +6895,7 @@
         public System.Windows.Forms.Label label20;
         public System.Windows.Forms.CheckBox DeathWarp;
         public NumericUpDown stopstepscount;
-        public CheckBox checkBox8;
+        public CheckBox PUPautoengage;
         public CheckBox stopstepsat;
         private TabPage OptionsMAMainTab;
         private TabControl MAtabs;
@@ -6225,11 +6932,11 @@
         private NumericUpDown BenedictionHPPuse;
         private Label benedictiontext;
         private TabPage RDMpage;
-        private GroupBox groupBox18;
+        private GroupBox Convertgroup;
         private NumericUpDown ConvertHPP;
         private NumericUpDown ConvertMPP;
-        private CheckBox ConvertMP;
-        private CheckBox ConvertHP;
+        private System.Windows.Forms.RadioButton ConvertMP;
+        private System.Windows.Forms.RadioButton ConvertHP;
         private Label convertmptext;
         private Label converthptext;
         private TabPage RUNpage;
@@ -6305,7 +7012,7 @@
         {
             dncControl.SelectTab("combat");
             PopulateTargetLists("ID");
-            CharacterUpdate(true);
+            CharacterUpdate();
 
             if (PetInfo.Name != null)
                 pInfo();
@@ -6319,7 +7026,7 @@
 
         private void UpdateJobToolStripMenuItemClick(object sender, EventArgs e)
         {
-            CharacterUpdate(true);
+            CharacterUpdate();
 
             if (PetInfo.Name != null)
                 pInfo();
@@ -6389,75 +7096,70 @@
             569, 570, 571, 572, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 593,
             594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619,
             620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644,
-            645, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670,
-            671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 708, 709,
+            645, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670,
+            671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 682, 683, 684, 685, 686, 687, 688, 689, 690, 693, 708, 709,
             722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 745, 746, 747, 748,
             749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773,
-            777, 778, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 803,
-            804, 805, 807, 809, 810, 813, 814, 815, 816, 817, 821, 822, 828, 829, 830, 831, 832, 833, 834, 835,
-            836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860,
+            777, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 803,
+            804, 805, 807, 809, 810, 813, 814, 815, 816, 817, 828, 829, 830, 831, 832, 833, 835,
+            836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 850, 851, 853, 854, 855, 856, 857, 858, 859, 860,
             861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885,
             886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 898, 899, 900, 901, 902, 903, 904,});
             #endregion
 
-            if (PlayerInfo.MainJob == 14) WyvernGetJA();
-            if (PlayerInfo.MainJob == 9) BSTGetJA();
-            else
+            for (uint i = 528; i <= 2227; i++)
             {
-                for (uint i = 528; i <= 2227; i++)
+                if (PlayerInfo.HasAbility(i))
                 {
-                    if (PlayerInfo.HasAbility(i))
-                    {
-                        var ability = api.Resources.GetAbility(i);
+                    var ability = api.Resources.GetAbility(i);
 
-                        if (i >= 1024 && PlayerInfo.MainJob != 23) continue;
-                        else if (i >= 1024 && PlayerInfo.MainJob == 23)
-                        {
-                            playerJA.Items.Add(ability.Name);
-                            continue;
-                        }
-                        else if (!abilitylist.Contains(ability.ID)) continue;
-                        else if (i == 735)
-                        {
-                            var job = 0;
-                            if (PlayerInfo.MainJob == 20) job = PlayerInfo.MainJobLevel;
-                            if (PlayerInfo.SubJob == 20) job = PlayerInfo.SubJobLevel;
-                            if (!playerJA.Items.Contains("Addendum: White") && job >= 10) playerJA.Items.Add("Addendum: White");
-                            if (!playerJA.Items.Contains("Penury") && job >= 10) playerJA.Items.Add("Penury");
-                            if (!playerJA.Items.Contains("Celerity") && job >= 25) playerJA.Items.Add("Celerity");
-                            if (!playerJA.Items.Contains("Accession") && job >= 40) playerJA.Items.Add("Accession");
-                            if (!playerJA.Items.Contains("Rapture") && job >= 55) playerJA.Items.Add("Rapture");
-                            if (!playerJA.Items.Contains("Altruism") && job >= 75) playerJA.Items.Add("Altruism");
-                            if (!playerJA.Items.Contains("Tranquility") && job >= 75) playerJA.Items.Add("Tranquility");
-                            if (!playerJA.Items.Contains("Perpetuance") && job >= 87) playerJA.Items.Add("Perpetuance");
-                            if (!playerJA.Items.Contains("Parsimony") && job >= 10) playerJA.Items.Add("Parsimony");
-                            if (!playerJA.Items.Contains("Alacrity") && job >= 25) playerJA.Items.Add("Alacrity");
-                            if (!playerJA.Items.Contains("Addendum: Black") && job >= 30) playerJA.Items.Add("Addendum: Black");
-                            if (!playerJA.Items.Contains("Manifestation") && job >= 40) playerJA.Items.Add("Manifestation");
-                            if (!playerJA.Items.Contains("Ebullience") && job >= 55) playerJA.Items.Add("Ebullience");
-                            if (!playerJA.Items.Contains("Focalization") && job >= 75) playerJA.Items.Add("Focalization");
-                            if (!playerJA.Items.Contains("Equanimity") && job >= 75) playerJA.Items.Add("Equanimity");
-                            if (!playerJA.Items.Contains("Immanence") && job >= 87) playerJA.Items.Add("Immanence");
-                        }
-                        else if (i == 670)
-                        {
-                            var job = 0;
-                            if (PlayerInfo.MainJob == 7) job = PlayerInfo.MainJobLevel;
-                            if (PlayerInfo.SubJob == 7) job = PlayerInfo.SubJobLevel;
-                            if (!playerJA.Items.Contains("Chivalry TP > 1000") && job >= 75) playerJA.Items.Add("Chivalry TP > 1000");
-                            if (!playerJA.Items.Contains("Chivalry TP > 2000") && job >= 75) playerJA.Items.Add("Chivalry TP > 2000");
-                            if (!playerJA.Items.Contains("Chivalry TP > 3000") && job >= 75) playerJA.Items.Add("Chivalry TP > 3000");
-                        }
-                        else if (!playerJA.Items.Contains(ability.Name))
-                        {
-                            playerJA.Items.Add(ability.Name);
-                        }
+                    if (i >= 1024 && PlayerInfo.MainJob != 23) continue;
+                    else if (i >= 1024 && PlayerInfo.MainJob == 23)
+                    {
+                        playerJA.Items.Add(ability.Name);
+                        continue;
+                    }
+                    else if (!abilitylist.Contains(ability.ID)) continue;
+                    else if (i == 735)
+                    {
+                        var job = 0;
+                        if (PlayerInfo.MainJob == 20) job = PlayerInfo.MainJobLevel;
+                        if (PlayerInfo.SubJob == 20) job = PlayerInfo.SubJobLevel;
+                        if (!playerJA.Items.Contains("Addendum: White") && job >= 10) playerJA.Items.Add("Addendum: White");
+                        if (!playerJA.Items.Contains("Penury") && job >= 10) playerJA.Items.Add("Penury");
+                        if (!playerJA.Items.Contains("Celerity") && job >= 25) playerJA.Items.Add("Celerity");
+                        if (!playerJA.Items.Contains("Accession") && job >= 40) playerJA.Items.Add("Accession");
+                        if (!playerJA.Items.Contains("Rapture") && job >= 55) playerJA.Items.Add("Rapture");
+                        if (!playerJA.Items.Contains("Altruism") && job >= 75) playerJA.Items.Add("Altruism");
+                        if (!playerJA.Items.Contains("Tranquility") && job >= 75) playerJA.Items.Add("Tranquility");
+                        if (!playerJA.Items.Contains("Perpetuance") && job >= 87) playerJA.Items.Add("Perpetuance");
+                        if (!playerJA.Items.Contains("Parsimony") && job >= 10) playerJA.Items.Add("Parsimony");
+                        if (!playerJA.Items.Contains("Alacrity") && job >= 25) playerJA.Items.Add("Alacrity");
+                        if (!playerJA.Items.Contains("Addendum: Black") && job >= 30) playerJA.Items.Add("Addendum: Black");
+                        if (!playerJA.Items.Contains("Manifestation") && job >= 40) playerJA.Items.Add("Manifestation");
+                        if (!playerJA.Items.Contains("Ebullience") && job >= 55) playerJA.Items.Add("Ebullience");
+                        if (!playerJA.Items.Contains("Focalization") && job >= 75) playerJA.Items.Add("Focalization");
+                        if (!playerJA.Items.Contains("Equanimity") && job >= 75) playerJA.Items.Add("Equanimity");
+                        if (!playerJA.Items.Contains("Immanence") && job >= 87) playerJA.Items.Add("Immanence");
+                    }
+                    else if (i == 670)
+                    {
+                        var job = 0;
+                        if (PlayerInfo.MainJob == 7) job = PlayerInfo.MainJobLevel;
+                        if (PlayerInfo.SubJob == 7) job = PlayerInfo.SubJobLevel;
+                        if (!playerJA.Items.Contains("Chivalry TP > 1000") && job >= 75) playerJA.Items.Add("Chivalry TP > 1000");
+                        if (!playerJA.Items.Contains("Chivalry TP > 2000") && job >= 75) playerJA.Items.Add("Chivalry TP > 2000");
+                        if (!playerJA.Items.Contains("Chivalry TP > 3000") && job >= 75) playerJA.Items.Add("Chivalry TP > 3000");
+                    }
+                    else if (!playerJA.Items.Contains(ability.Name))
+                    {
+                        playerJA.Items.Add(ability.Name);
                     }
                 }
-                if (playerJA.Items.Contains("Sharpshot") && playerJA.Items.Contains("Barrage")) playerJA.Items.Add("Sharpshot + Barrage");
-                if (PlayerInfo.MainJob != 20 && PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
-                else bgw_script_sch.RunWorkerAsync();
             }
+            if (playerJA.Items.Contains("Sharpshot") && playerJA.Items.Contains("Barrage")) playerJA.Items.Add("Sharpshot + Barrage");
+            if (PlayerInfo.MainJob != 20 && PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
+            else bgw_script_sch.RunWorkerAsync();
         }
 
         private void ClearJA_Click(object sender, EventArgs e)
@@ -6536,7 +7238,7 @@
             playerMA.Items.Clear();
         }
 
-        public void CharacterUpdate(bool a)
+        public void CharacterUpdate()
         {
             this.JAtabselect.Controls.Remove(this.WHMpage);
             this.JAtabselect.Controls.Remove(this.RDMpage);
@@ -6603,8 +7305,16 @@
             List<int> PETjobs = new List<int>(new int[] { 9, 14, 15, 18, 21 });
             if (PETjobs.Contains(PlayerInfo.MainJob) || PETjobs.Contains(PlayerInfo.SubJob))
             {
-                if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9) this.petControl.Controls.Add(this.bstpettab);
-                if (PlayerInfo.MainJob == 14 || PlayerInfo.SubJob == 14) this.petControl.Controls.Add(this.drgpettab);
+                if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
+                {
+                    this.petControl.Controls.Add(this.bstpettab);
+                    BSTGetJA();
+                }
+                if (PlayerInfo.MainJob == 14 || PlayerInfo.SubJob == 14)
+                {
+                    this.petControl.Controls.Add(this.drgpettab);
+                    WyvernGetJA();
+                }
                 if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15) 
                 {
                     this.petControl.Controls.Add(this.smnpettab);
@@ -6619,9 +7329,10 @@
                         if (PlayerInfo.HasSpell(kvp.Value) && !SMNSelect.Items.Contains(kvp.Key)) SMNSelect.Items.Add(kvp.Key);
                     }
                 }
-                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18) 
+                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18 && !isLoading) 
                 {
                     this.petControl.Controls.Add(this.puppettab);
+                    PUPGetJA();
                 }
                 if (PlayerInfo.MainJob == 21 || PlayerInfo.SubJob == 21) 
                 {
@@ -6629,7 +7340,7 @@
                 }
                 this.dncControl.Controls.Add(this.pets);
             }
-            if (a)
+            if (!isLoading)
             {
                 ClearJA_Click(null, null);
                 LoadJA_Click(null, null);
@@ -6641,12 +7352,17 @@
         #endregion
         #region Methods: Save/Load Config
         #region config: save/load (player)
-        public void saveConfig()
+        private void button1_Click(object sender, EventArgs e)
         {
+            Dictionary<int, string> savename = new Dictionary<int, string>()
+            {{1, "Warrior"},{2, "Monk"},{3, "White_Mage"},{4, "Black_Mage"},{5, "Red_Mage"},{6, "Thief"},{7, "Paladin"},{8, "Dark_Knight"},{9, "Beastmaster"},
+             {10, "Bard"},{11, "Ranger"},{12, "Samurai"},{13, "Ninja"},{14, "Dragoon"},{15, "Summoner"},{16, "Blue_Mage"},{17, "Corsair"},{18, "Puppetmaster"},
+             {19, "Dancer"},{20, "Scholar"},{21, "Geomancer"},{22, "Rune_Fencer"},{23, "Monipulator"}};
             var saveFile = new SaveFileDialog();
             saveFile.Filter = @"settings file (*.xml)|*.xml";
             saveFile.InitialDirectory = Application.StartupPath + @"\settings";
-            saveFile.Title = @"save a settings file";
+            saveFile.FileName = savename[PlayerInfo.MainJob] +"_"+savename[PlayerInfo.SubJob]+".xml";
+            saveFile.Title = @"Save your settings file";
             switch (saveFile.ShowDialog())
             {
                 case DialogResult.OK:
@@ -6654,18 +7370,28 @@
                     break;
             }
         }
-        public void loadConfig()
+        private void button2_Click(object sender, EventArgs e)
         {
+            isLoading = true;
+            updatenav();
+            Dictionary<int, string> savename = new Dictionary<int, string>()
+            {{1, "Warrior"},{2, "Monk"},{3, "White_Mage"},{4, "Black_Mage"},{5, "Red_Mage"},{6, "Thief"},{7, "Paladin"},{8, "Dark_Knight"},{9, "Beastmaster"},
+             {10, "Bard"},{11, "Ranger"},{12, "Samurai"},{13, "Ninja"},{14, "Dragoon"},{15, "Summoner"},{16, "Blue_Mage"},{17, "Corsair"},{18, "Puppetmaster"},
+             {19, "Dancer"},{20, "Scholar"},{21, "Geomancer"},{22, "Rune_Fencer"},{23, "Monipulator"}};
             var openFile = new OpenFileDialog();
-            openFile.Filter = @"mob files (*.xml)|*.xml";
+            openFile.Filter = @"settings files (*.xml)|*.xml";
             openFile.InitialDirectory = Application.StartupPath + @"\settings";
-            openFile.Title = @"save a settings file";
+            openFile.FileName = savename[PlayerInfo.MainJob] +"_"+savename[PlayerInfo.SubJob]+".xml";
+            openFile.Title = @"Load your settings file";
             switch (openFile.ShowDialog())
             {
                 case DialogResult.OK:
                     FormSerialisor.Deserialise(this, openFile.FileName);
                     break;
             }
+            //updatenav();
+            //CharacterUpdate();
+            isLoading = false;
         }
         #endregion
         #region config: save/load (target)
@@ -7016,7 +7742,6 @@
         {
 
             if (!botRunning || PlayerInfo.Status != 1 || naviMove || PlayerInfo.HasBuff(16)) return;
-            api.ThirdParty.SendString(String.Format("/echo {0}", playerJA.CheckedItems));
             var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
             if (ja.Count == 0) return;
             if (MonStagered && staggerstopJA.Checked) return;
@@ -7848,18 +8573,14 @@
         #region Methods: PET
 
         #region PET: BST
-
         #region JA: BST (get/set)
         private void BSTGetJA()
         {
-            if (PetReady.Items.Count > 0)
-                PetReady.Items.Clear();
+            if (PetReady.Items.Count > 0) PetReady.Items.Clear();
 
-            if (PetJA.Items.Count > 0)
-                PetJA.Items.Clear();
+            if (PetJA.Items.Count > 0)  PetJA.Items.Clear();
 
-            if (PetInfo.ID != 0)
-                pInfo();
+            if (PetInfo.ID != 0) pInfo();
 
             if (PetInfo.Name != null && PetInfo.ID != 0)
             {
@@ -7867,34 +8588,22 @@
                 {
                     #region Familiar: Frog
                     case "Slippery Silas":
+                    case "Brave Hero Glenn":
                         break;
                     #endregion
                     #region Familiar: Rabbit
                     case "Hare Familiar":
-                    case "Lucky Lulush":
                     case "Keeneared Steffi":
+                        if (!PetJA.Items.Contains("Whirl Claws")) PetJA.Items.Add("Whirl Claws");
+                        if (!PetJA.Items.Contains("Dust Cloud")) PetJA.Items.Add("Dust Cloud");
+                        if (!PetJA.Items.Contains("Foot Kick")) PetJA.Items.Add("Foot Kick");
+                        break;
                     case "Droopy Dortwin":
-                        if (!PetJA.Items.Contains("Whirl Claws"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Whirl Claws",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Dust Cloud"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Dust Cloud",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Foot Kick"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Foot Kick",
-                        });
-                        }
+                    case "Lucky Lulush":
+                        if (!PetJA.Items.Contains("Whirl Claws")) PetJA.Items.Add("Whirl Claws");
+                        if (!PetJA.Items.Contains("Dust Cloud")) PetJA.Items.Add("Dust Cloud");
+                        if (!PetJA.Items.Contains("Foot Kick")) PetJA.Items.Add("Foot Kick");
+                        if (!PetJA.Items.Contains("Wild Carrot")) PetJA.Items.Add("Wild Carrot");
                         break;
                     #endregion
                     #region Familiar: Sheep
@@ -7902,34 +8611,10 @@
                     case "Nursery Nazuna":
                     case "Rhyming Shizuna":
                     case "Lullaby Melodia":
-                        if (!PetJA.Items.Contains("Sheep Song"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Sheep Song",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Sheep Charge"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Sheep Charge",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Lamb Chop"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Lamb Chop",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Rage"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Rage",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Sheep Song")) PetJA.Items.Add("Sheep Song");
+                        if (!PetJA.Items.Contains("Sheep Charge")) PetJA.Items.Add("Sheep Charge");
+                        if (!PetJA.Items.Contains("Lamb Chop")) PetJA.Items.Add("Lamb Chop");
+                        if (!PetJA.Items.Contains("Rage")) PetJA.Items.Add("Rage");
                         break;
                     #endregion
                     #region Familiar: Mandragora
@@ -7937,41 +8622,11 @@
                     case "Flowerpot Ben":
                     case "Homunculus":
                     case "Sharpwit Hermes":
-                        if (!PetJA.Items.Contains("Head Butt"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Head Butt",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Scream"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Scream",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Dream Flower"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Dream Flower",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Wild Oats"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Wild Oats",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Leaf Dagger"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Leaf Dagger",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Head Butt")) PetJA.Items.Add("Head Butt");
+                        if (!PetJA.Items.Contains("Scream")) PetJA.Items.Add("Scream");
+                        if (!PetJA.Items.Contains("Dream Flower")) PetJA.Items.Add("Dream Flower");
+                        if (!PetJA.Items.Contains("Wild Oats")) PetJA.Items.Add("Wild Oats");
+                        if (!PetJA.Items.Contains("Leaf Dagger")) PetJA.Items.Add("Leaf Dagger");
                         break;
                     #endregion
                     #region Familiar: Tiger
@@ -7979,54 +8634,18 @@
                     case "Saber Siravarde":
                     case "Gorefang Hobs":
                     case "Blackbeard Randy":
-                        if (!PetJA.Items.Contains("Claw Cyclone"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Claw Cyclone",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Razor Fang"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Razor Fang",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Roar"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Roar",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Claw Cyclone")) PetJA.Items.Add("Claw Cyclone");
+                        if (!PetJA.Items.Contains("Razor Fang")) PetJA.Items.Add("Razor Fang");
+                        if (!PetJA.Items.Contains("Roar")) PetJA.Items.Add("Roar");
                         break;
                     #endregion
                     #region Familiar: Flytrap
                     case "Flytrap Familiar":
                     case "Voracious Audrey":
                     case "Presto Julio":
-                        if (!PetJA.Items.Contains("Gloeosuccus"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Gloeosuccus",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Palsy Pollen"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Palsy Pollen",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Soporific"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Soporific",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Gloeosuccus")) PetJA.Items.Add("Gloeosuccus");
+                        if (!PetJA.Items.Contains("Palsy Pollen")) PetJA.Items.Add("Palsy Pollen");
+                        if (!PetJA.Items.Contains("Soporific")) PetJA.Items.Add("Soporific");
                         break;
                     #endregion
                     #region Familiar: Lizard
@@ -8034,62 +8653,14 @@
                     case "Coldblood Como":
                     case "Audacious Anna":
                     case "Warlike Patrick":
-                        if (!PetJA.Items.Contains("Blockhead"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Blockhead",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Secretion"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Secretion",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Baleful Gaze"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Baleful Gaze",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Fireball"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Fireball",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Tail Blow"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Tail Blow",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Plague Breath"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Plague Breath",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Brain Crush"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Brain Crush",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Infrasonics"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Infrasonics",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Blockhead")) PetJA.Items.Add("Blockhead");
+                        if (!PetJA.Items.Contains("Secretion")) PetJA.Items.Add("Secretion");
+                        if (!PetJA.Items.Contains("Baleful Gaze")) PetJA.Items.Add("Baleful Gaze");
+                        if (!PetJA.Items.Contains("Fireball")) PetJA.Items.Add("Fireball");
+                        if (!PetJA.Items.Contains("Tail Blow")) PetJA.Items.Add("Tail Blow");
+                        if (!PetJA.Items.Contains("Plague Breath")) PetJA.Items.Add("Plague Breath");
+                        if (!PetJA.Items.Contains("Brain Crush")) PetJA.Items.Add("Brain Crush");
+                        if (!PetJA.Items.Contains("Infrasonics")) PetJA.Items.Add("Infrasonics");
                         break;
                     #endregion
                     #region Familiar: Fly
@@ -8097,135 +8668,39 @@
                     case "Shellbuster Orob":
                     case "Mailbuster Cetas":
                     case "Headbreaker Ken":
-                        if (!PetJA.Items.Contains("Cursed Sphere"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Cursed Sphere",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Venom"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Venom",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Cursed Sphere")) PetJA.Items.Add("Cursed Sphere");
+                        if (!PetJA.Items.Contains("Venom")) PetJA.Items.Add("Venom");
                         break;
                     #endregion
                     #region Familiar: Eft
                     case "Eft Familiar":
                     case "Ambusher Allie":
                     case "Bugeyed Broncha":
-                        if (!PetJA.Items.Contains("Geist Wall"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Geist Wall",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Toxic Spit"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Toxic Spit",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Numbing Noise"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Numbing Noise",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Nimble Snap"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Nimble Snap",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Cyclotail"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Cyclotail",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Geist Wall")) PetJA.Items.Add("Geist Wall");
+                        if (!PetJA.Items.Contains("Toxic Spit")) PetJA.Items.Add("Toxic Spit");
+                        if (!PetJA.Items.Contains("Numbing Noise")) PetJA.Items.Add("Numbing Noise");
+                        if (!PetJA.Items.Contains("Nimble Snap")) PetJA.Items.Add("Nimble Snap");
+                        if (!PetJA.Items.Contains("Cyclotail")) PetJA.Items.Add("Cyclotail");
                         break;
                     #endregion
                     #region Familiar: Beetle
                     case "Beetle Familiar":
                     case "Panzer Galahad":
                     case "Hurler Percival":
-                        if (!PetJA.Items.Contains("Spoil"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Spoil",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Rhino Guard"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Rhino Guard",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Rhino Attack"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Rhino Attack",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Power Attack"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Power Attack",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Hi-Freq Field"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Hi-Freq Field",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Spoil")) PetJA.Items.Add("Spoil");
+                        if (!PetJA.Items.Contains("Rhino Guard")) PetJA.Items.Add("Rhino Guard");
+                        if (!PetJA.Items.Contains("Rhino Attack")) PetJA.Items.Add("Rhino Attack");
+                        if (!PetJA.Items.Contains("Power Attack")) PetJA.Items.Add("Power Attack");
+                        if (!PetJA.Items.Contains("Hi-Freq Field")) PetJA.Items.Add("Hi-Freq Field");
                         break;
                     #endregion
                     #region Familiar: Antlion
                     case "Antlion Familiar":
                     case "Chopsuey Chucky":
-                        if (!PetJA.Items.Contains("Sandpit"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Sandpit",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Sandblast"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Sandblast",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Venom Spray"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Venom Spray",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Mandibular Bite"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Mandibular Bite",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Sandpit")) PetJA.Items.Add("Sandpit");
+                        if (!PetJA.Items.Contains("Sandblast")) PetJA.Items.Add("Sandblast");
+                        if (!PetJA.Items.Contains("Venom Spray")) PetJA.Items.Add("Venom Spray");
+                        if (!PetJA.Items.Contains("Mandibular Bite")) PetJA.Items.Add("Mandibular Bite");
                         break;
                     #endregion
                     #region Familiar: Crab
@@ -8233,607 +8708,164 @@
                     case "Courier Carrie":
                     case "Sunburst Malfik":
                     case "Herald Henry":
-                        if (!PetJA.Items.Contains("Metallic Body"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Metallic Body",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Bubble Shower"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Bubble Shower",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Bubble Curtain"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Bubble Curtain",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Scissor Guard"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Scissor Guard",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Big Scissors"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Big Scissors",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Metallic Body")) PetJA.Items.Add("Metallic Body");
+                        if (!PetJA.Items.Contains("Bubble Shower")) PetJA.Items.Add("Bubble Shower");
+                        if (!PetJA.Items.Contains("Bubble Curtain")) PetJA.Items.Add("Bubble Curtain");
+                        if (!PetJA.Items.Contains("Scissor Guard")) PetJA.Items.Add("Scissor Guard");
+                        if (!PetJA.Items.Contains("Big Scissors")) PetJA.Items.Add("Big Scissors");
                         break;
                     #endregion
                     #region Familiar: Diremite
                     case "Mite Familiar":
                     case "Lifedrinker Lars":
-                        if (!PetJA.Items.Contains("Grapple"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Grapple",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Spinning Top"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Spinning Top",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Double Claw"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Double Claw",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Filamented Hold"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Filamented Hold",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Grapple")) PetJA.Items.Add("Grapple");
+                        if (!PetJA.Items.Contains("Spinning Top")) PetJA.Items.Add("Spinning Top");
+                        if (!PetJA.Items.Contains("Double Claw")) PetJA.Items.Add("Double Claw");
+                        if (!PetJA.Items.Contains("Filamented Hold")) PetJA.Items.Add("Filamented Hold");
                         break;
                     #endregion
                     #region Familiar: Funguar
                     case "Funguar Familiar":
                     case "Discreet Louise":
                     case "Brainy Waluis":
-                        if (!PetJA.Items.Contains("Frog Kick"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Frog Kick",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Queasyshroom"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Queasyshroom",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Silence Gas"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Silence Gas",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Numbshroom"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Numbshroom",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Spore"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Spore",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Dark Spore"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Dark Spore",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Shakeshroom"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Shakeshroom",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Frog Kick")) PetJA.Items.Add("Frog Kick");
+                        if (!PetJA.Items.Contains("Queasyshroom")) PetJA.Items.Add("Queasyshroom");
+                        if (!PetJA.Items.Contains("Silence Gas")) PetJA.Items.Add("Silence Gas");
+                        if (!PetJA.Items.Contains("Numbshroom")) PetJA.Items.Add("Numbshroom");
+                        if (!PetJA.Items.Contains("Spore")) PetJA.Items.Add("Spore");
+                        if (!PetJA.Items.Contains("Dark Spore")) PetJA.Items.Add("Dark Spore");
+                        if (!PetJA.Items.Contains("Shakeshroom")) PetJA.Items.Add("Shakeshroom");
                         break;
                     #endregion
                     #region Familiar: Sabotender
                     case "Amigo Sabotender":
-                        if (!PetJA.Items.Contains("1000 Needles"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "1000 Needles",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Needleshot"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Needleshot",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("1000 Needles")) PetJA.Items.Add("1000 Needles");
+                        if (!PetJA.Items.Contains("Needleshot")) PetJA.Items.Add("Needleshot");
                         break;
                     #endregion
                     #region Familiar: Coeurl
                     case "Crafty Clyvonne":
-                        if (!PetJA.Items.Contains("Chaotic Eye"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Chaotic Eye",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Blaster"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Blaster",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Chaotic Eye")) PetJA.Items.Add("Chaotic Eye");
+                        if (!PetJA.Items.Contains("Blaster")) PetJA.Items.Add("Blaster");
                         break;
                     #endregion
                     #region Familiar: Raptor
                     case "Swift Sieghard":
-                        if (!PetJA.Items.Contains("Scythe Tail"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Scythe Tail",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Ripper Fang"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Ripper Fang",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Chomp Rush"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Chomp Rush",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Scythe Tail")) PetJA.Items.Add("Scythe Tail");
+                        if (!PetJA.Items.Contains("Ripper Fang")) PetJA.Items.Add("Ripper Fang");
+                        if (!PetJA.Items.Contains("Chomp Rush")) PetJA.Items.Add("Chomp Rush");
                         break;
                     #endregion
                     #region Familiar: Pugils
                     case "Turbid Toloi":
                     case "Amiable Roche":
-                        if (!PetJA.Items.Contains("Intimidate"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Intimidate",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Recoil Dive"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Recoil Dive",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Water Wall"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Water Wall",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Intimidate")) PetJA.Items.Add("Intimidate");
+                        if (!PetJA.Items.Contains("Recoil Dive")) PetJA.Items.Add("Recoil Dive");
+                        if (!PetJA.Items.Contains("Water Wall")) PetJA.Items.Add("Water Wall");
                         break;
                     #endregion
                     #region Familiar: Ladybug
                     case "Dipper Yuly":
                     case "Threestar Lynn":
-                        if (!PetJA.Items.Contains("Sudden Lunge"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Sudden Lunge",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Spiral Spin"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Spiral Spin",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Noisome Powder"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Noisome Powder",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Sudden Lunge")) PetJA.Items.Add("Sudden Lunge");
+                        if (!PetJA.Items.Contains("Spiral Spin")) PetJA.Items.Add("Spiral Spin");
+                        if (!PetJA.Items.Contains("Noisome Powder")) PetJA.Items.Add("Noisome Powder");
                         break;
                     #endregion
                     #region Familiar: Lycopodium
                     case "Flowerpot Merle":
                     case "Sharpwi\"t\" Hermes":
-                        if (!PetJA.Items.Contains("Head Butt"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Head Butt",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Scream"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Scream",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Wild Oats"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Wild Oats",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Leaf Dagger"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Leaf Dagger",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Head Butt")) PetJA.Items.Add("Head Butt");
+                        if (!PetJA.Items.Contains("Scream")) PetJA.Items.Add("Scream");
+                        if (!PetJA.Items.Contains("Wild Oats")) PetJA.Items.Add("Wild Oats");
+                        if (!PetJA.Items.Contains("Leaf Dagger")) PetJA.Items.Add("Leaf Dagger");
                         break;
                     #endregion
                     #region Familiar: Apkallu
                     case "Dapper Mac":
-                        if (!PetJA.Items.Contains("Wing Slap"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Wing Slap",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Beak Lunge"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Beak Lunge",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Wing Slap")) PetJA.Items.Add("Wing Slap");
+                        if (!PetJA.Items.Contains("Beak Lunge")) PetJA.Items.Add("Beak Lunge");
                         break;
                     #endregion
                     #region Familiar: Leech
                     case "Fatso Fargann":
-                        if (!PetJA.Items.Contains("Suction"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Suction",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Drainkiss"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Drainkiss",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Acid Mist"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Acid Mist",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("TP Drainkiss"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "TP Drainkiss",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Suction")) PetJA.Items.Add("Suction");
+                        if (!PetJA.Items.Contains("Drainkiss")) PetJA.Items.Add("Drainkiss");
+                        if (!PetJA.Items.Contains("Acid Mist")) PetJA.Items.Add("Acid Mist");
+                        if (!PetJA.Items.Contains("TP Drainkiss")) PetJA.Items.Add("TP Drainkiss");
                         break;
                     #endregion
                     #region Familiar: Hippogryph
                     case "Faithful Falcorr":
-                        if (!PetJA.Items.Contains("Back Heel"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Back Heel",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Jettatura"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Jettatura",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Choke Breath"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Choke Breath",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Fantod"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Fantod",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Back Heel")) PetJA.Items.Add("Back Heel");
+                        if (!PetJA.Items.Contains("Jettatura")) PetJA.Items.Add("Jettatura");
+                        if (!PetJA.Items.Contains("Choke Breath")) PetJA.Items.Add("Choke Breath");
+                        if (!PetJA.Items.Contains("Fantod")) PetJA.Items.Add("Fantod");
                         break;
                     #endregion
                     #region Familiar: Lynx
                     case "Bloodclaw Shasra":
-                        if (!PetJA.Items.Contains("Chaotic Eye"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Chaotic Eye",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Blaster"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Blaster",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Charged Whisker"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Charged Whisker",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Chaotic Eye")) PetJA.Items.Add("Chaotic Eye");
+                        if (!PetJA.Items.Contains("Blaster")) PetJA.Items.Add("Blaster");
+                        if (!PetJA.Items.Contains("Charged Whisker")) PetJA.Items.Add("Charged Whisker");
                         break;
                     #endregion
                     #region Familiar: Slug
                     case "Gooey Gerard":
                     case "Generous Arthur":
-                        if (!PetJA.Items.Contains("Purulent Ooze"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Purulent Ooze",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Corrosive Ooze"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Corrosive Ooze",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Purulent Ooze")) PetJA.Items.Add("Purulent Ooze");
+                        if (!PetJA.Items.Contains("Corrosive Ooze")) PetJA.Items.Add("Corrosive Ooze");
                         break;
                     #endregion
                     #region Familiar: Adamantoise
                     case "Crude Raphie":
-                        if (!PetJA.Items.Contains("Tortoise Stomp"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Tortoise Stomp",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Harden Shell"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Harden Shell",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Aqua Breath"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Aqua Breath",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Tortoise Stomp")) PetJA.Items.Add("Tortoise Stomp");
+                        if (!PetJA.Items.Contains("Harden Shell")) PetJA.Items.Add("Harden Shell");
+                        if (!PetJA.Items.Contains("Aqua Breath")) PetJA.Items.Add("Aqua Breath");
                         break;
                     #endregion
                     #region Familiar: Chapuli
                     case "Scissorleg Xerin":
-                        if (!PetJA.Items.Contains("Sensilla Blades"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Sensilla Blades",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Tegmina Buffet"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Tegmina Buffet",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Sensilla Blades")) PetJA.Items.Add("Sensilla Blades");
+                        if (!PetJA.Items.Contains("Tegmina Buffet")) PetJA.Items.Add("Tegmina Buffet");
                         break;
                     #endregion
                     #region Familiar: Tulfaires
                     case "Attentive Ibuki":
-                        if (!PetJA.Items.Contains("Molting Plumage"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Molting Plumage",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Swooping Frenzy"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Swooping Frenzy",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Pentapeck"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Pentapeck",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Molting Plumage")) PetJA.Items.Add("Molting Plumage");
+                        if (!PetJA.Items.Contains("Swooping Frenzy")) PetJA.Items.Add("Swooping Frenzy");
+                        if (!PetJA.Items.Contains("Pentapeck")) PetJA.Items.Add("Pentapeck");
                         break;
                     #endregion
                     #region Familiar: Raaz
                     case "Caring Kiyomaro":
-                        if (!PetJA.Items.Contains("Sweeping Gouge"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Sweeping Gouge",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Zealous Snort"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Zealous Snort",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Sweeping Gouge")) PetJA.Items.Add("Sweeping Gouge");
+                        if (!PetJA.Items.Contains("Zealous Snort")) PetJA.Items.Add("Zealous Snort");
                         break;
                     #endregion
                     #region Familiar: Snapweed
                     case "Redolent Candi":
                     case "Alluring Honey":
-                        if (!PetJA.Items.Contains("Tickling Tendrils"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Tickling Tendrils",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Stink Bomb"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Stink Bomb",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Nectarous Deluge"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Nectarous Deluge",
-                        });
-                        }
-                        if (!PetJA.Items.Contains("Nepenthic Plunge"))
-                        {
-                            PetJA.Items.AddRange(new object[]
-                        {
-                            "Nepenthic Plunge",
-                        });
-                        }
+                        if (!PetJA.Items.Contains("Tickling Tendrils")) PetJA.Items.Add("Tickling Tendrils");
+                        if (!PetJA.Items.Contains("Stink Bomb")) PetJA.Items.Add("Stink Bomb");
+                        if (!PetJA.Items.Contains("Nectarous Deluge")) PetJA.Items.Add("Nectarous Deluge");
+                        if (!PetJA.Items.Contains("Nepenthic Plunge")) PetJA.Items.Add("Nepenthic Plunge");
                         break;
-                        #endregion
+                    #endregion
                 }
             }
 
             #region BST: Pet Ready
-
-            #region Load MJ (main job)
-            if (PlayerInfo.MainJobLevel >= 25 &&
-                !PetReady.Items.Contains("Sic - (BST)"))
-            {
-                PetReady.Items.AddRange(new object[]
-                {
-                    "Sic - (BST)",
-                });
-            }
-            if (PlayerInfo.MainJobLevel >= 45 &&
-                !PetReady.Items.Contains("Snarl - (BST)"))
-            {
-                PetReady.Items.AddRange(new object[]
-                {
-                    "Snarl - (BST)",
-                });
-            }
-            if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(162) &&
-                !PetReady.Items.Contains("Killer Instinct - (BST)"))
-            {
-                PetReady.Items.AddRange(new object[]
-                {
-                    "Killer Instinct - (BST)",
-                });
-            }
-            if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(161) &&
-                !PetReady.Items.Contains("Feral Howl - (BST)"))
-            {
-                PetReady.Items.AddRange(new object[]
-                {
-                    "Feral Howl - (BST)",
-                });
-            }
-            if (PlayerInfo.MainJobLevel >= 83 &&
-                !PetReady.Items.Contains("Spur - (BST)"))
-            {
-                PetReady.Items.AddRange(new object[]
-                {
-                    "Spur - (BST)",
-                });
-            }
-            if (PlayerInfo.MainJobLevel >= 93 &&
-                !PetReady.Items.Contains("Run Wild - (BST)"))
-            {
-                PetReady.Items.AddRange(new object[]
-                {
-                    "Run Wild - (BST)",
-                });
-            }
-            if (PlayerInfo.MainJobLevel >= 96 &&
-                !PetReady.Items.Contains("Unleash - (BST)"))
-            {
-                PetReady.Items.AddRange(new object[]
-                {
-                    "Unleash - (BST)",
-                });
-            }
-            #endregion
-            #region Load SJ (sub job)
-            if (api.Player.GetPlayerInfo().SubJob == 9)
-            {
-                if (PlayerInfo.SubJobLevel >= 25 &&
-                    !PetReady.Items.Contains("Sic - (BST)"))
-                {
-                    PetReady.Items.AddRange(new object[]
-                    {
-                        "Sic - (BST)",
-                    });
-                }
-                if (PlayerInfo.SubJobLevel >= 45 &&
-                    !PetReady.Items.Contains("Snarl - (BST)"))
-                {
-                    PetReady.Items.AddRange(new object[]
-                    {
-                        "Snarl - (BST)",
-                    });
-                }
-            }
-            #endregion
-
+            var joblvl = 0;
+            if (PlayerInfo.MainJob == 9) joblvl = PlayerInfo.MainJobLevel;
+            else if (PlayerInfo.SubJob == 9) joblvl = PlayerInfo.SubJobLevel;
+            if (joblvl >= 25 && !PetReady.Items.Contains("Sic")) PetReady.Items.Add("Sic");
+            if (joblvl >= 45 && !PetReady.Items.Contains("Snarl")) PetReady.Items.Add("Snarl");
+            if (joblvl >= 75 && PlayerInfo.HasAbility(162) && !PetReady.Items.Contains("Killer Instinct")) PetReady.Items.Add("Killer Instinct");
+            if (joblvl >= 75 && PlayerInfo.HasAbility(161) && !PetReady.Items.Contains("Feral Howl")) PetReady.Items.Add("Feral Howl");
+            if (joblvl >= 83 && !PetReady.Items.Contains("Spur")) PetReady.Items.Add("Spur");
+            if (joblvl >= 93 && !PetReady.Items.Contains("Run Wild")) PetReady.Items.Add("Run Wild");
+            if (joblvl >= 96 && !PetReady.Items.Contains("Unleash")) PetReady.Items.Add("Unleash");
             #endregion
         }
         public void pInfo()
@@ -8848,50 +8880,48 @@
         #region JA: BST (use)
         private void PetReadyJA()
         {
-            if (PlayerInfo.Status == 0 || !botRunning || TargetInfo.ID == 0)
-                return;
+            if (PlayerInfo.Status == 0 || !botRunning || TargetInfo.ID == 0) return;
 
             #region BST JA
-            var bstja = (from object itemChecked in PetReady.CheckedItems
-                         select itemChecked.ToString()).ToList();
+            var bstja = (from object itemChecked in PetReady.CheckedItems select itemChecked.ToString()).ToList();
 
-            if (bstja.Contains("Sic - (BST)") && !PlayerInfo.HasBuff(16) &&
+            if (bstja.Contains("Sic") && !PlayerInfo.HasBuff(16) &&
                 Recast.GetAbilityRecast(102) == 0)
             {
                 api.ThirdParty.SendString("/pet \"Sic\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(2.0));
             }
-            if (bstja.Contains("Snarl - (BST)") && !PlayerInfo.HasBuff(16) &&
+            if (bstja.Contains("Snarl") && !PlayerInfo.HasBuff(16) &&
                 Recast.GetAbilityRecast(107) == 0)
             {
                 api.ThirdParty.SendString("/pet \"Snarl\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(2.0));
             }
-            if (bstja.Contains("Spur - (BST)") && !PlayerInfo.HasBuff(16) &&
+            if (bstja.Contains("Spur") && !PlayerInfo.HasBuff(16) &&
                 Recast.GetAbilityRecast(45) == 0)
             {
                 api.ThirdParty.SendString("/pet \"Spur\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(2.0));
             }
-            if (bstja.Contains("Feral Howl - (BST)") && !PlayerInfo.HasBuff(16) &&
+            if (bstja.Contains("Feral Howl") && !PlayerInfo.HasBuff(16) &&
                 Recast.GetAbilityRecast(105) == 0)
             {
                 api.ThirdParty.SendString("/pet \"Feral Howl\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(2.0));
             }
-            if (bstja.Contains("Killer Instinct - (BST)") && !PlayerInfo.HasBuff(16) &&
+            if (bstja.Contains("Killer Instinct") && !PlayerInfo.HasBuff(16) &&
                 Recast.GetAbilityRecast(106) == 0)
             {
                 api.ThirdParty.SendString("/pet \"Killer Instinct\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(2.0));
             }
-            if (bstja.Contains("Run Wild - (BST)") && !PlayerInfo.HasBuff(16) &&
+            if (bstja.Contains("Run Wild") && !PlayerInfo.HasBuff(16) &&
                 Recast.GetAbilityRecast(46) == 0)
             {
                 api.ThirdParty.SendString("/pet \"Run Wild\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
-            if (bstja.Contains("Unleash - (BST)") && !PlayerInfo.HasBuff(16) &&
+            if (bstja.Contains("Unleash") && !PlayerInfo.HasBuff(16) &&
                 Recast.GetAbilityRecast(254) == 0 && !PlayerInfo.HasBuff(498))
             {
                 api.ThirdParty.SendString("/pet \"Unleash\" <me>");
@@ -8899,681 +8929,19 @@
             }
             #endregion
             #region PET JA
+            var petja = (from object itemChecked in PetJA.CheckedItems select itemChecked.ToString()).ToList();
+            if (petja.Count == 0) return;
 
-            if (Recast.GetAbilityRecast(102) != 0)
-                return;
-
-            var petja = (from object itemChecked in PetJA.CheckedItems
-                         select itemChecked.ToString()).ToList();
-
-            #region Familiar: Rabbit
-            if (PetInfo.Name == "Hare Familiar" ||
-                PetInfo.Name == "Keeneared Steffi" ||
-                PetInfo.Name == "Lucky Lulush" ||
-                PetInfo.Name == "Droopy Dortwin")
+            foreach (string P in petja)
             {
-                if (petja.Contains("Wild Carrot"))
+                if (PlayerInfo.Status == 0 || !botRunning || TargetInfo.ID == 0) break;
+                var ability = api.Resources.GetAbility(P);
+                if (PlayerInfo.HasAbility(ability.ID) && Recast.GetAbilityRecast(102) != 0 && !PlayerInfo.HasBuff(16))
                 {
-                    api.ThirdParty.SendString("/pet \"Wild Carrot\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Whirl Claws"))
-                {
-                    api.ThirdParty.SendString("/pet \"Whirl Claws\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Dust Cloud"))
-                {
-                    api.ThirdParty.SendString("/pet \"Dust Cloud\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Foot Kick"))
-                {
-                    api.ThirdParty.SendString("/pet \"Foot Kick\" <me>");
+                    api.ThirdParty.SendString("/pet \""+ability.Name+"\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
-            #endregion
-            #region Familiar: Sheep
-            if (PetInfo.Name == "Sheep Familiar" ||
-                PetInfo.Name == "Lullaby Melodia" ||
-                PetInfo.Name == "Nursery Nazuna" ||
-                PetInfo.Name == "Rhyming Shizuna")
-            {
-                if (petja.Contains("Lamb Chop"))
-                {
-                    api.ThirdParty.SendString("/pet \"Lamb Chop\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Rage"))
-                {
-                    api.ThirdParty.SendString("/pet \"Rage\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Sheep Charge"))
-                {
-                    api.ThirdParty.SendString("/pet \"Sheep Charge\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Sheep Song"))
-                {
-                    api.ThirdParty.SendString("/pet \"Sheep Song\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Mandragora
-            if (PetInfo.Name == "Flowerpot Bill" ||
-                PetInfo.Name == "Flowerpot Ben" ||
-                PetInfo.Name == "Homunculus" ||
-                PetInfo.Name == "Flowerpot Merle" ||
-                PetInfo.Name == "Sharpwit Hermes")
-            {
-                if (petja.Contains("Head Butt"))
-                {
-                    api.ThirdParty.SendString("/pet \"Head Butt\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Scream"))
-                {
-                    api.ThirdParty.SendString("/pet \"Scream\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Dream Flower"))
-                {
-                    api.ThirdParty.SendString("/pet \"Dream Flower\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Wild Oats"))
-                {
-                    api.ThirdParty.SendString("/pet \"Wild Oats\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Leaf Dagger"))
-                {
-                    api.ThirdParty.SendString("/pet \"Leaf Dagger\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Tiger
-            if (PetInfo.Name == "Tiger Familiar" ||
-                PetInfo.Name == "Saber Siravarde" ||
-                PetInfo.Name == "Gorefang Hobs" ||
-                PetInfo.Name == "Blackbeard Randy")
-            {
-                if (petja.Contains("Claw Cyclone"))
-                {
-                    api.ThirdParty.SendString("/pet \"Claw Cyclone\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Razor Fang"))
-                {
-                    api.ThirdParty.SendString("/pet \"Razor Fang\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Roar"))
-                {
-                    api.ThirdParty.SendString("/pet \"Roar\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Flytrap
-            if (PetInfo.Name == "Flytrap Familiar" ||
-                PetInfo.Name == "Voracious Audrey" ||
-                PetInfo.Name == "Presto Julio")
-            {
-                if (petja.Contains("Gloeosuccus"))
-                {
-                    api.ThirdParty.SendString("/pet \"Gloeosuccus\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Palsy Pollen"))
-                {
-                    api.ThirdParty.SendString("/pet \"Palsy Pollen\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Soporific"))
-                {
-                    api.ThirdParty.SendString("/pet \"Soporific\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Lizard
-            if (PetInfo.Name == "Lizard Familiar" ||
-                PetInfo.Name == "Coldblood Como" ||
-                PetInfo.Name == "Audacious Anna" ||
-                PetInfo.Name == "Warlike Patrick")
-            {
-                if (petja.Contains("Blockhead"))
-                {
-                    api.ThirdParty.SendString("/pet \"Blockhead\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Secretion"))
-                {
-                    api.ThirdParty.SendString("/pet \"Secretion\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Baleful Gaze"))
-                {
-                    api.ThirdParty.SendString("/pet \"Baleful Gaze\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Fireball"))
-                {
-                    api.ThirdParty.SendString("/pet \"Fireball\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Tail Blow"))
-                {
-                    api.ThirdParty.SendString("/pet \"Tail Blow\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Plague Breath"))
-                {
-                    api.ThirdParty.SendString("/pet \"Plague Breath\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Brain Crush"))
-                {
-                    api.ThirdParty.SendString("/pet \"Brain Crush\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Infrasonics"))
-                {
-                    api.ThirdParty.SendString("/pet \"Infrasonics\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Fly
-            if (PetInfo.Name == "Mayfly Familiar" ||
-                PetInfo.Name == "Shellbuster Orob" ||
-                PetInfo.Name == "Mailbuster Cetas" ||
-                PetInfo.Name == "Headbreaker Ken")
-            {
-                if (petja.Contains("Cursed Sphere"))
-                {
-                    api.ThirdParty.SendString("/pet \"Cursed Sphere\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Venom"))
-                {
-                    api.ThirdParty.SendString("/pet \"Venom\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Eft
-            if (PetInfo.Name == "Eft Familiar" ||
-                PetInfo.Name == "Ambusher Allie" ||
-                PetInfo.Name == "Bugeyed Broncha")
-            {
-                if (petja.Contains("Geist Wall"))
-                {
-                    api.ThirdParty.SendString("/pet \"Geist Wall\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Toxic Spit"))
-                {
-                    api.ThirdParty.SendString("/pet \"Toxic Spit\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Numbing Noise"))
-                {
-                    api.ThirdParty.SendString("/pet \"Numbing Noise\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Nimble Snap"))
-                {
-                    api.ThirdParty.SendString("/pet \"Nimble Snap\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Cyclotail"))
-                {
-                    api.ThirdParty.SendString("/pet \"Cyclotail\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Beetle
-            if (PetInfo.Name == "Beetle Familiar" ||
-                PetInfo.Name == "Panzer Galahad" ||
-                PetInfo.Name == "Hurler Percival")
-            {
-                if (petja.Contains("Spoil"))
-                {
-                    api.ThirdParty.SendString("/pet \"Spoil\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Rhino Guard"))
-                {
-                    api.ThirdParty.SendString("/pet \"Rhino Guard\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Rhino Attack"))
-                {
-                    api.ThirdParty.SendString("/pet \"Rhino Attack\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Power Attack"))
-                {
-                    api.ThirdParty.SendString("/pet \"Power Attack\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Hi-Freq Field"))
-                {
-                    api.ThirdParty.SendString("/pet \"Hi-Freq Field\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Antlion
-            if (PetInfo.Name == "Antlion Familiar" ||
-                PetInfo.Name == "Chopsuey Chucky")
-            {
-                if (petja.Contains("Sandpit"))
-                {
-                    api.ThirdParty.SendString("/pet \"Sandpit\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Sandblast"))
-                {
-                    api.ThirdParty.SendString("/pet \"Sandblast\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Venom Spray"))
-                {
-                    api.ThirdParty.SendString("/pet \"Venom Spray\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Mandibular Bite"))
-                {
-                    api.ThirdParty.SendString("/pet \"Mandibular Bite\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Crab
-
-            if (PetInfo.Name == "Crab Familiar" ||
-                PetInfo.Name == "Courier Carrie" ||
-                PetInfo.Name == "Sunburst Malfik" ||
-                PetInfo.Name == "Herald Henry")
-            {
-                if (petja.Contains("Metallic Body"))
-                {
-                    api.ThirdParty.SendString("/pet \"Metallic Body\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Bubble Shower"))
-                {
-                    api.ThirdParty.SendString("/pet \"Bubble Shower\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Bubble Curtain"))
-                {
-                    api.ThirdParty.SendString("/pet \"Bubble Curtain\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Scissor Guard"))
-                {
-                    api.ThirdParty.SendString("/pet \"Scissor Guard\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Big Scissors"))
-                {
-                    api.ThirdParty.SendString("/pet \"Big Scissors\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Diremite
-            if (PetInfo.Name == "Mite Familiar" ||
-                PetInfo.Name == "Lifedrinker Lars")
-            {
-                if (petja.Contains("Grapple"))
-                {
-                    api.ThirdParty.SendString("/pet \"Grapple\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Spinning Top"))
-                {
-                    api.ThirdParty.SendString("/pet \"Spinning Top\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Double Claw"))
-                {
-                    api.ThirdParty.SendString("/pet \"Double Claw\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Filamented Hold"))
-                {
-                    api.ThirdParty.SendString("/pet \"Filamented Hold\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Funguar
-            if (PetInfo.Name == "Funguar Familiar" ||
-                PetInfo.Name == "Discreet Louise" ||
-                PetInfo.Name == "Brainy Waluis")
-            {
-                if (petja.Contains("Frog Kick"))
-                {
-                    api.ThirdParty.SendString("/pet \"Frog Kick\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Queasyshroom"))
-                {
-                    api.ThirdParty.SendString("/pet \"Queasyshroom\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Silence Gas"))
-                {
-                    api.ThirdParty.SendString("/pet \"Silence Gas\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Numbshroom"))
-                {
-                    api.ThirdParty.SendString("/pet \"Numbshroom\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Spore"))
-                {
-                    api.ThirdParty.SendString("/pet \"Spore\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Dark Spore"))
-                {
-                    api.ThirdParty.SendString("/pet \"Dark Spore\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Shakeshroom"))
-                {
-                    api.ThirdParty.SendString("/pet \"Shakeshroom\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Sabotender
-            if (PetInfo.Name == "Amigo Sabotender")
-            {
-                if (petja.Contains("1000 Needles"))
-                {
-                    api.ThirdParty.SendString("/pet \"1000 Needles\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Needleshot"))
-                {
-                    api.ThirdParty.SendString("/pet \"Needleshot\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Coeurl/Linx
-            if (PetInfo.Name == "Crafty Clyvonne" ||
-                PetInfo.Name == "Bloodclaw Shasra")
-            {
-                if (petja.Contains("Chaotic Eye"))
-                {
-                    api.ThirdParty.SendString("/pet \"Chaotic Eye\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Blaster"))
-                {
-                    api.ThirdParty.SendString("/pet \"Blaster\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Charged Whisker"))
-                {
-                    api.ThirdParty.SendString("/pet \"Charged Whisker\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Raptor
-            if (PetInfo.Name == "Swift Sieghard")
-            {
-                if (petja.Contains("Scythe Tail"))
-                {
-                    api.ThirdParty.SendString("/pet \"Scythe Tail\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Ripper Fang"))
-                {
-                    api.ThirdParty.SendString("/pet \"Ripper Fang\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Chomp Rush"))
-                {
-                    api.ThirdParty.SendString("/pet \"Chomp Rush\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Pugils
-            if (PetInfo.Name == "Turbid Toloi" ||
-                PetInfo.Name == "Amiable Roche")
-            {
-                if (petja.Contains("Intimidate"))
-                {
-                    api.ThirdParty.SendString("/pet \"Intimidate\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Recoil Dive"))
-                {
-                    api.ThirdParty.SendString("/pet \"Recoil Dive\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Water Wall"))
-                {
-                    api.ThirdParty.SendString("/pet \"Water Wall\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Ladybug
-            if (PetInfo.Name == "Dipper Yuly" ||
-                PetInfo.Name == "Threestar Lynn")
-            {
-                if (petja.Contains("Sudden Lunge"))
-                {
-                    api.ThirdParty.SendString("/pet \"Sudden Lunge\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Spiral Spin"))
-                {
-                    api.ThirdParty.SendString("/pet \"Spiral Spin\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Noisome Powder"))
-                {
-                    api.ThirdParty.SendString("/pet \"Noisome Powder\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Apkallu
-            if (PetInfo.Name == "Dapper Mac")
-            {
-                if (petja.Contains("Wing Slap"))
-                {
-                    api.ThirdParty.SendString("/pet \"Wing Slap\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Beak Lunge"))
-                {
-                    api.ThirdParty.SendString("/pet \"Beak Lunge\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Leech
-            if (PetInfo.Name == "Fatso Fargann")
-            {
-                if (petja.Contains("Suction"))
-                {
-                    api.ThirdParty.SendString("/pet \"Suction\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Drainkiss"))
-                {
-                    api.ThirdParty.SendString("/pet \"Drainkiss\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Acid Mist"))
-                {
-                    api.ThirdParty.SendString("/pet \"Acid Mist\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("TP Drainkiss"))
-                {
-                    api.ThirdParty.SendString("/pet \"TP Drainkiss\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Hippogryph
-            if (PetInfo.Name == "Faithful Falcorr")
-            {
-                if (petja.Contains("Back Heel"))
-                {
-                    api.ThirdParty.SendString("/pet \"Back Heel\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Jettatura"))
-                {
-                    api.ThirdParty.SendString("/pet \"Jettatura\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Choke Breath"))
-                {
-                    api.ThirdParty.SendString("/pet \"Choke Breath\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Fantod"))
-                {
-                    api.ThirdParty.SendString("/pet \"Fantod\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Slug
-            if (PetInfo.Name == "Gooey Gerard" ||
-                PetInfo.Name == "Generous Arthur")
-            {
-                if (petja.Contains("Purulent Ooze"))
-                {
-                    api.ThirdParty.SendString("/pet \"Purulent Ooze\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Corrosive Ooze"))
-                {
-                    api.ThirdParty.SendString("/pet \"Corrosive Ooze\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Adamantoise
-            if (PetInfo.Name == "Crude Raphie")
-            {
-                if (petja.Contains("Tortoise Stomp"))
-                {
-                    api.ThirdParty.SendString("/pet \"Tortoise Stomp\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Harden Shell"))
-                {
-                    api.ThirdParty.SendString("/pet \"Harden Shell\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Aqua Breath"))
-                {
-                    api.ThirdParty.SendString("/pet \"Aqua Breath\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Chapuli
-            if (PetInfo.Name == "Scissorleg Xerin")
-            {
-                if (petja.Contains("Sensilla Blades"))
-                {
-                    api.ThirdParty.SendString("/pet \"Sensilla Blades\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Tegmina Buffet"))
-                {
-                    api.ThirdParty.SendString("/pet \"Tegmina Buffet\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Tulfaires
-            if (PetInfo.Name == "Attentive Ibuki")
-            {
-                if (petja.Contains("Molting Plumage"))
-                {
-                    api.ThirdParty.SendString("/pet \"Molting Plumage\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Swooping Frenzy"))
-                {
-                    api.ThirdParty.SendString("/pet \"Swooping Frenzy\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Pentapeck"))
-                {
-                    api.ThirdParty.SendString("/pet \"Pentapeck\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Raaz
-            if (PetInfo.Name == "Caring Kiyomaro")
-            {
-                if (petja.Contains("Sweeping Gouge"))
-                {
-                    api.ThirdParty.SendString("/pet \"Sweeping Gouge\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Zealous Snort"))
-                {
-                    api.ThirdParty.SendString("/pet \"Zealous Snort\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-            #region Familiar: Snapweed
-            if (PetInfo.Name == "")
-            {
-                if (petja.Contains("Tickling Tendrils"))
-                {
-                    api.ThirdParty.SendString("/pet \"Tickling Tendrils\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Stink Bomb"))
-                {
-                    api.ThirdParty.SendString("/pet \"Stink Bomb\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Nectarous Deluge"))
-                {
-                    api.ThirdParty.SendString("/pet \"Nectarous Deluge\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-                if (petja.Contains("Nepenthic Plunge"))
-                {
-                    api.ThirdParty.SendString("/pet \"Nepenthic Plunge\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-            #endregion
-
             #endregion
         }
         #endregion
@@ -9881,11 +9249,15 @@
                         }
                         else if (kvp.Value.ToString().Contains("buff =") && Ability.MP <= PlayerInfo.MP)
                         {
-                            if (Ability.Name == "Glittering Ruby" || Ability.Name == "Ecliptic Growl")
+                            if (Ability.Name == "Glittering Ruby")
+                            {
+                                if (!PlayerInfo.HasBuff(119) || !PlayerInfo.HasBuff(120) || !PlayerInfo.HasBuff(121) || !PlayerInfo.HasBuff(122) ||
+                                !PlayerInfo.HasBuff(123) || !PlayerInfo.HasBuff(124) || !PlayerInfo.HasBuff(125)) useAbility = true;
+                            }
+                            else if (Ability.Name == "Ecliptic Growl")
                             {
                                 if (!PlayerInfo.HasBuff(119) && !PlayerInfo.HasBuff(120) && !PlayerInfo.HasBuff(121) && !PlayerInfo.HasBuff(122) &&
-                                !PlayerInfo.HasBuff(123) && !PlayerInfo.HasBuff(124) && !PlayerInfo.HasBuff(125))
-                                    useAbility = true;
+                                !PlayerInfo.HasBuff(123) && !PlayerInfo.HasBuff(124) && !PlayerInfo.HasBuff(125)) useAbility = true;
                             }
                             else if (!PlayerInfo.HasBuff((short)kvp.Value.buff)) useAbility = true;
                         }
@@ -9902,6 +9274,140 @@
         #endregion
         #endregion
         
+        #region PET: PUP
+        #region JA: PUP (get/set)
+        private void PUPGetJA()
+        {
+            if (PUPJA.Items.Count > 0) PUPJA.Items.Clear();
+            if (PlayerInfo.MainJob != 18 && PlayerInfo.SubJob != 18) return;
+            List<uint> pupabilitylist = new List<uint>(new uint[] {647, 822, 649, 691, 692, 778, 821, 852,});
+            foreach (uint P in pupabilitylist)
+            {
+                var ability = api.Resources.GetAbility(P);
+                if (PlayerInfo.HasAbility(P))
+                {
+                    PUPJA.Items.Add(ability.Name);
+                }   
+            }
+        }
+        #endregion
+        #region JA: PUP (use)
+        private void PUPUseJA()
+        {
+            if (PetInfo.ID != 0 && PetInfo.Status == 0 && PlayerInfo.Status == 1 && PUPautoengage.Checked && Recast.GetAbilityRecast(207) == 0)
+            {
+                api.ThirdParty.SendString("/pet \"Deploy\" <t>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            }
+            var petja = (from object itemChecked in PUPJA.CheckedItems select itemChecked.ToString()).ToList();
+            if (AutoCallPUP.Checked)
+            {
+                if (Recast.GetAbilityRecast(205) == 0)
+                {    
+                    api.ThirdParty.SendString("/pet \"Activate\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                else if(Recast.GetAbilityRecast(115) == 0 && petja.Contains("Deus Ex Automata"))
+                {    
+                    api.ThirdParty.SendString("/pet \"Deus Ex Automata\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+            }
+            if (PlayerInfo.Status == 0 || PetInfo.ID == 0 || petja.Count == 0 || PlayerInfo.HasBuff(16)) return;
+            else
+            {
+                Dictionary<string, short> PUPManeuverbuff = new Dictionary<string, short>()
+                {
+                    {"Fire Maneuver", 300},{"Ice Maneuver", 301},{"Wind Maneuver", 302},{"Earth Maneuver", 303},{"Thunder Maneuver", 304},{"Water Maneuver", 305},
+                    {"Light Maneuver", 306},{"Dark Maneuver", 307}
+                };
+                if ((string)Maneuver1select.SelectedItem != "Not Selected")
+                {
+                    if (PlayerInfo.HasBuffcount(PUPManeuverbuff[(string)Maneuver1select.SelectedItem]) < Maneuver1set.Value && Recast.GetAbilityRecast(210) == 0)
+                    {
+                        api.ThirdParty.SendString(String.Format("/pet \"{0}\" <me>", (string)Maneuver1select.SelectedItem));
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
+                if ((string)Maneuver2select.SelectedItem != "Not Selected")
+                {
+                    if (PlayerInfo.HasBuffcount(PUPManeuverbuff[(string)Maneuver2select.SelectedItem]) < Maneuver2set.Value && Recast.GetAbilityRecast(210) == 0)
+                    {
+                        api.ThirdParty.SendString(String.Format("/pet \"{0}\" <me>", (string)Maneuver2select.SelectedItem));
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
+                if ((string)Maneuver3select.SelectedItem != "Not Selected")
+                {
+                    if (PlayerInfo.HasBuffcount(PUPManeuverbuff[(string)Maneuver3select.SelectedItem]) < Maneuver3set.Value && Recast.GetAbilityRecast(210) == 0)
+                    {
+                        api.ThirdParty.SendString(String.Format("/pet \"{0}\" <me>", (string)Maneuver3select.SelectedItem));
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
+                if (petja.Contains("Cooldown") && Recast.GetAbilityRecast(114) == 0 && PlayerInfo.HasBuff(299))
+                {
+                    api.ThirdParty.SendString("/ja \"Cooldown\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (petja.Contains("Repair") && Recast.GetAbilityRecast(206) == 0 && ItemQuantityByName(Repairselect.SelectedText) > 0 && Repairset.Value >= PetInfo.HPP)
+                {
+                    api.ThirdParty.SendString("/ja \"Repair\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (petja.Contains("Role Reversal") && Recast.GetAbilityRecast(211) == 0)
+                {
+                    if (RRPlayer.Checked && RRPlayerHPPset.Value >= PlayerInfo.HPP && RRPetHPPset.Value <= PetInfo.HPP)
+                    {
+                        api.ThirdParty.SendString("/ja \"Role Reversal\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (RRPET.Checked && RRPlayerHPPset.Value <= PlayerInfo.HPP && RRPetHPPset.Value >= PetInfo.HPP)
+                    {
+                        api.ThirdParty.SendString("/ja \"Role Reversal\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
+                if (petja.Contains("Tactical Switch") && Recast.GetAbilityRecast(213) == 0)
+                {
+                    if (TSPlayer.Checked && TSPlayerTPset.Value >= PlayerInfo.TP && TSPetTPset.Value <= PetInfo.TPP)
+                    {
+                        api.ThirdParty.SendString("/ja \"Tactical Switch\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (TSPET.Checked && TSPlayerTPset.Value <= PlayerInfo.TP && TSPetTPset.Value >= PetInfo.TPP)
+                    {
+                        api.ThirdParty.SendString("/ja \"Tactical Switch\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
+                if (petja.Contains("Ventriloquy") && Recast.GetAbilityRecast(212) == 0)
+                {
+                    if (VentriloquyPet.Checked && api.Entity.GetEntity(TargetInfo.ID).ClaimID == PlayerInfo.ServerID)
+                    {
+                        api.ThirdParty.SendString("/ja \"Ventriloquy\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (VentriloquyPlayer.Checked && api.Entity.GetEntity(TargetInfo.ID).ClaimID != PlayerInfo.ServerID)
+                    {
+                        api.ThirdParty.SendString("/ja \"Ventriloquy\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
+                if (petja.Contains("Overdrive") && Recast.GetAbilityRecast(0) == 0 && !PlayerInfo.HasBuff(166))
+                {
+                    api.ThirdParty.SendString("/ja \"Overdrive\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (petja.Contains("Heady Artifice") && Recast.GetAbilityRecast(254) == 0 && !PlayerInfo.HasBuff(166))
+                {
+                    api.ThirdParty.SendString("/ja \"Heady Artifice\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+            }
+        }
+        #endregion
+        #endregion
         #endregion
         #region Methods: FRM
 
@@ -10967,13 +10473,14 @@
             var path = string.Format("{0}\\Nav\\", Application.StartupPath);
             foreach (var file in Directory.GetFiles(path, "*.xin"))
             {
-                selectedNavi.Items.Add(new FileInfo(file).Name);
+                if (!selectedNavi.Items.Contains(new FileInfo(file).Name)) selectedNavi.Items.Add(new FileInfo(file).Name);
             }
-}
-private void SelectedNaviSelectedIndexChanged(object sender, EventArgs e)
+        }
+        private void SelectedNaviSelectedIndexChanged(object sender, EventArgs e)
         {
             if (selectedNavi.Text == "") return;
-
+            if (selectedNavi.Text.Contains("(Linear)")) Linear.Checked = true;
+            else if (selectedNavi.Text.Contains("(Circular)")) Circular.Checked = true;
             var path = string.Format("{0}\\Nav\\", Application.StartupPath);
             var navi = new FileInfo(path + selectedNavi.Text);
 
@@ -11263,5 +10770,54 @@ private void SelectedNaviSelectedIndexChanged(object sender, EventArgs e)
         private NumericUpDown SMNpetMPUSEset;
         private Button button1;
         private Button button2;
+        public CheckBox AutoCallPUP;
+        private NumericUpDown numericUpDown8;
+        private NumericUpDown numericUpDown9;
+        private NumericUpDown numericUpDown10;
+        private NumericUpDown numericUpDown5;
+        private NumericUpDown numericUpDown4;
+        private NumericUpDown numericUpDown3;
+        private NumericUpDown numericUpDown2;
+        private NumericUpDown numericUpDown1;
+        private ComboBox Repairselect;
+        private Label label18;
+        private Label label14;
+        private NumericUpDown Repairset;
+        private TabControl tabControl1;
+        private TabPage PUPAbilitypage;
+        private TabPage PUPOtherpage;
+        private GroupBox RoleReversalgroup;
+        private System.Windows.Forms.RadioButton RRPET;
+        private System.Windows.Forms.RadioButton RRPlayer;
+        private NumericUpDown RRPetHPPset;
+        private NumericUpDown RRPlayerHPPset;
+        private Label label24;
+        private Label label19;
+        private GroupBox TacticalSwitchgroup;
+        private System.Windows.Forms.RadioButton TSPET;
+        private System.Windows.Forms.RadioButton TSPlayer;
+        private NumericUpDown TSPetTPset;
+        private NumericUpDown TSPlayerTPset;
+        private Label label26;
+        private Label label41;
+        private GroupBox groupBox4;
+        private CheckBox healforAutomatonMP;
+        private CheckBox healforAutomatonHP;
+        private NumericUpDown healforAutomatonMPset;
+        private NumericUpDown healforAutomatonHPsaet;
+        private ComboBox Maneuver3select;
+        private ComboBox Maneuver2select;
+        private ComboBox Maneuver1select;
+        private Label label56;
+        private Label label51;
+        private Label label49;
+        private NumericUpDown Maneuver3set;
+        private NumericUpDown Maneuver2set;
+        private NumericUpDown Maneuver1set;
+        private GroupBox Maneuversgroup;
+        private GroupBox Repairgroup;
+        private GroupBox Ventriloquygroup;
+        private RadioButton VentriloquyPet;
+        private RadioButton VentriloquyPlayer;
     }
 }

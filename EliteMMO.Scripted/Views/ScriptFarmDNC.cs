@@ -20,7 +20,7 @@
         private void BgwScriptDncDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             const double scanInterval = 0.1;
-
+            
             while (botRunning && !bgw_script_dnc.CancellationPending)
             {
                 if (isCasting) continue;
@@ -41,6 +41,7 @@
 
                 while (PlayerInfo.Status == 1 && botRunning && TargetInfo.ID > 0)
                 {
+                    
                     isPulled = true;
 
                     if (naviMove)
@@ -226,7 +227,9 @@
                     if (aggro.Checked && PlayerInfo.Status == 0) DetectAggro();
 
                     if (PlayerInfo.Status == 0 && ((HealHP.Checked && PlayerInfo.HPP <= healHPcount.Value) ||
-                        (HealMP.Checked && PlayerInfo.MPP <= healMPcount.Value)))
+                        (HealMP.Checked && PlayerInfo.MPP <= healMPcount.Value) /*||
+                        (healforAutomatonHP.Checked && PetInfo.HPP <= healforAutomatonHPset.Value) ||
+                        (healforAutomatonMP.Checked && PetInfo.MPP <= healforAutomatonMPset.Value)*/))
                     {
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         if ((PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15) && PetInfo.ID > 0)
@@ -257,7 +260,15 @@
                 while (PlayerInfo.Status == 33)
                 {
                     Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                    if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100)
+                    /*if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
+                    {
+                        if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 && PetInfo.MPP == 100)
+                        {
+                            api.ThirdParty.SendString("/heal off");
+                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        }
+                    }
+                    else */if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100)
                     {
                         api.ThirdParty.SendString("/heal off");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -372,10 +383,6 @@
                         WindowInfo.SendText("/ja \"Call Wyvern\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(2.0));
                     }
-
-                    if (WyvernJA.Items.Count == 0)
-                        WyvernGetJA();
-
                     if (PetInfo.ID > 0 && WyvernJA.Items.Count > 0 &&
                         PlayerInfo.Status == 1 && !string.IsNullOrEmpty(TargetInfo.Name))
                     {
@@ -384,6 +391,7 @@
                 }
                 #endregion;
                 if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15 && SMNSelect.SelectedItem.ToString() != "") SMNUseJA();
+                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18) PUPUseJA();
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }
@@ -525,11 +533,6 @@
             MonStagered = false;
         }
         #endregion
-
-        /* private void bgw_script_npc_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-
-        } */
         #region Display Controle
         private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -545,17 +548,11 @@
             else if (curItem == "Magic Fruit") MONhpCount.Enabled = state;
             else if (curItem == "Healing Breeze") MONhpCount.Enabled = state;
             else if (curItem == "Proboscis") MONmpCount.Enabled = state;
+            else if (curItem == "Convert") Convertgroup.Enabled = state;
             else if (curItem == "Vivacious Pulse")
             {
                 VivaciousPulse.Enabled = state;
                 VivaciousPulseHP.Enabled = state;
-            }
-            else if (curItem == "Convert")
-            {
-                ConvertHP.Enabled = state;
-                ConvertMP.Enabled = state;
-                ConvertHPP.Enabled = state;
-                ConvertMPP.Enabled = state;
             }
         }
 
@@ -589,11 +586,10 @@
             else if (curItem == "Exuviation") Exuviationcount.Enabled = state;
             else if (curItem == "Wild Carrot") WildCarrotcount.Enabled = state;
         }
-        #endregion
 
         private void SMNSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SMNGetJA();
+            if (!isLoading) SMNGetJA();
             if (SMNSelect.SelectedItem.ToString().Contains("Spirit"))
             {
                 SMNHealTEXT1.Enabled = true;
@@ -651,17 +647,34 @@
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Maneuver1select_SelectedIndexChanged(object sender, EventArgs e)
         {
-            saveConfig();
+            if ((string)Maneuver1select.SelectedItem == "Not Selected") Maneuver1set.Enabled = false;
+            else Maneuver1set.Enabled = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Maneuver2select_SelectedIndexChanged(object sender, EventArgs e)
         {
-            updatenav();
-            loadConfig();
-            updatenav();
-            CharacterUpdate(false);
+            if ((string)Maneuver2select.SelectedItem == "Not Selected") Maneuver2set.Enabled = false;
+            else Maneuver2set.Enabled = true;
         }
+
+        private void Maneuver3select_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((string)Maneuver3select.SelectedItem == "Not Selected") Maneuver3set.Enabled = false;
+            else Maneuver3set.Enabled = true;
+        }
+
+        private void PUPJA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string curItem = PUPJA.SelectedItem.ToString();
+            int index = PUPJA.FindString(curItem);
+            bool state = (PUPJA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
+            if (curItem == "Role Reversal") RoleReversalgroup.Enabled = state;
+            else if (curItem == "Tactical Switch") TacticalSwitchgroup.Enabled = state;
+            else if (curItem == "Repair") Repairgroup.Enabled = state;
+            else if (curItem == "Ventriloquy") Ventriloquygroup.Enabled = state;
+        }
+        #endregion
     }
 }
