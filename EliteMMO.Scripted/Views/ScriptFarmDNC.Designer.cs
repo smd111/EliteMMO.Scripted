@@ -623,6 +623,8 @@
             this.DeathWarp = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -6160,6 +6162,8 @@
             // 
             // geopettab
             // 
+            this.geopettab.Controls.Add(this.label57);
+            this.geopettab.Controls.Add(this.comboBox5);
             this.geopettab.Controls.Add(this.groupBox6);
             this.geopettab.Location = new System.Drawing.Point(4, 22);
             this.geopettab.Name = "geopettab";
@@ -6345,6 +6349,24 @@
             this.button2.Text = "Load Settings";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(103, 7);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(121, 21);
+            this.comboBox5.TabIndex = 15;
+            this.comboBox5.Text = "Test";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(35, 10);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(41, 13);
+            this.label57.TabIndex = 16;
+            this.label57.Text = "label57";
             // 
             // ScriptFarmDNC
             // 
@@ -6604,6 +6626,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RRPetHPPset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RRPlayerHPPset)).EndInit();
             this.geopettab.ResumeLayout(false);
+            this.geopettab.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
@@ -7337,6 +7360,7 @@
                 if (PlayerInfo.MainJob == 21 || PlayerInfo.SubJob == 21) 
                 {
                     this.petControl.Controls.Add(this.geopettab);
+                    //GEOGetJA()
                 }
                 this.dncControl.Controls.Add(this.pets);
             }
@@ -8842,8 +8866,8 @@
                         break;
                     #endregion
                     #region Familiar: Spider
-                    case :"Spider Familiar":
-                    case :"Gussy Hachirobe":
+                    case "Spider Familiar":
+                    case "Gussy Hachirobe":
                         break;
                     #endregion
                     #region Familiar: Snapweed
@@ -10495,7 +10519,6 @@
         private void updatenav()
         {
             selectedNavi.Items.Clear();
-
             var path = string.Format("{0}\\Nav\\", Application.StartupPath);
             foreach (var file in Directory.GetFiles(path, "*.xin"))
             {
@@ -10845,5 +10868,7 @@
         private GroupBox Ventriloquygroup;
         private RadioButton VentriloquyPet;
         private RadioButton VentriloquyPlayer;
+        private Label label57;
+        private ComboBox comboBox5;
     }
 }

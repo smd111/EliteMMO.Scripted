@@ -37,9 +37,6 @@ namespace FormSerialisation
         {
             foreach (Control childCtrl in c.Controls)
             {
-                //List<string> skipthesenames = new List<string>(new string[] {"HealingWaltzItems",});
-                //if (skipthesenames.Contains(childCtrl.Name)) return;
-                //api.ThirdParty.SendString(String.Format("/echo {0}", childCtrl.GetType().ToString()));
                 if (!(childCtrl is Label) && !(childCtrl is ListView) && !(childCtrl is MenuStrip) &&
                       childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownEdit" &&
                       childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownButtons")
@@ -69,11 +66,11 @@ namespace FormSerialisation
                     {
                         // need to account for multiply selected items
                         CheckedListBox lst = (CheckedListBox)childCtrl;
-                        for (int i = 0; i < lst.Items.Count; i++)
+                        /*for (int i = 0; i < lst.Items.Count; i++)
                         {
                             xmlSerialisedForm.WriteElementString("list"+i.ToString(), (lst.Items[i].ToString()));
                         }
-                        xmlSerialisedForm.WriteElementString("listcount", (lst.Items.Count.ToString()));
+                        xmlSerialisedForm.WriteElementString("listcount", (lst.Items.Count.ToString())); */
                         for (int i = 0; i < lst.CheckedIndices.Count; i++)
                         {
                             xmlSerialisedForm.WriteElementString("SelectedIndex" + i.ToString(), (lst.CheckedIndices[i].ToString()));
@@ -167,37 +164,38 @@ namespace FormSerialisation
                             case "System.Windows.Forms.CheckedListBox":
                                 // need to account for multiply selected items
                                 CheckedListBox ltr = (CheckedListBox)ctrlToSet;
-                                var Lcount=Convert.ToInt32(n["listcount"].InnerText);
+                                //var Lcount=Convert.ToInt32(n["listcount"].InnerText);
                                 var Icount=Convert.ToInt32(n["SelectedIndexcount"].InnerText);
-                                ltr.Items.Clear();
+                                /* ltr.Items.Clear();
                                 for (int i = 0; i < Lcount; i++)
                                 {
                                     if (!ltr.Items.Contains(n["list" + i.ToString()].InnerText))
                                         ltr.Items.Add(n["list"+i.ToString()].InnerText);
-                                }
+                                } */
+                                ltr.SelectedIndices.Clear();
                                 for (int i = 0; i < Icount; i++)
                                 {
                                     ltr.SetItemChecked(Convert.ToInt16(n["SelectedIndex" + i.ToString()].InnerText), true);
                                 }
                                 break;
                             case "System.Windows.Forms.RadioButton":
-                                ((System.Windows.Forms.RadioButton)ctrlToSet).Checked = Convert.ToBoolean(n["Checked"].InnerText);
+                                ((RadioButton)ctrlToSet).Checked = Convert.ToBoolean(n["Checked"].InnerText);
                                 break;
                             case "System.Windows.Forms.GroupBox":
-                                ((System.Windows.Forms.GroupBox)ctrlToSet).Enabled = Convert.ToBoolean(n["Enabled"].InnerText);
+                                ((GroupBox)ctrlToSet).Enabled = Convert.ToBoolean(n["Enabled"].InnerText);
                                 break;
                             case "System.Windows.Forms.NumericUpDown":
-                                ((System.Windows.Forms.NumericUpDown)ctrlToSet).Value = Convert.ToDecimal(n["Value"].InnerText);
-                                ((System.Windows.Forms.NumericUpDown)ctrlToSet).Enabled = Convert.ToBoolean(n["Enabled"].InnerText);
+                                ((NumericUpDown)ctrlToSet).Value = Convert.ToDecimal(n["Value"].InnerText);
+                                ((NumericUpDown)ctrlToSet).Enabled = Convert.ToBoolean(n["Enabled"].InnerText);
                                 break;
                             case "System.Windows.Forms.TextBox":
-                                ((System.Windows.Forms.TextBox)ctrlToSet).Text = n["Text"].InnerText;
+                                ((TextBox)ctrlToSet).Text = n["Text"].InnerText;
                                 break;
                             case "System.Windows.Forms.ComboBox":
-                                ((System.Windows.Forms.ComboBox)ctrlToSet).Text = n["Text"].InnerText;
+                                ((ComboBox)ctrlToSet).SelectedText = n["Text"].InnerText;
                                 //((System.Windows.Forms.ComboBox)ctrlToSet).SelectedIndex = Convert.ToInt32(n["SelectedIndex"].InnerText);
                                 break;
-                            case "System.Windows.Forms.ListBox":
+                            /* case "System.Windows.Forms.ListBox":
                                 // need to account for multiply selected items
                                 ListBox lst = (ListBox)ctrlToSet;
                                 XmlNodeList xnlSelectedIndex = n.SelectNodes("SelectedIndex");
@@ -205,9 +203,9 @@ namespace FormSerialisation
                                 {
                                     lst.SelectedIndex = Convert.ToInt32(xnlSelectedIndex[i].InnerText);
                                 }
-                                break;
+                                break; */
                             case "System.Windows.Forms.CheckBox":
-                                ((System.Windows.Forms.CheckBox)ctrlToSet).Checked = Convert.ToBoolean(n["Checked"].InnerText);
+                                ((CheckBox)ctrlToSet).Checked = Convert.ToBoolean(n["Checked"].InnerText);
                                 break;
                         }
                         //ctrlToSet.Visible = Convert.ToBoolean(n["Visible"].InnerText);

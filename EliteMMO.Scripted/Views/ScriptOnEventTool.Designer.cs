@@ -5,7 +5,7 @@ using System.Xml;
 namespace EliteMMO.Scripted.Views
 {
     using System;
-    using EliteMMO.API;
+    using API;
     using System.Windows.Forms;
     using System.IO;
     partial class ScriptOnEventTool
