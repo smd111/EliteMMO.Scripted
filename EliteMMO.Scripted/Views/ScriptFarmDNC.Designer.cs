@@ -7795,7 +7795,7 @@
                     {777, new {}}, {779, new {b1=460,b2=68}}, {781, new {b1=461}},{783, new {b1=477}}, {784, new {}}, {788, new {b1=462}}, {789, new {}},
                     {790, new {b1=478}}, {791, new {}}, {792, new {b1=479}}, {797, new {}},{798, new {b1=482}}, {799, new {b1=465}}, {803, new {b1=484}},
                     {804, new {}}, {805, new {}}, {813, new {b1=467}}, {814, new {b1=335,b2=309}},{815, new {b1=336,b2=309}}, {816, new {b1=337,b2=309}},
-                    {817, new {b1=338,b2=309}}, {833, new {thp=10}}, {835, new {b1=490,b2=340}},{836, new {b1=491}}, {837, new {b1=492}}, {840, new {}},
+                    {817, new {b1=338,b2=309}}, {833, new {hpt=10}}, {835, new {b1=490,b2=340}},{836, new {b1=491}}, {837, new {b1=492}}, {840, new {}},
                     {841, new {}}, {842, new {b1=497}}, {845, new {b1=500}}, {846, new {b1=501}},{847, new {b1=502}}, {848, new {b1=503}}, {851, new {}},
                     {853, new {b1=507}}, {856, new {}}, {868, new {}}, {870, new {b1=523}},{871, new {b1=524}}, {872, new {b1=525}}, {873, new {b1=526}},
                     {874, new {b1=527}}, {875, new {b1=528}}, {876, new {b1=529}},{877, new {b1=530}}, {878, new {b1=531}}, {879, new {b1=532}}, {880, new {}},
@@ -7852,11 +7852,11 @@
                     if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0 && ability.TP <= PlayerInfo.TP)
                     {
-                        if (jacontrol[ability.ID].ToString().Contains("mp"))
+                        if (jacontrol[ability.ID].ToString().Contains("mp ="))
                         {
                             if (PlayerInfo.MPP <= MONmpCount.Value) useAbility = true;
                         }
-                        else if (jacontrol[ability.ID].ToString().Contains("hp"))
+                        else if (jacontrol[ability.ID].ToString().Contains("hp ="))
                         {
                             if (PlayerInfo.HPP <= MONhpCount.Value) useAbility = true;
                         }
@@ -7900,9 +7900,9 @@
                     {
                         if (PlayerInfo.HPP <= jacontrol[ability.ID].hp) useAbility = true;
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("thp ="))
+                    else if (jacontrol[ability.ID].ToString().Contains("hpt ="))
                     {
-                        if (TargetInfo.HPP <= jacontrol[ability.ID].thp) useAbility = true;
+                        if (TargetInfo.HPP <= jacontrol[ability.ID].hpt) useAbility = true;
                     }
                     else useAbility = true;
                 }
@@ -9011,11 +9011,8 @@
             if ((PlayerInfo.MainJobLevel >= 25 || PlayerInfo.SubJobLevel >= 25) &&
                  PlayerInfo.HasAbility(592) && !WyvernJA.Items.Contains("Spirit Link")) WyvernJA.Items.Add("Spirit Link");
             if (PlayerInfo.MainJobLevel >= 75 && PlayerInfo.HasAbility(681) && !WyvernJA.Items.Contains("Deep Breathing")) WyvernJA.Items.Add("Deep Breathing");
-            if (PlayerInfo.MainJobLevel >= 90 && !WyvernJA.Items.Contains("Smiting Breath"))
-            {
-                 WyvernJA.Items.Add("Smiting Breath");
-                 WyvernJA.Items.Add("Restoring Breath");
-            }
+            if (PlayerInfo.MainJobLevel >= 90 && !WyvernJA.Items.Contains("Smiting Breath")) WyvernJA.Items.Add("Smiting Breath");
+            if (PlayerInfo.MainJobLevel >= 90 && !WyvernJA.Items.Contains("Restoring Breath")) WyvernJA.Items.Add("Restoring Breath");
             if (PlayerInfo.MainJobLevel >= 95 && !WyvernJA.Items.Contains("Steady Wing")) WyvernJA.Items.Add("Steady Wing");
             #endregion
         }

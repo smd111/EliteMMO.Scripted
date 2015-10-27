@@ -1,0 +1,11 @@
+get all JA's to populate --done
+ja coding --done
+SCH Stratagem counter --done
+ja control --85%
+get all ma's to populate --done
+ma control --90%
+ma coding --85%
+add rest of the flourishes --0%
+
+things that might or might not be done
+add coding for SMN/PUP/GEO--0%
