@@ -216,7 +216,7 @@
             this.combat = new System.Windows.Forms.TabPage();
             this.CombatSettingsTabs = new System.Windows.Forms.TabControl();
             this.Options1MainTab = new System.Windows.Forms.TabPage();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.HateControlgroup = new System.Windows.Forms.GroupBox();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -429,7 +429,7 @@
             this.usefeatherstep = new System.Windows.Forms.RadioButton();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.HWSelectDeselectALL = new System.Windows.Forms.CheckBox();
             this.HealingWaltzItems = new System.Windows.Forms.CheckedListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -603,6 +603,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.geopettab = new System.Windows.Forms.TabPage();
+            this.label57 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.GEOJA = new System.Windows.Forms.CheckedListBox();
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
@@ -623,8 +625,6 @@
             this.DeathWarp = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label57 = new System.Windows.Forms.Label();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -639,7 +639,7 @@
             this.combat.SuspendLayout();
             this.CombatSettingsTabs.SuspendLayout();
             this.Options1MainTab.SuspendLayout();
-            this.groupBox23.SuspendLayout();
+            this.HateControlgroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
             this.groupBox20.SuspendLayout();
@@ -1190,7 +1190,7 @@
             // 
             // Options1MainTab
             // 
-            this.Options1MainTab.Controls.Add(this.groupBox23);
+            this.Options1MainTab.Controls.Add(this.HateControlgroup);
             this.Options1MainTab.Controls.Add(this.groupBox20);
             this.Options1MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options1MainTab.Name = "Options1MainTab";
@@ -1200,21 +1200,22 @@
             this.Options1MainTab.Text = "Options 1";
             this.Options1MainTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox23
+            // HateControlgroup
             // 
-            this.groupBox23.Controls.Add(this.numericUpDown6);
-            this.groupBox23.Controls.Add(this.numericUpDown7);
-            this.groupBox23.Controls.Add(this.label4);
-            this.groupBox23.Controls.Add(this.label5);
-            this.groupBox23.Controls.Add(this.label6);
-            this.groupBox23.Controls.Add(this.selectedHateControl);
-            this.groupBox23.Controls.Add(this.tank);
-            this.groupBox23.Location = new System.Drawing.Point(7, 116);
-            this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(314, 68);
-            this.groupBox23.TabIndex = 1;
-            this.groupBox23.TabStop = false;
-            this.groupBox23.Text = "Hate Control";
+            this.HateControlgroup.Controls.Add(this.numericUpDown6);
+            this.HateControlgroup.Controls.Add(this.numericUpDown7);
+            this.HateControlgroup.Controls.Add(this.label4);
+            this.HateControlgroup.Controls.Add(this.label5);
+            this.HateControlgroup.Controls.Add(this.label6);
+            this.HateControlgroup.Controls.Add(this.selectedHateControl);
+            this.HateControlgroup.Controls.Add(this.tank);
+            this.HateControlgroup.Enabled = false;
+            this.HateControlgroup.Location = new System.Drawing.Point(7, 116);
+            this.HateControlgroup.Name = "HateControlgroup";
+            this.HateControlgroup.Size = new System.Drawing.Size(314, 68);
+            this.HateControlgroup.TabIndex = 1;
+            this.HateControlgroup.TabStop = false;
+            this.HateControlgroup.Text = "Hate Control";
             // 
             // numericUpDown6
             // 
@@ -3999,7 +4000,7 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.checkBox1);
+            this.groupBox7.Controls.Add(this.HWSelectDeselectALL);
             this.groupBox7.Controls.Add(this.HealingWaltzItems);
             this.groupBox7.Enabled = false;
             this.groupBox7.Location = new System.Drawing.Point(212, 35);
@@ -4009,16 +4010,16 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Healing Waltz";
             // 
-            // checkBox1
+            // HWSelectDeselectALL
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 145);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(125, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Select/Deselect ALL";
-            this.checkBox1.UseVisualStyleBackColor = false;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1CheckedChanged);
+            this.HWSelectDeselectALL.AutoSize = true;
+            this.HWSelectDeselectALL.Location = new System.Drawing.Point(6, 145);
+            this.HWSelectDeselectALL.Name = "HWSelectDeselectALL";
+            this.HWSelectDeselectALL.Size = new System.Drawing.Size(125, 17);
+            this.HWSelectDeselectALL.TabIndex = 1;
+            this.HWSelectDeselectALL.Text = "Select/Deselect ALL";
+            this.HWSelectDeselectALL.UseVisualStyleBackColor = false;
+            this.HWSelectDeselectALL.CheckedChanged += new System.EventHandler(this.HWSelectDeselectALLCheckedChanged);
             // 
             // HealingWaltzItems
             // 
@@ -6173,6 +6174,24 @@
             this.geopettab.Text = "GEO";
             this.geopettab.UseVisualStyleBackColor = true;
             // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(35, 10);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(41, 13);
+            this.label57.TabIndex = 16;
+            this.label57.Text = "label57";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(103, 7);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(121, 21);
+            this.comboBox5.TabIndex = 15;
+            this.comboBox5.Text = "Test";
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.GEOJA);
@@ -6350,24 +6369,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(103, 7);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 15;
-            this.comboBox5.Text = "Test";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(35, 10);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(41, 13);
-            this.label57.TabIndex = 16;
-            this.label57.Text = "label57";
-            // 
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6405,8 +6406,8 @@
             this.combat.ResumeLayout(false);
             this.CombatSettingsTabs.ResumeLayout(false);
             this.Options1MainTab.ResumeLayout(false);
-            this.groupBox23.ResumeLayout(false);
-            this.groupBox23.PerformLayout();
+            this.HateControlgroup.ResumeLayout(false);
+            this.HateControlgroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
             this.groupBox20.ResumeLayout(false);
@@ -6681,7 +6682,7 @@
         public System.Windows.Forms.TabPage combat;
         public System.Windows.Forms.TabControl CombatSettingsTabs;
         public System.Windows.Forms.TabPage Options1MainTab;
-        public System.Windows.Forms.GroupBox groupBox23;
+        public System.Windows.Forms.GroupBox HateControlgroup;
         public System.Windows.Forms.NumericUpDown numericUpDown6;
         public System.Windows.Forms.NumericUpDown numericUpDown7;
         public System.Windows.Forms.Label label4;
@@ -6795,7 +6796,7 @@
         public System.Windows.Forms.RadioButton usefeatherstep;
         public System.Windows.Forms.TabPage tabPage15;
         public System.Windows.Forms.GroupBox groupBox7;
-        public System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.CheckBox HWSelectDeselectALL;
         public System.Windows.Forms.CheckedListBox HealingWaltzItems;
         public System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.Label label32;
@@ -7027,6 +7028,70 @@
         private NumericUpDown SMNHPPset2;
         private Label SMNHealTEXT2;
         private Label SMNHealTEXT1;
+        private Label SMNpetTPUSEtext;
+        private NumericUpDown SMNpetTPUSEset;
+        private GroupBox ManaCedegroup;
+        private Label ManaCedePETTPtext;
+        private NumericUpDown ManaCedeTPset;
+        private Label ManaCedePMPPtext;
+        private NumericUpDown ManaCedeMPPset;
+        private Label Apogeetext;
+        private NumericUpDown ApogeeMPPset;
+        private Label SMNpetMPUSEtext;
+        private NumericUpDown SMNpetMPUSEset;
+        private Button button1;
+        private Button button2;
+        public CheckBox AutoCallPUP;
+        private NumericUpDown numericUpDown8;
+        private NumericUpDown numericUpDown9;
+        private NumericUpDown numericUpDown10;
+        private NumericUpDown numericUpDown5;
+        private NumericUpDown numericUpDown4;
+        private NumericUpDown numericUpDown3;
+        private NumericUpDown numericUpDown2;
+        private NumericUpDown numericUpDown1;
+        private ComboBox Repairselect;
+        private Label label18;
+        private Label label14;
+        private NumericUpDown Repairset;
+        private TabControl tabControl1;
+        private TabPage PUPAbilitypage;
+        private TabPage PUPOtherpage;
+        private GroupBox RoleReversalgroup;
+        private System.Windows.Forms.RadioButton RRPET;
+        private System.Windows.Forms.RadioButton RRPlayer;
+        private NumericUpDown RRPetHPPset;
+        private NumericUpDown RRPlayerHPPset;
+        private Label label24;
+        private Label label19;
+        private GroupBox TacticalSwitchgroup;
+        private System.Windows.Forms.RadioButton TSPET;
+        private System.Windows.Forms.RadioButton TSPlayer;
+        private NumericUpDown TSPetTPset;
+        private NumericUpDown TSPlayerTPset;
+        private Label label26;
+        private Label label41;
+        private GroupBox groupBox4;
+        private CheckBox healforAutomatonMP;
+        private CheckBox healforAutomatonHP;
+        private NumericUpDown healforAutomatonMPset;
+        private NumericUpDown healforAutomatonHPsaet;
+        private ComboBox Maneuver3select;
+        private ComboBox Maneuver2select;
+        private ComboBox Maneuver1select;
+        private Label label56;
+        private Label label51;
+        private Label label49;
+        private NumericUpDown Maneuver3set;
+        private NumericUpDown Maneuver2set;
+        private NumericUpDown Maneuver1set;
+        private GroupBox Maneuversgroup;
+        private GroupBox Repairgroup;
+        private GroupBox Ventriloquygroup;
+        private RadioButton VentriloquyPet;
+        private RadioButton VentriloquyPlayer;
+        private Label label57;
+        private ComboBox comboBox5;
         #endregion
 
         #region Methods: Start/Stop/Load
@@ -7116,18 +7181,17 @@
             #region Ability list
             List<uint> abilitylist = new List<uint>(new uint[] {528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541,
             543, 544, 545, 546, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568,
-            569, 570, 571, 572, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 593,
-            594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619,
-            620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644,
-            645, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670,
-            671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 682, 683, 684, 685, 686, 687, 688, 689, 690, 693, 708, 709,
-            722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 745, 746, 747, 748,
-            749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773,
-            777, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 803,
-            804, 805, 807, 809, 810, 813, 814, 815, 816, 817, 828, 829, 830, 831, 832, 833, 835,
-            836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 850, 851, 853, 854, 855, 856, 857, 858, 859, 860,
-            861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885,
-            886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 898, 899, 900, 901, 902, 903, 904,});
+            569, 570, 571, 572, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 593, 594, 595,
+            596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621,
+            622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 661,
+            662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 682, 683, 684, 685, 686, 687,
+            688, 689, 690, 693, 708, 709, 722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741,
+            742, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768,
+            769, 770, 771, 772, 773, 777, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798,
+            799, 800, 803, 804, 805, 807, 809, 810, 813, 814, 815, 816, 817, 828, 829, 830, 831, 832, 833, 835, 836, 837, 838, 839, 840,
+            841, 842, 843, 844, 845, 846, 847, 848, 850, 851, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867,
+            868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892,
+            893, 894, 895, 896, 898, 899, 900, 901, 902, 903, 904,});
             #endregion
 
             for (uint i = 528; i <= 2227; i++)
@@ -7542,44 +7606,44 @@
 
             #region CheckBuffs
 
-            if (PlayerInfo.HasBuff(4) && hw.Contains("Paralyze")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(3) && hw.Contains("Poison")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(5) && hw.Contains("Blind")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(11) && hw.Contains("Bind")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(9) && hw.Contains("Curse")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(13) && hw.Contains("Slow")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(6) && hw.Contains("Silence")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(31) && hw.Contains("Plague")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(8) && hw.Contains("Disease")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(30) && hw.Contains("Bane")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(135) && hw.Contains("Bio")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(128) && hw.Contains("Burn")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(130) && hw.Contains("Choke")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(131) && hw.Contains("Rasp")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(133) && hw.Contains("Drown")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(129) && hw.Contains("Frost")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(132) && hw.Contains("Shock")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(134) && hw.Contains("Dia")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(136) && hw.Contains("STR Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(137) && hw.Contains("DEX Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(138) && hw.Contains("VIT Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(139) && hw.Contains("AGI Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(141) && hw.Contains("MND Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(142) && hw.Contains("CHR Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(174) && hw.Contains("MACC Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(148) && hw.Contains("EVA Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(149) && hw.Contains("DEF Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(147) && hw.Contains("ATT Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(146) && hw.Contains("ACC Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(404) && hw.Contains("MEVA Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(175) && hw.Contains("MATT Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(167) && hw.Contains("MDEF Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(144) && hw.Contains("HP Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(145) && hw.Contains("MP Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(189) && hw.Contains("TP Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(140) && hw.Contains("INT Down")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(186) && hw.Contains("Helix")) { CastHealingWatz(); }
-            if (PlayerInfo.HasBuff(12) && hw.Contains("Gravity")) { CastHealingWatz(); }
+            if (PlayerInfo.HasBuff(4) && hw.Contains("Paralyze")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(3) && hw.Contains("Poison")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(5) && hw.Contains("Blind")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(11) && hw.Contains("Bind")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(9) && hw.Contains("Curse")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(13) && hw.Contains("Slow")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(6) && hw.Contains("Silence")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(31) && hw.Contains("Plague")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(8) && hw.Contains("Disease")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(30) && hw.Contains("Bane")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(135) && hw.Contains("Bio")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(128) && hw.Contains("Burn")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(130) && hw.Contains("Choke")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(131) && hw.Contains("Rasp")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(133) && hw.Contains("Drown")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(129) && hw.Contains("Frost")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(132) && hw.Contains("Shock")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(134) && hw.Contains("Dia")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(136) && hw.Contains("STR Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(137) && hw.Contains("DEX Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(138) && hw.Contains("VIT Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(139) && hw.Contains("AGI Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(141) && hw.Contains("MND Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(142) && hw.Contains("CHR Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(174) && hw.Contains("MACC Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(148) && hw.Contains("EVA Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(149) && hw.Contains("DEF Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(147) && hw.Contains("ATT Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(146) && hw.Contains("ACC Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(404) && hw.Contains("MEVA Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(175) && hw.Contains("MATT Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(167) && hw.Contains("MDEF Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(144) && hw.Contains("HP Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(145) && hw.Contains("MP Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(189) && hw.Contains("TP Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(140) && hw.Contains("INT Down")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(186) && hw.Contains("Helix")) CastHealingWatz();
+            if (PlayerInfo.HasBuff(12) && hw.Contains("Gravity")) CastHealingWatz();
 
             #endregion
         }
@@ -7588,10 +7652,10 @@
             api.ThirdParty.SendString("/ja \"Healing Waltz\" <me>");
             Thread.Sleep(TimeSpan.FromSeconds(2.0));
         }
-        private void CheckBox1CheckedChanged(object sender, EventArgs e)
+        private void HWSelectDeselectALLCheckedChanged(object sender, EventArgs e)
         {
             #region Select/Deselect All (Healing Walz)
-            if (checkBox1.Checked)
+            if (HWSelectDeselectALL.Checked)
             {
                 for (var i = 0; i < HealingWaltzItems.Items.Count; i++)
                 {
@@ -8013,6 +8077,7 @@
                 {780, new {I=0,B=550}},{781, new {I=0,B=551}},{782, new {I=0,B=552}},{783, new {I=0,B=553}},{784, new {I=0,B=554}},
                 {785, new {I=0,B=555}},{786, new {I=0,B=556}},{787, new {I=0}},{788, new {I=0}},{789, new {I=0}},{790, new {I=0}},
                 {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
+                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},
                 };
             
             if (MAreverse.Checked) ma.Reverse();
@@ -9162,6 +9227,7 @@
             else if (PlayerInfo.SubJob == 15) joblvl = PlayerInfo.SubJobLevel;
             if (PetInfo.ID == 0 && PlayerInfo.MP >= magic.MP && SMNpetMPUSEset.Value <= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0)
             {
+                Thread.Sleep(TimeSpan.FromSeconds(((double) pullDelay.Value) + 3.0));
                 api.ThirdParty.SendString("/ma \""+magic.Name+"\" <me>");
                 Casting();
             }
@@ -10803,69 +10869,5 @@
 
         #endregion
 
-        private Label SMNpetTPUSEtext;
-        private NumericUpDown SMNpetTPUSEset;
-        private GroupBox ManaCedegroup;
-        private Label ManaCedePETTPtext;
-        private NumericUpDown ManaCedeTPset;
-        private Label ManaCedePMPPtext;
-        private NumericUpDown ManaCedeMPPset;
-        private Label Apogeetext;
-        private NumericUpDown ApogeeMPPset;
-        private Label SMNpetMPUSEtext;
-        private NumericUpDown SMNpetMPUSEset;
-        private Button button1;
-        private Button button2;
-        public CheckBox AutoCallPUP;
-        private NumericUpDown numericUpDown8;
-        private NumericUpDown numericUpDown9;
-        private NumericUpDown numericUpDown10;
-        private NumericUpDown numericUpDown5;
-        private NumericUpDown numericUpDown4;
-        private NumericUpDown numericUpDown3;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown1;
-        private ComboBox Repairselect;
-        private Label label18;
-        private Label label14;
-        private NumericUpDown Repairset;
-        private TabControl tabControl1;
-        private TabPage PUPAbilitypage;
-        private TabPage PUPOtherpage;
-        private GroupBox RoleReversalgroup;
-        private System.Windows.Forms.RadioButton RRPET;
-        private System.Windows.Forms.RadioButton RRPlayer;
-        private NumericUpDown RRPetHPPset;
-        private NumericUpDown RRPlayerHPPset;
-        private Label label24;
-        private Label label19;
-        private GroupBox TacticalSwitchgroup;
-        private System.Windows.Forms.RadioButton TSPET;
-        private System.Windows.Forms.RadioButton TSPlayer;
-        private NumericUpDown TSPetTPset;
-        private NumericUpDown TSPlayerTPset;
-        private Label label26;
-        private Label label41;
-        private GroupBox groupBox4;
-        private CheckBox healforAutomatonMP;
-        private CheckBox healforAutomatonHP;
-        private NumericUpDown healforAutomatonMPset;
-        private NumericUpDown healforAutomatonHPsaet;
-        private ComboBox Maneuver3select;
-        private ComboBox Maneuver2select;
-        private ComboBox Maneuver1select;
-        private Label label56;
-        private Label label51;
-        private Label label49;
-        private NumericUpDown Maneuver3set;
-        private NumericUpDown Maneuver2set;
-        private NumericUpDown Maneuver1set;
-        private GroupBox Maneuversgroup;
-        private GroupBox Repairgroup;
-        private GroupBox Ventriloquygroup;
-        private RadioButton VentriloquyPet;
-        private RadioButton VentriloquyPlayer;
-        private Label label57;
-        private ComboBox comboBox5;
     }
 }
