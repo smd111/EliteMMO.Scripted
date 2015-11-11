@@ -20,7 +20,7 @@
         private static EliteAPI api;
         List<WayPoint> route = new List<WayPoint>();
 
-        List<string> SMNPetNames = new List<string>(new string[] {"Carbuncle","Fenrir","Ifrit","Titan","Leviathan","Garuda","Shiva","Ramuh",
+        public List<string> SMNPetNames = new List<string>(new string[] {"Carbuncle","Fenrir","Ifrit","Titan","Leviathan","Garuda","Shiva","Ramuh",
                              "Diabolos","Cait Sith","Fire Spirit","Ice Spirit","Air Spirit","Earth Spirit","Thunder Spirit","Water Spirit","Light Spirit",
                              "Dark Spirit"});
         public double DistanceTolerance { get; set; }
@@ -62,93 +62,19 @@
         #region notWanted<list>
         public List<string> notWanted = new List<string>(new string[]
         {
-            "",
-            "???",
-            "Casket",
-            "Treasure Chest",
-            "Treasure Casket",
-            "Treasure Coffer",
-            "Mog-Tablet",
-            "Logging Point",
-            "Mining Point",
-            "Harvesting Point",
-            "Field Manual",
-            "Moogle",
-            "VCSCrate",
-            "EFFECTER",
-            "Gate Sentry",
-            "Mogball-Local",
-            "CermetHeadstone",
-            "Sign post",
-            "Stone Monument",
-            "Overturned Soil",
-            "Riftworn Pyxis",
-            "Achieve Master",
-            "_3t0","01","02","03","04","05","06","07",
-            "08","09","10","11","12","13","14","15",
-            "akaA","akaE","akaF","akaG","akaH","akaI",
-            "akaJ","d01","d02","d03","d04","ex01","ex02",
-            "ex03","ex04","ex05","ex06","ex07","ex08",
-            "gold 01","gold 02","Irin 01","Irin 02",
-            "Irin 03",
-            "1","2","3","4","5","6","7","8","9","10",
-            "A","B","C","D","E","F","G","H","I","J",
-            "K","L","M","N","O","P","Q","R","S","T",
-            "U","V","W","X","Y","Z",
-            "Tsonga-Hoponga, W.W.",
-            "Voidwatch Officer",
-            "Spare Two",
-            "Spare Zero",
-            "Ramblix",
-            "Planar Rift",
-            "Goblin Footprint",
-            "Chocobo",
-            "Home Point #1",
-            "Home Point #2",
-            "Home Point #3",
-            "Home Point #4",
-            "Home Point #5",
-            "FXTEST",
-            "Anguenet",
-            "Beugungel",
-            "Chuaie",
-            "Cofisephe",
-            "Coupulie",
-            "Felourie",
-            "Guilloud",
-            "Lourdaude",
-            "Ratoulle",
-            "sdoor_s",
-            "sdoor_t",
-            "sdoor_u",
-            "ship",
-            "Gniyah Mischatt",
-            "Khots Chalahko",
-            "Test Actor",
-            "Fheli Lapatzuo",
-            "Mep Nhapopoluko",
-            "Tswe Panipahr",
-            "Noih Tahparawh",
-            "Toh Zonikki",
-            "Rhalo Davigoh",
-            "Pohka Chichiyowahl",
-            "??? Warmachine",
-            "Affi","Dremi",
-            "Eschan Portal #1",
-            "Eschan Portal #2",
-            "Eschan Portal #3",
-            "Eschan Portal #4",
-            "Eschan Portal #5",
-            "Eschan Portal #6",
-            "Eschan Portal #7",
-            "Eschan Portal #8",
-            "Eschan Portal #9",
-            "Eschan Portal #10",
-            "Eschan Portal #11",
-            "Eschan Portal #12",
-            "Eschan Portal #13",
-            "Eschan Portal #14",
-            "Eschan Portal #15"
+            "","Casket","Treasure Chest","Treasure Casket","Treasure Coffer","Mog-Tablet","Logging Point","Mining Point","Harvesting Point","Field Manual","Moogle",
+            "VCSCrate","Gate Sentry","Mogball-Local","CermetHeadstone","Sign post","Stone Monument","Overturned Soil","Riftworn Pyxis","Achieve Master","Irin 01",
+            "Irin 02","Irin 03","Tsonga-Hoponga, W.W.","Voidwatch Officer","Spare Two","Spare Zero","Ramblix","Planar Rift","Goblin Footprint","Chocobo","Anguenet",
+            "Beugungel","Chuaie","Cofisephe","Coupulie","Felourie","Guilloud","Lourdaude","Ratoulle","Gniyah Mischatt","Khots Chalahko","Test Actor","Fheli Lapatzuo",
+            "Mep Nhapopoluko","Tswe Panipahr","Noih Tahparawh","Toh Zonikki","Rhalo Davigoh","Pohka Chichiyowahl","??? Warmachine","Affi","Dremi","Waypoint",
+            "Unity Master","Station Worker","Station Administrator","Novalmauge","Chumia","Wooden Door","Cell Door","Couchatorage","Sewer Lid","Brugaire","Jurgenclaus",
+            "GoalPoint","Grounds Tome","Geomantic Reservoir","Survival Guide","Linkshell Concierge","Chat Manual","Ethereal Junction","Tatenashi Armor",
+            "Hizamaru Armor","Ubuginu Armor","Hachiryu Armor","Omodaka Armor","Chigoe","Pyracmon","Wraith Bat","Astral Box","Slime","She-Slime",
+            "Metal Slime","Hugemaw Harold","Elated Ovis","Smiling Ovis","Estatic Ovis","Playful Ovis","Mirthful Cat","Andelain","Croteillard","Rayochindot",
+            "Cheval River","Signpost","Cavernous Maw","Carbuncle","Talking Doll","Field Parchment","Magivore Ternion","Stampeding Bison","Smile Helper","Debug",
+            "Slabble","Elevator Lever","Ramblix","Etched Rock","Resume Point","Dimensional Portal","Mystic Retriever","Disjoined One","Tenzen","Lion","Prishe",
+            "Nashmeira","Lilisette","Arciela","Aldo","Maat","Zeid","Volker","Trion","Curilla","Shantotto","Ajido-Marujido","Star Sibyl","Semih Lafihna","Gilgamesh",
+            "Ovjang","Mnejing","Luzaf","Ulmia","Iroha","Shiftrix","Register of Deeds","Emblazoned Reliquary","Temprix","Emporox"
         });
         #endregion
 
@@ -1219,39 +1145,23 @@
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown6.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown6.Location = new System.Drawing.Point(207, 39);
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown6.TabIndex = 108;
             this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown6.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.numericUpDown6.Value = new decimal(new int[] {100,0,0,0});
             // 
             // numericUpDown7
             // 
-            this.numericUpDown7.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown7.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown7.Location = new System.Drawing.Point(125, 39);
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown7.TabIndex = 107;
             this.numericUpDown7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown7.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.numericUpDown7.Value = new decimal(new int[] {10,0,0,0});
             // 
             // label4
             // 
@@ -1324,55 +1234,12 @@
             // 
             // amname
             // 
-            this.amname.AutoCompleteCustomSource.AddRange(new string[] {
-            "Cloudsplitter",
-            "Ukko\'s Fury",
-            "Dagan",
-            "Rudra\'s Storm",
-            "Victory Smite",
-            "Blade: Hi",
-            "Tachi: Fudo",
-            "Camlann\'s Torment",
-            "Quietus",
-            "Myrkr",
-            "Chant du Cygne",
-            "Torcleaver",
-            "Jishnu\'s Radiance",
-            "Wildfire",
-            "Final Heaven",
-            "Mercy Stroke",
-            "Knights of Round",
-            "Scourge",
-            "Onslaught",
-            "Metatron Torment",
-            "Catastrophe",
-            "Geirskogul",
-            "Blade: Metsu",
-            "Tachi: Kaiten",
-            "Randgrith",
-            "Gate of Tartarus",
-            "Coronach",
-            "Namas Arrow",
-            "King\'s Justice",
-            "Ascetic\'s Fury",
-            "Mystic Boon",
-            "Vidohunir",
-            "Death Blossom",
-            "Mandalic Stab",
-            "Atonement",
-            "Insurgency",
-            "Primal Rend",
-            "Mordant Rime",
-            "Trueflight",
-            "Tachi: Rana",
-            "Blade: Kamu",
-            "Drakesbane",
-            "Garland of Bliss",
-            "Expiacion",
-            "Leaden Salute",
-            "Stringing Pummel",
-            "Pyrrhic Kleos",
-            "Omniscience"});
+            this.amname.AutoCompleteCustomSource.AddRange(new string[] {"Cloudsplitter","Ukko\'s Fury","Dagan","Rudra\'s Storm","Victory Smite","Blade: Hi",
+            "Tachi: Fudo","Camlann\'s Torment","Quietus","Myrkr","Chant du Cygne","Torcleaver","Jishnu\'s Radiance","Wildfire","Final Heaven","Mercy Stroke",
+            "Knights of Round","Scourge","Onslaught","Metatron Torment","Catastrophe","Geirskogul","Blade: Metsu","Tachi: Kaiten","Randgrith","Gate of Tartarus",
+            "Coronach","Namas Arrow","King\'s Justice","Ascetic\'s Fury","Mystic Boon","Vidohunir","Death Blossom","Mandalic Stab","Atonement","Insurgency",
+            "Primal Rend","Mordant Rime","Trueflight","Tachi: Rana","Blade: Kamu","Drakesbane","Garland of Bliss","Expiacion","Leaden Salute","Stringing Pummel",
+            "Pyrrhic Kleos","Omniscience"});
             this.amname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.amname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.amname.FormattingEnabled = true;
@@ -1385,25 +1252,13 @@
             // AfterMathTier
             // 
             this.AfterMathTier.Location = new System.Drawing.Point(124, 37);
-            this.AfterMathTier.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.AfterMathTier.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.AfterMathTier.Maximum = new decimal(new int[] {3,0,0,0});
+            this.AfterMathTier.Minimum = new decimal(new int[] {1,0,0,0});
             this.AfterMathTier.Name = "AfterMathTier";
             this.AfterMathTier.Size = new System.Drawing.Size(44, 20);
             this.AfterMathTier.TabIndex = 108;
             this.AfterMathTier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.AfterMathTier.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.AfterMathTier.Value = new decimal(new int[] {1,0,0,0});
             // 
             // wsam
             // 
@@ -1427,219 +1282,27 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
-            "Combo",
-            "Shoulder Tackle",
-            "One Inch Punch",
-            "Backhand Blow",
-            "Raging Fists",
-            "Spinning Attack",
-            "Howling Fist",
-            "Dragon Kick",
-            "Asuran Fists",
-            "Final Heaven",
-            "Ascetic\'s Fury",
-            "Stringing Pummel",
-            "Tornado Kick",
-            "Victory Smite",
-            "Shijin Spiral",
-            "Wasp Sting",
-            "Gust Slash",
-            "Shadow Stitch",
-            "Viper Bite",
-            "Cyclone",
-            "Energy Steal",
-            "Energy Drain",
-            "Dancing Edge",
-            "Shark Bite",
-            "Evisceration",
-            "Mercy Stroke",
-            "Mandalic Stab",
-            "Mordant Rime",
-            "Pyrrhic Kleos",
-            "Aeolian Edge",
-            "Rudra\'s Storm",
-            "Exenterator",
-            "Fast Blade",
-            "Burning Blade",
-            "Red Lotus Blade",
-            "Flat Blade",
-            "Shining Blade",
-            "Seraph Blade",
-            "Circle Blade",
-            "Spirits Within",
-            "Vorpal Blade",
-            "Swift Blade",
-            "Savage Blade",
-            "Knights of Round",
-            "Death Blossom",
-            "Atonement",
-            "Expiacion",
-            "Sanguine Blade",
-            "Chant du Cygne",
-            "Requiescat",
-            "Hard Slash",
-            "Power Slash",
-            "Frostbite",
-            "Freezebite",
-            "Shockwave",
-            "Crescent Moon",
-            "Sickle Moon",
-            "Spinning Slash",
-            "Ground Strike",
-            "Scourge",
-            "Herculean Slash",
-            "Torcleaver",
-            "Resolution",
-            "Raging Axe",
-            "Smash Axe",
-            "Gale Axe",
-            "Avalanche Axe",
-            "Spinning Axe",
-            "Rampage",
-            "Calamity",
-            "Mistral Axe",
-            "Decimation",
-            "Onslaught",
-            "Primal Rend",
-            "Bora Axe",
-            "Cloudsplitter",
-            "Ruinator",
-            "Shield Break",
-            "Iron Tempest",
-            "Sturmwind",
-            "Armor Break",
-            "Keen Edge",
-            "Weapon Break",
-            "Raging Rush",
-            "Full Break",
-            "Steel Cyclone",
-            "Metatron Torment",
-            "King\'s Justice",
-            "Fell Cleave",
-            "Ukko\'s Fury",
-            "Upheaval",
-            "Slice",
-            "Dark Harvest",
-            "Shadow of Death",
-            "Nightmare Scythe",
-            "Spinning Scythe",
-            "Vorpal Scythe",
-            "Guillotine",
-            "Cross Reaper",
-            "Spiral Hell",
-            "Catastrophe",
-            "Insurgency",
-            "Infernal Scythe",
-            "Quietus",
-            "Entropy",
-            "Double Thrust",
-            "Thunder Thrust",
-            "Raiden Thrust",
-            "Leg Sweep",
-            "Penta Thrust",
-            "Vorpal Thrust",
-            "Skewer",
-            "Wheeling Thrust",
-            "Impulse Drive",
-            "Geirskogul",
-            "Drakesbane",
-            "Sonic Thrust",
-            "Camlann\'s Torment",
-            "Stardiver",
-            "Blade: Rin",
-            "Blade: Retsu",
-            "Blade: Teki",
-            "Blade: To",
-            "Blade: Chi",
-            "Blade: Ei",
-            "Blade: Jin",
-            "Blade: Ten",
-            "Blade: Ku",
-            "Blade: Metsu",
-            "Blade: Kamu",
-            "Blade: Yu",
-            "Blade: Hi",
-            "Blade: Shun",
-            "Tachi: Enpi",
-            "Tachi: Hobaku",
-            "Tachi: Goten",
-            "Tachi: Kagero",
-            "Tachi: Jinpu",
-            "Tachi: Koki",
-            "Tachi: Yukikaze",
-            "Tachi: Gekko",
-            "Tachi: Kasha",
-            "Tachi: Kaiten",
-            "Tachi: Rana",
-            "Tachi: Ageha",
-            "Tachi: Fudo",
-            "Tachi: Shoha",
-            "Shining Strike",
-            "Seraph Strike",
-            "Brainshaker",
-            "Starlight",
-            "Moonlight",
-            "Skullbreaker",
-            "True Strike",
-            "Judgment",
-            "Hexa Strike",
-            "Black Halo",
-            "Randgrith",
-            "Mystic Boon",
-            "Flash Nova",
-            "Dagan",
-            "Realmrazer",
-            "Heavy Swing",
-            "Rock Crusher",
-            "Earth Crusher",
-            "Starburst",
-            "Sunburst",
-            "Shell Crusher",
-            "Full Swing",
-            "Spirit Taker",
-            "Retribution",
-            "Gates of Tartarus",
-            "Vidohunir",
-            "Garland of Bliss",
-            "Omniscience",
-            "Cataclysm",
-            "Myrkr",
-            "Shattersoul",
-            "Flaming Arrow",
-            "Piercing Arrow",
-            "Dulling Arrow",
-            "Sidewinder",
-            "Blast Arrow",
-            "Arching Arrow",
-            "Empyreal Arrow",
-            "Namas Arrow",
-            "Refulgent Arrow",
-            "Jishnu\'s Radiance",
-            "Apex Arrow",
-            "Hot Shot",
-            "Split Shot",
-            "Sniper Shot",
-            "Slug Shot",
-            "Blast Shot",
-            "Heavy Shot",
-            "Detonator",
-            "Coronach",
-            "Trueflight",
-            "Leaden Salute",
-            "Numbing Shot",
-            "Wildfire",
-            "Last Stand",
-            "Slapstick",
-            "Arcuballista",
-            "String Clipper",
-            "Chimera Ripper",
-            "Knockout",
-            "Magic Mortar",
-            "Daze",
-            "Armor Piercer",
-            "Cannibal Blade",
-            "Bone Crusher"});
+            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {"Combo","Shoulder Tackle","One Inch Punch","Backhand Blow","Raging Fists","Spinning Attack",
+            "Howling Fist","Dragon Kick","Asuran Fists","Final Heaven","Ascetic\'s Fury","Stringing Pummel","Tornado Kick","Victory Smite","Shijin Spiral","Wasp Sting",
+            "Gust Slash","Shadow Stitch","Viper Bite","Cyclone","Energy Steal","Energy Drain","Dancing Edge","Shark Bite","Evisceration","Mercy Stroke","Mandalic Stab",
+            "Mordant Rime","Pyrrhic Kleos","Aeolian Edge","Rudra\'s Storm","Exenterator","Fast Blade","Burning Blade","Red Lotus Blade","Flat Blade","Shining Blade",
+            "Seraph Blade","Circle Blade","Spirits Within","Vorpal Blade","Swift Blade","Savage Blade","Knights of Round","Death Blossom","Atonement","Expiacion",
+            "Sanguine Blade","Chant du Cygne","Requiescat","Hard Slash","Power Slash","Frostbite","Freezebite","Shockwave","Crescent Moon","Sickle Moon",
+            "Spinning Slash","Ground Strike","Scourge","Herculean Slash","Torcleaver","Resolution","Raging Axe","Smash Axe","Gale Axe","Avalanche Axe","Spinning Axe",
+            "Rampage","Calamity","Mistral Axe","Decimation","Onslaught","Primal Rend","Bora Axe","Cloudsplitter","Ruinator","Shield Break","Iron Tempest","Sturmwind",
+            "Armor Break","Keen Edge","Weapon Break","Raging Rush","Full Break","Steel Cyclone","Metatron Torment","King\'s Justice","Fell Cleave","Ukko\'s Fury",
+            "Upheaval","Slice","Dark Harvest","Shadow of Death","Nightmare Scythe","Spinning Scythe","Vorpal Scythe","Guillotine","Cross Reaper","Spiral Hell",
+            "Catastrophe","Insurgency","Infernal Scythe","Quietus","Entropy","Double Thrust","Thunder Thrust","Raiden Thrust","Leg Sweep","Penta Thrust","Vorpal Thrust",
+            "Skewer","Wheeling Thrust","Impulse Drive","Geirskogul","Drakesbane","Sonic Thrust","Camlann\'s Torment","Stardiver","Blade: Rin","Blade: Retsu",
+            "Blade: Teki","Blade: To","Blade: Chi","Blade: Ei","Blade: Jin","Blade: Ten","Blade: Ku","Blade: Metsu","Blade: Kamu","Blade: Yu","Blade: Hi","Blade: Shun",
+            "Tachi: Enpi","Tachi: Hobaku","Tachi: Goten","Tachi: Kagero","Tachi: Jinpu","Tachi: Koki","Tachi: Yukikaze","Tachi: Gekko","Tachi: Kasha","Tachi: Kaiten",
+            "Tachi: Rana","Tachi: Ageha","Tachi: Fudo","Tachi: Shoha","Shining Strike","Seraph Strike","Brainshaker","Starlight","Moonlight","Skullbreaker",
+            "True Strike","Judgment","Hexa Strike","Black Halo","Randgrith","Mystic Boon","Flash Nova","Dagan","Realmrazer","Heavy Swing","Rock Crusher",
+            "Earth Crusher","Starburst","Sunburst","Shell Crusher","Full Swing","Spirit Taker","Retribution","Gates of Tartarus","Vidohunir","Garland of Bliss",
+            "Omniscience","Cataclysm","Myrkr","Shattersoul","Flaming Arrow","Piercing Arrow","Dulling Arrow","Sidewinder","Blast Arrow","Arching Arrow","Empyreal Arrow",
+            "Namas Arrow","Refulgent Arrow","Jishnu\'s Radiance","Apex Arrow","Hot Shot","Split Shot","Sniper Shot","Slug Shot","Blast Shot","Heavy Shot","Detonator",
+            "Coronach","Trueflight","Leaden Salute","Numbing Shot","Wildfire","Last Stand","Slapstick","Arcuballista","String Clipper","Chimera Ripper","Knockout",
+            "Magic Mortar","Daze","Armor Piercer","Cannibal Blade","Bone Crusher"});
             this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox2.FormattingEnabled = true;
@@ -1662,27 +1325,15 @@
             // 
             this.numericUpDown40.DecimalPlaces = 1;
             this.numericUpDown40.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.numericUpDown40.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.numericUpDown40.Increment = new decimal(new int[] {1,0,0,65536});
             this.numericUpDown40.Location = new System.Drawing.Point(124, 59);
-            this.numericUpDown40.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.numericUpDown40.Maximum = new decimal(new int[] {50,0,0,0});
             this.numericUpDown40.Name = "numericUpDown40";
             this.numericUpDown40.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown40.TabIndex = 103;
             this.numericUpDown40.TabStop = false;
             this.numericUpDown40.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown40.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numericUpDown40.Value = new decimal(new int[] {1,0,0,0});
             // 
             // ws
             // 
@@ -1696,27 +1347,15 @@
             // 
             // numericUpDown24
             // 
-            this.numericUpDown24.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown24.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown24.Location = new System.Drawing.Point(124, 15);
-            this.numericUpDown24.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
+            this.numericUpDown24.Maximum = new decimal(new int[] {3000,0,0,0});
             this.numericUpDown24.Name = "numericUpDown24";
             this.numericUpDown24.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown24.TabIndex = 95;
             this.numericUpDown24.TabStop = false;
             this.numericUpDown24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown24.Value = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
+            this.numericUpDown24.Value = new decimal(new int[] {1000,0,0,0});
             // 
             // label29
             // 
@@ -1729,21 +1368,13 @@
             // 
             // numericUpDown22
             // 
-            this.numericUpDown22.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown22.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown22.Location = new System.Drawing.Point(206, 81);
             this.numericUpDown22.Name = "numericUpDown22";
             this.numericUpDown22.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown22.TabIndex = 98;
             this.numericUpDown22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown22.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.numericUpDown22.Value = new decimal(new int[] {100,0,0,0});
             // 
             // label28
             // 
@@ -1756,21 +1387,13 @@
             // 
             // numericUpDown23
             // 
-            this.numericUpDown23.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown23.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown23.Location = new System.Drawing.Point(124, 81);
             this.numericUpDown23.Name = "numericUpDown23";
             this.numericUpDown23.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown23.TabIndex = 97;
             this.numericUpDown23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown23.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
+            this.numericUpDown23.Value = new decimal(new int[] {15,0,0,0});
             // 
             // label27
             // 
@@ -1811,52 +1434,28 @@
             // numericUpDown38
             // 
             this.numericUpDown38.DecimalPlaces = 1;
-            this.numericUpDown38.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.numericUpDown38.Increment = new decimal(new int[] {1,0,0,65536});
             this.numericUpDown38.Location = new System.Drawing.Point(238, 155);
-            this.numericUpDown38.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.numericUpDown38.Maximum = new decimal(new int[] {50,0,0,0});
             this.numericUpDown38.Name = "numericUpDown38";
             this.numericUpDown38.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown38.TabIndex = 92;
             this.numericUpDown38.TabStop = false;
             this.numericUpDown38.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown38.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown38.Value = new decimal(new int[] {5,0,0,0});
             // 
             // aggroRange
             // 
             this.aggroRange.DecimalPlaces = 1;
-            this.aggroRange.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.aggroRange.Increment = new decimal(new int[] {1,0,0,65536});
             this.aggroRange.Location = new System.Drawing.Point(238, 109);
-            this.aggroRange.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.aggroRange.Maximum = new decimal(new int[] {50,0,0,0});
             this.aggroRange.Name = "aggroRange";
             this.aggroRange.Size = new System.Drawing.Size(44, 20);
             this.aggroRange.TabIndex = 107;
             this.aggroRange.TabStop = false;
             this.aggroRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.aggroRange.Value = new decimal(new int[] {
-            85,
-            0,
-            0,
-            65536});
+            this.aggroRange.Value = new decimal(new int[] {85,0,0,65536});
             // 
             // ScanDelay
             // 
@@ -1871,78 +1470,42 @@
             // KeepTargetRange
             // 
             this.KeepTargetRange.DecimalPlaces = 1;
-            this.KeepTargetRange.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.KeepTargetRange.Increment = new decimal(new int[] {1,0,0,65536});
             this.KeepTargetRange.Location = new System.Drawing.Point(238, 132);
-            this.KeepTargetRange.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.KeepTargetRange.Maximum = new decimal(new int[] {50,0,0,0});
             this.KeepTargetRange.Name = "KeepTargetRange";
             this.KeepTargetRange.Size = new System.Drawing.Size(44, 20);
             this.KeepTargetRange.TabIndex = 106;
             this.KeepTargetRange.TabStop = false;
             this.KeepTargetRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.KeepTargetRange.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.KeepTargetRange.Value = new decimal(new int[] {3,0,0,0});
             // 
             // assistDist
             // 
             this.assistDist.DecimalPlaces = 1;
             this.assistDist.Enabled = false;
-            this.assistDist.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.assistDist.Increment = new decimal(new int[] {1,0,0,65536});
             this.assistDist.Location = new System.Drawing.Point(238, 42);
-            this.assistDist.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.assistDist.Maximum = new decimal(new int[] {50,0,0,0});
             this.assistDist.Name = "assistDist";
             this.assistDist.Size = new System.Drawing.Size(44, 20);
             this.assistDist.TabIndex = 105;
             this.assistDist.TabStop = false;
             this.assistDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.assistDist.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.assistDist.Value = new decimal(new int[] {5,0,0,0});
             // 
             // followDist
             // 
             this.followDist.DecimalPlaces = 1;
-            this.followDist.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.followDist.Increment = new decimal(new int[] {1,0,0,65536});
             this.followDist.Location = new System.Drawing.Point(238, 16);
-            this.followDist.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.followDist.Maximum = new decimal(new int[] {50,0,0,0});
             this.followDist.Name = "followDist";
             this.followDist.Size = new System.Drawing.Size(44, 20);
             this.followDist.TabIndex = 104;
             this.followDist.TabStop = false;
             this.followDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.followDist.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.followDist.Value = new decimal(new int[] {3,0,0,0});
             // 
             // partyAssist
             // 
@@ -2077,10 +1640,7 @@
             // 
             this.comboBox4.Enabled = false;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Federation Signet Staff",
-            "Kingdom Signet Staff",
-            "Republic Signet Staff"});
+            this.comboBox4.Items.AddRange(new object[] {"Federation Signet Staff","Kingdom Signet Staff","Republic Signet Staff"});
             this.comboBox4.Location = new System.Drawing.Point(167, 137);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(152, 21);
@@ -2090,10 +1650,7 @@
             // 
             this.SignetStaff.Enabled = false;
             this.SignetStaff.FormattingEnabled = true;
-            this.SignetStaff.Items.AddRange(new object[] {
-            "Federation Signet Staff",
-            "Kingdom Signet Staff",
-            "Republic Signet Staff"});
+            this.SignetStaff.Items.AddRange(new object[] {"Federation Signet Staff","Kingdom Signet Staff","Republic Signet Staff"});
             this.SignetStaff.Location = new System.Drawing.Point(167, 160);
             this.SignetStaff.Name = "SignetStaff";
             this.SignetStaff.Size = new System.Drawing.Size(152, 21);
@@ -2144,11 +1701,7 @@
             this.healMPcount.TabIndex = 64;
             this.healMPcount.TabStop = false;
             this.healMPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.healMPcount.Value = new decimal(new int[] {
-            40,
-            0,
-            0,
-            0});
+            this.healMPcount.Value = new decimal(new int[] {40,0,0,0});
             // 
             // usefood
             // 
@@ -2180,11 +1733,7 @@
             this.healHPcount.TabIndex = 62;
             this.healHPcount.TabStop = false;
             this.healHPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.healHPcount.Value = new decimal(new int[] {
-            40,
-            0,
-            0,
-            0});
+            this.healHPcount.Value = new decimal(new int[] {40,0,0,0});
             // 
             // RecordIdleLocation
             // 
@@ -2337,32 +1886,16 @@
             this.autoRangeDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.autoRangeDelay.DecimalPlaces = 1;
             this.autoRangeDelay.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.autoRangeDelay.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.autoRangeDelay.Increment = new decimal(new int[] {1,0,0,65536});
             this.autoRangeDelay.Location = new System.Drawing.Point(182, 62);
-            this.autoRangeDelay.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.autoRangeDelay.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.autoRangeDelay.Maximum = new decimal(new int[] {50,0,0,0});
+            this.autoRangeDelay.Minimum = new decimal(new int[] {1,0,0,0});
             this.autoRangeDelay.Name = "autoRangeDelay";
             this.autoRangeDelay.Size = new System.Drawing.Size(44, 20);
             this.autoRangeDelay.TabIndex = 56;
             this.autoRangeDelay.TabStop = false;
             this.autoRangeDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.autoRangeDelay.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.autoRangeDelay.Value = new decimal(new int[] {5,0,0,0});
             // 
             // textBox7
             // 
@@ -2558,11 +2091,7 @@
             this.ConvertHPP.Name = "ConvertHPP";
             this.ConvertHPP.Size = new System.Drawing.Size(44, 20);
             this.ConvertHPP.TabIndex = 5;
-            this.ConvertHPP.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.ConvertHPP.Value = new decimal(new int[] {100,0,0,0});
             // 
             // ConvertMPP
             // 
@@ -2570,11 +2099,7 @@
             this.ConvertMPP.Name = "ConvertMPP";
             this.ConvertMPP.Size = new System.Drawing.Size(44, 20);
             this.ConvertMPP.TabIndex = 4;
-            this.ConvertMPP.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.ConvertMPP.Value = new decimal(new int[] {100,0,0,0});
             // 
             // ConvertMP
             // 
@@ -2695,11 +2220,7 @@
             this.MONmpCount.Name = "MONmpCount";
             this.MONmpCount.Size = new System.Drawing.Size(44, 20);
             this.MONmpCount.TabIndex = 7;
-            this.MONmpCount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.MONmpCount.Value = new decimal(new int[] {100,0,0,0});
             // 
             // MONhpCount
             // 
@@ -2708,11 +2229,7 @@
             this.MONhpCount.Name = "MONhpCount";
             this.MONhpCount.Size = new System.Drawing.Size(44, 20);
             this.MONhpCount.TabIndex = 6;
-            this.MONhpCount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.MONhpCount.Value = new decimal(new int[] {100,0,0,0});
             // 
             // monmptext
             // 
@@ -3420,32 +2937,16 @@
             this.pullDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pullDelay.DecimalPlaces = 1;
             this.pullDelay.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.pullDelay.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.pullDelay.Increment = new decimal(new int[] {1,0,0,65536});
             this.pullDelay.Location = new System.Drawing.Point(282, 17);
-            this.pullDelay.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.pullDelay.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.pullDelay.Maximum = new decimal(new int[] {50,0,0,0});
+            this.pullDelay.Minimum = new decimal(new int[] {1,0,0,0});
             this.pullDelay.Name = "pullDelay";
             this.pullDelay.Size = new System.Drawing.Size(44, 20);
             this.pullDelay.TabIndex = 54;
             this.pullDelay.TabStop = false;
             this.pullDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pullDelay.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
+            this.pullDelay.Value = new decimal(new int[] {4,0,0,0});
             // 
             // AutoLock
             // 
@@ -3463,26 +2964,14 @@
             this.numericUpDown39.Enabled = false;
             this.numericUpDown39.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.numericUpDown39.Location = new System.Drawing.Point(282, 91);
-            this.numericUpDown39.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.numericUpDown39.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numericUpDown39.Maximum = new decimal(new int[] {50,0,0,0});
+            this.numericUpDown39.Minimum = new decimal(new int[] {1,0,0,0});
             this.numericUpDown39.Name = "numericUpDown39";
             this.numericUpDown39.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown39.TabIndex = 52;
             this.numericUpDown39.TabStop = false;
             this.numericUpDown39.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown39.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numericUpDown39.Value = new decimal(new int[] {1,0,0,0});
             // 
             // mobheightdist
             // 
@@ -3528,52 +3017,28 @@
             // 
             this.targetSearchDist.DecimalPlaces = 1;
             this.targetSearchDist.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.targetSearchDist.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.targetSearchDist.Increment = new decimal(new int[] {1,0,0,65536});
             this.targetSearchDist.Location = new System.Drawing.Point(110, 90);
-            this.targetSearchDist.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.targetSearchDist.Maximum = new decimal(new int[] {50,0,0,0});
             this.targetSearchDist.Name = "targetSearchDist";
             this.targetSearchDist.Size = new System.Drawing.Size(44, 20);
             this.targetSearchDist.TabIndex = 47;
             this.targetSearchDist.TabStop = false;
             this.targetSearchDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.targetSearchDist.Value = new decimal(new int[] {
-            245,
-            0,
-            0,
-            65536});
+            this.targetSearchDist.Value = new decimal(new int[] {245,0,0,65536});
             // 
             // pullTolorance
             // 
             this.pullTolorance.DecimalPlaces = 1;
-            this.pullTolorance.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.pullTolorance.Increment = new decimal(new int[] {1,0,0,65536});
             this.pullTolorance.Location = new System.Drawing.Point(110, 68);
-            this.pullTolorance.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.pullTolorance.Maximum = new decimal(new int[] {50,0,0,0});
             this.pullTolorance.Name = "pullTolorance";
             this.pullTolorance.Size = new System.Drawing.Size(44, 20);
             this.pullTolorance.TabIndex = 43;
             this.pullTolorance.TabStop = false;
             this.pullTolorance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pullTolorance.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.pullTolorance.Value = new decimal(new int[] {1,0,0,0});
             // 
             // pulltolorancetext
             // 
@@ -3587,27 +3052,15 @@
             // numericUpDown21
             // 
             this.numericUpDown21.DecimalPlaces = 1;
-            this.numericUpDown21.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.numericUpDown21.Increment = new decimal(new int[] {1,0,0,65536});
             this.numericUpDown21.Location = new System.Drawing.Point(110, 45);
-            this.numericUpDown21.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
+            this.numericUpDown21.Maximum = new decimal(new int[] {50,0,0,0});
             this.numericUpDown21.Name = "numericUpDown21";
             this.numericUpDown21.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown21.TabIndex = 9;
             this.numericUpDown21.TabStop = false;
             this.numericUpDown21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown21.Value = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
+            this.numericUpDown21.Value = new decimal(new int[] {16,0,0,0});
             // 
             // pulldistance
             // 
@@ -3809,25 +3262,13 @@
             // 
             this.stopstepscount.Enabled = false;
             this.stopstepscount.Location = new System.Drawing.Point(130, 23);
-            this.stopstepscount.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-            this.stopstepscount.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.stopstepscount.Maximum = new decimal(new int[] {7,0,0,0});
+            this.stopstepscount.Minimum = new decimal(new int[] {1,0,0,0});
             this.stopstepscount.Name = "stopstepscount";
             this.stopstepscount.Size = new System.Drawing.Size(34, 20);
             this.stopstepscount.TabIndex = 16;
             this.stopstepscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.stopstepscount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.stopstepscount.Value = new decimal(new int[] {1,0,0,0});
             // 
             // stopstepsathptext
             // 
@@ -3843,11 +3284,7 @@
             // 
             this.usefeatherstepValue.Enabled = false;
             this.usefeatherstepValue.Location = new System.Drawing.Point(130, 111);
-            this.usefeatherstepValue.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
+            this.usefeatherstepValue.Maximum = new decimal(new int[] {30,0,0,0});
             this.usefeatherstepValue.Name = "usefeatherstepValue";
             this.usefeatherstepValue.Size = new System.Drawing.Size(34, 20);
             this.usefeatherstepValue.TabIndex = 14;
@@ -3857,11 +3294,7 @@
             // 
             this.usestutterstepValue.Enabled = false;
             this.usestutterstepValue.Location = new System.Drawing.Point(130, 89);
-            this.usestutterstepValue.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
+            this.usestutterstepValue.Maximum = new decimal(new int[] {30,0,0,0});
             this.usestutterstepValue.Name = "usestutterstepValue";
             this.usestutterstepValue.Size = new System.Drawing.Size(34, 20);
             this.usestutterstepValue.TabIndex = 13;
@@ -3871,11 +3304,7 @@
             // 
             this.useboxstepValue.Enabled = false;
             this.useboxstepValue.Location = new System.Drawing.Point(130, 67);
-            this.useboxstepValue.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
+            this.useboxstepValue.Maximum = new decimal(new int[] {30,0,0,0});
             this.useboxstepValue.Name = "useboxstepValue";
             this.useboxstepValue.Size = new System.Drawing.Size(34, 20);
             this.useboxstepValue.TabIndex = 12;
@@ -3885,31 +3314,19 @@
             // 
             this.StepsHPValue.Enabled = false;
             this.StepsHPValue.Location = new System.Drawing.Point(114, 155);
-            this.StepsHPValue.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
+            this.StepsHPValue.Maximum = new decimal(new int[] {99,0,0,0});
             this.StepsHPValue.Name = "StepsHPValue";
             this.StepsHPValue.Size = new System.Drawing.Size(34, 20);
             this.StepsHPValue.TabIndex = 9;
             this.StepsHPValue.TabStop = false;
             this.StepsHPValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.StepsHPValue.Value = new decimal(new int[] {
-            40,
-            0,
-            0,
-            0});
+            this.StepsHPValue.Value = new decimal(new int[] {40,0,0,0});
             // 
             // usequickstepValue
             // 
             this.usequickstepValue.Enabled = false;
             this.usequickstepValue.Location = new System.Drawing.Point(130, 45);
-            this.usequickstepValue.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
+            this.usequickstepValue.Maximum = new decimal(new int[] {30,0,0,0});
             this.usequickstepValue.Name = "usequickstepValue";
             this.usequickstepValue.Size = new System.Drawing.Size(34, 20);
             this.usequickstepValue.TabIndex = 11;
@@ -4025,44 +3442,9 @@
             // 
             this.HealingWaltzItems.FormattingEnabled = true;
             this.HealingWaltzItems.Items.AddRange(new object[] {
-            "ACC Down",
-            "AGI Down",
-            "ATT Down",
-            "Bane",
-            "Bind",
-            "Bio",
-            "Blind",
-            "Burn",
-            "Choke",
-            "CHR Down",
-            "Curse",
-            "DEF Down",
-            "DEX Down",
-            "Dia",
-            "Disease",
-            "Drown",
-            "EVA Down",
-            "Frost",
-            "Gravity",
-            "Helix",
-            "HP Down",
-            "INT Down",
-            "MACC Down",
-            "MATT Down",
-            "MDEF Down",
-            "MEVA Down",
-            "MND Down",
-            "MP Down",
-            "Paralyze",
-            "Plague",
-            "Poison",
-            "Rasp",
-            "Shock",
-            "Silence",
-            "Slow",
-            "STR Down",
-            "TP Down",
-            "VIT Down"});
+            "ACC Down","AGI Down","ATT Down","Bane","Bind","Bio","Blind","Burn","Choke","CHR Down","Curse","DEF Down","DEX Down","Dia","Disease","Drown","EVA Down",
+            "Frost","Gravity","Helix","HP Down","INT Down","MACC Down","MATT Down","MDEF Down","MEVA Down","MND Down","MP Down","Paralyze","Plague","Poison","Rasp",
+            "Shock","Silence","Slow","STR Down","TP Down","VIT Down"});
             this.HealingWaltzItems.Location = new System.Drawing.Point(6, 18);
             this.HealingWaltzItems.Name = "HealingWaltzItems";
             this.HealingWaltzItems.Size = new System.Drawing.Size(178, 124);
@@ -4141,11 +3523,7 @@
             // usecurevValue
             // 
             this.usecurevValue.Enabled = false;
-            this.usecurevValue.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.usecurevValue.Increment = new decimal(new int[] {5,0,0,0});
             this.usecurevValue.Location = new System.Drawing.Point(122, 120);
             this.usecurevValue.Name = "usecurevValue";
             this.usecurevValue.Size = new System.Drawing.Size(41, 20);
@@ -4155,11 +3533,7 @@
             // usecureivValue
             // 
             this.usecureivValue.Enabled = false;
-            this.usecureivValue.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.usecureivValue.Increment = new decimal(new int[] {5,0,0,0});
             this.usecureivValue.Location = new System.Drawing.Point(122, 97);
             this.usecureivValue.Name = "usecureivValue";
             this.usecureivValue.Size = new System.Drawing.Size(41, 20);
@@ -4169,11 +3543,7 @@
             // usecureiiiValue
             // 
             this.usecureiiiValue.Enabled = false;
-            this.usecureiiiValue.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.usecureiiiValue.Increment = new decimal(new int[] {5,0,0,0});
             this.usecureiiiValue.Location = new System.Drawing.Point(122, 74);
             this.usecureiiiValue.Name = "usecureiiiValue";
             this.usecureiiiValue.Size = new System.Drawing.Size(41, 20);
@@ -4183,11 +3553,7 @@
             // usecureiiValue
             // 
             this.usecureiiValue.Enabled = false;
-            this.usecureiiValue.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.usecureiiValue.Increment = new decimal(new int[] {5,0,0,0});
             this.usecureiiValue.Location = new System.Drawing.Point(122, 51);
             this.usecureiiValue.Name = "usecureiiValue";
             this.usecureiiValue.Size = new System.Drawing.Size(41, 20);
@@ -4197,11 +3563,7 @@
             // usecureValue
             // 
             this.usecureValue.Enabled = false;
-            this.usecureValue.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.usecureValue.Increment = new decimal(new int[] {5,0,0,0});
             this.usecureValue.Location = new System.Drawing.Point(122, 28);
             this.usecureValue.Name = "usecureValue";
             this.usecureValue.Size = new System.Drawing.Size(41, 20);
@@ -4368,11 +3730,7 @@
             // numericUpDown27
             // 
             this.numericUpDown27.Enabled = false;
-            this.numericUpDown27.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown27.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown27.Location = new System.Drawing.Point(119, 112);
             this.numericUpDown27.Name = "numericUpDown27";
             this.numericUpDown27.Size = new System.Drawing.Size(41, 20);
@@ -4382,11 +3740,7 @@
             // numericUpDown28
             // 
             this.numericUpDown28.Enabled = false;
-            this.numericUpDown28.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown28.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown28.Location = new System.Drawing.Point(119, 89);
             this.numericUpDown28.Name = "numericUpDown28";
             this.numericUpDown28.Size = new System.Drawing.Size(41, 20);
@@ -4396,11 +3750,7 @@
             // numericUpDown29
             // 
             this.numericUpDown29.Enabled = false;
-            this.numericUpDown29.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown29.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown29.Location = new System.Drawing.Point(119, 66);
             this.numericUpDown29.Name = "numericUpDown29";
             this.numericUpDown29.Size = new System.Drawing.Size(41, 20);
@@ -4410,11 +3760,7 @@
             // numericUpDown32
             // 
             this.numericUpDown32.Enabled = false;
-            this.numericUpDown32.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown32.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown32.Location = new System.Drawing.Point(119, 43);
             this.numericUpDown32.Name = "numericUpDown32";
             this.numericUpDown32.Size = new System.Drawing.Size(41, 20);
@@ -4424,11 +3770,7 @@
             // numericUpDown33
             // 
             this.numericUpDown33.Enabled = false;
-            this.numericUpDown33.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.numericUpDown33.Increment = new decimal(new int[] {5,0,0,0});
             this.numericUpDown33.Location = new System.Drawing.Point(119, 20);
             this.numericUpDown33.Name = "numericUpDown33";
             this.numericUpDown33.Size = new System.Drawing.Size(41, 20);
@@ -4592,11 +3934,7 @@
             // 
             this.useclmfloValue.Enabled = false;
             this.useclmfloValue.Location = new System.Drawing.Point(139, 19);
-            this.useclmfloValue.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.useclmfloValue.Maximum = new decimal(new int[] {7,0,0,0});
             this.useclmfloValue.Name = "useclmfloValue";
             this.useclmfloValue.Size = new System.Drawing.Size(31, 20);
             this.useclmfloValue.TabIndex = 21;
@@ -4606,11 +3944,7 @@
             // 
             this.usestkfloValue.Enabled = false;
             this.usestkfloValue.Location = new System.Drawing.Point(139, 42);
-            this.usestkfloValue.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.usestkfloValue.Maximum = new decimal(new int[] {7,0,0,0});
             this.usestkfloValue.Name = "usestkfloValue";
             this.usestkfloValue.Size = new System.Drawing.Size(31, 20);
             this.usestkfloValue.TabIndex = 22;
@@ -4620,11 +3954,7 @@
             // 
             this.useterfloValue.Enabled = false;
             this.useterfloValue.Location = new System.Drawing.Point(328, 43);
-            this.useterfloValue.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.useterfloValue.Maximum = new decimal(new int[] {7,0,0,0});
             this.useterfloValue.Name = "useterfloValue";
             this.useterfloValue.Size = new System.Drawing.Size(31, 20);
             this.useterfloValue.TabIndex = 23;
@@ -4686,27 +4016,15 @@
             // 
             // FlourishTPValue
             // 
-            this.FlourishTPValue.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.FlourishTPValue.Increment = new decimal(new int[] {5,0,0,0});
             this.FlourishTPValue.Location = new System.Drawing.Point(140, 297);
-            this.FlourishTPValue.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
+            this.FlourishTPValue.Maximum = new decimal(new int[] {3000,0,0,0});
             this.FlourishTPValue.Name = "FlourishTPValue";
             this.FlourishTPValue.Size = new System.Drawing.Size(44, 20);
             this.FlourishTPValue.TabIndex = 63;
             this.FlourishTPValue.TabStop = false;
             this.FlourishTPValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.FlourishTPValue.Value = new decimal(new int[] {
-            400,
-            0,
-            0,
-            0});
+            this.FlourishTPValue.Value = new decimal(new int[] {400,0,0,0});
             // 
             // flourishesiigroup
             // 
@@ -4727,11 +4045,7 @@
             // 
             this.usewldfloValue.Enabled = false;
             this.usewldfloValue.Location = new System.Drawing.Point(328, 38);
-            this.usewldfloValue.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.usewldfloValue.Maximum = new decimal(new int[] {7,0,0,0});
             this.usewldfloValue.Name = "usewldfloValue";
             this.usewldfloValue.Size = new System.Drawing.Size(31, 20);
             this.usewldfloValue.TabIndex = 21;
@@ -4741,11 +4055,7 @@
             // 
             this.usebldfloValue.Enabled = false;
             this.usebldfloValue.Location = new System.Drawing.Point(139, 39);
-            this.usebldfloValue.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.usebldfloValue.Maximum = new decimal(new int[] {7,0,0,0});
             this.usebldfloValue.Name = "usebldfloValue";
             this.usebldfloValue.Size = new System.Drawing.Size(31, 20);
             this.usebldfloValue.TabIndex = 20;
@@ -4755,11 +4065,7 @@
             // 
             this.userevfloValue.Enabled = false;
             this.userevfloValue.Location = new System.Drawing.Point(139, 16);
-            this.userevfloValue.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.userevfloValue.Maximum = new decimal(new int[] {7,0,0,0});
             this.userevfloValue.Name = "userevfloValue";
             this.userevfloValue.Size = new System.Drawing.Size(31, 20);
             this.userevfloValue.TabIndex = 19;
@@ -4826,11 +4132,7 @@
             // 
             this.numericUpDown34.Enabled = false;
             this.numericUpDown34.Location = new System.Drawing.Point(139, 16);
-            this.numericUpDown34.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.numericUpDown34.Maximum = new decimal(new int[] {7,0,0,0});
             this.numericUpDown34.Name = "numericUpDown34";
             this.numericUpDown34.Size = new System.Drawing.Size(31, 20);
             this.numericUpDown34.TabIndex = 26;
@@ -4995,15 +4297,8 @@
             // 
             // usedpetfood
             // 
-            this.usedpetfood.AutoCompleteCustomSource.AddRange(new string[] {
-            "Pet Food Alpha Biscuit",
-            "Pet Food Beta Biscuit",
-            "Pet Food Gamma Biscuit",
-            "Pet Food Delta Biscuit",
-            "Pet Food Epsilon Biscuit",
-            "Pet Food Zeta Biscuit",
-            "Pet Food Eta Biscuit",
-            "Pet Food Theta Biscuit"});
+            this.usedpetfood.AutoCompleteCustomSource.AddRange(new string[] {"Pet Food Alpha Biscuit","Pet Food Beta Biscuit","Pet Food Gamma Biscuit",
+            "Pet Food Delta Biscuit","Pet Food Epsilon Biscuit","Pet Food Zeta Biscuit","Pet Food Eta Biscuit","Pet Food Theta Biscuit"});
             this.usedpetfood.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.usedpetfood.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.usedpetfood.FormattingEnabled = true;
@@ -5014,71 +4309,14 @@
             // 
             // jugpet
             // 
-            this.jugpet.AutoCompleteCustomSource.AddRange(new string[] {
-            "Wormy Broth",
-            "Carrot Broth",
-            "Herbal Broth",
-            "Humus",
-            "Meat Broth",
-            "Grasshopper Broth",
-            "Carrion Broth",
-            "Bug Broth",
-            "Mole Broth",
-            "Tree Sap",
-            "Antica Broth",
-            "Fish Broth",
-            "Blood Broth",
-            "Famous Carrot Broth",
-            "Singing Herbal Broth",
-            "Rich Humus",
-            "Warm Meat Broth",
-            "Seedbed Soil",
-            "Quadav Bug Broth",
-            "Cold Carrion Broth",
-            "Fish Oil Broth",
-            "Alchemist Water",
-            "Noisy Grasshopper Broth",
-            "Lively Mole Broth",
-            "Scarlet Sap",
-            "Clear Blood Broth",
-            "Fragrant Antica Broth",
-            "Sun Water",
-            "Dancing Herbal Broth",
-            "Cunning Brain Broth",
-            "Chirping Grasshopper Broth",
-            "Mellow Bird Broth",
-            "Goblin Bug Broth",
-            "Bubbling Carrion Broth",
-            "Auroral Broth",
-            "Lucky Carrot Broth",
-            "Wool Grease",
-            "Vermihumus",
-            "Briny Broth",
-            "Deepbed Soil",
-            "Curdled Plasma Broth",
-            "Lucky Broth",
-            "Savage Mole Broth",
-            "Razor Brain Broth",
-            "Burning Carrion Broth",
-            "Cloudy Wheat Broth",
-            "Shadowy Broth",
-            "Swirling Broth",
-            "Shimmering Broth",
-            "Spicy Broth",
-            "Salubrious Broth",
-            "Translucent Broth",
-            "Fizzy Broth",
-            "Wispy Broth",
-            "Saline Broth",
-            "Meaty Broth",
-            "Blackwater Broth",
-            "Pale Sap",
-            "Crumbly Soil",
-            "Airy Broth",
-            "Muddy Broth",
-            "Dire Broth",
-            "Electrified Broth",
-            "Bug-Ridden Broth"});
+            this.jugpet.AutoCompleteCustomSource.AddRange(new string[] {"Wormy Broth","Carrot Broth","Herbal Broth","Humus","Meat Broth","Grasshopper Broth",
+            "Carrion Broth","Bug Broth","Mole Broth","Tree Sap","Antica Broth","Fish Broth","Blood Broth","Famous Carrot Broth","Singing Herbal Broth","Rich Humus",
+            "Warm Meat Broth","Seedbed Soil","Quadav Bug Broth","Cold Carrion Broth","Fish Oil Broth","Alchemist Water","Noisy Grasshopper Broth","Lively Mole Broth",
+            "Scarlet Sap","Clear Blood Broth","Fragrant Antica Broth","Sun Water","Dancing Herbal Broth","Cunning Brain Broth","Chirping Grasshopper Broth",
+            "Mellow Bird Broth","Goblin Bug Broth","Bubbling Carrion Broth","Auroral Broth","Lucky Carrot Broth","Wool Grease","Vermihumus","Briny Broth",
+            "Deepbed Soil","Curdled Plasma Broth","Lucky Broth","Savage Mole Broth","Razor Brain Broth","Burning Carrion Broth","Cloudy Wheat Broth","Shadowy Broth",
+            "Swirling Broth","Shimmering Broth","Spicy Broth","Salubrious Broth","Translucent Broth","Fizzy Broth","Wispy Broth","Saline Broth","Meaty Broth",
+            "Blackwater Broth","Pale Sap","Crumbly Soil","Airy Broth","Muddy Broth","Dire Broth","Electrified Broth","Bug-Ridden Broth"});
             this.jugpet.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.jugpet.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.jugpet.FormattingEnabled = true;
@@ -5099,26 +4337,14 @@
             // 
             // pethppfood
             // 
-            this.pethppfood.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.pethppfood.Increment = new decimal(new int[] {5,0,0,0});
             this.pethppfood.Location = new System.Drawing.Point(360, 35);
-            this.pethppfood.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.pethppfood.Minimum = new decimal(new int[] {5,0,0,0});
             this.pethppfood.Name = "pethppfood";
             this.pethppfood.Size = new System.Drawing.Size(39, 20);
             this.pethppfood.TabIndex = 10;
             this.pethppfood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pethppfood.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
+            this.pethppfood.Value = new decimal(new int[] {20,0,0,0});
             // 
             // pethptext
             // 
@@ -5172,11 +4398,7 @@
             // 
             // DragonPetHP
             // 
-            this.DragonPetHP.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.DragonPetHP.Increment = new decimal(new int[] {5,0,0,0});
             this.DragonPetHP.Location = new System.Drawing.Point(332, 142);
             this.DragonPetHP.Name = "DragonPetHP";
             this.DragonPetHP.Size = new System.Drawing.Size(44, 20);
@@ -5227,38 +4449,22 @@
             // PlayerSpirit
             // 
             this.PlayerSpirit.Location = new System.Drawing.Point(124, 39);
-            this.PlayerSpirit.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.PlayerSpirit.Minimum = new decimal(new int[] {1,0,0,0});
             this.PlayerSpirit.Name = "PlayerSpirit";
             this.PlayerSpirit.Size = new System.Drawing.Size(44, 20);
             this.PlayerSpirit.TabIndex = 29;
             this.PlayerSpirit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PlayerSpirit.Value = new decimal(new int[] {
-            80,
-            0,
-            0,
-            0});
+            this.PlayerSpirit.Value = new decimal(new int[] {80,0,0,0});
             // 
             // WyvernSpirit
             // 
             this.WyvernSpirit.Location = new System.Drawing.Point(124, 16);
-            this.WyvernSpirit.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.WyvernSpirit.Minimum = new decimal(new int[] {1,0,0,0});
             this.WyvernSpirit.Name = "WyvernSpirit";
             this.WyvernSpirit.Size = new System.Drawing.Size(44, 20);
             this.WyvernSpirit.TabIndex = 27;
             this.WyvernSpirit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.WyvernSpirit.Value = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
+            this.WyvernSpirit.Value = new decimal(new int[] {60,0,0,0});
             // 
             // label46
             // 
@@ -5280,21 +4486,13 @@
             // 
             // BreathMAX
             // 
-            this.BreathMAX.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.BreathMAX.Increment = new decimal(new int[] {5,0,0,0});
             this.BreathMAX.Location = new System.Drawing.Point(301, 109);
             this.BreathMAX.Name = "BreathMAX";
             this.BreathMAX.Size = new System.Drawing.Size(44, 20);
             this.BreathMAX.TabIndex = 103;
             this.BreathMAX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BreathMAX.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.BreathMAX.Value = new decimal(new int[] {100,0,0,0});
             // 
             // label48
             // 
@@ -5307,21 +4505,13 @@
             // 
             // BreathMIN
             // 
-            this.BreathMIN.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.BreathMIN.Increment = new decimal(new int[] {5,0,0,0});
             this.BreathMIN.Location = new System.Drawing.Point(219, 109);
             this.BreathMIN.Name = "BreathMIN";
             this.BreathMIN.Size = new System.Drawing.Size(44, 20);
             this.BreathMIN.TabIndex = 102;
             this.BreathMIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BreathMIN.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
+            this.BreathMIN.Value = new decimal(new int[] {15,0,0,0});
             // 
             // drgwyvernbreathptext
             // 
@@ -5345,11 +4535,7 @@
             // 
             // RestoringBreathHP
             // 
-            this.RestoringBreathHP.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.RestoringBreathHP.Increment = new decimal(new int[] {5,0,0,0});
             this.RestoringBreathHP.Location = new System.Drawing.Point(117, 15);
             this.RestoringBreathHP.Name = "RestoringBreathHP";
             this.RestoringBreathHP.Size = new System.Drawing.Size(44, 20);
@@ -5435,11 +4621,7 @@
             // ManaCedeTPset
             // 
             this.ManaCedeTPset.Location = new System.Drawing.Point(90, 39);
-            this.ManaCedeTPset.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
+            this.ManaCedeTPset.Maximum = new decimal(new int[] {3000,0,0,0});
             this.ManaCedeTPset.Name = "ManaCedeTPset";
             this.ManaCedeTPset.Size = new System.Drawing.Size(43, 20);
             this.ManaCedeTPset.TabIndex = 29;
@@ -5491,11 +4673,7 @@
             this.SMNpetMPUSEset.Name = "SMNpetMPUSEset";
             this.SMNpetMPUSEset.Size = new System.Drawing.Size(43, 20);
             this.SMNpetMPUSEset.TabIndex = 24;
-            this.SMNpetMPUSEset.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
+            this.SMNpetMPUSEset.Value = new decimal(new int[] {20,0,0,0});
             // 
             // SMNHPPset1
             // 
@@ -5545,11 +4723,7 @@
             // SMNpetTPUSEset
             // 
             this.SMNpetTPUSEset.Location = new System.Drawing.Point(349, 105);
-            this.SMNpetTPUSEset.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
+            this.SMNpetTPUSEset.Maximum = new decimal(new int[] {3000,0,0,0});
             this.SMNpetTPUSEset.Name = "SMNpetTPUSEset";
             this.SMNpetTPUSEset.Size = new System.Drawing.Size(44, 20);
             this.SMNpetTPUSEset.TabIndex = 22;
@@ -5671,16 +4845,8 @@
             // Maneuver3select
             // 
             this.Maneuver3select.FormattingEnabled = true;
-            this.Maneuver3select.Items.AddRange(new object[] {
-            "Dark Maneuver",
-            "Earth Maneuver",
-            "Fire Maneuver",
-            "Ice Maneuver",
-            "Light Maneuver",
-            "Thunder Maneuver",
-            "Water Maneuver",
-            "Wind Maneuver",
-            "Not Selected"});
+            this.Maneuver3select.Items.AddRange(new object[] {"Dark Maneuver","Earth Maneuver","Fire Maneuver","Ice Maneuver","Light Maneuver","Thunder Maneuver",
+                                                              "Water Maneuver","Wind Maneuver","Not Selected"});
             this.Maneuver3select.Location = new System.Drawing.Point(10, 74);
             this.Maneuver3select.Name = "Maneuver3select";
             this.Maneuver3select.Size = new System.Drawing.Size(116, 21);
@@ -5691,16 +4857,8 @@
             // Maneuver2select
             // 
             this.Maneuver2select.FormattingEnabled = true;
-            this.Maneuver2select.Items.AddRange(new object[] {
-            "Dark Maneuver",
-            "Earth Maneuver",
-            "Fire Maneuver",
-            "Ice Maneuver",
-            "Light Maneuver",
-            "Thunder Maneuver",
-            "Water Maneuver",
-            "Wind Maneuver",
-            "Not Selected"});
+            this.Maneuver2select.Items.AddRange(new object[] {"Dark Maneuver","Earth Maneuver","Fire Maneuver","Ice Maneuver","Light Maneuver","Thunder Maneuver",
+                                                              "Water Maneuver","Wind Maneuver","Not Selected"});
             this.Maneuver2select.Location = new System.Drawing.Point(10, 47);
             this.Maneuver2select.Name = "Maneuver2select";
             this.Maneuver2select.Size = new System.Drawing.Size(116, 21);
@@ -5712,84 +4870,40 @@
             // 
             this.Maneuver1set.Enabled = false;
             this.Maneuver1set.Location = new System.Drawing.Point(176, 21);
-            this.Maneuver1set.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.Maneuver1set.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.Maneuver1set.Maximum = new decimal(new int[] {3,0,0,0});
+            this.Maneuver1set.Minimum = new decimal(new int[] {1,0,0,0});
             this.Maneuver1set.Name = "Maneuver1set";
             this.Maneuver1set.Size = new System.Drawing.Size(28, 20);
             this.Maneuver1set.TabIndex = 36;
-            this.Maneuver1set.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.Maneuver1set.Value = new decimal(new int[] {1,0,0,0});
             // 
             // Maneuver2set
             // 
             this.Maneuver2set.Enabled = false;
             this.Maneuver2set.Location = new System.Drawing.Point(176, 48);
-            this.Maneuver2set.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.Maneuver2set.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.Maneuver2set.Maximum = new decimal(new int[] {3,0,0,0});
+            this.Maneuver2set.Minimum = new decimal(new int[] {1,0,0,0});
             this.Maneuver2set.Name = "Maneuver2set";
             this.Maneuver2set.Size = new System.Drawing.Size(28, 20);
             this.Maneuver2set.TabIndex = 37;
-            this.Maneuver2set.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.Maneuver2set.Value = new decimal(new int[] {1,0,0,0});
             // 
             // Maneuver3set
             // 
             this.Maneuver3set.Enabled = false;
             this.Maneuver3set.Location = new System.Drawing.Point(176, 75);
-            this.Maneuver3set.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.Maneuver3set.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.Maneuver3set.Maximum = new decimal(new int[] {3,0,0,0});
+            this.Maneuver3set.Minimum = new decimal(new int[] {1,0,0,0});
             this.Maneuver3set.Name = "Maneuver3set";
             this.Maneuver3set.Size = new System.Drawing.Size(28, 20);
             this.Maneuver3set.TabIndex = 38;
-            this.Maneuver3set.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.Maneuver3set.Value = new decimal(new int[] {1,0,0,0});
             // 
             // Maneuver1select
             // 
             this.Maneuver1select.FormattingEnabled = true;
-            this.Maneuver1select.Items.AddRange(new object[] {
-            "Dark Maneuver",
-            "Earth Maneuver",
-            "Fire Maneuver",
-            "Ice Maneuver",
-            "Light Maneuver",
-            "Thunder Maneuver",
-            "Water Maneuver",
-            "Wind Maneuver",
-            "Not Selected"});
+            this.Maneuver1select.Items.AddRange(new object[] {"Dark Maneuver","Earth Maneuver","Fire Maneuver","Ice Maneuver","Light Maneuver","Thunder Maneuver",
+                                                              "Water Maneuver","Wind Maneuver","Not Selected"});
             this.Maneuver1select.Location = new System.Drawing.Point(10, 20);
             this.Maneuver1select.Name = "Maneuver1select";
             this.Maneuver1select.Size = new System.Drawing.Size(116, 21);
@@ -5979,11 +5093,7 @@
             // Repairselect
             // 
             this.Repairselect.FormattingEnabled = true;
-            this.Repairselect.Items.AddRange(new object[] {
-            "Automaton Oil",
-            "Automaton Oil +1",
-            "Automaton Oil +2",
-            "Automaton Oil +3"});
+            this.Repairselect.Items.AddRange(new object[] {"Automaton Oil","Automaton Oil +1","Automaton Oil +2","Automaton Oil +3"});
             this.Repairselect.Location = new System.Drawing.Point(45, 19);
             this.Repairselect.Name = "Repairselect";
             this.Repairselect.Size = new System.Drawing.Size(112, 21);
@@ -6054,11 +5164,7 @@
             // TSPetTPset
             // 
             this.TSPetTPset.Location = new System.Drawing.Point(159, 40);
-            this.TSPetTPset.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
+            this.TSPetTPset.Maximum = new decimal(new int[] {3000,0,0,0});
             this.TSPetTPset.Name = "TSPetTPset";
             this.TSPetTPset.Size = new System.Drawing.Size(46, 20);
             this.TSPetTPset.TabIndex = 3;
@@ -6066,11 +5172,7 @@
             // TSPlayerTPset
             // 
             this.TSPlayerTPset.Location = new System.Drawing.Point(160, 14);
-            this.TSPlayerTPset.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
+            this.TSPlayerTPset.Maximum = new decimal(new int[] {3000,0,0,0});
             this.TSPlayerTPset.Name = "TSPlayerTPset";
             this.TSPlayerTPset.Size = new System.Drawing.Size(45, 20);
             this.TSPlayerTPset.TabIndex = 2;
@@ -6216,11 +5318,7 @@
             // numericUpDown8
             // 
             this.numericUpDown8.Location = new System.Drawing.Point(333, 137);
-            this.numericUpDown8.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.numericUpDown8.Maximum = new decimal(new int[] {3,0,0,0});
             this.numericUpDown8.Name = "numericUpDown8";
             this.numericUpDown8.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown8.TabIndex = 31;
@@ -6228,11 +5326,7 @@
             // numericUpDown9
             // 
             this.numericUpDown9.Location = new System.Drawing.Point(333, 96);
-            this.numericUpDown9.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.numericUpDown9.Maximum = new decimal(new int[] {3,0,0,0});
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown9.TabIndex = 30;
@@ -6240,11 +5334,7 @@
             // numericUpDown10
             // 
             this.numericUpDown10.Location = new System.Drawing.Point(333, 55);
-            this.numericUpDown10.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.numericUpDown10.Maximum = new decimal(new int[] {3,0,0,0});
             this.numericUpDown10.Name = "numericUpDown10";
             this.numericUpDown10.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown10.TabIndex = 29;
@@ -6252,11 +5342,7 @@
             // numericUpDown5
             // 
             this.numericUpDown5.Location = new System.Drawing.Point(333, 14);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.numericUpDown5.Maximum = new decimal(new int[] {3,0,0,0});
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown5.TabIndex = 28;
@@ -6264,11 +5350,7 @@
             // numericUpDown4
             // 
             this.numericUpDown4.Location = new System.Drawing.Point(139, 138);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.numericUpDown4.Maximum = new decimal(new int[] {3,0,0,0});
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown4.TabIndex = 27;
@@ -6276,11 +5358,7 @@
             // numericUpDown3
             // 
             this.numericUpDown3.Location = new System.Drawing.Point(139, 96);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.numericUpDown3.Maximum = new decimal(new int[] {3,0,0,0});
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown3.TabIndex = 26;
@@ -6288,11 +5366,7 @@
             // numericUpDown2
             // 
             this.numericUpDown2.Location = new System.Drawing.Point(139, 55);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.numericUpDown2.Maximum = new decimal(new int[] {3,0,0,0});
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown2.TabIndex = 25;
@@ -6300,11 +5374,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(139, 14);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.numericUpDown1.Maximum = new decimal(new int[] {3,0,0,0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown1.TabIndex = 24;
@@ -7606,44 +6676,18 @@
 
             #region CheckBuffs
 
-            if (PlayerInfo.HasBuff(4) && hw.Contains("Paralyze")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(3) && hw.Contains("Poison")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(5) && hw.Contains("Blind")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(11) && hw.Contains("Bind")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(9) && hw.Contains("Curse")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(13) && hw.Contains("Slow")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(6) && hw.Contains("Silence")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(31) && hw.Contains("Plague")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(8) && hw.Contains("Disease")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(30) && hw.Contains("Bane")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(135) && hw.Contains("Bio")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(128) && hw.Contains("Burn")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(130) && hw.Contains("Choke")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(131) && hw.Contains("Rasp")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(133) && hw.Contains("Drown")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(129) && hw.Contains("Frost")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(132) && hw.Contains("Shock")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(134) && hw.Contains("Dia")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(136) && hw.Contains("STR Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(137) && hw.Contains("DEX Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(138) && hw.Contains("VIT Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(139) && hw.Contains("AGI Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(141) && hw.Contains("MND Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(142) && hw.Contains("CHR Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(174) && hw.Contains("MACC Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(148) && hw.Contains("EVA Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(149) && hw.Contains("DEF Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(147) && hw.Contains("ATT Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(146) && hw.Contains("ACC Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(404) && hw.Contains("MEVA Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(175) && hw.Contains("MATT Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(167) && hw.Contains("MDEF Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(144) && hw.Contains("HP Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(145) && hw.Contains("MP Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(189) && hw.Contains("TP Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(140) && hw.Contains("INT Down")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(186) && hw.Contains("Helix")) CastHealingWatz();
-            if (PlayerInfo.HasBuff(12) && hw.Contains("Gravity")) CastHealingWatz();
+            Dictionary<short, string> hwaltzbuff = new Dictionary<short, string>
+            {
+                {4, "Paralyze"},{3, "Poison"},{5, "Blind"},{11, "Bind"},{9, "Curse"},{13, "Slow"},{6, "Silence"},{31, "Plague"},{8, "Disease"},{30, "Bane"},
+                {135, "Bio"},{128, "Burn"},{130, "Choke"},{131, "Rasp"},{133, "Drown"},{129, "Frost"},{132, "Shock"},{134, "Dia"},{136, "STR Down"},{137, "DEX Down"},
+                {138, "VIT Down"},{139, "AGI Down"},{141, "MND Down"},{142, "CHR Down"},{174, "MACC Down"},{148, "EVA Down"},{149, "DEF Down"},{147, "ATT Down"},
+                {146, "ACC Down"},{404, "MEVA Down"},{175, "MATT Down"},{167, "MDEF Down"},{144, "HP Down"},{145, "MP Down"},{189, "TP Down"},{140, "INT Down"},
+                {186, "Helix"},{12, "Gravity"},
+            };
+            foreach (KeyValuePair<short, string> kvp in hwaltzbuff)
+            {
+                if (PlayerInfo.HasBuff(kvp.Key) && hw.Contains(kvp.Value)) CastHealingWatz();
+            }
 
             #endregion
         }
@@ -9599,6 +8643,31 @@
         }
         #endregion
         #region Farming: populate target list
+        private bool IsUpper(string value)
+        {
+            // Consider string to be uppercase if it has no lowercase letters.
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (char.IsLower(value[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool IsLower(string value)
+        {
+            // Consider string to be lowercase if it has no uppercase letters.
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (char.IsUpper(value[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void PopulateTargetLists(string idType)
         {
             wantedID.Clear();
@@ -9884,11 +8953,13 @@
                 {"11C", "\\ROM9\\6\\73.DAT"},
                 {"120", "\\ROM\\332\\109.DAT"},
                 {"121", "\\ROM\\337\\66.DAT"},
+                {"123", "\\ROM\\342\\94.DAT"},
             };
             #endregion
             #region variables
             var zone = api.Player.ZoneId;
             var hexs = zone.ToString("X");
+            if (!dats.ContainsKey(hexs)) return;
             var path = "";
             var xloc = "";
 
@@ -9922,7 +8993,7 @@
             var sum = 0;
             while ((num = myStream.Read(buffer, sum, size - sum)) > 0)
                 sum += num;
-
+            
             #region populate targets
             for (var x = 0; x < buffer.Length; x = x + 32)
             {
@@ -9937,7 +9008,9 @@
                 var empty = (tmp2.Length == 0);
                 var mobid = tb[28] + ((tb[29] & 15) << 8);
                 var waste = notWanted.Contains(tmp2);
-
+                if (!waste) waste = IsUpper(tmp2);
+                if (!waste) waste = IsLower(tmp2);
+                if (!waste) waste = tmp2.IndexOfAny("_#[]:".ToCharArray()) != -1;
                 if (!(empty) && x != 0 && !(exist) && !(waste))
                 {
                     wantedID.Add(string.Format("{0:X}", mobid), tmp2);

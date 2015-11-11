@@ -420,7 +420,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.Text = "scripted  - (open source ßeta v0.85.2)";
+            this.Text = "scripted  - (open source ßeta v0.85.5)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.xmenu.ResumeLayout(false);
             this.xmenu.PerformLayout();

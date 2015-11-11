@@ -39,7 +39,8 @@ namespace FormSerialisation
             {
                 if (!(childCtrl is Label) && !(childCtrl is ListView) && !(childCtrl is MenuStrip) &&
                       childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownEdit" &&
-                      childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownButtons")
+                      childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownButtons" &&
+                      childCtrl.GetType().ToString() != "System.Windows.Forms.Button")
                 {
                     // serialise this control
                     xmlSerialisedForm.WriteStartElement("Control");
