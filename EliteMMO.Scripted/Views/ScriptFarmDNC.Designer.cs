@@ -32,6 +32,7 @@
         public bool isMoving = false;
         public bool isCasting = false;
         public bool isLoading = false;
+        public int startzone;
 
         public float SetEntityX = 0;
         public float SetEntityY = 0;
@@ -55,7 +56,7 @@
 
         public static List<string> DebugLog = new List<string>();
 
-        public static Dictionary<string, string> items = new Dictionary<string, string>();
+        //public static Dictionary<string, uint> items = new Dictionary<string, uint>();
         public Dictionary<string, string> wantedID = new Dictionary<string, string>();
         public Dictionary<string, string> wantedNM = new Dictionary<string, string>();
 
@@ -184,12 +185,13 @@
             this.aggro = new System.Windows.Forms.CheckBox();
             this.mobdist = new System.Windows.Forms.CheckBox();
             this.Options3MainTab = new System.Windows.Forms.TabPage();
+            this.verifyfood = new System.Windows.Forms.Button();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.SignetStaff = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.useStaff = new System.Windows.Forms.CheckBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.foodName = new System.Windows.Forms.TextBox();
             this.healMPcount = new System.Windows.Forms.NumericUpDown();
             this.usefood = new System.Windows.Forms.CheckBox();
             this.HealMP = new System.Windows.Forms.CheckBox();
@@ -315,7 +317,7 @@
             this.delaytext = new System.Windows.Forms.Label();
             this.pullDelay = new System.Windows.Forms.NumericUpDown();
             this.AutoLock = new System.Windows.Forms.CheckBox();
-            this.numericUpDown39 = new System.Windows.Forms.NumericUpDown();
+            this.mobheightdistValue = new System.Windows.Forms.NumericUpDown();
             this.mobheightdist = new System.Windows.Forms.CheckBox();
             this.runTarget = new System.Windows.Forms.CheckBox();
             this.runPullDistance = new System.Windows.Forms.CheckBox();
@@ -420,7 +422,11 @@
             this.userevflo = new System.Windows.Forms.RadioButton();
             this.FlourishTP = new System.Windows.Forms.CheckBox();
             this.flourishesigroup = new System.Windows.Forms.GroupBox();
-            this.numericUpDown34 = new System.Windows.Forms.NumericUpDown();
+            this.useanifloValue = new System.Windows.Forms.NumericUpDown();
+            this.useaniflo = new System.Windows.Forms.RadioButton();
+            this.useviofloValue = new System.Windows.Forms.NumericUpDown();
+            this.usevioflo = new System.Windows.Forms.RadioButton();
+            this.usedesfloValue = new System.Windows.Forms.NumericUpDown();
             this.usedesflo = new System.Windows.Forms.RadioButton();
             this.pets = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -500,7 +506,7 @@
             this.healforAutomatonMP = new System.Windows.Forms.CheckBox();
             this.healforAutomatonHP = new System.Windows.Forms.CheckBox();
             this.healforAutomatonMPset = new System.Windows.Forms.NumericUpDown();
-            this.healforAutomatonHPsaet = new System.Windows.Forms.NumericUpDown();
+            this.healforAutomatonHPset = new System.Windows.Forms.NumericUpDown();
             this.AutoCallPUP = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.PUPJA = new System.Windows.Forms.CheckedListBox();
@@ -533,6 +539,12 @@
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.GEOJA = new System.Windows.Forms.CheckedListBox();
+            this.trustControl = new System.Windows.Forms.TabPage();
+            this.selectedtrusts = new System.Windows.Forms.Label();
+            this.maxtrustslabel = new System.Windows.Forms.Label();
+            this.Trusts = new System.Windows.Forms.CheckedListBox();
+            this.trustmenuStrip = new System.Windows.Forms.MenuStrip();
+            this.trustMenureset = new System.Windows.Forms.ToolStripMenuItem();
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
@@ -642,7 +654,7 @@
             this.MAconfigpage.SuspendLayout();
             this.groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pullDelay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobheightdistValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.targetSearchDist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pullTolorance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).BeginInit();
@@ -685,7 +697,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.usebldfloValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userevfloValue)).BeginInit();
             this.flourishesigroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.useanifloValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.useviofloValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usedesfloValue)).BeginInit();
             this.pets.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox19.SuspendLayout();
@@ -724,7 +738,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Maneuver3set)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonMPset)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonHPsaet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonHPset)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.PUPOtherpage.SuspendLayout();
             this.Ventriloquygroup.SuspendLayout();
@@ -738,6 +752,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.RRPlayerHPPset)).BeginInit();
             this.geopettab.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.trustControl.SuspendLayout();
+            this.trustmenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
@@ -917,6 +933,7 @@
             this.dncControl.Controls.Add(this.dancer);
             this.dncControl.Controls.Add(this.flourish);
             this.dncControl.Controls.Add(this.pets);
+            this.dncControl.Controls.Add(this.trustControl);
             this.dncControl.Location = new System.Drawing.Point(10, 30);
             this.dncControl.Name = "dncControl";
             this.dncControl.SelectedIndex = 0;
@@ -1135,7 +1152,6 @@
             this.HateControlgroup.Controls.Add(this.label6);
             this.HateControlgroup.Controls.Add(this.selectedHateControl);
             this.HateControlgroup.Controls.Add(this.tank);
-            this.HateControlgroup.Enabled = false;
             this.HateControlgroup.Location = new System.Drawing.Point(7, 116);
             this.HateControlgroup.Name = "HateControlgroup";
             this.HateControlgroup.Size = new System.Drawing.Size(314, 68);
@@ -1145,23 +1161,39 @@
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown6.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown6.Location = new System.Drawing.Point(207, 39);
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown6.TabIndex = 108;
             this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown6.Value = new decimal(new int[] {100,0,0,0});
+            this.numericUpDown6.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // numericUpDown7
             // 
-            this.numericUpDown7.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown7.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown7.Location = new System.Drawing.Point(125, 39);
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown7.TabIndex = 107;
             this.numericUpDown7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown7.Value = new decimal(new int[] {10,0,0,0});
+            this.numericUpDown7.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
@@ -1192,7 +1224,6 @@
             // 
             // selectedHateControl
             // 
-            this.selectedHateControl.Enabled = false;
             this.selectedHateControl.FormattingEnabled = true;
             this.selectedHateControl.Location = new System.Drawing.Point(125, 16);
             this.selectedHateControl.Name = "selectedHateControl";
@@ -1234,12 +1265,55 @@
             // 
             // amname
             // 
-            this.amname.AutoCompleteCustomSource.AddRange(new string[] {"Cloudsplitter","Ukko\'s Fury","Dagan","Rudra\'s Storm","Victory Smite","Blade: Hi",
-            "Tachi: Fudo","Camlann\'s Torment","Quietus","Myrkr","Chant du Cygne","Torcleaver","Jishnu\'s Radiance","Wildfire","Final Heaven","Mercy Stroke",
-            "Knights of Round","Scourge","Onslaught","Metatron Torment","Catastrophe","Geirskogul","Blade: Metsu","Tachi: Kaiten","Randgrith","Gate of Tartarus",
-            "Coronach","Namas Arrow","King\'s Justice","Ascetic\'s Fury","Mystic Boon","Vidohunir","Death Blossom","Mandalic Stab","Atonement","Insurgency",
-            "Primal Rend","Mordant Rime","Trueflight","Tachi: Rana","Blade: Kamu","Drakesbane","Garland of Bliss","Expiacion","Leaden Salute","Stringing Pummel",
-            "Pyrrhic Kleos","Omniscience"});
+            this.amname.AutoCompleteCustomSource.AddRange(new string[] {
+            "Cloudsplitter",
+            "Ukko\'s Fury",
+            "Dagan",
+            "Rudra\'s Storm",
+            "Victory Smite",
+            "Blade: Hi",
+            "Tachi: Fudo",
+            "Camlann\'s Torment",
+            "Quietus",
+            "Myrkr",
+            "Chant du Cygne",
+            "Torcleaver",
+            "Jishnu\'s Radiance",
+            "Wildfire",
+            "Final Heaven",
+            "Mercy Stroke",
+            "Knights of Round",
+            "Scourge",
+            "Onslaught",
+            "Metatron Torment",
+            "Catastrophe",
+            "Geirskogul",
+            "Blade: Metsu",
+            "Tachi: Kaiten",
+            "Randgrith",
+            "Gate of Tartarus",
+            "Coronach",
+            "Namas Arrow",
+            "King\'s Justice",
+            "Ascetic\'s Fury",
+            "Mystic Boon",
+            "Vidohunir",
+            "Death Blossom",
+            "Mandalic Stab",
+            "Atonement",
+            "Insurgency",
+            "Primal Rend",
+            "Mordant Rime",
+            "Trueflight",
+            "Tachi: Rana",
+            "Blade: Kamu",
+            "Drakesbane",
+            "Garland of Bliss",
+            "Expiacion",
+            "Leaden Salute",
+            "Stringing Pummel",
+            "Pyrrhic Kleos",
+            "Omniscience"});
             this.amname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.amname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.amname.FormattingEnabled = true;
@@ -1252,13 +1326,25 @@
             // AfterMathTier
             // 
             this.AfterMathTier.Location = new System.Drawing.Point(124, 37);
-            this.AfterMathTier.Maximum = new decimal(new int[] {3,0,0,0});
-            this.AfterMathTier.Minimum = new decimal(new int[] {1,0,0,0});
+            this.AfterMathTier.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.AfterMathTier.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.AfterMathTier.Name = "AfterMathTier";
             this.AfterMathTier.Size = new System.Drawing.Size(44, 20);
             this.AfterMathTier.TabIndex = 108;
             this.AfterMathTier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.AfterMathTier.Value = new decimal(new int[] {1,0,0,0});
+            this.AfterMathTier.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // wsam
             // 
@@ -1282,27 +1368,219 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {"Combo","Shoulder Tackle","One Inch Punch","Backhand Blow","Raging Fists","Spinning Attack",
-            "Howling Fist","Dragon Kick","Asuran Fists","Final Heaven","Ascetic\'s Fury","Stringing Pummel","Tornado Kick","Victory Smite","Shijin Spiral","Wasp Sting",
-            "Gust Slash","Shadow Stitch","Viper Bite","Cyclone","Energy Steal","Energy Drain","Dancing Edge","Shark Bite","Evisceration","Mercy Stroke","Mandalic Stab",
-            "Mordant Rime","Pyrrhic Kleos","Aeolian Edge","Rudra\'s Storm","Exenterator","Fast Blade","Burning Blade","Red Lotus Blade","Flat Blade","Shining Blade",
-            "Seraph Blade","Circle Blade","Spirits Within","Vorpal Blade","Swift Blade","Savage Blade","Knights of Round","Death Blossom","Atonement","Expiacion",
-            "Sanguine Blade","Chant du Cygne","Requiescat","Hard Slash","Power Slash","Frostbite","Freezebite","Shockwave","Crescent Moon","Sickle Moon",
-            "Spinning Slash","Ground Strike","Scourge","Herculean Slash","Torcleaver","Resolution","Raging Axe","Smash Axe","Gale Axe","Avalanche Axe","Spinning Axe",
-            "Rampage","Calamity","Mistral Axe","Decimation","Onslaught","Primal Rend","Bora Axe","Cloudsplitter","Ruinator","Shield Break","Iron Tempest","Sturmwind",
-            "Armor Break","Keen Edge","Weapon Break","Raging Rush","Full Break","Steel Cyclone","Metatron Torment","King\'s Justice","Fell Cleave","Ukko\'s Fury",
-            "Upheaval","Slice","Dark Harvest","Shadow of Death","Nightmare Scythe","Spinning Scythe","Vorpal Scythe","Guillotine","Cross Reaper","Spiral Hell",
-            "Catastrophe","Insurgency","Infernal Scythe","Quietus","Entropy","Double Thrust","Thunder Thrust","Raiden Thrust","Leg Sweep","Penta Thrust","Vorpal Thrust",
-            "Skewer","Wheeling Thrust","Impulse Drive","Geirskogul","Drakesbane","Sonic Thrust","Camlann\'s Torment","Stardiver","Blade: Rin","Blade: Retsu",
-            "Blade: Teki","Blade: To","Blade: Chi","Blade: Ei","Blade: Jin","Blade: Ten","Blade: Ku","Blade: Metsu","Blade: Kamu","Blade: Yu","Blade: Hi","Blade: Shun",
-            "Tachi: Enpi","Tachi: Hobaku","Tachi: Goten","Tachi: Kagero","Tachi: Jinpu","Tachi: Koki","Tachi: Yukikaze","Tachi: Gekko","Tachi: Kasha","Tachi: Kaiten",
-            "Tachi: Rana","Tachi: Ageha","Tachi: Fudo","Tachi: Shoha","Shining Strike","Seraph Strike","Brainshaker","Starlight","Moonlight","Skullbreaker",
-            "True Strike","Judgment","Hexa Strike","Black Halo","Randgrith","Mystic Boon","Flash Nova","Dagan","Realmrazer","Heavy Swing","Rock Crusher",
-            "Earth Crusher","Starburst","Sunburst","Shell Crusher","Full Swing","Spirit Taker","Retribution","Gates of Tartarus","Vidohunir","Garland of Bliss",
-            "Omniscience","Cataclysm","Myrkr","Shattersoul","Flaming Arrow","Piercing Arrow","Dulling Arrow","Sidewinder","Blast Arrow","Arching Arrow","Empyreal Arrow",
-            "Namas Arrow","Refulgent Arrow","Jishnu\'s Radiance","Apex Arrow","Hot Shot","Split Shot","Sniper Shot","Slug Shot","Blast Shot","Heavy Shot","Detonator",
-            "Coronach","Trueflight","Leaden Salute","Numbing Shot","Wildfire","Last Stand","Slapstick","Arcuballista","String Clipper","Chimera Ripper","Knockout",
-            "Magic Mortar","Daze","Armor Piercer","Cannibal Blade","Bone Crusher"});
+            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            "Combo",
+            "Shoulder Tackle",
+            "One Inch Punch",
+            "Backhand Blow",
+            "Raging Fists",
+            "Spinning Attack",
+            "Howling Fist",
+            "Dragon Kick",
+            "Asuran Fists",
+            "Final Heaven",
+            "Ascetic\'s Fury",
+            "Stringing Pummel",
+            "Tornado Kick",
+            "Victory Smite",
+            "Shijin Spiral",
+            "Wasp Sting",
+            "Gust Slash",
+            "Shadow Stitch",
+            "Viper Bite",
+            "Cyclone",
+            "Energy Steal",
+            "Energy Drain",
+            "Dancing Edge",
+            "Shark Bite",
+            "Evisceration",
+            "Mercy Stroke",
+            "Mandalic Stab",
+            "Mordant Rime",
+            "Pyrrhic Kleos",
+            "Aeolian Edge",
+            "Rudra\'s Storm",
+            "Exenterator",
+            "Fast Blade",
+            "Burning Blade",
+            "Red Lotus Blade",
+            "Flat Blade",
+            "Shining Blade",
+            "Seraph Blade",
+            "Circle Blade",
+            "Spirits Within",
+            "Vorpal Blade",
+            "Swift Blade",
+            "Savage Blade",
+            "Knights of Round",
+            "Death Blossom",
+            "Atonement",
+            "Expiacion",
+            "Sanguine Blade",
+            "Chant du Cygne",
+            "Requiescat",
+            "Hard Slash",
+            "Power Slash",
+            "Frostbite",
+            "Freezebite",
+            "Shockwave",
+            "Crescent Moon",
+            "Sickle Moon",
+            "Spinning Slash",
+            "Ground Strike",
+            "Scourge",
+            "Herculean Slash",
+            "Torcleaver",
+            "Resolution",
+            "Raging Axe",
+            "Smash Axe",
+            "Gale Axe",
+            "Avalanche Axe",
+            "Spinning Axe",
+            "Rampage",
+            "Calamity",
+            "Mistral Axe",
+            "Decimation",
+            "Onslaught",
+            "Primal Rend",
+            "Bora Axe",
+            "Cloudsplitter",
+            "Ruinator",
+            "Shield Break",
+            "Iron Tempest",
+            "Sturmwind",
+            "Armor Break",
+            "Keen Edge",
+            "Weapon Break",
+            "Raging Rush",
+            "Full Break",
+            "Steel Cyclone",
+            "Metatron Torment",
+            "King\'s Justice",
+            "Fell Cleave",
+            "Ukko\'s Fury",
+            "Upheaval",
+            "Slice",
+            "Dark Harvest",
+            "Shadow of Death",
+            "Nightmare Scythe",
+            "Spinning Scythe",
+            "Vorpal Scythe",
+            "Guillotine",
+            "Cross Reaper",
+            "Spiral Hell",
+            "Catastrophe",
+            "Insurgency",
+            "Infernal Scythe",
+            "Quietus",
+            "Entropy",
+            "Double Thrust",
+            "Thunder Thrust",
+            "Raiden Thrust",
+            "Leg Sweep",
+            "Penta Thrust",
+            "Vorpal Thrust",
+            "Skewer",
+            "Wheeling Thrust",
+            "Impulse Drive",
+            "Geirskogul",
+            "Drakesbane",
+            "Sonic Thrust",
+            "Camlann\'s Torment",
+            "Stardiver",
+            "Blade: Rin",
+            "Blade: Retsu",
+            "Blade: Teki",
+            "Blade: To",
+            "Blade: Chi",
+            "Blade: Ei",
+            "Blade: Jin",
+            "Blade: Ten",
+            "Blade: Ku",
+            "Blade: Metsu",
+            "Blade: Kamu",
+            "Blade: Yu",
+            "Blade: Hi",
+            "Blade: Shun",
+            "Tachi: Enpi",
+            "Tachi: Hobaku",
+            "Tachi: Goten",
+            "Tachi: Kagero",
+            "Tachi: Jinpu",
+            "Tachi: Koki",
+            "Tachi: Yukikaze",
+            "Tachi: Gekko",
+            "Tachi: Kasha",
+            "Tachi: Kaiten",
+            "Tachi: Rana",
+            "Tachi: Ageha",
+            "Tachi: Fudo",
+            "Tachi: Shoha",
+            "Shining Strike",
+            "Seraph Strike",
+            "Brainshaker",
+            "Starlight",
+            "Moonlight",
+            "Skullbreaker",
+            "True Strike",
+            "Judgment",
+            "Hexa Strike",
+            "Black Halo",
+            "Randgrith",
+            "Mystic Boon",
+            "Flash Nova",
+            "Dagan",
+            "Realmrazer",
+            "Heavy Swing",
+            "Rock Crusher",
+            "Earth Crusher",
+            "Starburst",
+            "Sunburst",
+            "Shell Crusher",
+            "Full Swing",
+            "Spirit Taker",
+            "Retribution",
+            "Gates of Tartarus",
+            "Vidohunir",
+            "Garland of Bliss",
+            "Omniscience",
+            "Cataclysm",
+            "Myrkr",
+            "Shattersoul",
+            "Flaming Arrow",
+            "Piercing Arrow",
+            "Dulling Arrow",
+            "Sidewinder",
+            "Blast Arrow",
+            "Arching Arrow",
+            "Empyreal Arrow",
+            "Namas Arrow",
+            "Refulgent Arrow",
+            "Jishnu\'s Radiance",
+            "Apex Arrow",
+            "Hot Shot",
+            "Split Shot",
+            "Sniper Shot",
+            "Slug Shot",
+            "Blast Shot",
+            "Heavy Shot",
+            "Detonator",
+            "Coronach",
+            "Trueflight",
+            "Leaden Salute",
+            "Numbing Shot",
+            "Wildfire",
+            "Last Stand",
+            "Slapstick",
+            "Arcuballista",
+            "String Clipper",
+            "Chimera Ripper",
+            "Knockout",
+            "Magic Mortar",
+            "Daze",
+            "Armor Piercer",
+            "Cannibal Blade",
+            "Bone Crusher"});
             this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox2.FormattingEnabled = true;
@@ -1325,15 +1603,27 @@
             // 
             this.numericUpDown40.DecimalPlaces = 1;
             this.numericUpDown40.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.numericUpDown40.Increment = new decimal(new int[] {1,0,0,65536});
+            this.numericUpDown40.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numericUpDown40.Location = new System.Drawing.Point(124, 59);
-            this.numericUpDown40.Maximum = new decimal(new int[] {50,0,0,0});
+            this.numericUpDown40.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.numericUpDown40.Name = "numericUpDown40";
             this.numericUpDown40.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown40.TabIndex = 103;
             this.numericUpDown40.TabStop = false;
             this.numericUpDown40.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown40.Value = new decimal(new int[] {1,0,0,0});
+            this.numericUpDown40.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // ws
             // 
@@ -1347,15 +1637,27 @@
             // 
             // numericUpDown24
             // 
-            this.numericUpDown24.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown24.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown24.Location = new System.Drawing.Point(124, 15);
-            this.numericUpDown24.Maximum = new decimal(new int[] {3000,0,0,0});
+            this.numericUpDown24.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             this.numericUpDown24.Name = "numericUpDown24";
             this.numericUpDown24.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown24.TabIndex = 95;
             this.numericUpDown24.TabStop = false;
             this.numericUpDown24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown24.Value = new decimal(new int[] {1000,0,0,0});
+            this.numericUpDown24.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             // 
             // label29
             // 
@@ -1368,13 +1670,21 @@
             // 
             // numericUpDown22
             // 
-            this.numericUpDown22.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown22.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown22.Location = new System.Drawing.Point(206, 81);
             this.numericUpDown22.Name = "numericUpDown22";
             this.numericUpDown22.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown22.TabIndex = 98;
             this.numericUpDown22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown22.Value = new decimal(new int[] {100,0,0,0});
+            this.numericUpDown22.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // label28
             // 
@@ -1387,13 +1697,21 @@
             // 
             // numericUpDown23
             // 
-            this.numericUpDown23.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown23.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown23.Location = new System.Drawing.Point(124, 81);
             this.numericUpDown23.Name = "numericUpDown23";
             this.numericUpDown23.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown23.TabIndex = 97;
             this.numericUpDown23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown23.Value = new decimal(new int[] {15,0,0,0});
+            this.numericUpDown23.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             // 
             // label27
             // 
@@ -1434,28 +1752,52 @@
             // numericUpDown38
             // 
             this.numericUpDown38.DecimalPlaces = 1;
-            this.numericUpDown38.Increment = new decimal(new int[] {1,0,0,65536});
+            this.numericUpDown38.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numericUpDown38.Location = new System.Drawing.Point(238, 155);
-            this.numericUpDown38.Maximum = new decimal(new int[] {50,0,0,0});
+            this.numericUpDown38.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.numericUpDown38.Name = "numericUpDown38";
             this.numericUpDown38.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown38.TabIndex = 92;
             this.numericUpDown38.TabStop = false;
             this.numericUpDown38.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown38.Value = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown38.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // aggroRange
             // 
             this.aggroRange.DecimalPlaces = 1;
-            this.aggroRange.Increment = new decimal(new int[] {1,0,0,65536});
+            this.aggroRange.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.aggroRange.Location = new System.Drawing.Point(238, 109);
-            this.aggroRange.Maximum = new decimal(new int[] {50,0,0,0});
+            this.aggroRange.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.aggroRange.Name = "aggroRange";
             this.aggroRange.Size = new System.Drawing.Size(44, 20);
             this.aggroRange.TabIndex = 107;
             this.aggroRange.TabStop = false;
             this.aggroRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.aggroRange.Value = new decimal(new int[] {85,0,0,65536});
+            this.aggroRange.Value = new decimal(new int[] {
+            85,
+            0,
+            0,
+            65536});
             // 
             // ScanDelay
             // 
@@ -1470,42 +1812,78 @@
             // KeepTargetRange
             // 
             this.KeepTargetRange.DecimalPlaces = 1;
-            this.KeepTargetRange.Increment = new decimal(new int[] {1,0,0,65536});
+            this.KeepTargetRange.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.KeepTargetRange.Location = new System.Drawing.Point(238, 132);
-            this.KeepTargetRange.Maximum = new decimal(new int[] {50,0,0,0});
+            this.KeepTargetRange.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.KeepTargetRange.Name = "KeepTargetRange";
             this.KeepTargetRange.Size = new System.Drawing.Size(44, 20);
             this.KeepTargetRange.TabIndex = 106;
             this.KeepTargetRange.TabStop = false;
             this.KeepTargetRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.KeepTargetRange.Value = new decimal(new int[] {3,0,0,0});
+            this.KeepTargetRange.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
             // assistDist
             // 
             this.assistDist.DecimalPlaces = 1;
             this.assistDist.Enabled = false;
-            this.assistDist.Increment = new decimal(new int[] {1,0,0,65536});
+            this.assistDist.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.assistDist.Location = new System.Drawing.Point(238, 42);
-            this.assistDist.Maximum = new decimal(new int[] {50,0,0,0});
+            this.assistDist.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.assistDist.Name = "assistDist";
             this.assistDist.Size = new System.Drawing.Size(44, 20);
             this.assistDist.TabIndex = 105;
             this.assistDist.TabStop = false;
             this.assistDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.assistDist.Value = new decimal(new int[] {5,0,0,0});
+            this.assistDist.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // followDist
             // 
             this.followDist.DecimalPlaces = 1;
-            this.followDist.Increment = new decimal(new int[] {1,0,0,65536});
+            this.followDist.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.followDist.Location = new System.Drawing.Point(238, 16);
-            this.followDist.Maximum = new decimal(new int[] {50,0,0,0});
+            this.followDist.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.followDist.Name = "followDist";
             this.followDist.Size = new System.Drawing.Size(44, 20);
             this.followDist.TabIndex = 104;
             this.followDist.TabStop = false;
             this.followDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.followDist.Value = new decimal(new int[] {3,0,0,0});
+            this.followDist.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
             // partyAssist
             // 
@@ -1612,12 +1990,13 @@
             // 
             // Options3MainTab
             // 
+            this.Options3MainTab.Controls.Add(this.verifyfood);
             this.Options3MainTab.Controls.Add(this.comboBox4);
             this.Options3MainTab.Controls.Add(this.SignetStaff);
             this.Options3MainTab.Controls.Add(this.label7);
             this.Options3MainTab.Controls.Add(this.label3);
             this.Options3MainTab.Controls.Add(this.useStaff);
-            this.Options3MainTab.Controls.Add(this.textBox8);
+            this.Options3MainTab.Controls.Add(this.foodName);
             this.Options3MainTab.Controls.Add(this.healMPcount);
             this.Options3MainTab.Controls.Add(this.usefood);
             this.Options3MainTab.Controls.Add(this.HealMP);
@@ -1636,11 +2015,24 @@
             this.Options3MainTab.Text = "Options 3";
             this.Options3MainTab.UseVisualStyleBackColor = true;
             // 
+            // verifyfood
+            // 
+            this.verifyfood.Location = new System.Drawing.Point(285, 33);
+            this.verifyfood.Name = "verifyfood";
+            this.verifyfood.Size = new System.Drawing.Size(20, 20);
+            this.verifyfood.TabIndex = 69;
+            this.verifyfood.Text = "V";
+            this.verifyfood.UseVisualStyleBackColor = true;
+            this.verifyfood.Click += new System.EventHandler(this.verifyfood_Click);
+            // 
             // comboBox4
             // 
             this.comboBox4.Enabled = false;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {"Federation Signet Staff","Kingdom Signet Staff","Republic Signet Staff"});
+            this.comboBox4.Items.AddRange(new object[] {
+            "Federation Signet Staff",
+            "Kingdom Signet Staff",
+            "Republic Signet Staff"});
             this.comboBox4.Location = new System.Drawing.Point(167, 137);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(152, 21);
@@ -1650,7 +2042,10 @@
             // 
             this.SignetStaff.Enabled = false;
             this.SignetStaff.FormattingEnabled = true;
-            this.SignetStaff.Items.AddRange(new object[] {"Federation Signet Staff","Kingdom Signet Staff","Republic Signet Staff"});
+            this.SignetStaff.Items.AddRange(new object[] {
+            "Federation Signet Staff",
+            "Kingdom Signet Staff",
+            "Republic Signet Staff"});
             this.SignetStaff.Location = new System.Drawing.Point(167, 160);
             this.SignetStaff.Name = "SignetStaff";
             this.SignetStaff.Size = new System.Drawing.Size(152, 21);
@@ -1685,13 +2080,13 @@
             this.useStaff.Text = "Use Signet Staff";
             this.useStaff.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // foodName
             // 
-            this.textBox8.Location = new System.Drawing.Point(128, 33);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(176, 20);
-            this.textBox8.TabIndex = 66;
-            this.textBox8.TabStop = false;
+            this.foodName.Location = new System.Drawing.Point(128, 33);
+            this.foodName.Name = "foodName";
+            this.foodName.Size = new System.Drawing.Size(156, 20);
+            this.foodName.TabIndex = 66;
+            this.foodName.TabStop = false;
             // 
             // healMPcount
             // 
@@ -1701,7 +2096,11 @@
             this.healMPcount.TabIndex = 64;
             this.healMPcount.TabStop = false;
             this.healMPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.healMPcount.Value = new decimal(new int[] {40,0,0,0});
+            this.healMPcount.Value = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
             // 
             // usefood
             // 
@@ -1733,7 +2132,11 @@
             this.healHPcount.TabIndex = 62;
             this.healHPcount.TabStop = false;
             this.healHPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.healHPcount.Value = new decimal(new int[] {40,0,0,0});
+            this.healHPcount.Value = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
             // 
             // RecordIdleLocation
             // 
@@ -1886,16 +2289,32 @@
             this.autoRangeDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.autoRangeDelay.DecimalPlaces = 1;
             this.autoRangeDelay.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.autoRangeDelay.Increment = new decimal(new int[] {1,0,0,65536});
+            this.autoRangeDelay.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.autoRangeDelay.Location = new System.Drawing.Point(182, 62);
-            this.autoRangeDelay.Maximum = new decimal(new int[] {50,0,0,0});
-            this.autoRangeDelay.Minimum = new decimal(new int[] {1,0,0,0});
+            this.autoRangeDelay.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.autoRangeDelay.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.autoRangeDelay.Name = "autoRangeDelay";
             this.autoRangeDelay.Size = new System.Drawing.Size(44, 20);
             this.autoRangeDelay.TabIndex = 56;
             this.autoRangeDelay.TabStop = false;
             this.autoRangeDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.autoRangeDelay.Value = new decimal(new int[] {5,0,0,0});
+            this.autoRangeDelay.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // textBox7
             // 
@@ -2091,7 +2510,11 @@
             this.ConvertHPP.Name = "ConvertHPP";
             this.ConvertHPP.Size = new System.Drawing.Size(44, 20);
             this.ConvertHPP.TabIndex = 5;
-            this.ConvertHPP.Value = new decimal(new int[] {100,0,0,0});
+            this.ConvertHPP.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // ConvertMPP
             // 
@@ -2099,7 +2522,11 @@
             this.ConvertMPP.Name = "ConvertMPP";
             this.ConvertMPP.Size = new System.Drawing.Size(44, 20);
             this.ConvertMPP.TabIndex = 4;
-            this.ConvertMPP.Value = new decimal(new int[] {100,0,0,0});
+            this.ConvertMPP.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // ConvertMP
             // 
@@ -2220,7 +2647,11 @@
             this.MONmpCount.Name = "MONmpCount";
             this.MONmpCount.Size = new System.Drawing.Size(44, 20);
             this.MONmpCount.TabIndex = 7;
-            this.MONmpCount.Value = new decimal(new int[] {100,0,0,0});
+            this.MONmpCount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // MONhpCount
             // 
@@ -2229,7 +2660,11 @@
             this.MONhpCount.Name = "MONhpCount";
             this.MONhpCount.Size = new System.Drawing.Size(44, 20);
             this.MONhpCount.TabIndex = 6;
-            this.MONhpCount.Value = new decimal(new int[] {100,0,0,0});
+            this.MONhpCount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // monmptext
             // 
@@ -2298,10 +2733,10 @@
             this.MAtabs.Controls.Add(this.DrainAspirpage);
             this.MAtabs.Controls.Add(this.BLUCurespage);
             this.MAtabs.Controls.Add(this.MAconfigpage);
-            this.MAtabs.Location = new System.Drawing.Point(7, 7);
+            this.MAtabs.Location = new System.Drawing.Point(3, 3);
             this.MAtabs.Name = "MAtabs";
             this.MAtabs.SelectedIndex = 0;
-            this.MAtabs.Size = new System.Drawing.Size(314, 177);
+            this.MAtabs.Size = new System.Drawing.Size(321, 184);
             this.MAtabs.TabIndex = 0;
             // 
             // MASelectPage
@@ -2311,7 +2746,7 @@
             this.MASelectPage.Location = new System.Drawing.Point(4, 22);
             this.MASelectPage.Name = "MASelectPage";
             this.MASelectPage.Padding = new System.Windows.Forms.Padding(3);
-            this.MASelectPage.Size = new System.Drawing.Size(306, 151);
+            this.MASelectPage.Size = new System.Drawing.Size(313, 158);
             this.MASelectPage.TabIndex = 0;
             this.MASelectPage.Text = "Select";
             this.MASelectPage.UseVisualStyleBackColor = true;
@@ -2322,7 +2757,7 @@
             this.playerMA.FormattingEnabled = true;
             this.playerMA.Location = new System.Drawing.Point(47, 11);
             this.playerMA.Name = "playerMA";
-            this.playerMA.Size = new System.Drawing.Size(213, 94);
+            this.playerMA.Size = new System.Drawing.Size(213, 109);
             this.playerMA.TabIndex = 5;
             this.playerMA.SelectedIndexChanged += new System.EventHandler(this.playerMA_SelectedIndexChanged);
             // 
@@ -2332,7 +2767,7 @@
             this.GetSetMA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadMAsToolStripMenuItem,
             this.clearMAsToolStripMenuItem});
-            this.GetSetMA.Location = new System.Drawing.Point(69, 121);
+            this.GetSetMA.Location = new System.Drawing.Point(69, 131);
             this.GetSetMA.Name = "GetSetMA";
             this.GetSetMA.Size = new System.Drawing.Size(159, 24);
             this.GetSetMA.TabIndex = 16;
@@ -2377,7 +2812,7 @@
             this.CureConfigPage.Location = new System.Drawing.Point(4, 22);
             this.CureConfigPage.Name = "CureConfigPage";
             this.CureConfigPage.Padding = new System.Windows.Forms.Padding(3);
-            this.CureConfigPage.Size = new System.Drawing.Size(306, 151);
+            this.CureConfigPage.Size = new System.Drawing.Size(313, 158);
             this.CureConfigPage.TabIndex = 1;
             this.CureConfigPage.Text = "Cure";
             this.CureConfigPage.UseVisualStyleBackColor = true;
@@ -2559,7 +2994,7 @@
             this.DrainAspirpage.Location = new System.Drawing.Point(4, 22);
             this.DrainAspirpage.Name = "DrainAspirpage";
             this.DrainAspirpage.Padding = new System.Windows.Forms.Padding(3);
-            this.DrainAspirpage.Size = new System.Drawing.Size(306, 151);
+            this.DrainAspirpage.Size = new System.Drawing.Size(313, 158);
             this.DrainAspirpage.TabIndex = 2;
             this.DrainAspirpage.Text = "Drain/Aspir";
             this.DrainAspirpage.UseVisualStyleBackColor = true;
@@ -2717,7 +3152,7 @@
             this.BLUCurespage.Location = new System.Drawing.Point(4, 22);
             this.BLUCurespage.Name = "BLUCurespage";
             this.BLUCurespage.Padding = new System.Windows.Forms.Padding(3);
-            this.BLUCurespage.Size = new System.Drawing.Size(306, 151);
+            this.BLUCurespage.Size = new System.Drawing.Size(313, 158);
             this.BLUCurespage.TabIndex = 3;
             this.BLUCurespage.Text = "BLU Cures";
             this.BLUCurespage.UseVisualStyleBackColor = true;
@@ -2866,7 +3301,7 @@
             this.MAconfigpage.Location = new System.Drawing.Point(4, 22);
             this.MAconfigpage.Name = "MAconfigpage";
             this.MAconfigpage.Padding = new System.Windows.Forms.Padding(3);
-            this.MAconfigpage.Size = new System.Drawing.Size(306, 151);
+            this.MAconfigpage.Size = new System.Drawing.Size(313, 158);
             this.MAconfigpage.TabIndex = 4;
             this.MAconfigpage.Text = "MAconfig";
             this.MAconfigpage.UseVisualStyleBackColor = true;
@@ -2904,7 +3339,7 @@
             this.groupBox14.Controls.Add(this.delaytext);
             this.groupBox14.Controls.Add(this.pullDelay);
             this.groupBox14.Controls.Add(this.AutoLock);
-            this.groupBox14.Controls.Add(this.numericUpDown39);
+            this.groupBox14.Controls.Add(this.mobheightdistValue);
             this.groupBox14.Controls.Add(this.mobheightdist);
             this.groupBox14.Controls.Add(this.runTarget);
             this.groupBox14.Controls.Add(this.runPullDistance);
@@ -2937,16 +3372,32 @@
             this.pullDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pullDelay.DecimalPlaces = 1;
             this.pullDelay.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.pullDelay.Increment = new decimal(new int[] {1,0,0,65536});
+            this.pullDelay.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.pullDelay.Location = new System.Drawing.Point(282, 17);
-            this.pullDelay.Maximum = new decimal(new int[] {50,0,0,0});
-            this.pullDelay.Minimum = new decimal(new int[] {1,0,0,0});
+            this.pullDelay.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.pullDelay.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.pullDelay.Name = "pullDelay";
             this.pullDelay.Size = new System.Drawing.Size(44, 20);
             this.pullDelay.TabIndex = 54;
             this.pullDelay.TabStop = false;
             this.pullDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pullDelay.Value = new decimal(new int[] {4,0,0,0});
+            this.pullDelay.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
             // 
             // AutoLock
             // 
@@ -2958,25 +3409,35 @@
             this.AutoLock.Text = "Auto-Lock Target";
             this.AutoLock.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown39
+            // mobheightdistValue
             // 
-            this.numericUpDown39.DecimalPlaces = 1;
-            this.numericUpDown39.Enabled = false;
-            this.numericUpDown39.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.numericUpDown39.Location = new System.Drawing.Point(282, 91);
-            this.numericUpDown39.Maximum = new decimal(new int[] {50,0,0,0});
-            this.numericUpDown39.Minimum = new decimal(new int[] {1,0,0,0});
-            this.numericUpDown39.Name = "numericUpDown39";
-            this.numericUpDown39.Size = new System.Drawing.Size(44, 20);
-            this.numericUpDown39.TabIndex = 52;
-            this.numericUpDown39.TabStop = false;
-            this.numericUpDown39.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown39.Value = new decimal(new int[] {1,0,0,0});
+            this.mobheightdistValue.DecimalPlaces = 1;
+            this.mobheightdistValue.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.mobheightdistValue.Location = new System.Drawing.Point(282, 91);
+            this.mobheightdistValue.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.mobheightdistValue.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.mobheightdistValue.Name = "mobheightdistValue";
+            this.mobheightdistValue.Size = new System.Drawing.Size(44, 20);
+            this.mobheightdistValue.TabIndex = 52;
+            this.mobheightdistValue.TabStop = false;
+            this.mobheightdistValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mobheightdistValue.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // mobheightdist
             // 
             this.mobheightdist.AutoSize = true;
-            this.mobheightdist.Enabled = false;
             this.mobheightdist.Location = new System.Drawing.Point(172, 93);
             this.mobheightdist.Name = "mobheightdist";
             this.mobheightdist.Size = new System.Drawing.Size(105, 17);
@@ -3017,28 +3478,52 @@
             // 
             this.targetSearchDist.DecimalPlaces = 1;
             this.targetSearchDist.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.targetSearchDist.Increment = new decimal(new int[] {1,0,0,65536});
+            this.targetSearchDist.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.targetSearchDist.Location = new System.Drawing.Point(110, 90);
-            this.targetSearchDist.Maximum = new decimal(new int[] {50,0,0,0});
+            this.targetSearchDist.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.targetSearchDist.Name = "targetSearchDist";
             this.targetSearchDist.Size = new System.Drawing.Size(44, 20);
             this.targetSearchDist.TabIndex = 47;
             this.targetSearchDist.TabStop = false;
             this.targetSearchDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.targetSearchDist.Value = new decimal(new int[] {245,0,0,65536});
+            this.targetSearchDist.Value = new decimal(new int[] {
+            245,
+            0,
+            0,
+            65536});
             // 
             // pullTolorance
             // 
             this.pullTolorance.DecimalPlaces = 1;
-            this.pullTolorance.Increment = new decimal(new int[] {1,0,0,65536});
+            this.pullTolorance.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.pullTolorance.Location = new System.Drawing.Point(110, 68);
-            this.pullTolorance.Maximum = new decimal(new int[] {50,0,0,0});
+            this.pullTolorance.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.pullTolorance.Name = "pullTolorance";
             this.pullTolorance.Size = new System.Drawing.Size(44, 20);
             this.pullTolorance.TabIndex = 43;
             this.pullTolorance.TabStop = false;
             this.pullTolorance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pullTolorance.Value = new decimal(new int[] {1,0,0,0});
+            this.pullTolorance.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // pulltolorancetext
             // 
@@ -3052,15 +3537,27 @@
             // numericUpDown21
             // 
             this.numericUpDown21.DecimalPlaces = 1;
-            this.numericUpDown21.Increment = new decimal(new int[] {1,0,0,65536});
+            this.numericUpDown21.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numericUpDown21.Location = new System.Drawing.Point(110, 45);
-            this.numericUpDown21.Maximum = new decimal(new int[] {50,0,0,0});
+            this.numericUpDown21.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.numericUpDown21.Name = "numericUpDown21";
             this.numericUpDown21.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown21.TabIndex = 9;
             this.numericUpDown21.TabStop = false;
             this.numericUpDown21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown21.Value = new decimal(new int[] {16,0,0,0});
+            this.numericUpDown21.Value = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
             // 
             // pulldistance
             // 
@@ -3262,13 +3759,25 @@
             // 
             this.stopstepscount.Enabled = false;
             this.stopstepscount.Location = new System.Drawing.Point(130, 23);
-            this.stopstepscount.Maximum = new decimal(new int[] {7,0,0,0});
-            this.stopstepscount.Minimum = new decimal(new int[] {1,0,0,0});
+            this.stopstepscount.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.stopstepscount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.stopstepscount.Name = "stopstepscount";
             this.stopstepscount.Size = new System.Drawing.Size(34, 20);
             this.stopstepscount.TabIndex = 16;
             this.stopstepscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.stopstepscount.Value = new decimal(new int[] {1,0,0,0});
+            this.stopstepscount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // stopstepsathptext
             // 
@@ -3284,7 +3793,11 @@
             // 
             this.usefeatherstepValue.Enabled = false;
             this.usefeatherstepValue.Location = new System.Drawing.Point(130, 111);
-            this.usefeatherstepValue.Maximum = new decimal(new int[] {30,0,0,0});
+            this.usefeatherstepValue.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             this.usefeatherstepValue.Name = "usefeatherstepValue";
             this.usefeatherstepValue.Size = new System.Drawing.Size(34, 20);
             this.usefeatherstepValue.TabIndex = 14;
@@ -3294,7 +3807,11 @@
             // 
             this.usestutterstepValue.Enabled = false;
             this.usestutterstepValue.Location = new System.Drawing.Point(130, 89);
-            this.usestutterstepValue.Maximum = new decimal(new int[] {30,0,0,0});
+            this.usestutterstepValue.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             this.usestutterstepValue.Name = "usestutterstepValue";
             this.usestutterstepValue.Size = new System.Drawing.Size(34, 20);
             this.usestutterstepValue.TabIndex = 13;
@@ -3304,7 +3821,11 @@
             // 
             this.useboxstepValue.Enabled = false;
             this.useboxstepValue.Location = new System.Drawing.Point(130, 67);
-            this.useboxstepValue.Maximum = new decimal(new int[] {30,0,0,0});
+            this.useboxstepValue.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             this.useboxstepValue.Name = "useboxstepValue";
             this.useboxstepValue.Size = new System.Drawing.Size(34, 20);
             this.useboxstepValue.TabIndex = 12;
@@ -3314,19 +3835,31 @@
             // 
             this.StepsHPValue.Enabled = false;
             this.StepsHPValue.Location = new System.Drawing.Point(114, 155);
-            this.StepsHPValue.Maximum = new decimal(new int[] {99,0,0,0});
+            this.StepsHPValue.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
             this.StepsHPValue.Name = "StepsHPValue";
             this.StepsHPValue.Size = new System.Drawing.Size(34, 20);
             this.StepsHPValue.TabIndex = 9;
             this.StepsHPValue.TabStop = false;
             this.StepsHPValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.StepsHPValue.Value = new decimal(new int[] {40,0,0,0});
+            this.StepsHPValue.Value = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
             // 
             // usequickstepValue
             // 
             this.usequickstepValue.Enabled = false;
             this.usequickstepValue.Location = new System.Drawing.Point(130, 45);
-            this.usequickstepValue.Maximum = new decimal(new int[] {30,0,0,0});
+            this.usequickstepValue.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             this.usequickstepValue.Name = "usequickstepValue";
             this.usequickstepValue.Size = new System.Drawing.Size(34, 20);
             this.usequickstepValue.TabIndex = 11;
@@ -3442,9 +3975,44 @@
             // 
             this.HealingWaltzItems.FormattingEnabled = true;
             this.HealingWaltzItems.Items.AddRange(new object[] {
-            "ACC Down","AGI Down","ATT Down","Bane","Bind","Bio","Blind","Burn","Choke","CHR Down","Curse","DEF Down","DEX Down","Dia","Disease","Drown","EVA Down",
-            "Frost","Gravity","Helix","HP Down","INT Down","MACC Down","MATT Down","MDEF Down","MEVA Down","MND Down","MP Down","Paralyze","Plague","Poison","Rasp",
-            "Shock","Silence","Slow","STR Down","TP Down","VIT Down"});
+            "ACC Down",
+            "AGI Down",
+            "ATT Down",
+            "Bane",
+            "Bind",
+            "Bio",
+            "Blind",
+            "Burn",
+            "Choke",
+            "CHR Down",
+            "Curse",
+            "DEF Down",
+            "DEX Down",
+            "Dia",
+            "Disease",
+            "Drown",
+            "EVA Down",
+            "Frost",
+            "Gravity",
+            "Helix",
+            "HP Down",
+            "INT Down",
+            "MACC Down",
+            "MATT Down",
+            "MDEF Down",
+            "MEVA Down",
+            "MND Down",
+            "MP Down",
+            "Paralyze",
+            "Plague",
+            "Poison",
+            "Rasp",
+            "Shock",
+            "Silence",
+            "Slow",
+            "STR Down",
+            "TP Down",
+            "VIT Down"});
             this.HealingWaltzItems.Location = new System.Drawing.Point(6, 18);
             this.HealingWaltzItems.Name = "HealingWaltzItems";
             this.HealingWaltzItems.Size = new System.Drawing.Size(178, 124);
@@ -3523,7 +4091,11 @@
             // usecurevValue
             // 
             this.usecurevValue.Enabled = false;
-            this.usecurevValue.Increment = new decimal(new int[] {5,0,0,0});
+            this.usecurevValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.usecurevValue.Location = new System.Drawing.Point(122, 120);
             this.usecurevValue.Name = "usecurevValue";
             this.usecurevValue.Size = new System.Drawing.Size(41, 20);
@@ -3533,7 +4105,11 @@
             // usecureivValue
             // 
             this.usecureivValue.Enabled = false;
-            this.usecureivValue.Increment = new decimal(new int[] {5,0,0,0});
+            this.usecureivValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.usecureivValue.Location = new System.Drawing.Point(122, 97);
             this.usecureivValue.Name = "usecureivValue";
             this.usecureivValue.Size = new System.Drawing.Size(41, 20);
@@ -3543,7 +4119,11 @@
             // usecureiiiValue
             // 
             this.usecureiiiValue.Enabled = false;
-            this.usecureiiiValue.Increment = new decimal(new int[] {5,0,0,0});
+            this.usecureiiiValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.usecureiiiValue.Location = new System.Drawing.Point(122, 74);
             this.usecureiiiValue.Name = "usecureiiiValue";
             this.usecureiiiValue.Size = new System.Drawing.Size(41, 20);
@@ -3553,7 +4133,11 @@
             // usecureiiValue
             // 
             this.usecureiiValue.Enabled = false;
-            this.usecureiiValue.Increment = new decimal(new int[] {5,0,0,0});
+            this.usecureiiValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.usecureiiValue.Location = new System.Drawing.Point(122, 51);
             this.usecureiiValue.Name = "usecureiiValue";
             this.usecureiiValue.Size = new System.Drawing.Size(41, 20);
@@ -3563,7 +4147,11 @@
             // usecureValue
             // 
             this.usecureValue.Enabled = false;
-            this.usecureValue.Increment = new decimal(new int[] {5,0,0,0});
+            this.usecureValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.usecureValue.Location = new System.Drawing.Point(122, 28);
             this.usecureValue.Name = "usecureValue";
             this.usecureValue.Size = new System.Drawing.Size(41, 20);
@@ -3730,7 +4318,11 @@
             // numericUpDown27
             // 
             this.numericUpDown27.Enabled = false;
-            this.numericUpDown27.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown27.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown27.Location = new System.Drawing.Point(119, 112);
             this.numericUpDown27.Name = "numericUpDown27";
             this.numericUpDown27.Size = new System.Drawing.Size(41, 20);
@@ -3740,7 +4332,11 @@
             // numericUpDown28
             // 
             this.numericUpDown28.Enabled = false;
-            this.numericUpDown28.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown28.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown28.Location = new System.Drawing.Point(119, 89);
             this.numericUpDown28.Name = "numericUpDown28";
             this.numericUpDown28.Size = new System.Drawing.Size(41, 20);
@@ -3750,7 +4346,11 @@
             // numericUpDown29
             // 
             this.numericUpDown29.Enabled = false;
-            this.numericUpDown29.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown29.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown29.Location = new System.Drawing.Point(119, 66);
             this.numericUpDown29.Name = "numericUpDown29";
             this.numericUpDown29.Size = new System.Drawing.Size(41, 20);
@@ -3760,7 +4360,11 @@
             // numericUpDown32
             // 
             this.numericUpDown32.Enabled = false;
-            this.numericUpDown32.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown32.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown32.Location = new System.Drawing.Point(119, 43);
             this.numericUpDown32.Name = "numericUpDown32";
             this.numericUpDown32.Size = new System.Drawing.Size(41, 20);
@@ -3770,7 +4374,11 @@
             // numericUpDown33
             // 
             this.numericUpDown33.Enabled = false;
-            this.numericUpDown33.Increment = new decimal(new int[] {5,0,0,0});
+            this.numericUpDown33.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown33.Location = new System.Drawing.Point(119, 20);
             this.numericUpDown33.Name = "numericUpDown33";
             this.numericUpDown33.Size = new System.Drawing.Size(41, 20);
@@ -3934,7 +4542,11 @@
             // 
             this.useclmfloValue.Enabled = false;
             this.useclmfloValue.Location = new System.Drawing.Point(139, 19);
-            this.useclmfloValue.Maximum = new decimal(new int[] {7,0,0,0});
+            this.useclmfloValue.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.useclmfloValue.Name = "useclmfloValue";
             this.useclmfloValue.Size = new System.Drawing.Size(31, 20);
             this.useclmfloValue.TabIndex = 21;
@@ -3944,7 +4556,11 @@
             // 
             this.usestkfloValue.Enabled = false;
             this.usestkfloValue.Location = new System.Drawing.Point(139, 42);
-            this.usestkfloValue.Maximum = new decimal(new int[] {7,0,0,0});
+            this.usestkfloValue.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.usestkfloValue.Name = "usestkfloValue";
             this.usestkfloValue.Size = new System.Drawing.Size(31, 20);
             this.usestkfloValue.TabIndex = 22;
@@ -3954,7 +4570,11 @@
             // 
             this.useterfloValue.Enabled = false;
             this.useterfloValue.Location = new System.Drawing.Point(328, 43);
-            this.useterfloValue.Maximum = new decimal(new int[] {7,0,0,0});
+            this.useterfloValue.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.useterfloValue.Name = "useterfloValue";
             this.useterfloValue.Size = new System.Drawing.Size(31, 20);
             this.useterfloValue.TabIndex = 23;
@@ -4016,15 +4636,27 @@
             // 
             // FlourishTPValue
             // 
-            this.FlourishTPValue.Increment = new decimal(new int[] {5,0,0,0});
+            this.FlourishTPValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.FlourishTPValue.Location = new System.Drawing.Point(140, 297);
-            this.FlourishTPValue.Maximum = new decimal(new int[] {3000,0,0,0});
+            this.FlourishTPValue.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             this.FlourishTPValue.Name = "FlourishTPValue";
             this.FlourishTPValue.Size = new System.Drawing.Size(44, 20);
             this.FlourishTPValue.TabIndex = 63;
             this.FlourishTPValue.TabStop = false;
             this.FlourishTPValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.FlourishTPValue.Value = new decimal(new int[] {400,0,0,0});
+            this.FlourishTPValue.Value = new decimal(new int[] {
+            400,
+            0,
+            0,
+            0});
             // 
             // flourishesiigroup
             // 
@@ -4045,7 +4677,11 @@
             // 
             this.usewldfloValue.Enabled = false;
             this.usewldfloValue.Location = new System.Drawing.Point(328, 38);
-            this.usewldfloValue.Maximum = new decimal(new int[] {7,0,0,0});
+            this.usewldfloValue.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.usewldfloValue.Name = "usewldfloValue";
             this.usewldfloValue.Size = new System.Drawing.Size(31, 20);
             this.usewldfloValue.TabIndex = 21;
@@ -4055,7 +4691,11 @@
             // 
             this.usebldfloValue.Enabled = false;
             this.usebldfloValue.Location = new System.Drawing.Point(139, 39);
-            this.usebldfloValue.Maximum = new decimal(new int[] {7,0,0,0});
+            this.usebldfloValue.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.usebldfloValue.Name = "usebldfloValue";
             this.usebldfloValue.Size = new System.Drawing.Size(31, 20);
             this.usebldfloValue.TabIndex = 20;
@@ -4065,7 +4705,11 @@
             // 
             this.userevfloValue.Enabled = false;
             this.userevfloValue.Location = new System.Drawing.Point(139, 16);
-            this.userevfloValue.Maximum = new decimal(new int[] {7,0,0,0});
+            this.userevfloValue.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.userevfloValue.Name = "userevfloValue";
             this.userevfloValue.Size = new System.Drawing.Size(31, 20);
             this.userevfloValue.TabIndex = 19;
@@ -4119,7 +4763,11 @@
             // 
             // flourishesigroup
             // 
-            this.flourishesigroup.Controls.Add(this.numericUpDown34);
+            this.flourishesigroup.Controls.Add(this.useanifloValue);
+            this.flourishesigroup.Controls.Add(this.useaniflo);
+            this.flourishesigroup.Controls.Add(this.useviofloValue);
+            this.flourishesigroup.Controls.Add(this.usevioflo);
+            this.flourishesigroup.Controls.Add(this.usedesfloValue);
             this.flourishesigroup.Controls.Add(this.usedesflo);
             this.flourishesigroup.Location = new System.Drawing.Point(26, 40);
             this.flourishesigroup.Name = "flourishesigroup";
@@ -4128,21 +4776,77 @@
             this.flourishesigroup.TabStop = false;
             this.flourishesigroup.Text = "Flourishes I";
             // 
-            // numericUpDown34
+            // useanifloValue
             // 
-            this.numericUpDown34.Enabled = false;
-            this.numericUpDown34.Location = new System.Drawing.Point(139, 16);
-            this.numericUpDown34.Maximum = new decimal(new int[] {7,0,0,0});
-            this.numericUpDown34.Name = "numericUpDown34";
-            this.numericUpDown34.Size = new System.Drawing.Size(31, 20);
-            this.numericUpDown34.TabIndex = 26;
-            this.numericUpDown34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.useanifloValue.Enabled = false;
+            this.useanifloValue.Location = new System.Drawing.Point(139, 18);
+            this.useanifloValue.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.useanifloValue.Name = "useanifloValue";
+            this.useanifloValue.Size = new System.Drawing.Size(31, 20);
+            this.useanifloValue.TabIndex = 30;
+            this.useanifloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // useaniflo
+            // 
+            this.useaniflo.AutoSize = true;
+            this.useaniflo.Enabled = false;
+            this.useaniflo.Location = new System.Drawing.Point(25, 19);
+            this.useaniflo.Name = "useaniflo";
+            this.useaniflo.Size = new System.Drawing.Size(108, 17);
+            this.useaniflo.TabIndex = 29;
+            this.useaniflo.TabStop = true;
+            this.useaniflo.Text = "Animated Flourish";
+            this.useaniflo.UseVisualStyleBackColor = true;
+            // 
+            // useviofloValue
+            // 
+            this.useviofloValue.Enabled = false;
+            this.useviofloValue.Location = new System.Drawing.Point(328, 46);
+            this.useviofloValue.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.useviofloValue.Name = "useviofloValue";
+            this.useviofloValue.Size = new System.Drawing.Size(31, 20);
+            this.useviofloValue.TabIndex = 28;
+            this.useviofloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // usevioflo
+            // 
+            this.usevioflo.AutoSize = true;
+            this.usevioflo.Enabled = false;
+            this.usevioflo.Location = new System.Drawing.Point(209, 46);
+            this.usevioflo.Name = "usevioflo";
+            this.usevioflo.Size = new System.Drawing.Size(96, 17);
+            this.usevioflo.TabIndex = 27;
+            this.usevioflo.TabStop = true;
+            this.usevioflo.Text = "Violent Flourish";
+            this.usevioflo.UseVisualStyleBackColor = true;
+            // 
+            // usedesfloValue
+            // 
+            this.usedesfloValue.Enabled = false;
+            this.usedesfloValue.Location = new System.Drawing.Point(139, 46);
+            this.usedesfloValue.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.usedesfloValue.Name = "usedesfloValue";
+            this.usedesfloValue.Size = new System.Drawing.Size(31, 20);
+            this.usedesfloValue.TabIndex = 26;
+            this.usedesfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usedesflo
             // 
             this.usedesflo.AutoSize = true;
             this.usedesflo.Enabled = false;
-            this.usedesflo.Location = new System.Drawing.Point(25, 17);
+            this.usedesflo.Location = new System.Drawing.Point(25, 46);
             this.usedesflo.Name = "usedesflo";
             this.usedesflo.Size = new System.Drawing.Size(113, 17);
             this.usedesflo.TabIndex = 23;
@@ -4297,8 +5001,15 @@
             // 
             // usedpetfood
             // 
-            this.usedpetfood.AutoCompleteCustomSource.AddRange(new string[] {"Pet Food Alpha Biscuit","Pet Food Beta Biscuit","Pet Food Gamma Biscuit",
-            "Pet Food Delta Biscuit","Pet Food Epsilon Biscuit","Pet Food Zeta Biscuit","Pet Food Eta Biscuit","Pet Food Theta Biscuit"});
+            this.usedpetfood.AutoCompleteCustomSource.AddRange(new string[] {
+            "Pet Food Alpha Biscuit",
+            "Pet Food Beta Biscuit",
+            "Pet Food Gamma Biscuit",
+            "Pet Food Delta Biscuit",
+            "Pet Food Epsilon Biscuit",
+            "Pet Food Zeta Biscuit",
+            "Pet Food Eta Biscuit",
+            "Pet Food Theta Biscuit"});
             this.usedpetfood.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.usedpetfood.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.usedpetfood.FormattingEnabled = true;
@@ -4309,14 +5020,71 @@
             // 
             // jugpet
             // 
-            this.jugpet.AutoCompleteCustomSource.AddRange(new string[] {"Wormy Broth","Carrot Broth","Herbal Broth","Humus","Meat Broth","Grasshopper Broth",
-            "Carrion Broth","Bug Broth","Mole Broth","Tree Sap","Antica Broth","Fish Broth","Blood Broth","Famous Carrot Broth","Singing Herbal Broth","Rich Humus",
-            "Warm Meat Broth","Seedbed Soil","Quadav Bug Broth","Cold Carrion Broth","Fish Oil Broth","Alchemist Water","Noisy Grasshopper Broth","Lively Mole Broth",
-            "Scarlet Sap","Clear Blood Broth","Fragrant Antica Broth","Sun Water","Dancing Herbal Broth","Cunning Brain Broth","Chirping Grasshopper Broth",
-            "Mellow Bird Broth","Goblin Bug Broth","Bubbling Carrion Broth","Auroral Broth","Lucky Carrot Broth","Wool Grease","Vermihumus","Briny Broth",
-            "Deepbed Soil","Curdled Plasma Broth","Lucky Broth","Savage Mole Broth","Razor Brain Broth","Burning Carrion Broth","Cloudy Wheat Broth","Shadowy Broth",
-            "Swirling Broth","Shimmering Broth","Spicy Broth","Salubrious Broth","Translucent Broth","Fizzy Broth","Wispy Broth","Saline Broth","Meaty Broth",
-            "Blackwater Broth","Pale Sap","Crumbly Soil","Airy Broth","Muddy Broth","Dire Broth","Electrified Broth","Bug-Ridden Broth"});
+            this.jugpet.AutoCompleteCustomSource.AddRange(new string[] {
+            "Wormy Broth",
+            "Carrot Broth",
+            "Herbal Broth",
+            "Humus",
+            "Meat Broth",
+            "Grasshopper Broth",
+            "Carrion Broth",
+            "Bug Broth",
+            "Mole Broth",
+            "Tree Sap",
+            "Antica Broth",
+            "Fish Broth",
+            "Blood Broth",
+            "Famous Carrot Broth",
+            "Singing Herbal Broth",
+            "Rich Humus",
+            "Warm Meat Broth",
+            "Seedbed Soil",
+            "Quadav Bug Broth",
+            "Cold Carrion Broth",
+            "Fish Oil Broth",
+            "Alchemist Water",
+            "Noisy Grasshopper Broth",
+            "Lively Mole Broth",
+            "Scarlet Sap",
+            "Clear Blood Broth",
+            "Fragrant Antica Broth",
+            "Sun Water",
+            "Dancing Herbal Broth",
+            "Cunning Brain Broth",
+            "Chirping Grasshopper Broth",
+            "Mellow Bird Broth",
+            "Goblin Bug Broth",
+            "Bubbling Carrion Broth",
+            "Auroral Broth",
+            "Lucky Carrot Broth",
+            "Wool Grease",
+            "Vermihumus",
+            "Briny Broth",
+            "Deepbed Soil",
+            "Curdled Plasma Broth",
+            "Lucky Broth",
+            "Savage Mole Broth",
+            "Razor Brain Broth",
+            "Burning Carrion Broth",
+            "Cloudy Wheat Broth",
+            "Shadowy Broth",
+            "Swirling Broth",
+            "Shimmering Broth",
+            "Spicy Broth",
+            "Salubrious Broth",
+            "Translucent Broth",
+            "Fizzy Broth",
+            "Wispy Broth",
+            "Saline Broth",
+            "Meaty Broth",
+            "Blackwater Broth",
+            "Pale Sap",
+            "Crumbly Soil",
+            "Airy Broth",
+            "Muddy Broth",
+            "Dire Broth",
+            "Electrified Broth",
+            "Bug-Ridden Broth"});
             this.jugpet.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.jugpet.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.jugpet.FormattingEnabled = true;
@@ -4337,14 +5105,26 @@
             // 
             // pethppfood
             // 
-            this.pethppfood.Increment = new decimal(new int[] {5,0,0,0});
+            this.pethppfood.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.pethppfood.Location = new System.Drawing.Point(360, 35);
-            this.pethppfood.Minimum = new decimal(new int[] {5,0,0,0});
+            this.pethppfood.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.pethppfood.Name = "pethppfood";
             this.pethppfood.Size = new System.Drawing.Size(39, 20);
             this.pethppfood.TabIndex = 10;
             this.pethppfood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pethppfood.Value = new decimal(new int[] {20,0,0,0});
+            this.pethppfood.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // pethptext
             // 
@@ -4398,7 +5178,11 @@
             // 
             // DragonPetHP
             // 
-            this.DragonPetHP.Increment = new decimal(new int[] {5,0,0,0});
+            this.DragonPetHP.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.DragonPetHP.Location = new System.Drawing.Point(332, 142);
             this.DragonPetHP.Name = "DragonPetHP";
             this.DragonPetHP.Size = new System.Drawing.Size(44, 20);
@@ -4449,22 +5233,38 @@
             // PlayerSpirit
             // 
             this.PlayerSpirit.Location = new System.Drawing.Point(124, 39);
-            this.PlayerSpirit.Minimum = new decimal(new int[] {1,0,0,0});
+            this.PlayerSpirit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.PlayerSpirit.Name = "PlayerSpirit";
             this.PlayerSpirit.Size = new System.Drawing.Size(44, 20);
             this.PlayerSpirit.TabIndex = 29;
             this.PlayerSpirit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PlayerSpirit.Value = new decimal(new int[] {80,0,0,0});
+            this.PlayerSpirit.Value = new decimal(new int[] {
+            80,
+            0,
+            0,
+            0});
             // 
             // WyvernSpirit
             // 
             this.WyvernSpirit.Location = new System.Drawing.Point(124, 16);
-            this.WyvernSpirit.Minimum = new decimal(new int[] {1,0,0,0});
+            this.WyvernSpirit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.WyvernSpirit.Name = "WyvernSpirit";
             this.WyvernSpirit.Size = new System.Drawing.Size(44, 20);
             this.WyvernSpirit.TabIndex = 27;
             this.WyvernSpirit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.WyvernSpirit.Value = new decimal(new int[] {60,0,0,0});
+            this.WyvernSpirit.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
             // 
             // label46
             // 
@@ -4486,13 +5286,21 @@
             // 
             // BreathMAX
             // 
-            this.BreathMAX.Increment = new decimal(new int[] {5,0,0,0});
+            this.BreathMAX.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.BreathMAX.Location = new System.Drawing.Point(301, 109);
             this.BreathMAX.Name = "BreathMAX";
             this.BreathMAX.Size = new System.Drawing.Size(44, 20);
             this.BreathMAX.TabIndex = 103;
             this.BreathMAX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BreathMAX.Value = new decimal(new int[] {100,0,0,0});
+            this.BreathMAX.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // label48
             // 
@@ -4505,13 +5313,21 @@
             // 
             // BreathMIN
             // 
-            this.BreathMIN.Increment = new decimal(new int[] {5,0,0,0});
+            this.BreathMIN.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.BreathMIN.Location = new System.Drawing.Point(219, 109);
             this.BreathMIN.Name = "BreathMIN";
             this.BreathMIN.Size = new System.Drawing.Size(44, 20);
             this.BreathMIN.TabIndex = 102;
             this.BreathMIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BreathMIN.Value = new decimal(new int[] {15,0,0,0});
+            this.BreathMIN.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             // 
             // drgwyvernbreathptext
             // 
@@ -4535,7 +5351,11 @@
             // 
             // RestoringBreathHP
             // 
-            this.RestoringBreathHP.Increment = new decimal(new int[] {5,0,0,0});
+            this.RestoringBreathHP.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.RestoringBreathHP.Location = new System.Drawing.Point(117, 15);
             this.RestoringBreathHP.Name = "RestoringBreathHP";
             this.RestoringBreathHP.Size = new System.Drawing.Size(44, 20);
@@ -4621,7 +5441,11 @@
             // ManaCedeTPset
             // 
             this.ManaCedeTPset.Location = new System.Drawing.Point(90, 39);
-            this.ManaCedeTPset.Maximum = new decimal(new int[] {3000,0,0,0});
+            this.ManaCedeTPset.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             this.ManaCedeTPset.Name = "ManaCedeTPset";
             this.ManaCedeTPset.Size = new System.Drawing.Size(43, 20);
             this.ManaCedeTPset.TabIndex = 29;
@@ -4673,7 +5497,11 @@
             this.SMNpetMPUSEset.Name = "SMNpetMPUSEset";
             this.SMNpetMPUSEset.Size = new System.Drawing.Size(43, 20);
             this.SMNpetMPUSEset.TabIndex = 24;
-            this.SMNpetMPUSEset.Value = new decimal(new int[] {20,0,0,0});
+            this.SMNpetMPUSEset.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // SMNHPPset1
             // 
@@ -4723,7 +5551,11 @@
             // SMNpetTPUSEset
             // 
             this.SMNpetTPUSEset.Location = new System.Drawing.Point(349, 105);
-            this.SMNpetTPUSEset.Maximum = new decimal(new int[] {3000,0,0,0});
+            this.SMNpetTPUSEset.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             this.SMNpetTPUSEset.Name = "SMNpetTPUSEset";
             this.SMNpetTPUSEset.Size = new System.Drawing.Size(44, 20);
             this.SMNpetTPUSEset.TabIndex = 22;
@@ -4845,8 +5677,16 @@
             // Maneuver3select
             // 
             this.Maneuver3select.FormattingEnabled = true;
-            this.Maneuver3select.Items.AddRange(new object[] {"Dark Maneuver","Earth Maneuver","Fire Maneuver","Ice Maneuver","Light Maneuver","Thunder Maneuver",
-                                                              "Water Maneuver","Wind Maneuver","Not Selected"});
+            this.Maneuver3select.Items.AddRange(new object[] {
+            "Dark Maneuver",
+            "Earth Maneuver",
+            "Fire Maneuver",
+            "Ice Maneuver",
+            "Light Maneuver",
+            "Thunder Maneuver",
+            "Water Maneuver",
+            "Wind Maneuver",
+            "Not Selected"});
             this.Maneuver3select.Location = new System.Drawing.Point(10, 74);
             this.Maneuver3select.Name = "Maneuver3select";
             this.Maneuver3select.Size = new System.Drawing.Size(116, 21);
@@ -4857,8 +5697,16 @@
             // Maneuver2select
             // 
             this.Maneuver2select.FormattingEnabled = true;
-            this.Maneuver2select.Items.AddRange(new object[] {"Dark Maneuver","Earth Maneuver","Fire Maneuver","Ice Maneuver","Light Maneuver","Thunder Maneuver",
-                                                              "Water Maneuver","Wind Maneuver","Not Selected"});
+            this.Maneuver2select.Items.AddRange(new object[] {
+            "Dark Maneuver",
+            "Earth Maneuver",
+            "Fire Maneuver",
+            "Ice Maneuver",
+            "Light Maneuver",
+            "Thunder Maneuver",
+            "Water Maneuver",
+            "Wind Maneuver",
+            "Not Selected"});
             this.Maneuver2select.Location = new System.Drawing.Point(10, 47);
             this.Maneuver2select.Name = "Maneuver2select";
             this.Maneuver2select.Size = new System.Drawing.Size(116, 21);
@@ -4870,40 +5718,84 @@
             // 
             this.Maneuver1set.Enabled = false;
             this.Maneuver1set.Location = new System.Drawing.Point(176, 21);
-            this.Maneuver1set.Maximum = new decimal(new int[] {3,0,0,0});
-            this.Maneuver1set.Minimum = new decimal(new int[] {1,0,0,0});
+            this.Maneuver1set.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.Maneuver1set.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.Maneuver1set.Name = "Maneuver1set";
             this.Maneuver1set.Size = new System.Drawing.Size(28, 20);
             this.Maneuver1set.TabIndex = 36;
-            this.Maneuver1set.Value = new decimal(new int[] {1,0,0,0});
+            this.Maneuver1set.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Maneuver2set
             // 
             this.Maneuver2set.Enabled = false;
             this.Maneuver2set.Location = new System.Drawing.Point(176, 48);
-            this.Maneuver2set.Maximum = new decimal(new int[] {3,0,0,0});
-            this.Maneuver2set.Minimum = new decimal(new int[] {1,0,0,0});
+            this.Maneuver2set.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.Maneuver2set.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.Maneuver2set.Name = "Maneuver2set";
             this.Maneuver2set.Size = new System.Drawing.Size(28, 20);
             this.Maneuver2set.TabIndex = 37;
-            this.Maneuver2set.Value = new decimal(new int[] {1,0,0,0});
+            this.Maneuver2set.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Maneuver3set
             // 
             this.Maneuver3set.Enabled = false;
             this.Maneuver3set.Location = new System.Drawing.Point(176, 75);
-            this.Maneuver3set.Maximum = new decimal(new int[] {3,0,0,0});
-            this.Maneuver3set.Minimum = new decimal(new int[] {1,0,0,0});
+            this.Maneuver3set.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.Maneuver3set.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.Maneuver3set.Name = "Maneuver3set";
             this.Maneuver3set.Size = new System.Drawing.Size(28, 20);
             this.Maneuver3set.TabIndex = 38;
-            this.Maneuver3set.Value = new decimal(new int[] {1,0,0,0});
+            this.Maneuver3set.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Maneuver1select
             // 
             this.Maneuver1select.FormattingEnabled = true;
-            this.Maneuver1select.Items.AddRange(new object[] {"Dark Maneuver","Earth Maneuver","Fire Maneuver","Ice Maneuver","Light Maneuver","Thunder Maneuver",
-                                                              "Water Maneuver","Wind Maneuver","Not Selected"});
+            this.Maneuver1select.Items.AddRange(new object[] {
+            "Dark Maneuver",
+            "Earth Maneuver",
+            "Fire Maneuver",
+            "Ice Maneuver",
+            "Light Maneuver",
+            "Thunder Maneuver",
+            "Water Maneuver",
+            "Wind Maneuver",
+            "Not Selected"});
             this.Maneuver1select.Location = new System.Drawing.Point(10, 20);
             this.Maneuver1select.Name = "Maneuver1select";
             this.Maneuver1select.Size = new System.Drawing.Size(116, 21);
@@ -4943,7 +5835,7 @@
             this.groupBox4.Controls.Add(this.healforAutomatonMP);
             this.groupBox4.Controls.Add(this.healforAutomatonHP);
             this.groupBox4.Controls.Add(this.healforAutomatonMPset);
-            this.groupBox4.Controls.Add(this.healforAutomatonHPsaet);
+            this.groupBox4.Controls.Add(this.healforAutomatonHPset);
             this.groupBox4.Enabled = false;
             this.groupBox4.Location = new System.Drawing.Point(259, 16);
             this.groupBox4.Name = "groupBox4";
@@ -4979,12 +5871,12 @@
             this.healforAutomatonMPset.Size = new System.Drawing.Size(38, 20);
             this.healforAutomatonMPset.TabIndex = 4;
             // 
-            // healforAutomatonHPsaet
+            // healforAutomatonHPset
             // 
-            this.healforAutomatonHPsaet.Location = new System.Drawing.Point(77, 19);
-            this.healforAutomatonHPsaet.Name = "healforAutomatonHPsaet";
-            this.healforAutomatonHPsaet.Size = new System.Drawing.Size(38, 20);
-            this.healforAutomatonHPsaet.TabIndex = 3;
+            this.healforAutomatonHPset.Location = new System.Drawing.Point(77, 19);
+            this.healforAutomatonHPset.Name = "healforAutomatonHPset";
+            this.healforAutomatonHPset.Size = new System.Drawing.Size(38, 20);
+            this.healforAutomatonHPset.TabIndex = 3;
             // 
             // AutoCallPUP
             // 
@@ -5093,7 +5985,11 @@
             // Repairselect
             // 
             this.Repairselect.FormattingEnabled = true;
-            this.Repairselect.Items.AddRange(new object[] {"Automaton Oil","Automaton Oil +1","Automaton Oil +2","Automaton Oil +3"});
+            this.Repairselect.Items.AddRange(new object[] {
+            "Automaton Oil",
+            "Automaton Oil +1",
+            "Automaton Oil +2",
+            "Automaton Oil +3"});
             this.Repairselect.Location = new System.Drawing.Point(45, 19);
             this.Repairselect.Name = "Repairselect";
             this.Repairselect.Size = new System.Drawing.Size(112, 21);
@@ -5164,7 +6060,11 @@
             // TSPetTPset
             // 
             this.TSPetTPset.Location = new System.Drawing.Point(159, 40);
-            this.TSPetTPset.Maximum = new decimal(new int[] {3000,0,0,0});
+            this.TSPetTPset.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             this.TSPetTPset.Name = "TSPetTPset";
             this.TSPetTPset.Size = new System.Drawing.Size(46, 20);
             this.TSPetTPset.TabIndex = 3;
@@ -5172,7 +6072,11 @@
             // TSPlayerTPset
             // 
             this.TSPlayerTPset.Location = new System.Drawing.Point(160, 14);
-            this.TSPlayerTPset.Maximum = new decimal(new int[] {3000,0,0,0});
+            this.TSPlayerTPset.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             this.TSPlayerTPset.Name = "TSPlayerTPset";
             this.TSPlayerTPset.Size = new System.Drawing.Size(45, 20);
             this.TSPlayerTPset.TabIndex = 2;
@@ -5315,10 +6219,73 @@
             this.GEOJA.Size = new System.Drawing.Size(170, 140);
             this.GEOJA.TabIndex = 1;
             // 
+            // trustControl
+            // 
+            this.trustControl.Controls.Add(this.selectedtrusts);
+            this.trustControl.Controls.Add(this.maxtrustslabel);
+            this.trustControl.Controls.Add(this.Trusts);
+            this.trustControl.Controls.Add(this.trustmenuStrip);
+            this.trustControl.Location = new System.Drawing.Point(4, 22);
+            this.trustControl.Name = "trustControl";
+            this.trustControl.Padding = new System.Windows.Forms.Padding(3);
+            this.trustControl.Size = new System.Drawing.Size(439, 351);
+            this.trustControl.TabIndex = 8;
+            this.trustControl.Text = "Trust";
+            this.trustControl.UseVisualStyleBackColor = true;
+            // 
+            // selectedtrusts
+            // 
+            this.selectedtrusts.AutoSize = true;
+            this.selectedtrusts.Location = new System.Drawing.Point(260, 56);
+            this.selectedtrusts.Name = "selectedtrusts";
+            this.selectedtrusts.Size = new System.Drawing.Size(96, 13);
+            this.selectedtrusts.TabIndex = 15;
+            this.selectedtrusts.Text = "Selected Trusts : 0";
+            // 
+            // maxtrustslabel
+            // 
+            this.maxtrustslabel.AutoSize = true;
+            this.maxtrustslabel.Location = new System.Drawing.Point(282, 19);
+            this.maxtrustslabel.Name = "maxtrustslabel";
+            this.maxtrustslabel.Size = new System.Drawing.Size(74, 13);
+            this.maxtrustslabel.TabIndex = 14;
+            this.maxtrustslabel.Text = "Max Trusts : 0";
+            // 
+            // Trusts
+            // 
+            this.Trusts.FormattingEnabled = true;
+            this.Trusts.Location = new System.Drawing.Point(13, 19);
+            this.Trusts.Name = "Trusts";
+            this.Trusts.Size = new System.Drawing.Size(164, 274);
+            this.Trusts.TabIndex = 13;
+            this.Trusts.SelectedIndexChanged += new System.EventHandler(this.Trusts_SelectedIndexChanged);
+            // 
+            // trustmenuStrip
+            // 
+            this.trustmenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.trustmenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.trustMenureset});
+            this.trustmenuStrip.Location = new System.Drawing.Point(43, 300);
+            this.trustmenuStrip.Name = "trustmenuStrip";
+            this.trustmenuStrip.Size = new System.Drawing.Size(90, 24);
+            this.trustmenuStrip.TabIndex = 12;
+            this.trustmenuStrip.Text = "trustmenuStrip";
+            // 
+            // trustMenureset
+            // 
+            this.trustMenureset.Name = "trustMenureset";
+            this.trustMenureset.Size = new System.Drawing.Size(82, 20);
+            this.trustMenureset.Text = "Reset Trusts";
+            this.trustMenureset.Click += new System.EventHandler(this.trustMenureset_Click);
+            // 
             // numericUpDown8
             // 
             this.numericUpDown8.Location = new System.Drawing.Point(333, 137);
-            this.numericUpDown8.Maximum = new decimal(new int[] {3,0,0,0});
+            this.numericUpDown8.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDown8.Name = "numericUpDown8";
             this.numericUpDown8.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown8.TabIndex = 31;
@@ -5326,7 +6293,11 @@
             // numericUpDown9
             // 
             this.numericUpDown9.Location = new System.Drawing.Point(333, 96);
-            this.numericUpDown9.Maximum = new decimal(new int[] {3,0,0,0});
+            this.numericUpDown9.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown9.TabIndex = 30;
@@ -5334,7 +6305,11 @@
             // numericUpDown10
             // 
             this.numericUpDown10.Location = new System.Drawing.Point(333, 55);
-            this.numericUpDown10.Maximum = new decimal(new int[] {3,0,0,0});
+            this.numericUpDown10.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDown10.Name = "numericUpDown10";
             this.numericUpDown10.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown10.TabIndex = 29;
@@ -5342,7 +6317,11 @@
             // numericUpDown5
             // 
             this.numericUpDown5.Location = new System.Drawing.Point(333, 14);
-            this.numericUpDown5.Maximum = new decimal(new int[] {3,0,0,0});
+            this.numericUpDown5.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown5.TabIndex = 28;
@@ -5350,7 +6329,11 @@
             // numericUpDown4
             // 
             this.numericUpDown4.Location = new System.Drawing.Point(139, 138);
-            this.numericUpDown4.Maximum = new decimal(new int[] {3,0,0,0});
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown4.TabIndex = 27;
@@ -5358,7 +6341,11 @@
             // numericUpDown3
             // 
             this.numericUpDown3.Location = new System.Drawing.Point(139, 96);
-            this.numericUpDown3.Maximum = new decimal(new int[] {3,0,0,0});
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown3.TabIndex = 26;
@@ -5366,7 +6353,11 @@
             // numericUpDown2
             // 
             this.numericUpDown2.Location = new System.Drawing.Point(139, 55);
-            this.numericUpDown2.Maximum = new decimal(new int[] {3,0,0,0});
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown2.TabIndex = 25;
@@ -5374,7 +6365,11 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(139, 14);
-            this.numericUpDown1.Maximum = new decimal(new int[] {3,0,0,0});
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(28, 20);
             this.numericUpDown1.TabIndex = 24;
@@ -5575,7 +6570,7 @@
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pullDelay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobheightdistValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.targetSearchDist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pullTolorance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).EndInit();
@@ -5631,7 +6626,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.userevfloValue)).EndInit();
             this.flourishesigroup.ResumeLayout(false);
             this.flourishesigroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.useanifloValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.useviofloValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usedesfloValue)).EndInit();
             this.pets.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
@@ -5680,7 +6677,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonMPset)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonHPsaet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healforAutomatonHPset)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.PUPOtherpage.ResumeLayout(false);
             this.Ventriloquygroup.ResumeLayout(false);
@@ -5699,6 +6696,10 @@
             this.geopettab.ResumeLayout(false);
             this.geopettab.PerformLayout();
             this.groupBox6.ResumeLayout(false);
+            this.trustControl.ResumeLayout(false);
+            this.trustControl.PerformLayout();
+            this.trustmenuStrip.ResumeLayout(false);
+            this.trustmenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
@@ -5796,7 +6797,7 @@
         public System.Windows.Forms.TabPage Options3MainTab;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox8;
+        public System.Windows.Forms.TextBox foodName;
         public System.Windows.Forms.NumericUpDown healMPcount;
         public System.Windows.Forms.CheckBox usefood;
         public System.Windows.Forms.CheckBox HealMP;
@@ -5828,7 +6829,6 @@
         public System.Windows.Forms.Label delaytext;
         public System.Windows.Forms.NumericUpDown pullDelay;
         public System.Windows.Forms.CheckBox AutoLock;
-        public System.Windows.Forms.NumericUpDown numericUpDown39;
         public System.Windows.Forms.CheckBox mobheightdist;
         public System.Windows.Forms.CheckBox runTarget;
         public System.Windows.Forms.CheckBox runPullDistance;
@@ -5931,7 +6931,7 @@
         public System.Windows.Forms.RadioButton userevflo;
         public System.Windows.Forms.CheckBox FlourishTP;
         public System.Windows.Forms.GroupBox flourishesigroup;
-        public System.Windows.Forms.NumericUpDown numericUpDown34;
+        public System.Windows.Forms.NumericUpDown usedesfloValue;
         public System.Windows.Forms.RadioButton usedesflo;
         public System.Windows.Forms.TabPage pets;
         public System.Windows.Forms.GroupBox groupBox10;
@@ -6145,7 +7145,7 @@
         private CheckBox healforAutomatonMP;
         private CheckBox healforAutomatonHP;
         private NumericUpDown healforAutomatonMPset;
-        private NumericUpDown healforAutomatonHPsaet;
+        private NumericUpDown healforAutomatonHPset;
         private ComboBox Maneuver3select;
         private ComboBox Maneuver2select;
         private ComboBox Maneuver1select;
@@ -6162,6 +7162,17 @@
         private RadioButton VentriloquyPlayer;
         private Label label57;
         private ComboBox comboBox5;
+        public NumericUpDown useanifloValue;
+        public RadioButton useaniflo;
+        public NumericUpDown useviofloValue;
+        public RadioButton usevioflo;
+        private NumericUpDown mobheightdistValue;
+        private TabPage trustControl;
+        public MenuStrip trustmenuStrip;
+        public ToolStripMenuItem trustMenureset;
+        private CheckedListBox Trusts;
+        private Label selectedtrusts;
+        private Label maxtrustslabel;
         #endregion
 
         #region Methods: Start/Stop/Load
@@ -6178,7 +7189,7 @@
             LoadJA_Click(null, null);
             LoadMA_Click(null, null);
 
-            PopulateItems();
+            //PopulateItems();
             //MessageBox.Show(ItemQuantityByName("Blind Bolt").ToString());
         }
 
@@ -6193,7 +7204,7 @@
         private void ToolStartClick(object sender, EventArgs e)
         {
             botRunning = true;
-
+            startzone = api.Player.ZoneId;
             startScriptToolStripMenuItem.Enabled = false;
             stopScriptToolStripMenuItem.Enabled = true;
 
@@ -6243,25 +7254,84 @@
             WindowInfo.KeyPress(API.Keys.NUMPADENTER);
         }
 
+        #region Trust
+        private void trustMenureset_Click(object sender, EventArgs e)
+        {
+            if (Trusts.Items.Count > 0)
+                Trusts.Items.Clear();
+
+            var trustcount = 0;
+            if (PlayerInfo.HasKeyItem(2156)) trustcount = 5;
+            else if (PlayerInfo.HasKeyItem(2153)) trustcount = 4;
+            else if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051)) trustcount = 3;
+            maxtrustslabel.Text = "Max Trusts : " + trustcount;
+            selectedtrusts.Text = "Selected Trusts : 0";
+            Trusts.Enabled = true;
+            if (trustcount == 0)
+            {
+                Trusts.Enabled = false;
+                return;
+            }
+            else Trusts.Enabled = true;
+
+            for (uint i = 896; i <= 1023; i++)
+            {
+                var spellm = api.Resources.GetSpell(i);
+                if (spellm == null) continue;
+                else if (PlayerInfo.HasSpell(i) && !Trusts.Items.Contains(spellm.Name)) Trusts.Items.Add(spellm.Name);
+            }
+        }
+        private void useTrust()
+        {
+            var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
+            if (PartyInfo.Count == 6 || trust.Count == 0) return;
+            foreach (string T in trust)
+            {
+                var trustname = T;
+                trustname = trustname.Replace(" ", "");
+                trustname = trustname.Replace("II", "");
+                trustname = trustname.Replace("[S]", "");
+                trustname = trustname.Replace("(UC)", "");
+                if (PartyInfo.ContainsName(trustname)) continue;
+                else
+                {
+                    api.ThirdParty.SendString("/ma \"" + T + "\" <me>");
+                    Casting();
+                }
+            }
+        }
+        #endregion
+
         private void LoadJA_Click(object sender, EventArgs e)
         {
             if (playerJA.Items.Count > 0)
                 playerJA.Items.Clear();
 
             #region Ability list
-            List<uint> abilitylist = new List<uint>(new uint[] {528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541,
-            543, 544, 545, 546, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568,
-            569, 570, 571, 572, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 593, 594, 595,
-            596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621,
-            622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 661,
-            662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 682, 683, 684, 685, 686, 687,
-            688, 689, 690, 693, 708, 709, 722, 723, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741,
-            742, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768,
-            769, 770, 771, 772, 773, 777, 779, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798,
-            799, 800, 803, 804, 805, 807, 809, 810, 813, 814, 815, 816, 817, 828, 829, 830, 831, 832, 833, 835, 836, 837, 838, 839, 840,
-            841, 842, 843, 844, 845, 846, 847, 848, 850, 851, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867,
-            868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892,
-            893, 894, 895, 896, 898, 899, 900, 901, 902, 903, 904,});
+            Dictionary<uint, dynamic> abilitylist = new Dictionary<uint, dynamic> (){{528, true},{529, true},{530, true},{531, true},{532, true},{533, true},{534, true},
+            {535, true},{536, true},{537, true},{538, true},{539, true},{540, true},{541, true},{543, true},{544, true},{545, true},{546, true},{548, true},{549, true},
+            {550, true},{551, true},{552, true},{553, true},{554, true},{555, true},{556, true},{557, true},{558, true},{559, true},{560, true},{561, true},{562, true},
+            {563, true},{564, true},{565, true},{566, true},{567, true},{568, true},{569, true},{570, true},{571, true},{572, true},{574, true},{575, true},{576, true},
+            {577, true},{578, true},{579, true},{580, true},{581, true},{582, true},{583, true},{584, true},{585, true},{586, true},{587, true},{588, true},{589, true},
+            {590, true},{591, true},{593, true},{594, true},{595, true},{596, true},{597, true},{598, true},{599, true},{600, true},{601, true},{602, true},{603, true},
+            {604, true},{605, true},{606, true},{607, true},{608, true},{610, true},{611, true},{612, true},{613, true},{614, true},{615, true},{616, true},{617, true},
+            {618, true},{619, true},{620, true},{621, true},{622, true},{623, true},{624, true},{625, true},{626, true},{627, true},{628, true},{629, true},{630, true},
+            {631, true},{632, true},{633, true},{634, true},{635, true},{636, true},{637, true},{638, true},{639, true},{640, true},{641, true},{642, true},{643, true},
+            {644, true},{645, true},{661, true},{662, true},{663, true},{664, true},{665, true},{666, true},{667, true},{668, true},{669, true},{670, true},{671, true},
+            {672, true},{673, true},{674, true},{675, true},{676, true},{677, true},{678, true},{679, true},{680, true},{682, true},{683, true},{684, true},{685, true},
+            {686, true},{687, true},{688, true},{689, true},{690, true},{693, true},{708, true},{709, true},{722, true},{723, true},{724, true},{726, true},{727, true},
+            {728, true},{729, true},{730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{736, true},{737, true},{738, true},{739, true},{740, true},
+            {741, true},{742, true},{745, true},{746, true},{747, true},{748, true},{749, true},{750, true},{751, true},{752, true},{753, true},{754, true},{755, true},
+            {756, true},{757, true},{758, true},{759, true},{760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{768, true},
+            {769, true},{770, true},{771, true},{772, true},{773, true},{777, true},{779, true},{781, true},{782, true},{783, true},{784, true},{785, true},{786, true},
+            {787, true},{788, true},{789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},{799, true},
+            {800, true},{803, true},{804, true},{805, true},{807, true},{809, true},{810, true},{813, true},{814, true},{815, true},{816, true},{817, true},{828, true},
+            {829, true},{830, true},{831, true},{832, true},{833, true},{835, true},{836, true},{837, true},{838, true},{839, true},{840, true},{841, true},{842, true},
+            {843, true},{844, true},{845, true},{846, true},{847, true},{848, true},{850, true},{851, true},{853, true},{854, true},{855, true},{856, true},{857, true},
+            {858, true},{859, true},{860, true},{861, true},{862, true},{863, true},{864, true},{865, true},{866, true},{867, true},{868, true},{869, true},{870, true},
+            {871, true},{872, true},{873, true},{874, true},{875, true},{876, true},{877, true},{878, true},{879, true},{880, true},{881, true},{882, true},{883, true},
+            {884, true},{885, true},{886, true},{887, true},{888, true},{889, true},{890, true},{891, true},{892, true},{893, true},{894, true},{895, true},{896, true},
+            {898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true}};
             #endregion
 
             for (uint i = 528; i <= 2227; i++)
@@ -6276,7 +7346,7 @@
                         playerJA.Items.Add(ability.Name);
                         continue;
                     }
-                    else if (!abilitylist.Contains(ability.ID)) continue;
+                    else if (!abilitylist.ContainsKey(ability.ID)) continue;
                     else if (i == 735)
                     {
                         var job = 0;
@@ -6338,32 +7408,45 @@
                 playerMA.Items.Clear();
 
             #region Skip MA List
-            List<uint> skipSpellList = new List<uint>(new uint[] {12, 13, 81, 82, 83, 120, 121, 122, 123, 124, 136, 137, 138, 139, 140, 241, 260, 261, 262,
-            263, 264, 265, 494, 512, 514, 516, 518, 520, 523, 525, 526, 528, 546, 550, 552, 553, 556, 558, 559, 562, 566, 568, 571, 580, 583, 586, 590, 600,
-            601, 602, 607, 609, 619, 624, 625, 627, 630, 635, 639, 729, 730, 731, 732, 733, 734,735, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764,
-            765, 766, 767, 992, 993, 994, 995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 7, 8, 9, 10, 11, 308, 309,
-            318, 353, 354, 355, 465,
+            Dictionary<uint, dynamic> skipSpellList = new Dictionary<uint, dynamic> {{12, true},{13, true},{81, true},{82, true},{83, true},{120, true},{121, true},
+            {122, true},{123, true},{124, true},{136, true},{137, true},{138, true},{139, true},{140, true},{241, true},{260, true},{261, true},{262, true},{263, true},
+            {264, true},{265, true},{494, true},{512, true},{514, true},{516, true},{518, true},{520, true},{523, true},{525, true},{526, true},{528, true},{546, true},
+            {550, true},{552, true},{553, true},{556, true},{558, true},{559, true},{562, true},{566, true},{568, true},{571, true},{580, true},{583, true},{586, true},
+            {590, true},{600, true},{601, true},{602, true},{607, true},{609, true},{619, true},{624, true},{625, true},{627, true},{630, true},{635, true},{639, true},
+            {729, true},{730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{754, true},{755, true},{756, true},{757, true},{758, true},{759, true},
+            {760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{992, true},{993, true},{994, true},{995, true},{996, true},
+            {997, true},{998, true},{999, true},{1000, true},{1001, true},{1002, true},{1003, true},{1017, true},{1018, true},{1019, true},{1020, true},{1021, true},
+            {1022, true},{1023, true},{7, true},{8, true},{9, true},{10, true},{11, true},{308, true},{309, true},{318, true},{353, true},{354, true},{355, true},
+            {465, true},
             #region smn
-            288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 847,
+            {288, true},{289, true},{290, true},{291, true},{292, true},{293, true},{294, true},{295, true},{296, true},{297, true},{298, true},{299, true},{300, true},
+            {301, true},{302, true},{303, true},{304, true},{305, true},{306, true},{307, true},{847, true},
             #endregion
             #region geo
-            769, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814,
-            815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827,
+            {769, true},{787, true},{788, true},{789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},
+            {799, true},{800, true},{801, true},{802, true},{803, true},{804, true},{805, true},{806, true},{807, true},{808, true},{809, true},{810, true},{811, true},
+            {812, true},{813, true},{814, true},{815, true},{816, true},{817, true},{818, true},{819, true},{820, true},{821, true},{822, true},{823, true},{824, true},
+            {825, true},{826, true},{827, true},
             #endregion
             #region trust
-            896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923,
-            924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951,
-            952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979,
-            980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016,
+            {896, true},{897, true},{898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true},{905, true},{906, true},{907, true},{908, true},
+            {909, true},{910, true},{911, true},{912, true},{913, true},{914, true},{915, true},{916, true},{917, true},{918, true},{919, true},{920, true},{921, true},
+            {922, true},{923, true},{924, true},{925, true},{926, true},{927, true},{928, true},{929, true},{930, true},{931, true},{932, true},{933, true},{934, true},
+            {935, true},{936, true},{937, true},{938, true},{939, true},{940, true},{941, true},{942, true},{943, true},{944, true},{945, true},{946, true},{947, true},
+            {948, true},{949, true},{950, true},{951, true},{952, true},{953, true},{954, true},{955, true},{956, true},{957, true},{958, true},{959, true},{960, true},
+            {961, true},{962, true},{963, true},{964, true},{965, true},{966, true},{967, true},{968, true},{969, true},{970, true},{971, true},{972, true},{973, true},
+            {974, true},{975, true},{976, true},{977, true},{978, true},{979, true},{980, true},{981, true},{982, true},{983, true},{984, true},{985, true},{986, true},
+            {987, true},{988, true},{989, true},{990, true},{991, true},{1004, true},{1005, true},{1006, true},{1007, true},{1008, true},{1009, true},{1010, true},
+            {1011, true},{1012, true},{1013, true},{1014, true},{1015, true},{1016, true}
             #endregion
-            });
+            };
             #endregion
 
             #region load MJ MA(main job)
             for (uint mm = 1; mm <= 895; mm++)
             {
                 var spellm = api.Resources.GetSpell(mm);
-                if (spellm == null || skipSpellList.Contains(mm)) continue;
+                if (spellm == null || skipSpellList.ContainsKey(mm)) continue;
                 else if (PlayerInfo.HasSpell(mm) &&
                     PlayerInfo.MainJobLevel >= spellm?.RequiredLevel?[PlayerInfo.MainJob] &&
                     spellm?.RequiredLevel?[PlayerInfo.MainJob] != -1 &&
@@ -6378,7 +7461,7 @@
             {
                 var spells = api.Resources.GetSpell(sm);
                 if (spells == null) { }
-                else if (skipSpellList.Contains(sm)) { }
+                else if (skipSpellList.ContainsKey(sm)) { }
                 else if (PlayerInfo.HasSpell(sm) &&
                         PlayerInfo.SubJobLevel >= spells?.RequiredLevel?[PlayerInfo.SubJob] &&
                         spells?.RequiredLevel?[PlayerInfo.SubJob] != -1 &&
@@ -6397,61 +7480,67 @@
 
         public void CharacterUpdate()
         {
-            this.JAtabselect.Controls.Remove(this.WHMpage);
-            this.JAtabselect.Controls.Remove(this.RDMpage);
-            this.JAtabselect.Controls.Remove(this.SCHpage);
-            this.JAtabselect.Controls.Remove(this.RUNpage);
-            this.JAtabselect.Controls.Remove(this.MONpage);
-            this.JAtabselect.Controls.Remove(this.Dynamispage);
-            this.petControl.Controls.Remove(this.bstpettab);
-            this.petControl.Controls.Remove(this.drgpettab);
-            this.petControl.Controls.Remove(this.smnpettab);
-            this.petControl.Controls.Remove(this.puppettab);
-            this.petControl.Controls.Remove(this.geopettab);
-            this.MAtabs.Controls.Remove(this.CureConfigPage);
-            this.MAtabs.Controls.Remove(this.DrainAspirpage);
-            this.MAtabs.Controls.Remove(this.MAconfigpage);
-            this.MAtabs.Controls.Remove(this.BLUCurespage);
-            this.CombatSettingsTabs.Controls.Remove(this.OptionsMAMainTab);
-            this.dncControl.Controls.Remove(this.pets);
-            this.dncControl.Controls.Remove(this.dancer);
-            this.dncControl.Controls.Remove(this.flourish);
-            if (PlayerInfo.MainJob == 3 || PlayerInfo.SubJob == 3) this.JAtabselect.Controls.Add(this.WHMpage);
-            if (PlayerInfo.MainJob == 5 || PlayerInfo.SubJob == 5) this.JAtabselect.Controls.Add(this.RDMpage);
-            if (PlayerInfo.MainJob == 20 || PlayerInfo.SubJob == 20) this.JAtabselect.Controls.Add(this.SCHpage);
-            if (PlayerInfo.MainJob == 22 || PlayerInfo.SubJob == 22) this.JAtabselect.Controls.Add(this.RUNpage);
-            if (PlayerInfo.MainJob == 23 || PlayerInfo.SubJob == 23) this.JAtabselect.Controls.Add(this.MONpage);
-            this.JAtabselect.Controls.Add(this.Dynamispage);
+            JAtabselect.Controls.Remove(WHMpage);
+            JAtabselect.Controls.Remove(RDMpage);
+            JAtabselect.Controls.Remove(SCHpage);
+            JAtabselect.Controls.Remove(RUNpage);
+            JAtabselect.Controls.Remove(MONpage);
+            JAtabselect.Controls.Remove(Dynamispage);
+            petControl.Controls.Remove(bstpettab);
+            petControl.Controls.Remove(drgpettab);
+            petControl.Controls.Remove(smnpettab);
+            petControl.Controls.Remove(puppettab);
+            petControl.Controls.Remove(geopettab);
+            MAtabs.Controls.Remove(CureConfigPage);
+            MAtabs.Controls.Remove(DrainAspirpage);
+            MAtabs.Controls.Remove(MAconfigpage);
+            MAtabs.Controls.Remove(BLUCurespage);
+            CombatSettingsTabs.Controls.Remove(OptionsMAMainTab);
+            dncControl.Controls.Remove(pets);
+            dncControl.Controls.Remove(dancer);
+            dncControl.Controls.Remove(flourish);
+            dncControl.Controls.Remove(trustControl);
+            #region JA Job Tabs Add
+            if (PlayerInfo.MainJob == 3 || PlayerInfo.SubJob == 3) JAtabselect.Controls.Add(WHMpage);
+            if (PlayerInfo.MainJob == 5 || PlayerInfo.SubJob == 5) JAtabselect.Controls.Add(RDMpage);
+            if (PlayerInfo.MainJob == 20 || PlayerInfo.SubJob == 20) JAtabselect.Controls.Add(SCHpage);
+            if (PlayerInfo.MainJob == 22 || PlayerInfo.SubJob == 22) JAtabselect.Controls.Add(RUNpage);
+            if (PlayerInfo.MainJob == 23 || PlayerInfo.SubJob == 23) JAtabselect.Controls.Add(MONpage);
+            #endregion
+            #region MA Tabs Add 
+            JAtabselect.Controls.Add(Dynamispage);
             List<int> MAjobs = new List<int>(new int[] {3,4,5,7,8,10,13,16,20,21,22});
             if (MAjobs.Contains(PlayerInfo.MainJob) || MAjobs.Contains(PlayerInfo.SubJob))
             {
                 List<int> Curejobs = new List<int>(new int[] {3,5,7,20});
-                if  (Curejobs.Contains(PlayerInfo.MainJob) || Curejobs.Contains(PlayerInfo.SubJob)) this.MAtabs.Controls.Add(this.CureConfigPage);
+                if  (Curejobs.Contains(PlayerInfo.MainJob) || Curejobs.Contains(PlayerInfo.SubJob)) MAtabs.Controls.Add(CureConfigPage);
                 List<int> Drainjobs = new List<int>(new int[] {4,8,20,21});
-                if  (Drainjobs.Contains(PlayerInfo.MainJob) || Drainjobs.Contains(PlayerInfo.SubJob)) this.MAtabs.Controls.Add(this.DrainAspirpage);
-                if  (PlayerInfo.MainJob == 16 || PlayerInfo.SubJob == 16) this.MAtabs.Controls.Add(this.BLUCurespage);
-                this.MAtabs.Controls.Add(this.MAconfigpage);
-                this.CombatSettingsTabs.Controls.Add(this.OptionsMAMainTab);
+                if  (Drainjobs.Contains(PlayerInfo.MainJob) || Drainjobs.Contains(PlayerInfo.SubJob)) MAtabs.Controls.Add(DrainAspirpage);
+                if  (PlayerInfo.MainJob == 16 || PlayerInfo.SubJob == 16) MAtabs.Controls.Add(BLUCurespage);
+                MAtabs.Controls.Add(MAconfigpage);
+                CombatSettingsTabs.Controls.Add(OptionsMAMainTab);
             }
+            #endregion
+            #region DNC Tab Setup
             if (PlayerInfo.MainJob == 19 || PlayerInfo.SubJob == 19)
             {
-                this.dncControl.Controls.Add(this.dancer);
-                this.dncControl.Controls.Add(this.flourish);
+                dncControl.Controls.Add(dancer);
+                dncControl.Controls.Add(flourish);
                 Dictionary<string, uint> DNCenable = new Dictionary<string, uint>()
                 {
                     {"usedrain", 5},{"usecure", 15},{"usecureValue", 15},{"numericUpDown33", 15},{"ptusecure", 15},{"usequickstep", 20},{"usequickstepValue", 20},
-                    {"StepsHP", 20},{"StepsHPValue", 20},{"stopstepsathptext", 20},{"NoSteps", 20},{"stopstepsat", 20},{"stopstepscount", 20},{"useaspir", 25},
-                    {"useboxstep", 30},{"useboxstepValue", 30},{"usecureii", 30},{"usecureiiValue", 30},{"ptusecureii", 30},{"numericUpDown32", 30},{"usedesflo", 30},
-                    {"numericUpDown34", 30},{"usedrainii", 35},{"groupBox7", 35},{"usestutterstep", 40},{"usestutterstepValue", 40},{"userevflo", 40},
-                    {"userevfloValue", 40},{"usehaste", 45},{"usecureiii", 45},{"usecureiiiValue", 45},{"ptusecureiii", 45},{"numericUpDown29", 45},{"usebldflo", 50},
-                    {"usebldfloValue", 50},{"useaspirii", 60},{"usewldflo", 60},{"usewldfloValue", 60},{"usedrainiii", 65},{"usecureiv", 70},{"usecureivValue", 70},
-                    {"ptusecureiv", 70},{"numericUpDown28", 70},{"useclmflo", 80},{"useclmfloValue", 80},{"usefeatherstep", 83},{"usefeatherstepValue", 83},
-                    {"usecurev", 87},{"usecurevValue", 87},{"ptusecurev", 87},{"numericUpDown27", 87},{"usestkflo", 89},{"usestkfloValue", 89},{"useterflo", 93},
-                    {"useterfloValue", 93},
+                    {"StepsHP", 20},{"StepsHPValue", 20},{"stopstepsathptext", 20},{"NoSteps", 20},{"stopstepsat", 20},{"stopstepscount", 20},{"useanifloValue", 20},
+                    {"useaniflo", 20},{"useaspir", 25},{"useboxstep", 30},{"useboxstepValue", 30},{"usecureii", 30},{"usecureiiValue", 30},{"ptusecureii", 30},
+                    {"numericUpDown32", 30},{"usedesflo", 30},{"usedesfloValue", 30},{"usedrainii", 35},{"groupBox7", 35},{"usestutterstep", 40},
+                    {"usestutterstepValue", 40},{"userevflo", 40},{"userevfloValue", 40},{"usehaste", 45},{"usecureiii", 45},{"usecureiiiValue", 45},
+                    {"ptusecureiii", 45},{"numericUpDown29", 45},{"useviofloValue", 45},{"usevioflo", 45},{"usebldflo", 50},{"usebldfloValue", 50},{"useaspirii", 60},
+                    {"usewldflo", 60},{"usewldfloValue", 60},{"usedrainiii", 65},{"usecureiv", 70},{"usecureivValue", 70},{"ptusecureiv", 70},{"numericUpDown28", 70},
+                    {"useclmflo", 80},{"useclmfloValue", 80},{"usefeatherstep", 83},{"usefeatherstepValue", 83},{"usecurev", 87},{"usecurevValue", 87},
+                    {"ptusecurev", 87},{"numericUpDown27", 87},{"usestkflo", 89},{"usestkfloValue", 89},{"useterflo", 93},{"useterfloValue", 93},
                 };
                 foreach (KeyValuePair<string, uint> kvp in DNCenable)
                 {
-                    Control c = this.Controls.Find(kvp.Key, true).Single();
+                    Control c = Controls.Find(kvp.Key, true).Single();
                     if (c == null) continue;
                     if ((PlayerInfo.MainJob == 19 && kvp.Value <= PlayerInfo.MainJobLevel) ||
                         (PlayerInfo.SubJob == 19 && kvp.Value <= PlayerInfo.SubJobLevel))
@@ -6459,22 +7548,24 @@
                     else c.Enabled = false;
                 }
             }
+            #endregion
+            #region Pet Tabs Add
             List<int> PETjobs = new List<int>(new int[] { 9, 14, 15, 18, 21 });
             if (PETjobs.Contains(PlayerInfo.MainJob) || PETjobs.Contains(PlayerInfo.SubJob))
             {
                 if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
                 {
-                    this.petControl.Controls.Add(this.bstpettab);
+                    petControl.Controls.Add(bstpettab);
                     BSTGetJA();
                 }
                 if (PlayerInfo.MainJob == 14 || PlayerInfo.SubJob == 14)
                 {
-                    this.petControl.Controls.Add(this.drgpettab);
+                    petControl.Controls.Add(drgpettab);
                     WyvernGetJA();
                 }
                 if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15) 
                 {
-                    this.petControl.Controls.Add(this.smnpettab);
+                    petControl.Controls.Add(smnpettab);
                     Dictionary<string, uint> SMNAdd = new Dictionary<string, uint>()
                     {
                         {"Carbuncle", 296},{"Fenrir", 297},{"Ifrit", 298},{"Titan", 299},{"Leviathan", 300},{"Garuda", 301},{"Shiva", 302},{"Ramuh", 303},
@@ -6488,22 +7579,36 @@
                 }
                 if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18 && !isLoading) 
                 {
-                    this.petControl.Controls.Add(this.puppettab);
+                    petControl.Controls.Add(puppettab);
                     PUPGetJA();
                 }
                 if (PlayerInfo.MainJob == 21 || PlayerInfo.SubJob == 21) 
                 {
-                    this.petControl.Controls.Add(this.geopettab);
+                    petControl.Controls.Add(geopettab);
                     //GEOGetJA()
                 }
-                this.dncControl.Controls.Add(this.pets);
+                dncControl.Controls.Add(pets);
             }
+            dncControl.Controls.Add(trustControl);
+            #endregion
+            #region Hate Control Update
+            if ((PlayerInfo.MainJob == 1 && PlayerInfo.MainJobLevel >= 5) || (PlayerInfo.SubJob == 1 && PlayerInfo.SubJobLevel >= 5))
+                selectedHateControl.Items.Add("Provoke");
+            if ((PlayerInfo.MainJob == 19 && PlayerInfo.MainJobLevel >= 20) || (PlayerInfo.SubJob == 19 && PlayerInfo.SubJobLevel >= 20))
+                selectedHateControl.Items.Add("Animated Flourish");
+            if ((PlayerInfo.MainJob == 7 && PlayerInfo.MainJobLevel >= 37) || (PlayerInfo.SubJob == 7 && PlayerInfo.SubJobLevel >= 37) ||
+                (PlayerInfo.MainJob == 3 && PlayerInfo.MainJobLevel >= 45) || (PlayerInfo.SubJob == 3 && PlayerInfo.SubJobLevel >= 45) ||
+                (PlayerInfo.MainJob == 22 && PlayerInfo.MainJobLevel >= 45) || (PlayerInfo.SubJob == 22 && PlayerInfo.SubJobLevel >= 45))
+                selectedHateControl.Items.Add("Flash");
+            #endregion
             if (!isLoading)
             {
                 ClearJA_Click(null, null);
                 LoadJA_Click(null, null);
                 ClearMA_Click(null, null);
                 LoadMA_Click(null, null);
+                trustMenureset_Click(null, null);
+                //PopulateItems();
             }
         }
 
@@ -6676,7 +7781,7 @@
 
             #region CheckBuffs
 
-            Dictionary<short, string> hwaltzbuff = new Dictionary<short, string>
+            Dictionary<short, string> hwaltzbuff = new Dictionary<short, string>()
             {
                 {4, "Paralyze"},{3, "Poison"},{5, "Blind"},{11, "Bind"},{9, "Curse"},{13, "Slow"},{6, "Silence"},{31, "Plague"},{8, "Disease"},{30, "Bane"},
                 {135, "Bio"},{128, "Burn"},{130, "Choke"},{131, "Rasp"},{133, "Drown"},{129, "Frost"},{132, "Shock"},{134, "Dia"},{136, "STR Down"},{137, "DEX Down"},
@@ -6787,6 +7892,16 @@
                     if (userevflo.Checked && (userevfloValue.Value == retVal || userevfloValue.Value == 7))
                     {
                         api.ThirdParty.SendString("/ja \"Reverse Flourish\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (useaniflo.Checked && (useanifloValue.Value == retVal || useanifloValue.Value == 7))
+                    {
+                        api.ThirdParty.SendString("/ja \"Animated Flourish\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (usevioflo.Checked && (useviofloValue.Value == retVal || useviofloValue.Value == 7))
+                    {
+                        api.ThirdParty.SendString("/ja \"Violent Flourish\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                     else if (usebldflo.Checked && (usebldfloValue.Value == retVal || usebldfloValue.Value == 7))
@@ -7046,28 +8161,27 @@
             }
             #endregion
 
-            if (PlayerInfo.HasBuff(66) || !PlayerInfo.HasBuff(16))
+            if (!PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(444) && !PlayerInfo.HasBuff(445) && !PlayerInfo.HasBuff(446))
             {
-                if (Recast.GetAbilityRecast(340) == 0)
+                if (PlayerInfo.HasSpell(340) && Recast.GetSpellRecast(340) == 0)
                 {
                     api.ThirdParty.SendString("/ma \"Utsusemi: San\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(3.0));
+                    Casting();
                 }
-                else if (Recast.GetAbilityRecast(339) == 0 &&
-                         !PlayerInfo.HasBuff(446))
+                else if (PlayerInfo.HasSpell(339) && Recast.GetSpellRecast(339) == 0)
                 {
                     api.ThirdParty.SendString("/ma \"Utsusemi: Ni\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(3.0));
+                    Casting();
                 }
-                else if (Recast.GetAbilityRecast(338) == 0 &&
-                         !PlayerInfo.HasBuff(444) &&
-                         !PlayerInfo.HasBuff(445))
+                else if (PlayerInfo.HasSpell(338) && Recast.GetSpellRecast(338) == 0)
                 {
+                    if (PlayerInfo.HasBuff(66))
+                    {
+                        api.ThirdParty.SendString("// cancel 66");
+                        Thread.Sleep(TimeSpan.FromSeconds(3.0));
+                    }
                     api.ThirdParty.SendString("/ma \"Utsusemi: Ichi\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
-
-                    api.ThirdParty.SendString("// cancel 66");
-                    Thread.Sleep(TimeSpan.FromSeconds(3.0));
+                    Casting();
                 }
             }
         }
@@ -8674,7 +9788,7 @@
             wantedNM.Clear();
 
             #region zone array
-            var dats = new Dictionary<string, string>
+            var dats = new Dictionary<string, string>()
             {
                 {"1", "\\ROM3\\2\\111.DAT"},
                 {"2", "\\ROM3\\2\\112.DAT"},
@@ -9237,7 +10351,6 @@
         {
             if (SelectedTargets.Items.Count == 0 || PlayerInfo.Status == 1 || isPulled)
                 return;
-
             float searchID = 999;
             var targetID = -1;
 
@@ -9271,6 +10384,10 @@
             if (targetID == -1)
                 return;
 
+            var target = api.Entity.GetEntity(targetID);
+
+            var vertdiff = Math.Abs((PlayerInfo.Y - target.Y));
+            if (vertdiff >= (float)(mobheightdist.Checked ? mobheightdistValue.Value : 50)) return;
             if (isMoving)
                 isMoving = false;
 
@@ -9284,8 +10401,6 @@
             }
 
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
-
-            var target = api.Entity.GetEntity(targetID);
 
             if (target.ClaimID != 0 || target.HealthPercent == 0)
                 return;
@@ -9753,20 +10868,7 @@
             public static float Y => api.Entity.GetLocalPlayer().Y;
             public static float Z => api.Entity.GetLocalPlayer().Z;
             public static float H => api.Entity.GetLocalPlayer().H;
-            /* public static string Indi
-            {
-                get
-                {
-                    Byte[] bytes = BitConverter.GetBytes(api.Party.GetPartyMembers().First().ID);
-                    string pidstr = BitConverter.ToString(bytes);
-                    pidstr = System.Text.RegularExpressions.Regex.Replace(pidstr, "-", "");
-                    var hppstr = api.Party.GetPartyMembers().First().CurrentHPP.ToString("X2");
-                    //MainWindow.PID 
-                    var mask = "37??????????????????????????????????????????????????????????????????????" + pidstr + "????" + hppstr;
-                    //var x = SigScan.FindPattern()
-                    return mask;
-                }
-            } */
+            public static bool HasKeyItem(uint id) => api.Player.HasKeyItem(id);
         }
         #endregion
         #region class: TargetInfo
@@ -9867,6 +10969,33 @@
         public static class PartyInfo
         {
             public static int Count => api.Party.GetPartyMembers().Count;
+            public static bool ContainsName(string name)
+            {
+                for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
+                {
+                    var member = api.Party.GetPartyMember(x);
+                    if (member.Name == name) return true;
+                }
+                return false;
+            }
+            public static int memberHPPbyName(string name)
+            {
+                for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
+                {
+                    var member = api.Party.GetPartyMember(x);
+                    if (member.Name == name) return member.CurrentHPP;
+                }
+                return 0;
+            }
+            public static int memberMPPbyName(string name)
+            {
+                for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
+                {
+                    var member = api.Party.GetPartyMember(x);
+                    if (member.Name == name) return member.CurrentMPP;
+                }
+                return 0;
+            }
         }
         #endregion
         #region class: PetInfo
@@ -9905,27 +11034,23 @@
 
         public static int ItemQuantityByName(string name)
         {
-            var count = api.Inventory.GetContainerMaxCount(0);
+            var count = api.Inventory.GetContainerCount(0);
             var itemc = 0;
 
-            if (items.ContainsValue(name) == false)
-                return -1;
-
-            var ID = items.FirstOrDefault(x => x.Value == name).Key;
+            //if (!items.ContainsKey(name)) return -1;
 
             for (var x = 0; x < count; x++)
             {
                 var item = api.Inventory.GetContainerItem(0, x);
-
-                if (item.Id == Convert.ToInt32(ID))
+                if (item.Id != 0 && api.Resources.GetItem(item.Id).Name == name)
                 {
-                    itemc = itemc + (int) item.Count;
+                    itemc = itemc + (int)item.Count;
                 }
             }
             return itemc;
         }
 
-        public static void PopulateItems()
+        /*public static void PopulateItems()
         {
             items.Clear();
 
@@ -9934,13 +11059,14 @@
                 var i = api.Resources.GetItem((uint)x);
 
                 if (!string.IsNullOrEmpty(i?.Name))
-                    items.Add(i.ItemID.ToString(), i.Name);
+                    items.Add(i.Name, i.ItemID);
             }
-        }
+        }*/
 
         #endregion
 
         #endregion
 
+        private Button verifyfood;
     }
 }

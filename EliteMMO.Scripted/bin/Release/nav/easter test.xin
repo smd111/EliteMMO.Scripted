@@ -1,0 +1,3 @@
+MACRO:/targetnpc
+MACRO://pause 1.0 1.0;setkey enter down;setkey enter up;pause 1.0 1.0;setkey enter down;setkey enter up
+PAUSE:3456000

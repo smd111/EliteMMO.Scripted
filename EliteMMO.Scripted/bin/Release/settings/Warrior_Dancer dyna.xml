@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <ChildForm>
-  <Control Type="System.Windows.Forms.Button" Name="button2" />
-  <Control Type="System.Windows.Forms.Button" Name="button1" />
   <Control Type="System.Windows.Forms.CheckBox" Name="DeathWarp">
-    <Checked>False</Checked>
+    <Checked>True</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="checkZone">
-    <Checked>False</Checked>
+    <Checked>True</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="StopFullInventory">
@@ -28,13 +26,13 @@
       <Enabled>True</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
-      <Checked>True</Checked>
-    </Control>
-    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
       <Checked>False</Checked>
     </Control>
+    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
+      <Checked>True</Checked>
+    </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>test.xin</Text>
+      <Text>juno dyna.xin</Text>
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
@@ -59,30 +57,22 @@
     <Control Type="System.Windows.Forms.TabPage" Name="combat">
       <Control Type="System.Windows.Forms.TabControl" Name="CombatSettingsTabs">
         <Control Type="System.Windows.Forms.TabPage" Name="Options1MainTab">
-          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox23">
-            <Enabled>True</Enabled>
+          <Control Type="System.Windows.Forms.GroupBox" Name="HateControlgroup">
+            <Enabled>False</Enabled>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown6">
               <Value>100</Value>
-              <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>100</Text>
-              </Control>
+              <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown7">
               <Value>10</Value>
-              <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>10</Text>
-              </Control>
+              <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.ComboBox" Name="selectedHateControl">
               <Text />
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="tank">
               <Checked>False</Checked>
-              <Enabled>True</Enabled>
+              <Enabled>False</Enabled>
             </Control>
           </Control>
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox20">
@@ -93,10 +83,6 @@
             <Control Type="System.Windows.Forms.NumericUpDown" Name="AfterMathTier">
               <Value>1</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>1</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="wsam">
               <Checked>False</Checked>
@@ -107,43 +93,27 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.ComboBox" Name="comboBox2">
-              <Text />
+              <Text>Upheaval</Text>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown40">
               <Value>1</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>1.0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="ws">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown24">
               <Value>1000</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>1000</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown22">
               <Value>100</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>100</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown23">
-              <Value>15</Value>
+              <Value>25</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>15</Text>
-              </Control>
             </Control>
           </Control>
         </Control>
@@ -151,18 +121,10 @@
           <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown38">
             <Value>5</Value>
             <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-              <Text>5.0</Text>
-            </Control>
           </Control>
           <Control Type="System.Windows.Forms.NumericUpDown" Name="aggroRange">
             <Value>8.5</Value>
             <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-              <Text>8.5</Text>
-            </Control>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="ScanDelay">
             <Checked>False</Checked>
@@ -171,26 +133,14 @@
           <Control Type="System.Windows.Forms.NumericUpDown" Name="KeepTargetRange">
             <Value>3</Value>
             <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-              <Text>3.0</Text>
-            </Control>
           </Control>
           <Control Type="System.Windows.Forms.NumericUpDown" Name="assistDist">
             <Value>5</Value>
             <Enabled>False</Enabled>
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-              <Text>5.0</Text>
-            </Control>
           </Control>
           <Control Type="System.Windows.Forms.NumericUpDown" Name="followDist">
             <Value>3</Value>
             <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-              <Text>3.0</Text>
-            </Control>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="partyAssist">
             <Checked>False</Checked>
@@ -238,34 +188,25 @@
             <Checked>False</Checked>
             <Enabled>False</Enabled>
           </Control>
-          <Control Type="System.Windows.Forms.TextBox" Name="textBox8">
+          <Control Type="System.Windows.Forms.TextBox" Name="foodName">
             <Text />
           </Control>
           <Control Type="System.Windows.Forms.NumericUpDown" Name="healMPcount">
             <Value>40</Value>
             <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-              <Text>40</Text>
-            </Control>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="usefood">
             <Checked>False</Checked>
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="HealMP">
-            <Checked>True</Checked>
+            <Checked>False</Checked>
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.NumericUpDown" Name="healHPcount">
             <Value>40</Value>
             <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-            <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-              <Text>40</Text>
-            </Control>
           </Control>
-          <Control Type="System.Windows.Forms.Button" Name="RecordIdleLocation" />
           <Control Type="System.Windows.Forms.CheckBox" Name="WeakLocation">
             <Checked>False</Checked>
             <Enabled>False</Enabled>
@@ -305,10 +246,6 @@
             <Control Type="System.Windows.Forms.NumericUpDown" Name="autoRangeDelay">
               <Value>5</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>5.0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.TextBox" Name="textBox7">
               <Text>/ra &lt;t&gt;</Text>
@@ -334,9 +271,15 @@
           <Control Type="System.Windows.Forms.TabControl" Name="JAtabselect">
             <Control Type="System.Windows.Forms.TabPage" Name="selectPage">
               <Control Type="System.Windows.Forms.CheckedListBox" Name="playerJA">
-                <list0>Spectral Jig</list0>
-                <listcount>1</listcount>
-                <SelectedIndexcount>0</SelectedIndexcount>
+                <SelectedIndex0>0</SelectedIndex0>
+                <SelectedIndex1>2</SelectedIndex1>
+                <SelectedIndex2>4</SelectedIndex2>
+                <SelectedIndex3>5</SelectedIndex3>
+                <SelectedIndex4>8</SelectedIndex4>
+                <SelectedIndex5>9</SelectedIndex5>
+                <SelectedIndex6>10</SelectedIndex6>
+                <SelectedIndex7>11</SelectedIndex7>
+                <SelectedIndexcount>8</SelectedIndexcount>
               </Control>
             </Control>
             <Control Type="System.Windows.Forms.TabPage" Name="Dynamispage">
@@ -351,31 +294,23 @@
       <Control Type="System.Windows.Forms.GroupBox" Name="groupBox14">
         <Enabled>True</Enabled>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullDelay">
-          <Value>4</Value>
+          <Value>3.0</Value>
           <Enabled>True</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>4.0</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="AutoLock">
           <Checked>False</Checked>
           <Enabled>True</Enabled>
         </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown39">
-          <Value>1</Value>
-          <Enabled>False</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>1.0</Text>
-          </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="mobheightdistValue">
+          <Value>5</Value>
+          <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="mobheightdist">
-          <Checked>False</Checked>
-          <Enabled>False</Enabled>
+          <Checked>True</Checked>
+          <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="runTarget">
-          <Checked>True</Checked>
+          <Checked>False</Checked>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="runPullDistance">
@@ -383,32 +318,30 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="targetSearchDist">
-          <Value>24.5</Value>
+          <Value>8.0</Value>
           <Enabled>True</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>24.5</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullTolorance">
           <Value>1</Value>
           <Enabled>True</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>1.0</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown21">
-          <Value>10</Value>
+          <Value>13.0</Value>
           <Enabled>True</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>10.0</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.TextBox" Name="pullCommand">
-          <Text>/ra &lt;t&gt;</Text>
+          <Text>/ja "Provoke" &lt;t&gt;</Text>
         </Control>
+      </Control>
+    </Control>
+    <Control Type="System.Windows.Forms.TabPage" Name="trustControl">
+      <Control Type="System.Windows.Forms.CheckedListBox" Name="Trusts">
+        <SelectedIndex0>32</SelectedIndex0>
+        <SelectedIndex1>35</SelectedIndex1>
+        <SelectedIndex2>45</SelectedIndex2>
+        <SelectedIndex3>80</SelectedIndex3>
+        <SelectedIndex4>81</SelectedIndex4>
+        <SelectedIndexcount>5</SelectedIndexcount>
       </Control>
     </Control>
     <Control Type="System.Windows.Forms.TabPage" Name="dancer">
@@ -445,52 +378,28 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="stopstepscount">
-              <Value>2</Value>
+              <Value>5</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>2</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usefeatherstepValue">
               <Value>0</Value>
               <Enabled>False</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usestutterstepValue">
               <Value>0</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="useboxstepValue">
               <Value>0</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="StepsHPValue">
               <Value>40</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>40</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usequickstepValue">
               <Value>1</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>1</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="StepsHP">
               <Checked>False</Checked>
@@ -516,51 +425,50 @@
         <Control Type="System.Windows.Forms.TabPage" Name="tabPage15">
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox7">
             <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.CheckBox" Name="checkBox1">
-              <Checked>False</Checked>
+            <Control Type="System.Windows.Forms.CheckBox" Name="HWSelectDeselectALL">
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckedListBox" Name="HealingWaltzItems">
-              <list0>ACC Down</list0>
-              <list1>AGI Down</list1>
-              <list2>ATT Down</list2>
-              <list3>Bane</list3>
-              <list4>Bind</list4>
-              <list5>Bio</list5>
-              <list6>Blind</list6>
-              <list7>Burn</list7>
-              <list8>Choke</list8>
-              <list9>CHR Down</list9>
-              <list10>Curse</list10>
-              <list11>DEF Down</list11>
-              <list12>DEX Down</list12>
-              <list13>Dia</list13>
-              <list14>Disease</list14>
-              <list15>Drown</list15>
-              <list16>EVA Down</list16>
-              <list17>Frost</list17>
-              <list18>Gravity</list18>
-              <list19>Helix</list19>
-              <list20>HP Down</list20>
-              <list21>INT Down</list21>
-              <list22>MACC Down</list22>
-              <list23>MATT Down</list23>
-              <list24>MDEF Down</list24>
-              <list25>MEVA Down</list25>
-              <list26>MND Down</list26>
-              <list27>MP Down</list27>
-              <list28>Paralyze</list28>
-              <list29>Plague</list29>
-              <list30>Poison</list30>
-              <list31>Rasp</list31>
-              <list32>Shock</list32>
-              <list33>Silence</list33>
-              <list34>Slow</list34>
-              <list35>STR Down</list35>
-              <list36>TP Down</list36>
-              <list37>VIT Down</list37>
-              <listcount>38</listcount>
-              <SelectedIndexcount>0</SelectedIndexcount>
+              <SelectedIndex0>0</SelectedIndex0>
+              <SelectedIndex1>1</SelectedIndex1>
+              <SelectedIndex2>2</SelectedIndex2>
+              <SelectedIndex3>3</SelectedIndex3>
+              <SelectedIndex4>4</SelectedIndex4>
+              <SelectedIndex5>5</SelectedIndex5>
+              <SelectedIndex6>6</SelectedIndex6>
+              <SelectedIndex7>7</SelectedIndex7>
+              <SelectedIndex8>8</SelectedIndex8>
+              <SelectedIndex9>9</SelectedIndex9>
+              <SelectedIndex10>10</SelectedIndex10>
+              <SelectedIndex11>11</SelectedIndex11>
+              <SelectedIndex12>12</SelectedIndex12>
+              <SelectedIndex13>13</SelectedIndex13>
+              <SelectedIndex14>14</SelectedIndex14>
+              <SelectedIndex15>15</SelectedIndex15>
+              <SelectedIndex16>16</SelectedIndex16>
+              <SelectedIndex17>17</SelectedIndex17>
+              <SelectedIndex18>18</SelectedIndex18>
+              <SelectedIndex19>19</SelectedIndex19>
+              <SelectedIndex20>20</SelectedIndex20>
+              <SelectedIndex21>21</SelectedIndex21>
+              <SelectedIndex22>22</SelectedIndex22>
+              <SelectedIndex23>23</SelectedIndex23>
+              <SelectedIndex24>24</SelectedIndex24>
+              <SelectedIndex25>25</SelectedIndex25>
+              <SelectedIndex26>26</SelectedIndex26>
+              <SelectedIndex27>27</SelectedIndex27>
+              <SelectedIndex28>28</SelectedIndex28>
+              <SelectedIndex29>29</SelectedIndex29>
+              <SelectedIndex30>30</SelectedIndex30>
+              <SelectedIndex31>31</SelectedIndex31>
+              <SelectedIndex32>32</SelectedIndex32>
+              <SelectedIndex33>33</SelectedIndex33>
+              <SelectedIndex34>34</SelectedIndex34>
+              <SelectedIndex35>35</SelectedIndex35>
+              <SelectedIndex36>36</SelectedIndex36>
+              <SelectedIndex37>37</SelectedIndex37>
+              <SelectedIndexcount>38</SelectedIndexcount>
             </Control>
           </Control>
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox2">
@@ -568,42 +476,22 @@
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecurevValue">
               <Value>0</Value>
               <Enabled>False</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureivValue">
               <Value>0</Value>
               <Enabled>False</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiiValue">
               <Value>0</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiValue">
               <Value>0</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureValue">
-              <Value>0</Value>
+              <Value>75</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecurev">
               <Checked>False</Checked>
@@ -622,7 +510,7 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecure">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
           </Control>
@@ -636,42 +524,22 @@
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown27">
               <Value>0</Value>
               <Enabled>False</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown28">
               <Value>0</Value>
               <Enabled>False</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown29">
               <Value>0</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown32">
               <Value>0</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown33">
               <Value>0</Value>
               <Enabled>True</Enabled>
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-              <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                <Text>0</Text>
-              </Control>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="ptusecurev">
               <Checked>False</Checked>
@@ -706,26 +574,14 @@
         <Control Type="System.Windows.Forms.NumericUpDown" Name="useclmfloValue">
           <Value>0</Value>
           <Enabled>False</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>0</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="usestkfloValue">
           <Value>0</Value>
           <Enabled>False</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>0</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="useterfloValue">
           <Value>0</Value>
           <Enabled>False</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>0</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.RadioButton" Name="usestkflo">
           <Checked>False</Checked>
@@ -740,36 +596,20 @@
       <Control Type="System.Windows.Forms.NumericUpDown" Name="FlourishTPValue">
         <Value>400</Value>
         <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-        <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-          <Text>400</Text>
-        </Control>
       </Control>
       <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiigroup">
         <Enabled>True</Enabled>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="usewldfloValue">
           <Value>0</Value>
           <Enabled>False</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>0</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="usebldfloValue">
           <Value>0</Value>
           <Enabled>False</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>0</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="userevfloValue">
-          <Value>0</Value>
+          <Value>5</Value>
           <Enabled>True</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>0</Text>
-          </Control>
         </Control>
         <Control Type="System.Windows.Forms.RadioButton" Name="usewldflo">
           <Checked>False</Checked>
@@ -778,7 +618,7 @@
           <Checked>False</Checked>
         </Control>
         <Control Type="System.Windows.Forms.RadioButton" Name="userevflo">
-          <Checked>False</Checked>
+          <Checked>True</Checked>
         </Control>
       </Control>
       <Control Type="System.Windows.Forms.CheckBox" Name="FlourishTP">
@@ -787,197 +627,26 @@
       </Control>
       <Control Type="System.Windows.Forms.GroupBox" Name="flourishesigroup">
         <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown34">
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useanifloValue">
           <Value>0</Value>
           <Enabled>True</Enabled>
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-          <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-            <Text>0</Text>
-          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="useaniflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useviofloValue">
+          <Value>0</Value>
+          <Enabled>True</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usevioflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usedesfloValue">
+          <Value>0</Value>
+          <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.RadioButton" Name="usedesflo">
           <Checked>False</Checked>
-        </Control>
-      </Control>
-    </Control>
-    <Control Type="System.Windows.Forms.TabPage" Name="pets">
-      <Control Type="System.Windows.Forms.GroupBox" Name="groupBox10">
-        <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.GroupBox" Name="groupBox19">
-          <Enabled>True</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.TabControl" Name="petControl">
-          <Control Type="System.Windows.Forms.TabPage" Name="puppettab">
-            <Control Type="System.Windows.Forms.TabControl" Name="tabControl1">
-              <Control Type="System.Windows.Forms.TabPage" Name="PUPAbilitypage">
-                <Control Type="System.Windows.Forms.GroupBox" Name="Maneuversgroup">
-                  <Enabled>True</Enabled>
-                  <Control Type="System.Windows.Forms.ComboBox" Name="Maneuver3select">
-                    <Text>Fire Maneuver</Text>
-                  </Control>
-                  <Control Type="System.Windows.Forms.ComboBox" Name="Maneuver2select">
-                    <Text>Earth Maneuver</Text>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="Maneuver1set">
-                    <Value>2</Value>
-                    <Enabled>True</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>2</Text>
-                    </Control>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="Maneuver2set">
-                    <Value>3</Value>
-                    <Enabled>True</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>3</Text>
-                    </Control>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="Maneuver3set">
-                    <Value>1</Value>
-                    <Enabled>True</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>1</Text>
-                    </Control>
-                  </Control>
-                  <Control Type="System.Windows.Forms.ComboBox" Name="Maneuver1select">
-                    <Text>Dark Maneuver</Text>
-                  </Control>
-                </Control>
-                <Control Type="System.Windows.Forms.GroupBox" Name="groupBox4">
-                  <Enabled>False</Enabled>
-                  <Control Type="System.Windows.Forms.CheckBox" Name="healforAutomatonMP">
-                    <Checked>False</Checked>
-                    <Enabled>False</Enabled>
-                  </Control>
-                  <Control Type="System.Windows.Forms.CheckBox" Name="healforAutomatonHP">
-                    <Checked>False</Checked>
-                    <Enabled>False</Enabled>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="healforAutomatonMPset">
-                    <Value>0</Value>
-                    <Enabled>False</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>0</Text>
-                    </Control>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="healforAutomatonHPsaet">
-                    <Value>0</Value>
-                    <Enabled>False</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>0</Text>
-                    </Control>
-                  </Control>
-                </Control>
-                <Control Type="System.Windows.Forms.CheckBox" Name="AutoCallPUP">
-                  <Checked>False</Checked>
-                  <Enabled>True</Enabled>
-                </Control>
-                <Control Type="System.Windows.Forms.GroupBox" Name="groupBox5">
-                  <Enabled>True</Enabled>
-                  <Control Type="System.Windows.Forms.CheckedListBox" Name="PUPJA">
-                    <list0>Overdrive</list0>
-                    <list1>Deus Ex Automata</list1>
-                    <list2>Repair</list2>
-                    <list3>Role Reversal</list3>
-                    <list4>Ventriloquy</list4>
-                    <list5>Tactical Switch</list5>
-                    <list6>Cooldown</list6>
-                    <list7>Heady Artifice</list7>
-                    <listcount>8</listcount>
-                    <SelectedIndex0>2</SelectedIndex0>
-                    <SelectedIndex1>3</SelectedIndex1>
-                    <SelectedIndex2>4</SelectedIndex2>
-                    <SelectedIndex3>5</SelectedIndex3>
-                    <SelectedIndexcount>4</SelectedIndexcount>
-                  </Control>
-                </Control>
-                <Control Type="System.Windows.Forms.CheckBox" Name="PUPautoengage">
-                  <Checked>False</Checked>
-                  <Enabled>True</Enabled>
-                </Control>
-              </Control>
-              <Control Type="System.Windows.Forms.TabPage" Name="PUPOtherpage">
-                <Control Type="System.Windows.Forms.GroupBox" Name="Ventriloquygroup">
-                  <Enabled>True</Enabled>
-                  <Control Type="System.Windows.Forms.RadioButton" Name="VentriloquyPet">
-                    <Checked>False</Checked>
-                  </Control>
-                  <Control Type="System.Windows.Forms.RadioButton" Name="VentriloquyPlayer">
-                    <Checked>False</Checked>
-                  </Control>
-                </Control>
-                <Control Type="System.Windows.Forms.GroupBox" Name="Repairgroup">
-                  <Enabled>True</Enabled>
-                  <Control Type="System.Windows.Forms.ComboBox" Name="Repairselect">
-                    <Text>Automaton Oil</Text>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="Repairset">
-                    <Value>0</Value>
-                    <Enabled>True</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>0</Text>
-                    </Control>
-                  </Control>
-                </Control>
-                <Control Type="System.Windows.Forms.GroupBox" Name="TacticalSwitchgroup">
-                  <Enabled>True</Enabled>
-                  <Control Type="System.Windows.Forms.RadioButton" Name="TSPET">
-                    <Checked>False</Checked>
-                  </Control>
-                  <Control Type="System.Windows.Forms.RadioButton" Name="TSPlayer">
-                    <Checked>False</Checked>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="TSPetTPset">
-                    <Value>0</Value>
-                    <Enabled>True</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>0</Text>
-                    </Control>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="TSPlayerTPset">
-                    <Value>0</Value>
-                    <Enabled>True</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>0</Text>
-                    </Control>
-                  </Control>
-                </Control>
-                <Control Type="System.Windows.Forms.GroupBox" Name="RoleReversalgroup">
-                  <Enabled>True</Enabled>
-                  <Control Type="System.Windows.Forms.RadioButton" Name="RRPET">
-                    <Checked>False</Checked>
-                  </Control>
-                  <Control Type="System.Windows.Forms.RadioButton" Name="RRPlayer">
-                    <Checked>False</Checked>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="RRPetHPPset">
-                    <Value>0</Value>
-                    <Enabled>True</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>0</Text>
-                    </Control>
-                  </Control>
-                  <Control Type="System.Windows.Forms.NumericUpDown" Name="RRPlayerHPPset">
-                    <Value>0</Value>
-                    <Enabled>True</Enabled>
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownButtons" Name="" />
-                    <Control Type="System.Windows.Forms.UpDownBase+UpDownEdit" Name="">
-                      <Text>0</Text>
-                    </Control>
-                  </Control>
-                </Control>
-              </Control>
-            </Control>
-          </Control>
         </Control>
       </Control>
     </Control>

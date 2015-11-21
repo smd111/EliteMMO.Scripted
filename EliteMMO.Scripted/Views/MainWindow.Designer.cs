@@ -234,25 +234,25 @@
             // melyonToolStripMenuItem
             // 
             this.melyonToolStripMenuItem.Name = "melyonToolStripMenuItem";
-            this.melyonToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.melyonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.melyonToolStripMenuItem.Text = "Melyon";
             // 
             // shamiToolStripMenuItem
             // 
             this.shamiToolStripMenuItem.Name = "shamiToolStripMenuItem";
-            this.shamiToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.shamiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.shamiToolStripMenuItem.Text = "Shami";
             // 
             // sparksToolStripMenuItem
             // 
             this.sparksToolStripMenuItem.Name = "sparksToolStripMenuItem";
-            this.sparksToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.sparksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sparksToolStripMenuItem.Text = "Sparks";
             // 
             // zaldonToolStripMenuItem
             // 
             this.zaldonToolStripMenuItem.Name = "zaldonToolStripMenuItem";
-            this.zaldonToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.zaldonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.zaldonToolStripMenuItem.Text = "Zaldon";
             // 
             // optionsToolStripMenuItem
@@ -297,13 +297,13 @@
             // 
             this.fAQToolStripMenuItem.Enabled = false;
             this.fAQToolStripMenuItem.Name = "fAQToolStripMenuItem";
-            this.fAQToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.fAQToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fAQToolStripMenuItem.Text = "FAQ";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
             // 
@@ -420,7 +420,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.Text = "scripted  - (open source ßeta v0.85.5)";
+            this.Text = "scripted  - (open source ßeta v0.86.1)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.xmenu.ResumeLayout(false);
             this.xmenu.PerformLayout();

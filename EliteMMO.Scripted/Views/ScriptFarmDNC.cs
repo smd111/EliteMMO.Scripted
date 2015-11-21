@@ -23,6 +23,11 @@
             
             while (botRunning && !bgw_script_dnc.CancellationPending)
             {
+                if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID) && PlayerInfo.Status == 0 && !naviMove)
+                {
+                    useTrust();
+                    TargetInfo.SetTarget(0);
+                }
                 if (isCasting) continue;
                 if (DeathWarp.Checked && (PlayerInfo.Status == 2 || PlayerInfo.Status == 3))
                     PlayerDead();
@@ -168,12 +173,12 @@
                     #region Check Use Food
                     if (usefood.Checked)
                     {
-                        var foodname = textBox8.Text;
+                        var name = foodName.Text;
 
-                        if (!PlayerInfo.HasBuff(251) && foodname != "" &&
-                            ItemQuantityByName(foodname) > 0)
+                        if (!PlayerInfo.HasBuff(251) && name != "" &&
+                            ItemQuantityByName(name) > 0)
                         {
-                            api.ThirdParty.SendString("/item \"" + foodname + "\" <me>");
+                            api.ThirdParty.SendString("/item \"" + name + "\" <me>");
                             Thread.Sleep(TimeSpan.FromSeconds(10.0));
                         }
                     }
@@ -404,6 +409,7 @@
                 if (naviMove && usenav.Checked && selectedNavi.Text != "" && PlayerInfo.Status == 0 &&
                    (!PlayerInfo.HasBuff(10) || !PlayerInfo.HasBuff(11) || !PlayerInfo.HasBuff(0)))
                 {
+                    if (checkZone.Checked && startzone != api.Player.ZoneId) ToolStopClick(null, null);
                     if (Circular.Checked)
                     {
                         var closestWayPoint = FindClosestWayPoint();
@@ -675,6 +681,26 @@
             else if (curItem == "Repair") Repairgroup.Enabled = state;
             else if (curItem == "Ventriloquy") Ventriloquygroup.Enabled = state;
         }
+
+        private void Trusts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var trustcount = 0;
+            if (PlayerInfo.HasKeyItem(2156)) trustcount = 5;
+            else if (PlayerInfo.HasKeyItem(2153)) trustcount = 4;
+            else if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051)) trustcount = 3;
+
+            selectedtrusts.Text = "Selected Trusts : "+ Trusts.CheckedIndices.Count;
+
+            Thread.Sleep(TimeSpan.FromSeconds(0.1));
+
+            if (Trusts.CheckedIndices.Count == trustcount) Trusts.Enabled = false;
+        }
         #endregion
+
+        private void verifyfood_Click(object sender, EventArgs e)
+        {
+            var itc = ItemQuantityByName(foodName.Text);
+            MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
+        }
     }
 }

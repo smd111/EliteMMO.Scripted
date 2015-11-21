@@ -193,6 +193,7 @@ namespace FormSerialisation
                                 ((TextBox)ctrlToSet).Text = n["Text"].InnerText;
                                 break;
                             case "System.Windows.Forms.ComboBox":
+                                ((ComboBox)ctrlToSet).Text = "";
                                 ((ComboBox)ctrlToSet).SelectedText = n["Text"].InnerText;
                                 //((System.Windows.Forms.ComboBox)ctrlToSet).SelectedIndex = Convert.ToInt32(n["SelectedIndex"].InnerText);
                                 break;
