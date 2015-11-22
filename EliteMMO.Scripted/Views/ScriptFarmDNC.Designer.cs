@@ -284,10 +284,10 @@
             this.AspirIIItext = new System.Windows.Forms.Label();
             this.AspirItext = new System.Windows.Forms.Label();
             this.AspirIItext = new System.Windows.Forms.Label();
-            this.AspirIcount = new System.Windows.Forms.NumericUpDown();
+            this.Aspircount = new System.Windows.Forms.NumericUpDown();
             this.Draingroup = new System.Windows.Forms.GroupBox();
             this.DrainIItext = new System.Windows.Forms.Label();
-            this.DrainIcount = new System.Windows.Forms.NumericUpDown();
+            this.Draincount = new System.Windows.Forms.NumericUpDown();
             this.DrainItext = new System.Windows.Forms.Label();
             this.DrainIIItext = new System.Windows.Forms.Label();
             this.DrainIIIcount = new System.Windows.Forms.NumericUpDown();
@@ -637,9 +637,9 @@
             this.Aspirgroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AspirIIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AspirIIcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AspirIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Aspircount)).BeginInit();
             this.Draingroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DrainIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Draincount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DrainIIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DrainIIcount)).BeginInit();
             this.BLUCurespage.SuspendLayout();
@@ -860,7 +860,7 @@
             this.selectedNavi.Name = "selectedNavi";
             this.selectedNavi.Size = new System.Drawing.Size(238, 21);
             this.selectedNavi.TabIndex = 29;
-            this.selectedNavi.SelectedIndexChanged += new System.EventHandler(this.SelectedNaviSelectedIndexChanged);
+            this.selectedNavi.TextChanged += new System.EventHandler(this.SelectedNaviSelectedIndexChanged);
             // 
             // GetSetNavi
             // 
@@ -3006,7 +3006,7 @@
             this.Aspirgroup.Controls.Add(this.AspirIIItext);
             this.Aspirgroup.Controls.Add(this.AspirItext);
             this.Aspirgroup.Controls.Add(this.AspirIItext);
-            this.Aspirgroup.Controls.Add(this.AspirIcount);
+            this.Aspirgroup.Controls.Add(this.Aspircount);
             this.Aspirgroup.Location = new System.Drawing.Point(154, 7);
             this.Aspirgroup.Name = "Aspirgroup";
             this.Aspirgroup.Size = new System.Drawing.Size(139, 138);
@@ -3057,18 +3057,18 @@
             this.AspirIItext.TabIndex = 58;
             this.AspirIItext.Text = "II  %";
             // 
-            // AspirIcount
+            // Aspircount
             // 
-            this.AspirIcount.Enabled = false;
-            this.AspirIcount.Location = new System.Drawing.Point(78, 19);
-            this.AspirIcount.Name = "AspirIcount";
-            this.AspirIcount.Size = new System.Drawing.Size(41, 20);
-            this.AspirIcount.TabIndex = 61;
+            this.Aspircount.Enabled = false;
+            this.Aspircount.Location = new System.Drawing.Point(78, 19);
+            this.Aspircount.Name = "Aspircount";
+            this.Aspircount.Size = new System.Drawing.Size(41, 20);
+            this.Aspircount.TabIndex = 61;
             // 
             // Draingroup
             // 
             this.Draingroup.Controls.Add(this.DrainIItext);
-            this.Draingroup.Controls.Add(this.DrainIcount);
+            this.Draingroup.Controls.Add(this.Draincount);
             this.Draingroup.Controls.Add(this.DrainItext);
             this.Draingroup.Controls.Add(this.DrainIIItext);
             this.Draingroup.Controls.Add(this.DrainIIIcount);
@@ -3089,13 +3089,13 @@
             this.DrainIItext.TabIndex = 55;
             this.DrainIItext.Text = "II  %";
             // 
-            // DrainIcount
+            // Draincount
             // 
-            this.DrainIcount.Enabled = false;
-            this.DrainIcount.Location = new System.Drawing.Point(69, 19);
-            this.DrainIcount.Name = "DrainIcount";
-            this.DrainIcount.Size = new System.Drawing.Size(41, 20);
-            this.DrainIcount.TabIndex = 53;
+            this.Draincount.Enabled = false;
+            this.Draincount.Location = new System.Drawing.Point(69, 19);
+            this.Draincount.Name = "Draincount";
+            this.Draincount.Size = new System.Drawing.Size(41, 20);
+            this.Draincount.TabIndex = 53;
             // 
             // DrainItext
             // 
@@ -3570,7 +3570,7 @@
             // 
             // pullCommand
             // 
-            this.pullCommand.Location = new System.Drawing.Point(110, 17);
+            this.pullCommand.Location = new System.Drawing.Point(110, 19);
             this.pullCommand.Name = "pullCommand";
             this.pullCommand.Size = new System.Drawing.Size(132, 20);
             this.pullCommand.TabIndex = 7;
@@ -6253,6 +6253,7 @@
             // 
             // Trusts
             // 
+            this.Trusts.CheckOnClick = true;
             this.Trusts.FormattingEnabled = true;
             this.Trusts.Location = new System.Drawing.Point(13, 19);
             this.Trusts.Name = "Trusts";
@@ -6549,10 +6550,10 @@
             this.Aspirgroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AspirIIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AspirIIcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AspirIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Aspircount)).EndInit();
             this.Draingroup.ResumeLayout(false);
             this.Draingroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DrainIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Draincount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DrainIIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DrainIIcount)).EndInit();
             this.BLUCurespage.ResumeLayout(false);
@@ -7055,10 +7056,10 @@
         private Label AspirIIItext;
         private Label AspirItext;
         private Label AspirIItext;
-        private NumericUpDown AspirIcount;
+        private NumericUpDown Aspircount;
         private GroupBox Draingroup;
         private Label DrainIItext;
-        private NumericUpDown DrainIcount;
+        private NumericUpDown Draincount;
         private Label DrainItext;
         private Label DrainIIItext;
         private NumericUpDown DrainIIIcount;
@@ -7284,7 +7285,7 @@
         private void useTrust()
         {
             var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
-            if (PartyInfo.Count == 6 || trust.Count == 0) return;
+            if (PartyInfo.Count("Party") <= 6 && trust.Count == 0) return;
             foreach (string T in trust)
             {
                 var trustname = T;
@@ -7617,6 +7618,8 @@
         #region config: save/load (player)
         private void button1_Click(object sender, EventArgs e)
         {
+            bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\settings");
+            if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\settings");
             Dictionary<int, string> savename = new Dictionary<int, string>()
             {{1, "Warrior"},{2, "Monk"},{3, "White_Mage"},{4, "Black_Mage"},{5, "Red_Mage"},{6, "Thief"},{7, "Paladin"},{8, "Dark_Knight"},{9, "Beastmaster"},
              {10, "Bard"},{11, "Ranger"},{12, "Samurai"},{13, "Ninja"},{14, "Dragoon"},{15, "Summoner"},{16, "Blue_Mage"},{17, "Corsair"},{18, "Puppetmaster"},
@@ -7692,7 +7695,7 @@
 
         public void CheckPlayerAssist()
         {
-            if (!assist.Checked || string.IsNullOrEmpty(assistplayer.Text))
+            if (!assist.Checked || assistplayer.Text == "")
                 return;
 
             var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
@@ -8270,10 +8273,10 @@
                     else if (magic.Name == "Cura II" && CuraIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
                     else if (magic.Name == "Cura III" && CuraIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
                     else if (magic.Name == "Full Cure" && FullCurecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Drain" && DrainIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Drain" && Draincount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
                     else if (magic.Name == "Drain II" && DrainIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
                     else if (magic.Name == "Drain III" && DrainIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Aspir" && AspirIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    else if (magic.Name == "Aspir" && Aspircount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
                     else if (magic.Name == "Aspir II" && AspirIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
                     else if (magic.Name == "Aspir III" && AspirIIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
                     else if (magic.Name == "Pollen" && Pollencount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
@@ -9209,7 +9212,7 @@
             {
                 if (PlayerInfo.Status == 0 || !botRunning || TargetInfo.ID == 0) break;
                 var ability = api.Resources.GetAbility(P);
-                if (PlayerInfo.HasAbility(ability.ID) && Recast.GetAbilityRecast(102) != 0 && !PlayerInfo.HasBuff(16))
+                if (PlayerInfo.HasAbility(ability.ID) && Recast.GetAbilityRecast(102) == 0 && !PlayerInfo.HasBuff(16))
                 {
                     api.ThirdParty.SendString("/pet \""+ability.Name+"\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -9687,6 +9690,8 @@
         {
             var dats = new Dictionary<string, string>();
 
+            bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\mob lists");
+            if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\mob lists");
             var openFile = new OpenFileDialog();
             openFile.Filter = @"mob files (*.xml)|*.xml";
             openFile.InitialDirectory = Application.StartupPath + @"\mob lists";
@@ -10514,7 +10519,7 @@
             if (!botRunning || !followplayer.Checked || followName.Text == "")
                 return;
 
-            var followID = TargetInfo.GetTargetIdByName(followName.Text);
+            var followID = TargetInfo.GetTargetIdByName(followName.Text); //
             if (followID == -1)
                 return;
 
@@ -10907,7 +10912,7 @@
                     var ID = api.Entity.GetEntity(x);
 
                     if (ID.Name != null && ID.Name.ToLower().Equals(name.ToLower()))
-                        return (int) ID.TargetID;
+                        return (int) ID.TargetingIndex;
                 }
                 return -1;
             }
@@ -10968,13 +10973,38 @@
         #region class: PartyInfo
         public static class PartyInfo
         {
-            public static int Count => api.Party.GetPartyMembers().Count;
+            public static int Count(string typ)
+            {
+                var pc = 0;
+                for (var x = 0; x < 17; x++)
+                {
+                    var member = api.Party.GetPartyMember(x);
+                    if (member.Active == 1)// pc++;
+                    {
+                        if (typ == "") pc++;
+                        else if (typ == "Party")
+                        {
+                            if (member.MemberNumber <= 5) pc++;
+                        }
+                        else if (typ == "Allience 1")
+                        {
+                            if (member.MemberNumber > 5 && member.MemberNumber <= 11) pc++;
+                        }
+                        else if(typ == "Allience 2")
+                        {
+                            if (member.MemberNumber > 11 && member.MemberNumber <= 17) pc++;
+                        }
+                        else if (typ == "All") pc++;
+                    }
+                }
+                return pc;
+            }
             public static bool ContainsName(string name)
             {
                 for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
                 {
                     var member = api.Party.GetPartyMember(x);
-                    if (member.Name == name) return true;
+                    if (member.Name == name && member.Active == 1) return true;
                 }
                 return false;
             }

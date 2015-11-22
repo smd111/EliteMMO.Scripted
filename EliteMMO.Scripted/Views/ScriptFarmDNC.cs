@@ -7,6 +7,7 @@
     using API;
     using Embedded;
     using System.IO;
+    using System.Collections.Generic;
 
     public partial class ScriptFarmDNC : UserControl
     {
@@ -23,7 +24,8 @@
             
             while (botRunning && !bgw_script_dnc.CancellationPending)
             {
-                if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID) && PlayerInfo.Status == 0 && !naviMove)
+                //TargetInfo.SetTarget(0);
+                if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.TargetID) && PlayerInfo.Status == 0 && !naviMove)
                 {
                     useTrust();
                     TargetInfo.SetTarget(0);
@@ -567,7 +569,10 @@
             string curItem = playerMA.SelectedItem.ToString();
             int index = playerMA.FindString(curItem);
             bool state = (playerMA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
-            if (curItem == "Cure") Curecount.Enabled = state;
+            curItem = curItem.Replace(" ", "");
+            Control c = Controls.Find(curItem + "count", true).Single();
+            c.Enabled = state;
+            /*if (curItem == "Cure") Curecount.Enabled = state;
             else if (curItem == "Cure II") CureIIcount.Enabled = state;
             else if (curItem == "Cure III") CureIIIcount.Enabled = state;
             else if (curItem == "Cure IV") CureIVcount.Enabled = state;
@@ -577,10 +582,10 @@
             else if (curItem == "Cura II") CuraIIcount.Enabled = state;
             else if (curItem == "Cura III") CuraIIIcount.Enabled = state;
             else if (curItem == "Full Cure") FullCurecount.Enabled = state;
-            else if (curItem == "Drain") DrainIcount.Enabled = state;
+            else if (curItem == "Drain") Draincount.Enabled = state;
             else if (curItem == "Drain II") DrainIIcount.Enabled = state;
             else if (curItem == "Drain III") DrainIIIcount.Enabled = state;
-            else if (curItem == "Aspir") AspirIcount.Enabled = state;
+            else if (curItem == "Aspir") Aspircount.Enabled = state;
             else if (curItem == "Aspir II") AspirIIcount.Enabled = state;
             else if (curItem == "Aspir III") AspirIIIcount.Enabled = state;
             else if (curItem == "Pollen") Pollencount.Enabled = state;
@@ -590,11 +595,20 @@
             else if (curItem == "White Wind") WhiteWindcount.Enabled = state;
             else if (curItem == "Restoral") Restoralcount.Enabled = state;
             else if (curItem == "Exuviation") Exuviationcount.Enabled = state;
-            else if (curItem == "Wild Carrot") WildCarrotcount.Enabled = state;
+            else if (curItem == "Wild Carrot") WildCarrotcount.Enabled = state;*/
         }
 
         private void SMNSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Dictionary<string, dynamic> smnsetup = new Dictionary<string, dynamic>()
+            {
+                {"Carbuncle", new {TEXT1Enabled=true,TEXT2Enabled=true,SMNHPPset1=true,SMNHPPset2=true,SMNpetTPUSEtext=true,
+                    SMNpetTPUSEset=true,TEXT2Text="Healing Ruby II HPP%",TEXT1Text="Healing Ruby HPP%"}},
+                {"Leviathan", new {TEXT1Enabled=true,TEXT2Enabled=false,SMNHPPset1=true,SMNHPPset2=false,SMNpetTPUSEtext=true,
+                    SMNpetTPUSEset=true,TEXT2Text="(Not Needed)",TEXT1Text="Spring Water HPP%"}},
+                {"Garuda", new {TEXT1Enabled=true,TEXT2Enabled=false,SMNHPPset1=true,SMNHPPset2=false,SMNpetTPUSEtext=true,
+                    SMNpetTPUSEset=true,TEXT2Text="(Not Needed)",TEXT1Text="Whispering Wind HPP%"}},
+            };
             if (!isLoading) SMNGetJA();
             if (SMNSelect.SelectedItem.ToString().Contains("Spirit"))
             {
@@ -607,38 +621,16 @@
                 SMNpetTPUSEtext.Enabled = false;
                 SMNpetTPUSEset.Enabled = false;
             }
-            else if ((string)SMNSelect.SelectedItem == "Carbuncle")
+            else if (smnsetup.ContainsKey((string)SMNSelect.SelectedItem))
             {
-                SMNHealTEXT1.Enabled = true;
-                SMNHealTEXT1.Text = "Healing Ruby HPP%";
-                SMNHealTEXT2.Enabled = true;
-                SMNHealTEXT2.Text = "Healing Ruby II HPP%";
-                SMNHPPset1.Enabled = true;
-                SMNHPPset2.Enabled = true;
-                SMNpetTPUSEtext.Enabled = true;
-                SMNpetTPUSEset.Enabled = true;
-            }
-            else if ((string)SMNSelect.SelectedItem == "Leviathan")
-            {
-                SMNHealTEXT1.Enabled = true;
-                SMNHealTEXT1.Text = "Spring Water HPP%";
-                SMNHealTEXT2.Enabled = false;
-                SMNHealTEXT2.Text = "(Not Needed)";
-                SMNHPPset1.Enabled = true;
-                SMNHPPset2.Enabled = false;
-                SMNpetTPUSEtext.Enabled = true;
-                SMNpetTPUSEset.Enabled = true;
-            }
-            else if ((string)SMNSelect.SelectedItem == "Garuda")
-            {
-                SMNHealTEXT1.Enabled = true;
-                SMNHealTEXT1.Text = "Whispering Wind HPP%";
-                SMNHealTEXT2.Enabled = false;
-                SMNHealTEXT2.Text = "(Not Needed)";
-                SMNHPPset1.Enabled = true;
-                SMNHPPset2.Enabled = false;
-                SMNpetTPUSEtext.Enabled = true;
-                SMNpetTPUSEset.Enabled = true;
+                SMNHealTEXT1.Enabled = smnsetup[(string)SMNSelect.SelectedItem].TEXT1Enabled;
+                SMNHealTEXT1.Text = smnsetup[(string)SMNSelect.SelectedItem].TEXT1Text;
+                SMNHealTEXT2.Enabled = smnsetup[(string)SMNSelect.SelectedItem].TEXT2Enabled;
+                SMNHealTEXT2.Text = smnsetup[(string)SMNSelect.SelectedItem].TEXT2Text;
+                SMNHPPset1.Enabled = smnsetup[(string)SMNSelect.SelectedItem].TEXT2Enabled;
+                SMNHPPset2.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNHPPset2;
+                SMNpetTPUSEtext.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNpetTPUSEtext;
+                SMNpetTPUSEset.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNpetTPUSEset;
             }
             else
             {
@@ -676,10 +668,13 @@
             string curItem = PUPJA.SelectedItem.ToString();
             int index = PUPJA.FindString(curItem);
             bool state = (PUPJA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
-            if (curItem == "Role Reversal") RoleReversalgroup.Enabled = state;
+            curItem = curItem.Replace(" ", "");
+            Control c = Controls.Find(curItem+"group", true).Single();
+            c.Enabled = state;
+            /*if (curItem == "Role Reversal") RoleReversalgroup.Enabled = state;
             else if (curItem == "Tactical Switch") TacticalSwitchgroup.Enabled = state;
             else if (curItem == "Repair") Repairgroup.Enabled = state;
-            else if (curItem == "Ventriloquy") Ventriloquygroup.Enabled = state;
+            else if (curItem == "Ventriloquy") Ventriloquygroup.Enabled = state;*/
         }
 
         private void Trusts_SelectedIndexChanged(object sender, EventArgs e)
@@ -689,11 +684,11 @@
             else if (PlayerInfo.HasKeyItem(2153)) trustcount = 4;
             else if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051)) trustcount = 3;
 
-            selectedtrusts.Text = "Selected Trusts : "+ Trusts.CheckedIndices.Count;
 
-            Thread.Sleep(TimeSpan.FromSeconds(0.1));
+            //Thread.Sleep(TimeSpan.FromSeconds(0.1));
+            selectedtrusts.Text = "Selected Trusts : " + Trusts.CheckedItems.Count;
 
-            if (Trusts.CheckedIndices.Count == trustcount) Trusts.Enabled = false;
+            if (Trusts.CheckedItems.Count == trustcount) Trusts.Enabled = false;
         }
         #endregion
 

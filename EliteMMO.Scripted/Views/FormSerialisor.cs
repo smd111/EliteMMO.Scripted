@@ -173,10 +173,14 @@ namespace FormSerialisation
                                     if (!ltr.Items.Contains(n["list" + i.ToString()].InnerText))
                                         ltr.Items.Add(n["list"+i.ToString()].InnerText);
                                 } */
-                                ltr.SelectedIndices.Clear();
-                                for (int i = 0; i < Icount; i++)
+                                foreach (int i in ltr.CheckedIndices)
                                 {
-                                    ltr.SetItemChecked(Convert.ToInt16(n["SelectedIndex" + i.ToString()].InnerText), true);
+                                    ltr.SetItemCheckState(i, CheckState.Unchecked);
+                                }
+                                for (int i = 0; i < (Icount); i++)
+                                {
+                                    ltr.SetItemCheckState(Convert.ToInt16(n["SelectedIndex" + i.ToString()].InnerText), CheckState.Checked);
+                                    ltr.SetSelected(Convert.ToInt16(n["SelectedIndex" + i.ToString()].InnerText), true);
                                 }
                                 break;
                             case "System.Windows.Forms.RadioButton":
