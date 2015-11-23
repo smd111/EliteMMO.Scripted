@@ -5,6 +5,9 @@
     using System.Linq;
     using System.Drawing;
     using API;
+    using System.IO;
+    using System.Net;
+
     public partial class MainWindow : Form
     {
         public MainWindow(EliteAPI core)
@@ -41,7 +44,23 @@
             x2 = new ScriptHealing(api);
             x3 = new ScriptNaviMap(api);
             x4 = new ScriptOnEventTool(api);
+            var apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
+            var mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
+            var appexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Scripted.exe").FileVersion;
+            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != apidll) linkLabel1.Visible = true;
+            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v") != mmodll) linkLabel2.Visible = true;
+            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != appexe) linkLabel3.Visible = true;
         }
+        private string GetStringFromUrl(string location)
+        {
+            System.Net.WebRequest request = WebRequest.Create(location);
+            WebResponse response = request.GetResponse();
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string responseFromServer = reader.ReadToEnd();
+            return responseFromServer;
+        }
+
 
         private void RefreshCharactersToolStripMenuItemClick(object sender, System.EventArgs e)
         {
@@ -197,9 +216,19 @@
             Size = new Size(482, 488);
         }
 
-        private void label3_Click(object sender, System.EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            System.Diagnostics.Process.Start("http://ext.elitemmonetwork.com/downloads/eliteapi/");
+        }
 
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://ext.elitemmonetwork.com/downloads/elitemmo_api/");
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.elitemmonetwork.com/forums/viewtopic.php?f=38&t=309");
         }
     }
 }

@@ -7703,7 +7703,7 @@
             if (PlayerInfo.Status == 0)
             {
                 var member = members.SingleOrDefault(m => m.Name == assistplayer.Text);
-                var assisted = api.Entity.GetEntity((int)member.ID);
+                var assisted = api.Entity.GetEntity((int)member.Index);
 
                 if (assisted.Status == 1 && assisted.Distance <= (float)assistDist.Value)
                 {
