@@ -22,14 +22,14 @@
       <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
-      <Checked>True</Checked>
-      <Enabled>False</Enabled>
+      <Checked>False</Checked>
+      <Enabled>True</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
-      <Checked>True</Checked>
+      <Checked>False</Checked>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
-      <Checked>False</Checked>
+      <Checked>True</Checked>
     </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
       <Text>juno dyna.xin</Text>

@@ -33,6 +33,7 @@
         public bool isCasting = false;
         public bool isLoading = false;
         public int startzone;
+        public string vtz = "morn";
 
         public float SetEntityX = 0;
         public float SetEntityY = 0;
@@ -7187,8 +7188,8 @@
             if (PetInfo.Name != null)
                 pInfo();
 
-            LoadJA_Click(null, null);
-            LoadMA_Click(null, null);
+            //LoadJA_Click(null, null);
+            //LoadMA_Click(null, null);
 
             //PopulateItems();
             //MessageBox.Show(ItemQuantityByName("Blind Bolt").ToString());
@@ -7335,20 +7336,21 @@
             {898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true}};
             #endregion
 
+            //api.ThirdParty.SendString("//console_echo start get ja");
             for (uint i = 528; i <= 2227; i++)
             {
-                if (PlayerInfo.HasAbility(i))
-                {
-                    var ability = api.Resources.GetAbility(i);
+                var ability = api.Resources.GetAbility(i);
 
-                    if (i >= 1024 && PlayerInfo.MainJob != 23) continue;
-                    else if (i >= 1024 && PlayerInfo.MainJob == 23)
+                if (ability.ID >= 1046 && PlayerInfo.MainJob != 23) break;
+                else if (!abilitylist.ContainsKey(ability.ID) || ability.Name == "") continue;
+                else if (PlayerInfo.HasAbility((uint)ability.ID))
+                {
+                    if (ability.ID >= 1046 && PlayerInfo.MainJob == 23)
                     {
                         playerJA.Items.Add(ability.Name);
                         continue;
                     }
-                    else if (!abilitylist.ContainsKey(ability.ID)) continue;
-                    else if (i == 735)
+                    else if (ability.ID == 735)
                     {
                         var job = 0;
                         if (PlayerInfo.MainJob == 20) job = PlayerInfo.MainJobLevel;
@@ -7370,7 +7372,7 @@
                         if (!playerJA.Items.Contains("Equanimity") && job >= 75) playerJA.Items.Add("Equanimity");
                         if (!playerJA.Items.Contains("Immanence") && job >= 87) playerJA.Items.Add("Immanence");
                     }
-                    else if (i == 670)
+                    else if (ability.ID == 670)
                     {
                         var job = 0;
                         if (PlayerInfo.MainJob == 7) job = PlayerInfo.MainJobLevel;
@@ -7393,9 +7395,6 @@
         private void ClearJA_Click(object sender, EventArgs e)
         {
             playerJA.Items.Clear();
-            PetReady.Items.Clear();
-            PetJA.Items.Clear();
-            WyvernJA.Items.Clear();
 
             label20.Text = "Pets Name:";
             label21.Text = @"Pet ID:";
@@ -7602,15 +7601,15 @@
                 (PlayerInfo.MainJob == 22 && PlayerInfo.MainJobLevel >= 45) || (PlayerInfo.SubJob == 22 && PlayerInfo.SubJobLevel >= 45))
                 selectedHateControl.Items.Add("Flash");
             #endregion
-            if (!isLoading)
-            {
-                ClearJA_Click(null, null);
+            //if (!isLoading)
+            //{
+              //  ClearJA_Click(null, null);
                 LoadJA_Click(null, null);
-                ClearMA_Click(null, null);
+              //  ClearMA_Click(null, null);
                 LoadMA_Click(null, null);
                 trustMenureset_Click(null, null);
                 //PopulateItems();
-            }
+            //}
         }
 
         #endregion
@@ -10874,6 +10873,12 @@
             public static float Z => api.Entity.GetLocalPlayer().Z;
             public static float H => api.Entity.GetLocalPlayer().H;
             public static bool HasKeyItem(uint id) => api.Player.HasKeyItem(id);
+            public static bool DynaZone()
+            {
+                List<int> DynaZones = new List<int>(new int[] {39,40,41,42,134,135,185,186,187,188});
+                if (DynaZones.Contains(api.Player.ZoneId)) return true;
+                else return false;
+            }
         }
         #endregion
         #region class: TargetInfo

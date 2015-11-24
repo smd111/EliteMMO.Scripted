@@ -24,6 +24,10 @@
             
             while (botRunning && !bgw_script_dnc.CancellationPending)
             {
+                uint vanahour = api.VanaTime.CurrentHour;
+                if (vanahour >= 0 && vanahour < 8) vtz = "morn";
+                else if (vanahour >= 8 && vanahour < 16) vtz = "noon";
+                else if (vanahour >= 16 && vanahour < 24) vtz = "night";
                 //TargetInfo.SetTarget(0);
                 if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.TargetID) && PlayerInfo.Status == 0 && !naviMove)
                 {
@@ -569,10 +573,7 @@
             string curItem = playerMA.SelectedItem.ToString();
             int index = playerMA.FindString(curItem);
             bool state = (playerMA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
-            curItem = curItem.Replace(" ", "");
-            Control c = Controls.Find(curItem + "count", true).Single();
-            c.Enabled = state;
-            /*if (curItem == "Cure") Curecount.Enabled = state;
+            if (curItem == "Cure") Curecount.Enabled = state;
             else if (curItem == "Cure II") CureIIcount.Enabled = state;
             else if (curItem == "Cure III") CureIIIcount.Enabled = state;
             else if (curItem == "Cure IV") CureIVcount.Enabled = state;
@@ -595,7 +596,7 @@
             else if (curItem == "White Wind") WhiteWindcount.Enabled = state;
             else if (curItem == "Restoral") Restoralcount.Enabled = state;
             else if (curItem == "Exuviation") Exuviationcount.Enabled = state;
-            else if (curItem == "Wild Carrot") WildCarrotcount.Enabled = state;*/
+            else if (curItem == "Wild Carrot") WildCarrotcount.Enabled = state;
         }
 
         private void SMNSelect_SelectedIndexChanged(object sender, EventArgs e)
@@ -668,13 +669,10 @@
             string curItem = PUPJA.SelectedItem.ToString();
             int index = PUPJA.FindString(curItem);
             bool state = (PUPJA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
-            curItem = curItem.Replace(" ", "");
-            Control c = Controls.Find(curItem+"group", true).Single();
-            c.Enabled = state;
-            /*if (curItem == "Role Reversal") RoleReversalgroup.Enabled = state;
+            if (curItem == "Role Reversal") RoleReversalgroup.Enabled = state;
             else if (curItem == "Tactical Switch") TacticalSwitchgroup.Enabled = state;
             else if (curItem == "Repair") Repairgroup.Enabled = state;
-            else if (curItem == "Ventriloquy") Ventriloquygroup.Enabled = state;*/
+            else if (curItem == "Ventriloquy") Ventriloquygroup.Enabled = state;
         }
 
         private void Trusts_SelectedIndexChanged(object sender, EventArgs e)
@@ -695,7 +693,8 @@
         private void verifyfood_Click(object sender, EventArgs e)
         {
             var itc = ItemQuantityByName(foodName.Text);
-            MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
+            //MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
+            api.ThirdParty.SendString(String.Format("/echo {0} {1}", vtz, PlayerInfo.MainJob));
         }
     }
 }

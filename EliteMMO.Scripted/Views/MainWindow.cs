@@ -44,12 +44,28 @@
             x2 = new ScriptHealing(api);
             x3 = new ScriptNaviMap(api);
             x4 = new ScriptOnEventTool(api);
-            var apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
-            var mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
-            var appexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Scripted.exe").FileVersion;
-            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != apidll) linkLabel1.Visible = true;
-            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v") != mmodll) linkLabel2.Visible = true;
-            if (GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt").Replace("\n", "") != appexe) linkLabel3.Visible = true;
+
+            string apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
+            string mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
+            string appexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Scripted.exe").FileVersion;
+            string message = "";
+            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != apidll)
+            {
+                linkLabel1.Visible = true;
+                message = message + "\nEliteAPI.dll";
+            }
+            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v") != mmodll)
+            {
+                linkLabel2.Visible = true;
+                message = message + "\nEliteMMO.API.dll";
+            }
+            if (GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt").Replace("\n", "") != appexe)
+            {
+                linkLabel3.Visible = true;
+                message = message + "\nScripted";
+            }
+            if (message != "")
+                MessageBox.Show("Updates Available:" + message);
         }
         private string GetStringFromUrl(string location)
         {
@@ -114,6 +130,7 @@
             header3.Hide();
             header4.Hide();
             header5.Hide();
+            label2.Hide();
             label1.Hide();
             //button1.Hide();
             EliteMMO_PROC.Hide();
@@ -141,6 +158,7 @@
             header3.Hide();
             header4.Hide();
             header5.Hide();
+            label2.Hide();
             label1.Hide();
             //button1.Hide();
             EliteMMO_PROC.Hide();
@@ -166,6 +184,7 @@
             header3.Show();
             header4.Show();
             header5.Show();
+            label2.Show();
             label1.Show();
             //button1.Show();
             EliteMMO_PROC.Show();
@@ -200,6 +219,7 @@
             header3.Hide();
             header4.Hide();
             header5.Hide();
+            label2.Hide();
             label1.Hide();
             //button1.Hide();
             EliteMMO_PROC.Hide();
@@ -230,5 +250,7 @@
         {
             System.Diagnostics.Process.Start("http://www.elitemmonetwork.com/forums/viewtopic.php?f=38&t=309");
         }
+
+        
     }
 }

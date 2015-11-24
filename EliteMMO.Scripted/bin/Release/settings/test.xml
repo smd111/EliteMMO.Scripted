@@ -13,7 +13,7 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.GroupBox" Name="groupBox8">
-    <Enabled>False</Enabled>
+    <Enabled>True</Enabled>
     <Control Type="System.Windows.Forms.ComboBox" Name="comboBox3">
       <Text />
     </Control>
@@ -23,7 +23,7 @@
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
       <Checked>False</Checked>
-      <Enabled>False</Enabled>
+      <Enabled>True</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
       <Checked>False</Checked>
@@ -32,11 +32,11 @@
       <Checked>True</Checked>
     </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text />
+      <Text>looptest.xin</Text>
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
-    <Checked>False</Checked>
+    <Checked>True</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.TabControl" Name="dncControl">
@@ -596,12 +596,7 @@
     </Control>
     <Control Type="System.Windows.Forms.TabPage" Name="trustControl">
       <Control Type="System.Windows.Forms.CheckedListBox" Name="Trusts">
-        <SelectedIndex0>0</SelectedIndex0>
-        <SelectedIndex1>1</SelectedIndex1>
-        <SelectedIndex2>2</SelectedIndex2>
-        <SelectedIndex3>5</SelectedIndex3>
-        <SelectedIndex4>6</SelectedIndex4>
-        <SelectedIndexcount>5</SelectedIndexcount>
+        <SelectedIndexcount>0</SelectedIndexcount>
       </Control>
     </Control>
   </Control>
