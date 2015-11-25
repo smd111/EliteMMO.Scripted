@@ -250,7 +250,5 @@
         {
             System.Diagnostics.Process.Start("http://www.elitemmonetwork.com/forums/viewtopic.php?f=38&t=309");
         }
-
-        
     }
 }

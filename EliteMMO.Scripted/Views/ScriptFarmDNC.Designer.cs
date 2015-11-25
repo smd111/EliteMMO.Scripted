@@ -7341,11 +7341,11 @@
             {
                 var ability = api.Resources.GetAbility(i);
 
-                if (ability.ID >= 1046 && PlayerInfo.MainJob != 23) break;
+                if (ability.ID >= 1023 && PlayerInfo.MainJob != 23) break;
                 else if (!abilitylist.ContainsKey(ability.ID) || ability.Name == "") continue;
                 else if (PlayerInfo.HasAbility((uint)ability.ID))
                 {
-                    if (ability.ID >= 1046 && PlayerInfo.MainJob == 23)
+                    if (ability.ID >= 1023 && PlayerInfo.MainJob == 23)
                     {
                         playerJA.Items.Add(ability.Name);
                         continue;

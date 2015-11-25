@@ -693,8 +693,7 @@
         private void verifyfood_Click(object sender, EventArgs e)
         {
             var itc = ItemQuantityByName(foodName.Text);
-            //MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
-            api.ThirdParty.SendString(String.Format("/echo {0} {1}", vtz, PlayerInfo.MainJob));
+            MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
         }
     }
 }
