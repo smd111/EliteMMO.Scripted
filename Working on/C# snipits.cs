@@ -4,6 +4,8 @@ api.Player.HasKeyItem(id);
 var ability = api.Resources.GetAbility(i)
 var magic = api.Resources.GetSpell();
 List<string> Targets = new List<string>(new string[] {"test","test2"});
+Dictionary<string, bool> mobs = new Dictionary<string, bool> { {"Aa Nawu the Thunderblade", true},{"Aa Xalmo the Savage", true},}
+(<rule>? true : false);
 
 if (magic.ValidTargets == 157) Targets.Add("Corpse");
 else
