@@ -7,6 +7,7 @@
     using API;
     using System.IO;
     using System.Net;
+    using System;
 
     public partial class MainWindow : Form
     {
@@ -46,26 +47,23 @@
             x4 = new ScriptOnEventTool(api);
 
             string apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
+            string apidllnew = GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v");
             string mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
+            string mmodllnew = GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v");
             string appexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Scripted.exe").FileVersion;
+            string appexenew = GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt").Replace("\n", "");
             string message = "";
-            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != apidll)
+            if (apidll.CompareTo(apidllnew) > 0) message = message + "\nEliteAPI.dll";
+            if (mmodll.CompareTo(mmodllnew) > 0) message = message + "\nEliteMMO.API.dll";
+            if (appexe.CompareTo(appexenew) > 0) message = message + "\nScripted";
+            DialogResult result;
+            if (message != "") result = MessageBox.Show("Update Files:" + message, "Update Files", MessageBoxButtons.YesNo);
+            else result = DialogResult.No;
+            if (result == DialogResult.Yes)
             {
-                linkLabel1.Visible = true;
-                message = message + "\nEliteAPI.dll";
+                Process.Start(Application.StartupPath + @"\Updater.exe");
+                Environment.Exit(0);
             }
-            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v") != mmodll)
-            {
-                linkLabel2.Visible = true;
-                message = message + "\nEliteMMO.API.dll";
-            }
-            if (GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt").Replace("\n", "") != appexe)
-            {
-                linkLabel3.Visible = true;
-                message = message + "\nScripted";
-            }
-            if (message != "")
-                MessageBox.Show("Updates Available:" + message);
         }
         private string GetStringFromUrl(string location)
         {
@@ -130,7 +128,6 @@
             header3.Hide();
             header4.Hide();
             header5.Hide();
-            label2.Hide();
             label1.Hide();
             //button1.Hide();
             EliteMMO_PROC.Hide();
@@ -158,7 +155,6 @@
             header3.Hide();
             header4.Hide();
             header5.Hide();
-            label2.Hide();
             label1.Hide();
             //button1.Hide();
             EliteMMO_PROC.Hide();
@@ -184,7 +180,6 @@
             header3.Show();
             header4.Show();
             header5.Show();
-            label2.Show();
             label1.Show();
             //button1.Show();
             EliteMMO_PROC.Show();
@@ -219,7 +214,6 @@
             header3.Hide();
             header4.Hide();
             header5.Hide();
-            label2.Hide();
             label1.Hide();
             //button1.Hide();
             EliteMMO_PROC.Hide();
@@ -234,21 +228,6 @@
             x4.Dock = DockStyle.Fill;
             Controls.Add(x4);
             Size = new Size(482, 488);
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://ext.elitemmonetwork.com/downloads/eliteapi/");
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://ext.elitemmonetwork.com/downloads/elitemmo_api/");
-        }
-
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://www.elitemmonetwork.com/forums/viewtopic.php?f=38&t=309");
         }
     }
 }

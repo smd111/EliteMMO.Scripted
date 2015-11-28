@@ -24,16 +24,7 @@
             
             while (botRunning && !bgw_script_dnc.CancellationPending)
             {
-                uint vanahour = api.VanaTime.CurrentHour;
-                if (vanahour >= 0 && vanahour < 8) vtz = "morn";
-                else if (vanahour >= 8 && vanahour < 16) vtz = "noon";
-                else if (vanahour >= 16 && vanahour < 24) vtz = "night";
                 //TargetInfo.SetTarget(0);
-                if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.TargetID) && PlayerInfo.Status == 0 && !naviMove)
-                {
-                    useTrust();
-                    TargetInfo.SetTarget(0);
-                }
                 if (isCasting) continue;
                 if (DeathWarp.Checked && (PlayerInfo.Status == 2 || PlayerInfo.Status == 3))
                     PlayerDead();
@@ -238,8 +229,8 @@
                     if (aggro.Checked && PlayerInfo.Status == 0) DetectAggro();
 
                     if (PlayerInfo.Status == 0 && ((HealHP.Checked && PlayerInfo.HPP <= healHPcount.Value) ||
-                        (HealMP.Checked && PlayerInfo.MPP <= healMPcount.Value) /*||
-                        (healforAutomatonHP.Checked && PetInfo.HPP <= healforAutomatonHPset.Value) ||
+                        (HealMP.Checked && PlayerInfo.MPP <= healMPcount.Value) ||
+                        (healforAutomatonHP.Checked && PetInfo.HPP <= healforAutomatonHPset.Value) /*||
                         (healforAutomatonMP.Checked && PetInfo.MPP <= healforAutomatonMPset.Value)*/))
                     {
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -259,6 +250,11 @@
                     if (PlayerInfo.Status == 0 && !isPulled) FindTarget();
                 }
 
+                if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.TargetID) && PlayerInfo.Status == 0 && !naviMove)
+                {
+                    useTrust();
+                    TargetInfo.SetTarget(0);
+                }
 
                 if (usenav.Checked && !naviMove && PlayerInfo.Status == 0)
                 {
@@ -271,15 +267,15 @@
                 while (PlayerInfo.Status == 33)
                 {
                     Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                    /*if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
+                    if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
                     {
-                        if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 && PetInfo.MPP == 100)
+                        if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 /*&& PetInfo.MPP == 100*/)
                         {
                             api.ThirdParty.SendString("/heal off");
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         }
                     }
-                    else */if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100)
+                    else if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100)
                     {
                         api.ThirdParty.SendString("/heal off");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -538,7 +534,7 @@
                 {
                     if (!string.IsNullOrEmpty(line?.Text) && 
                     line.Text.Contains(String.Format("{0}'s attack staggers the fiend!", PlayerInfo.Name))) MonStagered = true;
-                    //else if (!string.IsNullOrEmpty(line?.Text) && line.Text.Contains("")) MonStagered = false;
+                    else if (!string.IsNullOrEmpty(line?.Text) && line.Text.Contains("Auto-targeting the ")) MonStagered = false;
                 }
                 else MonStagered = false;
             }

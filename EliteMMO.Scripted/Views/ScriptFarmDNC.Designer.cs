@@ -33,7 +33,6 @@
         public bool isCasting = false;
         public bool isLoading = false;
         public int startzone;
-        public string vtz = "morn";
 
         public float SetEntityX = 0;
         public float SetEntityY = 0;
@@ -5837,7 +5836,6 @@
             this.groupBox4.Controls.Add(this.healforAutomatonHP);
             this.groupBox4.Controls.Add(this.healforAutomatonMPset);
             this.groupBox4.Controls.Add(this.healforAutomatonHPset);
-            this.groupBox4.Enabled = false;
             this.groupBox4.Location = new System.Drawing.Point(259, 16);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(127, 70);
@@ -5848,6 +5846,7 @@
             // healforAutomatonMP
             // 
             this.healforAutomatonMP.AutoSize = true;
+            this.healforAutomatonMP.Enabled = false;
             this.healforAutomatonMP.Location = new System.Drawing.Point(9, 43);
             this.healforAutomatonMP.Name = "healforAutomatonMP";
             this.healforAutomatonMP.Size = new System.Drawing.Size(64, 17);
@@ -5867,6 +5866,7 @@
             // 
             // healforAutomatonMPset
             // 
+            this.healforAutomatonMPset.Enabled = false;
             this.healforAutomatonMPset.Location = new System.Drawing.Point(77, 42);
             this.healforAutomatonMPset.Name = "healforAutomatonMPset";
             this.healforAutomatonMPset.Size = new System.Drawing.Size(38, 20);
@@ -7335,7 +7335,7 @@
             {884, true},{885, true},{886, true},{887, true},{888, true},{889, true},{890, true},{891, true},{892, true},{893, true},{894, true},{895, true},{896, true},
             {898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true}};
             #endregion
-
+            var Recastids = api.Recast.GetAbilityIds();
             //api.ThirdParty.SendString("//console_echo start get ja");
             for (uint i = 528; i <= 2227; i++)
             {
@@ -7343,7 +7343,7 @@
 
                 if (ability.ID >= 1023 && PlayerInfo.MainJob != 23) break;
                 else if (!abilitylist.ContainsKey(ability.ID) || ability.Name == "") continue;
-                else if (PlayerInfo.HasAbility((uint)ability.ID))
+                else if (Recastids.Contains((int)ability.TimerID) && PlayerInfo.HasAbility((uint)ability.ID))
                 {
                     if (ability.ID >= 1023 && PlayerInfo.MainJob == 23)
                     {
@@ -7939,9 +7939,10 @@
         private void Steps()
         {
             if (!usequickstep.Checked && !useboxstep.Checked && !usestutterstep.Checked && !usefeatherstep.Checked &&
-               (!botRunning || NoSteps.Checked || PlayerInfo.Status == 0 || Recast.GetAbilityRecast(220) != 0 || PlayerInfo.HasBuff(588) || PlayerInfo.HasBuff(16)))
+               (!botRunning || NoSteps.Checked || PlayerInfo.Status == 0 || Recast.GetAbilityRecast(220) != 0 || PlayerInfo.HasBuff(588)
+               || PlayerInfo.HasBuff(16)))
                 return;
-
+            if (PlayerInfo.TP < 100) return;
             if (StepsHP.Checked && PlayerInfo.HPP < StepsHPValue.Value)
                 return;
 
@@ -8133,6 +8134,7 @@
                 }
                 if (useAbility)
                 {
+                    //if (targ == "<t>" && PlayerInfo.DynaZone() && !PlayerInfo.DynaStrike("JA")) continue;
                     var JAType = "/ja";
                     if (ability.ID >= 1024) JAType = "/ms";
                     api.ThirdParty.SendString(String.Format("{0} \"{1}\" {2}", JAType, ability.Name, targ));
@@ -8320,6 +8322,7 @@
                 }
                 if (castSpell)
                 {
+                    //if (targ == "<t>" && PlayerInfo.DynaZone() && !PlayerInfo.DynaStrike("MA")) continue;
                     api.ThirdParty.SendString(String.Format("/ma \"{0}\" {1}", magic.Name, targ));
                     Casting();
                 }
@@ -8715,9 +8718,9 @@
         #region WS: WeaponSkill (use)
         private void PlayerWS()
         {
-            if (!botRunning || PlayerInfo.Status == 0 || TargetInfo.ID == 0)
-                return;
-
+            if (!botRunning || PlayerInfo.Status == 0 || TargetInfo.ID == 0) return;
+            //if (PlayerInfo.DynaZone() && !PlayerInfo.DynaStrike("WS")) return;
+            
             var wsname = comboBox2.Text;
 
             if (wsam.Checked && amname.Text != "")
@@ -10846,7 +10849,6 @@
 
         #endregion
         #region Methods: EliteMMO
-
         #region class: PlayerInfo
         public static class PlayerInfo
         {
@@ -10879,6 +10881,112 @@
                 if (DynaZones.Contains(api.Player.ZoneId)) return true;
                 else return false;
             }
+            //public static bool DynaStrike(string a)
+            //{
+            //    string vtz = "morn";
+            //    uint vanahour = api.VanaTime.CurrentHour;
+            //    if (vanahour >= 0 && vanahour < 8) vtz = "morn";
+            //    else if (vanahour >= 8 && vanahour < 16) vtz = "noon";
+            //    else if (vanahour >= 16 && vanahour < 24) vtz = "night";
+            //    #region dynamobproc
+            //    Dictionary<string, dynamic> dynamobproc = new Dictionary<string, dynamic>()
+            //    {{"Nightmare Gaylas", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Kraken", new {morn="JA",noon="WS",night="MA"}},
+            //     {"Nightmare Roc", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Diremite", new {morn="WS",noon="MA",night="JA"}},
+            //     {"Nightmare Raptor", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Tiger", new {morn="WS",noon="MA",night="JA"}},
+            //     {"Nightmare Snoll", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Stirge", new {morn="MA",noon="JA",night="WS"}},
+            //     {"Nightmare Weapon", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Crawler", new {morn="JA",noon="WS",night="MA"}},
+            //     {"Nightmare Raven", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Uragnite", new {morn="JA",noon="WS",night="MA"}},
+            //     {"Nightmare Crab", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Dhalmel", new {morn="WS",noon="MA",night="JA"}},
+            //     {"Nightmare Scorpion", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Bunny", new {morn="MA",noon="JA",night="WS"}},
+            //     {"Nightmare Eft", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Mandragora", new {morn="MA",noon="JA",night="WS"}},
+            //     {"Nightmare Fly", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Flytrap", new {morn="JA",noon="WS",night="MA"}},
+            //     {"Nightmare Funguar", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Goobbue", new {morn="WS",noon="MA",night="JA"}},
+            //     {"Nightmare Manticore", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Treant", new {morn="WS",noon="MA",night="JA"}},
+            //     {"Nightmare Hippogryph", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Sabotender", new {morn="MA",noon="JA",night="WS"}},
+            //     {"Nightmare Sheep", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Bugard", new {morn="JA",noon="WS",night="MA"}},
+            //     {"Nightmare Hornet", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Leech", new {morn="WS",noon="MA",night="JA"}},
+            //     {"Nightmare Worm", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Cluster", new {morn="MA",noon="JA",night="WS"}},
+            //     {"Nightmare Makara", new {morn="MA",noon="JA",night="WS"}},{"Hydra Bard", new {any="MA"}},{"Hydra Red Mage", new {any="MA"}},
+            //     {"Hydra Black Mage", new {any="MA"}},{"Hydra White Mage", new {any="MA"}},{"Hydra Summoner", new {any="MA"}},
+            //     {"Hydra Monk", new {any="JA"}},{"Hydra Beastmaster", new {any="JA"}},{"Hydra Thief", new {any="JA"}},
+            //     {"Hydra Ranger", new {any="JA"}},{"Hydra Warrior", new {any="WS"}},{"Hydra Dark Knight", new {any="WS"}},
+            //     {"Hydra Samurai", new {any="WS"}},{"Hydra Paladin", new {any="WS"}},{"Hydra Dragoon", new {any="WS"}},
+            //     {"Vanguard Alchemist", new {any="MA"}},{"Vanguard Maestro", new {any="MA"}},{"Vanguard Necromancer", new {any="MA"}},
+            //     {"Vanguard Shaman", new {any="MA"}},{"Vanguard Enchanter", new {any="MA"}},{"Vanguard Hitman", new {any="JA"}},
+            //     {"Vanguard Pitfighter", new {any="JA"}},{"Vanguard Pathfinder", new {any="JA"}},{"Vanguard Welldigger", new {any="JA"}},
+            //     {"Vanguard Ambusher", new {any="JA"}},{"Vanguard Smithy", new {any="WS"}},{"Vanguard Ronin", new {any="WS"}},
+            //     {"Vanguard Dragontamer", new {any="WS"}},{"Vanguard Tinkerer", new {any="WS"}},{"Vanguard Armorer", new {any="WS"}},
+            //     {"Vanguard Constable", new {any="MA"}},{"Vanguard Minstrel", new {any="MA"}},{"Vanguard Undertaker", new {any="MA"}},
+            //     {"Vanguard Thaumaturge", new {any="MA"}},{"Vanguard Protector", new {any="MA"}},{"Vanguard Kusa", new {any="JA"}},
+            //     {"Vanguard Militant", new {any="JA"}},{"Vanguard Beasttender", new {any="JA"}},{"Vanguard Purloiner", new {any="JA"}},
+            //     {"Vanguard Mason", new {any="JA"}},{"Vanguard Vindicator", new {any="WS"}},{"Vanguard Hatamoto", new {any="WS"}},
+            //     {"Vanguard Drakekeeper", new {any="WS"}},{"Vanguard Vigilante", new {any="WS"}},{"Vanguard Defender", new {any="WS"}},
+            //     {"Vanguard Amputator", new {any="MA"}},{"Vanguard Bugler", new {any="MA"}},{"Vanguard Dollmaster", new {any="MA"}},
+            //     {"Vanguard Mesmerizer", new {any="MA"}},{"Vanguard Vexer", new {any="MA"}},{"Vanguard Pillager", new {any="JA"}},
+            //     {"Vanguard Hawker", new {any="JA"}},{"Vanguard Grappler", new {any="JA"}},{"Vanguard Backstabber", new {any="JA"}},
+            //     {"Vanguard Predator", new {any="JA"}},{"Vanguard Trooper", new {any="WS"}},{"Vanguard Footsoldier", new {any="WS"}},
+            //     {"Vanguard Gutslasher", new {any="WS"}},{"Vanguard Impaler", new {any="WS"}},{"Vanguard Neckchopper", new {any="WS"}},
+            //     {"Vanguard Priest", new {any="MA"}},{"Vanguard Chanter", new {any="MA"}},{"Vanguard Oracle", new {any="MA"}},
+            //     {"Vanguard Prelate", new {any="MA"}},{"Vanguard Visionary", new {any="MA"}},{"Vanguard Assassin", new {any="JA"}},
+            //     {"Vanguard Sentinel", new {any="JA"}},{"Vanguard Ogresoother", new {any="JA"}},{"Vanguard Liberator", new {any="JA"}},
+            //     {"Vanguard Salvager", new {any="JA"}},{"Vanguard Skirmisher", new {any="WS"}},{"Vanguard Persecutor", new {any="WS"}},
+            //     {"Vanguard Partisan", new {any="WS"}},{"Vanguard Inciter", new {any="WS"}},{"Vanguard Exemplar", new {any="WS"}},
+            //     {"Shamblix Rottenheart", new {any="WS"}},{"Elvaansticker Bxafraff", new {any="WS"}},{"Qu'Pho Bloodspiller", new {any="WS"}},
+            //     {"Te'Zha Ironclad", new {any="WS"}},{"Koo Rahi the Levinblade", new {any="WS"}},{"Barong", new {any="WS"}},
+            //     {"Alklha", new {any="WS"}},{"Stihi", new {any="WS"}},{"Woodnix Shrillwhistle", new {any="JA"}},{"Count Raum", new {any="JA"}},
+            //     {"Hamfist Gukhbuk", new {any="JA"}},{"Lyncean Juwgneg", new {any="JA"}},{"Va'Rhu Bodysnatcher", new {any="JA"}},
+            //     {"Doo Peku the Fleetfoot", new {any="JA"}},{"Gosspix Blabblerlips", new {any="MA"}},{"Flamecaller Zoeqdoq", new {any="MA"}},
+            //     {"Gi'Bhe Fleshfeaster", new {any="MA"}},{"Ree Nata the Melomanic", new {any="MA"}},{"Count Vine", new {any="WS"}},
+            //     {"Baa Dava the Bibliophage", new {any="MA"}},{"Aitvaras", new {any="MA"}},{"Stringes", new {any="WS"}},
+            //     {"Suttung", new {any="WS"}},{"Antaeus", new {any="WS"}},{"Scolopendra", new {any="JA"}},{"Fairy Ring", new {any="WS"}},
+            //     {"Stcemqestcint", new {any="WS"}},{"Nant'ina", new {any="JA"}},{"Cirrate Christelle", new {any="JA"}},
+            //     {"Count Zaebos", new {any="WS"}},{"Duke Scox", new {any="WS"}},{"King Zagan", new {any="WS"}},
+            //     {"Marquis Sabnak", new {any="WS"}},{"Duke Gomory", new {any="JA"}},{"Marquis Andras", new {any="JA"}},
+            //     {"Marquis Cimeries", new {any="JA"}},{"Marquis Gamygyn", new {any="JA"}},{"Duke Berith", new {any="MA"}},
+            //     {"Marquis Decarabia", new {any="MA"}},{"Marquis Nebiros", new {any="MA"}},{"Marquis Orias", new {any="MA"}},
+            //     {"Prince Seere", new {any="MA"}},{"Drakefeast Wubmfub", new {any="WS"}},{"Draklix Scalecrust", new {any="WS"}},
+            //     {"Elvaanlopper Grokdok", new {any="WS"}},{"Foo Peku the Bloodcloak", new {any="WS"}},{"Go'Tyo Magenapper", new {any="WS"}},
+            //     {"Gu'Nha Wallstormer", new {any="WS"}},{"Guu Waji the Preacher", new {any="WS"}},{"Heavymail Djidzbad", new {any="WS"}},
+            //     {"Humegutter Adzjbadj", new {any="WS"}},{"Ji'Khu Towercleaver", new {any="WS"}},{"Knii Hoqo the Bisector", new {any="WS"}},
+            //     {"Maa Zaua the Wyrmkeeper", new {any="WS"}},{"Moltenox Stubthumbs", new {any="WS"}},{"Mu'Gha Legionkiller", new {any="WS"}},
+            //     {"Nee Huxa the Judgmental", new {any="WS"}},{"Ruffbix Jumbolobes", new {any="WS"}},{"Shisox Widebrow", new {any="WS"}},
+            //     {"Skinmask Ugghfogg", new {any="WS"}},{"Ta'Hyu Gallanthunter", new {any="WS"}},{"Tocktix Thinlids", new {any="WS"}},
+            //     {"Bordox Kittyback", new {any="JA"}},{"Cobraclaw Buchzvotch", new {any="JA"}},{"Droprix Granitepalms", new {any="JA"}},
+            //     {"Galkarider Retzpratz", new {any="JA"}},{"Gu'Khu Dukesniper", new {any="JA"}},{"Hee Mida the Meticulous", new {any="JA"}},
+            //     {"Jeunoraider Gepkzip", new {any="JA"}},{"Ji'Fhu Infiltrator", new {any="JA"}},{"Kuu Xuka the Nimble", new {any="JA"}},
+            //     {"Lockbuster Zapdjipp", new {any="JA"}},{"Mi'Rhe Whisperblade", new {any="JA"}},{"Mithraslaver Debhabob", new {any="JA"}},
+            //     {"Routsix Rubbertendon", new {any="JA"}},{"Ryy Qihi the Idolrobber", new {any="JA"}},{"Slinkix Trufflesniff", new {any="JA"}},
+            //     {"So'Gho Adderhandler", new {any="JA"}},{"So'Zho Metalbender", new {any="JA"}},{"Soo Jopo the Fiendking", new {any="JA"}},
+            //     {"Swypestix Tigershins", new {any="JA"}},{"Xaa Chau the Roctalon", new {any="JA"}},{"Ascetox Ratgums", new {any="MA"}},
+            //     {"Be'Zhe Keeprazer", new {any="MA"}},{"Bhuu Wjato the Firepool", new {any="MA"}},{"Brewnix Bittypupils", new {any="MA"}},
+            //     {"Caa Xaza the Madpiercer", new {any="MA"}},{"De'Bho Pyrohand", new {any="MA"}},{"Deathcaller Bidfbid", new {any="MA"}},
+            //     {"Ga'Fho Venomtouch", new {any="MA"}},{"Gibberox Pimplebeak", new {any="MA"}},{"Koo Saxu the Everfast", new {any="MA"}},
+            //     {"Morblox Chubbychin", new {any="MA"}},{"Na'Hya Floodmaker", new {any="MA"}},{"Nu'Bhi Spiraleye", new {any="MA"}},
+            //     {"Puu Timu the Phantasmal", new {any="MA"}},{"Spinalsucker Galflmall", new {any="MA"}},{"Taruroaster Biggsjig", new {any="MA"}},
+            //     {"Ultrasonic Zeknajak", new {any="MA"}},{"Whistrix Toadthroat", new {any="MA"}},{"Wraithdancer Gidbnod", new {any="MA"}},
+            //     {"Xhoo Fuza the Sublime", new {any="MA"}},{"Buffrix Eargone", new {any="WS"}},{"Cloktix Longnail", new {any="WS"}},
+            //     {"Karashix Swollenskull", new {any="WS"}},{"Scruffix Shaggychest", new {any="WS"}},{"Smeltix Thickhide", new {any="WS"}},
+            //     {"Sparkspox Sweatbrow", new {any="WS"}},{"Ticktox Beadyeyes", new {any="WS"}},{"Tufflix Loglimbs", new {any="WS"}},
+            //     {"Tymexox Ninefingers", new {any="WS"}},{"Wasabix Callusdigit", new {any="WS"}},{"Wyrmwix Snakespecs", new {any="WS"}},
+            //     {"Anvilix Sootwrists", new {any="WS"}},{"Bandrix Rockjaw", new {any="JA"}},{"Blazox Boneybod", new {any="JA"}},
+            //     {"Bootrix Jaggedelbow", new {any="JA"}},{"Jabkix Pigeonpecs", new {any="JA"}},{"Kikklix Longlegs", new {any="JA"}},
+            //     {"Lurklox Dhalmelneck", new {any="JA"}},{"Mobpix Mucousmouth", new {any="JA"}},{"Prowlox Barrelbelly", new {any="JA"}},
+            //     {"Rutrix Hamgams", new {any="JA"}},{"Slystix Megapeepers", new {any="JA"}},{"Snypestix Eaglebeak", new {any="JA"}},
+            //     {"Trailblix Goatmug", new {any="JA"}},{"Distilix Stickytoes", new {any="MA"}},{"Elixmix Hooknose", new {any="MA"}},
+            //     {"Eremix Snottynostril", new {any="MA"}},{"Gabblox Magpietongue", new {any="MA"}},{"Hermitrix Toothrot", new {any="MA"}},
+            //     {"Humnox Drumbelly", new {any="MA"}},{"Jabbrox Grannyguise", new {any="MA"}},{"Morgmox Moldnoggin", new {any="MA"}},
+            //     {"Mortilox Wartpaws", new {any="MA"}},{"Ze'Vho Fallsplitter", new {any="WS"}},{"Ko'Dho Cannonball", new {any="JA"}},
+            //     {"Gi'Pha Manameister", new {any="MA"}},{"Gu'Nhi Noondozer", new {any="MA"}},{"Reapertongue Gadgquok", new {any="MA"}},
+            //     {"Voidstreaker Butchnotch", new {any="JA"}},{"Wyrmgnasher Bjakdek", new {any="WS"}},{"Xoo Kaza the Solemn", new {any="MA"}},
+            //     {"Haa Pevi the Stentorian", new {any="MA"}},{"Loo Hepe the Eyepiercer", new {any="MA"}},{"Wuu Qoho the Razorclaw", new {any="JA"}},
+            //     {"Nightmare Taurus", new {any="ALL"}},};
+            //    #endregion
+                
+            //    var typ = dynamobproc?[TargetInfo.Name];
+            //    if (typ.ToString().ToString().Contains("any =") && (typ.any != a || typ.any != "ALL")) return false;
+            //    else if (typ.ToString().ToString().Contains(vtz+" =") && typ[vtz] != a) return false;
+            //    else return true;
+            //}
         }
         #endregion
         #region class: TargetInfo
@@ -10974,7 +11082,6 @@
             public static void KeyDown(API.Keys key) => api.ThirdParty.KeyDown(key);
         }
         #endregion
-
         #region class: PartyInfo
         public static class PartyInfo
         {
@@ -11060,13 +11167,12 @@
             }
 
             public static int HPP => api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).HealthPercent;
+            //public static int MPP => api.Player.Pet.mp;
             public static int TPP => (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).PetTP;
             public static int Status => (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).Status;
         }
         #endregion
-
         #region class: Inventory
-
         public static int ItemQuantityByName(string name)
         {
             var count = api.Inventory.GetContainerCount(0);

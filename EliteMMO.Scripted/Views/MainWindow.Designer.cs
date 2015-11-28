@@ -79,10 +79,6 @@
             this.header5 = new System.Windows.Forms.Label();
             this.header3 = new System.Windows.Forms.Label();
             this.header4 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.label2 = new System.Windows.Forms.Label();
             this.xmenu.SuspendLayout();
             this.xstatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xpic)).BeginInit();
@@ -407,60 +403,11 @@
             this.header4.TabIndex = 20;
             this.header4.Text = "SMD111";
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(162, 105);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(57, 13);
-            this.linkLabel1.TabIndex = 21;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "EliteAPI.dll";
-            this.linkLabel1.Visible = false;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(162, 118);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(86, 13);
-            this.linkLabel2.TabIndex = 22;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "EliteMMO.API.dll";
-            this.linkLabel2.Visible = false;
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(162, 131);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(46, 13);
-            this.linkLabel3.TabIndex = 23;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Scripted";
-            this.linkLabel3.Visible = false;
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(162, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Available updates";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(366, 209);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.linkLabel3);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.header5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EliteMMO_PROC);
@@ -475,7 +422,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.Text = String.Format("Scripted - (open source ßeta v{0}", ProductVersion);
+            this.Text = $"Scripted - (open source ßeta v{Application.ProductVersion}";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.xmenu.ResumeLayout(false);
             this.xmenu.PerformLayout();
@@ -527,9 +474,5 @@
         public Label header5;
         public Label header3;
         public Label header4;
-        private LinkLabel linkLabel1;
-        private LinkLabel linkLabel2;
-        private LinkLabel linkLabel3;
-        private Label label2;
     }
 }
