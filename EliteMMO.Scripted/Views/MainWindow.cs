@@ -47,15 +47,13 @@
             x4 = new ScriptOnEventTool(api);
 
             string apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
-            string apidllnew = GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v");
             string mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
-            string mmodllnew = GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v");
             string appexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Scripted.exe").FileVersion;
-            string appexenew = GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt").Replace("\n", "");
             string message = "";
-            if (apidll.CompareTo(apidllnew) > 0) message = message + "\nEliteAPI.dll";
-            if (mmodll.CompareTo(mmodllnew) > 0) message = message + "\nEliteMMO.API.dll";
-            if (appexe.CompareTo(appexenew) > 0) message = message + "\nScripted";
+            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != apidll) message = message + "\nEliteAPI.dll";
+            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v") != mmodll) message = message + "\nEliteMMO.API.dll";
+            if (GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt").Replace("\n", "") != appexe) message = message + "\nScripted";
+
             DialogResult result;
             if (message != "") result = MessageBox.Show("Update Files:" + message, "Update Files", MessageBoxButtons.YesNo);
             else result = DialogResult.No;
