@@ -230,8 +230,8 @@
 
                     if (PlayerInfo.Status == 0 && ((HealHP.Checked && PlayerInfo.HPP <= healHPcount.Value) ||
                         (HealMP.Checked && PlayerInfo.MPP <= healMPcount.Value) ||
-                        (healforAutomatonHP.Checked && PetInfo.HPP <= healforAutomatonHPset.Value) /*||
-                        (healforAutomatonMP.Checked && PetInfo.MPP <= healforAutomatonMPset.Value)*/))
+                        (healforAutomatonHP.Checked && PetInfo.HPP <= healforAutomatonHPset.Value) ||
+                        (healforAutomatonMP.Checked && PetInfo.MPP <= healforAutomatonMPset.Value)))
                     {
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         if ((PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15) && PetInfo.ID > 0)
@@ -269,7 +269,7 @@
                     Thread.Sleep(TimeSpan.FromSeconds(0.1));
                     if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
                     {
-                        if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 /*&& PetInfo.MPP == 100*/)
+                        if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 && PetInfo.MPP == 100)
                         {
                             api.ThirdParty.SendString("/heal off");
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));

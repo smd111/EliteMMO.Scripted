@@ -5846,7 +5846,6 @@
             // healforAutomatonMP
             // 
             this.healforAutomatonMP.AutoSize = true;
-            this.healforAutomatonMP.Enabled = false;
             this.healforAutomatonMP.Location = new System.Drawing.Point(9, 43);
             this.healforAutomatonMP.Name = "healforAutomatonMP";
             this.healforAutomatonMP.Size = new System.Drawing.Size(64, 17);
@@ -5866,7 +5865,6 @@
             // 
             // healforAutomatonMPset
             // 
-            this.healforAutomatonMPset.Enabled = false;
             this.healforAutomatonMPset.Location = new System.Drawing.Point(77, 42);
             this.healforAutomatonMPset.Name = "healforAutomatonMPset";
             this.healforAutomatonMPset.Size = new System.Drawing.Size(38, 20);
@@ -11167,7 +11165,7 @@
             }
 
             public static int HPP => api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).HealthPercent;
-            //public static int MPP => api.Player.Pet.mp;
+            public static int MPP => api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).ManaPercent;
             public static int TPP => (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).PetTP;
             public static int Status => (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).Status;
         }

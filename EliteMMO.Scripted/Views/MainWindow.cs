@@ -15,7 +15,7 @@
         {
             InitializeComponent();
             api = core;
-
+            Text = $"Scripted - (open source ßeta v{Application.ProductVersion})";
             #region Final Fantasy XI [POL]
             var data = Process.GetProcessesByName("pol");
 
