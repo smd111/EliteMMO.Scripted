@@ -10979,10 +10979,10 @@
             //     {"Haa Pevi the Stentorian", new {any="MA"}},{"Loo Hepe the Eyepiercer", new {any="MA"}},{"Wuu Qoho the Razorclaw", new {any="JA"}},
             //     {"Nightmare Taurus", new {any="ALL"}},};
             //    #endregion
-                
+
             //    var typ = dynamobproc?[TargetInfo.Name];
             //    if (typ.ToString().ToString().Contains("any =") && (typ.any != a || typ.any != "ALL")) return false;
-            //    else if (typ.ToString().ToString().Contains(vtz+" =") && typ[vtz] != a) return false;
+            //    else if (typ.ToString().ToString().Contains(vtz + " =") && typ[vtz] != a) return false;
             //    else return true;
             //}
         }

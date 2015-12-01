@@ -59,6 +59,13 @@
             else result = DialogResult.No;
             if (result == DialogResult.Yes)
             {
+                string updateexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Updater.exe").FileVersion;
+                if (GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/Scriptedupdater/UpdaterVer.txt").Replace("\n", "") != updateexe)
+                {
+                    WebClient Client = new WebClient();
+                    Client.DownloadFile("http://github.com/smd111/EliteMMO.Scripted/blob/master/Scriptedupdater/bin/Release/Updater.exe?raw=true", Application.StartupPath + @"\Updater.exe");
+                    Client.Dispose();
+                }
                 Process.Start(Application.StartupPath + @"\Updater.exe");
                 Environment.Exit(0);
             }
