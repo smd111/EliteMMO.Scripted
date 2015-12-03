@@ -7444,13 +7444,18 @@
             for (uint mm = 1; mm <= 895; mm++)
             {
                 var spellm = api.Resources.GetSpell(mm);
+                var spelllvl = spellm.RequiredLevel[PlayerInfo.MainJob];
                 if (spellm == null || skipSpellList.ContainsKey(mm)) continue;
-                else if (PlayerInfo.HasSpell(mm) &&
-                    PlayerInfo.MainJobLevel >= spellm?.RequiredLevel?[PlayerInfo.MainJob] &&
-                    spellm?.RequiredLevel?[PlayerInfo.MainJob] != -1 &&
-                    !playerMA.Items.Contains(spellm.Name))
+                else if (PlayerInfo.HasSpell(mm))
                 {
-                    playerMA.Items.Add(spellm.Name);
+                    if (mm < 848 && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name))
+                    {
+                        playerMA.Items.Add(spellm.Name);
+                    }
+                    else if (PlayerInfo.MainJobLevel == 99 && PlayerInfo.UsedJobPoints >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name))
+                    {
+                        playerMA.Items.Add(spellm.Name);
+                    }
                 }
             }
             #endregion
@@ -7461,8 +7466,8 @@
                 if (spells == null) { }
                 else if (skipSpellList.ContainsKey(sm)) { }
                 else if (PlayerInfo.HasSpell(sm) &&
-                        PlayerInfo.SubJobLevel >= spells?.RequiredLevel?[PlayerInfo.SubJob] &&
-                        spells?.RequiredLevel?[PlayerInfo.SubJob] != -1 &&
+                        PlayerInfo.SubJobLevel >= spells.RequiredLevel[PlayerInfo.SubJob] &&
+                        spells.RequiredLevel[PlayerInfo.SubJob] != -1 &&
                         !playerMA.Items.Contains(spells.Name))
                 {
                     playerMA.Items.Add(spells.Name);
@@ -10873,6 +10878,7 @@
             public static float Z => api.Entity.GetLocalPlayer().Z;
             public static float H => api.Entity.GetLocalPlayer().H;
             public static bool HasKeyItem(uint id) => api.Player.HasKeyItem(id);
+            public static int UsedJobPoints => api.Player.GetJobPoints(MainJob).SpentJobPoints;
             public static bool DynaZone()
             {
                 List<int> DynaZones = new List<int>(new int[] {39,40,41,42,134,135,185,186,187,188});
