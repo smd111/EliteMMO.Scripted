@@ -249,6 +249,9 @@
             this.Dynamispage = new System.Windows.Forms.TabPage();
             this.Dynatxt = new System.Windows.Forms.Label();
             this.staggerstopJA = new System.Windows.Forms.CheckBox();
+            this.samPage = new System.Windows.Forms.TabPage();
+            this.label58 = new System.Windows.Forms.Label();
+            this.sekkanokiWs = new System.Windows.Forms.ComboBox();
             this.OptionsMAMainTab = new System.Windows.Forms.TabPage();
             this.MAtabs = new System.Windows.Forms.TabControl();
             this.MASelectPage = new System.Windows.Forms.TabPage();
@@ -618,6 +621,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).BeginInit();
             this.Dynamispage.SuspendLayout();
+            this.samPage.SuspendLayout();
             this.OptionsMAMainTab.SuspendLayout();
             this.MAtabs.SuspendLayout();
             this.MASelectPage.SuspendLayout();
@@ -2380,6 +2384,7 @@
             this.JAtabselect.Controls.Add(this.selectPage);
             this.JAtabselect.Controls.Add(this.WHMpage);
             this.JAtabselect.Controls.Add(this.RDMpage);
+            this.JAtabselect.Controls.Add(this.samPage);
             this.JAtabselect.Controls.Add(this.SCHpage);
             this.JAtabselect.Controls.Add(this.RUNpage);
             this.JAtabselect.Controls.Add(this.MONpage);
@@ -2714,6 +2719,251 @@
             this.staggerstopJA.TabIndex = 1;
             this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
             this.staggerstopJA.UseVisualStyleBackColor = true;
+            // 
+            // samPage
+            // 
+            this.samPage.Controls.Add(this.label58);
+            this.samPage.Controls.Add(this.sekkanokiWs);
+            this.samPage.Location = new System.Drawing.Point(4, 22);
+            this.samPage.Name = "samPage";
+            this.samPage.Padding = new System.Windows.Forms.Padding(3);
+            this.samPage.Size = new System.Drawing.Size(312, 160);
+            this.samPage.TabIndex = 7;
+            this.samPage.Text = "SAM";
+            this.samPage.UseVisualStyleBackColor = true;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(24, 15);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(146, 13);
+            this.label58.TabIndex = 104;
+            this.label58.Text = "Sekkanoki First Weapon Skill";
+            // 
+            // sekkanokiWs
+            // 
+            this.sekkanokiWs.AutoCompleteCustomSource.AddRange(new string[] {
+            "Combo",
+            "Shoulder Tackle",
+            "One Inch Punch",
+            "Backhand Blow",
+            "Raging Fists",
+            "Spinning Attack",
+            "Howling Fist",
+            "Dragon Kick",
+            "Asuran Fists",
+            "Final Heaven",
+            "Ascetic\'s Fury",
+            "Stringing Pummel",
+            "Tornado Kick",
+            "Victory Smite",
+            "Shijin Spiral",
+            "Wasp Sting",
+            "Gust Slash",
+            "Shadow Stitch",
+            "Viper Bite",
+            "Cyclone",
+            "Energy Steal",
+            "Energy Drain",
+            "Dancing Edge",
+            "Shark Bite",
+            "Evisceration",
+            "Mercy Stroke",
+            "Mandalic Stab",
+            "Mordant Rime",
+            "Pyrrhic Kleos",
+            "Aeolian Edge",
+            "Rudra\'s Storm",
+            "Exenterator",
+            "Fast Blade",
+            "Burning Blade",
+            "Red Lotus Blade",
+            "Flat Blade",
+            "Shining Blade",
+            "Seraph Blade",
+            "Circle Blade",
+            "Spirits Within",
+            "Vorpal Blade",
+            "Swift Blade",
+            "Savage Blade",
+            "Knights of Round",
+            "Death Blossom",
+            "Atonement",
+            "Expiacion",
+            "Sanguine Blade",
+            "Chant du Cygne",
+            "Requiescat",
+            "Hard Slash",
+            "Power Slash",
+            "Frostbite",
+            "Freezebite",
+            "Shockwave",
+            "Crescent Moon",
+            "Sickle Moon",
+            "Spinning Slash",
+            "Ground Strike",
+            "Scourge",
+            "Herculean Slash",
+            "Torcleaver",
+            "Resolution",
+            "Raging Axe",
+            "Smash Axe",
+            "Gale Axe",
+            "Avalanche Axe",
+            "Spinning Axe",
+            "Rampage",
+            "Calamity",
+            "Mistral Axe",
+            "Decimation",
+            "Onslaught",
+            "Primal Rend",
+            "Bora Axe",
+            "Cloudsplitter",
+            "Ruinator",
+            "Shield Break",
+            "Iron Tempest",
+            "Sturmwind",
+            "Armor Break",
+            "Keen Edge",
+            "Weapon Break",
+            "Raging Rush",
+            "Full Break",
+            "Steel Cyclone",
+            "Metatron Torment",
+            "King\'s Justice",
+            "Fell Cleave",
+            "Ukko\'s Fury",
+            "Upheaval",
+            "Slice",
+            "Dark Harvest",
+            "Shadow of Death",
+            "Nightmare Scythe",
+            "Spinning Scythe",
+            "Vorpal Scythe",
+            "Guillotine",
+            "Cross Reaper",
+            "Spiral Hell",
+            "Catastrophe",
+            "Insurgency",
+            "Infernal Scythe",
+            "Quietus",
+            "Entropy",
+            "Double Thrust",
+            "Thunder Thrust",
+            "Raiden Thrust",
+            "Leg Sweep",
+            "Penta Thrust",
+            "Vorpal Thrust",
+            "Skewer",
+            "Wheeling Thrust",
+            "Impulse Drive",
+            "Geirskogul",
+            "Drakesbane",
+            "Sonic Thrust",
+            "Camlann\'s Torment",
+            "Stardiver",
+            "Blade: Rin",
+            "Blade: Retsu",
+            "Blade: Teki",
+            "Blade: To",
+            "Blade: Chi",
+            "Blade: Ei",
+            "Blade: Jin",
+            "Blade: Ten",
+            "Blade: Ku",
+            "Blade: Metsu",
+            "Blade: Kamu",
+            "Blade: Yu",
+            "Blade: Hi",
+            "Blade: Shun",
+            "Tachi: Enpi",
+            "Tachi: Hobaku",
+            "Tachi: Goten",
+            "Tachi: Kagero",
+            "Tachi: Jinpu",
+            "Tachi: Koki",
+            "Tachi: Yukikaze",
+            "Tachi: Gekko",
+            "Tachi: Kasha",
+            "Tachi: Kaiten",
+            "Tachi: Rana",
+            "Tachi: Ageha",
+            "Tachi: Fudo",
+            "Tachi: Shoha",
+            "Shining Strike",
+            "Seraph Strike",
+            "Brainshaker",
+            "Starlight",
+            "Moonlight",
+            "Skullbreaker",
+            "True Strike",
+            "Judgment",
+            "Hexa Strike",
+            "Black Halo",
+            "Randgrith",
+            "Mystic Boon",
+            "Flash Nova",
+            "Dagan",
+            "Realmrazer",
+            "Heavy Swing",
+            "Rock Crusher",
+            "Earth Crusher",
+            "Starburst",
+            "Sunburst",
+            "Shell Crusher",
+            "Full Swing",
+            "Spirit Taker",
+            "Retribution",
+            "Gates of Tartarus",
+            "Vidohunir",
+            "Garland of Bliss",
+            "Omniscience",
+            "Cataclysm",
+            "Myrkr",
+            "Shattersoul",
+            "Flaming Arrow",
+            "Piercing Arrow",
+            "Dulling Arrow",
+            "Sidewinder",
+            "Blast Arrow",
+            "Arching Arrow",
+            "Empyreal Arrow",
+            "Namas Arrow",
+            "Refulgent Arrow",
+            "Jishnu\'s Radiance",
+            "Apex Arrow",
+            "Hot Shot",
+            "Split Shot",
+            "Sniper Shot",
+            "Slug Shot",
+            "Blast Shot",
+            "Heavy Shot",
+            "Detonator",
+            "Coronach",
+            "Trueflight",
+            "Leaden Salute",
+            "Numbing Shot",
+            "Wildfire",
+            "Last Stand",
+            "Slapstick",
+            "Arcuballista",
+            "String Clipper",
+            "Chimera Ripper",
+            "Knockout",
+            "Magic Mortar",
+            "Daze",
+            "Armor Piercer",
+            "Cannibal Blade",
+            "Bone Crusher"});
+            this.sekkanokiWs.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.sekkanokiWs.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.sekkanokiWs.FormattingEnabled = true;
+            this.sekkanokiWs.Location = new System.Drawing.Point(172, 12);
+            this.sekkanokiWs.Name = "sekkanokiWs";
+            this.sekkanokiWs.Size = new System.Drawing.Size(112, 21);
+            this.sekkanokiWs.Sorted = true;
+            this.sekkanokiWs.TabIndex = 103;
             // 
             // OptionsMAMainTab
             // 
@@ -6526,6 +6776,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).EndInit();
             this.Dynamispage.ResumeLayout(false);
             this.Dynamispage.PerformLayout();
+            this.samPage.ResumeLayout(false);
+            this.samPage.PerformLayout();
             this.OptionsMAMainTab.ResumeLayout(false);
             this.MAtabs.ResumeLayout(false);
             this.MASelectPage.ResumeLayout(false);
@@ -7173,6 +7425,10 @@
         private CheckedListBox Trusts;
         private Label selectedtrusts;
         private Label maxtrustslabel;
+        private Button verifyfood;
+        private TabPage samPage;
+        public ComboBox sekkanokiWs;
+        private Label label58;
         #endregion
 
         #region Methods: Start/Stop/Load
@@ -7448,7 +7704,7 @@
                 if (spellm == null || skipSpellList.ContainsKey(mm)) continue;
                 else if (PlayerInfo.HasSpell(mm))
                 {
-                    if (mm < 848 && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name))
+                    if (spelllvl <= 99 && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name))
                     {
                         playerMA.Items.Add(spellm.Name);
                     }
@@ -7463,8 +7719,7 @@
             for (uint sm = 1; sm <= 895; sm++)
             {
                 var spells = api.Resources.GetSpell(sm);
-                if (spells == null) { }
-                else if (skipSpellList.ContainsKey(sm)) { }
+                if (spells == null || skipSpellList.ContainsKey(sm)) continue;
                 else if (PlayerInfo.HasSpell(sm) &&
                         PlayerInfo.SubJobLevel >= spells.RequiredLevel[PlayerInfo.SubJob] &&
                         spells.RequiredLevel[PlayerInfo.SubJob] != -1 &&
@@ -7489,6 +7744,7 @@
             JAtabselect.Controls.Remove(RUNpage);
             JAtabselect.Controls.Remove(MONpage);
             JAtabselect.Controls.Remove(Dynamispage);
+            JAtabselect.Controls.Remove(samPage);
             petControl.Controls.Remove(bstpettab);
             petControl.Controls.Remove(drgpettab);
             petControl.Controls.Remove(smnpettab);
@@ -7506,12 +7762,13 @@
             #region JA Job Tabs Add
             if (PlayerInfo.MainJob == 3 || PlayerInfo.SubJob == 3) JAtabselect.Controls.Add(WHMpage);
             if (PlayerInfo.MainJob == 5 || PlayerInfo.SubJob == 5) JAtabselect.Controls.Add(RDMpage);
+            if (PlayerInfo.MainJob == 12 || PlayerInfo.SubJob == 12) JAtabselect.Controls.Add(samPage);
             if (PlayerInfo.MainJob == 20 || PlayerInfo.SubJob == 20) JAtabselect.Controls.Add(SCHpage);
             if (PlayerInfo.MainJob == 22 || PlayerInfo.SubJob == 22) JAtabselect.Controls.Add(RUNpage);
             if (PlayerInfo.MainJob == 23 || PlayerInfo.SubJob == 23) JAtabselect.Controls.Add(MONpage);
+            JAtabselect.Controls.Add(Dynamispage);
             #endregion
             #region MA Tabs Add 
-            JAtabselect.Controls.Add(Dynamispage);
             List<int> MAjobs = new List<int>(new int[] {3,4,5,7,8,10,13,16,20,21,22});
             if (MAjobs.Contains(PlayerInfo.MainJob) || MAjobs.Contains(PlayerInfo.SubJob))
             {
@@ -8758,47 +9015,60 @@
                 }
             }
 
+            var ja = (from object itemChecked in playerJA.CheckedItems
+                      select itemChecked.ToString()).ToList();
+            var wstp = numericUpDown24.Value;
+            if (ja.Contains("Sekkanoki") && !PlayerInfo.HasBuff(54) && Recast.GetAbilityRecast(140) == 0) wstp = 2000;
+            if (PlayerInfo.TP >= wstp &&  api.Player.GetPlayerInfo().MainJob == 12 || api.Player.GetPlayerInfo().SubJob == 12)
+            {
+                if (ja.Contains("Sekkanoki") && !PlayerInfo.HasBuff(16) &&
+                    !PlayerInfo.HasBuff(408) && !PlayerInfo.HasBuff(54) && Recast.GetAbilityRecast(140) == 0 &&
+                    PlayerInfo.Status == 1 && TargetInfo.ID > 0 && PlayerInfo.TP >= 2000)
+                {
+                    api.ThirdParty.SendString("/ja \"Sekkanoki\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Hagakure") && !PlayerInfo.HasBuff(16) &&
+                    !PlayerInfo.HasBuff(483) && Recast.GetAbilityRecast(54) == 0 &&
+                    PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Hagakure\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Sengikori") && !PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(483) &&
+                    !PlayerInfo.HasBuff(440) && Recast.GetAbilityRecast(141) == 0 &&
+                    PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Sengikori\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+                if (ja.Contains("Konzen-ittai") && !PlayerInfo.HasBuff(16) &&
+                    Recast.GetAbilityRecast(140) == 0 &&
+                    TargetInfo.ID > 0)
+                {
+                    api.ThirdParty.SendString("/ja \"Konzen-ittai\" <t>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
+            }
             if (ws.Checked && !wsam.Checked && PlayerInfo.Status == 1)
             {
-                if (api.Player.GetPlayerInfo().MainJob == 12 || api.Player.GetPlayerInfo().SubJob == 12)
-                {
-                    var ja = (from object itemChecked in playerJA.CheckedItems
-                              select itemChecked.ToString()).ToList();
-
-                    if (ja.Contains("Konzen-ittai") && !PlayerInfo.HasBuff(16) &&
-                        Recast.GetAbilityRecast(140) == 0 &&
-                        TargetInfo.ID > 0)
-                    {
-                        api.ThirdParty.SendString("/ja \"Konzen-ittai\" <t>");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    }
-                    if (ja.Contains("Hagakure") && !PlayerInfo.HasBuff(16) &&
-                        !PlayerInfo.HasBuff(483) && Recast.GetAbilityRecast(54) == 0 &&
-                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-                    {
-                        api.ThirdParty.SendString("/ja \"Hagakure\" <me>");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    }
-                    if (ja.Contains("Sengikori") && !PlayerInfo.HasBuff(16) &&
-                        !PlayerInfo.HasBuff(440) && Recast.GetAbilityRecast(141) == 0 &&
-                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-                    {
-                        api.ThirdParty.SendString("/ja \"Sengikori\" <me>");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    }
-                }
-                if (PlayerInfo.TP >= numericUpDown24.Value &&
+                if (PlayerInfo.TP >= wstp &&
                     TargetInfo.HPP >= numericUpDown23.Value &&
                     TargetInfo.HPP <= numericUpDown22.Value &&
                     PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                 {
+                    if (PlayerInfo.HasBuff(483))
+                    {
+                        api.ThirdParty.SendString("/ws \"" + sekkanokiWs.Text + "\" <t>");
+                        Thread.Sleep(TimeSpan.FromSeconds(5.0));
+                    }
                     api.ThirdParty.SendString("/ws \"" + wsname + "\" <t>");
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
                 }
             }
 
             if (ws.Checked && wsam.Checked &&
-               (PlayerInfo.TP >= numericUpDown24.Value &&
+               (PlayerInfo.TP >= wstp &&
                 TargetInfo.HPP >= numericUpDown23.Value &&
                 TargetInfo.HPP <= numericUpDown22.Value) &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
@@ -8812,7 +9082,7 @@
             }
             else if (ws.Checked && wsam.Checked && amname.Text == "" && PlayerInfo.Status == 1)
             {
-                if (PlayerInfo.TP >= numericUpDown24.Value &&
+                if (PlayerInfo.TP >= wstp &&
                     TargetInfo.HPP >= numericUpDown23.Value &&
                     TargetInfo.HPP <= numericUpDown22.Value &&
                     PlayerInfo.Status == 1 && TargetInfo.ID > 0)
@@ -10879,6 +11149,8 @@
             public static float H => api.Entity.GetLocalPlayer().H;
             public static bool HasKeyItem(uint id) => api.Player.HasKeyItem(id);
             public static int UsedJobPoints => api.Player.GetJobPoints(MainJob).SpentJobPoints;
+            public static int UseableJobPoints => api.Player.GetJobPoints(MainJob).JobPoints;
+            public static int CapacityPoints => api.Player.GetJobPoints(MainJob).CapacityPoints;
             public static bool DynaZone()
             {
                 List<int> DynaZones = new List<int>(new int[] {39,40,41,42,134,135,185,186,187,188});
@@ -11161,18 +11433,10 @@
                 }
             }
 
-            public static int ID
-            {
-                get
-                {
-                    var p = api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).ServerID;
-                    return (int)api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).ServerID;
-                }
-            }
-
+            public static int ID => (int)api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).ServerID;
             public static int HPP => api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).HealthPercent;
             public static int MPP => api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).ManaPercent;
-            public static int TPP => (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).PetTP;
+            public static int TPP => (int) api.Player.PetTP;
             public static int Status => (int) api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).Status;
         }
         #endregion
@@ -11211,7 +11475,5 @@
         #endregion
 
         #endregion
-
-        private Button verifyfood;
     }
 }
