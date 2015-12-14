@@ -14,8 +14,8 @@
             {
                 var i = api.Resources.GetItem((uint)x);
 
-                if (string.IsNullOrEmpty(i?.Name)) continue;
-                Items.Add(i.ItemID.ToString(), i.Name);
+                if (string.IsNullOrEmpty(i?.Name[0])) continue;
+                Items.Add(i.ItemID.ToString(), i.Name[0]);
             }
         }
     }

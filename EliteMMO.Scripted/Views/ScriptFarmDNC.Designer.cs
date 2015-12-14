@@ -7610,7 +7610,7 @@
                 var ability = api.Resources.GetAbility(i);
 
                 if (ability.ID >= 1023 && PlayerInfo.MainJob != 23) break;
-                else if (!abilitylist.ContainsKey(ability.ID) || ability.Name == "") continue;
+                else if (!abilitylist.ContainsKey(ability.ID) || ability.Name[0] == "") continue;
                 else if (Recastids.Contains((int)ability.TimerID) && PlayerInfo.HasAbility((uint)ability.ID))
                 {
                     if (ability.ID >= 1023 && PlayerInfo.MainJob == 23)
@@ -7714,7 +7714,7 @@
             for (uint mm = 1; mm <= 895; mm++)
             {
                 var spellm = api.Resources.GetSpell(mm);
-                var spelllvl = spellm.RequiredLevel[PlayerInfo.MainJob];
+                var spelllvl = spellm.LevelRequired[PlayerInfo.MainJob];
                 if (spellm == null || skipSpellList.ContainsKey(mm)) continue;
                 else if (PlayerInfo.HasSpell(mm))
                 {
@@ -7735,8 +7735,8 @@
                 var spells = api.Resources.GetSpell(sm);
                 if (spells == null || skipSpellList.ContainsKey(sm)) continue;
                 else if (PlayerInfo.HasSpell(sm) &&
-                        PlayerInfo.SubJobLevel >= spells.RequiredLevel[PlayerInfo.SubJob] &&
-                        spells.RequiredLevel[PlayerInfo.SubJob] != -1 &&
+                        PlayerInfo.SubJobLevel >= spells.LevelRequired[PlayerInfo.SubJob] &&
+                        spells.LevelRequired[PlayerInfo.SubJob] != -1 &&
                         !playerMA.Items.Contains(spells.Name[0]))
                 {
                     playerMA.Items.Add(spells.Name[0]);
@@ -8315,28 +8315,28 @@
                 var targ = ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
                 if (ability == null)
                 {
-                    if (ability.Name == "Chivalry TP > 1000" && !PlayerInfo.HasBuff(16) &&
+                    if (ability.Name[0] == "Chivalry TP > 1000" && !PlayerInfo.HasBuff(16) &&
                         PlayerInfo.TP >= 1000 && Recast.GetAbilityRecast(79) == 0 &&
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                     {
                         api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    else if (ability.Name == "Chivalry TP > 2000" && !PlayerInfo.HasBuff(16) &&
+                    else if (ability.Name[0] == "Chivalry TP > 2000" && !PlayerInfo.HasBuff(16) &&
                         PlayerInfo.TP >= 2000 && Recast.GetAbilityRecast(79) == 0 &&
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                     {
                         api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    else if (ability.Name == "Chivalry TP > 3000" && !PlayerInfo.HasBuff(16) &&
+                    else if (ability.Name[0] == "Chivalry TP > 3000" && !PlayerInfo.HasBuff(16) &&
                         PlayerInfo.TP >= 3000 && Recast.GetAbilityRecast(79) == 0 &&
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                     {
                         api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    else if (ability.Name == "Sharpshot + Barrage" && !PlayerInfo.HasBuff(16) &&
+                    else if (ability.Name[0] == "Sharpshot + Barrage" && !PlayerInfo.HasBuff(16) &&
                         !PlayerInfo.HasBuff(73) && Recast.GetAbilityRecast(125) == 0 &&
                         !PlayerInfo.HasBuff(72) && Recast.GetAbilityRecast(124) == 0 &&
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
@@ -8367,19 +8367,19 @@
                 else if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                 {
-                    if (ability.Name == "Benediction" && PlayerInfo.HPP <= BenedictionHPPuse.Value) useAbility = true;
-                    else if (ability.Name == "Convert")
+                    if (ability.Name[0] == "Benediction" && PlayerInfo.HPP <= BenedictionHPPuse.Value) useAbility = true;
+                    else if (ability.Name[0] == "Convert")
                     {
                         if (ConvertHP.Checked && ConvertHPP.Value >= PlayerInfo.HPP && ConvertMPP.Value <= PlayerInfo.MPP) useAbility = true;
                         else if (ConvertMP.Checked && ConvertHPP.Value <= PlayerInfo.HPP && ConvertMPP.Value >= PlayerInfo.MPP) useAbility = true;
                     }
-                    else if (ability.Name == "Sublimation")
+                    else if (ability.Name[0] == "Sublimation")
                     {
                         if (!PlayerInfo.HasBuff(187) && !PlayerInfo.HasBuff(188)) useAbility = true;
                         else if (PlayerInfo.HasBuff(188) && PlayerInfo.HPP <= Sublimationcount.Value) useAbility = true;
                     }
-                    else if (ability.Name == "Vivacious Pulse" && PlayerInfo.HPP <= VivaciousPulseHP.Value && Recast.GetAbilityRecast(242) == 0) useAbility = true;
-                    else if (ability.Name == "Shikikoyo" && !PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(136) == 0) useAbility = true;
+                    else if (ability.Name[0] == "Vivacious Pulse" && PlayerInfo.HPP <= VivaciousPulseHP.Value && Recast.GetAbilityRecast(242) == 0) useAbility = true;
+                    else if (ability.Name[0] == "Shikikoyo" && !PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(136) == 0) useAbility = true;
                     else if (jacontrol[ability.ID].ToString().Contains("item ="))
                     {
                         if (ItemQuantityByName(jacontrol[ability.ID].item) > 0 || ItemQuantityByName("Trump Card") > 0) useAbility = true;
@@ -8411,7 +8411,7 @@
                     //if (targ == "<t>" && PlayerInfo.DynaZone() && !PlayerInfo.DynaStrike("JA")) continue;
                     var JAType = "/ja";
                     if (ability.ID >= 1024) JAType = "/ms";
-                    api.ThirdParty.SendString(String.Format("{0} \"{1}\" {2}", JAType, ability.Name, targ));
+                    api.ThirdParty.SendString(String.Format("{0} \"{1}\" {2}", JAType, ability.Name[0], targ));
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
@@ -8521,83 +8521,83 @@
             {
                 if (PlayerInfo.Status != 1) break;
                 bool castSpell = false;
-                var magic = api.Resources.GetSpell(M);
+                var magic = api.Resources.GetSpell(M, 0);
                 var targ = ((magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
-                if (!MAautoJA(magic.Name) || PlayerInfo.HasBuff(6)) continue;
-                if (PlayerInfo.MP < magic.MP && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229))) continue;
+                if (!MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6)) continue;
+                if (PlayerInfo.MP < magic.MPCost && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229))) continue;
                 List<string> Handledspells = new List<string>(new string[] {"Protect","Protect II","Protect III","Protect IV","Protect V","Protectra",
                 "Protectra II","Protectra III","Protectra IV","Protectra V","Shell","Shell II","Shell III","Shell IV","Shell V","Shellra","Shellra II",
                 "Shellra III","Shellra IV","Shellra V","Regen","Regen II","Regen III","Regen IV","Regen V","Refresh","Refresh II","Refresh III","Reraise",
                 "Reraise II","Reraise III","Reraise IV","Cure","Cure II","Cure III","Cure IV","Cure V","Cure VI","Cura","Cura II","Cura III","Full Cure",
                 "Drain","Drain II","Drain III","Aspir","Aspir II","Aspir III","Pollen","Magic Fruit","Healing Breeze","Plenilune Embrace","White Wind",
                 "Restoral","Exuviation","Wild Carrot"});
-                if (Handledspells.Contains(magic.Name))
+                if (Handledspells.Contains(magic.Name[0]))
                 { 
-                    if (magic.Name.Contains("Protect") && !PlayerInfo.HasBuff(40) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name.Contains("Shell") && !PlayerInfo.HasBuff(41) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name.Contains("Regen") && !PlayerInfo.HasBuff(42) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name.Contains("Refresh") && !PlayerInfo.HasBuff(43) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name.Contains("Reraise") && !PlayerInfo.HasBuff(113) && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Cure" && Curecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Cure II" && CureIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Cure III" && CureIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Cure IV" && CureIVcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Cure V" && CureVcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Cure VI" && CureVIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Cura" && Curacount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Cura II" && CuraIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Cura III" && CuraIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Full Cure" && FullCurecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Drain" && Draincount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Drain II" && DrainIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Drain III" && DrainIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Aspir" && Aspircount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Aspir II" && AspirIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Aspir III" && AspirIIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Pollen" && Pollencount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Magic Fruit" && MagicFruitcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Healing Breeze" && HealingBreezecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Plenilune Embrace" && PleniluneEmbracecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "White Wind" && WhiteWindcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Restoral" && Restoralcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Exuviation" && Exuviationcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
-                    else if (magic.Name == "Wild Carrot" && WildCarrotcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                    if (magic.Name[0].Contains("Protect") && !PlayerInfo.HasBuff(40) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0].Contains("Shell") && !PlayerInfo.HasBuff(41) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0].Contains("Regen") && !PlayerInfo.HasBuff(42) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0].Contains("Refresh") && !PlayerInfo.HasBuff(43) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0].Contains("Reraise") && !PlayerInfo.HasBuff(113) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cure" && Curecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cure II" && CureIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cure III" && CureIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cure IV" && CureIVcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cure V" && CureVcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cure VI" && CureVIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cura" && Curacount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cura II" && CuraIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cura III" && CuraIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Full Cure" && FullCurecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Drain" && Draincount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Drain II" && DrainIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Drain III" && DrainIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Aspir" && Aspircount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Aspir II" && AspirIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Aspir III" && AspirIIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Pollen" && Pollencount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Magic Fruit" && MagicFruitcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Healing Breeze" && HealingBreezecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Plenilune Embrace" && PleniluneEmbracecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "White Wind" && WhiteWindcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Restoral" && Restoralcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Exuviation" && Exuviationcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Wild Carrot" && WildCarrotcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
                 }
                 else
                 {
                     if (macontrol.ContainsKey(magic.ID))
                     {
-                        if (macontrol[magic.ID].ToString().Contains("I =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        if (macontrol[magic.ID].ToString().Contains("I =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
                             if (!macontrol[magic.ID].ToString().Contains("B =")) continue;
                             else if (!PlayerInfo.HasBuff((short)macontrol[magic.ID].B)) castSpell = true;
                         }
-                        else if (macontrol[magic.ID].ToString().Contains("b =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        else if (macontrol[magic.ID].ToString().Contains("b =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
                             if (!PlayerInfo.HasBuff((short)macontrol[magic.ID].B) && !PlayerInfo.HasBuff((short)macontrol[magic.ID].b)) castSpell = true;
                         }
-                        else if (macontrol[magic.ID].ToString().Contains("H =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        else if (macontrol[magic.ID].ToString().Contains("H =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
                             if (PlayerInfo.HasBuff((short)macontrol[magic.ID].H)) castSpell = true;
                         }
-                        else if (macontrol[magic.ID].ToString().Contains("B =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        else if (macontrol[magic.ID].ToString().Contains("B =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
                             if (!PlayerInfo.HasBuff((short)macontrol[magic.ID].B)) castSpell = true;
                         }
-                        else if (macontrol[magic.ID].ToString().Contains("W =") && Recast.GetSpellRecast(magic.Recast) == 0)
+                        else if (macontrol[magic.ID].ToString().Contains("W =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
                             if (macontrol[magic.ID].W == api.Weather.CurrentWeather) castSpell = true;
                         }
                     }
                     else
                     {
-                        if (Recast.GetSpellRecast(magic.Recast) == 0) castSpell = true;
+                        if (Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
                     }
                 }
                 if (castSpell)
                 {
                     //if (targ == "<t>" && PlayerInfo.DynaZone() && !PlayerInfo.DynaStrike("MA")) continue;
-                    api.ThirdParty.SendString(String.Format("/ma \"{0}\" {1}", magic.Name, targ));
+                    api.ThirdParty.SendString(String.Format("/ma \"{0}\" {1}", magic.Name[0], targ));
                     Casting();
                 }
             }
@@ -8608,7 +8608,7 @@
             var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
             var magic = api.Resources.GetSpell(M, 0);
             #region BLK MAJA
-            if (PlayerInfo.MP < magic.MP && !PlayerInfo.HasBuff(47) && !PlayerInfo.HasBuff(229))
+            if (PlayerInfo.MP < magic.MPCost && !PlayerInfo.HasBuff(47) && !PlayerInfo.HasBuff(229))
             {
                 if (ja.Contains("Manafont") && Recast.GetAbilityRecast(0) == 0)
                 {
@@ -8643,7 +8643,7 @@
             "Healing Breeze", "Wild Carrot", "Magic Fruit", "Exuviation", "Plenilune Embrace", "White Wind", "Restoral", "Poisona", "Paralyna", "Blindna",
             "Silena", "Cursna", "Stona", "Erase", "Cura", "Cura II", "Cura III"});
             
-            if (DivineSealList.Contains(magic.Name) && ja.Contains("Divine Seal") && !PlayerInfo.HasBuff(78))
+            if (DivineSealList.Contains(magic.Name[0]) && ja.Contains("Divine Seal") && !PlayerInfo.HasBuff(78))
             {
                 if (Recast.GetAbilityRecast(26) == 0)
                 {
@@ -8653,7 +8653,7 @@
             }
             List<string> DivineCaressList = new List<string>(new string[] {"Poisona", "Paralyna", "Blindna", "Silena", "Cursna", "Stona"});
             
-            if (DivineCaressList.Contains(magic.Name) && ja.Contains("Divine Caress") && !PlayerInfo.HasBuff(453))
+            if (DivineCaressList.Contains(magic.Name[0]) && ja.Contains("Divine Caress") && !PlayerInfo.HasBuff(453))
             {
                 if (Recast.GetAbilityRecast(32) == 0)
                 {
@@ -8699,7 +8699,7 @@
             }
             List<string> NetherVoidList = new List<string>(new string[] {"Absorb-MND", "Absorb-CHR", "Absorb-VIT", "Absorb-AGI", "Absorb-INT", "Absorb-DEX",
             "Absorb-STR", "Absorb-TP", "Absorb-ACC", "Absorb-Attri", "Drain", "Drain II", "Aspir", "Aspir II"});
-            if (NetherVoidList.Contains(magic.Name) && ja.Contains("Nether Void") && !PlayerInfo.HasBuff(439) && Recast.GetAbilityRecast(91) == 0)
+            if (NetherVoidList.Contains(magic.Name[0]) && ja.Contains("Nether Void") && !PlayerInfo.HasBuff(439) && Recast.GetAbilityRecast(91) == 0)
             {
                 api.ThirdParty.SendString("/ja \"Nether Void\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -8707,7 +8707,7 @@
             #endregion
             #region NIN MAJA
             List<string> FutaeList = new List<string>(new string[] {"Katon", "Hyoton", "Huton", "Doton", "Raiton", "Suiton", "Kurayami", "Hojo"});
-            if (FutaeList.Contains(Regex.Replace(magic.Name, ":.*", "")) && ja.Contains("Futae") &&
+            if (FutaeList.Contains(Regex.Replace(magic.Name[0], ":.*", "")) && ja.Contains("Futae") &&
             !PlayerInfo.HasBuff(441) && Recast.GetAbilityRecast(148) == 0)
             {
                 api.ThirdParty.SendString("/ja \"Futae\" <me>");
@@ -8718,7 +8718,7 @@
             List<string> UnbridledLearningList = new List<string>(new string[] {"Harden Shell", "Thunderbolt", "Absolute Terror", "Gates of Hades", "Tourbillion",
             "Pyric Bulwark", "Bilgestorm", "Bloodrake", "Droning Whirlwind", "Carcharian Verve", "Blistering Roar", "Mighty Guard", "Cruel Joke", "Cesspool",
             "Tearing Gust"});
-            if (UnbridledLearningList.Contains(magic.Name) && !PlayerInfo.HasBuff(485) && !PlayerInfo.HasBuff(505))
+            if (UnbridledLearningList.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(485) && !PlayerInfo.HasBuff(505))
             {
                 if (ja.Contains("Unbridled Learning") && Recast.GetAbilityRecast(81) == 0)
                 {
@@ -8800,7 +8800,7 @@
                     api.ThirdParty.SendString("/ja \"Enlightenment\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
-                /* if (magic.Name.Contains("helix") && ja.Contains("Modus Veritas") && !PlayerInfo.HasBuff(416) && Recast.GetAbilityRecast(235) == 0)
+                /* if (magic.Name[0].Contains("helix") && ja.Contains("Modus Veritas") && !PlayerInfo.HasBuff(416) && Recast.GetAbilityRecast(235) == 0)
                 {
                     api.ThirdParty.SendString("/ja \"Modus Veritas\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -8810,14 +8810,14 @@
                     if (magic.MagicType == 1 && PlayerInfo.HasBuff(358))
                     {
                         #region SCH White MA Stragems
-                        if (SchCharges >= 1 && AddendumWhite.Contains(magic.Name) && ja.Contains("Addendum: White") &&
+                        if (SchCharges >= 1 && AddendumWhite.Contains(magic.Name[0]) && ja.Contains("Addendum: White") &&
                             !PlayerInfo.HasBuff(401))
                         {
                             api.ThirdParty.SendString("/ja \"Addendum: White\" <me>");
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
                         }
-                        else if (AddendumWhite.Contains(magic.Name)) return false;
+                        else if (AddendumWhite.Contains(magic.Name[0])) return false;
                         if (SchCharges >= 1 && ja.Contains("Penury") && !PlayerInfo.HasBuff(360))
                         {
                             api.ThirdParty.SendString("/ja \"Penury\" <me>");
@@ -8866,14 +8866,14 @@
                     else if (magic.MagicType == 2 && PlayerInfo.HasBuff(359))
                     {
                         #region SCH Black MA Stragems
-                        if (SchCharges >= 1 && AddendumBlack.Contains(magic.Name) && ja.Contains("Addendum: Black") &&
+                        if (SchCharges >= 1 && AddendumBlack.Contains(magic.Name[0]) && ja.Contains("Addendum: Black") &&
                             !PlayerInfo.HasBuff(402))
                         {
                             api.ThirdParty.SendString("/ja \"Addendum: Black\" <me>");
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
                         }
-                        else if (AddendumBlack.Contains(magic.Name)) return false;
+                        else if (AddendumBlack.Contains(magic.Name[0])) return false;
                         if (SchCharges >= 1 && ja.Contains("Parsimony") && !PlayerInfo.HasBuff(361))
                         {
                             api.ThirdParty.SendString("/ja \"Parsimony\" <me>");
@@ -8920,8 +8920,8 @@
                         #endregion
                     }
                 }
-                if (AddendumWhite.Contains(magic.Name) && !PlayerInfo.HasBuff(401) && !PlayerInfo.HasBuff(377)) return false;
-                if (AddendumBlack.Contains(magic.Name) && !PlayerInfo.HasBuff(402) && !PlayerInfo.HasBuff(377)) return false;
+                if (AddendumWhite.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(401) && !PlayerInfo.HasBuff(377)) return false;
+                if (AddendumBlack.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(402) && !PlayerInfo.HasBuff(377)) return false;
             }
             #endregion
             #region GEO MAJA
@@ -9503,7 +9503,7 @@
                 var ability = api.Resources.GetAbility(P, 0);
                 if (PlayerInfo.HasAbility(ability.ID) && Recast.GetAbilityRecast(102) == 0 && !PlayerInfo.HasBuff(16))
                 {
-                    api.ThirdParty.SendString("/pet \""+ability.Name+"\" <me>");
+                    api.ThirdParty.SendString("/pet \""+ability.Name[0]+"\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
@@ -9675,10 +9675,10 @@
             var joblvl = 0;
             if (PlayerInfo.MainJob == 15) joblvl = PlayerInfo.MainJobLevel;
             else if (PlayerInfo.SubJob == 15) joblvl = PlayerInfo.SubJobLevel;
-            if (PetInfo.ID == 0 && PlayerInfo.MP >= magic.MP && SMNpetMPUSEset.Value <= PlayerInfo.MPP && Recast.GetSpellRecast(magic.Recast) == 0)
+            if (PetInfo.ID == 0 && PlayerInfo.MP >= magic.MPCost && SMNpetMPUSEset.Value <= PlayerInfo.MPP && Recast.GetSpellRecast((int)magic.Index) == 0)
             {
                 Thread.Sleep(TimeSpan.FromSeconds(((double) pullDelay.Value) + 3.0));
-                api.ThirdParty.SendString("/ma \""+magic.Name+"\" <me>");
+                api.ThirdParty.SendString("/ma \""+magic.Name[0]+"\" <me>");
                 Casting();
             }
             Dictionary<string, uint> AvatarFavorbuff = new Dictionary<string, uint>()
@@ -9688,7 +9688,7 @@
             };
             if (PetInfo.Status == 0) return;
             if (PetInfo.ID != 0 && petja.Contains("Avatar's Favor") && Recast.GetAbilityRecast(176) == 0 &&
-                !PlayerInfo.HasBuff((short)AvatarFavorbuff[magic.Name]) && !PlayerInfo.HasBuff(431))
+                !PlayerInfo.HasBuff((short)AvatarFavorbuff[magic.Name[0]]) && !PlayerInfo.HasBuff(431))
             {
                 api.ThirdParty.SendString("/pet \"Avatar's Favor\" <me>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -9812,12 +9812,12 @@
                         }
                         else if (kvp.Value.ToString().Contains("buff =") && Ability.MP <= PlayerInfo.MP)
                         {
-                            if (Ability.Name == "Glittering Ruby")
+                            if (Ability.Name[0] == "Glittering Ruby")
                             {
                                 if (!PlayerInfo.HasBuff(119) || !PlayerInfo.HasBuff(120) || !PlayerInfo.HasBuff(121) || !PlayerInfo.HasBuff(122) ||
                                 !PlayerInfo.HasBuff(123) || !PlayerInfo.HasBuff(124) || !PlayerInfo.HasBuff(125)) useAbility = true;
                             }
-                            else if (Ability.Name == "Ecliptic Growl")
+                            else if (Ability.Name[0] == "Ecliptic Growl")
                             {
                                 if (!PlayerInfo.HasBuff(119) && !PlayerInfo.HasBuff(120) && !PlayerInfo.HasBuff(121) && !PlayerInfo.HasBuff(122) &&
                                 !PlayerInfo.HasBuff(123) && !PlayerInfo.HasBuff(124) && !PlayerInfo.HasBuff(125)) useAbility = true;
@@ -9828,7 +9828,7 @@
                     }
                     if (useAbility)
                     {
-                        api.ThirdParty.SendString(String.Format("/pet \"{0}\" {1}", Ability.Name, targ));
+                        api.ThirdParty.SendString(String.Format("/pet \"{0}\" {1}", Ability.Name[0], targ));
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                 }
@@ -9846,7 +9846,7 @@
             List<uint> pupabilitylist = new List<uint>(new uint[] {647, 822, 649, 691, 692, 778, 821, 852,});
             foreach (uint P in pupabilitylist)
             {
-                var ability = api.Resources.GetAbility(P, 0);
+                var ability = api.Resources.GetAbility(P);
                 if (PlayerInfo.HasAbility(P))
                 {
                     PUPJA.Items.Add(ability.Name);
