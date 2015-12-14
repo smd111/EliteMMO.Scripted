@@ -7548,7 +7548,7 @@
             {
                 var spellm = api.Resources.GetSpell(i);
                 if (spellm == null) continue;
-                else if (PlayerInfo.HasSpell(i) && !Trusts.Items.Contains(spellm.Name)) Trusts.Items.Add(spellm.Name);
+                else if (PlayerInfo.HasSpell(i) && !Trusts.Items.Contains(spellm.Name[0])) Trusts.Items.Add(spellm.Name[0]);
             }
         }
         private void useTrust()
@@ -7615,7 +7615,7 @@
                 {
                     if (ability.ID >= 1023 && PlayerInfo.MainJob == 23)
                     {
-                        playerJA.Items.Add(ability.Name);
+                        playerJA.Items.Add(ability.Name[0]);
                         continue;
                     }
                     else if (ability.ID == 735)
@@ -7718,11 +7718,11 @@
                 if (spellm == null || skipSpellList.ContainsKey(mm)) continue;
                 else if (PlayerInfo.HasSpell(mm))
                 {
-                    if (spelllvl <= 99 && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name))
+                    if (spelllvl <= 99 && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name[0]))
                     {
                         playerMA.Items.Add(spellm.Name[0]);
                     }
-                    else if (PlayerInfo.MainJobLevel == 99 && PlayerInfo.UsedJobPoints >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name))
+                    else if (PlayerInfo.MainJobLevel == 99 && PlayerInfo.UsedJobPoints >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name[0]))
                     {
                         playerMA.Items.Add(spellm.Name[0]);
                     }
@@ -9849,7 +9849,7 @@
                 var ability = api.Resources.GetAbility(P);
                 if (PlayerInfo.HasAbility(P))
                 {
-                    PUPJA.Items.Add(ability.Name);
+                    PUPJA.Items.Add(ability.Name[0]);
                 }   
             }
         }
@@ -11483,8 +11483,8 @@
             {
                 var i = api.Resources.GetItem((uint)x);
 
-                if (!string.IsNullOrEmpty(i?.Name))
-                    items.Add(i.Name, i.ItemID);
+                if (!string.IsNullOrEmpty(i?.Name[0]))
+                    items.Add(i.Name[0], i.ItemID);
             }
         }*/
 
