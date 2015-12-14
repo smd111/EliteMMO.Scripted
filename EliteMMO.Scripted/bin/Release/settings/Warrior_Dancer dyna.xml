@@ -5,7 +5,7 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="checkZone">
-    <Checked>False</Checked>
+    <Checked>True</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="StopFullInventory">
@@ -22,17 +22,17 @@
       <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
-      <Checked>False</Checked>
-      <Enabled>True</Enabled>
+      <Checked>True</Checked>
+      <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
-      <Checked>False</Checked>
-    </Control>
-    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
       <Checked>True</Checked>
     </Control>
+    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
+      <Checked>False</Checked>
+    </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>juno dyna.xin</Text>
+      <Text>Dyna - Beaucedine.xin</Text>
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
@@ -68,10 +68,10 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.ComboBox" Name="selectedHateControl">
-              <Text />
+              <Text>Provoke</Text>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="tank">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
           </Control>
@@ -302,7 +302,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="mobheightdistValue">
-          <Value>5</Value>
+          <Value>3</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="mobheightdist">
@@ -318,7 +318,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="targetSearchDist">
-          <Value>8.0</Value>
+          <Value>18.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullTolorance">
@@ -326,11 +326,11 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown21">
-          <Value>16</Value>
+          <Value>13.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.TextBox" Name="pullCommand">
-          <Text>/ja "Provoke" &lt;t&gt;</Text>
+          <Text>/ra &lt;t&gt;</Text>
         </Control>
       </Control>
     </Control>

@@ -32,6 +32,8 @@
         public bool isMoving = false;
         public bool isCasting = false;
         public bool isLoading = false;
+        public bool Movementstuck = false;
+        public bool Movementstuckdir = false;
         public int startzone;
 
         public float SetEntityX = 0;
@@ -235,6 +237,9 @@
             this.ConvertHP = new System.Windows.Forms.RadioButton();
             this.convertmptext = new System.Windows.Forms.Label();
             this.converthptext = new System.Windows.Forms.Label();
+            this.samPage = new System.Windows.Forms.TabPage();
+            this.label58 = new System.Windows.Forms.Label();
+            this.sekkanokiWs = new System.Windows.Forms.ComboBox();
             this.SCHpage = new System.Windows.Forms.TabPage();
             this.Sublimationcount = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
@@ -249,9 +254,6 @@
             this.Dynamispage = new System.Windows.Forms.TabPage();
             this.Dynatxt = new System.Windows.Forms.Label();
             this.staggerstopJA = new System.Windows.Forms.CheckBox();
-            this.samPage = new System.Windows.Forms.TabPage();
-            this.label58 = new System.Windows.Forms.Label();
-            this.sekkanokiWs = new System.Windows.Forms.ComboBox();
             this.OptionsMAMainTab = new System.Windows.Forms.TabPage();
             this.MAtabs = new System.Windows.Forms.TabControl();
             this.MASelectPage = new System.Windows.Forms.TabPage();
@@ -560,6 +562,7 @@
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_chat = new System.ComponentModel.BackgroundWorker();
+            //this.bgw_script_stuck = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_pet = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
@@ -613,6 +616,7 @@
             this.Convertgroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).BeginInit();
+            this.samPage.SuspendLayout();
             this.SCHpage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Sublimationcount)).BeginInit();
             this.RUNpage.SuspendLayout();
@@ -621,7 +625,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).BeginInit();
             this.Dynamispage.SuspendLayout();
-            this.samPage.SuspendLayout();
             this.OptionsMAMainTab.SuspendLayout();
             this.MAtabs.SuspendLayout();
             this.MASelectPage.SuspendLayout();
@@ -2571,155 +2574,6 @@
             this.converthptext.TabIndex = 0;
             this.converthptext.Text = "HP %";
             // 
-            // SCHpage
-            // 
-            this.SCHpage.Controls.Add(this.Sublimationcount);
-            this.SCHpage.Controls.Add(this.label8);
-            this.SCHpage.Location = new System.Drawing.Point(4, 22);
-            this.SCHpage.Name = "SCHpage";
-            this.SCHpage.Padding = new System.Windows.Forms.Padding(3);
-            this.SCHpage.Size = new System.Drawing.Size(312, 160);
-            this.SCHpage.TabIndex = 6;
-            this.SCHpage.Text = "SCH";
-            this.SCHpage.UseVisualStyleBackColor = true;
-            // 
-            // Sublimationcount
-            // 
-            this.Sublimationcount.Enabled = false;
-            this.Sublimationcount.Location = new System.Drawing.Point(98, 8);
-            this.Sublimationcount.Name = "Sublimationcount";
-            this.Sublimationcount.Size = new System.Drawing.Size(44, 20);
-            this.Sublimationcount.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Sublimation @MP";
-            // 
-            // RUNpage
-            // 
-            this.RUNpage.Controls.Add(this.VivaciousPulseHP);
-            this.RUNpage.Controls.Add(this.VivaciousPulse);
-            this.RUNpage.Location = new System.Drawing.Point(4, 22);
-            this.RUNpage.Name = "RUNpage";
-            this.RUNpage.Padding = new System.Windows.Forms.Padding(3);
-            this.RUNpage.Size = new System.Drawing.Size(312, 160);
-            this.RUNpage.TabIndex = 3;
-            this.RUNpage.Text = "RUN";
-            this.RUNpage.UseVisualStyleBackColor = true;
-            // 
-            // VivaciousPulseHP
-            // 
-            this.VivaciousPulseHP.Enabled = false;
-            this.VivaciousPulseHP.Location = new System.Drawing.Point(148, 8);
-            this.VivaciousPulseHP.Name = "VivaciousPulseHP";
-            this.VivaciousPulseHP.Size = new System.Drawing.Size(44, 20);
-            this.VivaciousPulseHP.TabIndex = 6;
-            // 
-            // VivaciousPulse
-            // 
-            this.VivaciousPulse.AutoSize = true;
-            this.VivaciousPulse.Enabled = false;
-            this.VivaciousPulse.Location = new System.Drawing.Point(7, 9);
-            this.VivaciousPulse.Name = "VivaciousPulse";
-            this.VivaciousPulse.Size = new System.Drawing.Size(144, 17);
-            this.VivaciousPulse.TabIndex = 0;
-            this.VivaciousPulse.Text = "Vivacious Pulse @ HP %";
-            this.VivaciousPulse.UseVisualStyleBackColor = true;
-            // 
-            // MONpage
-            // 
-            this.MONpage.Controls.Add(this.MONmpCount);
-            this.MONpage.Controls.Add(this.MONhpCount);
-            this.MONpage.Controls.Add(this.monmptext);
-            this.MONpage.Controls.Add(this.monhptext);
-            this.MONpage.Location = new System.Drawing.Point(4, 22);
-            this.MONpage.Name = "MONpage";
-            this.MONpage.Padding = new System.Windows.Forms.Padding(3);
-            this.MONpage.Size = new System.Drawing.Size(312, 160);
-            this.MONpage.TabIndex = 4;
-            this.MONpage.Text = "MON";
-            this.MONpage.UseVisualStyleBackColor = true;
-            // 
-            // MONmpCount
-            // 
-            this.MONmpCount.Enabled = false;
-            this.MONmpCount.Location = new System.Drawing.Point(46, 30);
-            this.MONmpCount.Name = "MONmpCount";
-            this.MONmpCount.Size = new System.Drawing.Size(44, 20);
-            this.MONmpCount.TabIndex = 7;
-            this.MONmpCount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // MONhpCount
-            // 
-            this.MONhpCount.Enabled = false;
-            this.MONhpCount.Location = new System.Drawing.Point(46, 6);
-            this.MONhpCount.Name = "MONhpCount";
-            this.MONhpCount.Size = new System.Drawing.Size(44, 20);
-            this.MONhpCount.TabIndex = 6;
-            this.MONhpCount.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // monmptext
-            // 
-            this.monmptext.AutoSize = true;
-            this.monmptext.Location = new System.Drawing.Point(7, 32);
-            this.monmptext.Name = "monmptext";
-            this.monmptext.Size = new System.Drawing.Size(34, 13);
-            this.monmptext.TabIndex = 1;
-            this.monmptext.Text = "MP %";
-            // 
-            // monhptext
-            // 
-            this.monhptext.AutoSize = true;
-            this.monhptext.Location = new System.Drawing.Point(7, 9);
-            this.monhptext.Name = "monhptext";
-            this.monhptext.Size = new System.Drawing.Size(33, 13);
-            this.monhptext.TabIndex = 0;
-            this.monhptext.Text = "HP %";
-            // 
-            // Dynamispage
-            // 
-            this.Dynamispage.Controls.Add(this.Dynatxt);
-            this.Dynamispage.Controls.Add(this.staggerstopJA);
-            this.Dynamispage.Location = new System.Drawing.Point(4, 22);
-            this.Dynamispage.Name = "Dynamispage";
-            this.Dynamispage.Padding = new System.Windows.Forms.Padding(3);
-            this.Dynamispage.Size = new System.Drawing.Size(312, 160);
-            this.Dynamispage.TabIndex = 5;
-            this.Dynamispage.Text = "Dynamis";
-            this.Dynamispage.UseVisualStyleBackColor = true;
-            // 
-            // Dynatxt
-            // 
-            this.Dynatxt.AutoSize = true;
-            this.Dynatxt.Location = new System.Drawing.Point(12, 45);
-            this.Dynatxt.Name = "Dynatxt";
-            this.Dynatxt.Size = new System.Drawing.Size(288, 13);
-            this.Dynatxt.TabIndex = 2;
-            this.Dynatxt.Text = "This will stop all JA\'s when a mob is !Staggered! in Dynamis.";
-            // 
-            // staggerstopJA
-            // 
-            this.staggerstopJA.AutoSize = true;
-            this.staggerstopJA.Location = new System.Drawing.Point(77, 23);
-            this.staggerstopJA.Name = "staggerstopJA";
-            this.staggerstopJA.Size = new System.Drawing.Size(153, 17);
-            this.staggerstopJA.TabIndex = 1;
-            this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
-            this.staggerstopJA.UseVisualStyleBackColor = true;
-            // 
             // samPage
             // 
             this.samPage.Controls.Add(this.label58);
@@ -2964,6 +2818,155 @@
             this.sekkanokiWs.Size = new System.Drawing.Size(112, 21);
             this.sekkanokiWs.Sorted = true;
             this.sekkanokiWs.TabIndex = 103;
+            // 
+            // SCHpage
+            // 
+            this.SCHpage.Controls.Add(this.Sublimationcount);
+            this.SCHpage.Controls.Add(this.label8);
+            this.SCHpage.Location = new System.Drawing.Point(4, 22);
+            this.SCHpage.Name = "SCHpage";
+            this.SCHpage.Padding = new System.Windows.Forms.Padding(3);
+            this.SCHpage.Size = new System.Drawing.Size(312, 160);
+            this.SCHpage.TabIndex = 6;
+            this.SCHpage.Text = "SCH";
+            this.SCHpage.UseVisualStyleBackColor = true;
+            // 
+            // Sublimationcount
+            // 
+            this.Sublimationcount.Enabled = false;
+            this.Sublimationcount.Location = new System.Drawing.Point(98, 8);
+            this.Sublimationcount.Name = "Sublimationcount";
+            this.Sublimationcount.Size = new System.Drawing.Size(44, 20);
+            this.Sublimationcount.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Sublimation @MP";
+            // 
+            // RUNpage
+            // 
+            this.RUNpage.Controls.Add(this.VivaciousPulseHP);
+            this.RUNpage.Controls.Add(this.VivaciousPulse);
+            this.RUNpage.Location = new System.Drawing.Point(4, 22);
+            this.RUNpage.Name = "RUNpage";
+            this.RUNpage.Padding = new System.Windows.Forms.Padding(3);
+            this.RUNpage.Size = new System.Drawing.Size(312, 160);
+            this.RUNpage.TabIndex = 3;
+            this.RUNpage.Text = "RUN";
+            this.RUNpage.UseVisualStyleBackColor = true;
+            // 
+            // VivaciousPulseHP
+            // 
+            this.VivaciousPulseHP.Enabled = false;
+            this.VivaciousPulseHP.Location = new System.Drawing.Point(148, 8);
+            this.VivaciousPulseHP.Name = "VivaciousPulseHP";
+            this.VivaciousPulseHP.Size = new System.Drawing.Size(44, 20);
+            this.VivaciousPulseHP.TabIndex = 6;
+            // 
+            // VivaciousPulse
+            // 
+            this.VivaciousPulse.AutoSize = true;
+            this.VivaciousPulse.Enabled = false;
+            this.VivaciousPulse.Location = new System.Drawing.Point(7, 9);
+            this.VivaciousPulse.Name = "VivaciousPulse";
+            this.VivaciousPulse.Size = new System.Drawing.Size(144, 17);
+            this.VivaciousPulse.TabIndex = 0;
+            this.VivaciousPulse.Text = "Vivacious Pulse @ HP %";
+            this.VivaciousPulse.UseVisualStyleBackColor = true;
+            // 
+            // MONpage
+            // 
+            this.MONpage.Controls.Add(this.MONmpCount);
+            this.MONpage.Controls.Add(this.MONhpCount);
+            this.MONpage.Controls.Add(this.monmptext);
+            this.MONpage.Controls.Add(this.monhptext);
+            this.MONpage.Location = new System.Drawing.Point(4, 22);
+            this.MONpage.Name = "MONpage";
+            this.MONpage.Padding = new System.Windows.Forms.Padding(3);
+            this.MONpage.Size = new System.Drawing.Size(312, 160);
+            this.MONpage.TabIndex = 4;
+            this.MONpage.Text = "MON";
+            this.MONpage.UseVisualStyleBackColor = true;
+            // 
+            // MONmpCount
+            // 
+            this.MONmpCount.Enabled = false;
+            this.MONmpCount.Location = new System.Drawing.Point(46, 30);
+            this.MONmpCount.Name = "MONmpCount";
+            this.MONmpCount.Size = new System.Drawing.Size(44, 20);
+            this.MONmpCount.TabIndex = 7;
+            this.MONmpCount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // MONhpCount
+            // 
+            this.MONhpCount.Enabled = false;
+            this.MONhpCount.Location = new System.Drawing.Point(46, 6);
+            this.MONhpCount.Name = "MONhpCount";
+            this.MONhpCount.Size = new System.Drawing.Size(44, 20);
+            this.MONhpCount.TabIndex = 6;
+            this.MONhpCount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // monmptext
+            // 
+            this.monmptext.AutoSize = true;
+            this.monmptext.Location = new System.Drawing.Point(7, 32);
+            this.monmptext.Name = "monmptext";
+            this.monmptext.Size = new System.Drawing.Size(34, 13);
+            this.monmptext.TabIndex = 1;
+            this.monmptext.Text = "MP %";
+            // 
+            // monhptext
+            // 
+            this.monhptext.AutoSize = true;
+            this.monhptext.Location = new System.Drawing.Point(7, 9);
+            this.monhptext.Name = "monhptext";
+            this.monhptext.Size = new System.Drawing.Size(33, 13);
+            this.monhptext.TabIndex = 0;
+            this.monhptext.Text = "HP %";
+            // 
+            // Dynamispage
+            // 
+            this.Dynamispage.Controls.Add(this.Dynatxt);
+            this.Dynamispage.Controls.Add(this.staggerstopJA);
+            this.Dynamispage.Location = new System.Drawing.Point(4, 22);
+            this.Dynamispage.Name = "Dynamispage";
+            this.Dynamispage.Padding = new System.Windows.Forms.Padding(3);
+            this.Dynamispage.Size = new System.Drawing.Size(312, 160);
+            this.Dynamispage.TabIndex = 5;
+            this.Dynamispage.Text = "Dynamis";
+            this.Dynamispage.UseVisualStyleBackColor = true;
+            // 
+            // Dynatxt
+            // 
+            this.Dynatxt.AutoSize = true;
+            this.Dynatxt.Location = new System.Drawing.Point(12, 45);
+            this.Dynatxt.Name = "Dynatxt";
+            this.Dynatxt.Size = new System.Drawing.Size(288, 13);
+            this.Dynatxt.TabIndex = 2;
+            this.Dynatxt.Text = "This will stop all JA\'s when a mob is !Staggered! in Dynamis.";
+            // 
+            // staggerstopJA
+            // 
+            this.staggerstopJA.AutoSize = true;
+            this.staggerstopJA.Location = new System.Drawing.Point(77, 23);
+            this.staggerstopJA.Name = "staggerstopJA";
+            this.staggerstopJA.Size = new System.Drawing.Size(153, 17);
+            this.staggerstopJA.TabIndex = 1;
+            this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
+            this.staggerstopJA.UseVisualStyleBackColor = true;
             // 
             // OptionsMAMainTab
             // 
@@ -6648,6 +6651,12 @@
             this.bgw_script_chat.WorkerSupportsCancellation = true;
             this.bgw_script_chat.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptchatWatchDoWork);
             // 
+            // bgw_script_stuck
+            // 
+            //this.bgw_script_stuck.WorkerReportsProgress = true;
+            //this.bgw_script_stuck.WorkerSupportsCancellation = true;
+            //this.bgw_script_stuck.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptstuckWatchDoWork);
+            // 
             // bgw_script_pet
             // 
             this.bgw_script_pet.WorkerReportsProgress = true;
@@ -6764,6 +6773,8 @@
             this.Convertgroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertHPP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertMPP)).EndInit();
+            this.samPage.ResumeLayout(false);
+            this.samPage.PerformLayout();
             this.SCHpage.ResumeLayout(false);
             this.SCHpage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Sublimationcount)).EndInit();
@@ -6776,8 +6787,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).EndInit();
             this.Dynamispage.ResumeLayout(false);
             this.Dynamispage.PerformLayout();
-            this.samPage.ResumeLayout(false);
-            this.samPage.PerformLayout();
             this.OptionsMAMainTab.ResumeLayout(false);
             this.MAtabs.ResumeLayout(false);
             this.MASelectPage.ResumeLayout(false);
@@ -7226,6 +7235,7 @@
         public System.ComponentModel.BackgroundWorker bgw_script_nav;
         public System.ComponentModel.BackgroundWorker bgw_script_sch;
         public System.ComponentModel.BackgroundWorker bgw_script_chat;
+        //public System.ComponentModel.BackgroundWorker bgw_script_stuck;
         public System.ComponentModel.BackgroundWorker bgw_script_pet;
         public System.ComponentModel.BackgroundWorker bgw_script_npc;
         public System.ComponentModel.BackgroundWorker bgw_script_scn;
@@ -7475,6 +7485,9 @@
 
             if (!bgw_script_chat.IsBusy)
                 bgw_script_chat.RunWorkerAsync();
+
+            //if (!bgw_script_stuck.IsBusy)
+            //    bgw_script_stuck.RunWorkerAsync();
         }
 
         private void ToolStopClick(object sender, EventArgs e)
@@ -7496,6 +7509,7 @@
             bgw_script_pet.CancelAsync();
             bgw_script_nav.CancelAsync();
             bgw_script_chat.CancelAsync();
+            //bgw_script_stuck.CancelAsync();
         }
 
         private void PlayerDead()
@@ -7635,9 +7649,9 @@
                         if (!playerJA.Items.Contains("Chivalry TP > 2000") && job >= 75) playerJA.Items.Add("Chivalry TP > 2000");
                         if (!playerJA.Items.Contains("Chivalry TP > 3000") && job >= 75) playerJA.Items.Add("Chivalry TP > 3000");
                     }
-                    else if (!playerJA.Items.Contains(ability.Name))
+                    else if (!playerJA.Items.Contains(ability.Name[0]))
                     {
-                        playerJA.Items.Add(ability.Name);
+                        playerJA.Items.Add(ability.Name[0]);
                     }
                 }
             }
@@ -7706,11 +7720,11 @@
                 {
                     if (spelllvl <= 99 && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name))
                     {
-                        playerMA.Items.Add(spellm.Name);
+                        playerMA.Items.Add(spellm.Name[0]);
                     }
                     else if (PlayerInfo.MainJobLevel == 99 && PlayerInfo.UsedJobPoints >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name))
                     {
-                        playerMA.Items.Add(spellm.Name);
+                        playerMA.Items.Add(spellm.Name[0]);
                     }
                 }
             }
@@ -7723,9 +7737,9 @@
                 else if (PlayerInfo.HasSpell(sm) &&
                         PlayerInfo.SubJobLevel >= spells.RequiredLevel[PlayerInfo.SubJob] &&
                         spells.RequiredLevel[PlayerInfo.SubJob] != -1 &&
-                        !playerMA.Items.Contains(spells.Name))
+                        !playerMA.Items.Contains(spells.Name[0]))
                 {
-                    playerMA.Items.Add(spells.Name);
+                    playerMA.Items.Add(spells.Name[0]);
                 }
             }
             #endregion
@@ -8297,7 +8311,7 @@
             foreach (string J in ja)
             {
                 var useAbility = false;
-                var ability = api.Resources.GetAbility(J);
+                var ability = api.Resources.GetAbility(J, 0);
                 var targ = ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
                 if (ability == null)
                 {
@@ -8592,7 +8606,7 @@
         private bool MAautoJA(string M)
         {
             var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
-            var magic = api.Resources.GetSpell(M);
+            var magic = api.Resources.GetSpell(M, 0);
             #region BLK MAJA
             if (PlayerInfo.MP < magic.MP && !PlayerInfo.HasBuff(47) && !PlayerInfo.HasBuff(229))
             {
@@ -9486,7 +9500,7 @@
             foreach (string P in petja)
             {
                 if (PlayerInfo.Status == 0 || !botRunning || TargetInfo.ID == 0) break;
-                var ability = api.Resources.GetAbility(P);
+                var ability = api.Resources.GetAbility(P, 0);
                 if (PlayerInfo.HasAbility(ability.ID) && Recast.GetAbilityRecast(102) == 0 && !PlayerInfo.HasBuff(16))
                 {
                     api.ThirdParty.SendString("/pet \""+ability.Name+"\" <me>");
@@ -9657,7 +9671,7 @@
             var petja = (from object itemChecked in SMNAbilityList.CheckedItems select itemChecked.ToString()).ToList();
             var ja = (from object itemChecked in SMNJA.CheckedItems select itemChecked.ToString()).ToList();
             if (PlayerInfo.Status == 0 || PlayerInfo.HasBuff(16)) return;
-            var magic = api.Resources.GetSpell((string)SMNSelect.SelectedItem);
+            var magic = api.Resources.GetSpell((string)SMNSelect.SelectedItem, 0);
             var joblvl = 0;
             if (PlayerInfo.MainJob == 15) joblvl = PlayerInfo.MainJobLevel;
             else if (PlayerInfo.SubJob == 15) joblvl = PlayerInfo.SubJobLevel;
@@ -9755,7 +9769,7 @@
                 foreach (KeyValuePair<string, dynamic> kvp in SMNcontrol[(string)SMNSelect.SelectedItem])
                 {
                     var useAbility = false;
-                    var Ability = api.Resources.GetAbility(kvp.Key);
+                    var Ability = api.Resources.GetAbility(kvp.Key, 0);
                     var targ = ((Ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
                     if (kvp.Value.ToString().Contains("tp =") && SMNpetTPUSEset.Value > PetInfo.TPP) continue;
                     if (ja.Contains("Astral Conduit") && Ability.MP >= PlayerInfo.MP && Recast.GetAbilityRecast(254) == 0)
@@ -9832,7 +9846,7 @@
             List<uint> pupabilitylist = new List<uint>(new uint[] {647, 822, 649, 691, 692, 778, 821, 852,});
             foreach (uint P in pupabilitylist)
             {
-                var ability = api.Resources.GetAbility(P);
+                var ability = api.Resources.GetAbility(P, 0);
                 if (PlayerInfo.HasAbility(P))
                 {
                     PUPJA.Items.Add(ability.Name);
@@ -10939,10 +10953,9 @@
                 return false;
 
             var targetLastDistance = TargetInfo.Distance;
-            Thread.Sleep(TimeSpan.FromSeconds(0.5));
+            Thread.Sleep(TimeSpan.FromSeconds(1.0));
             var targetCurrentDistance = TargetInfo.Distance;
-
-            if (Math.Abs(targetLastDistance - targetCurrentDistance) < 1)
+            if ((targetLastDistance - targetCurrentDistance) != 0 || api.AutoFollow.IsAutoFollowing == false)
                 return false;
 
             return true;
@@ -11446,12 +11459,15 @@
             var count = api.Inventory.GetContainerCount(0);
             var itemc = 0;
 
+            //api.ThirdParty.SendString(String.Format("/echo Count:{0}", count));
             //if (!items.ContainsKey(name)) return -1;
 
             for (var x = 0; x < count; x++)
             {
                 var item = api.Inventory.GetContainerItem(0, x);
-                if (item.Id != 0 && api.Resources.GetItem(item.Id).Name == name)
+                //api.ThirdParty.SendString(String.Format("/echo Item ID:{0} in slot:{1}", item.Count, x));
+                //api.ThirdParty.SendString(String.Format("/echo Item Name:{0}", api.Resources.GetItem(item.Id).Name[0]));
+                if (item.Id != 0 && api.Resources.GetItem(item.Id).Name[0] == name)
                 {
                     itemc = itemc + (int)item.Count;
                 }
