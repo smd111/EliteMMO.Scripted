@@ -77,10 +77,10 @@
 
                                 if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
                                     break;
-                                if (isStuck())
+                                if (isStuck(1))
                                 {
                                     var count = 0;
-                                    while (isStuck())
+                                    while (isStuck(1))
                                     {
                                         if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
                                             break;
@@ -95,6 +95,8 @@
                                         }
                                         count++;
                                     }
+                                    WindowInfo.KeyUp(LRKey);
+                                    WindowInfo.KeyUp(API.Keys.NUMPAD8);
                                 }
                                 else
                                 {
@@ -436,6 +438,8 @@
         #region Thread - NAV
         private void BgwScriptNavDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            int count = 0;
+            float dir = -90;
             while (botRunning && !bgw_script_nav.CancellationPending)
             {
                 if (naviMove && usenav.Checked && selectedNavi.Text != "" && PlayerInfo.Status == 0 &&
@@ -511,6 +515,20 @@
                 }
 
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                if (naviMove && usenav.Checked && selectedNavi.Text != "" && api.AutoFollow.IsAutoFollowing && isStuck(0))
+                {
+                    api.AutoFollow.IsAutoFollowing = false;
+                    api.Player.H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
+                    WindowInfo.KeyDown(API.Keys.NUMPAD8);
+                    Thread.Sleep(TimeSpan.FromSeconds(2));
+                    WindowInfo.KeyUp(API.Keys.NUMPAD8);
+                    count++;
+                    if (count == 5)
+                    {
+                        dir = (dir == -90 ? 90 : -90);
+                        count = 0;
+                    }
+                }
             }
         }
         #endregion

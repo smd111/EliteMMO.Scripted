@@ -13,7 +13,7 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.GroupBox" Name="groupBox8">
-    <Enabled>True</Enabled>
+    <Enabled>False</Enabled>
     <Control Type="System.Windows.Forms.ComboBox" Name="comboBox3">
       <Text />
     </Control>
@@ -23,7 +23,7 @@
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
       <Checked>False</Checked>
-      <Enabled>True</Enabled>
+      <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
       <Checked>False</Checked>
@@ -32,11 +32,11 @@
       <Checked>True</Checked>
     </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>looptest.xin</Text>
+      <Text />
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
-    <Checked>True</Checked>
+    <Checked>False</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.TabControl" Name="dncControl">
@@ -173,7 +173,7 @@
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="mobdist">
-            <Checked>False</Checked>
+            <Checked>True</Checked>
             <Enabled>True</Enabled>
           </Control>
         </Control>
@@ -274,8 +274,85 @@
                 <SelectedIndexcount>0</SelectedIndexcount>
               </Control>
             </Control>
+            <Control Type="System.Windows.Forms.TabPage" Name="RDMpage">
+              <Control Type="System.Windows.Forms.GroupBox" Name="Convertgroup">
+                <Enabled>False</Enabled>
+                <Control Type="System.Windows.Forms.NumericUpDown" Name="ConvertHPP">
+                  <Value>100</Value>
+                  <Enabled>False</Enabled>
+                </Control>
+                <Control Type="System.Windows.Forms.NumericUpDown" Name="ConvertMPP">
+                  <Value>100</Value>
+                  <Enabled>False</Enabled>
+                </Control>
+                <Control Type="System.Windows.Forms.RadioButton" Name="ConvertMP">
+                  <Checked>False</Checked>
+                </Control>
+                <Control Type="System.Windows.Forms.RadioButton" Name="ConvertHP">
+                  <Checked>False</Checked>
+                </Control>
+              </Control>
+            </Control>
             <Control Type="System.Windows.Forms.TabPage" Name="Dynamispage">
               <Control Type="System.Windows.Forms.CheckBox" Name="staggerstopJA">
+                <Checked>False</Checked>
+                <Enabled>True</Enabled>
+              </Control>
+            </Control>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="OptionsMAMainTab">
+          <Control Type="System.Windows.Forms.TabControl" Name="MAtabs">
+            <Control Type="System.Windows.Forms.TabPage" Name="MASelectPage">
+              <Control Type="System.Windows.Forms.CheckedListBox" Name="playerMA">
+                <SelectedIndex0>47</SelectedIndex0>
+                <SelectedIndexcount>1</SelectedIndexcount>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.TabPage" Name="CureConfigPage">
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="CuraIIcount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="CuraIIIcount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="Curacount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="FullCurecount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="CureVIcount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="CureVcount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="CureIVcount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="CureIIIcount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="CureIIcount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+              <Control Type="System.Windows.Forms.NumericUpDown" Name="Curecount">
+                <Value>0</Value>
+                <Enabled>False</Enabled>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.TabPage" Name="MAconfigpage">
+              <Control Type="System.Windows.Forms.CheckBox" Name="MAreverse">
                 <Checked>False</Checked>
                 <Enabled>True</Enabled>
               </Control>
@@ -302,7 +379,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="runTarget">
-          <Checked>False</Checked>
+          <Checked>True</Checked>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="runPullDistance">
@@ -322,7 +399,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.TextBox" Name="pullCommand">
-          <Text>/ra &lt;t&gt;</Text>
+          <Text>/a &lt;t&gt;</Text>
         </Control>
       </Control>
     </Control>

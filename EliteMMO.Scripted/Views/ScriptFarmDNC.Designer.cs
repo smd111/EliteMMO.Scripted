@@ -8538,33 +8538,48 @@
                 }
                 else
                 {
-                    if (macontrol.ContainsKey(magic.ID))
+                    if (macontrol.ContainsKey((uint)magic.Index))
                     {
-                        if (macontrol[magic.ID].ToString().Contains("I =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        if (macontrol[magic.Index].ToString().Contains("I =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
-                            if (!macontrol[magic.ID].ToString().Contains("B =")) continue;
-                            else if (!PlayerInfo.HasBuff((short)macontrol[magic.ID].B)) castSpell = true;
+                            if (!macontrol[magic.Index].ToString().Contains("B =")) continue;
+                            else if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B))
+                            {
+                                castSpell = true;
+                            }
                         }
-                        else if (macontrol[magic.ID].ToString().Contains("b =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        else if (macontrol[magic.Index].ToString().Contains("b =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
-                            if (!PlayerInfo.HasBuff((short)macontrol[magic.ID].B) && !PlayerInfo.HasBuff((short)macontrol[magic.ID].b)) castSpell = true;
+                            if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B) && !PlayerInfo.HasBuff((short)macontrol[magic.Index].b)) castSpell = true;
                         }
-                        else if (macontrol[magic.ID].ToString().Contains("H =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        else if (macontrol[magic.Index].ToString().Contains("H =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
-                            if (PlayerInfo.HasBuff((short)macontrol[magic.ID].H)) castSpell = true;
+                            if (PlayerInfo.HasBuff((short)macontrol[magic.Index].H))
+                            {
+                                castSpell = true;
+                            }
                         }
-                        else if (macontrol[magic.ID].ToString().Contains("B =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        else if (macontrol[magic.Index].ToString().Contains("B =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
-                            if (!PlayerInfo.HasBuff((short)macontrol[magic.ID].B)) castSpell = true;
+                            if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B))
+                            {
+                                castSpell = true;
+                            }
                         }
-                        else if (macontrol[magic.ID].ToString().Contains("W =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        else if (macontrol[magic.Index].ToString().Contains("W =") && Recast.GetSpellRecast((int)magic.Index) == 0)
                         {
-                            if (macontrol[magic.ID].W == api.Weather.CurrentWeather) castSpell = true;
+                            if (macontrol[magic.Index].W == api.Weather.CurrentWeather)
+                            {
+                                castSpell = true;
+                            }
                         }
                     }
                     else
                     {
-                        if (Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                        if (Recast.GetSpellRecast((int)magic.Index) == 0)
+                        {
+                            castSpell = true;
+                        }
                     }
                 }
                 if (castSpell)
@@ -10922,18 +10937,20 @@
             if (api.AutoFollow.IsAutoFollowing)
                 api.AutoFollow.IsAutoFollowing = false;
         }
-
-        public bool isStuck()
+        public bool isStuck(int a)
         {
-            if (TargetInfo.ID <= 0 || TargetInfo.HPP == 0)
+            if (a == 1 && (TargetInfo.ID <= 0 || TargetInfo.HPP == 0))
                 return false;
-
-            var targetLastDistance = TargetInfo.Distance;
+            var x = PlayerInfo.X;
+            var z = PlayerInfo.Z;
+            var LDistance = TargetInfo.Distance;
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
-            var targetCurrentDistance = TargetInfo.Distance;
-            //api.ThirdParty.SendString(String.Format("/echo {0}", Math.Abs(targetCurrentDistance - targetLastDistance)));
-            if (Math.Abs(targetCurrentDistance - targetLastDistance) < 1)
-                return true;
+            var CDistance = TargetInfo.Distance;
+            var Dchange = (a == 1 ? (CDistance - LDistance) : 
+                (Math.Pow(x - PlayerInfo.X, 2) + Math.Pow(z - PlayerInfo.Z, 2)));
+            //api.ThirdParty.SendString(String.Format("/echo {0}", Math.Abs(Dchange)));
+            if (Math.Abs(Dchange) < 1)
+                    return true;
 
             return false;
         }
