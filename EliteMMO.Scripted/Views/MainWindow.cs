@@ -138,6 +138,7 @@
             EliteMMO_PROC.Hide();
 
             x4.Hide();
+            x3.Hide();
             x2.Hide();
             x1.Show();
             #endregion
@@ -165,6 +166,7 @@
             EliteMMO_PROC.Hide();
 
             x4.Hide();
+            x3.Hide();
             x1.Hide();
             x2.Show();
             #endregion
@@ -173,7 +175,7 @@
 
             x1.Dock = DockStyle.Fill;
             Controls.Add(x2);
-            Size = new Size(650, 442);
+            Size = new Size(474, 435);
         }
 
         private void AboutToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -190,6 +192,8 @@
             EliteMMO_PROC.Show();
 
             x4.Hide();
+            x3.Hide();
+            x2.Hide();
             x1.Hide();
             #endregion
 
@@ -208,9 +212,9 @@
             Application.Exit();
         }
 
-        private void OnEventToolStripMenuItemClick(object sender, System.EventArgs e)
+        private void navigationToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            //if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
+            if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
 
             #region show/hide objects
             xpic.Hide();
@@ -225,6 +229,35 @@
 
             x2.Hide();
             x1.Hide();
+            x4.Hide();
+            x3.Show();
+            #endregion
+
+            refreshCharactersToolStripMenuItem.Enabled = false;
+
+            x3.Dock = DockStyle.Fill;
+            Controls.Add(x3);
+            Size = new Size(429, 400);
+        }
+
+        private void OnEventToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
+
+            #region show/hide objects
+            xpic.Hide();
+            header1.Hide();
+            header2.Hide();
+            header3.Hide();
+            header4.Hide();
+            header5.Hide();
+            label1.Hide();
+            //button1.Hide();
+            EliteMMO_PROC.Hide();
+
+            x2.Hide();
+            x1.Hide();
+            x3.Hide();
             x4.Show();
             #endregion
 

@@ -285,6 +285,12 @@
                 if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.TargetID) && PlayerInfo.Status == 0 && !naviMove)
                 {
                     useTrust();
+                    if (Recast.GetAbilityRecast(218) == 0)
+                    {
+                        if (SpectralJig.Checked) api.ThirdParty.SendString("/ja \"Spectral Jig\" <me>");
+                        else if (ChocoboJig.Checked) api.ThirdParty.SendString("/ja \"Chocobo Jig\" <me>");
+                        else if (ChocoboJigII.Checked) api.ThirdParty.SendString("/ja \"Chocobo Jig II\" <me>");
+                    }
                     TargetInfo.SetTarget(0);
                 }
 
@@ -463,7 +469,7 @@
                         }
 
                         api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                                        0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                           (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                         api.AutoFollow.IsAutoFollowing = true;
                     }
@@ -488,7 +494,7 @@
                              }
 
                              api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                                     0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                               (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                              api.AutoFollow.IsAutoFollowing = true;
                           }
@@ -502,7 +508,7 @@
                              }
 
                              api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                                     0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                               (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                              api.AutoFollow.IsAutoFollowing = true;
                           }

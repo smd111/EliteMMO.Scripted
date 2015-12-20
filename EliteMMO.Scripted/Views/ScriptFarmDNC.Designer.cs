@@ -47,9 +47,11 @@
 
         public float idleX;
         public float idleY;
+        public float idleZ;
 
         public double[] navPathX = new double[1];
         public double[] navPathZ = new double[1];
+        public double[] navPathY = new double[1];
 
         public List<int> partyIDs = new List<int>();
         public List<int> ignoreTarget = new List<int>();
@@ -202,11 +204,10 @@
             this.IdleLocation = new System.Windows.Forms.CheckBox();
             this.label35 = new System.Windows.Forms.Label();
             this.Options4MainTab = new System.Windows.Forms.TabPage();
-            this.DropBox = new System.Windows.Forms.GroupBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.NotinBattle = new System.Windows.Forms.GroupBox();
+            this.ChocoboJigII = new System.Windows.Forms.RadioButton();
+            this.ChocoboJig = new System.Windows.Forms.RadioButton();
+            this.SpectralJig = new System.Windows.Forms.RadioButton();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.label42 = new System.Windows.Forms.Label();
             this.autoRangeDelay = new System.Windows.Forms.NumericUpDown();
@@ -598,7 +599,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.healMPcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.healHPcount)).BeginInit();
             this.Options4MainTab.SuspendLayout();
-            this.DropBox.SuspendLayout();
+            this.NotinBattle.SuspendLayout();
             this.groupBox15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).BeginInit();
             this.OptionsJAMainTab.SuspendLayout();
@@ -2202,7 +2203,7 @@
             // 
             // Options4MainTab
             // 
-            this.Options4MainTab.Controls.Add(this.DropBox);
+            this.Options4MainTab.Controls.Add(this.NotinBattle);
             this.Options4MainTab.Controls.Add(this.groupBox15);
             this.Options4MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options4MainTab.Name = "Options4MainTab";
@@ -2212,55 +2213,53 @@
             this.Options4MainTab.Text = "Options 4";
             this.Options4MainTab.UseVisualStyleBackColor = true;
             // 
-            // DropBox
+            // NotinBattle
             // 
-            this.DropBox.Controls.Add(this.comboBox7);
-            this.DropBox.Controls.Add(this.comboBox6);
-            this.DropBox.Controls.Add(this.checkBox3);
-            this.DropBox.Controls.Add(this.checkBox2);
-            this.DropBox.Location = new System.Drawing.Point(7, 118);
-            this.DropBox.Name = "DropBox";
-            this.DropBox.Size = new System.Drawing.Size(313, 66);
-            this.DropBox.TabIndex = 16;
-            this.DropBox.TabStop = false;
-            this.DropBox.Text = "Drop Item";
-            this.DropBox.Visible = false;
+            this.NotinBattle.Controls.Add(this.ChocoboJigII);
+            this.NotinBattle.Controls.Add(this.ChocoboJig);
+            this.NotinBattle.Controls.Add(this.SpectralJig);
+            this.NotinBattle.Location = new System.Drawing.Point(7, 103);
+            this.NotinBattle.Name = "NotinBattle";
+            this.NotinBattle.Size = new System.Drawing.Size(313, 81);
+            this.NotinBattle.TabIndex = 16;
+            this.NotinBattle.TabStop = false;
+            this.NotinBattle.Text = "When not in battle";
             // 
-            // comboBox7
+            // ChocoboJigII
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(137, 38);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(153, 21);
-            this.comboBox7.TabIndex = 11;
+            this.ChocoboJigII.AutoSize = true;
+            this.ChocoboJigII.Enabled = false;
+            this.ChocoboJigII.Location = new System.Drawing.Point(214, 19);
+            this.ChocoboJigII.Name = "ChocoboJigII";
+            this.ChocoboJigII.Size = new System.Drawing.Size(93, 17);
+            this.ChocoboJigII.TabIndex = 2;
+            this.ChocoboJigII.TabStop = true;
+            this.ChocoboJigII.Text = "Chocobo Jig II";
+            this.ChocoboJigII.UseVisualStyleBackColor = true;
             // 
-            // comboBox6
+            // ChocoboJig
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(137, 14);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(153, 21);
-            this.comboBox6.TabIndex = 10;
+            this.ChocoboJig.AutoSize = true;
+            this.ChocoboJig.Enabled = false;
+            this.ChocoboJig.Location = new System.Drawing.Point(108, 19);
+            this.ChocoboJig.Name = "ChocoboJig";
+            this.ChocoboJig.Size = new System.Drawing.Size(84, 17);
+            this.ChocoboJig.TabIndex = 1;
+            this.ChocoboJig.TabStop = true;
+            this.ChocoboJig.Text = "Chocobo Jig";
+            this.ChocoboJig.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // SpectralJig
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(23, 40);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(67, 17);
-            this.checkBox3.TabIndex = 9;
-            this.checkBox3.Text = "Treasury";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(23, 17);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(76, 17);
-            this.checkBox2.TabIndex = 8;
-            this.checkBox2.Text = "Lootwhore";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.SpectralJig.AutoSize = true;
+            this.SpectralJig.Enabled = false;
+            this.SpectralJig.Location = new System.Drawing.Point(6, 19);
+            this.SpectralJig.Name = "SpectralJig";
+            this.SpectralJig.Size = new System.Drawing.Size(80, 17);
+            this.SpectralJig.TabIndex = 0;
+            this.SpectralJig.TabStop = true;
+            this.SpectralJig.Text = "Spectral Jig";
+            this.SpectralJig.UseVisualStyleBackColor = true;
             // 
             // groupBox15
             // 
@@ -6743,8 +6742,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.healMPcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.healHPcount)).EndInit();
             this.Options4MainTab.ResumeLayout(false);
-            this.DropBox.ResumeLayout(false);
-            this.DropBox.PerformLayout();
+            this.NotinBattle.ResumeLayout(false);
+            this.NotinBattle.PerformLayout();
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).EndInit();
@@ -7228,12 +7227,8 @@
         public System.ComponentModel.BackgroundWorker bgw_script_pet;
         public System.ComponentModel.BackgroundWorker bgw_script_npc;
         public System.ComponentModel.BackgroundWorker bgw_script_scn;
-        public System.Windows.Forms.GroupBox DropBox;
+        public System.Windows.Forms.GroupBox NotinBattle;
         public System.Windows.Forms.ComboBox comboBox3;
-        public System.Windows.Forms.ComboBox comboBox7;
-        public System.Windows.Forms.ComboBox comboBox6;
-        public System.Windows.Forms.CheckBox checkBox3;
-        public System.Windows.Forms.CheckBox checkBox2;
         public System.Windows.Forms.Label label23;
         public System.Windows.Forms.Label label22;
         public System.Windows.Forms.Label label21;
@@ -7428,6 +7423,9 @@
         private TabPage samPage;
         public ComboBox sekkanokiWs;
         private Label label58;
+        private RadioButton ChocoboJigII;
+        private RadioButton ChocoboJig;
+        private RadioButton SpectralJig;
         #endregion
 
         #region Methods: Start/Stop/Load
@@ -7557,7 +7555,7 @@
                 playerJA.Items.Clear();
 
             #region Ability list
-            Dictionary<uint, dynamic> abilitylist = new Dictionary<uint, dynamic> (){{528, true},{529, true},{530, true},{531, true},{532, true},{533, true},{534, true},
+            Dictionary<uint, dynamic> abilitylist = new Dictionary<uint, dynamic>(){{528, true},{529, true},{530, true},{531, true},{532, true},{533, true},{534, true},
             {535, true},{536, true},{537, true},{538, true},{539, true},{540, true},{541, true},{543, true},{544, true},{545, true},{546, true},{548, true},{549, true},
             {550, true},{551, true},{552, true},{553, true},{554, true},{555, true},{556, true},{557, true},{558, true},{559, true},{560, true},{561, true},{562, true},
             {563, true},{564, true},{565, true},{566, true},{567, true},{568, true},{569, true},{570, true},{571, true},{572, true},{574, true},{575, true},{576, true},
@@ -7568,19 +7566,19 @@
             {631, true},{632, true},{633, true},{634, true},{635, true},{636, true},{637, true},{638, true},{639, true},{640, true},{641, true},{642, true},{643, true},
             {644, true},{645, true},{661, true},{662, true},{663, true},{664, true},{665, true},{666, true},{667, true},{668, true},{669, true},{670, true},{671, true},
             {672, true},{673, true},{674, true},{675, true},{676, true},{677, true},{678, true},{679, true},{680, true},{682, true},{683, true},{684, true},{685, true},
-            {686, true},{687, true},{688, true},{689, true},{690, true},{693, true},{708, true},{709, true},{722, true},{723, true},{724, true},{726, true},{727, true},
-            {728, true},{729, true},{730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{736, true},{737, true},{738, true},{739, true},{740, true},
-            {741, true},{742, true},{745, true},{746, true},{747, true},{748, true},{749, true},{750, true},{751, true},{752, true},{753, true},{754, true},{755, true},
-            {756, true},{757, true},{758, true},{759, true},{760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{768, true},
-            {769, true},{770, true},{771, true},{772, true},{773, true},{777, true},{779, true},{781, true},{782, true},{783, true},{784, true},{785, true},{786, true},
-            {787, true},{788, true},{789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},{799, true},
-            {800, true},{803, true},{804, true},{805, true},{807, true},{809, true},{810, true},{813, true},{814, true},{815, true},{816, true},{817, true},{828, true},
-            {829, true},{830, true},{831, true},{832, true},{833, true},{835, true},{836, true},{837, true},{838, true},{839, true},{840, true},{841, true},{842, true},
-            {843, true},{844, true},{845, true},{846, true},{847, true},{848, true},{850, true},{851, true},{853, true},{854, true},{855, true},{856, true},{857, true},
-            {858, true},{859, true},{860, true},{861, true},{862, true},{863, true},{864, true},{865, true},{866, true},{867, true},{868, true},{869, true},{870, true},
-            {871, true},{872, true},{873, true},{874, true},{875, true},{876, true},{877, true},{878, true},{879, true},{880, true},{881, true},{882, true},{883, true},
-            {884, true},{885, true},{886, true},{887, true},{888, true},{889, true},{890, true},{891, true},{892, true},{893, true},{894, true},{895, true},{896, true},
-            {898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true}};
+            {686, true},{687, true},{688, true},{689, true},{690, true},{693, true},{722, true},{723, true},{724, true},{726, true},{727, true},{728, true},{729, true},
+            {730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{736, true},{737, true},{738, true},{739, true},{740, true},{741, true},{742, true},
+            {745, true},{746, true},{747, true},{748, true},{749, true},{750, true},{751, true},{752, true},{753, true},{754, true},{755, true},{756, true},{757, true},
+            {758, true},{759, true},{760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{768, true},{769, true},{770, true},
+            {771, true},{772, true},{773, true},{777, true},{779, true},{781, true},{782, true},{783, true},{784, true},{785, true},{786, true},{787, true},{788, true},
+            {789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},{799, true},{800, true},{803, true},
+            {804, true},{805, true},{807, true},{809, true},{810, true},{813, true},{814, true},{815, true},{816, true},{817, true},{828, true},{829, true},{830, true},
+            {831, true},{832, true},{833, true},{835, true},{836, true},{837, true},{838, true},{839, true},{840, true},{841, true},{842, true},{843, true},{844, true},
+            {845, true},{846, true},{847, true},{848, true},{850, true},{851, true},{853, true},{854, true},{855, true},{856, true},{857, true},{858, true},{859, true},
+            {860, true},{861, true},{862, true},{863, true},{864, true},{865, true},{866, true},{867, true},{868, true},{869, true},{870, true},{871, true},{872, true},
+            {873, true},{874, true},{875, true},{876, true},{877, true},{878, true},{879, true},{880, true},{881, true},{882, true},{883, true},{884, true},{885, true},
+            {886, true},{887, true},{888, true},{889, true},{890, true},{891, true},{892, true},{894, true},{895, true},{896, true},{898, true},{899, true},{900, true},
+            { 901, true},{902, true},{903, true},{904, true}};
             #endregion
             var Recastids = api.Recast.GetAbilityIds();
             for (uint i = 528; i <= 2227; i++)
@@ -7788,7 +7786,8 @@
                     {"ptusecureiii", 45},{"numericUpDown29", 45},{"useviofloValue", 45},{"usevioflo", 45},{"usebldflo", 50},{"usebldfloValue", 50},{"useaspirii", 60},
                     {"usewldflo", 60},{"usewldfloValue", 60},{"usedrainiii", 65},{"usecureiv", 70},{"usecureivValue", 70},{"ptusecureiv", 70},{"numericUpDown28", 70},
                     {"useclmflo", 80},{"useclmfloValue", 80},{"usefeatherstep", 83},{"usefeatherstepValue", 83},{"usecurev", 87},{"usecurevValue", 87},
-                    {"ptusecurev", 87},{"numericUpDown27", 87},{"usestkflo", 89},{"usestkfloValue", 89},{"useterflo", 93},{"useterfloValue", 93},
+                    {"ptusecurev", 87},{"numericUpDown27", 87},{"usestkflo", 89},{"usestkfloValue", 89},{"useterflo", 93},{"useterfloValue", 93},{"SpectralJig", 25},
+                    { "ChocoboJig", 55},{"ChocoboJigII", 70},
                 };
                 foreach (KeyValuePair<string, uint> kvp in DNCenable)
                 {
@@ -10778,13 +10777,12 @@
         {
             var maxRange = 50.0;
             var outRange = -1;
-
             for (int i = 0; i < navPathX.Count(); i++)
             {
                 var x = Math.Pow(PlayerInfo.X - navPathX[i], 2.0);
                 var z = Math.Pow(PlayerInfo.Z - navPathZ[i], 2.0);
-
-                var dist = Math.Sqrt(x + z);
+                var y = Math.Pow(PlayerInfo.Y - navPathY[i], 2.0);
+                var dist = (navPathY[i] == 0 ? Math.Sqrt(x + z) : Math.Sqrt(x + z + y));
                 if (dist < maxRange)
                 {
                     maxRange = dist;
@@ -10994,8 +10992,10 @@
                     {
                         Array.Resize(ref navPathX, ipos + 1);
                         Array.Resize(ref navPathZ, ipos + 1);
+                        Array.Resize(ref navPathY, ipos + 1);
                         navPathX[ipos] = double.Parse(items[1]);
                         navPathZ[ipos] = double.Parse(items[2]);
+                        navPathY[ipos] = ((items.Length == 3) ? 0 : double.Parse(items[3]));
 
                         ipos++;
                     }
@@ -11003,27 +11003,28 @@
             }
         }
 
-        public void OpenRoute(string path)
-        {
-            var file = new FileInfo(path);
-            var ipos = 0;
+        //public void OpenRoute(string path)
+        //{
+        //    var file = new FileInfo(path);
+        //    var ipos = 0;
 
-            using (var sr = file.OpenText())
-            {
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    var items = line.Split(':');
-                    if (items[0] == "WAYPOINT")
-                    {
-                        navPathX[ipos] = double.Parse(items[1]);
-                        navPathZ[ipos] = double.Parse(items[2]);
+        //    using (var sr = file.OpenText())
+        //    {
+        //        string line;
+        //        while ((line = sr.ReadLine()) != null)
+        //        {
+        //            var items = line.Split(':');
+        //            if (items[0] == "WAYPOINT")
+        //            {
+        //                navPathX[ipos] = double.Parse(items[1]);
+        //                navPathZ[ipos] = double.Parse(items[2]);
+        //                navPathY[ipos] = ((items.Length == 3) ? 0 : double.Parse(items[3]));
 
-                        ipos++;
-                    }
-                }
-            }
-        }
+        //                ipos++;
+        //            }
+        //        }
+        //    }
+        //}
 
         private void UsenavCheckedChanged(object sender, EventArgs e)
         {
@@ -11074,7 +11075,7 @@
             if (navi.Exists)
             {
                 OpenNavi(navi.ToString());
-                OpenRoute(navi.ToString());
+                //OpenRoute(navi.ToString());
             }
         }
         #endregion        
@@ -11464,6 +11465,7 @@
             return itemc;
         }
         #endregion
+
         #endregion
     }
 }

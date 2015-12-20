@@ -3,8 +3,12 @@
     using API;
     partial class ScriptNaviMap
     {
-        private EliteAPI api;
+        private static EliteAPI api;
         public bool isRunning = false;
+        public bool isRecording = false;
+        public float lastX = -300;
+        public float lastY = -300;
+        public float lastZ = -300;
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -31,11 +35,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.WayPoints = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.menuStrip4 = new System.Windows.Forms.MenuStrip();
             this.PlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,49 +54,13 @@
             this.runReverse = new System.Windows.Forms.CheckBox();
             this.Linear = new System.Windows.Forms.RadioButton();
             this.Circular = new System.Windows.Forms.RadioButton();
+            this.WayPoints = new System.Windows.Forms.ListBox();
             this.groupBox9.SuspendLayout();
             this.menuStrip4.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.menuStrip5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // WayPoints
-            // 
-            this.WayPoints.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.WayPoints.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.WayPoints.Location = new System.Drawing.Point(10, 30);
-            this.WayPoints.Name = "WayPoints";
-            this.WayPoints.Size = new System.Drawing.Size(407, 178);
-            this.WayPoints.TabIndex = 0;
-            this.WayPoints.UseCompatibleStateImageBehavior = false;
-            this.WayPoints.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Width = 0;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "X";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 120;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Y";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 120;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Z";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 120;
             // 
             // groupBox9
             // 
@@ -127,6 +90,7 @@
             // 
             // PlayToolStripMenuItem
             // 
+            this.PlayToolStripMenuItem.Enabled = false;
             this.PlayToolStripMenuItem.Name = "PlayToolStripMenuItem";
             this.PlayToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.PlayToolStripMenuItem.Text = "play";
@@ -208,9 +172,11 @@
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
             this.SaveToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.SaveToolStripMenuItem.Text = "save";
+            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // RefreshToolStripMenuItem
             // 
+            this.RefreshToolStripMenuItem.Enabled = false;
             this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
             this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.RefreshToolStripMenuItem.Text = "refresh";
@@ -233,6 +199,7 @@
             this.groupBox1.Controls.Add(this.runReverse);
             this.groupBox1.Controls.Add(this.Linear);
             this.groupBox1.Controls.Add(this.Circular);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(225, 265);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(192, 74);
@@ -272,14 +239,22 @@
             this.Circular.Text = "Circular Path";
             this.Circular.UseVisualStyleBackColor = true;
             // 
+            // WayPoints
+            // 
+            this.WayPoints.FormattingEnabled = true;
+            this.WayPoints.Location = new System.Drawing.Point(10, 29);
+            this.WayPoints.Name = "WayPoints";
+            this.WayPoints.Size = new System.Drawing.Size(407, 173);
+            this.WayPoints.TabIndex = 14;
+            // 
             // ScriptNaviMap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.WayPoints);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
-            this.Controls.Add(this.WayPoints);
             this.Name = "ScriptNaviMap";
             this.Size = new System.Drawing.Size(429, 349);
             this.groupBox9.ResumeLayout(false);
@@ -297,12 +272,6 @@
         }
 
         #endregion
-
-        public System.Windows.Forms.ListView WayPoints;
-        public System.Windows.Forms.ColumnHeader columnHeader1;
-        public System.Windows.Forms.ColumnHeader columnHeader2;
-        public System.Windows.Forms.ColumnHeader columnHeader3;
-        public System.Windows.Forms.ColumnHeader columnHeader4;
         public System.Windows.Forms.GroupBox groupBox9;
         public System.Windows.Forms.MenuStrip menuStrip4;
         public System.Windows.Forms.ToolStripMenuItem PlayToolStripMenuItem;
@@ -327,6 +296,7 @@
         private void PlayToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             isRunning = true;
+            isRecording = false;
 
             if (PlayToolStripMenuItem.Enabled == true)
                 PlayToolStripMenuItem.Enabled = false;
@@ -344,6 +314,7 @@
         private void PauseToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             isRunning = false;
+            isRecording = false;
 
             if (StopToolStripMenuItem.Enabled == false)
                 StopToolStripMenuItem.Enabled = true;
@@ -355,6 +326,7 @@
         private void ResumeToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             isRunning = true;
+            isRecording = true;
 
             if (StopToolStripMenuItem.Enabled == false)
                 StopToolStripMenuItem.Enabled = true;
@@ -366,18 +338,21 @@
         private void StopToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             isRunning = false;
+            isRecording = false;
 
-            if (PlayToolStripMenuItem.Enabled == false)
-                PlayToolStripMenuItem.Enabled = true;
+            //if (PlayToolStripMenuItem.Enabled == false)
+            //    PlayToolStripMenuItem.Enabled = true;
 
             if (RecordToolStripMenuItem.Enabled == false)
                 RecordToolStripMenuItem.Enabled = true;
 
-            if (PauseToolStripMenuItem.Enabled == true)
-                PauseToolStripMenuItem.Enabled = false;
+            //if (PauseToolStripMenuItem.Enabled == true)
+            //    PauseToolStripMenuItem.Enabled = false;
 
             if (StopToolStripMenuItem.Enabled == true)
                 StopToolStripMenuItem.Enabled = false;
+
+            bgw_navi.CancelAsync();
         }
 
         private void ClearToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -389,6 +364,7 @@
         private void RecordToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             isRunning = true;
+            isRecording = true;
 
             if (ClearToolStripMenuItem.Enabled == false)
                 ClearToolStripMenuItem.Enabled = true;
@@ -398,6 +374,22 @@
 
             if (StopToolStripMenuItem.Enabled == false)
                 StopToolStripMenuItem.Enabled = true;
+            if (!bgw_navi.IsBusy)
+                bgw_navi.RunWorkerAsync();
+        }
+
+        private System.Windows.Forms.ListBox WayPoints;
+        #endregion
+
+        #region class: PlayerInfo
+        public static class PlayerInfo
+        {
+            public static int Status => (int)api.Entity.GetLocalPlayer().Status;
+            public static int TargetID => (int)api.Entity.GetLocalPlayer().TargetID;
+            public static float X => api.Entity.GetLocalPlayer().X;
+            public static float Y => api.Entity.GetLocalPlayer().Y;
+            public static float Z => api.Entity.GetLocalPlayer().Z;
+            public static float H => api.Entity.GetLocalPlayer().H;
         }
         #endregion
     }
