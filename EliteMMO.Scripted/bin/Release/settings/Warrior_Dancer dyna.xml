@@ -22,7 +22,7 @@
       <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
-      <Checked>True</Checked>
+      <Checked>False</Checked>
       <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
@@ -644,9 +644,9 @@
       <Control Type="System.Windows.Forms.CheckedListBox" Name="Trusts">
         <SelectedIndex0>32</SelectedIndex0>
         <SelectedIndex1>45</SelectedIndex1>
-        <SelectedIndex2>79</SelectedIndex2>
-        <SelectedIndex3>80</SelectedIndex3>
-        <SelectedIndex4>85</SelectedIndex4>
+        <SelectedIndex2>80</SelectedIndex2>
+        <SelectedIndex3>81</SelectedIndex3>
+        <SelectedIndex4>86</SelectedIndex4>
         <SelectedIndexcount>5</SelectedIndexcount>
       </Control>
     </Control>
