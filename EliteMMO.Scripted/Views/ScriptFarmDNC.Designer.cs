@@ -32,8 +32,8 @@
         public bool isMoving = false;
         public bool isCasting = false;
         public bool isLoading = false;
-        public bool Movementstuck = false;
-        public bool Movementstuckdir = false;
+        public dynamic LRKey = API.Keys.NUMPAD4;
+
         public int startzone;
 
         public float SetEntityX = 0;
@@ -51,14 +51,11 @@
         public double[] navPathX = new double[1];
         public double[] navPathZ = new double[1];
 
-        //public static Dictionary<double, double> route = new Dictionary<double, double>();
-
         public List<int> partyIDs = new List<int>();
         public List<int> ignoreTarget = new List<int>();
 
         public static List<string> DebugLog = new List<string>();
-
-        //public static Dictionary<string, uint> items = new Dictionary<string, uint>();
+        
         public Dictionary<string, string> wantedID = new Dictionary<string, string>();
         public Dictionary<string, string> wantedNM = new Dictionary<string, string>();
 
@@ -562,7 +559,6 @@
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_chat = new System.ComponentModel.BackgroundWorker();
-            //this.bgw_script_stuck = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_pet = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
@@ -6651,12 +6647,6 @@
             this.bgw_script_chat.WorkerSupportsCancellation = true;
             this.bgw_script_chat.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptchatWatchDoWork);
             // 
-            // bgw_script_stuck
-            // 
-            //this.bgw_script_stuck.WorkerReportsProgress = true;
-            //this.bgw_script_stuck.WorkerSupportsCancellation = true;
-            //this.bgw_script_stuck.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptstuckWatchDoWork);
-            // 
             // bgw_script_pet
             // 
             this.bgw_script_pet.WorkerReportsProgress = true;
@@ -7235,7 +7225,6 @@
         public System.ComponentModel.BackgroundWorker bgw_script_nav;
         public System.ComponentModel.BackgroundWorker bgw_script_sch;
         public System.ComponentModel.BackgroundWorker bgw_script_chat;
-        //public System.ComponentModel.BackgroundWorker bgw_script_stuck;
         public System.ComponentModel.BackgroundWorker bgw_script_pet;
         public System.ComponentModel.BackgroundWorker bgw_script_npc;
         public System.ComponentModel.BackgroundWorker bgw_script_scn;
@@ -7451,12 +7440,6 @@
 
             if (PetInfo.Name != null)
                 pInfo();
-
-            //LoadJA_Click(null, null);
-            //LoadMA_Click(null, null);
-
-            //PopulateItems();
-            //MessageBox.Show(ItemQuantityByName("Blind Bolt").ToString());
         }
 
         private void UpdateJobToolStripMenuItemClick(object sender, EventArgs e)
@@ -7485,9 +7468,6 @@
 
             if (!bgw_script_chat.IsBusy)
                 bgw_script_chat.RunWorkerAsync();
-
-            //if (!bgw_script_stuck.IsBusy)
-            //    bgw_script_stuck.RunWorkerAsync();
         }
 
         private void ToolStopClick(object sender, EventArgs e)
@@ -7509,7 +7489,6 @@
             bgw_script_pet.CancelAsync();
             bgw_script_nav.CancelAsync();
             bgw_script_chat.CancelAsync();
-            //bgw_script_stuck.CancelAsync();
         }
 
         private void PlayerDead()
@@ -7604,7 +7583,6 @@
             {898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true}};
             #endregion
             var Recastids = api.Recast.GetAbilityIds();
-            //api.ThirdParty.SendString("//console_echo start get ja");
             for (uint i = 528; i <= 2227; i++)
             {
                 var ability = api.Resources.GetAbility(i);
@@ -7858,7 +7836,7 @@
                 }
                 if (PlayerInfo.MainJob == 21 || PlayerInfo.SubJob == 21) 
                 {
-                    petControl.Controls.Add(geopettab);
+                    //petControl.Controls.Add(geopettab);
                     //GEOGetJA()
                 }
                 dncControl.Controls.Add(pets);
@@ -7875,15 +7853,10 @@
                 (PlayerInfo.MainJob == 22 && PlayerInfo.MainJobLevel >= 45) || (PlayerInfo.SubJob == 22 && PlayerInfo.SubJobLevel >= 45))
                 selectedHateControl.Items.Add("Flash");
             #endregion
-            //if (!isLoading)
-            //{
-              //  ClearJA_Click(null, null);
-                LoadJA_Click(null, null);
-              //  ClearMA_Click(null, null);
-                LoadMA_Click(null, null);
-                trustMenureset_Click(null, null);
-                //PopulateItems();
-            //}
+            LoadJA_Click(null, null);
+
+            LoadMA_Click(null, null);
+            trustMenureset_Click(null, null);
         }
 
         #endregion
@@ -10051,9 +10024,8 @@
         }
         #endregion
         #region Farming: populate target list
-        private bool IsUpper(string value)
+        private bool IsUpper(string value)// Consider string to be uppercase if it has no lowercase letters.
         {
-            // Consider string to be uppercase if it has no lowercase letters.
             for (int i = 0; i < value.Length; i++)
             {
                 if (char.IsLower(value[i]))
@@ -10064,9 +10036,8 @@
             return true;
         }
 
-        private bool IsLower(string value)
+        private bool IsLower(string value)// Consider string to be lowercase if it has no uppercase letters.
         {
-            // Consider string to be lowercase if it has no uppercase letters.
             for (int i = 0; i < value.Length; i++)
             {
                 if (char.IsUpper(value[i]))
@@ -10637,9 +10608,14 @@
                     naviMove = true;
             }
         }
+        //private void ClearTarget()
+        //{
+        //    if (ManualMode.Checked) return;
+        //    TargetInfo.SetTarget(0);
+        //}
 
         #endregion
-        #region Function: Get/Set Target
+            #region Function: Get/Set Target
 
         public void FindTarget()
         {
@@ -10808,7 +10784,7 @@
             if (!botRunning || !followplayer.Checked || followName.Text == "")
                 return;
 
-            var followID = TargetInfo.GetTargetIdByName(followName.Text); //
+            var followID = TargetInfo.GetTargetIdByName(followName.Text);
             if (followID == -1)
                 return;
 
@@ -10953,12 +10929,13 @@
                 return false;
 
             var targetLastDistance = TargetInfo.Distance;
-            Thread.Sleep(TimeSpan.FromSeconds(1.0));
+            Thread.Sleep(TimeSpan.FromSeconds(0.5));
             var targetCurrentDistance = TargetInfo.Distance;
-            if ((targetLastDistance - targetCurrentDistance) != 0 || api.AutoFollow.IsAutoFollowing == false)
-                return false;
+            //api.ThirdParty.SendString(String.Format("/echo {0}", Math.Abs(targetCurrentDistance - targetLastDistance)));
+            if (Math.Abs(targetCurrentDistance - targetLastDistance) < 1)
+                return true;
 
-            return true;
+            return false;
         }
 
         public void ReturnIdleLocation()
@@ -11380,7 +11357,7 @@
                 for (var x = 0; x < 17; x++)
                 {
                     var member = api.Party.GetPartyMember(x);
-                    if (member.Active == 1)// pc++;
+                    if (member.Active == 1)
                     {
                         if (typ == "") pc++;
                         else if (typ == "Party")
@@ -11459,14 +11436,9 @@
             var count = api.Inventory.GetContainerCount(0);
             var itemc = 0;
 
-            //api.ThirdParty.SendString(String.Format("/echo Count:{0}", count));
-            //if (!items.ContainsKey(name)) return -1;
-
             for (var x = 0; x < count; x++)
             {
                 var item = api.Inventory.GetContainerItem(0, x);
-                //api.ThirdParty.SendString(String.Format("/echo Item ID:{0} in slot:{1}", item.Count, x));
-                //api.ThirdParty.SendString(String.Format("/echo Item Name:{0}", api.Resources.GetItem(item.Id).Name[0]));
                 if (item.Id != 0 && api.Resources.GetItem(item.Id).Name[0] == name)
                 {
                     itemc = itemc + (int)item.Count;
@@ -11474,22 +11446,7 @@
             }
             return itemc;
         }
-
-        /*public static void PopulateItems()
-        {
-            items.Clear();
-
-            for (var x = 0; x < 32767; x++)
-            {
-                var i = api.Resources.GetItem((uint)x);
-
-                if (!string.IsNullOrEmpty(i?.Name[0]))
-                    items.Add(i.Name[0], i.ItemID);
-            }
-        }*/
-
         #endregion
-
         #endregion
     }
 }

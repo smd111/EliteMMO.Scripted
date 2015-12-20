@@ -25,6 +25,7 @@
             while (botRunning && !bgw_script_dnc.CancellationPending)
             {
                 //TargetInfo.SetTarget(0);
+                if (checkZone.Checked && startzone != api.Player.ZoneId) ToolStopClick(null, null);
                 if (isCasting) continue;
                 if (DeathWarp.Checked && (PlayerInfo.Status == 2 || PlayerInfo.Status == 3))
                     PlayerDead();
@@ -51,7 +52,7 @@
 
                     if (ignoreTarget.Count > 0)
                         ignoreTarget.Clear();
-
+                    
                     #region Check Target Distance
                     if (mobdist.Checked)
                     {
@@ -66,35 +67,43 @@
                             while (TargetInfo.Distance >= (float)KeepTargetRange.Value &&
                                    TargetInfo.HPP > 1 && PlayerInfo.Status == 1 && botRunning)
                             {
+
                                 api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
-                                                                   TargetInfo.Y - PlayerInfo.Y,
-                                                                   TargetInfo.Z - PlayerInfo.Z);
+                                        TargetInfo.Y - PlayerInfo.Y, TargetInfo.Z - PlayerInfo.Z);
 
                                 api.AutoFollow.IsAutoFollowing = true;
+
                                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                                if (Movementstuck)
-                                {
-                                    if (Movementstuckdir)
-                                    {
-                                        WindowInfo.KeyDown(API.Keys.NUMPAD4);
-                                        WindowInfo.KeyDown(API.Keys.NUMPAD8);
-                                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                        WindowInfo.KeyUp(API.Keys.NUMPAD4);
-                                        WindowInfo.KeyUp(API.Keys.NUMPAD8);
-                                    }
-                                    else
-                                    {
-                                        WindowInfo.KeyDown(API.Keys.NUMPAD6);
-                                        WindowInfo.KeyDown(API.Keys.NUMPAD8);
-                                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                        WindowInfo.KeyUp(API.Keys.NUMPAD6);
-                                        WindowInfo.KeyUp(API.Keys.NUMPAD8);
-                                    }
-                                }
 
                                 if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
                                     break;
+                                if (isStuck())
+                                {
+                                    var count = 0;
+                                    while (isStuck())
+                                    {
+                                        if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
+                                            break;
+                                        WindowInfo.KeyDown(LRKey);
+                                        WindowInfo.KeyDown(API.Keys.NUMPAD8);
+                                        Thread.Sleep(TimeSpan.FromSeconds(1));
+                                        if (count == 5)
+                                        {
+                                            WindowInfo.KeyUp(LRKey);
+                                            LRKey = (LRKey == API.Keys.NUMPAD4 ? API.Keys.NUMPAD6 : API.Keys.NUMPAD4);
+                                            count = 0;
+                                        }
+                                        count++;
+                                    }
+                                }
+                                else
+                                {
+                                    WindowInfo.KeyUp(LRKey);
+                                    WindowInfo.KeyUp(API.Keys.NUMPAD8);
+                                }
                             }
+                            WindowInfo.KeyUp(LRKey);
+                            WindowInfo.KeyUp(API.Keys.NUMPAD8);
                             api.AutoFollow.IsAutoFollowing = false;
                             isMoving = false;
 
@@ -110,6 +119,8 @@
                         }
                     }
                     #endregion
+                    WindowInfo.KeyUp(LRKey);
+                    WindowInfo.KeyUp(API.Keys.NUMPAD8);
 
                     if (!TargetInfo.IsFacingTarget(PlayerInfo.X, PlayerInfo.Z, PlayerInfo.H, TargetInfo.X, TargetInfo.Z) &&
                         facetarget.Checked && TargetInfo.HPP > 1)
@@ -498,25 +509,6 @@
                 {
                     api.AutoFollow.IsAutoFollowing = false;
                 }
-                //if (Movementstuck && api.AutoFollow.IsAutoFollowing)
-                //{
-                //    if (Movementstuckdir)
-                //    {
-                //        WindowInfo.KeyDown(API.Keys.NUMPAD4);
-                //        WindowInfo.KeyDown(API.Keys.NUMPAD8);
-                //        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                //        WindowInfo.KeyUp(API.Keys.NUMPAD4);
-                //        WindowInfo.KeyUp(API.Keys.NUMPAD8);
-                //    }
-                //    else
-                //    {
-                //        WindowInfo.KeyDown(API.Keys.NUMPAD6);
-                //        WindowInfo.KeyDown(API.Keys.NUMPAD8);
-                //        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                //        WindowInfo.KeyUp(API.Keys.NUMPAD6);
-                //        WindowInfo.KeyUp(API.Keys.NUMPAD8);
-                //    }
-                //}
 
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
@@ -578,37 +570,6 @@
             }
             MonStagered = false;
         }
-        #endregion
-        #region Thread - stuck watch
-        //private void BgwScriptstuckWatchDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        //{
-        //    var count = 0;
-        //    while (botRunning && !bgw_script_stuck.CancellationPending)
-        //    {
-        //        var playerLastx = PlayerInfo.X;
-        //        var playerLasty = PlayerInfo.Y;
-        //        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-        //        if (api.AutoFollow.IsAutoFollowing || isMoving)
-        //        {
-        //            if (Math.Abs(playerLastx - PlayerInfo.X) < 0.3 && Math.Abs(playerLasty - PlayerInfo.Y) < 0.03)
-        //            {
-        //                if (count > 100)
-        //                {
-        //                    Movementstuckdir = (Movementstuckdir ? true : false);
-        //                    count = 0;
-        //                }
-        //                else count++;
-        //               Movementstuck = true;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            count = 0;
-        //            Movementstuck = false;
-        //        }
-        //    }
-        //    Movementstuck = false;
-        //}
         #endregion
         #region Display Controle
         private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
@@ -746,9 +707,7 @@
             if (PlayerInfo.HasKeyItem(2156)) trustcount = 5;
             else if (PlayerInfo.HasKeyItem(2153)) trustcount = 4;
             else if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051)) trustcount = 3;
-
-
-            //Thread.Sleep(TimeSpan.FromSeconds(0.1));
+            
             selectedtrusts.Text = "Selected Trusts : " + Trusts.CheckedItems.Count;
 
             if (Trusts.CheckedItems.Count == trustcount) Trusts.Enabled = false;
