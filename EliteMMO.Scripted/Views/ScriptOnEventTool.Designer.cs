@@ -342,7 +342,7 @@ namespace EliteMMO.Scripted.Views
         public System.Windows.Forms.Label label52;
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox eCommand;
-        public System.Windows.Forms.ListView Events;
+        public new System.Windows.Forms.ListView Events;
         public System.Windows.Forms.ColumnHeader ET;
         public System.Windows.Forms.ColumnHeader command;
         public System.Windows.Forms.MenuStrip GetSetEvents;

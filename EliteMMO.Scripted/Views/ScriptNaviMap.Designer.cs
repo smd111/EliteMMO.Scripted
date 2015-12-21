@@ -1,14 +1,23 @@
 ﻿namespace EliteMMO.Scripted.Views
 {
     using API;
+    using System;
+    using System.Linq;
+    using System.Threading;
     partial class ScriptNaviMap
     {
         private static EliteAPI api;
         public bool isRunning = false;
         public bool isRecording = false;
+        public bool isPlaying = false;
+        public bool isPaused = false;
         public float lastX = -300;
         public float lastY = -300;
         public float lastZ = -300;
+
+        public double[] navPathX = new double[1];
+        public double[] navPathZ = new double[1];
+        public double[] navPathY = new double[1];
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -35,6 +44,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.menuStrip4 = new System.Windows.Forms.MenuStrip();
             this.PlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,11 +65,15 @@
             this.Linear = new System.Windows.Forms.RadioButton();
             this.Circular = new System.Windows.Forms.RadioButton();
             this.WayPoints = new System.Windows.Forms.ListBox();
+            this.NodeDist = new System.Windows.Forms.NumericUpDown();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox9.SuspendLayout();
             this.menuStrip4.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.menuStrip5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NodeDist)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox9
@@ -67,7 +81,7 @@
             this.groupBox9.Controls.Add(this.menuStrip4);
             this.groupBox9.Location = new System.Drawing.Point(10, 211);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(407, 49);
+            this.groupBox9.Size = new System.Drawing.Size(425, 49);
             this.groupBox9.TabIndex = 11;
             this.groupBox9.TabStop = false;
             // 
@@ -83,14 +97,13 @@
             this.menuStrip4.Location = new System.Drawing.Point(3, 16);
             this.menuStrip4.Name = "menuStrip4";
             this.menuStrip4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip4.Size = new System.Drawing.Size(401, 24);
+            this.menuStrip4.Size = new System.Drawing.Size(419, 24);
             this.menuStrip4.Stretch = false;
             this.menuStrip4.TabIndex = 0;
             this.menuStrip4.Text = "menuStrip4";
             // 
             // PlayToolStripMenuItem
             // 
-            this.PlayToolStripMenuItem.Enabled = false;
             this.PlayToolStripMenuItem.Name = "PlayToolStripMenuItem";
             this.PlayToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.PlayToolStripMenuItem.Text = "play";
@@ -122,7 +135,6 @@
             // 
             // ClearToolStripMenuItem
             // 
-            this.ClearToolStripMenuItem.Enabled = false;
             this.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem";
             this.ClearToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.ClearToolStripMenuItem.Text = "clear";
@@ -153,6 +165,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(194, 21);
             this.comboBox2.TabIndex = 7;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // menuStrip5
             // 
@@ -176,10 +189,10 @@
             // 
             // RefreshToolStripMenuItem
             // 
-            this.RefreshToolStripMenuItem.Enabled = false;
             this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
             this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.RefreshToolStripMenuItem.Text = "refresh";
+            this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             // 
             // ConvertToolStripMenuItem
             // 
@@ -196,21 +209,21 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.NodeDist);
             this.groupBox1.Controls.Add(this.runReverse);
             this.groupBox1.Controls.Add(this.Linear);
             this.groupBox1.Controls.Add(this.Circular);
-            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(225, 265);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(192, 74);
+            this.groupBox1.Size = new System.Drawing.Size(207, 74);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
             // runReverse
             // 
             this.runReverse.AutoSize = true;
-            this.runReverse.Enabled = false;
-            this.runReverse.Location = new System.Drawing.Point(107, 22);
+            this.runReverse.Location = new System.Drawing.Point(122, 23);
             this.runReverse.Name = "runReverse";
             this.runReverse.Size = new System.Drawing.Size(79, 17);
             this.runReverse.TabIndex = 35;
@@ -244,8 +257,45 @@
             this.WayPoints.FormattingEnabled = true;
             this.WayPoints.Location = new System.Drawing.Point(10, 29);
             this.WayPoints.Name = "WayPoints";
-            this.WayPoints.Size = new System.Drawing.Size(407, 173);
+            this.WayPoints.Size = new System.Drawing.Size(425, 173);
             this.WayPoints.TabIndex = 14;
+            // 
+            // NodeDist
+            // 
+            this.NodeDist.Location = new System.Drawing.Point(155, 40);
+            this.NodeDist.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.NodeDist.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NodeDist.Name = "NodeDist";
+            this.NodeDist.Size = new System.Drawing.Size(37, 20);
+            this.NodeDist.TabIndex = 36;
+            this.NodeDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NodeDist.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(97, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Node Dist.";
             // 
             // ScriptNaviMap
             // 
@@ -256,7 +306,8 @@
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
             this.Name = "ScriptNaviMap";
-            this.Size = new System.Drawing.Size(429, 349);
+            this.Size = new System.Drawing.Size(445, 349);
+            this.Load += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.menuStrip4.ResumeLayout(false);
@@ -267,6 +318,7 @@
             this.menuStrip5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NodeDist)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,8 +348,10 @@
         private void PlayToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             isRunning = true;
-            isRecording = false;
+            isPlaying = true;
+            isPaused = false;
 
+            ClearToolStripMenuItem.Enabled = false;
             if (PlayToolStripMenuItem.Enabled == true)
                 PlayToolStripMenuItem.Enabled = false;
 
@@ -309,62 +363,88 @@
 
             if (StopToolStripMenuItem.Enabled == false)
                 StopToolStripMenuItem.Enabled = true;
+
+            if (!bgw_navi.IsBusy)
+                bgw_navi.RunWorkerAsync();
         }
 
         private void PauseToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            isRunning = false;
-            isRecording = false;
+            isPaused = true;
 
             if (StopToolStripMenuItem.Enabled == false)
                 StopToolStripMenuItem.Enabled = true;
 
+            if (PauseToolStripMenuItem.Enabled == true)
+                PauseToolStripMenuItem.Enabled = false;
+
             if (ResumeToolStripMenuItem.Enabled == false)
                 ResumeToolStripMenuItem.Enabled = true;
+
+            api.AutoFollow.IsAutoFollowing = false;
         }
 
         private void ResumeToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            isRunning = true;
-            isRecording = true;
+            isPaused = false;
 
             if (StopToolStripMenuItem.Enabled == false)
                 StopToolStripMenuItem.Enabled = true;
 
+            if (ResumeToolStripMenuItem.Enabled == true)
+                ResumeToolStripMenuItem.Enabled = false;
+
             if (PauseToolStripMenuItem.Enabled == false)
                 PauseToolStripMenuItem.Enabled = true;
+
+            api.AutoFollow.IsAutoFollowing = false;
         }
 
         private void StopToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             isRunning = false;
             isRecording = false;
+            isPlaying = false;
 
-            //if (PlayToolStripMenuItem.Enabled == false)
-            //    PlayToolStripMenuItem.Enabled = true;
+            if (PlayToolStripMenuItem.Enabled == false)
+                PlayToolStripMenuItem.Enabled = true;
 
-            if (RecordToolStripMenuItem.Enabled == false)
-                RecordToolStripMenuItem.Enabled = true;
+            RecordToolStripMenuItem.Enabled = true;
+            
+            PauseToolStripMenuItem.Enabled = false;
 
-            //if (PauseToolStripMenuItem.Enabled == true)
-            //    PauseToolStripMenuItem.Enabled = false;
+            ResumeToolStripMenuItem.Enabled = false;
 
             if (StopToolStripMenuItem.Enabled == true)
                 StopToolStripMenuItem.Enabled = false;
 
+            if (ClearToolStripMenuItem.Enabled == false)
+                ClearToolStripMenuItem.Enabled = true;
+
+            api.AutoFollow.IsAutoFollowing = false;
             bgw_navi.CancelAsync();
         }
 
         private void ClearToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            lastX = -300;
+            lastY = -300;
+            lastZ = -300;
+
             if (WayPoints.Items.Count > 0)
                 WayPoints.Items.Clear();
+            comboBox2.SelectedText = "";
         }
 
         private void RecordToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             isRunning = true;
             isRecording = true;
+            if (comboBox2.SelectedText != "")
+            {
+                WayPoints.Items.Clear();
+                comboBox2.SelectedText = "";
+            }
 
             if (ClearToolStripMenuItem.Enabled == false)
                 ClearToolStripMenuItem.Enabled = true;
@@ -374,11 +454,48 @@
 
             if (StopToolStripMenuItem.Enabled == false)
                 StopToolStripMenuItem.Enabled = true;
+
             if (!bgw_navi.IsBusy)
                 bgw_navi.RunWorkerAsync();
         }
+        public bool isStuck(int a)
+        {
+            if (!api.AutoFollow.IsAutoFollowing || isPaused) return false;
+            var x = PlayerInfo.X;
+            var z = PlayerInfo.Z;
+            var LDistance = api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance;
+            Thread.Sleep(TimeSpan.FromSeconds(0.5));
+            var CDistance = api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance;
+            var Dchange = (Math.Pow(x - PlayerInfo.X, 2) + Math.Pow(z - PlayerInfo.Z, 2));
+            if (Math.Abs(Dchange) < 1)
+                return true;
+
+            return false;
+        }
+        public int FindClosestWayPoint()
+        {
+            var maxRange = 50.0;
+            var outRange = -1;
+            for (int i = 0; i < navPathX.Count(); i++)
+            {
+                var x = Math.Pow(PlayerInfo.X - navPathX[i], 2.0);
+                var z = Math.Pow(PlayerInfo.Z - navPathZ[i], 2.0);
+                var y = Math.Pow(PlayerInfo.Y - navPathY[i], 2.0);
+                var dist = (navPathY[i] == 0 ? Math.Sqrt(x + z) : Math.Sqrt(x + z + y));
+                if (dist < maxRange)
+                {
+                    maxRange = dist;
+                    outRange = i;
+                }
+            }
+            WayPoints.SelectedIndex = outRange;
+            return outRange;
+        }
 
         private System.Windows.Forms.ListBox WayPoints;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown NodeDist;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         #endregion
 
         #region class: PlayerInfo

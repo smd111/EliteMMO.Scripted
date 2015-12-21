@@ -7861,7 +7861,7 @@
         #endregion
         #region Methods: Save/Load Config
         #region config: save/load (player)
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\settings");
             if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\settings");
@@ -7881,7 +7881,7 @@
                     break;
             }
         }
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             isLoading = true;
             updatenav();

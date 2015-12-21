@@ -8,7 +8,6 @@
     {
         private EliteAPI api;
         
-        public static int PID;
 
         private readonly UserControl x1;
         private readonly UserControl x2;
@@ -180,6 +179,7 @@
             this.healingSupportToolStripMenuItem.Name = "healingSupportToolStripMenuItem";
             this.healingSupportToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.healingSupportToolStripMenuItem.Text = "Healing Support";
+            this.healingSupportToolStripMenuItem.Visible = false;
             this.healingSupportToolStripMenuItem.Click += new System.EventHandler(this.HealingSupportToolStripMenuItemClick);
             // 
             // skillupToolStripMenuItem

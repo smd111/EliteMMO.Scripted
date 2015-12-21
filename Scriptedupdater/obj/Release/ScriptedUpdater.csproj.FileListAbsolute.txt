@@ -14,4 +14,3 @@ C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\W
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\ScriptedUpdater.csproj.GenerateResource.Cache
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\Updater.exe
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\Updater.pdb
-C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\ScriptedUpdater.csprojResolveAssemblyReference.cache
