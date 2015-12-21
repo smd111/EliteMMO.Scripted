@@ -469,7 +469,8 @@
                         }
 
                         api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                           (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                          (navPathY[closestWayPoint] != 0 ? (float)navPathY[closestWayPoint] : 0),
+                          (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                         api.AutoFollow.IsAutoFollowing = true;
                     }
@@ -494,9 +495,9 @@
                              }
 
                              api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                               (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
-
-                             api.AutoFollow.IsAutoFollowing = true;
+                               (navPathY[closestWayPoint] != 0 ? (float)navPathY[closestWayPoint] : 0),
+                               (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                api.AutoFollow.IsAutoFollowing = true;
                           }
                           else
                           {
@@ -507,10 +508,11 @@
                                 runReverse.Checked = false;
                              }
 
-                             api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                               (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
+                                  (navPathY[closestWayPoint] != 0 ? (float)navPathY[closestWayPoint] : 0),
+                                  (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
-                             api.AutoFollow.IsAutoFollowing = true;
+                                api.AutoFollow.IsAutoFollowing = true;
                           }
                        }
                     }
