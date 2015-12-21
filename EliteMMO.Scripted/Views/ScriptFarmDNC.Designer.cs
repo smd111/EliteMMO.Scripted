@@ -566,6 +566,7 @@
             this.DeathWarp = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.UseJigs = new System.Windows.Forms.CheckBox();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -2215,6 +2216,7 @@
             // 
             // NotinBattle
             // 
+            this.NotinBattle.Controls.Add(this.UseJigs);
             this.NotinBattle.Controls.Add(this.ChocoboJigII);
             this.NotinBattle.Controls.Add(this.ChocoboJig);
             this.NotinBattle.Controls.Add(this.SpectralJig);
@@ -2229,7 +2231,7 @@
             // 
             this.ChocoboJigII.AutoSize = true;
             this.ChocoboJigII.Enabled = false;
-            this.ChocoboJigII.Location = new System.Drawing.Point(214, 19);
+            this.ChocoboJigII.Location = new System.Drawing.Point(215, 55);
             this.ChocoboJigII.Name = "ChocoboJigII";
             this.ChocoboJigII.Size = new System.Drawing.Size(93, 17);
             this.ChocoboJigII.TabIndex = 2;
@@ -2241,7 +2243,7 @@
             // 
             this.ChocoboJig.AutoSize = true;
             this.ChocoboJig.Enabled = false;
-            this.ChocoboJig.Location = new System.Drawing.Point(108, 19);
+            this.ChocoboJig.Location = new System.Drawing.Point(109, 55);
             this.ChocoboJig.Name = "ChocoboJig";
             this.ChocoboJig.Size = new System.Drawing.Size(84, 17);
             this.ChocoboJig.TabIndex = 1;
@@ -2253,7 +2255,7 @@
             // 
             this.SpectralJig.AutoSize = true;
             this.SpectralJig.Enabled = false;
-            this.SpectralJig.Location = new System.Drawing.Point(6, 19);
+            this.SpectralJig.Location = new System.Drawing.Point(7, 55);
             this.SpectralJig.Name = "SpectralJig";
             this.SpectralJig.Size = new System.Drawing.Size(80, 17);
             this.SpectralJig.TabIndex = 0;
@@ -6681,6 +6683,16 @@
             this.button2.Text = "Load Settings";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // UseJigs
+            // 
+            this.UseJigs.AutoSize = true;
+            this.UseJigs.Location = new System.Drawing.Point(7, 25);
+            this.UseJigs.Name = "UseJigs";
+            this.UseJigs.Size = new System.Drawing.Size(66, 17);
+            this.UseJigs.TabIndex = 3;
+            this.UseJigs.Text = "Use Jigs";
+            this.UseJigs.UseVisualStyleBackColor = true;
             // 
             // ScriptFarmDNC
             // 
@@ -11467,5 +11479,7 @@
         #endregion
 
         #endregion
+
+        private CheckBox UseJigs;
     }
 }

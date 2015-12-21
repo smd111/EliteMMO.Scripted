@@ -285,7 +285,7 @@
                 if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.TargetID) && PlayerInfo.Status == 0 && !naviMove)
                 {
                     useTrust();
-                    if (Recast.GetAbilityRecast(218) == 0)
+                    if (Recast.GetAbilityRecast(218) == 0 && UseJigs.Checked)
                     {
                         if (SpectralJig.Checked) api.ThirdParty.SendString("/ja \"Spectral Jig\" <me>");
                         else if (ChocoboJig.Checked) api.ThirdParty.SendString("/ja \"Chocobo Jig\" <me>");
