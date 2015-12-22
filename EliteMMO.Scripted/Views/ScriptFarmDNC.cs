@@ -749,5 +749,10 @@
         {
             NoneProc = NoneProcuse.Checked;
         }
+
+        private void DynaProccontrole_CheckedChanged(object sender, EventArgs e)
+        {
+            NoneProcuse.Enabled = DynaProccontrole.Checked; 
+        }
     }
 }

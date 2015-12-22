@@ -438,6 +438,7 @@
             this.IdleLocation = new System.Windows.Forms.CheckBox();
             this.label35 = new System.Windows.Forms.Label();
             this.Options4MainTab = new System.Windows.Forms.TabPage();
+            this.mobStuckWatch = new System.Windows.Forms.CheckBox();
             this.NotinBattle = new System.Windows.Forms.GroupBox();
             this.UseJigs = new System.Windows.Forms.CheckBox();
             this.ChocoboJigII = new System.Windows.Forms.RadioButton();
@@ -484,14 +485,6 @@
             this.MONhpCount = new System.Windows.Forms.NumericUpDown();
             this.monmptext = new System.Windows.Forms.Label();
             this.monhptext = new System.Windows.Forms.Label();
-            this.Dynamispage = new System.Windows.Forms.TabPage();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.NoneProcuse = new System.Windows.Forms.CheckBox();
-            this.DynaProccontrole = new System.Windows.Forms.CheckBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.Dynatxt = new System.Windows.Forms.Label();
-            this.staggerstopJA = new System.Windows.Forms.CheckBox();
             this.OptionsMAMainTab = new System.Windows.Forms.TabPage();
             this.MAtabs = new System.Windows.Forms.TabControl();
             this.MASelectPage = new System.Windows.Forms.TabPage();
@@ -556,6 +549,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.MAreverse = new System.Windows.Forms.CheckBox();
+            this.Dynamispage = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.NoneProcuse = new System.Windows.Forms.CheckBox();
+            this.DynaProccontrole = new System.Windows.Forms.CheckBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.Dynatxt = new System.Windows.Forms.Label();
+            this.staggerstopJA = new System.Windows.Forms.CheckBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.delaytext = new System.Windows.Forms.Label();
             this.pullDelay = new System.Windows.Forms.NumericUpDown();
@@ -806,7 +807,6 @@
             this.DeathWarp = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.mobStuckWatch = new System.Windows.Forms.CheckBox();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -862,8 +862,6 @@
             this.MONpage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).BeginInit();
-            this.Dynamispage.SuspendLayout();
-            this.groupBox13.SuspendLayout();
             this.OptionsMAMainTab.SuspendLayout();
             this.MAtabs.SuspendLayout();
             this.MASelectPage.SuspendLayout();
@@ -898,6 +896,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Exuviationcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WildCarrotcount)).BeginInit();
             this.MAconfigpage.SuspendLayout();
+            this.Dynamispage.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pullDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mobheightdistValue)).BeginInit();
@@ -1382,10 +1382,11 @@
             this.CombatSettingsTabs.Controls.Add(this.Options4MainTab);
             this.CombatSettingsTabs.Controls.Add(this.OptionsJAMainTab);
             this.CombatSettingsTabs.Controls.Add(this.OptionsMAMainTab);
-            this.CombatSettingsTabs.Location = new System.Drawing.Point(45, 127);
+            this.CombatSettingsTabs.Controls.Add(this.Dynamispage);
+            this.CombatSettingsTabs.Location = new System.Drawing.Point(35, 127);
             this.CombatSettingsTabs.Name = "CombatSettingsTabs";
             this.CombatSettingsTabs.SelectedIndex = 0;
-            this.CombatSettingsTabs.Size = new System.Drawing.Size(335, 216);
+            this.CombatSettingsTabs.Size = new System.Drawing.Size(368, 216);
             this.CombatSettingsTabs.TabIndex = 22;
             // 
             // Options1MainTab
@@ -1395,7 +1396,7 @@
             this.Options1MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options1MainTab.Name = "Options1MainTab";
             this.Options1MainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.Options1MainTab.Size = new System.Drawing.Size(327, 190);
+            this.Options1MainTab.Size = new System.Drawing.Size(360, 190);
             this.Options1MainTab.TabIndex = 6;
             this.Options1MainTab.Text = "Options 1";
             this.Options1MainTab.UseVisualStyleBackColor = true;
@@ -1409,7 +1410,7 @@
             this.HateControlgroup.Controls.Add(this.label6);
             this.HateControlgroup.Controls.Add(this.selectedHateControl);
             this.HateControlgroup.Controls.Add(this.tank);
-            this.HateControlgroup.Location = new System.Drawing.Point(7, 116);
+            this.HateControlgroup.Location = new System.Drawing.Point(24, 116);
             this.HateControlgroup.Name = "HateControlgroup";
             this.HateControlgroup.Size = new System.Drawing.Size(314, 68);
             this.HateControlgroup.TabIndex = 1;
@@ -1513,7 +1514,7 @@
             this.groupBox20.Controls.Add(this.label28);
             this.groupBox20.Controls.Add(this.numericUpDown23);
             this.groupBox20.Controls.Add(this.label27);
-            this.groupBox20.Location = new System.Drawing.Point(6, 6);
+            this.groupBox20.Location = new System.Drawing.Point(23, 6);
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Size = new System.Drawing.Size(315, 109);
             this.groupBox20.TabIndex = 0;
@@ -2001,7 +2002,7 @@
             this.Options2MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options2MainTab.Name = "Options2MainTab";
             this.Options2MainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.Options2MainTab.Size = new System.Drawing.Size(327, 190);
+            this.Options2MainTab.Size = new System.Drawing.Size(360, 190);
             this.Options2MainTab.TabIndex = 1;
             this.Options2MainTab.Text = "Options 2";
             this.Options2MainTab.UseVisualStyleBackColor = true;
@@ -2014,7 +2015,7 @@
             0,
             0,
             65536});
-            this.numericUpDown38.Location = new System.Drawing.Point(238, 155);
+            this.numericUpDown38.Location = new System.Drawing.Point(255, 155);
             this.numericUpDown38.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2039,7 +2040,7 @@
             0,
             0,
             65536});
-            this.aggroRange.Location = new System.Drawing.Point(238, 109);
+            this.aggroRange.Location = new System.Drawing.Point(255, 109);
             this.aggroRange.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2059,7 +2060,7 @@
             // ScanDelay
             // 
             this.ScanDelay.AutoSize = true;
-            this.ScanDelay.Location = new System.Drawing.Point(45, 157);
+            this.ScanDelay.Location = new System.Drawing.Point(62, 157);
             this.ScanDelay.Name = "ScanDelay";
             this.ScanDelay.Size = new System.Drawing.Size(125, 17);
             this.ScanDelay.TabIndex = 90;
@@ -2074,7 +2075,7 @@
             0,
             0,
             65536});
-            this.KeepTargetRange.Location = new System.Drawing.Point(238, 132);
+            this.KeepTargetRange.Location = new System.Drawing.Point(255, 132);
             this.KeepTargetRange.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2100,7 +2101,7 @@
             0,
             0,
             65536});
-            this.assistDist.Location = new System.Drawing.Point(238, 42);
+            this.assistDist.Location = new System.Drawing.Point(255, 42);
             this.assistDist.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2125,7 +2126,7 @@
             0,
             0,
             65536});
-            this.followDist.Location = new System.Drawing.Point(238, 16);
+            this.followDist.Location = new System.Drawing.Point(255, 16);
             this.followDist.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2145,7 +2146,7 @@
             // partyAssist
             // 
             this.partyAssist.AutoSize = true;
-            this.partyAssist.Location = new System.Drawing.Point(45, 66);
+            this.partyAssist.Location = new System.Drawing.Point(62, 66);
             this.partyAssist.Name = "partyAssist";
             this.partyAssist.Size = new System.Drawing.Size(229, 17);
             this.partyAssist.TabIndex = 103;
@@ -2155,7 +2156,7 @@
             // facetarget
             // 
             this.facetarget.AutoSize = true;
-            this.facetarget.Location = new System.Drawing.Point(152, 88);
+            this.facetarget.Location = new System.Drawing.Point(169, 88);
             this.facetarget.Name = "facetarget";
             this.facetarget.Size = new System.Drawing.Size(120, 17);
             this.facetarget.TabIndex = 96;
@@ -2165,7 +2166,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(207, 45);
+            this.label12.Location = new System.Drawing.Point(224, 45);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(25, 13);
             this.label12.TabIndex = 101;
@@ -2174,7 +2175,7 @@
             // assist
             // 
             this.assist.AutoSize = true;
-            this.assist.Location = new System.Drawing.Point(45, 44);
+            this.assist.Location = new System.Drawing.Point(62, 44);
             this.assist.Name = "assist";
             this.assist.Size = new System.Drawing.Size(53, 17);
             this.assist.TabIndex = 100;
@@ -2185,7 +2186,7 @@
             // followplayer
             // 
             this.followplayer.AutoSize = true;
-            this.followplayer.Location = new System.Drawing.Point(45, 18);
+            this.followplayer.Location = new System.Drawing.Point(62, 18);
             this.followplayer.Name = "followplayer";
             this.followplayer.Size = new System.Drawing.Size(56, 17);
             this.followplayer.TabIndex = 95;
@@ -2194,7 +2195,7 @@
             // 
             // followName
             // 
-            this.followName.Location = new System.Drawing.Point(101, 16);
+            this.followName.Location = new System.Drawing.Point(118, 16);
             this.followName.Name = "followName";
             this.followName.Size = new System.Drawing.Size(100, 20);
             this.followName.TabIndex = 97;
@@ -2202,7 +2203,7 @@
             // useshadows
             // 
             this.useshadows.AutoSize = true;
-            this.useshadows.Location = new System.Drawing.Point(45, 88);
+            this.useshadows.Location = new System.Drawing.Point(62, 88);
             this.useshadows.Name = "useshadows";
             this.useshadows.Size = new System.Drawing.Size(92, 17);
             this.useshadows.TabIndex = 94;
@@ -2212,7 +2213,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(207, 19);
+            this.label11.Location = new System.Drawing.Point(224, 19);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(25, 13);
             this.label11.TabIndex = 98;
@@ -2220,7 +2221,7 @@
             // 
             // assistplayer
             // 
-            this.assistplayer.Location = new System.Drawing.Point(101, 42);
+            this.assistplayer.Location = new System.Drawing.Point(118, 42);
             this.assistplayer.Name = "assistplayer";
             this.assistplayer.Size = new System.Drawing.Size(100, 20);
             this.assistplayer.TabIndex = 99;
@@ -2228,7 +2229,7 @@
             // aggro
             // 
             this.aggro.AutoSize = true;
-            this.aggro.Location = new System.Drawing.Point(45, 111);
+            this.aggro.Location = new System.Drawing.Point(62, 111);
             this.aggro.Name = "aggro";
             this.aggro.Size = new System.Drawing.Size(171, 17);
             this.aggro.TabIndex = 91;
@@ -2238,7 +2239,7 @@
             // mobdist
             // 
             this.mobdist.AutoSize = true;
-            this.mobdist.Location = new System.Drawing.Point(45, 134);
+            this.mobdist.Location = new System.Drawing.Point(62, 134);
             this.mobdist.Name = "mobdist";
             this.mobdist.Size = new System.Drawing.Size(151, 17);
             this.mobdist.TabIndex = 93;
@@ -2267,14 +2268,14 @@
             this.Options3MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options3MainTab.Name = "Options3MainTab";
             this.Options3MainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.Options3MainTab.Size = new System.Drawing.Size(327, 190);
+            this.Options3MainTab.Size = new System.Drawing.Size(360, 190);
             this.Options3MainTab.TabIndex = 0;
             this.Options3MainTab.Text = "Options 3";
             this.Options3MainTab.UseVisualStyleBackColor = true;
             // 
             // verifyfood
             // 
-            this.verifyfood.Location = new System.Drawing.Point(285, 33);
+            this.verifyfood.Location = new System.Drawing.Point(303, 33);
             this.verifyfood.Name = "verifyfood";
             this.verifyfood.Size = new System.Drawing.Size(20, 20);
             this.verifyfood.TabIndex = 69;
@@ -2290,7 +2291,7 @@
             "Federation Signet Staff",
             "Kingdom Signet Staff",
             "Republic Signet Staff"});
-            this.comboBox4.Location = new System.Drawing.Point(167, 137);
+            this.comboBox4.Location = new System.Drawing.Point(185, 137);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(152, 21);
             this.comboBox4.TabIndex = 18;
@@ -2303,7 +2304,7 @@
             "Federation Signet Staff",
             "Kingdom Signet Staff",
             "Republic Signet Staff"});
-            this.SignetStaff.Location = new System.Drawing.Point(167, 160);
+            this.SignetStaff.Location = new System.Drawing.Point(185, 160);
             this.SignetStaff.Name = "SignetStaff";
             this.SignetStaff.Size = new System.Drawing.Size(152, 21);
             this.SignetStaff.TabIndex = 17;
@@ -2311,7 +2312,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(174, 81);
+            this.label7.Location = new System.Drawing.Point(192, 81);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 13);
             this.label7.TabIndex = 68;
@@ -2320,7 +2321,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(174, 59);
+            this.label3.Location = new System.Drawing.Point(192, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 13);
             this.label3.TabIndex = 67;
@@ -2330,7 +2331,7 @@
             // 
             this.useStaff.AutoSize = true;
             this.useStaff.Enabled = false;
-            this.useStaff.Location = new System.Drawing.Point(6, 163);
+            this.useStaff.Location = new System.Drawing.Point(24, 163);
             this.useStaff.Name = "useStaff";
             this.useStaff.Size = new System.Drawing.Size(103, 17);
             this.useStaff.TabIndex = 16;
@@ -2339,7 +2340,7 @@
             // 
             // foodName
             // 
-            this.foodName.Location = new System.Drawing.Point(128, 33);
+            this.foodName.Location = new System.Drawing.Point(146, 33);
             this.foodName.Name = "foodName";
             this.foodName.Size = new System.Drawing.Size(156, 20);
             this.foodName.TabIndex = 66;
@@ -2347,7 +2348,7 @@
             // 
             // healMPcount
             // 
-            this.healMPcount.Location = new System.Drawing.Point(128, 77);
+            this.healMPcount.Location = new System.Drawing.Point(146, 77);
             this.healMPcount.Name = "healMPcount";
             this.healMPcount.Size = new System.Drawing.Size(44, 20);
             this.healMPcount.TabIndex = 64;
@@ -2362,7 +2363,7 @@
             // usefood
             // 
             this.usefood.AutoSize = true;
-            this.usefood.Location = new System.Drawing.Point(21, 35);
+            this.usefood.Location = new System.Drawing.Point(39, 35);
             this.usefood.Name = "usefood";
             this.usefood.Size = new System.Drawing.Size(72, 17);
             this.usefood.TabIndex = 65;
@@ -2373,7 +2374,7 @@
             // HealMP
             // 
             this.HealMP.AutoSize = true;
-            this.HealMP.Location = new System.Drawing.Point(21, 80);
+            this.HealMP.Location = new System.Drawing.Point(39, 80);
             this.HealMP.Name = "HealMP";
             this.HealMP.Size = new System.Drawing.Size(67, 17);
             this.HealMP.TabIndex = 63;
@@ -2383,7 +2384,7 @@
             // 
             // healHPcount
             // 
-            this.healHPcount.Location = new System.Drawing.Point(128, 55);
+            this.healHPcount.Location = new System.Drawing.Point(146, 55);
             this.healHPcount.Name = "healHPcount";
             this.healHPcount.Size = new System.Drawing.Size(44, 20);
             this.healHPcount.TabIndex = 62;
@@ -2397,7 +2398,7 @@
             // 
             // RecordIdleLocation
             // 
-            this.RecordIdleLocation.Location = new System.Drawing.Point(167, 115);
+            this.RecordIdleLocation.Location = new System.Drawing.Point(185, 115);
             this.RecordIdleLocation.Name = "RecordIdleLocation";
             this.RecordIdleLocation.Size = new System.Drawing.Size(152, 21);
             this.RecordIdleLocation.TabIndex = 14;
@@ -2408,7 +2409,7 @@
             // 
             this.WeakLocation.AutoSize = true;
             this.WeakLocation.Enabled = false;
-            this.WeakLocation.Location = new System.Drawing.Point(6, 140);
+            this.WeakLocation.Location = new System.Drawing.Point(24, 140);
             this.WeakLocation.Name = "WeakLocation";
             this.WeakLocation.Size = new System.Drawing.Size(119, 17);
             this.WeakLocation.TabIndex = 11;
@@ -2418,7 +2419,7 @@
             // HealHP
             // 
             this.HealHP.AutoSize = true;
-            this.HealHP.Location = new System.Drawing.Point(21, 58);
+            this.HealHP.Location = new System.Drawing.Point(39, 58);
             this.HealHP.Name = "HealHP";
             this.HealHP.Size = new System.Drawing.Size(66, 17);
             this.HealHP.TabIndex = 61;
@@ -2428,7 +2429,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(128, 10);
+            this.textBox6.Location = new System.Drawing.Point(146, 10);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(176, 20);
             this.textBox6.TabIndex = 60;
@@ -2438,7 +2439,7 @@
             // 
             this.IdleLocation.AutoSize = true;
             this.IdleLocation.Enabled = false;
-            this.IdleLocation.Location = new System.Drawing.Point(6, 117);
+            this.IdleLocation.Location = new System.Drawing.Point(24, 117);
             this.IdleLocation.Name = "IdleLocation";
             this.IdleLocation.Size = new System.Drawing.Size(113, 17);
             this.IdleLocation.TabIndex = 12;
@@ -2448,7 +2449,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(18, 12);
+            this.label35.Location = new System.Drawing.Point(36, 12);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(99, 13);
             this.label35.TabIndex = 59;
@@ -2462,10 +2463,20 @@
             this.Options4MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options4MainTab.Name = "Options4MainTab";
             this.Options4MainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.Options4MainTab.Size = new System.Drawing.Size(327, 190);
+            this.Options4MainTab.Size = new System.Drawing.Size(360, 190);
             this.Options4MainTab.TabIndex = 5;
             this.Options4MainTab.Text = "Options 4";
             this.Options4MainTab.UseVisualStyleBackColor = true;
+            // 
+            // mobStuckWatch
+            // 
+            this.mobStuckWatch.AutoSize = true;
+            this.mobStuckWatch.Location = new System.Drawing.Point(37, 102);
+            this.mobStuckWatch.Name = "mobStuckWatch";
+            this.mobStuckWatch.Size = new System.Drawing.Size(244, 17);
+            this.mobStuckWatch.TabIndex = 17;
+            this.mobStuckWatch.Text = "Stuck Watch Check When Running Afer Mob";
+            this.mobStuckWatch.UseVisualStyleBackColor = true;
             // 
             // NotinBattle
             // 
@@ -2473,7 +2484,7 @@
             this.NotinBattle.Controls.Add(this.ChocoboJigII);
             this.NotinBattle.Controls.Add(this.ChocoboJig);
             this.NotinBattle.Controls.Add(this.SpectralJig);
-            this.NotinBattle.Location = new System.Drawing.Point(7, 125);
+            this.NotinBattle.Location = new System.Drawing.Point(24, 125);
             this.NotinBattle.Name = "NotinBattle";
             this.NotinBattle.Size = new System.Drawing.Size(313, 59);
             this.NotinBattle.TabIndex = 16;
@@ -2535,7 +2546,7 @@
             this.groupBox15.Controls.Add(this.comboBox1);
             this.groupBox15.Controls.Add(this.checkBox4);
             this.groupBox15.Controls.Add(this.autoRangeAttack);
-            this.groupBox15.Location = new System.Drawing.Point(7, 7);
+            this.groupBox15.Location = new System.Drawing.Point(24, 7);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(313, 90);
             this.groupBox15.TabIndex = 15;
@@ -2637,7 +2648,7 @@
             this.OptionsJAMainTab.Location = new System.Drawing.Point(4, 22);
             this.OptionsJAMainTab.Name = "OptionsJAMainTab";
             this.OptionsJAMainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.OptionsJAMainTab.Size = new System.Drawing.Size(327, 190);
+            this.OptionsJAMainTab.Size = new System.Drawing.Size(360, 190);
             this.OptionsJAMainTab.TabIndex = 4;
             this.OptionsJAMainTab.Text = "JA\'s";
             this.OptionsJAMainTab.UseVisualStyleBackColor = true;
@@ -2651,11 +2662,10 @@
             this.JAtabselect.Controls.Add(this.SCHpage);
             this.JAtabselect.Controls.Add(this.RUNpage);
             this.JAtabselect.Controls.Add(this.MONpage);
-            this.JAtabselect.Controls.Add(this.Dynamispage);
-            this.JAtabselect.Location = new System.Drawing.Point(4, 3);
+            this.JAtabselect.Location = new System.Drawing.Point(6, 3);
             this.JAtabselect.Name = "JAtabselect";
             this.JAtabselect.SelectedIndex = 0;
-            this.JAtabselect.Size = new System.Drawing.Size(320, 186);
+            this.JAtabselect.Size = new System.Drawing.Size(348, 186);
             this.JAtabselect.TabIndex = 0;
             // 
             // selectPage
@@ -2665,7 +2675,7 @@
             this.selectPage.Location = new System.Drawing.Point(4, 22);
             this.selectPage.Name = "selectPage";
             this.selectPage.Padding = new System.Windows.Forms.Padding(3);
-            this.selectPage.Size = new System.Drawing.Size(312, 160);
+            this.selectPage.Size = new System.Drawing.Size(340, 160);
             this.selectPage.TabIndex = 0;
             this.selectPage.Text = "Select";
             this.selectPage.UseVisualStyleBackColor = true;
@@ -2674,7 +2684,7 @@
             // 
             this.playerJA.CheckOnClick = true;
             this.playerJA.FormattingEnabled = true;
-            this.playerJA.Location = new System.Drawing.Point(52, 9);
+            this.playerJA.Location = new System.Drawing.Point(64, 9);
             this.playerJA.Name = "playerJA";
             this.playerJA.Size = new System.Drawing.Size(213, 109);
             this.playerJA.TabIndex = 13;
@@ -2686,7 +2696,7 @@
             this.GetSetJA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadJAsToolStripMenuItem,
             this.clearJAsToolStripMenuItem});
-            this.GetSetJA.Location = new System.Drawing.Point(73, 130);
+            this.GetSetJA.Location = new System.Drawing.Point(85, 133);
             this.GetSetJA.Name = "GetSetJA";
             this.GetSetJA.Size = new System.Drawing.Size(145, 24);
             this.GetSetJA.TabIndex = 11;
@@ -2712,7 +2722,7 @@
             this.WHMpage.Location = new System.Drawing.Point(4, 22);
             this.WHMpage.Name = "WHMpage";
             this.WHMpage.Padding = new System.Windows.Forms.Padding(3);
-            this.WHMpage.Size = new System.Drawing.Size(312, 160);
+            this.WHMpage.Size = new System.Drawing.Size(340, 160);
             this.WHMpage.TabIndex = 1;
             this.WHMpage.Text = "WHM";
             this.WHMpage.UseVisualStyleBackColor = true;
@@ -2751,7 +2761,7 @@
             this.RDMpage.Location = new System.Drawing.Point(4, 22);
             this.RDMpage.Name = "RDMpage";
             this.RDMpage.Padding = new System.Windows.Forms.Padding(3);
-            this.RDMpage.Size = new System.Drawing.Size(312, 160);
+            this.RDMpage.Size = new System.Drawing.Size(340, 160);
             this.RDMpage.TabIndex = 2;
             this.RDMpage.Text = "RDM";
             this.RDMpage.UseVisualStyleBackColor = true;
@@ -2841,7 +2851,7 @@
             this.samPage.Location = new System.Drawing.Point(4, 22);
             this.samPage.Name = "samPage";
             this.samPage.Padding = new System.Windows.Forms.Padding(3);
-            this.samPage.Size = new System.Drawing.Size(312, 160);
+            this.samPage.Size = new System.Drawing.Size(340, 160);
             this.samPage.TabIndex = 7;
             this.samPage.Text = "SAM";
             this.samPage.UseVisualStyleBackColor = true;
@@ -2849,7 +2859,7 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(24, 15);
+            this.label58.Location = new System.Drawing.Point(40, 15);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(146, 13);
             this.label58.TabIndex = 104;
@@ -3073,7 +3083,7 @@
             this.sekkanokiWs.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.sekkanokiWs.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.sekkanokiWs.FormattingEnabled = true;
-            this.sekkanokiWs.Location = new System.Drawing.Point(172, 12);
+            this.sekkanokiWs.Location = new System.Drawing.Point(188, 12);
             this.sekkanokiWs.Name = "sekkanokiWs";
             this.sekkanokiWs.Size = new System.Drawing.Size(112, 21);
             this.sekkanokiWs.Sorted = true;
@@ -3086,7 +3096,7 @@
             this.SCHpage.Location = new System.Drawing.Point(4, 22);
             this.SCHpage.Name = "SCHpage";
             this.SCHpage.Padding = new System.Windows.Forms.Padding(3);
-            this.SCHpage.Size = new System.Drawing.Size(312, 160);
+            this.SCHpage.Size = new System.Drawing.Size(340, 160);
             this.SCHpage.TabIndex = 6;
             this.SCHpage.Text = "SCH";
             this.SCHpage.UseVisualStyleBackColor = true;
@@ -3115,7 +3125,7 @@
             this.RUNpage.Location = new System.Drawing.Point(4, 22);
             this.RUNpage.Name = "RUNpage";
             this.RUNpage.Padding = new System.Windows.Forms.Padding(3);
-            this.RUNpage.Size = new System.Drawing.Size(312, 160);
+            this.RUNpage.Size = new System.Drawing.Size(340, 160);
             this.RUNpage.TabIndex = 3;
             this.RUNpage.Text = "RUN";
             this.RUNpage.UseVisualStyleBackColor = true;
@@ -3148,7 +3158,7 @@
             this.MONpage.Location = new System.Drawing.Point(4, 22);
             this.MONpage.Name = "MONpage";
             this.MONpage.Padding = new System.Windows.Forms.Padding(3);
-            this.MONpage.Size = new System.Drawing.Size(312, 160);
+            this.MONpage.Size = new System.Drawing.Size(340, 160);
             this.MONpage.TabIndex = 4;
             this.MONpage.Text = "MON";
             this.MONpage.UseVisualStyleBackColor = true;
@@ -3197,97 +3207,13 @@
             this.monhptext.TabIndex = 0;
             this.monhptext.Text = "HP %";
             // 
-            // Dynamispage
-            // 
-            this.Dynamispage.Controls.Add(this.groupBox13);
-            this.Dynamispage.Controls.Add(this.Dynatxt);
-            this.Dynamispage.Controls.Add(this.staggerstopJA);
-            this.Dynamispage.Location = new System.Drawing.Point(4, 22);
-            this.Dynamispage.Name = "Dynamispage";
-            this.Dynamispage.Padding = new System.Windows.Forms.Padding(3);
-            this.Dynamispage.Size = new System.Drawing.Size(312, 160);
-            this.Dynamispage.TabIndex = 5;
-            this.Dynamispage.Text = "Dynamis";
-            this.Dynamispage.UseVisualStyleBackColor = true;
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.NoneProcuse);
-            this.groupBox13.Controls.Add(this.DynaProccontrole);
-            this.groupBox13.Controls.Add(this.label59);
-            this.groupBox13.Controls.Add(this.label60);
-            this.groupBox13.Location = new System.Drawing.Point(7, 52);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(299, 102);
-            this.groupBox13.TabIndex = 3;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Proc Control";
-            // 
-            // NoneProcuse
-            // 
-            this.NoneProcuse.AutoSize = true;
-            this.NoneProcuse.Location = new System.Drawing.Point(43, 79);
-            this.NoneProcuse.Name = "NoneProcuse";
-            this.NoneProcuse.Size = new System.Drawing.Size(213, 17);
-            this.NoneProcuse.TabIndex = 6;
-            this.NoneProcuse.Text = "Use Proc Skills on none Procable Mobs";
-            this.NoneProcuse.UseVisualStyleBackColor = true;
-            this.NoneProcuse.CheckedChanged += new System.EventHandler(this.NoneProcuse_CheckedChanged);
-            // 
-            // DynaProccontrole
-            // 
-            this.DynaProccontrole.AutoSize = true;
-            this.DynaProccontrole.Location = new System.Drawing.Point(59, 20);
-            this.DynaProccontrole.Name = "DynaProccontrole";
-            this.DynaProccontrole.Size = new System.Drawing.Size(181, 17);
-            this.DynaProccontrole.TabIndex = 3;
-            this.DynaProccontrole.Text = "WS/JA/MA Stop Based On Mob";
-            this.DynaProccontrole.UseVisualStyleBackColor = true;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(23, 40);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(253, 13);
-            this.label59.TabIndex = 4;
-            this.label59.Text = "This will force you to not use non proc skills if it wont";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(93, 57);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(112, 13);
-            this.label60.TabIndex = 5;
-            this.label60.Text = "proc the current traget";
-            // 
-            // Dynatxt
-            // 
-            this.Dynatxt.AutoSize = true;
-            this.Dynatxt.Location = new System.Drawing.Point(12, 36);
-            this.Dynatxt.Name = "Dynatxt";
-            this.Dynatxt.Size = new System.Drawing.Size(288, 13);
-            this.Dynatxt.TabIndex = 2;
-            this.Dynatxt.Text = "This will stop all JA\'s when a mob is !Staggered! in Dynamis.";
-            // 
-            // staggerstopJA
-            // 
-            this.staggerstopJA.AutoSize = true;
-            this.staggerstopJA.Location = new System.Drawing.Point(80, 14);
-            this.staggerstopJA.Name = "staggerstopJA";
-            this.staggerstopJA.Size = new System.Drawing.Size(153, 17);
-            this.staggerstopJA.TabIndex = 1;
-            this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
-            this.staggerstopJA.UseVisualStyleBackColor = true;
-            // 
             // OptionsMAMainTab
             // 
             this.OptionsMAMainTab.Controls.Add(this.MAtabs);
             this.OptionsMAMainTab.Location = new System.Drawing.Point(4, 22);
             this.OptionsMAMainTab.Name = "OptionsMAMainTab";
             this.OptionsMAMainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.OptionsMAMainTab.Size = new System.Drawing.Size(327, 190);
+            this.OptionsMAMainTab.Size = new System.Drawing.Size(360, 190);
             this.OptionsMAMainTab.TabIndex = 7;
             this.OptionsMAMainTab.Text = "MA\'s";
             this.OptionsMAMainTab.UseVisualStyleBackColor = true;
@@ -3299,7 +3225,7 @@
             this.MAtabs.Controls.Add(this.DrainAspirpage);
             this.MAtabs.Controls.Add(this.BLUCurespage);
             this.MAtabs.Controls.Add(this.MAconfigpage);
-            this.MAtabs.Location = new System.Drawing.Point(3, 3);
+            this.MAtabs.Location = new System.Drawing.Point(20, 3);
             this.MAtabs.Name = "MAtabs";
             this.MAtabs.SelectedIndex = 0;
             this.MAtabs.Size = new System.Drawing.Size(321, 184);
@@ -3573,7 +3499,7 @@
             this.Aspirgroup.Controls.Add(this.AspirItext);
             this.Aspirgroup.Controls.Add(this.AspirIItext);
             this.Aspirgroup.Controls.Add(this.Aspircount);
-            this.Aspirgroup.Location = new System.Drawing.Point(154, 7);
+            this.Aspirgroup.Location = new System.Drawing.Point(159, 7);
             this.Aspirgroup.Name = "Aspirgroup";
             this.Aspirgroup.Size = new System.Drawing.Size(139, 138);
             this.Aspirgroup.TabIndex = 1;
@@ -3639,7 +3565,7 @@
             this.Draingroup.Controls.Add(this.DrainIIItext);
             this.Draingroup.Controls.Add(this.DrainIIIcount);
             this.Draingroup.Controls.Add(this.DrainIIcount);
-            this.Draingroup.Location = new System.Drawing.Point(9, 7);
+            this.Draingroup.Location = new System.Drawing.Point(14, 7);
             this.Draingroup.Name = "Draingroup";
             this.Draingroup.Size = new System.Drawing.Size(139, 138);
             this.Draingroup.TabIndex = 0;
@@ -3726,7 +3652,7 @@
             // MagicFruitcount
             // 
             this.MagicFruitcount.Enabled = false;
-            this.MagicFruitcount.Location = new System.Drawing.Point(120, 46);
+            this.MagicFruitcount.Location = new System.Drawing.Point(127, 46);
             this.MagicFruitcount.Name = "MagicFruitcount";
             this.MagicFruitcount.Size = new System.Drawing.Size(44, 20);
             this.MagicFruitcount.TabIndex = 15;
@@ -3734,7 +3660,7 @@
             // Pollencount
             // 
             this.Pollencount.Enabled = false;
-            this.Pollencount.Location = new System.Drawing.Point(120, 13);
+            this.Pollencount.Location = new System.Drawing.Point(127, 13);
             this.Pollencount.Name = "Pollencount";
             this.Pollencount.Size = new System.Drawing.Size(44, 20);
             this.Pollencount.TabIndex = 14;
@@ -3742,7 +3668,7 @@
             // HealingBreezecount
             // 
             this.HealingBreezecount.Enabled = false;
-            this.HealingBreezecount.Location = new System.Drawing.Point(120, 79);
+            this.HealingBreezecount.Location = new System.Drawing.Point(127, 79);
             this.HealingBreezecount.Name = "HealingBreezecount";
             this.HealingBreezecount.Size = new System.Drawing.Size(44, 20);
             this.HealingBreezecount.TabIndex = 13;
@@ -3750,7 +3676,7 @@
             // PleniluneEmbracecount
             // 
             this.PleniluneEmbracecount.Enabled = false;
-            this.PleniluneEmbracecount.Location = new System.Drawing.Point(120, 112);
+            this.PleniluneEmbracecount.Location = new System.Drawing.Point(127, 112);
             this.PleniluneEmbracecount.Name = "PleniluneEmbracecount";
             this.PleniluneEmbracecount.Size = new System.Drawing.Size(44, 20);
             this.PleniluneEmbracecount.TabIndex = 12;
@@ -3758,7 +3684,7 @@
             // Restoralcount
             // 
             this.Restoralcount.Enabled = false;
-            this.Restoralcount.Location = new System.Drawing.Point(249, 46);
+            this.Restoralcount.Location = new System.Drawing.Point(256, 46);
             this.Restoralcount.Name = "Restoralcount";
             this.Restoralcount.Size = new System.Drawing.Size(44, 20);
             this.Restoralcount.TabIndex = 11;
@@ -3766,7 +3692,7 @@
             // WhiteWindcount
             // 
             this.WhiteWindcount.Enabled = false;
-            this.WhiteWindcount.Location = new System.Drawing.Point(249, 13);
+            this.WhiteWindcount.Location = new System.Drawing.Point(256, 13);
             this.WhiteWindcount.Name = "WhiteWindcount";
             this.WhiteWindcount.Size = new System.Drawing.Size(44, 20);
             this.WhiteWindcount.TabIndex = 10;
@@ -3774,7 +3700,7 @@
             // Exuviationcount
             // 
             this.Exuviationcount.Enabled = false;
-            this.Exuviationcount.Location = new System.Drawing.Point(249, 79);
+            this.Exuviationcount.Location = new System.Drawing.Point(256, 79);
             this.Exuviationcount.Name = "Exuviationcount";
             this.Exuviationcount.Size = new System.Drawing.Size(44, 20);
             this.Exuviationcount.TabIndex = 9;
@@ -3782,7 +3708,7 @@
             // WildCarrotcount
             // 
             this.WildCarrotcount.Enabled = false;
-            this.WildCarrotcount.Location = new System.Drawing.Point(249, 112);
+            this.WildCarrotcount.Location = new System.Drawing.Point(256, 112);
             this.WildCarrotcount.Name = "WildCarrotcount";
             this.WildCarrotcount.Size = new System.Drawing.Size(44, 20);
             this.WildCarrotcount.TabIndex = 8;
@@ -3790,7 +3716,7 @@
             // PleniluneEmbracetext
             // 
             this.PleniluneEmbracetext.AutoSize = true;
-            this.PleniluneEmbracetext.Location = new System.Drawing.Point(5, 114);
+            this.PleniluneEmbracetext.Location = new System.Drawing.Point(12, 114);
             this.PleniluneEmbracetext.Name = "PleniluneEmbracetext";
             this.PleniluneEmbracetext.Size = new System.Drawing.Size(109, 13);
             this.PleniluneEmbracetext.TabIndex = 5;
@@ -3799,7 +3725,7 @@
             // MagicFruittext
             // 
             this.MagicFruittext.AutoSize = true;
-            this.MagicFruittext.Location = new System.Drawing.Point(41, 48);
+            this.MagicFruittext.Location = new System.Drawing.Point(48, 48);
             this.MagicFruittext.Name = "MagicFruittext";
             this.MagicFruittext.Size = new System.Drawing.Size(73, 13);
             this.MagicFruittext.TabIndex = 3;
@@ -3808,7 +3734,7 @@
             // HealingBreezetext
             // 
             this.HealingBreezetext.AutoSize = true;
-            this.HealingBreezetext.Location = new System.Drawing.Point(21, 81);
+            this.HealingBreezetext.Location = new System.Drawing.Point(28, 81);
             this.HealingBreezetext.Name = "HealingBreezetext";
             this.HealingBreezetext.Size = new System.Drawing.Size(93, 13);
             this.HealingBreezetext.TabIndex = 2;
@@ -3817,7 +3743,7 @@
             // Pollentext
             // 
             this.Pollentext.AutoSize = true;
-            this.Pollentext.Location = new System.Drawing.Point(64, 15);
+            this.Pollentext.Location = new System.Drawing.Point(71, 15);
             this.Pollentext.Name = "Pollentext";
             this.Pollentext.Size = new System.Drawing.Size(50, 13);
             this.Pollentext.TabIndex = 0;
@@ -3826,7 +3752,7 @@
             // WhiteWindtext
             // 
             this.WhiteWindtext.AutoSize = true;
-            this.WhiteWindtext.Location = new System.Drawing.Point(166, 15);
+            this.WhiteWindtext.Location = new System.Drawing.Point(173, 15);
             this.WhiteWindtext.Name = "WhiteWindtext";
             this.WhiteWindtext.Size = new System.Drawing.Size(77, 13);
             this.WhiteWindtext.TabIndex = 6;
@@ -3835,7 +3761,7 @@
             // Restoraltext
             // 
             this.Restoraltext.AutoSize = true;
-            this.Restoraltext.Location = new System.Drawing.Point(183, 48);
+            this.Restoraltext.Location = new System.Drawing.Point(190, 48);
             this.Restoraltext.Name = "Restoraltext";
             this.Restoraltext.Size = new System.Drawing.Size(60, 13);
             this.Restoraltext.TabIndex = 7;
@@ -3844,7 +3770,7 @@
             // Exuviationtext
             // 
             this.Exuviationtext.AutoSize = true;
-            this.Exuviationtext.Location = new System.Drawing.Point(173, 81);
+            this.Exuviationtext.Location = new System.Drawing.Point(180, 81);
             this.Exuviationtext.Name = "Exuviationtext";
             this.Exuviationtext.Size = new System.Drawing.Size(70, 13);
             this.Exuviationtext.TabIndex = 4;
@@ -3853,7 +3779,7 @@
             // WildCarrottext
             // 
             this.WildCarrottext.AutoSize = true;
-            this.WildCarrottext.Location = new System.Drawing.Point(173, 114);
+            this.WildCarrottext.Location = new System.Drawing.Point(180, 114);
             this.WildCarrottext.Name = "WildCarrottext";
             this.WildCarrottext.Size = new System.Drawing.Size(73, 13);
             this.WildCarrottext.TabIndex = 1;
@@ -3875,7 +3801,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(62, 58);
+            this.label13.Location = new System.Drawing.Point(65, 58);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(183, 13);
             this.label13.TabIndex = 2;
@@ -3884,7 +3810,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(54, 39);
+            this.label10.Location = new System.Drawing.Point(57, 39);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(199, 13);
             this.label10.TabIndex = 1;
@@ -3893,12 +3819,98 @@
             // MAreverse
             // 
             this.MAreverse.AutoSize = true;
-            this.MAreverse.Location = new System.Drawing.Point(90, 16);
+            this.MAreverse.Location = new System.Drawing.Point(93, 16);
             this.MAreverse.Name = "MAreverse";
             this.MAreverse.Size = new System.Drawing.Size(126, 17);
             this.MAreverse.TabIndex = 0;
             this.MAreverse.Text = "Run magin in reverse";
             this.MAreverse.UseVisualStyleBackColor = true;
+            // 
+            // Dynamispage
+            // 
+            this.Dynamispage.Controls.Add(this.groupBox13);
+            this.Dynamispage.Controls.Add(this.Dynatxt);
+            this.Dynamispage.Controls.Add(this.staggerstopJA);
+            this.Dynamispage.Location = new System.Drawing.Point(4, 22);
+            this.Dynamispage.Name = "Dynamispage";
+            this.Dynamispage.Padding = new System.Windows.Forms.Padding(3);
+            this.Dynamispage.Size = new System.Drawing.Size(360, 190);
+            this.Dynamispage.TabIndex = 5;
+            this.Dynamispage.Text = "Dynamis";
+            this.Dynamispage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.NoneProcuse);
+            this.groupBox13.Controls.Add(this.DynaProccontrole);
+            this.groupBox13.Controls.Add(this.label59);
+            this.groupBox13.Controls.Add(this.label60);
+            this.groupBox13.Location = new System.Drawing.Point(31, 52);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(299, 102);
+            this.groupBox13.TabIndex = 3;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Proc Control";
+            // 
+            // NoneProcuse
+            // 
+            this.NoneProcuse.AutoSize = true;
+            this.NoneProcuse.Enabled = false;
+            this.NoneProcuse.Location = new System.Drawing.Point(43, 79);
+            this.NoneProcuse.Name = "NoneProcuse";
+            this.NoneProcuse.Size = new System.Drawing.Size(213, 17);
+            this.NoneProcuse.TabIndex = 6;
+            this.NoneProcuse.Text = "Use Proc Skills on none Procable Mobs";
+            this.NoneProcuse.UseVisualStyleBackColor = true;
+            this.NoneProcuse.CheckedChanged += new System.EventHandler(this.NoneProcuse_CheckedChanged);
+            // 
+            // DynaProccontrole
+            // 
+            this.DynaProccontrole.AutoSize = true;
+            this.DynaProccontrole.Location = new System.Drawing.Point(59, 20);
+            this.DynaProccontrole.Name = "DynaProccontrole";
+            this.DynaProccontrole.Size = new System.Drawing.Size(181, 17);
+            this.DynaProccontrole.TabIndex = 3;
+            this.DynaProccontrole.Text = "WS/JA/MA Stop Based On Mob";
+            this.DynaProccontrole.UseVisualStyleBackColor = true;
+            this.DynaProccontrole.CheckedChanged += new System.EventHandler(this.DynaProccontrole_CheckedChanged);
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(23, 40);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(253, 13);
+            this.label59.TabIndex = 4;
+            this.label59.Text = "This will force you to not use non proc skills if it wont";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(93, 57);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(112, 13);
+            this.label60.TabIndex = 5;
+            this.label60.Text = "proc the current traget";
+            // 
+            // Dynatxt
+            // 
+            this.Dynatxt.AutoSize = true;
+            this.Dynatxt.Location = new System.Drawing.Point(36, 36);
+            this.Dynatxt.Name = "Dynatxt";
+            this.Dynatxt.Size = new System.Drawing.Size(288, 13);
+            this.Dynatxt.TabIndex = 2;
+            this.Dynatxt.Text = "This will stop all JA\'s when a mob is !Staggered! in Dynamis.";
+            // 
+            // staggerstopJA
+            // 
+            this.staggerstopJA.AutoSize = true;
+            this.staggerstopJA.Location = new System.Drawing.Point(104, 14);
+            this.staggerstopJA.Name = "staggerstopJA";
+            this.staggerstopJA.Size = new System.Drawing.Size(153, 17);
+            this.staggerstopJA.TabIndex = 1;
+            this.staggerstopJA.Text = "Stop Ja\'s When Staggered";
+            this.staggerstopJA.UseVisualStyleBackColor = true;
             // 
             // groupBox14
             // 
@@ -7000,16 +7012,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // mobStuckWatch
-            // 
-            this.mobStuckWatch.AutoSize = true;
-            this.mobStuckWatch.Location = new System.Drawing.Point(20, 102);
-            this.mobStuckWatch.Name = "mobStuckWatch";
-            this.mobStuckWatch.Size = new System.Drawing.Size(244, 17);
-            this.mobStuckWatch.TabIndex = 17;
-            this.mobStuckWatch.Text = "Stuck Watch Check When Running Afer Mob";
-            this.mobStuckWatch.UseVisualStyleBackColor = true;
-            // 
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7103,10 +7105,6 @@
             this.MONpage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).EndInit();
-            this.Dynamispage.ResumeLayout(false);
-            this.Dynamispage.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
             this.OptionsMAMainTab.ResumeLayout(false);
             this.MAtabs.ResumeLayout(false);
             this.MASelectPage.ResumeLayout(false);
@@ -7148,6 +7146,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.WildCarrotcount)).EndInit();
             this.MAconfigpage.ResumeLayout(false);
             this.MAconfigpage.PerformLayout();
+            this.Dynamispage.ResumeLayout(false);
+            this.Dynamispage.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pullDelay)).EndInit();
@@ -8070,7 +8072,6 @@
             JAtabselect.Controls.Remove(SCHpage);
             JAtabselect.Controls.Remove(RUNpage);
             JAtabselect.Controls.Remove(MONpage);
-            JAtabselect.Controls.Remove(Dynamispage);
             JAtabselect.Controls.Remove(samPage);
             petControl.Controls.Remove(bstpettab);
             petControl.Controls.Remove(drgpettab);
@@ -8082,6 +8083,7 @@
             MAtabs.Controls.Remove(MAconfigpage);
             MAtabs.Controls.Remove(BLUCurespage);
             CombatSettingsTabs.Controls.Remove(OptionsMAMainTab);
+            CombatSettingsTabs.Controls.Remove(Dynamispage);
             dncControl.Controls.Remove(pets);
             dncControl.Controls.Remove(dancer);
             dncControl.Controls.Remove(flourish);
@@ -8093,7 +8095,7 @@
             if (PlayerInfo.MainJob == 20 || PlayerInfo.SubJob == 20) JAtabselect.Controls.Add(SCHpage);
             if (PlayerInfo.MainJob == 22 || PlayerInfo.SubJob == 22) JAtabselect.Controls.Add(RUNpage);
             if (PlayerInfo.MainJob == 23 || PlayerInfo.SubJob == 23) JAtabselect.Controls.Add(MONpage);
-            JAtabselect.Controls.Add(Dynamispage);
+            CombatSettingsTabs.Controls.Add(Dynamispage);
             #endregion
             #region MA Tabs Add 
             List<int> MAjobs = new List<int>(new int[] {3,4,5,7,8,10,13,16,20,21,22});
