@@ -77,7 +77,7 @@
 
                                 if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
                                     break;
-                                if (isStuck(1))
+                                if (mobStuckWatch.Checked && isStuck(1))
                                 {
                                     var count = 0;
                                     while (isStuck(1))
@@ -469,8 +469,7 @@
                         }
 
                         api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                          (navPathY[closestWayPoint] != 0 ? (float)navPathY[closestWayPoint] : 0),
-                          (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                          0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                         api.AutoFollow.IsAutoFollowing = true;
                     }
@@ -495,9 +494,9 @@
                              }
 
                              api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                               (navPathY[closestWayPoint] != 0 ? (float)navPathY[closestWayPoint] : 0),
-                               (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
-                                api.AutoFollow.IsAutoFollowing = true;
+                               0,(float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+
+                             api.AutoFollow.IsAutoFollowing = true;
                           }
                           else
                           {
@@ -509,8 +508,7 @@
                              }
 
                                 api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                  (navPathY[closestWayPoint] != 0 ? (float)navPathY[closestWayPoint] : 0),
-                                  (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                  0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                                 api.AutoFollow.IsAutoFollowing = true;
                           }
@@ -523,7 +521,8 @@
                 }
 
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                if (naviMove && usenav.Checked && selectedNavi.Text != "" && api.AutoFollow.IsAutoFollowing && isStuck(0))
+                if (navStuckWatch.Checked && naviMove && usenav.Checked && selectedNavi.Text != "" &&
+                    api.AutoFollow.IsAutoFollowing && isStuck(0))
                 {
                     api.AutoFollow.IsAutoFollowing = false;
                     api.Player.H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
@@ -744,6 +743,11 @@
         {
             var itc = ItemQuantityByName(foodName.Text);
             MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
+        }
+
+        private void NoneProcuse_CheckedChanged(object sender, EventArgs e)
+        {
+            NoneProc = NoneProcuse.Checked;
         }
     }
 }

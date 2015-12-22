@@ -5,7 +5,7 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="checkZone">
-    <Checked>True</Checked>
+    <Checked>False</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="StopFullInventory">
@@ -26,13 +26,13 @@
       <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
-      <Checked>True</Checked>
-    </Control>
-    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
       <Checked>False</Checked>
     </Control>
+    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
+      <Checked>True</Checked>
+    </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>Dyna - Beaucedine.xin</Text>
+      <Text />
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
@@ -68,10 +68,10 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.ComboBox" Name="selectedHateControl">
-              <Text>Provoke</Text>
+              <Text />
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="tank">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
           </Control>
@@ -93,7 +93,7 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.ComboBox" Name="comboBox2">
-              <Text>Upheaval</Text>
+              <Text>Tachi: Gekko</Text>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown40">
               <Value>1</Value>
@@ -147,7 +147,7 @@
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="facetarget">
-            <Checked>False</Checked>
+            <Checked>True</Checked>
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="assist">
@@ -237,7 +237,7 @@
               <Checked>False</Checked>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="SpectralJig">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
             </Control>
           </Control>
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox15">
@@ -270,22 +270,22 @@
           <Control Type="System.Windows.Forms.TabControl" Name="JAtabselect">
             <Control Type="System.Windows.Forms.TabPage" Name="selectPage">
               <Control Type="System.Windows.Forms.CheckedListBox" Name="playerJA">
-                <SelectedIndex0>0</SelectedIndex0>
-                <SelectedIndex1>2</SelectedIndex1>
-                <SelectedIndex2>4</SelectedIndex2>
-                <SelectedIndex3>5</SelectedIndex3>
-                <SelectedIndex4>7</SelectedIndex4>
-                <SelectedIndex5>8</SelectedIndex5>
-                <SelectedIndex6>9</SelectedIndex6>
-                <SelectedIndex7>10</SelectedIndex7>
-                <SelectedIndexcount>8</SelectedIndexcount>
+                <SelectedIndex0>2</SelectedIndex0>
+                <SelectedIndex1>5</SelectedIndex1>
+                <SelectedIndex2>6</SelectedIndex2>
+                <SelectedIndex3>8</SelectedIndex3>
+                <SelectedIndex4>9</SelectedIndex4>
+                <SelectedIndex5>10</SelectedIndex5>
+                <SelectedIndex6>11</SelectedIndex6>
+                <SelectedIndexcount>7</SelectedIndexcount>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.TabPage" Name="samPage">
+              <Control Type="System.Windows.Forms.ComboBox" Name="sekkanokiWs">
+                <Text>Tachi: Jinpu</Text>
               </Control>
             </Control>
             <Control Type="System.Windows.Forms.TabPage" Name="Dynamispage">
-              <Control Type="System.Windows.Forms.CheckBox" Name="DynaProccontrole">
-                <Checked>True</Checked>
-                <Enabled>True</Enabled>
-              </Control>
               <Control Type="System.Windows.Forms.CheckBox" Name="staggerstopJA">
                 <Checked>False</Checked>
                 <Enabled>True</Enabled>
@@ -305,7 +305,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="mobheightdistValue">
-          <Value>3</Value>
+          <Value>3.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="mobheightdist">
@@ -321,7 +321,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="targetSearchDist">
-          <Value>30.0</Value>
+          <Value>24.5</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullTolorance">
@@ -329,11 +329,11 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown21">
-          <Value>13.0</Value>
+          <Value>16</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.TextBox" Name="pullCommand">
-          <Text>/ra &lt;t&gt;</Text>
+          <Text>/a &lt;t&gt;</Text>
         </Control>
       </Control>
     </Control>
@@ -391,7 +391,7 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usequickstepValue">
-              <Value>1</Value>
+              <Value>0</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="StepsHP">
@@ -479,11 +479,11 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiValue">
-              <Value>0</Value>
+              <Value>75</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureValue">
-              <Value>0</Value>
+              <Value>75</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecurev">
@@ -647,9 +647,9 @@
       <Control Type="System.Windows.Forms.CheckedListBox" Name="Trusts">
         <SelectedIndex0>32</SelectedIndex0>
         <SelectedIndex1>45</SelectedIndex1>
-        <SelectedIndex2>80</SelectedIndex2>
-        <SelectedIndex3>81</SelectedIndex3>
-        <SelectedIndex4>86</SelectedIndex4>
+        <SelectedIndex2>79</SelectedIndex2>
+        <SelectedIndex3>80</SelectedIndex3>
+        <SelectedIndex4>85</SelectedIndex4>
         <SelectedIndexcount>5</SelectedIndexcount>
       </Control>
     </Control>

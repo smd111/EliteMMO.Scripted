@@ -52,8 +52,7 @@
                             }
 
                             api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                              (navPathY[closestWayPoint] != 0 ? (float)navPathY[closestWayPoint] : 0),
-                              (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                              0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                             api.AutoFollow.IsAutoFollowing = true;
                         }
@@ -78,8 +77,7 @@
                                     }
 
                                     api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                      (navPathY[closestWayPoint] != 0 ? (float)navPathY[closestWayPoint] : 0),
-                                      (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                      0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                                     api.AutoFollow.IsAutoFollowing = true;
                                 }
@@ -93,8 +91,7 @@
                                     }
 
                                     api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                      (navPathY[closestWayPoint] != 0 ? (float)navPathY[closestWayPoint] : 0),
-                                      (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                      0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                                     api.AutoFollow.IsAutoFollowing = true;
                                 }

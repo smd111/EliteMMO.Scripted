@@ -13,7 +13,7 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.GroupBox" Name="groupBox8">
-    <Enabled>True</Enabled>
+    <Enabled>False</Enabled>
     <Control Type="System.Windows.Forms.ComboBox" Name="comboBox3">
       <Text />
     </Control>
@@ -36,7 +36,7 @@
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
-    <Checked>True</Checked>
+    <Checked>False</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.TabControl" Name="dncControl">
@@ -226,6 +226,10 @@
         <Control Type="System.Windows.Forms.TabPage" Name="Options4MainTab">
           <Control Type="System.Windows.Forms.GroupBox" Name="NotinBattle">
             <Enabled>True</Enabled>
+            <Control Type="System.Windows.Forms.CheckBox" Name="UseJigs">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+            </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="ChocoboJigII">
               <Checked>False</Checked>
             </Control>
@@ -278,6 +282,17 @@
               </Control>
             </Control>
             <Control Type="System.Windows.Forms.TabPage" Name="Dynamispage">
+              <Control Type="System.Windows.Forms.GroupBox" Name="groupBox13">
+                <Enabled>True</Enabled>
+                <Control Type="System.Windows.Forms.CheckBox" Name="NoneProcuse">
+                  <Checked>True</Checked>
+                  <Enabled>True</Enabled>
+                </Control>
+                <Control Type="System.Windows.Forms.CheckBox" Name="DynaProccontrole">
+                  <Checked>True</Checked>
+                  <Enabled>True</Enabled>
+                </Control>
+              </Control>
               <Control Type="System.Windows.Forms.CheckBox" Name="staggerstopJA">
                 <Checked>False</Checked>
                 <Enabled>True</Enabled>
@@ -313,7 +328,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="targetSearchDist">
-          <Value>15.0</Value>
+          <Value>20.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullTolorance">
@@ -471,11 +486,11 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiValue">
-              <Value>0</Value>
+              <Value>75</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureValue">
-              <Value>0</Value>
+              <Value>75</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecurev">
@@ -487,7 +502,7 @@
               <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecureiii">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecureii">
@@ -495,7 +510,7 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecure">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
           </Control>
@@ -639,9 +654,9 @@
       <Control Type="System.Windows.Forms.CheckedListBox" Name="Trusts">
         <SelectedIndex0>32</SelectedIndex0>
         <SelectedIndex1>45</SelectedIndex1>
-        <SelectedIndex2>79</SelectedIndex2>
-        <SelectedIndex3>80</SelectedIndex3>
-        <SelectedIndex4>85</SelectedIndex4>
+        <SelectedIndex2>80</SelectedIndex2>
+        <SelectedIndex3>81</SelectedIndex3>
+        <SelectedIndex4>86</SelectedIndex4>
         <SelectedIndexcount>5</SelectedIndexcount>
       </Control>
     </Control>

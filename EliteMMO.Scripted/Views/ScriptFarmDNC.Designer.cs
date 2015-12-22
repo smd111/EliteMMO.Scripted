@@ -32,6 +32,7 @@
         public bool isMoving = false;
         public bool isCasting = false;
         public bool isLoading = false;
+        public static bool NoneProc = false;
         public dynamic LRKey = API.Keys.NUMPAD4;
 
         public int startzone;
@@ -60,7 +61,239 @@
         
         public Dictionary<string, string> wantedID = new Dictionary<string, string>();
         public Dictionary<string, string> wantedNM = new Dictionary<string, string>();
+        #region dyna mob proc data
+        public static Dictionary<string, dynamic> DynaMobProc = new Dictionary<string, dynamic>()
+        {
+            {"Morning", new Dictionary<string, dynamic>()
+                {
+                    {"JA", new List<string>(new string[]
+                    {"Kindred Thief","Kindred Beastmaster","Kindred Monk","Kindred Ninja","Kindred Ranger","Duke Gomory","Marquis Andras","Marquis Gamygyn",
+                    "Count Raum","Marquis Cimeries","Marquis Caim","Baron Avnas","Hydra Thief","Hydra Beastmaster","Hydra Monk","Hydra Ninja","Hydra Ranger",
+                    "Vanguard Backstabber","Vanguard Grappler","Vanguard Hawker","Vanguard Pillager","Vanguard Predator","Voidstreaker Butchnotch",
+                    "Steelshank Kratzvatz","Vanguard Beasttender","Vanguard Kusa","Vanguard Mason","Vanguard Militant","Vanguard Purloiner",
+                    "Ko'Dho Cannonball","Vanguard Assassin","Vanguard Liberator","Vanguard Ogresoother","Vanguard Salvager","Vanguard Sentinel",
+                    "Wuu Qoho the Razorclaw","Tee Zaksa the Ceaseless","Vanguard Ambusher","Vanguard Hitman","Vanguard Pathfinder","Vanguard Pit",
+                    "Vanguard Welldigger","Bandrix Rockjaw","Lurklox Dhalmelneck","Trailblix Goatmug","Kikklix Longlegs","Snypestix Eaglebeak",
+                    "Jabkix Pigeonpecs","Blazox Boneybod","Bootrix Jaggedelbow","Mobpix Mucousmouth","Prowlox Barrelbelly","Slystix Megapeepers",
+                    "Feralox Honeylips","Bordox Kittyback","Droprix Granitepalms","Routsix Rubbertendon","Slinkix Trufflesniff","Swypestix Tigershins",
+                    "Nightmare Crawler","Nightmare Raven","Nightmare Uragnite","Nightmare Fly","Nightmare Flytrap","Nightmare Funguar","Nightmare Gaylas",
+                    "Nightmare Kraken","Nightmare Roc","Nightmare Hornet","Nightmare Bugard","Woodnix Shrillwhistle","Hamfist Gukhbuk","Lyncean Juwgneg",
+                    "Va'Rhu Bodysnatcher","Doo Peku the Fleetfoot","Nant'ina","Antaeus"})
+                    },
+                    {"MA", new List<string>(new string[]
+                    {"Kindred White Mage","Kindred Bard","Kindred Summoner","Kindred Black Mage","Kindred Red Mage","Duke Berith","Marquis Decarabia",
+                    "Prince Seere","Marquis Orias","Marquis Nebiros","Duke Haures","Hydra White Mage","Hydra Bard","Hydra Summoner","Hydra Black Mage",
+                    "Hydra Red Mage","Vanguard Amputator","Vanguard Bugler","Vanguard Dollmaster","Vanguard Mesmerizer","Vanguard Vexer","Soulsender Fugbrag",
+                    "Reapertongue Gadgquok","Battlechoir Gitchfotch","Vanguard Constable","Vanguard Minstrel","Vanguard Protector","Vanguard Thaumaturge",
+                    "Vanguard Undertaker","Gi'Pha Manameister","Gu'Nhi Noondozer","Ra'Gho Darkfount","Va'Zhe Pummelsong","Vanguard Chanter",
+                    "Vanguard Oracle","Vanguard Prelate","Vanguard Priest","Vanguard Visionary","Loo Hepe the Eyepiercer","Xoo Kaza the Solemn",
+                    "Haa Pevi the Stentorian","Xuu Bhoqa the Enigma","Fuu Tzapo the Blessed","Naa Yixo the Stillrage","Vanguard Alchemist",
+                    "Vanguard Enchanter","Vanguard Maestro","Vanguard Necromancer","Vanguard Shaman","Elixmix Hooknose","Gabblox Magpietongue",
+                    "Hermitrix Toothrot","Humnox Drumbelly","Morgmox Moldnoggin","Mortilox Wartpaws","Distilix Stickytoes","Jabbrox Grannyguise",
+                    "Quicktrix Hexhands","Wilywox Tenderpalm","Ascetox Ratgums","Brewnix Bittypupils","Gibberox Pimplebeak","Morblox Stubthumbs",
+                    "Whistrix Toadthroat","Nightmare Bunny","Nightmare Eft","Nightmare Mandragora","Nightmare Hippogryph","Nightmare Sabotender",
+                    "Nightmare Sheep","Nightmare Snoll","Nightmare Stirge","Nightmare Weapon","Nightmare Makara","Nightmare Cluster","Gosspix Blabblerlips",
+                    "Flamecaller Zoeqdoq","Gi'Bhe Fleshfeaster","Ree Nata the Melomanic","Baa Dava the Bibliophage","Aitvaras"})
+                    },
+                    {"WS", new List<string>(new string[]
+                    {"Kindred Paladin","Kindred Warrior","Kindred Samurai","Kindred Dragoon","Kindred Dark Knight","Count Zaebos","Duke Scox","Marquis Sabnak",
+                    "King Zagan","Count Haagenti","Hydra Paladin","Hydra Warrior","Hydra Samurai","Hydra Dragoon","Hydra Dark Knight","Vanguard Footsoldier",
+                    "Vanguard Gutslasher","Vanguard Impaler","Vanguard Neckchopper","Vanguard Trooper","Wyrmgnasher Bjakdek","Bladerunner Rokgevok",
+                    "Bloodfist Voshgrosh","Spellspear Djokvukk","Vanguard Defender","Vanguard Drakekeeper","Vanguard Hatamoto","Vanguard Vigilante",
+                    "Vanguard Vindicator","Ze'Vho Fallsplitter","Zo'Pha Forgesoul","Bu'Bho Truesteel","Vanguard Exemplar","Vanguard Inciter",
+                    "Vanguard Partisan","Vanguard Persecutor","Vanguard Skirmisher","Maa Febi the Steadfast","Muu Febi the Steadfast","Vanguard Armorer",
+                    "Vanguard Dragontamer","Vanguard Ronin","Vanguard Smithy","Buffrix Eargone","Cloktix Longnail","Sparkspox Sweatbrow","Ticktox Beadyeyes",
+                    "Tufflix Loglimbs","Wyrmwix Snakespecs","Karashix Swollenskull","Smeltix Thickhide","Wasabix Callusdigit","Anvilix Sootwrists",
+                    "Scruffix Shaggychest","Tymexox Ninefingers","Scourquix Scaleskin","Draklix Scalecrust","Moltenox Stubthumbs","Ruffbix Jumbolobes",
+                    "Shisox Widebrow","Tocktix Thinlids","Nightmare Crab","Nightmare Dhalmel","Nightmare Scorpion","Nightmare Goobbue","Nightmare Manticore",
+                    "Nightmare Treant","Nightmare Diremite","Nightmare Tiger","Nightmare Raptor","Nightmare Leech","Nightmare Worm","Shamblix Rottenheart",
+                    "Elvaansticker Bxafraff","Qu'Pho Bloodspiller","Te'Zha Ironclad","Koo Rahi the Levinblade","Barong","Alklha","Stihi","Fairy Ring",
+                    "Stcemqestcint","Stringes","Suttung"})
+                    }
+                }
+            },
+            {"Noon", new Dictionary<string, dynamic>()
+                {
+                    {"JA", new List<string>(new string[]
+                    {"Kindred Thief","Kindred Beastmaster","Kindred Monk","Kindred Ninja","Kindred Ranger","Duke Gomory","Marquis Andras","Marquis Gamygyn",
+                    "Count Raum","Marquis Cimeries","Marquis Caim","Baron Avnas","Hydra Thief","Hydra Beastmaster","Hydra Monk","Hydra Ninja","Hydra Ranger",
+                    "Vanguard Backstabber","Vanguard Grappler","Vanguard Hawker","Vanguard Pillager","Vanguard Predator","Voidstreaker Butchnotch",
+                    "Steelshank Kratzvatz","Vanguard Beasttender","Vanguard Kusa","Vanguard Mason","Vanguard Militant","Vanguard Purloiner",
+                    "Ko'Dho Cannonball","Vanguard Assassin","Vanguard Liberator","Vanguard Ogresoother","Vanguard Salvager","Vanguard Sentinel",
+                    "Wuu Qoho the Razorclaw","Tee Zaksa the Ceaseless","Vanguard Ambusher","Vanguard Hitman","Vanguard Pathfinder","Vanguard Pit",
+                    "Vanguard Welldigger","Bandrix Rockjaw","Lurklox Dhalmelneck","Trailblix Goatmug","Kikklix Longlegs","Snypestix Eaglebeak",
+                    "Jabkix Pigeonpecs","Blazox Boneybod","Bootrix Jaggedelbow","Mobpix Mucousmouth","Prowlox Barrelbelly","Slystix Megapeepers",
+                    "Feralox Honeylips","Bordox Kittyback","Droprix Granitepalms","Routsix Rubbertendon","Slinkix Trufflesniff","Swypestix Tigershins",
+                    "Nightmare Bunny","Nightmare Eft","Nightmare Mandragora","Nightmare Hippogryph","Nightmare Sabotender","Nightmare Sheep","Nightmare Snoll",
+                    "Nightmare Stirge","Nightmare Weapon","Nightmare Makara","Nightmare Cluster","Woodnix Shrillwhistle","Hamfist Gukhbuk","Lyncean Juwgneg",
+                    "Va'Rhu Bodysnatcher","Doo Peku the Fleetfoot","Nant'ina","Antaeus"})
+                    },
+                    {"MA", new List<string>(new string[]
+                    {"Kindred White Mage","Kindred Bard","Kindred Summoner","Kindred Black Mage","Kindred Red Mage","Duke Berith","Marquis Decarabia",
+                    "Prince Seere","Marquis Orias","Marquis Nebiros","Duke Haures","Hydra White Mage","Hydra Bard","Hydra Summoner","Hydra Black Mage",
+                    "Hydra Red Mage","Vanguard Amputator","Vanguard Bugler","Vanguard Dollmaster","Vanguard Mesmerizer","Vanguard Vexer","Soulsender Fugbrag",
+                    "Reapertongue Gadgquok","Battlechoir Gitchfotch","Vanguard Constable","Vanguard Minstrel","Vanguard Protector","Vanguard Thaumaturge",
+                    "Vanguard Undertaker","Gi'Pha Manameister","Gu'Nhi Noondozer","Ra'Gho Darkfount","Va'Zhe Pummelsong","Vanguard Chanter","Vanguard Oracle",
+                    "Vanguard Prelate","Vanguard Priest","Vanguard Visionary","Loo Hepe the Eyepiercer","Xoo Kaza the Solemn","Haa Pevi the Stentorian",
+                    "Xuu Bhoqa the Enigma","Fuu Tzapo the Blessed","Naa Yixo the Stillrage","Vanguard Alchemist","Vanguard Enchanter","Vanguard Maestro",
+                    "Vanguard Necromancer","Vanguard Shaman","Elixmix Hooknose","Gabblox Magpietongue","Hermitrix Toothrot","Humnox Drumbelly",
+                    "Morgmox Moldnoggin","Mortilox Wartpaws","Distilix Stickytoes","Jabbrox Grannyguise","Quicktrix Hexhands","Wilywox Tenderpalm",
+                    "Ascetox Ratgums","Brewnix Bittypupils","Gibberox Pimplebeak","Morblox Stubthumbs","Whistrix Toadthroat","Nightmare Crab",
+                    "Nightmare Dhalmel","Nightmare Scorpion","Nightmare Goobbue","Nightmare Manticore","Nightmare Treant","Nightmare Diremite",
+                    "Nightmare Tiger","Nightmare Raptor","Nightmare Leech","Nightmare Worm" ,"Gosspix Blabblerlips","Flamecaller Zoeqdoq",
+                    "Gi'Bhe Fleshfeaster","Ree Nata the Melomanic","Baa Dava the Bibliophage","Aitvaras"})
+                    },
+                    {"WS", new List<string>(new string[]
+                    {"Kindred Paladin","Kindred Warrior","Kindred Samurai","Kindred Dragoon","Kindred Dark Knight","Count Zaebos","Duke Scox","Marquis Sabnak",
+                    "King Zagan","Count Haagenti","Hydra Paladin","Hydra Warrior","Hydra Samurai","Hydra Dragoon","Hydra Dark Knight","Vanguard Footsoldier",
+                    "Vanguard Gutslasher","Vanguard Impaler","Vanguard Neckchopper","Vanguard Trooper","Wyrmgnasher Bjakdek","Bladerunner Rokgevok",
+                    "Bloodfist Voshgrosh","Spellspear Djokvukk","Vanguard Defender","Vanguard Drakekeeper","Vanguard Hatamoto","Vanguard Vigilante",
+                    "Vanguard Vindicator","Ze'Vho Fallsplitter","Zo'Pha Forgesoul","Bu'Bho Truesteel","Vanguard Exemplar","Vanguard Inciter",
+                    "Vanguard Partisan","Vanguard Persecutor","Vanguard Skirmisher","Maa Febi the Steadfast","Muu Febi the Steadfast","Vanguard Armorer",
+                    "Vanguard Dragontamer","Vanguard Ronin","Vanguard Smithy","Buffrix Eargone","Cloktix Longnail","Sparkspox Sweatbrow","Ticktox Beadyeyes",
+                    "Tufflix Loglimbs","Wyrmwix Snakespecs","Karashix Swollenskull","Smeltix Thickhide","Wasabix Callusdigit","Anvilix Sootwrists",
+                    "Scruffix Shaggychest","Tymexox Ninefingers","Scourquix Scaleskin","Draklix Scalecrust","Moltenox Stubthumbs","Ruffbix Jumbolobes",
+                    "Shisox Widebrow","Tocktix Thinlids","Nightmare Crawler","Nightmare Raven","Nightmare Uragnite","Nightmare Fly","Nightmare Flytrap",
+                    "Nightmare Funguar","Nightmare Gaylas","Nightmare Kraken","Nightmare Roc","Nightmare Hornet","Nightmare Bugard","Shamblix Rottenheart",
+                    "Elvaansticker Bxafraff","Qu'Pho Bloodspiller","Te'Zha Ironclad","Koo Rahi the Levinblade","Barong","Alklha","Stihi","Fairy Ring",
+                    "Stcemqestcint","Stringes","Suttung"})
+                    }
+                }
+            },
+            {"Night", new Dictionary<string, dynamic>()
+                {
+                    {"JA", new List<string>(new string[]
+                    {"Kindred Thief","Kindred Beastmaster","Kindred Monk","Kindred Ninja","Kindred Ranger","Duke Gomory","Marquis Andras","Marquis Gamygyn",
+                    "Count Raum","Marquis Cimeries","Marquis Caim","Baron Avnas","Hydra Thief","Hydra Beastmaster","Hydra Monk","Hydra Ninja","Hydra Ranger",
+                    "Vanguard Backstabber","Vanguard Grappler","Vanguard Hawker","Vanguard Pillager","Vanguard Predator","Voidstreaker Butchnotch",
+                    "Steelshank Kratzvatz","Vanguard Beasttender","Vanguard Kusa","Vanguard Mason","Vanguard Militant","Vanguard Purloiner",
+                    "Ko'Dho Cannonball","Vanguard Assassin","Vanguard Liberator","Vanguard Ogresoother","Vanguard Salvager","Vanguard Sentinel",
+                    "Wuu Qoho the Razorclaw","Tee Zaksa the Ceaseless","Vanguard Ambusher","Vanguard Hitman","Vanguard Pathfinder","Vanguard Pit",
+                    "Vanguard Welldigger","Bandrix Rockjaw","Lurklox Dhalmelneck","Trailblix Goatmug","Kikklix Longlegs","Snypestix Eaglebeak",
+                    "Jabkix Pigeonpecs","Blazox Boneybod","Bootrix Jaggedelbow","Mobpix Mucousmouth","Prowlox Barrelbelly","Slystix Megapeepers",
+                    "Feralox Honeylips","Bordox Kittyback","Droprix Granitepalms","Routsix Rubbertendon","Slinkix Trufflesniff","Swypestix Tigershins",
+                    "Nightmare Crab","Nightmare Dhalmel","Nightmare Scorpion","Nightmare Goobbue","Nightmare Manticore","Nightmare Treant",
+                    "Nightmare Diremite","Nightmare Tiger","Nightmare Raptor","Nightmare Leech","Nightmare Worm","Woodnix Shrillwhistle","Hamfist Gukhbuk",
+                    "Lyncean Juwgneg","Va'Rhu Bodysnatcher","Doo Peku the Fleetfoot","Nant'ina","Antaeus"})
+                    },
+                    {"MA", new List<string>(new string[]
+                    {"Kindred White Mage","Kindred Bard","Kindred Summoner","Kindred Black Mage","Kindred Red Mage","Duke Berith","Marquis Decarabia",
+                    "Prince Seere","Marquis Orias","Marquis Nebiros","Duke Haures","Hydra White Mage","Hydra Bard","Hydra Summoner","Hydra Black Mage",
+                    "Hydra Red Mage","Vanguard Amputator","Vanguard Bugler","Vanguard Dollmaster","Vanguard Mesmerizer","Vanguard Vexer","Soulsender Fugbrag",
+                    "Reapertongue Gadgquok","Battlechoir Gitchfotch","Vanguard Constable","Vanguard Minstrel","Vanguard Protector","Vanguard Thaumaturge",
+                    "Vanguard Undertaker","Gi'Pha Manameister","Gu'Nhi Noondozer","Ra'Gho Darkfount","Va'Zhe Pummelsong","Vanguard Chanter","Vanguard Oracle",
+                    "Vanguard Prelate","Vanguard Priest","Vanguard Visionary","Loo Hepe the Eyepiercer","Xoo Kaza the Solemn","Haa Pevi the Stentorian",
+                    "Xuu Bhoqa the Enigma","Fuu Tzapo the Blessed","Naa Yixo the Stillrage","Vanguard Alchemist","Vanguard Enchanter","Vanguard Maestro",
+                    "Vanguard Necromancer","Vanguard Shaman","Elixmix Hooknose","Gabblox Magpietongue","Hermitrix Toothrot","Humnox Drumbelly",
+                    "Morgmox Moldnoggin","Mortilox Wartpaws","Distilix Stickytoes","Jabbrox Grannyguise","Quicktrix Hexhands","Wilywox Tenderpalm",
+                    "Ascetox Ratgums","Brewnix Bittypupils","Gibberox Pimplebeak","Morblox Stubthumbs","Whistrix Toadthroat","Nightmare Crawler",
+                    "Nightmare Raven","Nightmare Uragnite","Nightmare Fly","Nightmare Flytrap","Nightmare Funguar","Nightmare Gaylas","Nightmare Kraken",
+                    "Nightmare Roc","Nightmare Hornet","Nightmare Bugard","Gosspix Blabblerlips","Flamecaller Zoeqdoq","Gi'Bhe Fleshfeaster",
+                    "Ree Nata the Melomanic","Baa Dava the Bibliophage","Aitvaras"})
+                    },
+                    {"WS", new List<string>(new string[]
+                    {"Kindred Paladin","Kindred Warrior","Kindred Samurai","Kindred Dragoon","Kindred Dark Knight","Count Zaebos","Duke Scox","Marquis Sabnak",
+                    "King Zagan","Count Haagenti","Hydra Paladin","Hydra Warrior","Hydra Samurai","Hydra Dragoon","Hydra Dark Knight","Vanguard Footsoldier",
+                    "Vanguard Gutslasher","Vanguard Impaler","Vanguard Neckchopper","Vanguard Trooper","Wyrmgnasher Bjakdek","Bladerunner Rokgevok",
+                    "Bloodfist Voshgrosh","Spellspear Djokvukk","Vanguard Defender","Vanguard Drakekeeper","Vanguard Hatamoto","Vanguard Vigilante",
+                    "Vanguard Vindicator","Ze'Vho Fallsplitter","Zo'Pha Forgesoul","Bu'Bho Truesteel","Vanguard Exemplar","Vanguard Inciter",
+                    "Vanguard Partisan","Vanguard Persecutor","Vanguard Skirmisher","Maa Febi the Steadfast","Muu Febi the Steadfast","Vanguard Armorer",
+                    "Vanguard Dragontamer","Vanguard Ronin","Vanguard Smithy","Buffrix Eargone","Cloktix Longnail","Sparkspox Sweatbrow","Ticktox Beadyeyes",
+                    "Tufflix Loglimbs","Wyrmwix Snakespecs","Karashix Swollenskull","Smeltix Thickhide","Wasabix Callusdigit","Anvilix Sootwrists",
+                    "Scruffix Shaggychest","Tymexox Ninefingers","Scourquix Scaleskin","Draklix Scalecrust","Moltenox Stubthumbs","Ruffbix Jumbolobes",
+                    "Shisox Widebrow","Tocktix Thinlids","Nightmare Bunny","Nightmare Eft","Nightmare Mandragora","Nightmare Hippogryph",
+                    "Nightmare Sabotender","Nightmare Sheep","Nightmare Snoll","Nightmare Stirge","Nightmare Weapon","Nightmare Makara","Nightmare Cluster",
+                    "Shamblix Rottenheart","Elvaansticker Bxafraff","Qu'Pho Bloodspiller","Te'Zha Ironclad","Koo Rahi the Levinblade","Barong","Alklha",
+                    "Stihi","Fairy Ring","Stcemqestcint","Stringes","Suttung"})
+                    }
+                }
+            }
+        };
+        public static List<string> NoProcDynaMobs = new List<string>(new string[] {"Animated Claymore","Animated Dagger","Animated Great Axe","Animated Gun","Animated Hammer",
+            "Animated Horn","Animated Kunai","Animated Knuckles","Animated Longbow","Animated Longsword","Animated Scythe","Animated Shield","Animated Spear",
+            "Animated Staff","Animated Tabar","Animated Tachi","Fire Pukis","Petro Pukis","Poison Pukis","Wind Pukis","Kindred's Vouivre","Kindred's Wyvern",
+            "Kindred's Avatar","Vanguard Eye","Prototype Eye","Nebiros's Avatar","Haagenti's Avatar","Caim's Vouivre","Andras's Vouivre","Adamantking Effigy",
+            "Avatar Icon","Goblin Replica","Serjeant Tombstone","Zagan's Wyvern","Hydra's Hound","Hydra's Wyvern","Hydra's Avatar","Rearguard Eye",
+            "Adamantking Effigy","Adamantking Image","Avatar Icon","Avatar Idol","Effigy Prototype","Goblin Replica","Goblin Statue","Icon Prototype",
+            "Manifest Icon","Manifest Icon","Prototype Eye","Serjeant Tombstone","Statue Prototype","Tombstone Prototype","Vanguard Eye","Vanguard's Avatar",
+            "Vanguard's Avatar","Vanguard's Avatar","Vanguard's Avatar","Vanguard's Crow","Vanguard's Hecteyes","Vanguard's Scorpion","Vanguard's Slime",
+            "Vanguard's Wyvern","Vanguard's Wyvern","Vanguard's Wyvern","Vanguard's Wyvern","Warchief Tombstone"});
+        #endregion
 
+        #region zone array
+        public static Dictionary<string, string> dats = new Dictionary<string, string>()
+        {   {"1", "\\ROM3\\2\\111.DAT"},{"2", "\\ROM3\\2\\112.DAT"},{"3", "\\ROM3\\2\\113.DAT"},{"4", "\\ROM3\\2\\114.DAT"},
+            {"5", "\\ROM3\\2\\115.DAT"},{"6", "\\ROM3\\2\\116.DAT"},{"7", "\\ROM3\\2\\117.DAT"},{"8", "\\ROM3\\2\\118.DAT"},
+            {"9", "\\ROM3\\2\\119.DAT"},{"A", "\\ROM3\\2\\120.DAT"},{"B", "\\ROM3\\2\\121.DAT"},{"C", "\\ROM3\\2\\122.DAT"},
+            {"D", "\\ROM3\\2\\123.DAT"},{"E", "\\ROM3\\2\\124.DAT"},{"F", "\\ROM\\25\\80.DAT"},{"10", "\\ROM3\\2\\126.DAT"},
+            {"11", "\\ROM3\\2\\127.DAT"},{"12", "\\ROM3\\3\\0.DAT"},{"13", "\\ROM3\\3\\1.DAT"},{"14", "\\ROM3\\3\\2.DAT"},
+            {"15", "\\ROM3\\3\\3.DAT"}, {"16", "\\ROM3\\3\\4.DAT"},{"17", "\\ROM3\\3\\5.DAT"},{"18", "\\ROM3\\3\\6.DAT"},
+            {"19", "\\ROM3\\3\\7.DAT"},{"1A", "\\ROM3\\3\\8.DAT"},{"1B", "\\ROM3\\3\\9.DAT"},{"1C", "\\ROM3\\3\\10.DAT"},
+            {"1D", "\\ROM3\\3\\11.DAT"},{"1E", "\\ROM3\\3\\12.DAT"},{"1F", "\\ROM3\\3\\13.DAT"},{"20", "\\ROM3\\3\\14.DAT"},
+            {"21", "\\ROM3\\3\\15.DAT"},{"22", "\\ROM3\\3\\16.DAT"},{"23", "\\ROM3\\3\\17.DAT"},{"24", "\\ROM3\\3\\18.DAT"},
+            {"25", "\\ROM3\\3\\19.DAT"},{"26", "\\ROM3\\3\\20.DAT"},{"27", "\\ROM3\\3\\21.DAT"},{"28", "\\ROM3\\3\\22.DAT"},
+            {"29", "\\ROM3\\3\\23.DAT"},{"2A", "\\ROM3\\3\\24.DAT"},{"2B", "\\ROM3\\3\\25.DAT"},{"2C", "\\ROM3\\3\\26.DAT"},
+            {"2D", "\\ROM\\25\\110.DAT"},{"2E", "\\ROM4\\1\\45.DAT"},{"2F", "\\ROM4\\1\\46.DAT"},{"30", "\\ROM4\\1\\47.DAT"},
+            {"31", "\\ROM4\\1\\48.DAT"},{"32", "\\ROM4\\1\\49.DAT"},{"33", "\\ROM4\\1\\50.DAT"},{"34", "\\ROM4\\1\\51.DAT"},
+            {"35", "\\ROM4\\1\\52.DAT"},{"36", "\\ROM4\\1\\53.DAT"},{"37", "\\ROM4\\1\\54.DAT"},{"38", "\\ROM4\\1\\55.DAT"},
+            {"39", "\\ROM4\\1\\56.DAT"},{"3A", "\\ROM4\\1\\57.DAT"},{"3B", "\\ROM4\\1\\58.DAT"},{"3C", "\\ROM4\\1\\59.DAT"},
+            {"3D", "\\ROM4\\1\\60.DAT"},{"3E", "\\ROM4\\1\\61.DAT"},{"3F", "\\ROM4\\1\\62.DAT"},{"40", "\\ROM4\\1\\63.DAT"},
+            {"41", "\\ROM4\\1\\64.DAT"},{"42", "\\ROM4\\1\\65.DAT"},{"43", "\\ROM4\\1\\66.DAT"},{"44", "\\ROM4\\1\\67.DAT"},
+            {"45", "\\ROM4\\1\\68.DAT"},{"46", "\\ROM4\\1\\69.DAT"},{"47", "\\ROM4\\1\\70.DAT"},{"48", "\\ROM4\\1\\71.DAT"},
+            {"49", "\\ROM4\\1\\72.DAT"},{"4A", "\\ROM4\\1\\73.DAT"}, {"4B", "\\ROM4\\1\\74.DAT"},{"4C", "\\ROM4\\1\\75.DAT"},
+            {"4D", "\\ROM4\\1\\76.DAT"},{"4E", "\\ROM4\\1\\77.DAT"},{"4F", "\\ROM4\\1\\78.DAT"},{"50", "\\ROM\\26\\17.DAT"},
+            {"51", "\\ROM\\26\\18.DAT"},{"52", "\\ROM\\26\\19.DAT"},{"53", "\\ROM\\26\\20.DAT"},{"54", "\\ROM\\26\\21.DAT"},
+            {"55", "\\ROM\\26\\22.DAT"},{"56", "\\ROM\\26\\23.DAT"},{"57", "\\ROM\\26\\24.DAT"},{"58", "\\ROM\\26\\25.DAT"},
+            {"59", "\\ROM\\26\\26.DAT"},{"5A", "\\ROM\\26\\27.DAT"},{"5B", "\\ROM\\26\\28.DAT"},{"5C", "\\ROM\\26\\29.DAT"},
+            {"5D", "\\ROM\\26\\30.DAT"},{"5E", "\\ROM\\26\\31.DAT"},{"5F", "\\ROM\\26\\32.DAT"},{"60", "\\ROM\\26\\33.DAT"},
+            {"61", "\\ROM\\26\\34.DAT"},{"62", "\\ROM\\26\\35.DAT"},{"63", "\\ROM\\26\\36.DAT"},{"64", "\\ROM\\26\\37.DAT"},
+            {"65", "\\ROM\\26\\38.DAT"},{"66", "\\ROM\\26\\39.DAT"},{"67", "\\ROM\\26\\40.DAT"},{"68", "\\ROM\\26\\41.DAT"},
+            {"69", "\\ROM\\26\\42.DAT"},{"6A", "\\ROM\\26\\43.DAT"},{"6B", "\\ROM\\26\\44.DAT"},{"6C", "\\ROM\\26\\45.DAT"},
+            {"6D", "\\ROM\\26\\46.DAT"},{"6E", "\\ROM\\26\\47.DAT"},{"6F", "\\ROM\\26\\48.DAT"},{"70", "\\ROM\\26\\49.DAT"},
+            {"71", "\\ROM2\\13\\95.DAT"},{"72", "\\ROM2\\13\\96.DAT"},{"73", "\\ROM\\26\\52.DAT"},{"74", "\\ROM\\26\\53.DAT"},
+            {"75", "\\ROM\\26\\54.DAT"},{"76", "\\ROM\\26\\55.DAT"},{"77", "\\ROM\\26\\56.DAT"},{"78", "\\ROM\\26\\57.DAT"},
+            {"79", "\\ROM2\\13\\97.DAT"},{"7A", "\\ROM2\\13\\98.DAT"},{"7B", "\\ROM2\\13\\98.DAT"},{"7C", "\\ROM2\\13\\100.DAT"},
+            {"7D", "\\ROM2\\13\\101.DAT"},{"7E", "\\ROM\\26\\63.DAT"},{"7F", "\\ROM\\26\\64.DAT"},{"80", "\\ROM2\\13\\102.DAT"},
+            {"81", "\\ROM\\26\\66.DAT"},{"82", "\\ROM2\\13\\103.DAT"},{"83", "\\ROM\\26\\68.DAT"},{"84", "\\ROM\\26\\69.DAT"},
+            {"86", "\\ROM2\\13\\104.DAT"},{"87", "\\ROM2\\13\\105.DAT"},{"88", "\\ROM\\26\\73.DAT"},{"89", "\\ROM\\26\\74.DAT"},
+            {"8A", "\\ROM\\26\\75.DAT"},{"8B", "\\ROM\\26\\76.DAT"},{"8C", "\\ROM\\26\\77.DAT"},{"8D", "\\ROM\\26\\78.DAT"},
+            {"8E", "\\ROM\\26\\79.DAT"},{"8F", "\\ROM\\26\\80.DAT"},{"90", "\\ROM\\26\\81.DAT"},{"91", "\\ROM\\26\\82.DAT"},
+            {"92", "\\ROM\\26\\83.DAT"},{"93", "\\ROM\\26\\84.DAT"},{"94", "\\ROM\\26\\85.DAT"},{"95", "\\ROM\\26\\86.DAT"},
+            {"96", "\\ROM\\26\\87.DAT"},{"97", "\\ROM\\26\\88.DAT"},{"98", "\\ROM\\26\\89.DAT"},{"99", "\\ROM2\\13\\106.DAT"},
+            {"9A", "\\ROM2\\13\\107.DAT"},{"9B", "\\ROM\\26\\92.DAT"},{"9C", "\\ROM\\26\\93.DAT"},{"9D", "\\ROM\\26\\94.DAT"},
+            {"9E", "\\ROM\\26\\95.DAT"},{"9F", "\\ROM2\\13\\108.DAT"},{"A0", "\\ROM2\\13\\109.DAT"},{"A1", "\\ROM\\26\\98.DAT"},
+            {"A2", "\\ROM\\26\\99.DAT"},{"A3", "\\ROM2\\13\\110.DAT"},{"A4", "\\ROM\\26\\101.DAT"},{"A5", "\\ROM\\26\\102.DAT"},
+            {"A6", "\\ROM\\26\\103.DAT"},{"A7", "\\ROM\\26\\104.DAT"},{"A8", "\\ROM2\\13\\111.DAT"},{"A9", "\\ROM\\26\\106.DAT"},
+            {"AA", "\\ROM2\\13\\112.DAT"},{"AB", "\\ROM\\26\\108.DAT"},{"AC", "\\ROM\\26\\109.DAT"},{"AD", "\\ROM2\\13\\113.DAT"},
+            {"AE", "\\ROM2\\13\\114.DAT"},{"AF", "\\ROM\\26\\112.DAT"},{"B0", "\\ROM2\\13\\115.DAT"},{"B1", "\\ROM2\\13\\116.DAT"},
+            {"B2", "\\ROM2\\13\\117.DAT"},{"B3", "\\ROM2\\13\\118.DAT"},{"B4", "\\ROM2\\13\\119.DAT"},{"B5", "\\ROM2\\13\\120.DAT"},
+            {"B6", "\\ROM\\26\\119.DAT"},{"B7", "\\ROM\\26\\120.DAT"},{"B8", "\\ROM\\26\\121.DAT"},{"B9", "\\ROM2\\13\\121.DAT"},
+            {"BA", "\\ROM2\\13\\122.DAT"},{"BB", "\\ROM2\\13\\123.DAT"},{"BC", "\\ROM2\\13\\124.DAT"},{"BE", "\\ROM\\26\\127.DAT"},
+            {"BF", "\\ROM\\27\\0.DAT"},{"C0", "\\ROM\\27\\1.DAT"},{"C1", "\\ROM\\27\\2.DAT"},{"C2", "\\ROM\\27\\3.DAT"},
+            {"C3", "\\ROM\\27\\4.DAT"},{"C4", "\\ROM\\27\\5.DAT"},{"C5", "\\ROM\\27\\6.DAT"},{"C6", "\\ROM\\27\\7.DAT"},
+            {"C8", "\\ROM\\27\\9.DAT"},{"C9", "\\ROM2\\13\\125.DAT"},{"CA", "\\ROM2\\13\\126.DAT"},{"CB", "\\ROM2\\13\\127.DAT"},
+            {"CC", "\\ROM\\27\\13.DAT"},{"CD", "\\ROM2\\14\\0.DAT"},{"CE", "\\ROM\\27\\13.DAT"},{"CF", "\\ROM2\\14\\1.DAT"},
+            {"D0", "\\ROM2\\14\\2.DAT"},{"D1", "\\ROM2\\14\\3.DAT"},{"D3", "\\ROM2\\14\\4.DAT"},{"D4", "\\ROM2\\14\\5.DAT"},
+            {"D5", "\\ROM2\\14\\6.DAT"},{"D6", "\\ROM\\27\\15.DAT"},{"D7", "\\ROM\\27\\24.DAT"},{"D8", "\\ROM\\27\\25.DAT"},
+            {"D9", "\\ROM\\27\\26.DAT"},{"DA", "\\ROM\\27\\27.DAT"},{"DC", "\\ROM\\27\\29.DAT"},{"DD", "\\ROM\\27\\30.DAT"},
+            {"DF", "\\ROM\\27\\32.DAT"},{"E0", "\\ROM\\27\\33.DAT"},{"E1", "\\ROM\\27\\34.DAT"},{"E2", "\\ROM2\\14\\7.DAT"},
+            {"E3", "\\ROM\\27\\36.DAT"},{"E4", "\\ROM\\27\\37.DAT"},{"E6", "\\ROM\\27\\39.DAT"},{"E7", "\\ROM\\27\\40.DAT"},
+            {"E8", "\\ROM\\27\\41.DAT"},{"E9", "\\ROM\\27\\42.DAT"},{"EA", "\\ROM\\27\\43.DAT"},{"EB", "\\ROM\\27\\44.DAT"},
+            {"EC", "\\ROM\\27\\45.DAT"},{"ED", "\\ROM\\27\\46.DAT"},{"EE", "\\ROM\\27\\47.DAT"},{"EF", "\\ROM\\27\\48.DAT"},
+            {"F0", "\\ROM\\27\\49.DAT"},{"F1", "\\ROM\\27\\50.DAT"},{"F2", "\\ROM\\27\\51.DAT"},{"F3", "\\ROM\\27\\52.DAT"},
+            {"F4", "\\ROM\\27\\53.DAT"},{"F5", "\\ROM\\27\\54.DAT"},{"F6", "\\ROM\\27\\55.DAT"},{"F7", "\\ROM2\\14\\8.DAT"},
+            {"F8", "\\ROM\\27\\57.DAT"},{"F9", "\\ROM\\27\\58.DAT"},{"FA", "\\ROM2\\14\\9.DAT"},{"FB", "\\ROM2\\14\\10.DAT"},
+            {"FC", "\\ROM2\\14\\11.DAT"},{"FD", "\\ROM\\27\\62.DAT"},{"FE", "\\ROM\\27\\63.DAT"},{"FF", "\\ROM\\27\\64.DAT"},
+            {"100", "\\ROM9\\6\\45.DAT"},{"101", "\\ROM9\\6\\46.DAT"},{"102", "\\ROM9\\6\\47.DAT"},{"103", "\\ROM9\\6\\48.DAT"},
+            {"104", "\\ROM9\\6\\49.DAT"},{"105", "\\ROM9\\6\\50.DAT"},{"106", "\\ROM9\\6\\51.DAT"},{"107", "\\ROM9\\6\\52.DAT"},
+            {"108", "\\ROM9\\6\\53.DAT"},{"109", "\\ROM9\\6\\54.DAT"},{"10A", "\\ROM9\\6\\55.DAT"},{"10B", "\\ROM9\\6\\56.DAT"},
+            {"10C", "\\ROM9\\6\\57.DAT"},{"10D", "\\ROM9\\6\\58.DAT"},{"10E", "\\ROM9\\6\\59.DAT"},{"10F", "\\ROM9\\6\\60.DAT"},
+            {"110", "\\ROM9\\6\\61.DAT"},{"111", "\\ROM9\\6\\62.DAT"},{"112", "\\ROM9\\6\\63.DAT"},{"113", "\\ROM9\\6\\64.DAT"},
+            {"114", "\\ROM9\\6\\65.DAT"},{"115", "\\ROM9\\6\\66.DAT"},{"116", "\\ROM9\\6\\67.DAT"},{"117", "\\ROM9\\6\\68.DAT"},
+            {"118", "\\ROM9\\6\\69.DAT"},{"11B", "\\ROM9\\6\\72.DAT"},{"11C", "\\ROM9\\6\\73.DAT"},{"120", "\\ROM\\332\\109.DAT"},
+            {"121", "\\ROM\\337\\66.DAT"},{"123", "\\ROM\\342\\94.DAT"},
+            };
+        #endregion
         #region notWanted<list>
         public List<string> notWanted = new List<string>(new string[]
         {
@@ -109,6 +342,7 @@
             this.checkZone = new System.Windows.Forms.CheckBox();
             this.StopFullInventory = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.navStuckWatch = new System.Windows.Forms.CheckBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.firstPersonView = new System.Windows.Forms.CheckBox();
             this.runReverse = new System.Windows.Forms.CheckBox();
@@ -205,6 +439,7 @@
             this.label35 = new System.Windows.Forms.Label();
             this.Options4MainTab = new System.Windows.Forms.TabPage();
             this.NotinBattle = new System.Windows.Forms.GroupBox();
+            this.UseJigs = new System.Windows.Forms.CheckBox();
             this.ChocoboJigII = new System.Windows.Forms.RadioButton();
             this.ChocoboJig = new System.Windows.Forms.RadioButton();
             this.SpectralJig = new System.Windows.Forms.RadioButton();
@@ -250,6 +485,11 @@
             this.monmptext = new System.Windows.Forms.Label();
             this.monhptext = new System.Windows.Forms.Label();
             this.Dynamispage = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.NoneProcuse = new System.Windows.Forms.CheckBox();
+            this.DynaProccontrole = new System.Windows.Forms.CheckBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
             this.Dynatxt = new System.Windows.Forms.Label();
             this.staggerstopJA = new System.Windows.Forms.CheckBox();
             this.OptionsMAMainTab = new System.Windows.Forms.TabPage();
@@ -566,7 +806,7 @@
             this.DeathWarp = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.UseJigs = new System.Windows.Forms.CheckBox();
+            this.mobStuckWatch = new System.Windows.Forms.CheckBox();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -623,6 +863,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MONmpCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).BeginInit();
             this.Dynamispage.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.OptionsMAMainTab.SuspendLayout();
             this.MAtabs.SuspendLayout();
             this.MASelectPage.SuspendLayout();
@@ -772,7 +1013,7 @@
             // checkZone
             // 
             this.checkZone.AutoSize = true;
-            this.checkZone.Location = new System.Drawing.Point(617, 205);
+            this.checkZone.Location = new System.Drawing.Point(617, 187);
             this.checkZone.Name = "checkZone";
             this.checkZone.Size = new System.Drawing.Size(91, 17);
             this.checkZone.TabIndex = 51;
@@ -782,7 +1023,7 @@
             // StopFullInventory
             // 
             this.StopFullInventory.AutoSize = true;
-            this.StopFullInventory.Location = new System.Drawing.Point(463, 188);
+            this.StopFullInventory.Location = new System.Drawing.Point(463, 170);
             this.StopFullInventory.Name = "StopFullInventory";
             this.StopFullInventory.Size = new System.Drawing.Size(129, 17);
             this.StopFullInventory.TabIndex = 50;
@@ -791,6 +1032,7 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.navStuckWatch);
             this.groupBox8.Controls.Add(this.comboBox3);
             this.groupBox8.Controls.Add(this.firstPersonView);
             this.groupBox8.Controls.Add(this.runReverse);
@@ -799,11 +1041,21 @@
             this.groupBox8.Controls.Add(this.selectedNavi);
             this.groupBox8.Controls.Add(this.GetSetNavi);
             this.groupBox8.Enabled = false;
-            this.groupBox8.Location = new System.Drawing.Point(463, 219);
+            this.groupBox8.Location = new System.Drawing.Point(463, 201);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(253, 128);
+            this.groupBox8.Size = new System.Drawing.Size(253, 143);
             this.groupBox8.TabIndex = 49;
             this.groupBox8.TabStop = false;
+            // 
+            // navStuckWatch
+            // 
+            this.navStuckWatch.AutoSize = true;
+            this.navStuckWatch.Location = new System.Drawing.Point(128, 100);
+            this.navStuckWatch.Name = "navStuckWatch";
+            this.navStuckWatch.Size = new System.Drawing.Size(89, 17);
+            this.navStuckWatch.TabIndex = 35;
+            this.navStuckWatch.Text = "Stuck Watch";
+            this.navStuckWatch.UseVisualStyleBackColor = true;
             // 
             // comboBox3
             // 
@@ -820,9 +1072,9 @@
             this.firstPersonView.Enabled = false;
             this.firstPersonView.Location = new System.Drawing.Point(128, 68);
             this.firstPersonView.Name = "firstPersonView";
-            this.firstPersonView.Size = new System.Drawing.Size(122, 17);
+            this.firstPersonView.Size = new System.Drawing.Size(103, 17);
             this.firstPersonView.TabIndex = 33;
-            this.firstPersonView.Text = "use first person view";
+            this.firstPersonView.Text = "Use First Person";
             this.firstPersonView.UseVisualStyleBackColor = true;
             // 
             // runReverse
@@ -831,9 +1083,9 @@
             this.runReverse.Enabled = false;
             this.runReverse.Location = new System.Drawing.Point(128, 84);
             this.runReverse.Name = "runReverse";
-            this.runReverse.Size = new System.Drawing.Size(79, 17);
+            this.runReverse.Size = new System.Drawing.Size(89, 17);
             this.runReverse.TabIndex = 32;
-            this.runReverse.Text = "run reverse";
+            this.runReverse.Text = "Run Reverse";
             this.runReverse.UseVisualStyleBackColor = true;
             // 
             // Linear
@@ -872,7 +1124,7 @@
             this.GetSetNavi.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.GetSetNavi.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.refreshToolStripMenuItem});
-            this.GetSetNavi.Location = new System.Drawing.Point(3, 101);
+            this.GetSetNavi.Location = new System.Drawing.Point(3, 116);
             this.GetSetNavi.Name = "GetSetNavi";
             this.GetSetNavi.Size = new System.Drawing.Size(247, 24);
             this.GetSetNavi.TabIndex = 0;
@@ -888,7 +1140,7 @@
             // usenav
             // 
             this.usenav.AutoSize = true;
-            this.usenav.Location = new System.Drawing.Point(463, 205);
+            this.usenav.Location = new System.Drawing.Point(463, 187);
             this.usenav.Name = "usenav";
             this.usenav.Size = new System.Drawing.Size(118, 17);
             this.usenav.TabIndex = 48;
@@ -2204,6 +2456,7 @@
             // 
             // Options4MainTab
             // 
+            this.Options4MainTab.Controls.Add(this.mobStuckWatch);
             this.Options4MainTab.Controls.Add(this.NotinBattle);
             this.Options4MainTab.Controls.Add(this.groupBox15);
             this.Options4MainTab.Location = new System.Drawing.Point(4, 22);
@@ -2220,18 +2473,28 @@
             this.NotinBattle.Controls.Add(this.ChocoboJigII);
             this.NotinBattle.Controls.Add(this.ChocoboJig);
             this.NotinBattle.Controls.Add(this.SpectralJig);
-            this.NotinBattle.Location = new System.Drawing.Point(7, 103);
+            this.NotinBattle.Location = new System.Drawing.Point(7, 125);
             this.NotinBattle.Name = "NotinBattle";
-            this.NotinBattle.Size = new System.Drawing.Size(313, 81);
+            this.NotinBattle.Size = new System.Drawing.Size(313, 59);
             this.NotinBattle.TabIndex = 16;
             this.NotinBattle.TabStop = false;
             this.NotinBattle.Text = "When not in battle";
+            // 
+            // UseJigs
+            // 
+            this.UseJigs.AutoSize = true;
+            this.UseJigs.Location = new System.Drawing.Point(22, 19);
+            this.UseJigs.Name = "UseJigs";
+            this.UseJigs.Size = new System.Drawing.Size(66, 17);
+            this.UseJigs.TabIndex = 3;
+            this.UseJigs.Text = "Use Jigs";
+            this.UseJigs.UseVisualStyleBackColor = true;
             // 
             // ChocoboJigII
             // 
             this.ChocoboJigII.AutoSize = true;
             this.ChocoboJigII.Enabled = false;
-            this.ChocoboJigII.Location = new System.Drawing.Point(215, 55);
+            this.ChocoboJigII.Location = new System.Drawing.Point(198, 34);
             this.ChocoboJigII.Name = "ChocoboJigII";
             this.ChocoboJigII.Size = new System.Drawing.Size(93, 17);
             this.ChocoboJigII.TabIndex = 2;
@@ -2243,7 +2506,7 @@
             // 
             this.ChocoboJig.AutoSize = true;
             this.ChocoboJig.Enabled = false;
-            this.ChocoboJig.Location = new System.Drawing.Point(109, 55);
+            this.ChocoboJig.Location = new System.Drawing.Point(108, 34);
             this.ChocoboJig.Name = "ChocoboJig";
             this.ChocoboJig.Size = new System.Drawing.Size(84, 17);
             this.ChocoboJig.TabIndex = 1;
@@ -2255,7 +2518,7 @@
             // 
             this.SpectralJig.AutoSize = true;
             this.SpectralJig.Enabled = false;
-            this.SpectralJig.Location = new System.Drawing.Point(7, 55);
+            this.SpectralJig.Location = new System.Drawing.Point(22, 34);
             this.SpectralJig.Name = "SpectralJig";
             this.SpectralJig.Size = new System.Drawing.Size(80, 17);
             this.SpectralJig.TabIndex = 0;
@@ -2936,6 +3199,7 @@
             // 
             // Dynamispage
             // 
+            this.Dynamispage.Controls.Add(this.groupBox13);
             this.Dynamispage.Controls.Add(this.Dynatxt);
             this.Dynamispage.Controls.Add(this.staggerstopJA);
             this.Dynamispage.Location = new System.Drawing.Point(4, 22);
@@ -2946,10 +3210,62 @@
             this.Dynamispage.Text = "Dynamis";
             this.Dynamispage.UseVisualStyleBackColor = true;
             // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.NoneProcuse);
+            this.groupBox13.Controls.Add(this.DynaProccontrole);
+            this.groupBox13.Controls.Add(this.label59);
+            this.groupBox13.Controls.Add(this.label60);
+            this.groupBox13.Location = new System.Drawing.Point(7, 52);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(299, 102);
+            this.groupBox13.TabIndex = 3;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Proc Control";
+            // 
+            // NoneProcuse
+            // 
+            this.NoneProcuse.AutoSize = true;
+            this.NoneProcuse.Location = new System.Drawing.Point(43, 79);
+            this.NoneProcuse.Name = "NoneProcuse";
+            this.NoneProcuse.Size = new System.Drawing.Size(213, 17);
+            this.NoneProcuse.TabIndex = 6;
+            this.NoneProcuse.Text = "Use Proc Skills on none Procable Mobs";
+            this.NoneProcuse.UseVisualStyleBackColor = true;
+            this.NoneProcuse.CheckedChanged += new System.EventHandler(this.NoneProcuse_CheckedChanged);
+            // 
+            // DynaProccontrole
+            // 
+            this.DynaProccontrole.AutoSize = true;
+            this.DynaProccontrole.Location = new System.Drawing.Point(59, 20);
+            this.DynaProccontrole.Name = "DynaProccontrole";
+            this.DynaProccontrole.Size = new System.Drawing.Size(181, 17);
+            this.DynaProccontrole.TabIndex = 3;
+            this.DynaProccontrole.Text = "WS/JA/MA Stop Based On Mob";
+            this.DynaProccontrole.UseVisualStyleBackColor = true;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(23, 40);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(253, 13);
+            this.label59.TabIndex = 4;
+            this.label59.Text = "This will force you to not use non proc skills if it wont";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(93, 57);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(112, 13);
+            this.label60.TabIndex = 5;
+            this.label60.Text = "proc the current traget";
+            // 
             // Dynatxt
             // 
             this.Dynatxt.AutoSize = true;
-            this.Dynatxt.Location = new System.Drawing.Point(12, 45);
+            this.Dynatxt.Location = new System.Drawing.Point(12, 36);
             this.Dynatxt.Name = "Dynatxt";
             this.Dynatxt.Size = new System.Drawing.Size(288, 13);
             this.Dynatxt.TabIndex = 2;
@@ -2958,7 +3274,7 @@
             // staggerstopJA
             // 
             this.staggerstopJA.AutoSize = true;
-            this.staggerstopJA.Location = new System.Drawing.Point(77, 23);
+            this.staggerstopJA.Location = new System.Drawing.Point(80, 14);
             this.staggerstopJA.Name = "staggerstopJA";
             this.staggerstopJA.Size = new System.Drawing.Size(153, 17);
             this.staggerstopJA.TabIndex = 1;
@@ -6657,7 +6973,7 @@
             // DeathWarp
             // 
             this.DeathWarp.AutoSize = true;
-            this.DeathWarp.Location = new System.Drawing.Point(617, 188);
+            this.DeathWarp.Location = new System.Drawing.Point(617, 170);
             this.DeathWarp.Name = "DeathWarp";
             this.DeathWarp.Size = new System.Drawing.Size(99, 17);
             this.DeathWarp.TabIndex = 52;
@@ -6684,15 +7000,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // UseJigs
+            // mobStuckWatch
             // 
-            this.UseJigs.AutoSize = true;
-            this.UseJigs.Location = new System.Drawing.Point(7, 25);
-            this.UseJigs.Name = "UseJigs";
-            this.UseJigs.Size = new System.Drawing.Size(66, 17);
-            this.UseJigs.TabIndex = 3;
-            this.UseJigs.Text = "Use Jigs";
-            this.UseJigs.UseVisualStyleBackColor = true;
+            this.mobStuckWatch.AutoSize = true;
+            this.mobStuckWatch.Location = new System.Drawing.Point(20, 102);
+            this.mobStuckWatch.Name = "mobStuckWatch";
+            this.mobStuckWatch.Size = new System.Drawing.Size(244, 17);
+            this.mobStuckWatch.TabIndex = 17;
+            this.mobStuckWatch.Text = "Stuck Watch Check When Running Afer Mob";
+            this.mobStuckWatch.UseVisualStyleBackColor = true;
             // 
             // ScriptFarmDNC
             // 
@@ -6754,6 +7070,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.healMPcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.healHPcount)).EndInit();
             this.Options4MainTab.ResumeLayout(false);
+            this.Options4MainTab.PerformLayout();
             this.NotinBattle.ResumeLayout(false);
             this.NotinBattle.PerformLayout();
             this.groupBox15.ResumeLayout(false);
@@ -6788,6 +7105,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.MONhpCount)).EndInit();
             this.Dynamispage.ResumeLayout(false);
             this.Dynamispage.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.OptionsMAMainTab.ResumeLayout(false);
             this.MAtabs.ResumeLayout(false);
             this.MASelectPage.ResumeLayout(false);
@@ -7438,6 +7757,12 @@
         private RadioButton ChocoboJigII;
         private RadioButton ChocoboJig;
         private RadioButton SpectralJig;
+        private CheckBox UseJigs;
+        private Label label60;
+        private Label label59;
+        private CheckBox DynaProccontrole;
+        private GroupBox groupBox13;
+        private CheckBox NoneProcuse;
         #endregion
 
         #region Methods: Start/Stop/Load
@@ -8206,6 +8531,7 @@
 
             if (MonStagered && staggerstopJA.Checked) return;
 
+            if (DynaProccontrole.Checked && !PlayerInfo.DynaStrike("JA", PlayerInfo.DynaTime(), TargetInfo.Name)) return;
             var retVal = 0;
 
             if (PlayerInfo.HasBuff(381)) { retVal = 1; }
@@ -8390,9 +8716,10 @@
                     }
                     else useAbility = true;
                 }
+                if (useAbility && DynaProccontrole.Checked && targ == "<t>" && !PlayerInfo.DynaStrike("JA", PlayerInfo.DynaTime(), TargetInfo.Name))
+                    useAbility = false;
                 if (useAbility)
                 {
-                    //if (targ == "<t>" && PlayerInfo.DynaZone() && !PlayerInfo.DynaStrike("JA")) continue;
                     var JAType = "/ja";
                     if (ability.ID >= 1024) JAType = "/ms";
                     api.ThirdParty.SendString(String.Format("{0} \"{1}\" {2}", JAType, ability.Name[0], targ));
@@ -8593,9 +8920,10 @@
                         }
                     }
                 }
+                if (castSpell && DynaProccontrole.Checked && targ == "<t>" && !PlayerInfo.DynaStrike("MA", PlayerInfo.DynaTime(), TargetInfo.Name))
+                    castSpell = false;
                 if (castSpell)
                 {
-                    //if (targ == "<t>" && PlayerInfo.DynaZone() && !PlayerInfo.DynaStrike("MA")) continue;
                     api.ThirdParty.SendString(String.Format("/ma \"{0}\" {1}", magic.Name[0], targ));
                     Casting();
                 }
@@ -8992,8 +9320,8 @@
         private void PlayerWS()
         {
             if (!botRunning || PlayerInfo.Status == 0 || TargetInfo.ID == 0) return;
-            //if (PlayerInfo.DynaZone() && !PlayerInfo.DynaStrike("WS")) return;
-            
+            if (DynaProccontrole.Checked && !PlayerInfo.DynaStrike("WS", PlayerInfo.DynaTime(), TargetInfo.Name)) return;
+
             var wsname = comboBox2.Text;
 
             if (wsam.Checked && amname.Text != "")
@@ -10078,289 +10406,6 @@
             wantedID.Clear();
             wantedNM.Clear();
 
-            #region zone array
-            var dats = new Dictionary<string, string>()
-            {
-                {"1", "\\ROM3\\2\\111.DAT"},
-                {"2", "\\ROM3\\2\\112.DAT"},
-                {"3", "\\ROM3\\2\\113.DAT"},
-                {"4", "\\ROM3\\2\\114.DAT"},
-                {"5", "\\ROM3\\2\\115.DAT"},
-                {"6", "\\ROM3\\2\\116.DAT"},
-                {"7", "\\ROM3\\2\\117.DAT"},
-                {"8", "\\ROM3\\2\\118.DAT"},
-                {"9", "\\ROM3\\2\\119.DAT"},
-                {"A", "\\ROM3\\2\\120.DAT"},
-                {"B", "\\ROM3\\2\\121.DAT"},
-                {"C", "\\ROM3\\2\\122.DAT"},
-                {"D", "\\ROM3\\2\\123.DAT"},
-                {"E", "\\ROM3\\2\\124.DAT"},
-                {"F", "\\ROM\\25\\80.DAT"},
-                {"10", "\\ROM3\\2\\126.DAT"},
-                {"11", "\\ROM3\\2\\127.DAT"},
-                {"12", "\\ROM3\\3\\0.DAT"},
-                {"13", "\\ROM3\\3\\1.DAT"},
-                {"14", "\\ROM3\\3\\2.DAT"},
-                {"15", "\\ROM3\\3\\3.DAT"},
-                {"16", "\\ROM3\\3\\4.DAT"},
-                {"17", "\\ROM3\\3\\5.DAT"},
-                {"18", "\\ROM3\\3\\6.DAT"},
-                {"19", "\\ROM3\\3\\7.DAT"},
-                {"1A", "\\ROM3\\3\\8.DAT"},
-                {"1B", "\\ROM3\\3\\9.DAT"},
-                {"1C", "\\ROM3\\3\\10.DAT"},
-                {"1D", "\\ROM3\\3\\11.DAT"},
-                {"1E", "\\ROM3\\3\\12.DAT"},
-                {"1F", "\\ROM3\\3\\13.DAT"},
-                {"20", "\\ROM3\\3\\14.DAT"},
-                {"21", "\\ROM3\\3\\15.DAT"},
-                {"22", "\\ROM3\\3\\16.DAT"},
-                {"23", "\\ROM3\\3\\17.DAT"},
-                {"24", "\\ROM3\\3\\18.DAT"},
-                {"25", "\\ROM3\\3\\19.DAT"},
-                {"26", "\\ROM3\\3\\20.DAT"},
-                {"27", "\\ROM3\\3\\21.DAT"},
-                {"28", "\\ROM3\\3\\22.DAT"},
-                {"29", "\\ROM3\\3\\23.DAT"},
-                {"2A", "\\ROM3\\3\\24.DAT"},
-                {"2B", "\\ROM3\\3\\25.DAT"},
-                {"2C", "\\ROM3\\3\\26.DAT"},
-                {"2D", "\\ROM\\25\\110.DAT"},
-                {"2E", "\\ROM4\\1\\45.DAT"},
-                {"2F", "\\ROM4\\1\\46.DAT"},
-                {"30", "\\ROM4\\1\\47.DAT"},
-                {"31", "\\ROM4\\1\\48.DAT"},
-                {"32", "\\ROM4\\1\\49.DAT"},
-                {"33", "\\ROM4\\1\\50.DAT"},
-                {"34", "\\ROM4\\1\\51.DAT"},
-                {"35", "\\ROM4\\1\\52.DAT"},
-                {"36", "\\ROM4\\1\\53.DAT"},
-                {"37", "\\ROM4\\1\\54.DAT"},
-                {"38", "\\ROM4\\1\\55.DAT"},
-                {"39", "\\ROM4\\1\\56.DAT"},
-                {"3A", "\\ROM4\\1\\57.DAT"},
-                {"3B", "\\ROM4\\1\\58.DAT"},
-                {"3C", "\\ROM4\\1\\59.DAT"},
-                {"3D", "\\ROM4\\1\\60.DAT"},
-                {"3E", "\\ROM4\\1\\61.DAT"},
-                {"3F", "\\ROM4\\1\\62.DAT"},
-                {"40", "\\ROM4\\1\\63.DAT"},
-                {"41", "\\ROM4\\1\\64.DAT"},
-                {"42", "\\ROM4\\1\\65.DAT"},
-                {"43", "\\ROM4\\1\\66.DAT"},
-                {"44", "\\ROM4\\1\\67.DAT"},
-                {"45", "\\ROM4\\1\\68.DAT"},
-                {"46", "\\ROM4\\1\\69.DAT"},
-                {"47", "\\ROM4\\1\\70.DAT"},
-                {"48", "\\ROM4\\1\\71.DAT"},
-                {"49", "\\ROM4\\1\\72.DAT"},
-                {"4A", "\\ROM4\\1\\73.DAT"},
-                {"4B", "\\ROM4\\1\\74.DAT"},
-                {"4C", "\\ROM4\\1\\75.DAT"},
-                {"4D", "\\ROM4\\1\\76.DAT"},
-                {"4E", "\\ROM4\\1\\77.DAT"},
-                {"4F", "\\ROM4\\1\\78.DAT"},
-                {"50", "\\ROM\\26\\17.DAT"},
-                {"51", "\\ROM\\26\\18.DAT"},
-                {"52", "\\ROM\\26\\19.DAT"},
-                {"53", "\\ROM\\26\\20.DAT"},
-                {"54", "\\ROM\\26\\21.DAT"},
-                {"55", "\\ROM\\26\\22.DAT"},
-                {"56", "\\ROM\\26\\23.DAT"},
-                {"57", "\\ROM\\26\\24.DAT"},
-                {"58", "\\ROM\\26\\25.DAT"},
-                {"59", "\\ROM\\26\\26.DAT"},
-                {"5A", "\\ROM\\26\\27.DAT"},
-                {"5B", "\\ROM\\26\\28.DAT"},
-                {"5C", "\\ROM\\26\\29.DAT"},
-                {"5D", "\\ROM\\26\\30.DAT"},
-                {"5E", "\\ROM\\26\\31.DAT"},
-                {"5F", "\\ROM\\26\\32.DAT"},
-                {"60", "\\ROM\\26\\33.DAT"},
-                {"61", "\\ROM\\26\\34.DAT"},
-                {"62", "\\ROM\\26\\35.DAT"},
-                {"63", "\\ROM\\26\\36.DAT"},
-                {"64", "\\ROM\\26\\37.DAT"},
-                {"65", "\\ROM\\26\\38.DAT"},
-                {"66", "\\ROM\\26\\39.DAT"},
-                {"67", "\\ROM\\26\\40.DAT"},
-                {"68", "\\ROM\\26\\41.DAT"},
-                {"69", "\\ROM\\26\\42.DAT"},
-                {"6A", "\\ROM\\26\\43.DAT"},
-                {"6B", "\\ROM\\26\\44.DAT"},
-                {"6C", "\\ROM\\26\\45.DAT"},
-                {"6D", "\\ROM\\26\\46.DAT"},
-                {"6E", "\\ROM\\26\\47.DAT"},
-                {"6F", "\\ROM\\26\\48.DAT"},
-                {"70", "\\ROM\\26\\49.DAT"},
-                {"71", "\\ROM2\\13\\95.DAT"},
-                {"72", "\\ROM2\\13\\96.DAT"},
-                {"73", "\\ROM\\26\\52.DAT"},
-                {"74", "\\ROM\\26\\53.DAT"},
-                {"75", "\\ROM\\26\\54.DAT"},
-                {"76", "\\ROM\\26\\55.DAT"},
-                {"77", "\\ROM\\26\\56.DAT"},
-                {"78", "\\ROM\\26\\57.DAT"},
-                {"79", "\\ROM2\\13\\97.DAT"},
-                {"7A", "\\ROM2\\13\\98.DAT"},
-                {"7B", "\\ROM2\\13\\98.DAT"},
-                {"7C", "\\ROM2\\13\\100.DAT"},
-                {"7D", "\\ROM2\\13\\101.DAT"},
-                {"7E", "\\ROM\\26\\63.DAT"},
-                {"7F", "\\ROM\\26\\64.DAT"},
-                {"80", "\\ROM2\\13\\102.DAT"},
-                {"81", "\\ROM\\26\\66.DAT"},
-                {"82", "\\ROM2\\13\\103.DAT"},
-                {"83", "\\ROM\\26\\68.DAT"},
-                {"84", "\\ROM\\26\\69.DAT"},
-                {"86", "\\ROM2\\13\\104.DAT"},
-                {"87", "\\ROM2\\13\\105.DAT"},
-                {"88", "\\ROM\\26\\73.DAT"},
-                {"89", "\\ROM\\26\\74.DAT"},
-                {"8A", "\\ROM\\26\\75.DAT"},
-                {"8B", "\\ROM\\26\\76.DAT"},
-                {"8C", "\\ROM\\26\\77.DAT"},
-                {"8D", "\\ROM\\26\\78.DAT"},
-                {"8E", "\\ROM\\26\\79.DAT"},
-                {"8F", "\\ROM\\26\\80.DAT"},
-                {"90", "\\ROM\\26\\81.DAT"},
-                {"91", "\\ROM\\26\\82.DAT"},
-                {"92", "\\ROM\\26\\83.DAT"},
-                {"93", "\\ROM\\26\\84.DAT"},
-                {"94", "\\ROM\\26\\85.DAT"},
-                {"95", "\\ROM\\26\\86.DAT"},
-                {"96", "\\ROM\\26\\87.DAT"},
-                {"97", "\\ROM\\26\\88.DAT"},
-                {"98", "\\ROM\\26\\89.DAT"},
-                {"99", "\\ROM2\\13\\106.DAT"},
-                {"9A", "\\ROM2\\13\\107.DAT"},
-                {"9B", "\\ROM\\26\\92.DAT"},
-                {"9C", "\\ROM\\26\\93.DAT"},
-                {"9D", "\\ROM\\26\\94.DAT"},
-                {"9E", "\\ROM\\26\\95.DAT"},
-                {"9F", "\\ROM2\\13\\108.DAT"},
-                {"A0", "\\ROM2\\13\\109.DAT"},
-                {"A1", "\\ROM\\26\\98.DAT"},
-                {"A2", "\\ROM\\26\\99.DAT"},
-                {"A3", "\\ROM2\\13\\110.DAT"},
-                {"A4", "\\ROM\\26\\101.DAT"},
-                {"A5", "\\ROM\\26\\102.DAT"},
-                {"A6", "\\ROM\\26\\103.DAT"},
-                {"A7", "\\ROM\\26\\104.DAT"},
-                {"A8", "\\ROM2\\13\\111.DAT"},
-                {"A9", "\\ROM\\26\\106.DAT"},
-                {"AA", "\\ROM2\\13\\112.DAT"},
-                {"AB", "\\ROM\\26\\108.DAT"},
-                {"AC", "\\ROM\\26\\109.DAT"},
-                {"AD", "\\ROM2\\13\\113.DAT"},
-                {"AE", "\\ROM2\\13\\114.DAT"},
-                {"AF", "\\ROM\\26\\112.DAT"},
-                {"B0", "\\ROM2\\13\\115.DAT"},
-                {"B1", "\\ROM2\\13\\116.DAT"},
-                {"B2", "\\ROM2\\13\\117.DAT"},
-                {"B3", "\\ROM2\\13\\118.DAT"},
-                {"B4", "\\ROM2\\13\\119.DAT"},
-                {"B5", "\\ROM2\\13\\120.DAT"},
-                {"B6", "\\ROM\\26\\119.DAT"},
-                {"B7", "\\ROM\\26\\120.DAT"},
-                {"B8", "\\ROM\\26\\121.DAT"},
-                {"B9", "\\ROM2\\13\\121.DAT"},
-                {"BA", "\\ROM2\\13\\122.DAT"},
-                {"BB", "\\ROM2\\13\\123.DAT"},
-                {"BC", "\\ROM2\\13\\124.DAT"},
-                {"BE", "\\ROM\\26\\127.DAT"},
-                {"BF", "\\ROM\\27\\0.DAT"},
-                {"C0", "\\ROM\\27\\1.DAT"},
-                {"C1", "\\ROM\\27\\2.DAT"},
-                {"C2", "\\ROM\\27\\3.DAT"},
-                {"C3", "\\ROM\\27\\4.DAT"},
-                {"C4", "\\ROM\\27\\5.DAT"},
-                {"C5", "\\ROM\\27\\6.DAT"},
-                {"C6", "\\ROM\\27\\7.DAT"},
-                {"C8", "\\ROM\\27\\9.DAT"},
-                {"C9", "\\ROM2\\13\\125.DAT"},
-                {"CA", "\\ROM2\\13\\126.DAT"},
-                {"CB", "\\ROM2\\13\\127.DAT"},
-                {"CC", "\\ROM\\27\\13.DAT"},
-                {"CD", "\\ROM2\\14\\0.DAT"},
-                {"CE", "\\ROM\\27\\13.DAT"},
-                {"CF", "\\ROM2\\14\\1.DAT"},
-                {"D0", "\\ROM2\\14\\2.DAT"},
-                {"D1", "\\ROM2\\14\\3.DAT"},
-                {"D3", "\\ROM2\\14\\4.DAT"},
-                {"D4", "\\ROM2\\14\\5.DAT"},
-                {"D5", "\\ROM2\\14\\6.DAT"},
-                {"D6", "\\ROM\\27\\15.DAT"},
-                {"D7", "\\ROM\\27\\24.DAT"},
-                {"D8", "\\ROM\\27\\25.DAT"},
-                {"D9", "\\ROM\\27\\26.DAT"},
-                {"DA", "\\ROM\\27\\27.DAT"},
-                {"DC", "\\ROM\\27\\29.DAT"},
-                {"DD", "\\ROM\\27\\30.DAT"},
-                {"DF", "\\ROM\\27\\32.DAT"},
-                {"E0", "\\ROM\\27\\33.DAT"},
-                {"E1", "\\ROM\\27\\34.DAT"},
-                {"E2", "\\ROM2\\14\\7.DAT"},
-                {"E3", "\\ROM\\27\\36.DAT"},
-                {"E4", "\\ROM\\27\\37.DAT"},
-                {"E6", "\\ROM\\27\\39.DAT"},
-                {"E7", "\\ROM\\27\\40.DAT"},
-                {"E8", "\\ROM\\27\\41.DAT"},
-                {"E9", "\\ROM\\27\\42.DAT"},
-                {"EA", "\\ROM\\27\\43.DAT"},
-                {"EB", "\\ROM\\27\\44.DAT"},
-                {"EC", "\\ROM\\27\\45.DAT"},
-                {"ED", "\\ROM\\27\\46.DAT"},
-                {"EE", "\\ROM\\27\\47.DAT"},
-                {"EF", "\\ROM\\27\\48.DAT"},
-                {"F0", "\\ROM\\27\\49.DAT"},
-                {"F1", "\\ROM\\27\\50.DAT"},
-                {"F2", "\\ROM\\27\\51.DAT"},
-                {"F3", "\\ROM\\27\\52.DAT"},
-                {"F4", "\\ROM\\27\\53.DAT"},
-                {"F5", "\\ROM\\27\\54.DAT"},
-                {"F6", "\\ROM\\27\\55.DAT"},
-                {"F7", "\\ROM2\\14\\8.DAT"},
-                {"F8", "\\ROM\\27\\57.DAT"},
-                {"F9", "\\ROM\\27\\58.DAT"},
-                {"FA", "\\ROM2\\14\\9.DAT"},
-                {"FB", "\\ROM2\\14\\10.DAT"},
-                {"FC", "\\ROM2\\14\\11.DAT"},
-                {"FD", "\\ROM\\27\\62.DAT"},
-                {"FE", "\\ROM\\27\\63.DAT"},
-                {"FF", "\\ROM\\27\\64.DAT"},
-                {"100", "\\ROM9\\6\\45.DAT"},
-                {"101", "\\ROM9\\6\\46.DAT"},
-                {"102", "\\ROM9\\6\\47.DAT"},
-                {"103", "\\ROM9\\6\\48.DAT"},
-                {"104", "\\ROM9\\6\\49.DAT"},
-                {"105", "\\ROM9\\6\\50.DAT"},
-                {"106", "\\ROM9\\6\\51.DAT"},
-                {"107", "\\ROM9\\6\\52.DAT"},
-                {"108", "\\ROM9\\6\\53.DAT"},
-                {"109", "\\ROM9\\6\\54.DAT"},
-                {"10A", "\\ROM9\\6\\55.DAT"},
-                {"10B", "\\ROM9\\6\\56.DAT"},
-                {"10C", "\\ROM9\\6\\57.DAT"},
-                {"10D", "\\ROM9\\6\\58.DAT"},
-                {"10E", "\\ROM9\\6\\59.DAT"},
-                {"10F", "\\ROM9\\6\\60.DAT"},
-                {"110", "\\ROM9\\6\\61.DAT"},
-                {"111", "\\ROM9\\6\\62.DAT"},
-                {"112", "\\ROM9\\6\\63.DAT"},
-                {"113", "\\ROM9\\6\\64.DAT"},
-                {"114", "\\ROM9\\6\\65.DAT"},
-                {"115", "\\ROM9\\6\\66.DAT"},
-                {"116", "\\ROM9\\6\\67.DAT"},
-                {"117", "\\ROM9\\6\\68.DAT"},
-                {"118", "\\ROM9\\6\\69.DAT"},
-                {"11B", "\\ROM9\\6\\72.DAT"},
-                {"11C", "\\ROM9\\6\\73.DAT"},
-                {"120", "\\ROM\\332\\109.DAT"},
-                {"121", "\\ROM\\337\\66.DAT"},
-                {"123", "\\ROM\\342\\94.DAT"},
-            };
-            #endregion
             #region variables
             var zone = api.Player.ZoneId;
             var hexs = zone.ToString("X");
@@ -10620,7 +10665,7 @@
             if (api.Target.GetTargetInfo().TargetId > 0 && PlayerInfo.Status == 0 &&
                 wanted.Distance > (float)aggroRange.Value)
             {
-                if (usenav.Checked)
+                if (usenav.Checked && selectedNavi.Text != "")
                     naviMove = true;
 
                 api.Target.SetTarget(0);
@@ -10630,7 +10675,7 @@
             {
                 api.Target.SetTarget(0);
 
-                if (usenav.Checked)
+                if (usenav.Checked && selectedNavi.Text != "")
                     naviMove = true;
             }
         }
@@ -10776,7 +10821,7 @@
             {
                 TargetInfo.SetTarget(0);
 
-                if (usenav.Checked && !naviMove)
+                if (usenav.Checked && selectedNavi.Text != "" && !naviMove)
                     naviMove = true;
             }
         }
@@ -11177,112 +11222,24 @@
                 if (DynaZones.Contains(api.Player.ZoneId)) return true;
                 else return false;
             }
-            //public static bool DynaStrike(string a)
-            //{
-            //    string vtz = "morn";
-            //    uint vanahour = api.VanaTime.CurrentHour;
-            //    if (vanahour >= 0 && vanahour < 8) vtz = "morn";
-            //    else if (vanahour >= 8 && vanahour < 16) vtz = "noon";
-            //    else if (vanahour >= 16 && vanahour < 24) vtz = "night";
-            //    #region dynamobproc
-            //    Dictionary<string, dynamic> dynamobproc = new Dictionary<string, dynamic>()
-            //    {{"Nightmare Gaylas", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Kraken", new {morn="JA",noon="WS",night="MA"}},
-            //     {"Nightmare Roc", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Diremite", new {morn="WS",noon="MA",night="JA"}},
-            //     {"Nightmare Raptor", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Tiger", new {morn="WS",noon="MA",night="JA"}},
-            //     {"Nightmare Snoll", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Stirge", new {morn="MA",noon="JA",night="WS"}},
-            //     {"Nightmare Weapon", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Crawler", new {morn="JA",noon="WS",night="MA"}},
-            //     {"Nightmare Raven", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Uragnite", new {morn="JA",noon="WS",night="MA"}},
-            //     {"Nightmare Crab", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Dhalmel", new {morn="WS",noon="MA",night="JA"}},
-            //     {"Nightmare Scorpion", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Bunny", new {morn="MA",noon="JA",night="WS"}},
-            //     {"Nightmare Eft", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Mandragora", new {morn="MA",noon="JA",night="WS"}},
-            //     {"Nightmare Fly", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Flytrap", new {morn="JA",noon="WS",night="MA"}},
-            //     {"Nightmare Funguar", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Goobbue", new {morn="WS",noon="MA",night="JA"}},
-            //     {"Nightmare Manticore", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Treant", new {morn="WS",noon="MA",night="JA"}},
-            //     {"Nightmare Hippogryph", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Sabotender", new {morn="MA",noon="JA",night="WS"}},
-            //     {"Nightmare Sheep", new {morn="MA",noon="JA",night="WS"}},{"Nightmare Bugard", new {morn="JA",noon="WS",night="MA"}},
-            //     {"Nightmare Hornet", new {morn="JA",noon="WS",night="MA"}},{"Nightmare Leech", new {morn="WS",noon="MA",night="JA"}},
-            //     {"Nightmare Worm", new {morn="WS",noon="MA",night="JA"}},{"Nightmare Cluster", new {morn="MA",noon="JA",night="WS"}},
-            //     {"Nightmare Makara", new {morn="MA",noon="JA",night="WS"}},{"Hydra Bard", new {any="MA"}},{"Hydra Red Mage", new {any="MA"}},
-            //     {"Hydra Black Mage", new {any="MA"}},{"Hydra White Mage", new {any="MA"}},{"Hydra Summoner", new {any="MA"}},
-            //     {"Hydra Monk", new {any="JA"}},{"Hydra Beastmaster", new {any="JA"}},{"Hydra Thief", new {any="JA"}},
-            //     {"Hydra Ranger", new {any="JA"}},{"Hydra Warrior", new {any="WS"}},{"Hydra Dark Knight", new {any="WS"}},
-            //     {"Hydra Samurai", new {any="WS"}},{"Hydra Paladin", new {any="WS"}},{"Hydra Dragoon", new {any="WS"}},
-            //     {"Vanguard Alchemist", new {any="MA"}},{"Vanguard Maestro", new {any="MA"}},{"Vanguard Necromancer", new {any="MA"}},
-            //     {"Vanguard Shaman", new {any="MA"}},{"Vanguard Enchanter", new {any="MA"}},{"Vanguard Hitman", new {any="JA"}},
-            //     {"Vanguard Pitfighter", new {any="JA"}},{"Vanguard Pathfinder", new {any="JA"}},{"Vanguard Welldigger", new {any="JA"}},
-            //     {"Vanguard Ambusher", new {any="JA"}},{"Vanguard Smithy", new {any="WS"}},{"Vanguard Ronin", new {any="WS"}},
-            //     {"Vanguard Dragontamer", new {any="WS"}},{"Vanguard Tinkerer", new {any="WS"}},{"Vanguard Armorer", new {any="WS"}},
-            //     {"Vanguard Constable", new {any="MA"}},{"Vanguard Minstrel", new {any="MA"}},{"Vanguard Undertaker", new {any="MA"}},
-            //     {"Vanguard Thaumaturge", new {any="MA"}},{"Vanguard Protector", new {any="MA"}},{"Vanguard Kusa", new {any="JA"}},
-            //     {"Vanguard Militant", new {any="JA"}},{"Vanguard Beasttender", new {any="JA"}},{"Vanguard Purloiner", new {any="JA"}},
-            //     {"Vanguard Mason", new {any="JA"}},{"Vanguard Vindicator", new {any="WS"}},{"Vanguard Hatamoto", new {any="WS"}},
-            //     {"Vanguard Drakekeeper", new {any="WS"}},{"Vanguard Vigilante", new {any="WS"}},{"Vanguard Defender", new {any="WS"}},
-            //     {"Vanguard Amputator", new {any="MA"}},{"Vanguard Bugler", new {any="MA"}},{"Vanguard Dollmaster", new {any="MA"}},
-            //     {"Vanguard Mesmerizer", new {any="MA"}},{"Vanguard Vexer", new {any="MA"}},{"Vanguard Pillager", new {any="JA"}},
-            //     {"Vanguard Hawker", new {any="JA"}},{"Vanguard Grappler", new {any="JA"}},{"Vanguard Backstabber", new {any="JA"}},
-            //     {"Vanguard Predator", new {any="JA"}},{"Vanguard Trooper", new {any="WS"}},{"Vanguard Footsoldier", new {any="WS"}},
-            //     {"Vanguard Gutslasher", new {any="WS"}},{"Vanguard Impaler", new {any="WS"}},{"Vanguard Neckchopper", new {any="WS"}},
-            //     {"Vanguard Priest", new {any="MA"}},{"Vanguard Chanter", new {any="MA"}},{"Vanguard Oracle", new {any="MA"}},
-            //     {"Vanguard Prelate", new {any="MA"}},{"Vanguard Visionary", new {any="MA"}},{"Vanguard Assassin", new {any="JA"}},
-            //     {"Vanguard Sentinel", new {any="JA"}},{"Vanguard Ogresoother", new {any="JA"}},{"Vanguard Liberator", new {any="JA"}},
-            //     {"Vanguard Salvager", new {any="JA"}},{"Vanguard Skirmisher", new {any="WS"}},{"Vanguard Persecutor", new {any="WS"}},
-            //     {"Vanguard Partisan", new {any="WS"}},{"Vanguard Inciter", new {any="WS"}},{"Vanguard Exemplar", new {any="WS"}},
-            //     {"Shamblix Rottenheart", new {any="WS"}},{"Elvaansticker Bxafraff", new {any="WS"}},{"Qu'Pho Bloodspiller", new {any="WS"}},
-            //     {"Te'Zha Ironclad", new {any="WS"}},{"Koo Rahi the Levinblade", new {any="WS"}},{"Barong", new {any="WS"}},
-            //     {"Alklha", new {any="WS"}},{"Stihi", new {any="WS"}},{"Woodnix Shrillwhistle", new {any="JA"}},{"Count Raum", new {any="JA"}},
-            //     {"Hamfist Gukhbuk", new {any="JA"}},{"Lyncean Juwgneg", new {any="JA"}},{"Va'Rhu Bodysnatcher", new {any="JA"}},
-            //     {"Doo Peku the Fleetfoot", new {any="JA"}},{"Gosspix Blabblerlips", new {any="MA"}},{"Flamecaller Zoeqdoq", new {any="MA"}},
-            //     {"Gi'Bhe Fleshfeaster", new {any="MA"}},{"Ree Nata the Melomanic", new {any="MA"}},{"Count Vine", new {any="WS"}},
-            //     {"Baa Dava the Bibliophage", new {any="MA"}},{"Aitvaras", new {any="MA"}},{"Stringes", new {any="WS"}},
-            //     {"Suttung", new {any="WS"}},{"Antaeus", new {any="WS"}},{"Scolopendra", new {any="JA"}},{"Fairy Ring", new {any="WS"}},
-            //     {"Stcemqestcint", new {any="WS"}},{"Nant'ina", new {any="JA"}},{"Cirrate Christelle", new {any="JA"}},
-            //     {"Count Zaebos", new {any="WS"}},{"Duke Scox", new {any="WS"}},{"King Zagan", new {any="WS"}},
-            //     {"Marquis Sabnak", new {any="WS"}},{"Duke Gomory", new {any="JA"}},{"Marquis Andras", new {any="JA"}},
-            //     {"Marquis Cimeries", new {any="JA"}},{"Marquis Gamygyn", new {any="JA"}},{"Duke Berith", new {any="MA"}},
-            //     {"Marquis Decarabia", new {any="MA"}},{"Marquis Nebiros", new {any="MA"}},{"Marquis Orias", new {any="MA"}},
-            //     {"Prince Seere", new {any="MA"}},{"Drakefeast Wubmfub", new {any="WS"}},{"Draklix Scalecrust", new {any="WS"}},
-            //     {"Elvaanlopper Grokdok", new {any="WS"}},{"Foo Peku the Bloodcloak", new {any="WS"}},{"Go'Tyo Magenapper", new {any="WS"}},
-            //     {"Gu'Nha Wallstormer", new {any="WS"}},{"Guu Waji the Preacher", new {any="WS"}},{"Heavymail Djidzbad", new {any="WS"}},
-            //     {"Humegutter Adzjbadj", new {any="WS"}},{"Ji'Khu Towercleaver", new {any="WS"}},{"Knii Hoqo the Bisector", new {any="WS"}},
-            //     {"Maa Zaua the Wyrmkeeper", new {any="WS"}},{"Moltenox Stubthumbs", new {any="WS"}},{"Mu'Gha Legionkiller", new {any="WS"}},
-            //     {"Nee Huxa the Judgmental", new {any="WS"}},{"Ruffbix Jumbolobes", new {any="WS"}},{"Shisox Widebrow", new {any="WS"}},
-            //     {"Skinmask Ugghfogg", new {any="WS"}},{"Ta'Hyu Gallanthunter", new {any="WS"}},{"Tocktix Thinlids", new {any="WS"}},
-            //     {"Bordox Kittyback", new {any="JA"}},{"Cobraclaw Buchzvotch", new {any="JA"}},{"Droprix Granitepalms", new {any="JA"}},
-            //     {"Galkarider Retzpratz", new {any="JA"}},{"Gu'Khu Dukesniper", new {any="JA"}},{"Hee Mida the Meticulous", new {any="JA"}},
-            //     {"Jeunoraider Gepkzip", new {any="JA"}},{"Ji'Fhu Infiltrator", new {any="JA"}},{"Kuu Xuka the Nimble", new {any="JA"}},
-            //     {"Lockbuster Zapdjipp", new {any="JA"}},{"Mi'Rhe Whisperblade", new {any="JA"}},{"Mithraslaver Debhabob", new {any="JA"}},
-            //     {"Routsix Rubbertendon", new {any="JA"}},{"Ryy Qihi the Idolrobber", new {any="JA"}},{"Slinkix Trufflesniff", new {any="JA"}},
-            //     {"So'Gho Adderhandler", new {any="JA"}},{"So'Zho Metalbender", new {any="JA"}},{"Soo Jopo the Fiendking", new {any="JA"}},
-            //     {"Swypestix Tigershins", new {any="JA"}},{"Xaa Chau the Roctalon", new {any="JA"}},{"Ascetox Ratgums", new {any="MA"}},
-            //     {"Be'Zhe Keeprazer", new {any="MA"}},{"Bhuu Wjato the Firepool", new {any="MA"}},{"Brewnix Bittypupils", new {any="MA"}},
-            //     {"Caa Xaza the Madpiercer", new {any="MA"}},{"De'Bho Pyrohand", new {any="MA"}},{"Deathcaller Bidfbid", new {any="MA"}},
-            //     {"Ga'Fho Venomtouch", new {any="MA"}},{"Gibberox Pimplebeak", new {any="MA"}},{"Koo Saxu the Everfast", new {any="MA"}},
-            //     {"Morblox Chubbychin", new {any="MA"}},{"Na'Hya Floodmaker", new {any="MA"}},{"Nu'Bhi Spiraleye", new {any="MA"}},
-            //     {"Puu Timu the Phantasmal", new {any="MA"}},{"Spinalsucker Galflmall", new {any="MA"}},{"Taruroaster Biggsjig", new {any="MA"}},
-            //     {"Ultrasonic Zeknajak", new {any="MA"}},{"Whistrix Toadthroat", new {any="MA"}},{"Wraithdancer Gidbnod", new {any="MA"}},
-            //     {"Xhoo Fuza the Sublime", new {any="MA"}},{"Buffrix Eargone", new {any="WS"}},{"Cloktix Longnail", new {any="WS"}},
-            //     {"Karashix Swollenskull", new {any="WS"}},{"Scruffix Shaggychest", new {any="WS"}},{"Smeltix Thickhide", new {any="WS"}},
-            //     {"Sparkspox Sweatbrow", new {any="WS"}},{"Ticktox Beadyeyes", new {any="WS"}},{"Tufflix Loglimbs", new {any="WS"}},
-            //     {"Tymexox Ninefingers", new {any="WS"}},{"Wasabix Callusdigit", new {any="WS"}},{"Wyrmwix Snakespecs", new {any="WS"}},
-            //     {"Anvilix Sootwrists", new {any="WS"}},{"Bandrix Rockjaw", new {any="JA"}},{"Blazox Boneybod", new {any="JA"}},
-            //     {"Bootrix Jaggedelbow", new {any="JA"}},{"Jabkix Pigeonpecs", new {any="JA"}},{"Kikklix Longlegs", new {any="JA"}},
-            //     {"Lurklox Dhalmelneck", new {any="JA"}},{"Mobpix Mucousmouth", new {any="JA"}},{"Prowlox Barrelbelly", new {any="JA"}},
-            //     {"Rutrix Hamgams", new {any="JA"}},{"Slystix Megapeepers", new {any="JA"}},{"Snypestix Eaglebeak", new {any="JA"}},
-            //     {"Trailblix Goatmug", new {any="JA"}},{"Distilix Stickytoes", new {any="MA"}},{"Elixmix Hooknose", new {any="MA"}},
-            //     {"Eremix Snottynostril", new {any="MA"}},{"Gabblox Magpietongue", new {any="MA"}},{"Hermitrix Toothrot", new {any="MA"}},
-            //     {"Humnox Drumbelly", new {any="MA"}},{"Jabbrox Grannyguise", new {any="MA"}},{"Morgmox Moldnoggin", new {any="MA"}},
-            //     {"Mortilox Wartpaws", new {any="MA"}},{"Ze'Vho Fallsplitter", new {any="WS"}},{"Ko'Dho Cannonball", new {any="JA"}},
-            //     {"Gi'Pha Manameister", new {any="MA"}},{"Gu'Nhi Noondozer", new {any="MA"}},{"Reapertongue Gadgquok", new {any="MA"}},
-            //     {"Voidstreaker Butchnotch", new {any="JA"}},{"Wyrmgnasher Bjakdek", new {any="WS"}},{"Xoo Kaza the Solemn", new {any="MA"}},
-            //     {"Haa Pevi the Stentorian", new {any="MA"}},{"Loo Hepe the Eyepiercer", new {any="MA"}},{"Wuu Qoho the Razorclaw", new {any="JA"}},
-            //     {"Nightmare Taurus", new {any="ALL"}},};
-            //    #endregion
-
-            //    var typ = dynamobproc?[TargetInfo.Name];
-            //    if (typ.ToString().ToString().Contains("any =") && (typ.any != a || typ.any != "ALL")) return false;
-            //    else if (typ.ToString().ToString().Contains(vtz + " =") && typ[vtz] != a) return false;
-            //    else return true;
-            //}
+            public static string DynaTime()
+            {
+                string vtz = "Morning";
+                uint vanahour = api.VanaTime.CurrentHour;
+                if (vanahour >= 0 && vanahour < 8) vtz = "Morning";
+                else if (vanahour >= 8 && vanahour < 16) vtz = "Noon";
+                else if (vanahour >= 16 && vanahour < 24) vtz = "Night";
+                return vtz;
+            }
+            public static bool DynaStrike(string typ, string time, string target)
+            {
+                if (!PlayerInfo.DynaZone()) return true;
+                if (target == "Nightmare Taurus") return true;
+                else if (NoProcDynaMobs.Contains(target)) return NoneProc;
+                else if (DynaMobProc[time][typ].Contains(target)) return true;
+                return false;
+                
+            }
         }
         #endregion
         #region class: TargetInfo
@@ -11480,6 +11437,7 @@
 
         #endregion
 
-        private CheckBox UseJigs;
+        private CheckBox navStuckWatch;
+        private CheckBox mobStuckWatch;
     }
 }
