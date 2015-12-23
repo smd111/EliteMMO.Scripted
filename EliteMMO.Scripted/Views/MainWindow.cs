@@ -236,7 +236,7 @@
 
             x3.Dock = DockStyle.Fill;
             Controls.Add(x3);
-            Size = new Size(575, 400);
+            Size = new Size(450, 400);
         }
 
         private void OnEventToolStripMenuItemClick(object sender, EventArgs e)
