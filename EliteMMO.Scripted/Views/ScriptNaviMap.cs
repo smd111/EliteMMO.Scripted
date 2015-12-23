@@ -51,8 +51,19 @@
                                 closestWayPoint = 0;
                             }
 
+                            if (firstPersonView.Checked)
+                            {
+                                if (api.Player.ViewMode != 1)
+                                    api.Player.ViewMode = 1;
+                                api.AutoFollow.IsAutoFollowing = false;
+                                api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
+                                    (GetAngleFromPlayer(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                            }
+                            else if (api.Player.ViewMode == 1)
+                                api.Player.ViewMode = 0;
+
                             api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                              0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                              (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                             api.AutoFollow.IsAutoFollowing = true;
                         }
@@ -76,8 +87,19 @@
                                         runReverse.Checked = true;
                                     }
 
+                                    if (firstPersonView.Checked)
+                                    {
+                                        if (api.Player.ViewMode != 1)
+                                            api.Player.ViewMode = 1;
+                                        api.AutoFollow.IsAutoFollowing = false;
+                                        api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
+                                            (GetAngleFromPlayer(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                                    }
+                                    else if (api.Player.ViewMode == 1)
+                                        api.Player.ViewMode = 0;
+
                                     api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                      0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                      (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                                     api.AutoFollow.IsAutoFollowing = true;
                                 }
@@ -90,8 +112,19 @@
                                         runReverse.Checked = false;
                                     }
 
+                                    if (firstPersonView.Checked)
+                                    {
+                                        if (api.Player.ViewMode != 1)
+                                            api.Player.ViewMode = 1;
+                                        api.AutoFollow.IsAutoFollowing = false;
+                                        api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
+                                            (GetAngleFromPlayer(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                                    }
+                                    else if (api.Player.ViewMode == 1)
+                                        api.Player.ViewMode = 0;
+
                                     api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                      0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                      (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                                     api.AutoFollow.IsAutoFollowing = true;
                                 }
@@ -104,7 +137,7 @@
                     }
 
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    if (comboBox2.Text != "" && api.AutoFollow.IsAutoFollowing && !isPaused && isStuck(0))
+                    if (StuckWatch.Checked && comboBox2.Text != "" && api.AutoFollow.IsAutoFollowing && !isPaused && isStuck(0))
                     {
                         api.AutoFollow.IsAutoFollowing = false;
                         api.Player.H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
@@ -167,6 +200,13 @@
                         navPathX[ipos] = double.Parse(items[1]);
                         navPathZ[ipos] = double.Parse(items[2]);
                         navPathY[ipos] = ((items.Length == 3) ? 0 : double.Parse(items[3]));
+                        //if (items.Length > 4)
+                        //{
+                        //    for (uint i = 4; i <= items.Length; i++)
+                        //    {
+
+                        //    }
+                        //}
 
                         ipos++;
                     }

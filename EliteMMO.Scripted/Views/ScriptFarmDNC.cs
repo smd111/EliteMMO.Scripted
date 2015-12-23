@@ -148,7 +148,7 @@
                                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                             {
                                 api.ThirdParty.SendString("/ja \"Animated Flourish\" <t>");
-                                Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                                Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             }
                         }
                         if (selectedHateControl.Text == @"Provoke" &&
@@ -159,7 +159,7 @@
                                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                             {
                                 api.ThirdParty.SendString("/ja \"Provoke\" <t>");
-                                Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                                Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             }
                         }
                         if (selectedHateControl.Text == @"Flash" && PlayerInfo.MPP >= 25 &&
@@ -170,7 +170,7 @@
                                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                             {
                                 api.ThirdParty.SendString("/ma \"Flash\" <t>");
-                                Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                                Casting();
                             }
                         }
                     }
@@ -445,7 +445,7 @@
         private void BgwScriptNavDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             int count = 0;
-            float dir = -90;
+            float dir = -45;
             while (botRunning && !bgw_script_nav.CancellationPending)
             {
                 if (naviMove && usenav.Checked && selectedNavi.Text != "" && PlayerInfo.Status == 0 &&
@@ -468,8 +468,19 @@
                             closestWayPoint = 0;
                         }
 
+                        if (firstPersonView.Checked)
+                        {
+                            if (api.Player.ViewMode != 1)
+                                api.Player.ViewMode = 1;
+                            api.AutoFollow.IsAutoFollowing = false;
+                            api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
+                                (PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                        }
+                        else if (api.Player.ViewMode == 1)
+                            api.Player.ViewMode = 0;
+
                         api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                          0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                          (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
                         api.AutoFollow.IsAutoFollowing = true;
                     }
@@ -487,16 +498,27 @@
                           if (!runReverse.Checked)
                           {
                              closestWayPoint++;
-                             if (closestWayPoint >= navPathX.Count())
-                             {
-                                closestWayPoint -= 2;
-                                runReverse.Checked = true;
-                             }
+                                if (closestWayPoint < 0)
+                                {
+                                    closestWayPoint = 1;
+                                    runReverse.Checked = false;
+                                }
 
-                             api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                               0,(float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                if (firstPersonView.Checked)
+                                {
+                                    if (api.Player.ViewMode != 1)
+                                        api.Player.ViewMode = 1;
+                                    api.AutoFollow.IsAutoFollowing = false;
+                                    api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
+                                        (PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                                }
+                                else if (api.Player.ViewMode == 1)
+                                    api.Player.ViewMode = 0;
 
-                             api.AutoFollow.IsAutoFollowing = true;
+                                api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
+                                  (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+
+                                api.AutoFollow.IsAutoFollowing = true;
                           }
                           else
                           {
@@ -507,10 +529,21 @@
                                 runReverse.Checked = false;
                              }
 
-                                api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                  0, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                             if (firstPersonView.Checked)
+                             {
+                                if (api.Player.ViewMode != 1)
+                                    api.Player.ViewMode = 1;
+                                api.AutoFollow.IsAutoFollowing = false;
+                                api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
+                                    (PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                             }
+                             else if (api.Player.ViewMode == 1)
+                                api.Player.ViewMode = 0;
 
-                                api.AutoFollow.IsAutoFollowing = true;
+                            api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
+                                (float)navPathY[closestWayPoint] - PlayerInfo.Y, (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+
+                            api.AutoFollow.IsAutoFollowing = true;
                           }
                        }
                     }
@@ -525,14 +558,14 @@
                     api.AutoFollow.IsAutoFollowing && isStuck(0))
                 {
                     api.AutoFollow.IsAutoFollowing = false;
-                    api.Player.H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
+                    api.Entity.GetLocalPlayer().H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
                     WindowInfo.KeyDown(API.Keys.NUMPAD8);
                     Thread.Sleep(TimeSpan.FromSeconds(2));
                     WindowInfo.KeyUp(API.Keys.NUMPAD8);
                     count++;
-                    if (count == 5)
+                    if (count == 4)
                     {
-                        dir = (dir == -90 ? 90 : -90);
+                        dir = (dir == -45 ? 45 : -45);
                         count = 0;
                     }
                 }
@@ -737,13 +770,6 @@
 
             if (Trusts.CheckedItems.Count == trustcount) Trusts.Enabled = false;
         }
-        #endregion
-
-        private void verifyfood_Click(object sender, EventArgs e)
-        {
-            var itc = ItemQuantityByName(foodName.Text);
-            MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
-        }
 
         private void NoneProcuse_CheckedChanged(object sender, EventArgs e)
         {
@@ -752,7 +778,27 @@
 
         private void DynaProccontrole_CheckedChanged(object sender, EventArgs e)
         {
-            NoneProcuse.Enabled = DynaProccontrole.Checked; 
+            NoneProcuse.Enabled = DynaProccontrole.Checked;
+        }
+
+        private void EnableDynamis_CheckedChanged(object sender, EventArgs e)
+        {
+            if (EnableDynamis.Checked)
+                this.CombatSettingsTabs.Controls.Add(this.Dynamispage);
+            else
+            {
+                staggerstopJA.Checked = false;
+                DynaProccontrole.Checked = false;
+                NoneProcuse.Checked = false;
+                this.CombatSettingsTabs.Controls.Remove(this.Dynamispage);
+            }
+        }
+        #endregion
+
+        private void verifyfood_Click(object sender, EventArgs e)
+        {
+            var itc = ItemQuantityByName(foodName.Text);
+            MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
         }
     }
 }

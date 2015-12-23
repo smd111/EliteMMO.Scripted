@@ -18,6 +18,8 @@
         public double[] navPathX = new double[1];
         public double[] navPathZ = new double[1];
         public double[] navPathY = new double[1];
+        //public double[] navPathfirst = new double[1];
+        //public double[] navPathstuck = new double[1];
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -61,13 +63,15 @@
             this.ConvertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgw_navi = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.StuckWatch = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.NodeDist = new System.Windows.Forms.NumericUpDown();
             this.runReverse = new System.Windows.Forms.CheckBox();
             this.Linear = new System.Windows.Forms.RadioButton();
             this.Circular = new System.Windows.Forms.RadioButton();
             this.WayPoints = new System.Windows.Forms.ListBox();
-            this.NodeDist = new System.Windows.Forms.NumericUpDown();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.firstPersonView = new System.Windows.Forms.CheckBox();
             this.groupBox9.SuspendLayout();
             this.menuStrip4.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -79,9 +83,9 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.menuStrip4);
-            this.groupBox9.Location = new System.Drawing.Point(10, 211);
+            this.groupBox9.Location = new System.Drawing.Point(10, 208);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(425, 49);
+            this.groupBox9.Size = new System.Drawing.Size(425, 51);
             this.groupBox9.TabIndex = 11;
             this.groupBox9.TabStop = false;
             // 
@@ -209,6 +213,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.firstPersonView);
+            this.groupBox1.Controls.Add(this.StuckWatch);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.NodeDist);
             this.groupBox1.Controls.Add(this.runReverse);
@@ -220,49 +226,28 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
-            // runReverse
+            // StuckWatch
             // 
-            this.runReverse.AutoSize = true;
-            this.runReverse.Location = new System.Drawing.Point(122, 23);
-            this.runReverse.Name = "runReverse";
-            this.runReverse.Size = new System.Drawing.Size(79, 17);
-            this.runReverse.TabIndex = 35;
-            this.runReverse.Text = "run reverse";
-            this.runReverse.UseVisualStyleBackColor = true;
+            this.StuckWatch.AutoSize = true;
+            this.StuckWatch.Location = new System.Drawing.Point(16, 52);
+            this.StuckWatch.Name = "StuckWatch";
+            this.StuckWatch.Size = new System.Drawing.Size(89, 17);
+            this.StuckWatch.TabIndex = 38;
+            this.StuckWatch.Text = "Stuck Watch";
+            this.StuckWatch.UseVisualStyleBackColor = true;
             // 
-            // Linear
+            // label1
             // 
-            this.Linear.AutoSize = true;
-            this.Linear.Location = new System.Drawing.Point(12, 40);
-            this.Linear.Name = "Linear";
-            this.Linear.Size = new System.Drawing.Size(79, 17);
-            this.Linear.TabIndex = 34;
-            this.Linear.Text = "Linear Path";
-            this.Linear.UseVisualStyleBackColor = true;
-            // 
-            // Circular
-            // 
-            this.Circular.AutoSize = true;
-            this.Circular.Checked = true;
-            this.Circular.Location = new System.Drawing.Point(12, 22);
-            this.Circular.Name = "Circular";
-            this.Circular.Size = new System.Drawing.Size(85, 17);
-            this.Circular.TabIndex = 33;
-            this.Circular.TabStop = true;
-            this.Circular.Text = "Circular Path";
-            this.Circular.UseVisualStyleBackColor = true;
-            // 
-            // WayPoints
-            // 
-            this.WayPoints.FormattingEnabled = true;
-            this.WayPoints.Location = new System.Drawing.Point(10, 29);
-            this.WayPoints.Name = "WayPoints";
-            this.WayPoints.Size = new System.Drawing.Size(425, 173);
-            this.WayPoints.TabIndex = 14;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(101, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Node Dist.";
             // 
             // NodeDist
             // 
-            this.NodeDist.Location = new System.Drawing.Point(155, 40);
+            this.NodeDist.Location = new System.Drawing.Point(159, 30);
             this.NodeDist.Maximum = new decimal(new int[] {
             10,
             0,
@@ -283,19 +268,60 @@
             0,
             0});
             // 
+            // runReverse
+            // 
+            this.runReverse.AutoSize = true;
+            this.runReverse.Location = new System.Drawing.Point(122, 13);
+            this.runReverse.Name = "runReverse";
+            this.runReverse.Size = new System.Drawing.Size(79, 17);
+            this.runReverse.TabIndex = 35;
+            this.runReverse.Text = "run reverse";
+            this.runReverse.UseVisualStyleBackColor = true;
+            // 
+            // Linear
+            // 
+            this.Linear.AutoSize = true;
+            this.Linear.Location = new System.Drawing.Point(16, 29);
+            this.Linear.Name = "Linear";
+            this.Linear.Size = new System.Drawing.Size(79, 17);
+            this.Linear.TabIndex = 34;
+            this.Linear.Text = "Linear Path";
+            this.Linear.UseVisualStyleBackColor = true;
+            // 
+            // Circular
+            // 
+            this.Circular.AutoSize = true;
+            this.Circular.Checked = true;
+            this.Circular.Location = new System.Drawing.Point(16, 12);
+            this.Circular.Name = "Circular";
+            this.Circular.Size = new System.Drawing.Size(85, 17);
+            this.Circular.TabIndex = 33;
+            this.Circular.TabStop = true;
+            this.Circular.Text = "Circular Path";
+            this.Circular.UseVisualStyleBackColor = true;
+            // 
+            // WayPoints
+            // 
+            this.WayPoints.FormattingEnabled = true;
+            this.WayPoints.Location = new System.Drawing.Point(10, 29);
+            this.WayPoints.Name = "WayPoints";
+            this.WayPoints.Size = new System.Drawing.Size(425, 173);
+            this.WayPoints.TabIndex = 14;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // label1
+            // firstPersonView
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(97, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 37;
-            this.label1.Text = "Node Dist.";
+            this.firstPersonView.AutoSize = true;
+            this.firstPersonView.Location = new System.Drawing.Point(115, 52);
+            this.firstPersonView.Name = "firstPersonView";
+            this.firstPersonView.Size = new System.Drawing.Size(81, 17);
+            this.firstPersonView.TabIndex = 39;
+            this.firstPersonView.Text = "First Person";
+            this.firstPersonView.UseVisualStyleBackColor = true;
             // 
             // ScriptNaviMap
             // 
@@ -496,6 +522,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown NodeDist;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.CheckBox StuckWatch;
         #endregion
 
         #region class: PlayerInfo
@@ -509,5 +536,13 @@
             public static float H => api.Entity.GetLocalPlayer().H;
         }
         #endregion
+        public double GetAngleFromPlayer(double x, double z)
+        {
+            var angleInDegrees = (Math.Atan2(PlayerInfo.Z - z,
+                PlayerInfo.X - x) * 180 / Math.PI) * -1;
+            return (Math.Floor(angleInDegrees * (10 ^ 0) + 0.5) / (10 ^ 0));
+        }
+
+        private System.Windows.Forms.CheckBox firstPersonView;
     }
 }
