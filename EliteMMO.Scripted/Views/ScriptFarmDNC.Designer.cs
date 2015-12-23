@@ -33,6 +33,7 @@
         public bool isCasting = false;
         public bool isLoading = false;
         public static bool NoneProc = false;
+        public bool OpenDoor = false;
         public dynamic LRKey = API.Keys.NUMPAD4;
 
         public int startzone;
@@ -53,6 +54,8 @@
         public double[] navPathX = new double[1];
         public double[] navPathZ = new double[1];
         public double[] navPathY = new double[1];
+        public bool[] navPathfirst = new bool[1];
+        public string[] navPathdoor = new string[1];
 
         public List<int> partyIDs = new List<int>();
         public List<int> ignoreTarget = new List<int>();
@@ -452,6 +455,7 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.autoRangeAttack = new System.Windows.Forms.CheckBox();
             this.Options5MainTab = new System.Windows.Forms.TabPage();
+            this.ManualTargMode = new System.Windows.Forms.CheckBox();
             this.EnableDynamis = new System.Windows.Forms.CheckBox();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.label65 = new System.Windows.Forms.Label();
@@ -2641,6 +2645,7 @@
             // 
             // Options5MainTab
             // 
+            this.Options5MainTab.Controls.Add(this.ManualTargMode);
             this.Options5MainTab.Controls.Add(this.EnableDynamis);
             this.Options5MainTab.Controls.Add(this.groupBox16);
             this.Options5MainTab.Location = new System.Drawing.Point(4, 22);
@@ -2650,6 +2655,17 @@
             this.Options5MainTab.TabIndex = 8;
             this.Options5MainTab.Text = "Options 5";
             this.Options5MainTab.UseVisualStyleBackColor = true;
+            // 
+            // ManualTargMode
+            // 
+            this.ManualTargMode.AutoSize = true;
+            this.ManualTargMode.Location = new System.Drawing.Point(221, 47);
+            this.ManualTargMode.Name = "ManualTargMode";
+            this.ManualTargMode.Size = new System.Drawing.Size(139, 17);
+            this.ManualTargMode.TabIndex = 2;
+            this.ManualTargMode.Text = "Manual Targeting Mode";
+            this.ManualTargMode.UseVisualStyleBackColor = true;
+            this.ManualTargMode.CheckedChanged += new System.EventHandler(this.ManualTargMode_CheckedChanged);
             // 
             // EnableDynamis
             // 
@@ -10713,7 +10729,7 @@
 
             if (TargetInfo.ID != targetID)
             {
-                TargetInfo.SetTarget(targetID);
+                SetTarget(targetID);
 
                 TargetInfo.FaceTarget(TargetInfo.X, TargetInfo.Z);
                 Thread.Sleep(TimeSpan.FromSeconds(0.4));
@@ -10762,42 +10778,44 @@
                 if (usenav.Checked && selectedNavi.Text != "")
                     naviMove = true;
 
-                api.Target.SetTarget(0);
+                SetTarget(0);
             }
 
             if (PlayerInfo.Status == 0 && wanted.ClaimID != api.Player.ServerId)
             {
-                api.Target.SetTarget(0);
+                SetTarget(0);
 
                 if (usenav.Checked && selectedNavi.Text != "")
                     naviMove = true;
             }
         }
-        //private void ClearTarget()
-        //{
-        //    if (ManualMode.Checked) return;
-        //    TargetInfo.SetTarget(0);
-        //}
+        private void SetTarget(int ID)
+        {
+            if (ManualTargMode.Checked || OpenDoor) return;
+            TargetInfo.SetTarget(ID);
+        }
 
         #endregion
-            #region Function: Get/Set Target
+        #region Function: Get/Set Target
 
         public void FindTarget()
         {
-            if (SelectedTargets.Items.Count == 0 || PlayerInfo.Status == 1 || isPulled)
+            if (SelectedTargets.Items.Count == 0 || PlayerInfo.Status == 1 || isPulled || ManualTargMode.Checked || OpenDoor)
                 return;
             float searchID = 999;
             var targetID = -1;
 
             for (var x = 0; x < 2048; x++)
             {
+                if (ManualTargMode.Checked || OpenDoor) break;
                 var entity = api.Entity.GetEntity(x);
 
                 if (entity.WarpPointer == 0 || entity.HealthPercent == 0 || entity.TargetID <= 0 ||
-                    entity.SpawnFlags != 16 || entity.ClaimID != 0 || ignoreTarget.Contains((int)entity.TargetID)) continue;
+                    entity.SpawnFlags != 16 || (PlayerInfo.HasBuff(511) ? false : entity.ClaimID != 0) || ignoreTarget.Contains((int)entity.TargetID)) continue;
 
                 foreach (ListViewItem item in SelectedTargets.Items)
                 {
+                    if (ManualTargMode.Checked || OpenDoor) break;
                     if (item.SubItems[1].Text.Contains(entity.Name) && SelectedTargets.Columns[0].Width == 0 ||
                         (item.Text.Contains(entity.TargetID.ToString("X")) && SelectedTargets.Columns[0].Width == 35))
                     {
@@ -10805,7 +10823,7 @@
                         {
                             if (searchID > entity.Distance &&
                                 entity.Distance > (float)pullTolorance.Value &&
-                                entity.ClaimID == 0 && entity.HealthPercent != 0 &&
+                                (PlayerInfo.HasBuff(511) ? true : entity.ClaimID == 0) && entity.HealthPercent != 0 &&
                                 entity.SpawnFlags == 16)
                             {
                                 searchID = entity.Distance;
@@ -10837,7 +10855,7 @@
 
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
 
-            if (target.ClaimID != 0 || target.HealthPercent == 0)
+            if ((PlayerInfo.HasBuff(511) ? false : target.ClaimID != 0) || target.HealthPercent == 0)
                 return;
 
             TargetInfo.SetTarget(targetID);
@@ -10852,7 +10870,7 @@
             if (runPullDistance.Checked && target.TargetID != PlayerInfo.ServerID && target.TargetID != 0)
                 TargetDist(1, (int)target.TargetID);
 
-            if (target.ClaimID == 0 && target.HealthPercent != 0 && target.TargetID > 0 &&
+            if ((PlayerInfo.HasBuff(511) ? true : target.ClaimID == 0) && target.HealthPercent != 0 && target.TargetID > 0 &&
                 target.Distance <= (float)targetSearchDist.Value && pullCommand.Text != "" &&
                 target.Distance > 5)
             {
@@ -10884,7 +10902,7 @@
                     Thread.Sleep(TimeSpan.FromSeconds(0.5));
                 }
             }
-            else if (target.ClaimID == 0 && target.HealthPercent != 0 && target.TargetID > 0 &&
+            else if ((PlayerInfo.HasBuff(511) ? true : target.ClaimID == 0) && target.HealthPercent != 0 && target.TargetID > 0 &&
                      target.Distance <= (float)targetSearchDist.Value && pullCommand.Text == "")
             {
                 if (runTarget.Checked && target.TargetID != PlayerInfo.ServerID && target.TargetID != 0)
@@ -10905,13 +10923,13 @@
             if (runTarget.Checked && target.TargetID != PlayerInfo.ServerID && target.TargetID != 0)
                 TargetDist(2, (int)target.TargetID);
 
-            if (PlayerInfo.Status == 0 && target.ClaimID == PlayerInfo.ServerID &&
+            if (PlayerInfo.Status == 0 && (PlayerInfo.HasBuff(511) ? true : target.ClaimID == PlayerInfo.ServerID) &&
                 !ignoreTarget.Contains(TargetInfo.ID))
             {
                 TargetInfo.Attack();
             }
 
-            if (PlayerInfo.Status == 0 && target.ClaimID != api.Player.ServerId)
+            if (PlayerInfo.Status == 0 && (PlayerInfo.HasBuff(511) ? false : target.ClaimID != api.Player.ServerId))
             {
                 TargetInfo.SetTarget(0);
 
@@ -10957,7 +10975,7 @@
             if (followed.Distance >= (float)followDist.Value && followed.Status == 0)
             {
                 if (TargetInfo.ID != followed.TargetID)
-                    TargetInfo.SetTarget(followID);
+                    SetTarget(followID);
 
                 if (AutoLock.Checked && !TargetInfo.LockedOn)
                     api.ThirdParty.SendString("/lockon <t>");
@@ -11144,9 +11162,23 @@
                         Array.Resize(ref navPathX, ipos + 1);
                         Array.Resize(ref navPathZ, ipos + 1);
                         Array.Resize(ref navPathY, ipos + 1);
+                        Array.Resize(ref navPathfirst, ipos + 1);
+                        Array.Resize(ref navPathdoor, ipos + 1);
                         navPathX[ipos] = double.Parse(items[1]);
                         navPathZ[ipos] = double.Parse(items[2]);
                         navPathY[ipos] = ((items.Length == 3) ? 0 : double.Parse(items[3]));
+                        navPathfirst[ipos] = false;
+                        navPathdoor[ipos] = "";
+                        if (items.Length > 4)
+                        {
+                            for (int i = 4; i <= (items.Length - 1); i++)
+                            {
+                                if (items[i] == "First")
+                                    navPathfirst[ipos] = true;
+                                if (items[i].Contains("Door"))
+                                    navPathdoor[ipos] = items[i];
+                            }
+                        }
 
                         ipos++;
                     }
@@ -11218,8 +11250,8 @@
         private void SelectedNaviSelectedIndexChanged(object sender, EventArgs e)
         {
             if (selectedNavi.Text == "") return;
-            if (selectedNavi.Text.Contains("(Linear)")) Linear.Checked = true;
-            else if (selectedNavi.Text.Contains("(Circular)")) Circular.Checked = true;
+            if (selectedNavi.Text.Contains(".Linear.")) Linear.Checked = true;
+            else if (selectedNavi.Text.Contains(".Circular.")) Circular.Checked = true;
             var path = string.Format("{0}\\Nav\\", Application.StartupPath);
             var navi = new FileInfo(path + selectedNavi.Text);
 
@@ -11542,5 +11574,6 @@
         private GroupBox groupBox16;
         private Label label65;
         private NumericUpDown StuckDistance;
+        private CheckBox ManualTargMode;
     }
 }
