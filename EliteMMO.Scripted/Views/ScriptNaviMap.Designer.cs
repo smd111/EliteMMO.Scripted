@@ -647,7 +647,7 @@
             comboBox2.SelectedText = "";
 
             if (isRecording)
-                WayPoints.Items.Add($"WAYPOINT:{PlayerInfo.X}:{PlayerInfo.Z}:{PlayerInfo.Y}");
+                WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
         }
 
         private void RecordToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -660,7 +660,7 @@
                 comboBox2.SelectedText = "";
             }
 
-            WayPoints.Items.Add($"WAYPOINT:{PlayerInfo.X}:{PlayerInfo.Z}:{PlayerInfo.Y}");
+            WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
 
             if (ClearToolStripMenuItem.Enabled == false)
                 ClearToolStripMenuItem.Enabled = true;
@@ -677,12 +677,12 @@
         public bool isStuck(int a)
         {
             if (!api.AutoFollow.IsAutoFollowing || isPaused) return false;
-            var x = PlayerInfo.X;
-            var z = PlayerInfo.Z;
+            var x = ScriptFarmDNC.PlayerInfo.X;
+            var z = ScriptFarmDNC.PlayerInfo.Z;
             var LDistance = api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance;
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
             var CDistance = api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance;
-            var Dchange = (Math.Pow(x - PlayerInfo.X, 2) + Math.Pow(z - PlayerInfo.Z, 2));
+            var Dchange = (Math.Pow(x - ScriptFarmDNC.PlayerInfo.X, 2) + Math.Pow(z - ScriptFarmDNC.PlayerInfo.Z, 2));
             if (Math.Abs(Dchange) < 1)
                 return true;
 
@@ -694,9 +694,9 @@
             var outRange = -1;
             for (int i = 0; i < navPathX.Count(); i++)
             {
-                var x = Math.Pow(PlayerInfo.X - navPathX[i], 2.0);
-                var z = Math.Pow(PlayerInfo.Z - navPathZ[i], 2.0);
-                var y = Math.Pow(PlayerInfo.Y - navPathY[i], 2.0);
+                var x = Math.Pow(ScriptFarmDNC.PlayerInfo.X - navPathX[i], 2.0);
+                var z = Math.Pow(ScriptFarmDNC.PlayerInfo.Z - navPathZ[i], 2.0);
+                var y = Math.Pow(ScriptFarmDNC.PlayerInfo.Y - navPathY[i], 2.0);
                 var dist = (navPathY[i] == 0 ? Math.Sqrt(x + z) : Math.Sqrt(x + z + y));
                 if (dist < maxRange)
                 {
@@ -715,31 +715,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.CheckBox StuckWatch;
         #endregion
-
-        #region class: PlayerInfo
-        public static class PlayerInfo
-        {
-            public static int Status => (int)api.Entity.GetLocalPlayer().Status;
-            public static int TargetID => (int)api.Entity.GetLocalPlayer().TargetID;
-            public static float X => api.Entity.GetLocalPlayer().X;
-            public static float Y => api.Entity.GetLocalPlayer().Y;
-            public static float Z => api.Entity.GetLocalPlayer().Z;
-            public static float H => api.Entity.GetLocalPlayer().H;
-        }
-        #endregion
-        public double GetAngleFromPlayer(double x, double z)
-        {
-            var angleInDegrees = (Math.Atan2(PlayerInfo.Z - z,
-                PlayerInfo.X - x) * 180 / Math.PI) * -1;
-            return (Math.Floor(angleInDegrees * (10 ^ 0) + 0.5) / (10 ^ 0));
-        }
-        public static class TargetInfo
-        {
-            public static int ID => (int)api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).TargetID;
-            public static void SetTarget(int ID) => api.Target.SetTarget(ID);
-            public static bool LockedOn => api.Target.GetTargetInfo().LockedOn;
-            public static double Distance => Math.Truncate((10 * api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance) / 10);
-        }
 
         private System.Windows.Forms.CheckBox firstPersonView;
         private System.Windows.Forms.Button FirstPerson;

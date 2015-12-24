@@ -11,6 +11,7 @@
 
     public partial class MainWindow : Form
     {
+        ScriptFarmDNC farmbot;
         public MainWindow(EliteAPI core)
         {
             InitializeComponent();
@@ -40,8 +41,8 @@
             }
             #endregion
 
-
-            x1 = new ScriptFarmDNC(api);
+            farmbot = new ScriptFarmDNC(api);
+            x1 = farmbot;
             x2 = new ScriptHealing(api);
             x3 = new ScriptNaviMap(api);
             x4 = new ScriptOnEventTool(api);
@@ -140,8 +141,11 @@
             x3.Hide();
             x2.Hide();
             x1.Show();
+            loadSettingsToolStripMenuItem.Enabled = true;
+            saveSettingsToolStripMenuItem.Enabled = true;
             #endregion
 
+            TopMostDisplay = "FarmBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
 
             x1.Dock = DockStyle.Fill;
@@ -168,8 +172,11 @@
             x3.Hide();
             x1.Hide();
             x2.Show();
+            loadSettingsToolStripMenuItem.Enabled = false;
+            saveSettingsToolStripMenuItem.Enabled = false;
             #endregion
 
+            TopMostDisplay = "HealingBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
 
             x1.Dock = DockStyle.Fill;
@@ -194,8 +201,11 @@
             x3.Hide();
             x2.Hide();
             x1.Hide();
+            loadSettingsToolStripMenuItem.Enabled = false;
+            saveSettingsToolStripMenuItem.Enabled = false;
             #endregion
 
+            TopMostDisplay = "About";
             refreshCharactersToolStripMenuItem.Enabled = true;
 
             Size = new Size(372, 237);
@@ -230,8 +240,11 @@
             x1.Hide();
             x4.Hide();
             x3.Show();
+            loadSettingsToolStripMenuItem.Enabled = false;
+            saveSettingsToolStripMenuItem.Enabled = false;
             #endregion
 
+            TopMostDisplay = "NavBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
 
             x3.Dock = DockStyle.Fill;
@@ -258,13 +271,28 @@
             x1.Hide();
             x3.Hide();
             x4.Show();
+            loadSettingsToolStripMenuItem.Enabled = false;
+            saveSettingsToolStripMenuItem.Enabled = false;
             #endregion
 
+            TopMostDisplay = "OnEventBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
 
             x4.Dock = DockStyle.Fill;
             Controls.Add(x4);
             Size = new Size(482, 488);
+        }
+
+        private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (TopMostDisplay == "FarmBot")
+                farmbot.button1.PerformClick();
+        }
+
+        private void loadSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (TopMostDisplay == "FarmBot")
+                farmbot.button2.PerformClick();
         }
     }
 }

@@ -1026,7 +1026,7 @@
             // checkZone
             // 
             this.checkZone.AutoSize = true;
-            this.checkZone.Location = new System.Drawing.Point(617, 206);
+            this.checkZone.Location = new System.Drawing.Point(617, 232);
             this.checkZone.Name = "checkZone";
             this.checkZone.Size = new System.Drawing.Size(91, 17);
             this.checkZone.TabIndex = 51;
@@ -1036,7 +1036,7 @@
             // StopFullInventory
             // 
             this.StopFullInventory.AutoSize = true;
-            this.StopFullInventory.Location = new System.Drawing.Point(463, 189);
+            this.StopFullInventory.Location = new System.Drawing.Point(463, 215);
             this.StopFullInventory.Name = "StopFullInventory";
             this.StopFullInventory.Size = new System.Drawing.Size(129, 17);
             this.StopFullInventory.TabIndex = 50;
@@ -1053,7 +1053,7 @@
             this.groupBox8.Controls.Add(this.selectedNavi);
             this.groupBox8.Controls.Add(this.GetSetNavi);
             this.groupBox8.Enabled = false;
-            this.groupBox8.Location = new System.Drawing.Point(463, 220);
+            this.groupBox8.Location = new System.Drawing.Point(463, 246);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(253, 128);
             this.groupBox8.TabIndex = 49;
@@ -1151,7 +1151,7 @@
             // usenav
             // 
             this.usenav.AutoSize = true;
-            this.usenav.Location = new System.Drawing.Point(463, 206);
+            this.usenav.Location = new System.Drawing.Point(463, 232);
             this.usenav.Name = "usenav";
             this.usenav.Size = new System.Drawing.Size(118, 17);
             this.usenav.TabIndex = 48;
@@ -1166,7 +1166,7 @@
             this.startScriptToolStripMenuItem,
             this.stopScriptToolStripMenuItem,
             this.updateJobToolStripMenuItem});
-            this.StartStopScript.Location = new System.Drawing.Point(470, 352);
+            this.StartStopScript.Location = new System.Drawing.Point(470, 378);
             this.StartStopScript.Name = "StartStopScript";
             this.StartStopScript.Size = new System.Drawing.Size(238, 24);
             this.StartStopScript.TabIndex = 47;
@@ -7087,7 +7087,7 @@
             // DeathWarp
             // 
             this.DeathWarp.AutoSize = true;
-            this.DeathWarp.Location = new System.Drawing.Point(617, 189);
+            this.DeathWarp.Location = new System.Drawing.Point(617, 215);
             this.DeathWarp.Name = "DeathWarp";
             this.DeathWarp.Size = new System.Drawing.Size(99, 17);
             this.DeathWarp.TabIndex = 52;
@@ -7118,8 +7118,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.DeathWarp);
             this.Controls.Add(this.checkZone);
             this.Controls.Add(this.StopFullInventory);
@@ -7793,8 +7791,8 @@
         private NumericUpDown ApogeeMPPset;
         private Label SMNpetMPUSEtext;
         private NumericUpDown SMNpetMPUSEset;
-        private Button button1;
-        private Button button2;
+        public Button button1;
+        public Button button2;
         public CheckBox AutoCallPUP;
         private NumericUpDown numericUpDown8;
         private NumericUpDown numericUpDown9;

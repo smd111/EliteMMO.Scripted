@@ -26,15 +26,15 @@
                 {
                     var last = (string)WayPoints.Items[WayPoints.Items.Count - 1];
                     var items = last.Split(':');
-                    var distance = (Math.Sqrt(Math.Pow(Math.Abs(PlayerInfo.X - float.Parse(items[1])), 2) + Math.Pow(Math.Abs(PlayerInfo.Y - float.Parse(items[3])), 2) + Math.Pow(Math.Abs(PlayerInfo.Z - float.Parse(items[2])), 2)));
+                    var distance = (Math.Sqrt(Math.Pow(Math.Abs(ScriptFarmDNC.PlayerInfo.X - float.Parse(items[1])), 2) + Math.Pow(Math.Abs(ScriptFarmDNC.PlayerInfo.Y - float.Parse(items[3])), 2) + Math.Pow(Math.Abs(ScriptFarmDNC.PlayerInfo.Z - float.Parse(items[2])), 2)));
                     if (distance > (double)NodeDist.Value)
                     {
-                        WayPoints.Items.Add($"WAYPOINT:{PlayerInfo.X}:{PlayerInfo.Z}:{PlayerInfo.Y}");
+                        WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
                     }
                 }
                 if (isPlaying)
                 {
-                    if (comboBox2.Text != "" && PlayerInfo.Status == 0 && !isPaused)
+                    if (comboBox2.Text != "" && ScriptFarmDNC.PlayerInfo.Status == 0 && !isPaused)
                     {
                         if (Circular.Checked)
                         {
@@ -58,14 +58,14 @@
                                     api.Player.ViewMode = 1;
                                 api.AutoFollow.IsAutoFollowing = false;
                                 api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
-                                    (GetAngleFromPlayer(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                                    (ScriptFarmDNC.PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
                             }
                             else if (api.Player.ViewMode == 1)
                                 api.Player.ViewMode = 0;
 
-                            api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - PlayerInfo.Y),
-                                  (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                            api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - ScriptFarmDNC.PlayerInfo.X,
+                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Y),
+                                  (float)navPathZ[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Z);
 
                             if (navPathdoor[closestWayPoint].Contains("Door"))
                             {
@@ -73,18 +73,18 @@
                                 if (lastcommandtarget != items[1])
                                 {
                                     api.AutoFollow.IsAutoFollowing = false;
-                                    TargetInfo.SetTarget(int.Parse(items[1]));
+                                    ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
                                     Thread.Sleep(TimeSpan.FromSeconds(0.5));
                                     api.ThirdParty.SendString("/lockon <t>");
                                     Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                    while (TargetInfo.Distance > 4)
+                                    while (ScriptFarmDNC.TargetInfo.Distance > 4)
                                     {
                                         api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
                                         Thread.Sleep(TimeSpan.FromSeconds(0.1));
                                     }
 
                                     api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                                    while (TargetInfo.ID == int.Parse(items[1]))
+                                    while (ScriptFarmDNC.TargetInfo.ID == int.Parse(items[1]))
                                     {
                                         api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
                                         Thread.Sleep(TimeSpan.FromSeconds(0.5));
@@ -122,14 +122,14 @@
                                             api.Player.ViewMode = 1;
                                         api.AutoFollow.IsAutoFollowing = false;
                                         api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
-                                            (GetAngleFromPlayer(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                                            (ScriptFarmDNC.PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
                                     }
                                     else if (api.Player.ViewMode == 1)
                                         api.Player.ViewMode = 0;
 
-                                    api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - PlayerInfo.Y),
-                                  (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                    api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - ScriptFarmDNC.PlayerInfo.X,
+                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Y),
+                                  (float)navPathZ[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Z);
 
                                     if (navPathdoor[closestWayPoint].Contains("Door"))
                                     {
@@ -137,18 +137,18 @@
                                         if (lastcommandtarget != items[1])
                                         {
                                             api.AutoFollow.IsAutoFollowing = false;
-                                            TargetInfo.SetTarget(int.Parse(items[1]));
+                                            ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
                                             Thread.Sleep(TimeSpan.FromSeconds(0.5));
                                             api.ThirdParty.SendString("/lockon <t>");
                                             Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                            while (TargetInfo.Distance > 4)
+                                            while (ScriptFarmDNC.TargetInfo.Distance > 4)
                                             {
                                                 api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
                                                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
                                             }
 
                                             api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                                            while (TargetInfo.ID == int.Parse(items[1]))
+                                            while (ScriptFarmDNC.TargetInfo.ID == int.Parse(items[1]))
                                             {
                                                 api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
                                                 Thread.Sleep(TimeSpan.FromSeconds(0.5));
@@ -175,14 +175,14 @@
                                             api.Player.ViewMode = 1;
                                         api.AutoFollow.IsAutoFollowing = false;
                                         api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
-                                            (GetAngleFromPlayer(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                                            (ScriptFarmDNC.PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
                                     }
                                     else if (api.Player.ViewMode == 1)
                                         api.Player.ViewMode = 0;
 
-                                    api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - PlayerInfo.Y),
-                                  (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+                                    api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - ScriptFarmDNC.PlayerInfo.X,
+                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Y),
+                                  (float)navPathZ[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Z);
 
                                     if (navPathdoor[closestWayPoint].Contains("Door"))
                                     {
@@ -190,18 +190,18 @@
                                         if (lastcommandtarget != items[1])
                                         {
                                             api.AutoFollow.IsAutoFollowing = false;
-                                            TargetInfo.SetTarget(int.Parse(items[1]));
+                                            ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
                                             Thread.Sleep(TimeSpan.FromSeconds(0.5));
                                             api.ThirdParty.SendString("/lockon <t>");
                                             Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                            while (TargetInfo.Distance > 4)
+                                            while (ScriptFarmDNC.TargetInfo.Distance > 4)
                                             {
                                                 api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
                                                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
                                             }
 
                                             api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                                            while (TargetInfo.ID == int.Parse(items[1]))
+                                            while (ScriptFarmDNC.TargetInfo.ID == int.Parse(items[1]))
                                             {
                                                 api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
                                                 Thread.Sleep(TimeSpan.FromSeconds(0.5));
@@ -225,7 +225,7 @@
                     if (StuckWatch.Checked && comboBox2.Text != "" && api.AutoFollow.IsAutoFollowing && !isPaused && isStuck(0))
                     {
                         api.AutoFollow.IsAutoFollowing = false;
-                        api.Player.H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
+                        api.Player.H = ScriptFarmDNC.PlayerInfo.H + (float)((Math.PI / 180) * dir);
                         api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
                         Thread.Sleep(TimeSpan.FromSeconds(2));
                         api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
@@ -380,7 +380,7 @@
         {
             var index = WayPoints.SelectedIndex;
             if (index == -1)
-                WayPoints.Items.Add($"WAYPOINT:{PlayerInfo.X}:{PlayerInfo.Z}:{PlayerInfo.Y}:Door;{TargetInfo.ID}");
+                WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}:Door;{ScriptFarmDNC.TargetInfo.ID}");
             else
             {
                 var old = (string)WayPoints.Items[index];
@@ -390,7 +390,7 @@
                     return;
                 }
                 WayPoints.Items.RemoveAt(index);
-                WayPoints.Items.Insert(index, old + $":Door;{TargetInfo.ID}");
+                WayPoints.Items.Insert(index, old + $":Door;{ScriptFarmDNC.TargetInfo.ID}");
             }
         }
 
@@ -420,7 +420,7 @@
 
         private void AddNode_Click(object sender, EventArgs e)
         {
-            WayPoints.Items.Add($"WAYPOINT:{PlayerInfo.X}:{PlayerInfo.Z}:{PlayerInfo.Y}");
+            WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
         }
     }
 }

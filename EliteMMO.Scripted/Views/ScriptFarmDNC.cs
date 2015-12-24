@@ -884,18 +884,18 @@
                 this.CombatSettingsTabs.Controls.Remove(this.Dynamispage);
             }
         }
+
+        private void ManualTargMode_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ManualTargMode.Checked) usenav.Checked = false;
+            usenav.Enabled = !ManualTargMode.Checked;
+        }
         #endregion
 
         private void verifyfood_Click(object sender, EventArgs e)
         {
             var itc = ItemQuantityByName(foodName.Text);
             MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
-        }
-
-        private void ManualTargMode_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ManualTargMode.Checked) usenav.Checked = false;
-            usenav.Enabled = !ManualTargMode.Checked;
         }
     }
 }
