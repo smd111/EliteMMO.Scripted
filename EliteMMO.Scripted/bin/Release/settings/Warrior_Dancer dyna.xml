@@ -13,13 +13,13 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.GroupBox" Name="groupBox8">
-    <Enabled>False</Enabled>
+    <Enabled>True</Enabled>
     <Control Type="System.Windows.Forms.ComboBox" Name="comboBox3">
       <Text />
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="firstPersonView">
       <Checked>False</Checked>
-      <Enabled>False</Enabled>
+      <Enabled>True</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
       <Checked>False</Checked>
@@ -32,11 +32,11 @@
       <Checked>False</Checked>
     </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>Dyna - Beaucedine.xin</Text>
+      <Text>Dyna - Bastok.Linear.xin</Text>
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
-    <Checked>False</Checked>
+    <Checked>True</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.TabControl" Name="dncControl">
@@ -266,6 +266,31 @@
             </Control>
           </Control>
         </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="Options5MainTab">
+          <Control Type="System.Windows.Forms.CheckBox" Name="ManualTargMode">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="EnableDynamis">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox16">
+            <Enabled>True</Enabled>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="StuckDistance">
+              <Value>1</Value>
+              <Enabled>True</Enabled>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="navStuckWatch">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="mobStuckWatch">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+            </Control>
+          </Control>
+        </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="OptionsJAMainTab">
           <Control Type="System.Windows.Forms.TabControl" Name="JAtabselect">
             <Control Type="System.Windows.Forms.TabPage" Name="selectPage">
@@ -279,23 +304,6 @@
                 <SelectedIndex6>9</SelectedIndex6>
                 <SelectedIndex7>10</SelectedIndex7>
                 <SelectedIndexcount>8</SelectedIndexcount>
-              </Control>
-            </Control>
-            <Control Type="System.Windows.Forms.TabPage" Name="Dynamispage">
-              <Control Type="System.Windows.Forms.GroupBox" Name="groupBox13">
-                <Enabled>True</Enabled>
-                <Control Type="System.Windows.Forms.CheckBox" Name="NoneProcuse">
-                  <Checked>True</Checked>
-                  <Enabled>True</Enabled>
-                </Control>
-                <Control Type="System.Windows.Forms.CheckBox" Name="DynaProccontrole">
-                  <Checked>True</Checked>
-                  <Enabled>True</Enabled>
-                </Control>
-              </Control>
-              <Control Type="System.Windows.Forms.CheckBox" Name="staggerstopJA">
-                <Checked>False</Checked>
-                <Enabled>True</Enabled>
               </Control>
             </Control>
           </Control>
@@ -312,7 +320,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="mobheightdistValue">
-          <Value>3</Value>
+          <Value>1.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="mobheightdist">
@@ -402,7 +410,7 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="StepsHP">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="NoSteps">
@@ -502,7 +510,7 @@
               <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecureiii">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecureii">
@@ -510,7 +518,7 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecure">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
           </Control>
@@ -627,13 +635,6 @@
       </Control>
       <Control Type="System.Windows.Forms.GroupBox" Name="flourishesigroup">
         <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="useanifloValue">
-          <Value>0</Value>
-          <Enabled>True</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="useaniflo">
-          <Checked>False</Checked>
-        </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="useviofloValue">
           <Value>0</Value>
           <Enabled>True</Enabled>

@@ -1,9 +1,9 @@
 get all JA's to populate --done
 ja coding --done
 SCH Stratagem counter --done
-ja control --85%
+ja control --done
 get all ma's to populate --done
-ma control --90%
+ma control --done
 ma coding --85%
 add rest of the flourishes --0%
 

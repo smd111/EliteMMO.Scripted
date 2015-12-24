@@ -10796,26 +10796,26 @@
         }
 
         #endregion
-        #region Function: Get/Set Target
+            #region Function: Get/Set Target
 
         public void FindTarget()
         {
-            if (SelectedTargets.Items.Count == 0 || PlayerInfo.Status == 1 || isPulled || ManualTargMode.Checked || OpenDoor)
+            if (SelectedTargets.Items.Count == 0 || PlayerInfo.Status == 1 || isPulled)
                 return;
             float searchID = 999;
             var targetID = -1;
 
             for (var x = 0; x < 2048; x++)
             {
-                if (ManualTargMode.Checked || OpenDoor) break;
+
                 var entity = api.Entity.GetEntity(x);
 
                 if (entity.WarpPointer == 0 || entity.HealthPercent == 0 || entity.TargetID <= 0 ||
-                    entity.SpawnFlags != 16 || (PlayerInfo.HasBuff(511) ? false : entity.ClaimID != 0) || ignoreTarget.Contains((int)entity.TargetID)) continue;
+                    entity.SpawnFlags != 16 || entity.ClaimID != 0 || ignoreTarget.Contains((int)entity.TargetID)) continue;
 
                 foreach (ListViewItem item in SelectedTargets.Items)
                 {
-                    if (ManualTargMode.Checked || OpenDoor) break;
+
                     if (item.SubItems[1].Text.Contains(entity.Name) && SelectedTargets.Columns[0].Width == 0 ||
                         (item.Text.Contains(entity.TargetID.ToString("X")) && SelectedTargets.Columns[0].Width == 35))
                     {
@@ -10823,7 +10823,7 @@
                         {
                             if (searchID > entity.Distance &&
                                 entity.Distance > (float)pullTolorance.Value &&
-                                (PlayerInfo.HasBuff(511) ? true : entity.ClaimID == 0) && entity.HealthPercent != 0 &&
+                                entity.ClaimID == 0 && entity.HealthPercent != 0 &&
                                 entity.SpawnFlags == 16)
                             {
                                 searchID = entity.Distance;
@@ -10855,10 +10855,10 @@
 
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
 
-            if ((PlayerInfo.HasBuff(511) ? false : target.ClaimID != 0) || target.HealthPercent == 0)
+            if (target.ClaimID != 0 || target.HealthPercent == 0)
                 return;
 
-            TargetInfo.SetTarget(targetID);
+            SetTarget(targetID);
             Thread.Sleep(TimeSpan.FromSeconds(0.3));
 
             TargetInfo.FaceTarget(target.X, target.Z);
@@ -10870,7 +10870,7 @@
             if (runPullDistance.Checked && target.TargetID != PlayerInfo.ServerID && target.TargetID != 0)
                 TargetDist(1, (int)target.TargetID);
 
-            if ((PlayerInfo.HasBuff(511) ? true : target.ClaimID == 0) && target.HealthPercent != 0 && target.TargetID > 0 &&
+            if (target.ClaimID == 0 && target.HealthPercent != 0 && target.TargetID > 0 &&
                 target.Distance <= (float)targetSearchDist.Value && pullCommand.Text != "" &&
                 target.Distance > 5)
             {
@@ -10902,7 +10902,7 @@
                     Thread.Sleep(TimeSpan.FromSeconds(0.5));
                 }
             }
-            else if ((PlayerInfo.HasBuff(511) ? true : target.ClaimID == 0) && target.HealthPercent != 0 && target.TargetID > 0 &&
+            else if (target.ClaimID == 0 && target.HealthPercent != 0 && target.TargetID > 0 &&
                      target.Distance <= (float)targetSearchDist.Value && pullCommand.Text == "")
             {
                 if (runTarget.Checked && target.TargetID != PlayerInfo.ServerID && target.TargetID != 0)
@@ -10923,15 +10923,15 @@
             if (runTarget.Checked && target.TargetID != PlayerInfo.ServerID && target.TargetID != 0)
                 TargetDist(2, (int)target.TargetID);
 
-            if (PlayerInfo.Status == 0 && (PlayerInfo.HasBuff(511) ? true : target.ClaimID == PlayerInfo.ServerID) &&
+            if (PlayerInfo.Status == 0 && target.ClaimID == PlayerInfo.ServerID &&
                 !ignoreTarget.Contains(TargetInfo.ID))
             {
                 TargetInfo.Attack();
             }
 
-            if (PlayerInfo.Status == 0 && (PlayerInfo.HasBuff(511) ? false : target.ClaimID != api.Player.ServerId))
+            if (PlayerInfo.Status == 0 && target.ClaimID != api.Player.ServerId)
             {
-                TargetInfo.SetTarget(0);
+                SetTarget(0);
 
                 if (usenav.Checked && selectedNavi.Text != "" && !naviMove)
                     naviMove = true;
@@ -10939,6 +10939,7 @@
         }
 
         #endregion
+
 
         #endregion
         #region Methods: NAV
