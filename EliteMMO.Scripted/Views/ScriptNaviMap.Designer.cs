@@ -11,7 +11,9 @@
         public bool isRecording = false;
         public bool isPlaying = false;
         public bool isPaused = false;
+        public bool OpenDoor = false;
 
+        public string lastcommandtarget = "";
         public double[] navPathX = new double[1];
         public double[] navPathZ = new double[1];
         public double[] navPathY = new double[1];
@@ -61,12 +63,13 @@
             this.ConvertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgw_navi = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.StopAtEnd = new System.Windows.Forms.CheckBox();
             this.firstPersonView = new System.Windows.Forms.CheckBox();
             this.StuckWatch = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.NodeDist = new System.Windows.Forms.NumericUpDown();
             this.runReverse = new System.Windows.Forms.CheckBox();
             this.Linear = new System.Windows.Forms.RadioButton();
+            this.NodeDist = new System.Windows.Forms.NumericUpDown();
             this.Circular = new System.Windows.Forms.RadioButton();
             this.WayPoints = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -180,7 +183,7 @@
             this.groupBox10.Controls.Add(this.menuStrip5);
             this.groupBox10.Location = new System.Drawing.Point(10, 265);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(208, 74);
+            this.groupBox10.Size = new System.Drawing.Size(178, 74);
             this.groupBox10.TabIndex = 12;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Load Navigation";
@@ -188,9 +191,9 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(7, 18);
+            this.comboBox2.Location = new System.Drawing.Point(8, 18);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(194, 21);
+            this.comboBox2.Size = new System.Drawing.Size(162, 21);
             this.comboBox2.TabIndex = 7;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -203,7 +206,7 @@
             this.ConvertToolStripMenuItem});
             this.menuStrip5.Location = new System.Drawing.Point(3, 47);
             this.menuStrip5.Name = "menuStrip5";
-            this.menuStrip5.Size = new System.Drawing.Size(202, 24);
+            this.menuStrip5.Size = new System.Drawing.Size(172, 24);
             this.menuStrip5.TabIndex = 8;
             this.menuStrip5.Text = "menuStrip5";
             // 
@@ -236,23 +239,34 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.StopAtEnd);
             this.groupBox1.Controls.Add(this.firstPersonView);
             this.groupBox1.Controls.Add(this.StuckWatch);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.NodeDist);
             this.groupBox1.Controls.Add(this.runReverse);
             this.groupBox1.Controls.Add(this.Linear);
+            this.groupBox1.Controls.Add(this.NodeDist);
             this.groupBox1.Controls.Add(this.Circular);
-            this.groupBox1.Location = new System.Drawing.Point(225, 265);
+            this.groupBox1.Location = new System.Drawing.Point(194, 258);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(207, 74);
+            this.groupBox1.Size = new System.Drawing.Size(262, 81);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
+            // 
+            // StopAtEnd
+            // 
+            this.StopAtEnd.AutoSize = true;
+            this.StopAtEnd.Location = new System.Drawing.Point(92, 13);
+            this.StopAtEnd.Name = "StopAtEnd";
+            this.StopAtEnd.Size = new System.Drawing.Size(84, 17);
+            this.StopAtEnd.TabIndex = 25;
+            this.StopAtEnd.Text = "Stop @ End";
+            this.StopAtEnd.UseVisualStyleBackColor = true;
             // 
             // firstPersonView
             // 
             this.firstPersonView.AutoSize = true;
-            this.firstPersonView.Location = new System.Drawing.Point(115, 52);
+            this.firstPersonView.Location = new System.Drawing.Point(178, 13);
             this.firstPersonView.Name = "firstPersonView";
             this.firstPersonView.Size = new System.Drawing.Size(81, 17);
             this.firstPersonView.TabIndex = 39;
@@ -262,7 +276,7 @@
             // StuckWatch
             // 
             this.StuckWatch.AutoSize = true;
-            this.StuckWatch.Location = new System.Drawing.Point(16, 52);
+            this.StuckWatch.Location = new System.Drawing.Point(112, 54);
             this.StuckWatch.Name = "StuckWatch";
             this.StuckWatch.Size = new System.Drawing.Size(89, 17);
             this.StuckWatch.TabIndex = 38;
@@ -272,15 +286,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 31);
+            this.label1.Location = new System.Drawing.Point(6, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 37;
             this.label1.Text = "Node Dist.";
             // 
+            // runReverse
+            // 
+            this.runReverse.AutoSize = true;
+            this.runReverse.Location = new System.Drawing.Point(92, 33);
+            this.runReverse.Name = "runReverse";
+            this.runReverse.Size = new System.Drawing.Size(89, 17);
+            this.runReverse.TabIndex = 35;
+            this.runReverse.Text = "Run Reverse";
+            this.runReverse.UseVisualStyleBackColor = true;
+            // 
+            // Linear
+            // 
+            this.Linear.AutoSize = true;
+            this.Linear.Location = new System.Drawing.Point(7, 32);
+            this.Linear.Name = "Linear";
+            this.Linear.Size = new System.Drawing.Size(79, 17);
+            this.Linear.TabIndex = 34;
+            this.Linear.Text = "Linear Path";
+            this.Linear.UseVisualStyleBackColor = true;
+            // 
             // NodeDist
             // 
-            this.NodeDist.Location = new System.Drawing.Point(159, 30);
+            this.NodeDist.Location = new System.Drawing.Point(69, 53);
             this.NodeDist.Maximum = new decimal(new int[] {
             10,
             0,
@@ -301,31 +335,11 @@
             0,
             0});
             // 
-            // runReverse
-            // 
-            this.runReverse.AutoSize = true;
-            this.runReverse.Location = new System.Drawing.Point(115, 13);
-            this.runReverse.Name = "runReverse";
-            this.runReverse.Size = new System.Drawing.Size(89, 17);
-            this.runReverse.TabIndex = 35;
-            this.runReverse.Text = "Run Reverse";
-            this.runReverse.UseVisualStyleBackColor = true;
-            // 
-            // Linear
-            // 
-            this.Linear.AutoSize = true;
-            this.Linear.Location = new System.Drawing.Point(16, 29);
-            this.Linear.Name = "Linear";
-            this.Linear.Size = new System.Drawing.Size(79, 17);
-            this.Linear.TabIndex = 34;
-            this.Linear.Text = "Linear Path";
-            this.Linear.UseVisualStyleBackColor = true;
-            // 
             // Circular
             // 
             this.Circular.AutoSize = true;
             this.Circular.Checked = true;
-            this.Circular.Location = new System.Drawing.Point(16, 12);
+            this.Circular.Location = new System.Drawing.Point(7, 12);
             this.Circular.Name = "Circular";
             this.Circular.Size = new System.Drawing.Size(85, 17);
             this.Circular.TabIndex = 33;
@@ -464,9 +478,9 @@
             this.groupBox3.Controls.Add(this.EnableForceSave);
             this.groupBox3.Controls.Add(this.ForceLinear);
             this.groupBox3.Controls.Add(this.ForceCircular);
-            this.groupBox3.Location = new System.Drawing.Point(441, 265);
+            this.groupBox3.Location = new System.Drawing.Point(462, 264);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(106, 74);
+            this.groupBox3.Size = new System.Drawing.Size(103, 75);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Save Force";
@@ -474,7 +488,7 @@
             // EnableForceSave
             // 
             this.EnableForceSave.AutoSize = true;
-            this.EnableForceSave.Location = new System.Drawing.Point(6, 18);
+            this.EnableForceSave.Location = new System.Drawing.Point(6, 16);
             this.EnableForceSave.Name = "EnableForceSave";
             this.EnableForceSave.Size = new System.Drawing.Size(59, 17);
             this.EnableForceSave.TabIndex = 2;
@@ -486,7 +500,7 @@
             // 
             this.ForceLinear.AutoSize = true;
             this.ForceLinear.Enabled = false;
-            this.ForceLinear.Location = new System.Drawing.Point(6, 51);
+            this.ForceLinear.Location = new System.Drawing.Point(6, 50);
             this.ForceLinear.Name = "ForceLinear";
             this.ForceLinear.Size = new System.Drawing.Size(84, 17);
             this.ForceLinear.TabIndex = 1;
@@ -517,7 +531,7 @@
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
             this.Name = "ScriptNaviMap";
-            this.Size = new System.Drawing.Size(568, 349);
+            this.Size = new System.Drawing.Size(576, 349);
             this.Load += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -644,7 +658,7 @@
         {
             if (WayPoints.Items.Count > 0)
                 WayPoints.Items.Clear();
-            comboBox2.SelectedText = "";
+            comboBox2.SelectedIndex = -1;
 
             if (isRecording)
                 WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
@@ -733,5 +747,6 @@
         private System.Windows.Forms.RadioButton ForceCircular;
         private System.Windows.Forms.Button AddNode;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox StopAtEnd;
     }
 }

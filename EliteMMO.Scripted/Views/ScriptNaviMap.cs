@@ -19,7 +19,6 @@
         {
             int count = 0;
             float dir = -90;
-            var lastcommandtarget = "";
             while (isRunning || !bgw_navi.CancellationPending)
             {
                 if (isRecording)
@@ -36,189 +35,61 @@
                 {
                     if (comboBox2.Text != "" && ScriptFarmDNC.PlayerInfo.Status == 0 && !isPaused)
                     {
-                        if (Circular.Checked)
+                        var closestWayPoint = FindClosestWayPoint();
+                        if (runReverse.Checked)
                         {
-                            var closestWayPoint = FindClosestWayPoint();
-                            if (runReverse.Checked)
+                            closestWayPoint--;
+                            if (closestWayPoint < 0)
                             {
-                                closestWayPoint--;
-                            }
-                            else
-                            {
-                                closestWayPoint++;
-                            }
-                            if (closestWayPoint >= navPathX.Count())
-                            {
-                                closestWayPoint = 0;
-                            }
-
-                            if (firstPersonView.Checked || navPathfirst[closestWayPoint])
-                            {
-                                if (api.Player.ViewMode != 1)
-                                    api.Player.ViewMode = 1;
-                                api.AutoFollow.IsAutoFollowing = false;
-                                api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
-                                    (ScriptFarmDNC.PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
-                            }
-                            else if (api.Player.ViewMode == 1)
-                                api.Player.ViewMode = 0;
-
-                            api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - ScriptFarmDNC.PlayerInfo.X,
-                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Y),
-                                  (float)navPathZ[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Z);
-
-                            if (navPathdoor[closestWayPoint].Contains("Door"))
-                            {
-                                var items = navPathdoor[closestWayPoint].Split(';');
-                                if (lastcommandtarget != items[1])
+                                if(StopAtEnd.Checked)
+                                    StopToolStripMenuItem_Click(null, null);
+                                else if (Linear.Checked)
                                 {
-                                    api.AutoFollow.IsAutoFollowing = false;
-                                    ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
-                                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                    api.ThirdParty.SendString("/lockon <t>");
-                                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                    while (ScriptFarmDNC.TargetInfo.Distance > 4)
-                                    {
-                                        api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
-                                        Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                                    }
-
-                                    api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                                    while (ScriptFarmDNC.TargetInfo.ID == int.Parse(items[1]))
-                                    {
-                                        api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
-                                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                    }
-                                    lastcommandtarget = items[1];
-                                }
-                            }
-                            else lastcommandtarget = "";
-
-                            api.AutoFollow.IsAutoFollowing = true;
-                        }
-                        else if (Linear.Checked)
-                        {
-                            //if (runReverse.Enabled)
-                            //{
-                            //    runReverse.Enabled = false;
-                            //    runReverse.Checked = false;
-                            //}
-
-                            var closestWayPoint = FindClosestWayPoint();
-                            if (closestWayPoint != -1)
-                            {
-                                if (!runReverse.Checked)
-                                {
-                                    closestWayPoint++;
-                                    if (closestWayPoint >= navPathX.Count())
-                                    {
-                                        closestWayPoint -= 2;
-                                        runReverse.Checked = true;
-                                    }
-
-                                    if (firstPersonView.Checked || navPathfirst[closestWayPoint])
-                                    {
-                                        if (api.Player.ViewMode != 1)
-                                            api.Player.ViewMode = 1;
-                                        api.AutoFollow.IsAutoFollowing = false;
-                                        api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
-                                            (ScriptFarmDNC.PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
-                                    }
-                                    else if (api.Player.ViewMode == 1)
-                                        api.Player.ViewMode = 0;
-
-                                    api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - ScriptFarmDNC.PlayerInfo.X,
-                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Y),
-                                  (float)navPathZ[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Z);
-
-                                    if (navPathdoor[closestWayPoint].Contains("Door"))
-                                    {
-                                        var items = navPathdoor[closestWayPoint].Split(';');
-                                        if (lastcommandtarget != items[1])
-                                        {
-                                            api.AutoFollow.IsAutoFollowing = false;
-                                            ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
-                                            Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                            api.ThirdParty.SendString("/lockon <t>");
-                                            Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                            while (ScriptFarmDNC.TargetInfo.Distance > 4)
-                                            {
-                                                api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
-                                                Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                                            }
-
-                                            api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                                            while (ScriptFarmDNC.TargetInfo.ID == int.Parse(items[1]))
-                                            {
-                                                api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
-                                                Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                            }
-                                            lastcommandtarget = items[1];
-                                        }
-                                    }
-                                    else lastcommandtarget = "";
-
-                                    api.AutoFollow.IsAutoFollowing = true;
+                                    closestWayPoint = 1;
+                                    runReverse.Checked = false;
                                 }
                                 else
                                 {
-                                    closestWayPoint--;
-                                    if (closestWayPoint < 0)
-                                    {
-                                        closestWayPoint = 1;
-                                        runReverse.Checked = false;
-                                    }
-
-                                    if (firstPersonView.Checked || navPathfirst[closestWayPoint])
-                                    {
-                                        if (api.Player.ViewMode != 1)
-                                            api.Player.ViewMode = 1;
-                                        api.AutoFollow.IsAutoFollowing = false;
-                                        api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
-                                            (ScriptFarmDNC.PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
-                                    }
-                                    else if (api.Player.ViewMode == 1)
-                                        api.Player.ViewMode = 0;
-
-                                    api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - ScriptFarmDNC.PlayerInfo.X,
-                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Y),
-                                  (float)navPathZ[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Z);
-
-                                    if (navPathdoor[closestWayPoint].Contains("Door"))
-                                    {
-                                        var items = navPathdoor[closestWayPoint].Split(';');
-                                        if (lastcommandtarget != items[1])
-                                        {
-                                            api.AutoFollow.IsAutoFollowing = false;
-                                            ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
-                                            Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                            api.ThirdParty.SendString("/lockon <t>");
-                                            Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                            while (ScriptFarmDNC.TargetInfo.Distance > 4)
-                                            {
-                                                api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
-                                                Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                                            }
-
-                                            api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                                            while (ScriptFarmDNC.TargetInfo.ID == int.Parse(items[1]))
-                                            {
-                                                api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
-                                                Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                            }
-                                            lastcommandtarget = items[1];
-                                        }
-                                    }
-                                    else lastcommandtarget = "";
-
-                                    api.AutoFollow.IsAutoFollowing = true;
+                                    closestWayPoint = (navPathX.Count() - 1);
                                 }
                             }
                         }
-                    }
-                    else if (api.AutoFollow.IsAutoFollowing)
-                    {
-                        api.AutoFollow.IsAutoFollowing = false;
+                        else
+                        {
+                            closestWayPoint++;
+                            if (closestWayPoint >= navPathX.Count())
+                            {
+                                if (StopAtEnd.Checked)
+                                    StopToolStripMenuItem_Click(null, null);
+                                else if (Linear.Checked)
+                                {
+                                    closestWayPoint -= 2;
+                                    runReverse.Checked = true;
+                                }
+                                else
+                                {
+                                    closestWayPoint = 0;
+                                }
+                            }
+                        }
+                        if (firstPersonView.Checked || navPathfirst[closestWayPoint])
+                        {
+                            if (api.Player.ViewMode != 1)
+                                api.Player.ViewMode = 1;
+                            api.AutoFollow.IsAutoFollowing = false;
+                            api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
+                                (ScriptFarmDNC.PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                        }
+                        else if (api.Player.ViewMode == 1)
+                            api.Player.ViewMode = 0;
+
+                        api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - ScriptFarmDNC.PlayerInfo.X,
+                          ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Y),
+                          (float)navPathZ[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Z);
+
+                        CheckDoor(closestWayPoint);
+
+                        api.AutoFollow.IsAutoFollowing = true;
                     }
 
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -242,6 +113,37 @@
             }
         }
 
+        public void CheckDoor(int navid)
+        {
+            if (navPathdoor[navid].Contains("Door"))
+            {
+                var items = navPathdoor[navid].Split(';');
+                if (lastcommandtarget != items[1])
+                {
+                    api.AutoFollow.IsAutoFollowing = false;
+                    OpenDoor = true;
+                    ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
+                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                    api.ThirdParty.SendString("/lockon <t>");
+                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                    while (ScriptFarmDNC.TargetInfo.Distance > 4)
+                    {
+                        api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
+                        Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                    }
+
+                    api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
+                    while (ScriptFarmDNC.TargetInfo.ID == int.Parse(items[1]))
+                    {
+                        api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
+                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                    }
+                    lastcommandtarget = items[1];
+                    OpenDoor = false;
+                }
+            }
+            else lastcommandtarget = "";
+        }
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\nav");

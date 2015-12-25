@@ -35,6 +35,7 @@
         public static bool NoneProc = false;
         public bool OpenDoor = false;
         public dynamic LRKey = API.Keys.NUMPAD4;
+        public string lastcommandtarget = "";
 
         public int startzone;
 
@@ -10794,7 +10795,7 @@
         }
 
         #endregion
-            #region Function: Get/Set Target
+        #region Function: Get/Set Target
 
         public void FindTarget()
         {
@@ -10959,6 +10960,37 @@
             }
 
             return outRange;
+        }
+        public void CheckDoor(int navid)
+        {
+            if (navPathdoor[navid].Contains("Door"))
+            {
+                var items = navPathdoor[navid].Split(';');
+                if (lastcommandtarget != items[1])
+                {
+                    api.AutoFollow.IsAutoFollowing = false;
+                    OpenDoor = true;
+                    TargetInfo.SetTarget(int.Parse(items[1]));
+                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                    api.ThirdParty.SendString("/lockon <t>");
+                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                    while (TargetInfo.Distance > 4)
+                    {
+                        api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
+                        Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                    }
+
+                    api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
+                    while (TargetInfo.ID == int.Parse(items[1]))
+                    {
+                        api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
+                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                    }
+                    lastcommandtarget = items[1];
+                    OpenDoor = false;
+                }
+            }
+            else lastcommandtarget = "";
         }
         public void FollowTarget()
         {

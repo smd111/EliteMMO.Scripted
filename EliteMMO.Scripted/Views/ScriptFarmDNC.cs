@@ -446,198 +446,69 @@
         {
             int count = 0;
             float dir = -45;
-            string lastcommandtarget = "";
             while (botRunning && !bgw_script_nav.CancellationPending)
             {
+                if (Linear.Checked)
+                {
+                    runReverse.Enabled = false;
+                }
+                else runReverse.Enabled = true;
+
                 if (naviMove && usenav.Checked && selectedNavi.Text != "" && PlayerInfo.Status == 0 &&
                    (!PlayerInfo.HasBuff(10) || !PlayerInfo.HasBuff(11) || !PlayerInfo.HasBuff(0)))
                 {
                     if (checkZone.Checked && startzone != api.Player.ZoneId) ToolStopClick(null, null);
-                    if (Circular.Checked)
+                    var closestWayPoint = FindClosestWayPoint();
+                    if (runReverse.Checked)
                     {
-                        var closestWayPoint = FindClosestWayPoint();
-                        if (runReverse.Checked)
+                        closestWayPoint--;
+                        if (closestWayPoint < 0)
                         {
-                            closestWayPoint--;
-                        }
-                        else
-                        {
-                            closestWayPoint++;
-                        }
-                        if (closestWayPoint >= navPathX.Count())
-                        {
-                            closestWayPoint = 0;
-                        }
-
-                        if (firstPersonView.Checked || navPathfirst[closestWayPoint])
-                        {
-                            if (api.Player.ViewMode != 1)
-                                api.Player.ViewMode = 1;
-                            api.AutoFollow.IsAutoFollowing = false;
-                            api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
-                                (PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
-                        }
-                        else if (api.Player.ViewMode == 1)
-                            api.Player.ViewMode = 0;
-
-                        api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - PlayerInfo.Y),
-                                  (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
-
-                        if (navPathdoor[closestWayPoint].Contains("Door"))
-                        {
-                            var items = navPathdoor[closestWayPoint].Split(';');
-                            if (lastcommandtarget != items[1])
+                            if (Linear.Checked)
                             {
-                                api.AutoFollow.IsAutoFollowing = false;
-                                OpenDoor = true;
-                                TargetInfo.SetTarget(int.Parse(items[1]));
-                                Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                api.ThirdParty.SendString("/lockon <t>");
-                                Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                while (TargetInfo.Distance > 4)
-                                {
-                                    api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
-                                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                                }
-
-                                api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                                while (TargetInfo.ID == int.Parse(items[1]))
-                                {
-                                    api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
-                                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                }
-                                lastcommandtarget = items[1];
-                                OpenDoor = false;
-                            }
-                        }
-                        else lastcommandtarget = "";
-
-                        api.AutoFollow.IsAutoFollowing = true;
-                    }
-                    else if (Linear.Checked)
-                    {
-                        if (runReverse.Enabled)
-                        {
-                            runReverse.Enabled = false;
-                            runReverse.Checked = false;
-                        }
-
-                        var closestWayPoint = FindClosestWayPoint();
-                        if (closestWayPoint != -1)
-                        {
-                            if (!runReverse.Checked)
-                            {
-                                closestWayPoint++;
-                                if (closestWayPoint >= navPathX.Count())
-                                {
-                                    closestWayPoint -= 2;
-                                    runReverse.Checked = true;
-                                }
-
-                                if (firstPersonView.Checked || navPathfirst[closestWayPoint])
-                                {
-                                    if (api.Player.ViewMode != 1)
-                                        api.Player.ViewMode = 1;
-                                    api.AutoFollow.IsAutoFollowing = false;
-                                    api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
-                                        (PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
-                                }
-                                else if (api.Player.ViewMode == 1)
-                                    api.Player.ViewMode = 0;
-
-                                api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - PlayerInfo.Y),
-                                  (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
-
-                                if (navPathdoor[closestWayPoint].Contains("Door"))
-                                {
-                                    var items = navPathdoor[closestWayPoint].Split(';');
-                                    if (lastcommandtarget != items[1])
-                                    {
-                                        api.AutoFollow.IsAutoFollowing = false;
-                                        OpenDoor = true;
-                                        TargetInfo.SetTarget(int.Parse(items[1]));
-                                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                        api.ThirdParty.SendString("/lockon <t>");
-                                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                        while (TargetInfo.Distance > 4)
-                                        {
-                                            api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
-                                            Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                                        }
-
-                                        api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                                        while (TargetInfo.ID == int.Parse(items[1]))
-                                        {
-                                            api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
-                                            Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                        }
-                                        lastcommandtarget = items[1];
-                                        OpenDoor = false;
-                                    }
-                                }
-                                else lastcommandtarget = "";
-
-                                api.AutoFollow.IsAutoFollowing = true;
+                                closestWayPoint = 1;
+                                runReverse.Checked = false;
                             }
                             else
                             {
-                                closestWayPoint--;
-                                if (closestWayPoint < 0)
-                                {
-                                    closestWayPoint = 1;
-                                    runReverse.Checked = false;
-                                }
-
-                                if (firstPersonView.Checked || navPathfirst[closestWayPoint])
-                                {
-                                    if (api.Player.ViewMode != 1)
-                                        api.Player.ViewMode = 1;
-                                    api.AutoFollow.IsAutoFollowing = false;
-                                    api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
-                                        (PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
-                                }
-                                else if (api.Player.ViewMode == 1)
-                                    api.Player.ViewMode = 0;
-
-                                api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
-                                  ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - PlayerInfo.Y),
-                                  (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
-
-                                if (navPathdoor[closestWayPoint].Contains("Door"))
-                                {
-                                    var items = navPathdoor[closestWayPoint].Split(';');
-                                    if (lastcommandtarget != items[1])
-                                    {
-                                        api.AutoFollow.IsAutoFollowing = false;
-                                        OpenDoor = true;
-                                        TargetInfo.SetTarget(int.Parse(items[1]));
-                                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                        api.ThirdParty.SendString("/lockon <t>");
-                                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                        while (TargetInfo.Distance > 4)
-                                        {
-                                            api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
-                                            Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                                        }
-
-                                        api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                                        while (TargetInfo.ID == int.Parse(items[1]))
-                                        {
-                                            api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
-                                            Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                                        }
-                                        lastcommandtarget = items[1];
-                                        OpenDoor = false;
-                                    }
-                                }
-                                else lastcommandtarget = "";
-
-                                api.AutoFollow.IsAutoFollowing = true;
+                                closestWayPoint = (navPathX.Count() - 1);
                             }
                         }
                     }
+                    else
+                    {
+                        closestWayPoint++;
+                        if (closestWayPoint >= navPathX.Count())
+                        {
+                            if (Linear.Checked)
+                            {
+                                closestWayPoint -= 2;
+                                runReverse.Checked = true;
+                            }
+                            else
+                            {
+                                closestWayPoint = 0;
+                            }
+                        }
+                    }
+                    if (firstPersonView.Checked || navPathfirst[closestWayPoint])
+                    {
+                        if (api.Player.ViewMode != 1)
+                            api.Player.ViewMode = 1;
+                        api.AutoFollow.IsAutoFollowing = false;
+                        api.Entity.GetLocalPlayer().H = (float)((Math.PI / 180) *
+                            (PlayerInfo.GetAngleFrom(navPathX[closestWayPoint], navPathZ[closestWayPoint]) - 180));
+                    }
+                    else if (api.Player.ViewMode == 1)
+                        api.Player.ViewMode = 0;
+
+                    api.AutoFollow.SetAutoFollowCoords((float)navPathX[closestWayPoint] - PlayerInfo.X,
+                      ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - PlayerInfo.Y),
+                      (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
+
+                    CheckDoor(closestWayPoint);
+
+                    api.AutoFollow.IsAutoFollowing = true;
                 }
                 else if (usenav.Checked && api.AutoFollow.IsAutoFollowing && !isMoving)
                 {
@@ -669,35 +540,22 @@
             while (botRunning && !bgw_script_sch.CancellationPending)
             {
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                if (PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 90)
+                Dictionary<int, dynamic> SCHcharges = new Dictionary<int, dynamic>()
+                {{ 90, new {time=48, charges = 5}},{ 70, new {time=60, charges = 4}},{ 50, new {time=80, charges = 3}},
+                 { 30, new {time=120, charges = 2}},{ 1, new {time=240, charges = 1}},};
+                foreach (KeyValuePair<int, dynamic> kvp in SCHcharges)
                 {
-                    Thread.Sleep(TimeSpan.FromSeconds(48));
-                    SchCharges++;
-                    if (SchCharges > 5) SchCharges = 5;
-                }
-                else if (PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 70)
-                {
-                    Thread.Sleep(TimeSpan.FromSeconds(60));
-                    SchCharges++;
-                    if (SchCharges > 4) SchCharges = 4;
-                }
-                else if (PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 50)
-                {
-                    Thread.Sleep(TimeSpan.FromSeconds(80));
-                    SchCharges++;
-                    if (SchCharges > 3) SchCharges = 3;
-                }
-                else if ((PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 30) || (PlayerInfo.SubJob == 20 && PlayerInfo.SubJobLevel >= 30))
-                {
-                    Thread.Sleep(TimeSpan.FromSeconds(120));
-                    SchCharges++;
-                    if (SchCharges > 2) SchCharges = 2;
-                }
-                else if  ((PlayerInfo.MainJob == 20 && PlayerInfo.MainJobLevel >= 1) || (PlayerInfo.SubJob == 20 && PlayerInfo.SubJobLevel >= 1))
-                {
-                    Thread.Sleep(TimeSpan.FromSeconds(240));
-                    SchCharges++;
-                    if (SchCharges > 1) SchCharges = 1;
+                    var lvl = 1;
+                    if (PlayerInfo.MainJob == 20) lvl = PlayerInfo.MainJobLevel;
+                    else if (PlayerInfo.SubJob == 20) lvl = PlayerInfo.SubJobLevel;
+                    if (lvl >= kvp.Key)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(kvp.Value.time));
+                        if (SchCharges < kvp.Value.charges)
+                            SchCharges++;
+                        break;
+                    }
+
                 }
             }
         }
@@ -890,12 +748,12 @@
             if (ManualTargMode.Checked) usenav.Checked = false;
             usenav.Enabled = !ManualTargMode.Checked;
         }
-        #endregion
 
         private void verifyfood_Click(object sender, EventArgs e)
         {
             var itc = ItemQuantityByName(foodName.Text);
-            MessageBox.Show("Food : \""+ foodName.Text + "\" Count : "+ itc);
+            MessageBox.Show("Food : \"" + foodName.Text + "\" Count : " + itc);
         }
+        #endregion
     }
 }
