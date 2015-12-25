@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 14 for Windows Desktop
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteMMO.Scripted", "EliteMMO.Scripted\EliteMMO.Scripted.csproj", "{AFAFE220-3BE5-4D14-B2FC-60439B871194}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B9403AEE-2A72-42F5-B9D2-985775351615} = {B9403AEE-2A72-42F5-B9D2-985775351615}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptedUpdater", "Scriptedupdater\ScriptedUpdater.csproj", "{B9403AEE-2A72-42F5-B9D2-985775351615}"
 EndProject
