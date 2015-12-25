@@ -89,14 +89,14 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="checkBox6">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.ComboBox" Name="comboBox2">
               <Text>Upheaval</Text>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown40">
-              <Value>1</Value>
+              <Value>3.0</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="ws">
@@ -115,6 +115,66 @@
               <Value>15</Value>
               <Enabled>True</Enabled>
             </Control>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="Options2MainTab">
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown38">
+            <Value>5</Value>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="aggroRange">
+            <Value>8.5</Value>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="ScanDelay">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="KeepTargetRange">
+            <Value>3</Value>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="assistDist">
+            <Value>5</Value>
+            <Enabled>False</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="followDist">
+            <Value>3</Value>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="partyAssist">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="facetarget">
+            <Checked>True</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="assist">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="followplayer">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.TextBox" Name="followName">
+            <Text />
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="useshadows">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.TextBox" Name="assistplayer">
+            <Text />
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="aggro">
+            <Checked>True</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="mobdist">
+            <Checked>True</Checked>
+            <Enabled>True</Enabled>
           </Control>
         </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="Options3MainTab">
@@ -206,66 +266,6 @@
             </Control>
           </Control>
         </Control>
-        <Control Type="System.Windows.Forms.TabPage" Name="Options2MainTab">
-          <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown38">
-            <Value>5</Value>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.NumericUpDown" Name="aggroRange">
-            <Value>8.5</Value>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="ScanDelay">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.NumericUpDown" Name="KeepTargetRange">
-            <Value>3</Value>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.NumericUpDown" Name="assistDist">
-            <Value>5</Value>
-            <Enabled>False</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.NumericUpDown" Name="followDist">
-            <Value>3</Value>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="partyAssist">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="facetarget">
-            <Checked>True</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="assist">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="followplayer">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.TextBox" Name="followName">
-            <Text />
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="useshadows">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.TextBox" Name="assistplayer">
-            <Text />
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="aggro">
-            <Checked>True</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="mobdist">
-            <Checked>True</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-        </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="Options5MainTab">
           <Control Type="System.Windows.Forms.CheckBox" Name="ManualTargMode">
             <Checked>False</Checked>
@@ -320,7 +320,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="mobheightdistValue">
-          <Value>3</Value>
+          <Value>2</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="mobheightdist">

@@ -16,7 +16,6 @@
             InitializeComponent();
             api = core;
         }
-
         #region Thread - DNC
         private void BgwScriptDncDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
@@ -205,7 +204,7 @@
                         var name = foodName.Text;
 
                         if (!PlayerInfo.HasBuff(251) && name != "" &&
-                            ItemQuantityByName(name) > 0)
+                            Inventory.ItemQuantityByName(name) > 0)
                         {
                             api.ThirdParty.SendString("/item \"" + name + "\" <me>");
                             Thread.Sleep(TimeSpan.FromSeconds(10.0));
@@ -334,7 +333,7 @@
                 if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
                 {
                     if (juguse.Checked && PetInfo.ID == 0 && jugpet.Text != "" &&
-                        ItemQuantityByName(jugpet.Text) > 0)
+                        Inventory.ItemQuantityByName(jugpet.Text) > 0)
                     {
                         #region Ammo/Ranged Slot
                         var rangedSlot = InventoryItems.Items.FirstOrDefault(x => x.Key == api.Inventory.GetEquippedItem(2).Id.ToString()).Value;
@@ -381,7 +380,7 @@
                         Thread.Sleep(TimeSpan.FromSeconds(4.0));
                     }
 
-                    if (petfooduse.Checked && ItemQuantityByName(usedpetfood.Text) > 0 &&
+                    if (petfooduse.Checked && Inventory.ItemQuantityByName(usedpetfood.Text) > 0 &&
                         PetInfo.ID > 0 && usedpetfood.Text != "" && PetInfo.HPP < pethppfood.Value &&
                         Recast.GetAbilityRecast(103) == 0)
                     {
@@ -576,183 +575,6 @@
                 else MonStagered = false;
             }
             MonStagered = false;
-        }
-        #endregion
-        #region Display Controle
-        private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string curItem = playerJA.SelectedItem.ToString();
-            int index = playerJA.FindString(curItem);
-            bool state = (playerJA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
-            if (curItem == "Benediction") BenedictionHPPuse.Enabled = state;
-            else if (curItem == "Proboscis Shower") MONhpCount.Enabled = state;
-            else if (curItem == "Catharsis") MONhpCount.Enabled = state;
-            else if (curItem == "Plenilune Embrace") MONhpCount.Enabled = state;
-            else if (curItem == "Wild Carrot") MONhpCount.Enabled = state;
-            else if (curItem == "Pollen") MONhpCount.Enabled = state;
-            else if (curItem == "Magic Fruit") MONhpCount.Enabled = state;
-            else if (curItem == "Healing Breeze") MONhpCount.Enabled = state;
-            else if (curItem == "Proboscis") MONmpCount.Enabled = state;
-            else if (curItem == "Convert") Convertgroup.Enabled = state;
-            else if (curItem == "Vivacious Pulse")
-            {
-                VivaciousPulse.Enabled = state;
-                VivaciousPulseHP.Enabled = state;
-            }
-        }
-
-        private void playerMA_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string curItem = playerMA.SelectedItem.ToString();
-            int index = playerMA.FindString(curItem);
-            bool state = (playerMA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
-            if (curItem == "Cure") Curecount.Enabled = state;
-            else if (curItem == "Cure II") CureIIcount.Enabled = state;
-            else if (curItem == "Cure III") CureIIIcount.Enabled = state;
-            else if (curItem == "Cure IV") CureIVcount.Enabled = state;
-            else if (curItem == "Cure V") CureVcount.Enabled = state;
-            else if (curItem == "Cure VI") CureVIcount.Enabled = state;
-            else if (curItem == "Cura") Curacount.Enabled = state;
-            else if (curItem == "Cura II") CuraIIcount.Enabled = state;
-            else if (curItem == "Cura III") CuraIIIcount.Enabled = state;
-            else if (curItem == "Full Cure") FullCurecount.Enabled = state;
-            else if (curItem == "Drain") Draincount.Enabled = state;
-            else if (curItem == "Drain II") DrainIIcount.Enabled = state;
-            else if (curItem == "Drain III") DrainIIIcount.Enabled = state;
-            else if (curItem == "Aspir") Aspircount.Enabled = state;
-            else if (curItem == "Aspir II") AspirIIcount.Enabled = state;
-            else if (curItem == "Aspir III") AspirIIIcount.Enabled = state;
-            else if (curItem == "Pollen") Pollencount.Enabled = state;
-            else if (curItem == "Magic Fruit") MagicFruitcount.Enabled = state;
-            else if (curItem == "Healing Breeze") HealingBreezecount.Enabled = state;
-            else if (curItem == "Plenilune Embrace") PleniluneEmbracecount.Enabled = state;
-            else if (curItem == "White Wind") WhiteWindcount.Enabled = state;
-            else if (curItem == "Restoral") Restoralcount.Enabled = state;
-            else if (curItem == "Exuviation") Exuviationcount.Enabled = state;
-            else if (curItem == "Wild Carrot") WildCarrotcount.Enabled = state;
-        }
-
-        private void SMNSelect_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Dictionary<string, dynamic> smnsetup = new Dictionary<string, dynamic>()
-            {
-                {"Carbuncle", new {TEXT1Enabled=true,TEXT2Enabled=true,SMNHPPset1=true,SMNHPPset2=true,SMNpetTPUSEtext=true,
-                    SMNpetTPUSEset=true,TEXT2Text="Healing Ruby II HPP%",TEXT1Text="Healing Ruby HPP%"}},
-                {"Leviathan", new {TEXT1Enabled=true,TEXT2Enabled=false,SMNHPPset1=true,SMNHPPset2=false,SMNpetTPUSEtext=true,
-                    SMNpetTPUSEset=true,TEXT2Text="(Not Needed)",TEXT1Text="Spring Water HPP%"}},
-                {"Garuda", new {TEXT1Enabled=true,TEXT2Enabled=false,SMNHPPset1=true,SMNHPPset2=false,SMNpetTPUSEtext=true,
-                    SMNpetTPUSEset=true,TEXT2Text="(Not Needed)",TEXT1Text="Whispering Wind HPP%"}},
-            };
-            if (!isLoading) SMNGetJA();
-            if (SMNSelect.SelectedItem.ToString().Contains("Spirit"))
-            {
-                SMNHealTEXT1.Enabled = true;
-                SMNHealTEXT1.Text = "Elemental Siphon at MP%";
-                SMNHealTEXT2.Enabled = false;
-                SMNHealTEXT2.Text = "(Not Needed)";
-                SMNHPPset1.Enabled = true;
-                SMNHPPset2.Enabled = false;
-                SMNpetTPUSEtext.Enabled = false;
-                SMNpetTPUSEset.Enabled = false;
-            }
-            else if (smnsetup.ContainsKey((string)SMNSelect.SelectedItem))
-            {
-                SMNHealTEXT1.Enabled = smnsetup[(string)SMNSelect.SelectedItem].TEXT1Enabled;
-                SMNHealTEXT1.Text = smnsetup[(string)SMNSelect.SelectedItem].TEXT1Text;
-                SMNHealTEXT2.Enabled = smnsetup[(string)SMNSelect.SelectedItem].TEXT2Enabled;
-                SMNHealTEXT2.Text = smnsetup[(string)SMNSelect.SelectedItem].TEXT2Text;
-                SMNHPPset1.Enabled = smnsetup[(string)SMNSelect.SelectedItem].TEXT2Enabled;
-                SMNHPPset2.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNHPPset2;
-                SMNpetTPUSEtext.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNpetTPUSEtext;
-                SMNpetTPUSEset.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNpetTPUSEset;
-            }
-            else
-            {
-                SMNHealTEXT1.Enabled = false;
-                SMNHealTEXT1.Text = "(Not Needed)";
-                SMNHealTEXT2.Enabled = false;
-                SMNHealTEXT2.Text = "(Not Needed)";
-                SMNHPPset1.Enabled = false;
-                SMNHPPset2.Enabled = false;
-                SMNpetTPUSEtext.Enabled = true;
-                SMNpetTPUSEset.Enabled = true;
-            }
-        }
-
-        private void Maneuver1select_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((string)Maneuver1select.SelectedItem == "Not Selected") Maneuver1set.Enabled = false;
-            else Maneuver1set.Enabled = true;
-        }
-
-        private void Maneuver2select_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((string)Maneuver2select.SelectedItem == "Not Selected") Maneuver2set.Enabled = false;
-            else Maneuver2set.Enabled = true;
-        }
-
-        private void Maneuver3select_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((string)Maneuver3select.SelectedItem == "Not Selected") Maneuver3set.Enabled = false;
-            else Maneuver3set.Enabled = true;
-        }
-
-        private void PUPJA_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string curItem = PUPJA.SelectedItem.ToString();
-            int index = PUPJA.FindString(curItem);
-            bool state = (PUPJA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
-            if (curItem == "Role Reversal") RoleReversalgroup.Enabled = state;
-            else if (curItem == "Tactical Switch") TacticalSwitchgroup.Enabled = state;
-            else if (curItem == "Repair") Repairgroup.Enabled = state;
-            else if (curItem == "Ventriloquy") Ventriloquygroup.Enabled = state;
-        }
-
-        private void Trusts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var trustcount = 0;
-            if (PlayerInfo.HasKeyItem(2156)) trustcount = 5;
-            else if (PlayerInfo.HasKeyItem(2153)) trustcount = 4;
-            else if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051)) trustcount = 3;
-            
-            selectedtrusts.Text = "Selected Trusts : " + Trusts.CheckedItems.Count;
-
-            if (Trusts.CheckedItems.Count == trustcount) Trusts.Enabled = false;
-        }
-
-        private void NoneProcuse_CheckedChanged(object sender, EventArgs e)
-        {
-            NoneProc = NoneProcuse.Checked;
-        }
-
-        private void DynaProccontrole_CheckedChanged(object sender, EventArgs e)
-        {
-            NoneProcuse.Enabled = DynaProccontrole.Checked;
-        }
-
-        private void EnableDynamis_CheckedChanged(object sender, EventArgs e)
-        {
-            if (EnableDynamis.Checked)
-                this.CombatSettingsTabs.Controls.Add(this.Dynamispage);
-            else
-            {
-                staggerstopJA.Checked = false;
-                DynaProccontrole.Checked = false;
-                NoneProcuse.Checked = false;
-                this.CombatSettingsTabs.Controls.Remove(this.Dynamispage);
-            }
-        }
-
-        private void ManualTargMode_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ManualTargMode.Checked) usenav.Checked = false;
-            usenav.Enabled = !ManualTargMode.Checked;
-        }
-
-        private void verifyfood_Click(object sender, EventArgs e)
-        {
-            var itc = ItemQuantityByName(foodName.Text);
-            MessageBox.Show("Food : \"" + foodName.Text + "\" Count : " + itc);
         }
         #endregion
     }

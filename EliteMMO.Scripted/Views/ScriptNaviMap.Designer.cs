@@ -7,23 +7,27 @@
     partial class ScriptNaviMap
     {
         private static EliteAPI api;
+        #region Variables
+        #region Variables: (Controle/System)
         public bool isRunning = false;
         public bool isRecording = false;
         public bool isPlaying = false;
         public bool isPaused = false;
+        #endregion
+        #region Variables: (NAV)
         public bool OpenDoor = false;
-
         public string lastcommandtarget = "";
         public double[] navPathX = new double[1];
         public double[] navPathZ = new double[1];
         public double[] navPathY = new double[1];
         public bool[] navPathfirst = new bool[1];
         public string[] navPathdoor = new string[1];
+        #endregion
+        #endregion
         /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
@@ -36,7 +40,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Component Designer generated code
 
         /// <summary> 
@@ -553,6 +556,7 @@
         }
 
         #endregion
+        #region sysform
         public System.Windows.Forms.GroupBox groupBox9;
         public System.Windows.Forms.MenuStrip menuStrip4;
         public System.Windows.Forms.ToolStripMenuItem PlayToolStripMenuItem;
@@ -572,7 +576,30 @@
         public System.Windows.Forms.CheckBox runReverse;
         public System.Windows.Forms.RadioButton Linear;
         public System.Windows.Forms.RadioButton Circular;
-
+        private System.Windows.Forms.ListBox WayPoints;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown NodeDist;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.CheckBox StuckWatch;
+        private System.Windows.Forms.CheckBox firstPersonView;
+        private System.Windows.Forms.Button FirstPerson;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ToolStripMenuItem removeNodeToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox EnableForceSave;
+        private System.Windows.Forms.RadioButton ForceLinear;
+        private System.Windows.Forms.RadioButton ForceCircular;
+        private System.Windows.Forms.Button AddNode;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox StopAtEnd;
+        #endregion
         #region PlayToolStrip
         private void PlayToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
@@ -596,7 +623,6 @@
             if (!bgw_navi.IsBusy)
                 bgw_navi.RunWorkerAsync();
         }
-
         private void PauseToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             isPaused = true;
@@ -612,7 +638,6 @@
 
             api.AutoFollow.IsAutoFollowing = false;
         }
-
         private void ResumeToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             isPaused = false;
@@ -628,7 +653,6 @@
 
             api.AutoFollow.IsAutoFollowing = false;
         }
-
         private void StopToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             isRunning = false;
@@ -653,7 +677,6 @@
             api.AutoFollow.IsAutoFollowing = false;
             bgw_navi.CancelAsync();
         }
-
         private void ClearToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             if (WayPoints.Items.Count > 0)
@@ -663,7 +686,6 @@
             if (isRecording)
                 WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
         }
-
         private void RecordToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             isRunning = true;
@@ -722,31 +744,6 @@
             WayPoints.SelectedIndex = outRange;
             return outRange;
         }
-
-        private System.Windows.Forms.ListBox WayPoints;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown NodeDist;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.CheckBox StuckWatch;
         #endregion
-
-        private System.Windows.Forms.CheckBox firstPersonView;
-        private System.Windows.Forms.Button FirstPerson;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ToolStripMenuItem removeNodeToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckBox EnableForceSave;
-        private System.Windows.Forms.RadioButton ForceLinear;
-        private System.Windows.Forms.RadioButton ForceCircular;
-        private System.Windows.Forms.Button AddNode;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox StopAtEnd;
     }
 }

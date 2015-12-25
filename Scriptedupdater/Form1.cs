@@ -13,7 +13,6 @@ namespace WindowsFormsApplication1
         {
             Thread.Sleep(TimeSpan.FromSeconds(0.1));
             InitializeComponent();
-
             string apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
             string mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
             string appexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Scripted.exe").FileVersion;

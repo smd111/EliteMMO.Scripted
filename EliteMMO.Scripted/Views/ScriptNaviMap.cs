@@ -14,7 +14,6 @@
             InitializeComponent();
             api = core;
         }
-
         private void BgwNaviDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             int count = 0;
@@ -112,7 +111,6 @@
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }
-
         public void CheckDoor(int navid)
         {
             if (navPathdoor[navid].Contains("Door"))
@@ -215,7 +213,6 @@
                 }
             }
         }
-
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox2.Text == "") return;
@@ -229,7 +226,6 @@
                 OpenNavi(navi.ToString());
             }
         }
-
         private void RefreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             comboBox2.Items.Clear();
@@ -239,7 +235,6 @@
                 if (!comboBox2.Items.Contains(new FileInfo(file).Name)) comboBox2.Items.Add(new FileInfo(file).Name);
             }
         }
-
         private void First_Click(object sender, EventArgs e)
         {
             if (WayPoints.SelectedIndex == -1) return;
@@ -262,7 +257,6 @@
                 }
             }
         }
-
         private void ConvertToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (WayPoints.Items.Count > 3)
@@ -277,7 +271,6 @@
                 WayPoints.Items.Insert(i, old + ":0");
             } 
         }
-
         private void Door_Click(object sender, EventArgs e)
         {
             var index = WayPoints.SelectedIndex;
@@ -295,7 +288,6 @@
                 WayPoints.Items.Insert(index, old + $":Door;{ScriptFarmDNC.TargetInfo.ID}");
             }
         }
-
         private void removeNodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (WayPoints.SelectedIndex == -1)
@@ -313,13 +305,11 @@
                 }
             }
         }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             ForceCircular.Enabled = EnableForceSave.Checked;
             ForceLinear.Enabled = EnableForceSave.Checked;
         }
-
         private void AddNode_Click(object sender, EventArgs e)
         {
             WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");

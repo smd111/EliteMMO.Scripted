@@ -18,13 +18,10 @@
     partial class ScriptFarmDNC
     {
         private static EliteAPI api;
-        List<WayPoint> route = new List<WayPoint>();
-
-        public List<string> SMNPetNames = new List<string>(new string[] {"Carbuncle","Fenrir","Ifrit","Titan","Leviathan","Garuda","Shiva","Ramuh",
-                             "Diabolos","Cait Sith","Fire Spirit","Ice Spirit","Air Spirit","Earth Spirit","Thunder Spirit","Water Spirit","Light Spirit",
-                             "Dark Spirit"});
-        public double DistanceTolerance { get; set; }
-
+        #region Variables
+        #region Variables: (Controle/System)
+        public static List<string> DebugLog = new List<string>();
+        public string FFXIPath = "";
         public bool botRunning = false;
         public bool naviMove = false;
         public bool datsName = false;
@@ -32,39 +29,44 @@
         public bool isMoving = false;
         public bool isCasting = false;
         public bool isLoading = false;
-        public static bool NoneProc = false;
+        #endregion
+        #region Variables: (NAV)
         public bool OpenDoor = false;
         public dynamic LRKey = API.Keys.NUMPAD4;
         public string lastcommandtarget = "";
-
-        public int startzone;
-
-        public float SetEntityX = 0;
-        public float SetEntityY = 0;
-        public int SchCharges;
-        public bool MonStagered = false;
-        public int mainJOB = 0;
-        public int subJOB = 0;
-
-        public string FFXIPath = "";
-
         public float idleX;
         public float idleY;
         public float idleZ;
-
         public double[] navPathX = new double[1];
         public double[] navPathZ = new double[1];
         public double[] navPathY = new double[1];
         public bool[] navPathfirst = new bool[1];
         public string[] navPathdoor = new string[1];
-
+        //List<WayPoint> route = new List<WayPoint>();
+        #endregion
+        #region Variables: (Dyna)
+        public static bool NoneProc = false;
+        public bool MonStagered = false;
+        #endregion
+        #region Variables: (Job)
+        public List<string> SMNPetNames = new List<string>(new string[] {"Carbuncle","Fenrir","Ifrit","Titan","Leviathan","Garuda","Shiva","Ramuh",
+                             "Diabolos","Cait Sith","Fire Spirit","Ice Spirit","Air Spirit","Earth Spirit","Thunder Spirit","Water Spirit","Light Spirit",
+                             "Dark Spirit"});
+        public int SchCharges;
+        public int mainJOB = 0;
+        public int subJOB = 0;
+        #endregion
+        #region Variables: (Other)
+        //public double DistanceTolerance { get; set; }
+        public int startzone;
+        public float SetEntityX = 0;
+        public float SetEntityY = 0;
         public List<int> partyIDs = new List<int>();
         public List<int> ignoreTarget = new List<int>();
-
-        public static List<string> DebugLog = new List<string>();
-        
         public Dictionary<string, string> wantedID = new Dictionary<string, string>();
         public Dictionary<string, string> wantedNM = new Dictionary<string, string>();
+        #endregion
+        #endregion
         #region dyna mob proc data
         public static Dictionary<string, dynamic> DynaMobProc = new Dictionary<string, dynamic>()
         {
@@ -223,7 +225,6 @@
             "Vanguard's Avatar","Vanguard's Avatar","Vanguard's Avatar","Vanguard's Crow","Vanguard's Hecteyes","Vanguard's Scorpion","Vanguard's Slime",
             "Vanguard's Wyvern","Vanguard's Wyvern","Vanguard's Wyvern","Vanguard's Wyvern","Warchief Tombstone"});
         #endregion
-
         #region zone array
         public static Dictionary<string, string> dats = new Dictionary<string, string>()
         {   {"1", "\\ROM3\\2\\111.DAT"},{"2", "\\ROM3\\2\\112.DAT"},{"3", "\\ROM3\\2\\113.DAT"},{"4", "\\ROM3\\2\\114.DAT"},
@@ -316,12 +317,10 @@
             "Ovjang","Mnejing","Luzaf","Ulmia","Iroha","Shiftrix","Register of Deeds","Emblazoned Reliquary","Temprix","Emporox"
         });
         #endregion
-
         /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
@@ -334,7 +333,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Component Designer generated code
 
         /// <summary> 
@@ -2415,8 +2413,9 @@
             this.RecordIdleLocation.Name = "RecordIdleLocation";
             this.RecordIdleLocation.Size = new System.Drawing.Size(152, 21);
             this.RecordIdleLocation.TabIndex = 14;
-            this.RecordIdleLocation.Text = "record location";
+            this.RecordIdleLocation.Text = "Record Location";
             this.RecordIdleLocation.UseVisualStyleBackColor = true;
+            this.RecordIdleLocation.Click += new System.EventHandler(this.RecordIdleLocation_Click);
             // 
             // WeakLocation
             // 
@@ -7401,7 +7400,6 @@
         }
 
         #endregion
-
         #region sysform
         public System.Windows.Forms.CheckBox checkZone;
         public System.Windows.Forms.CheckBox StopFullInventory;
@@ -7873,8 +7871,266 @@
         private Label label63;
         private Label label62;
         private Label label61;
+        private TabPage Options5MainTab;
+        private CheckBox EnableDynamis;
+        private GroupBox groupBox16;
+        private Label label65;
+        private NumericUpDown StuckDistance;
+        private CheckBox ManualTargMode;
         #endregion
+        #region Display: Controle
+        private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string curItem = playerJA.SelectedItem.ToString();
+            int index = playerJA.FindString(curItem);
+            bool state = (playerJA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
+            List<string> MONCure = new List<string>(new string[]
+            {"Proboscis Shower","Catharsis","Plenilune Embrace","Wild Carrot","Pollen","Magic Fruit","Healing Breeze","Proboscis"});
+            if (MONCure.Contains(curItem)) MONhpCount.Enabled = state;
+            else if (curItem == "Benediction") BenedictionHPPuse.Enabled = state;
+            else if (curItem == "Convert") Convertgroup.Enabled = state;
+            else if (curItem == "Vivacious Pulse")
+            {
+                VivaciousPulse.Enabled = state;
+                VivaciousPulseHP.Enabled = state;
+            }
+        }
+        private void playerMA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string curItem = playerMA.SelectedItem.ToString();
+            int index = playerMA.FindString(curItem);
+            bool state = (playerMA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
 
+            Control c = Controls.Find(curItem.Replace(" ", "") + "count", true).SingleOrDefault();
+            if (c == null) return;
+            else c.Enabled = state;
+        }
+        private void SMNSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var smnselected = SMNSelect.SelectedItem.ToString();
+            Dictionary<string, dynamic> smnsetup = new Dictionary<string, dynamic>()
+            {
+                {"Carbuncle", new {TEXT1Enabled=true,TEXT2Enabled=true,SMNHPPset1=true,SMNHPPset2=true,SMNpetTPUSEtext=true,
+                    SMNpetTPUSEset=true,TEXT2Text="Healing Ruby II HPP%",TEXT1Text="Healing Ruby HPP%"}},
+                {"Leviathan", new {TEXT1Enabled=true,TEXT2Enabled=false,SMNHPPset1=true,SMNHPPset2=false,SMNpetTPUSEtext=true,
+                    SMNpetTPUSEset=true,TEXT2Text="(Not Needed)",TEXT1Text="Spring Water HPP%"}},
+                {"Garuda", new {TEXT1Enabled=true,TEXT2Enabled=false,SMNHPPset1=true,SMNHPPset2=false,SMNpetTPUSEtext=true,
+                    SMNpetTPUSEset=true,TEXT2Text="(Not Needed)",TEXT1Text="Whispering Wind HPP%"}},
+            };
+            if (!isLoading) SMNGetJA();
+            if (smnsetup.ContainsKey(smnselected))
+            {
+                SMNHealTEXT1.Enabled = smnsetup[(string)SMNSelect.SelectedItem].TEXT1Enabled;
+                SMNHealTEXT1.Text = smnsetup[(string)SMNSelect.SelectedItem].TEXT1Text;
+                SMNHealTEXT2.Enabled = smnsetup[(string)SMNSelect.SelectedItem].TEXT2Enabled;
+                SMNHealTEXT2.Text = smnsetup[(string)SMNSelect.SelectedItem].TEXT2Text;
+                SMNHPPset1.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNHPPset1;
+                SMNHPPset2.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNHPPset2;
+                SMNpetTPUSEtext.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNpetTPUSEtext;
+                SMNpetTPUSEset.Enabled = smnsetup[(string)SMNSelect.SelectedItem].SMNpetTPUSEset;
+            }
+            else if (smnselected.Contains("Spirit"))
+            {
+                SMNHealTEXT1.Enabled = true;
+                SMNHealTEXT1.Text = "Elemental Siphon at MP%";
+                SMNHealTEXT2.Enabled = false;
+                SMNHealTEXT2.Text = "(Not Needed)";
+                SMNHPPset1.Enabled = true;
+                SMNHPPset2.Enabled = false;
+                SMNpetTPUSEtext.Enabled = false;
+                SMNpetTPUSEset.Enabled = false;
+            }
+            else
+            {
+                SMNHealTEXT1.Enabled = false;
+                SMNHealTEXT1.Text = "(Not Needed)";
+                SMNHealTEXT2.Enabled = false;
+                SMNHealTEXT2.Text = "(Not Needed)";
+                SMNHPPset1.Enabled = false;
+                SMNHPPset2.Enabled = false;
+                SMNpetTPUSEtext.Enabled = true;
+                SMNpetTPUSEset.Enabled = true;
+            }
+        }
+        private void Maneuver1select_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((string)Maneuver1select.SelectedItem == "Not Selected") Maneuver1set.Enabled = false;
+            else Maneuver1set.Enabled = true;
+        }
+        private void Maneuver2select_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((string)Maneuver2select.SelectedItem == "Not Selected") Maneuver2set.Enabled = false;
+            else Maneuver2set.Enabled = true;
+        }
+        private void Maneuver3select_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((string)Maneuver3select.SelectedItem == "Not Selected") Maneuver3set.Enabled = false;
+            else Maneuver3set.Enabled = true;
+        }
+        private void PUPJA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string curItem = PUPJA.SelectedItem.ToString();
+            int index = PUPJA.FindString(curItem);
+            bool state = (PUPJA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
+            if (curItem == "Role Reversal") RoleReversalgroup.Enabled = state;
+            else if (curItem == "Tactical Switch") TacticalSwitchgroup.Enabled = state;
+            else if (curItem == "Repair") Repairgroup.Enabled = state;
+            else if (curItem == "Ventriloquy") Ventriloquygroup.Enabled = state;
+        }
+        private void Trusts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var trustcount = 0;
+            if (PlayerInfo.HasKeyItem(2156)) trustcount = 5;
+            else if (PlayerInfo.HasKeyItem(2153)) trustcount = 4;
+            else if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051)) trustcount = 3;
+
+            selectedtrusts.Text = "Selected Trusts : " + Trusts.CheckedItems.Count;
+
+            if (Trusts.CheckedItems.Count == trustcount) Trusts.Enabled = false;
+        }
+        private void NoneProcuse_CheckedChanged(object sender, EventArgs e)
+        {
+            NoneProc = NoneProcuse.Checked;
+        }
+        private void DynaProccontrole_CheckedChanged(object sender, EventArgs e)
+        {
+            NoneProcuse.Enabled = DynaProccontrole.Checked;
+        }
+        private void EnableDynamis_CheckedChanged(object sender, EventArgs e)
+        {
+            if (EnableDynamis.Checked)
+                this.CombatSettingsTabs.Controls.Add(this.Dynamispage);
+            else
+            {
+                staggerstopJA.Checked = false;
+                DynaProccontrole.Checked = false;
+                NoneProcuse.Checked = false;
+                this.CombatSettingsTabs.Controls.Remove(this.Dynamispage);
+            }
+        }
+        private void ManualTargMode_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ManualTargMode.Checked) usenav.Checked = false;
+            usenav.Enabled = !ManualTargMode.Checked;
+        }
+        private void verifyfood_Click(object sender, EventArgs e)
+        {
+            var itc = Inventory.ItemQuantityByName(foodName.Text);
+            MessageBox.Show("Food : \"" + foodName.Text + "\" Count : " + itc);
+        }
+        private void UsenavCheckedChanged(object sender, EventArgs e)
+        {
+            if (usenav.Checked)
+            {
+                groupBox8.Enabled = true;
+                runReverse.Enabled = true;
+
+                var path = string.Format("{0}\\Nav\\", Application.StartupPath);
+
+                foreach (var file in Directory.GetFiles(path, "*.xin"))
+                {
+                    selectedNavi.Items.Add(new FileInfo(file).Name);
+                }
+            }
+            else
+            {
+                api.AutoFollow.IsAutoFollowing = false;
+                naviMove = false;
+
+                selectedNavi.Items.Clear();
+
+                groupBox8.Enabled = false;
+                runReverse.Enabled = false;
+            }
+        }
+        private void AssistCheckedChanged(object sender, EventArgs e)
+        {
+            assistDist.Enabled = assist.Checked;
+        }
+        private void IdToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            datsName = false;
+
+            SelectedTargets.Items.Clear();
+            TargetList.Items.Clear();
+
+            SelectedTargets.Columns[0].Width = 35;
+            TargetList.Columns[0].Width = 35;
+
+            PopulateTargetLists("ID");
+
+            foreach (var entry in wantedID.OrderBy(key => key.Value))
+            {
+                TargetList.Items.Add(entry.Key).SubItems.Add(entry.Value);
+            }
+        }
+        private void NameListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            datsName = true;
+            SelectedTargets.Items.Clear();
+            TargetList.Items.Clear();
+
+            SelectedTargets.Columns[0].Width = 0;
+            TargetList.Columns[0].Width = 0;
+
+            PopulateTargetLists("NAME");
+
+            foreach (var entry in wantedNM.OrderBy(key => key.Value))
+            {
+                TargetList.Items.Add(entry.Key).SubItems.Add(entry.Value);
+            }
+        }
+        private void ClearToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            SelectedTargets.Items.Clear();
+        }
+        private void ListView2DoubleClick(object sender, EventArgs e)
+        {
+            if (TargetList.Items.Count <= 0) return;
+
+            var list = new ArrayList();
+
+            if (SelectedTargets.Items.Count < 0) return;
+
+            if (SelectedTargets.Items.Count == 0)
+            {
+                SelectedTargets.Items.Add(TargetList.FocusedItem.Text).SubItems.Add(TargetList.FocusedItem.SubItems[1].Text);
+                list.Add(TargetList.FocusedItem.Text);
+            }
+            foreach (var item in SelectedTargets.Items.Cast<ListViewItem>().Where(item => !list.Contains(item.Text)))
+            {
+                list.Add(item.Text);
+            }
+            if (!list.Contains(TargetList.FocusedItem.Text))
+            {
+                SelectedTargets.Items.Add(TargetList.FocusedItem.Text).SubItems.Add(TargetList.FocusedItem.SubItems[1].Text);
+            }
+            var dats = SelectedTargets.Items.Cast<ListViewItem>().ToDictionary(item => item.Text, item => item.SubItems[1].Text);
+
+            SelectedTargets.Items.Clear();
+            foreach (var entry in dats.OrderBy(key => key.Value))
+            {
+                SelectedTargets.Items.Add(entry.Key).SubItems.Add(entry.Value);
+            }
+        }
+        private void ListView1DoubleClick(object sender, EventArgs e)
+        {
+            if (SelectedTargets.SelectedItems.Count <= 0) return;
+
+            foreach (ListViewItem selected in SelectedTargets.SelectedItems)
+            {
+                SelectedTargets.Items.Remove(selected);
+            }
+        }
+        private void ListView2KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)System.Windows.Forms.Keys.Enter)
+            {
+                SelectedTargets.Items.AddRange((from ListViewItem item in TargetList.SelectedItems
+                                                select (ListViewItem)item.Clone()).ToArray());
+            }
+        }
+        #endregion
         #region Methods: Start/Stop/Load
 
         private void ScriptFarmDncLoad(object sender, EventArgs e)
@@ -8346,18 +8602,86 @@
                     FormSerialisor.Deserialise(this, openFile.FileName);
                     break;
             }
-            //updatenav();
-            //CharacterUpdate();
             isLoading = false;
         }
         #endregion
         #region config: save/load (target)
-        #endregion
-        #region config: save/load (navi)
-        #endregion
+        private void LoadToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            var dats = new Dictionary<string, string>();
 
-        #endregion
+            bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\mob lists");
+            if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\mob lists");
+            var openFile = new OpenFileDialog();
+            openFile.Filter = @"mob files (*.xml)|*.xml";
+            openFile.InitialDirectory = Application.StartupPath + @"\mob lists";
+            openFile.Title = @"select a mob list file";
 
+            switch (openFile.ShowDialog())
+            {
+                case DialogResult.OK:
+                    var doc = XDocument.Load(openFile.FileName);
+                    if (doc.Root == null)
+                        return;
+                    foreach (var xml in doc.Root.Elements())
+                    {
+                        dats.Add(xml.Attribute("id").Value, xml.Attribute("name").Value);
+                    }
+                    SelectedTargets.Items.Clear();
+                    foreach (var entry in dats.OrderBy(key => key.Value))
+                    {
+                        SelectedTargets.Items.Add(entry.Key).SubItems.Add(entry.Value);
+                    }
+                    break;
+            }
+        }
+        private void SaveToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            var dats = new Dictionary<string, string>();
+
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = @"mob files (*.xml)|*.xml";
+            saveFile.InitialDirectory = Application.StartupPath + @"\mob lists";
+            saveFile.Title = @"save mob list file";
+
+            switch (saveFile.ShowDialog())
+            {
+                case DialogResult.OK:
+                    {
+                        if (SelectedTargets.Items.Count <= 0) return;
+
+                        var file = saveFile.FileName;
+                        var xdoc = new XmlDocument();
+
+                        var declaration = xdoc.CreateXmlDeclaration("1.0", "UTF-8", "yes");
+                        var comment = xdoc.CreateComment("This is an XML Generated File");
+                        var root = xdoc.CreateElement("saved");
+
+                        xdoc.AppendChild(declaration);
+                        xdoc.AppendChild(comment);
+                        xdoc.AppendChild(root);
+
+                        foreach (ListViewItem item in SelectedTargets.Items)
+                        {
+                            var entry = xdoc.CreateElement("entry");
+                            var id = xdoc.CreateAttribute("id");
+                            var name = xdoc.CreateAttribute("name");
+
+                            id.Value = item.Text;
+                            name.Value = item.SubItems[1].Text;
+
+                            entry.Attributes.Append(id);
+                            entry.Attributes.Append(name);
+                            root.AppendChild(entry);
+
+                        }
+                        xdoc.Save(file);
+                    }
+                    break;
+            }
+        }
+        #endregion
+        #endregion
         #region Methods: Assist (Player/Party)
         public void CheckPartyAssist()
         {
@@ -8366,7 +8690,6 @@
             if (!partyAssist.Checked || members.Count < 2)
                 return;
         }
-
         public void CheckPartyIDs()
         {
             var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
@@ -8383,7 +8706,6 @@
                     partyIDs.Add((int)pID.ID);
             }
         }
-
         public void CheckPlayerAssist()
         {
             if (!assist.Checked || assistplayer.Text == "")
@@ -8407,14 +8729,8 @@
                 }
             }
         }
-        private void AssistCheckedChanged(object sender, EventArgs e)
-        {
-            assistDist.Enabled = assist.Checked;
-        }
         #endregion
-
         #region Methods: DNC
-
         #region JA: Curing Waltz
 
         #region CuringWaltzParty
@@ -8678,7 +8994,6 @@
             }
         }
         #endregion
-
         #region JA: Job Abilities (use)
 
         private void PlayerJA()
@@ -8801,7 +9116,7 @@
                     else if (ability.Name[0] == "Shikikoyo" && !PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(136) == 0) useAbility = true;
                     else if (jacontrol[ability.ID].ToString().Contains("item ="))
                     {
-                        if (ItemQuantityByName(jacontrol[ability.ID].item) > 0 || ItemQuantityByName("Trump Card") > 0) useAbility = true;
+                        if (Inventory.ItemQuantityByName(jacontrol[ability.ID].item) > 0 || Inventory.ItemQuantityByName("Trump Card") > 0) useAbility = true;
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("b2 ="))
                     {
@@ -8844,14 +9159,14 @@
                 return;
 
             #region Check Items
-            if (ItemQuantityByName("Shihei") == 0 || ItemQuantityByName("Shikanofuda") == 0)
+            if (Inventory.ItemQuantityByName("Shihei") == 0 || Inventory.ItemQuantityByName("Shikanofuda") == 0)
             {
-                if (ItemQuantityByName("Toolbag (Shihe)") > 0)
+                if (Inventory.ItemQuantityByName("Toolbag (Shihe)") > 0)
                 {
                     api.ThirdParty.SendString("/item \"Toolbag (Shihe)\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(3.0));
                 }
-                else if (ItemQuantityByName("Toolbag (Shikanofuda)") > 0)
+                else if (Inventory.ItemQuantityByName("Toolbag (Shikanofuda)") > 0)
                 {
                     api.ThirdParty.SendString("/item \"Toolbag (Shikanofuda)\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(3.0));
@@ -9546,7 +9861,6 @@
 
         #endregion
         #region Methods: PET
-
         #region PET: BST
         #region JA: BST (get/set)
         private void BSTGetJA()
@@ -10043,7 +10357,6 @@
         #endregion
 
         #endregion
-        
         #region PET: SMN
         #region JA: SMN (get/set)
         private void SMNGetJA()
@@ -10272,7 +10585,6 @@
         }
         #endregion
         #endregion
-        
         #region PET: PUP
         #region JA: PUP (get/set)
         private void PUPGetJA()
@@ -10349,7 +10661,7 @@
                     api.ThirdParty.SendString("/ja \"Cooldown\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
-                if (petja.Contains("Repair") && Recast.GetAbilityRecast(206) == 0 && ItemQuantityByName(Repairselect.SelectedText) > 0 && Repairset.Value >= PetInfo.HPP)
+                if (petja.Contains("Repair") && Recast.GetAbilityRecast(206) == 0 && Inventory.ItemQuantityByName(Repairselect.SelectedText) > 0 && Repairset.Value >= PetInfo.HPP)
                 {
                     api.ThirdParty.SendString("/ja \"Repair\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -10409,83 +10721,6 @@
         #endregion
         #endregion
         #region Methods: FRM
-
-        #region Farming: save/load target list
-        private void LoadToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            var dats = new Dictionary<string, string>();
-
-            bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\mob lists");
-            if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\mob lists");
-            var openFile = new OpenFileDialog();
-            openFile.Filter = @"mob files (*.xml)|*.xml";
-            openFile.InitialDirectory = Application.StartupPath + @"\mob lists";
-            openFile.Title = @"select a mob list file";
-
-            switch (openFile.ShowDialog())
-            {
-                case DialogResult.OK:
-                    var doc = XDocument.Load(openFile.FileName);
-                    if (doc.Root == null)
-                        return;
-                    foreach (var xml in doc.Root.Elements())
-                    {
-                        dats.Add(xml.Attribute("id").Value, xml.Attribute("name").Value);
-                    }
-                    SelectedTargets.Items.Clear();
-                    foreach (var entry in dats.OrderBy(key => key.Value))
-                    {
-                        SelectedTargets.Items.Add(entry.Key).SubItems.Add(entry.Value);
-                    }
-                    break;
-            }
-        }
-        private void SaveToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            var dats = new Dictionary<string, string>();
-
-            var saveFile = new SaveFileDialog();
-            saveFile.Filter = @"mob files (*.xml)|*.xml";
-            saveFile.InitialDirectory = Application.StartupPath + @"\mob lists";
-            saveFile.Title = @"save mob list file";
-
-            switch (saveFile.ShowDialog())
-            {
-                case DialogResult.OK:
-                    {
-                        if (SelectedTargets.Items.Count <= 0) return;
-
-                        var file = saveFile.FileName;
-                        var xdoc = new XmlDocument();
-
-                        var declaration = xdoc.CreateXmlDeclaration("1.0", "UTF-8", "yes");
-                        var comment = xdoc.CreateComment("This is an XML Generated File");
-                        var root = xdoc.CreateElement("saved");
-
-                        xdoc.AppendChild(declaration);
-                        xdoc.AppendChild(comment);
-                        xdoc.AppendChild(root);
-
-                        foreach (ListViewItem item in SelectedTargets.Items)
-                        {
-                            var entry = xdoc.CreateElement("entry");
-                            var id = xdoc.CreateAttribute("id");
-                            var name = xdoc.CreateAttribute("name");
-
-                            id.Value = item.Text;
-                            name.Value = item.SubItems[1].Text;
-
-                            entry.Attributes.Append(id);
-                            entry.Attributes.Append(name);
-                            root.AppendChild(entry);
-
-                        }
-                        xdoc.Save(file);
-                    }
-                    break;
-            }
-        }
-        #endregion
         #region Farming: populate target list
         private bool IsUpper(string value)// Consider string to be uppercase if it has no lowercase letters.
         {
@@ -10581,91 +10816,7 @@
             }
             #endregion
         }
-        private void IdToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            datsName = false;
-
-            SelectedTargets.Items.Clear();
-            TargetList.Items.Clear();
-
-            SelectedTargets.Columns[0].Width = 35;
-            TargetList.Columns[0].Width = 35;
-
-            PopulateTargetLists("ID");
-
-            foreach (var entry in wantedID.OrderBy(key => key.Value))
-            {
-                TargetList.Items.Add(entry.Key).SubItems.Add(entry.Value);
-            }
-        }
-        private void NameListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            datsName = true;
-            SelectedTargets.Items.Clear();
-            TargetList.Items.Clear();
-
-            SelectedTargets.Columns[0].Width = 0;
-            TargetList.Columns[0].Width = 0;
-
-            PopulateTargetLists("NAME");
-
-            foreach (var entry in wantedNM.OrderBy(key => key.Value))
-            {
-                TargetList.Items.Add(entry.Key).SubItems.Add(entry.Value);
-            }
-        }
-        private void ClearToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            SelectedTargets.Items.Clear();
-        }
-        private void ListView2DoubleClick(object sender, EventArgs e)
-        {
-            if (TargetList.Items.Count <= 0) return;
-
-            var list = new ArrayList();
-
-            if (SelectedTargets.Items.Count < 0) return;
-
-            if (SelectedTargets.Items.Count == 0)
-            {
-                SelectedTargets.Items.Add(TargetList.FocusedItem.Text).SubItems.Add(TargetList.FocusedItem.SubItems[1].Text);
-                list.Add(TargetList.FocusedItem.Text);
-            }
-            foreach (var item in SelectedTargets.Items.Cast<ListViewItem>().Where(item => !list.Contains(item.Text)))
-            {
-                list.Add(item.Text);
-            }
-            if (!list.Contains(TargetList.FocusedItem.Text))
-            {
-                SelectedTargets.Items.Add(TargetList.FocusedItem.Text).SubItems.Add(TargetList.FocusedItem.SubItems[1].Text);
-            }
-            var dats = SelectedTargets.Items.Cast<ListViewItem>().ToDictionary(item => item.Text, item => item.SubItems[1].Text);
-
-            SelectedTargets.Items.Clear();
-            foreach (var entry in dats.OrderBy(key => key.Value))
-            {
-                SelectedTargets.Items.Add(entry.Key).SubItems.Add(entry.Value);
-            }
-        }
-        private void ListView1DoubleClick(object sender, EventArgs e)
-        {
-            if (SelectedTargets.SelectedItems.Count <= 0) return;
-
-            foreach (ListViewItem selected in SelectedTargets.SelectedItems)
-            {
-                SelectedTargets.Items.Remove(selected);
-            }
-        }
-        private void ListView2KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)System.Windows.Forms.Keys.Enter)
-            {
-                SelectedTargets.Items.AddRange((from ListViewItem item in TargetList.SelectedItems
-                                                select (ListViewItem)item.Clone()).ToArray());
-            }
-        }
         #endregion
-
         #region Function: TargetMoving
         public bool TargetMoving()
         {
@@ -10682,9 +10833,7 @@
             return true;
         }
         #endregion
-
         #region Function: Detect/Attack Aggro
-
         private void DetectAggro()
         {
             if (!aggro.Checked || PlayerInfo.Status == 1 || isPulled)
@@ -10788,15 +10937,13 @@
                     naviMove = true;
             }
         }
+        #endregion
+        #region Function: Get/Set Target
         private void SetTarget(int ID)
         {
             if (ManualTargMode.Checked || OpenDoor) return;
             TargetInfo.SetTarget(ID);
         }
-
-        #endregion
-        #region Function: Get/Set Target
-
         public void FindTarget()
         {
             if (SelectedTargets.Items.Count == 0 || PlayerInfo.Status == 1 || isPulled)
@@ -10936,10 +11083,7 @@
                     naviMove = true;
             }
         }
-
         #endregion
-
-
         #endregion
         #region Methods: NAV
         public int FindClosestWayPoint()
@@ -11139,35 +11283,30 @@
         {
             if (a == 1 && (TargetInfo.ID <= 0 || TargetInfo.HPP == 0))
                 return false;
-            var x = PlayerInfo.X;
-            var z = PlayerInfo.Z;
-            var LDistance = TargetInfo.Distance;
+            var FirstX = PlayerInfo.X;
+            var FirstZ = PlayerInfo.Z;
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
-            var CDistance = TargetInfo.Distance;
-            var Dchange = (a == 1 ? (CDistance - LDistance) : 
-                (Math.Pow(x - PlayerInfo.X, 2) + Math.Pow(z - PlayerInfo.Z, 2)));
-            //api.ThirdParty.SendString(String.Format("/echo {0}", Math.Abs(Dchange)));
+            var Dchange = (Math.Pow(FirstX - PlayerInfo.X, 2) + Math.Pow(FirstZ - PlayerInfo.Z, 2));
             if (Math.Abs(Dchange) < (double)StuckDistance.Value)
                     return true;
 
             return false;
         }
-
         public void ReturnIdleLocation()
         {
             var dist = Math.Truncate(Math.Sqrt(Math.Pow((idleX - PlayerInfo.X), 2) +
-                                               Math.Pow((idleY - PlayerInfo.Y), 2)));
+                                               Math.Pow((idleZ - PlayerInfo.Z), 2)));
 
             if (IdleLocation.Checked && dist > 1 && PlayerInfo.Status == 0)
             {
                 while (dist > 1 && PlayerInfo.Status == 0)
                 {
                     dist = Math.Truncate(Math.Sqrt(Math.Pow((idleX - PlayerInfo.X), 2) +
-                                                       Math.Pow((idleY - PlayerInfo.Y), 2)));
+                                                       Math.Pow((idleZ - PlayerInfo.Z), 2)));
 
-                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
-                                                       TargetInfo.Y - PlayerInfo.Y,
-                                                       TargetInfo.Z - PlayerInfo.Z);
+                    api.AutoFollow.SetAutoFollowCoords(idleX - PlayerInfo.X,
+                                                       idleY - PlayerInfo.Y,
+                                                       idleZ - PlayerInfo.Z);
 
                     api.AutoFollow.IsAutoFollowing = true;
                     Thread.Sleep(TimeSpan.FromSeconds(0.1));
@@ -11176,7 +11315,6 @@
                     api.AutoFollow.IsAutoFollowing = false;
             }
         }
-
         public void OpenNavi(string path)
         {
             var file = new FileInfo(path);
@@ -11216,55 +11354,6 @@
                 }
             }
         }
-
-        //public void OpenRoute(string path)
-        //{
-        //    var file = new FileInfo(path);
-        //    var ipos = 0;
-
-        //    using (var sr = file.OpenText())
-        //    {
-        //        string line;
-        //        while ((line = sr.ReadLine()) != null)
-        //        {
-        //            var items = line.Split(':');
-        //            if (items[0] == "WAYPOINT")
-        //            {
-        //                navPathX[ipos] = double.Parse(items[1]);
-        //                navPathZ[ipos] = double.Parse(items[2]);
-        //                navPathY[ipos] = ((items.Length == 3) ? 0 : double.Parse(items[3]));
-
-        //                ipos++;
-        //            }
-        //        }
-        //    }
-        //}
-
-        private void UsenavCheckedChanged(object sender, EventArgs e)
-        {
-            if (usenav.Checked)
-            {
-                groupBox8.Enabled = true;
-                runReverse.Enabled = true;
-
-                var path = string.Format("{0}\\Nav\\", Application.StartupPath);
-
-                foreach (var file in Directory.GetFiles(path, "*.xin"))
-                {
-                    selectedNavi.Items.Add(new FileInfo(file).Name);
-                }
-            }
-            else
-            {
-                api.AutoFollow.IsAutoFollowing = false;
-                naviMove = false;
-
-                selectedNavi.Items.Clear();
-
-                groupBox8.Enabled = false;
-                runReverse.Enabled = false;
-            }
-        }
         private void RefreshToolStripMenuItemClick(object sender, EventArgs e)
         {
             updatenav();
@@ -11289,60 +11378,65 @@
             if (navi.Exists)
             {
                 OpenNavi(navi.ToString());
-                //OpenRoute(navi.ToString());
             }
+        }
+        private void RecordIdleLocation_Click(object sender, EventArgs e)
+        {
+            idleX = PlayerInfo.X;
+            idleY = PlayerInfo.Y;
+            idleZ = PlayerInfo.Z;
+            RecordIdleLocation.Text = $"X:{idleX}/Y:{idleY}/Z:{idleZ}";
         }
         #endregion        
+        //#region Methods: NAV (new)
 
-        #region Methods: NAV (new)
+        //public class WayPoint
+        //{
+        //    public Zone Zone { get; set; }
 
-        public class WayPoint
-        {
-            public Zone Zone { get; set; }
+        //    public float X { get; set; }
 
-            public float X { get; set; }
+        //    public float Y { get; set; }
 
-            public float Y { get; set; }
+        //    public float Z { get; set; }
+        //}
 
-            public float Z { get; set; }
-        }
+        //public double DistanceTo(int id)
+        //{
+        //    var entity = api.Entity.GetEntity(id);
+        //    return DistanceTo(entity.X, entity.Y, entity.Z);
+        //}
 
-        public double DistanceTo(int id)
-        {
-            var entity = api.Entity.GetEntity(id);
-            return DistanceTo(entity.X, entity.Y, entity.Z);
-        }
+        //public double DistanceTo(double x, double z) => Math.Abs(x) < .00001 && Math.Abs(z) < .00001 ? 0 : DistanceTo(x, api.Player.Y, z);
 
-        public double DistanceTo(double x, double z) => Math.Abs(x) < .00001 && Math.Abs(z) < .00001 ? 0 : DistanceTo(x, api.Player.Y, z);
+        //public double DistanceTo(double x, double y, double z) => Math.Sqrt(Math.Pow(api.Player.X - x, 2) +
+        //                                                                    Math.Pow(api.Player.Y - y, 2) +
+        //                                                                    Math.Pow(z - api.Player.Z, 2));
 
-        public double DistanceTo(double x, double y, double z) => Math.Sqrt(Math.Pow(api.Player.X - x, 2) +
-                                                                            Math.Pow(api.Player.Y - y, 2) +
-                                                                            Math.Pow(z - api.Player.Z, 2));
+        //public int GetIndexOfClosestPoint(int start = 0)
+        //{
+        //    var distance = double.MaxValue;
+        //    var index = 0;
 
-        public int GetIndexOfClosestPoint(int start = 0)
-        {
-            var distance = double.MaxValue;
-            var index = 0;
+        //    for (var i = start; i < route.Count; ++i)
+        //    {
+        //        //if ((Zone)api.Player.ZoneId != route[i].Zone)
+        //        //{
+        //        //    continue;
+        //        //}
 
-            for (var i = start; i < route.Count; ++i)
-            {
-                //if ((Zone)api.Player.ZoneId != route[i].Zone)
-                //{
-                //    continue;
-                //}
+        //        var d = DistanceTo(route[i].X, route[i].Z);
+        //        if (d < distance)
+        //        {
+        //            distance = d;
+        //            index = i;
+        //        }
+        //    }
 
-                var d = DistanceTo(route[i].X, route[i].Z);
-                if (d < distance)
-                {
-                    distance = d;
-                    index = i;
-                }
-            }
+        //    return distance < 25 ? index : -1;
+        //}
 
-            return distance < 25 ? index : -1;
-        }
-
-        #endregion
+        //#endregion
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo
@@ -11401,7 +11495,6 @@
                 else if (NoProcDynaMobs.Contains(target)) return NoneProc;
                 else if (DynaMobProc[time][typ].Contains(target)) return true;
                 return false;
-                
             }
         }
         #endregion
@@ -11572,7 +11665,6 @@
                         : null;
                 }
             }
-
             public static int ID => (int)api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).ServerID;
             public static int HPP => api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).HealthPercent;
             public static int MPP => api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).ManaPercent;
@@ -11581,30 +11673,25 @@
         }
         #endregion
         #region class: Inventory
-        public static int ItemQuantityByName(string name)
+        public static class Inventory
         {
-            var count = api.Inventory.GetContainerCount(0);
-            var itemc = 0;
-
-            for (var x = 0; x < count; x++)
+            public static int ItemQuantityByName(string name)
             {
-                var item = api.Inventory.GetContainerItem(0, x);
-                if (item.Id != 0 && api.Resources.GetItem(item.Id).Name[0] == name)
+                var count = api.Inventory.GetContainerCount(0);
+                var itemc = 0;
+
+                for (var x = 0; x < count; x++)
                 {
-                    itemc = itemc + (int)item.Count;
+                    var item = api.Inventory.GetContainerItem(0, x);
+                    if (item.Id != 0 && api.Resources.GetItem(item.Id).Name[0] == name)
+                    {
+                        itemc = itemc + (int)item.Count;
+                    }
                 }
+                return itemc;
             }
-            return itemc;
         }
         #endregion
-
         #endregion
-
-        private TabPage Options5MainTab;
-        private CheckBox EnableDynamis;
-        private GroupBox groupBox16;
-        private Label label65;
-        private NumericUpDown StuckDistance;
-        private CheckBox ManualTargMode;
     }
 }
