@@ -32,8 +32,8 @@
                 if (followplayer.Checked && PlayerInfo.Status == 0)
                     FollowTarget();
 
-                if (assist.Checked && PlayerInfo.Status == 0)
-                    CheckPlayerAssist();
+                if ((assist.Checked || partyAssist.Checked) && PlayerInfo.Status == 0)
+                    Assist();
 
                 if (aggro.Checked && PlayerInfo.Status == 0 && !isPulled)
                     DetectAggro();
@@ -505,7 +505,11 @@
                       ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - PlayerInfo.Y),
                       (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
-                    CheckDoor(closestWayPoint);
+                    if (navPathdoor[closestWayPoint].Contains("Door"))
+                    {
+                        CheckDoor(closestWayPoint);
+                    }
+                    else lastcommandtarget = "";
 
                     api.AutoFollow.IsAutoFollowing = true;
                 }

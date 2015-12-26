@@ -7,14 +7,14 @@ C:\Users\Steven\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\W
 C:\Users\Steven\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Updater.exe
 C:\Users\Steven\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Updater.pdb
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\bin\Release\Updater.exe.config
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\bin\Release\Updater.exe.manifest
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\bin\Release\Updater.application
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\bin\Release\Updater.exe
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\bin\Release\Updater.pdb
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\WindowsFormsApplication1.Form1.resources
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\ScriptedUpdater.csproj.GenerateResource.Cache
-C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\Updater.exe
-C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\Updater.pdb
-C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\bin\Release\Updater.exe.manifest
-C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\bin\Release\Updater.application
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\Updater.exe.manifest
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\Updater.application
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\Updater.exe
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\Scriptedupdater\obj\Release\Updater.pdb

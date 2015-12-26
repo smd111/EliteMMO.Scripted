@@ -86,7 +86,11 @@
                           ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Y),
                           (float)navPathZ[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Z);
 
-                        CheckDoor(closestWayPoint);
+                        if (navPathdoor[closestWayPoint].Contains("Door"))
+                        {
+                            CheckDoor(closestWayPoint);
+                        }
+                        else lastcommandtarget = "";
 
                         api.AutoFollow.IsAutoFollowing = true;
                     }
@@ -113,34 +117,30 @@
         }
         public void CheckDoor(int navid)
         {
-            if (navPathdoor[navid].Contains("Door"))
+            var items = navPathdoor[navid].Split(';');
+            if (lastcommandtarget != items[1])
             {
-                var items = navPathdoor[navid].Split(';');
-                if (lastcommandtarget != items[1])
+                api.AutoFollow.IsAutoFollowing = false;
+                OpenDoor = true;
+                ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
+                Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                api.ThirdParty.SendString("/lockon <t>");
+                Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                while (ScriptFarmDNC.TargetInfo.Distance > 4)
                 {
-                    api.AutoFollow.IsAutoFollowing = false;
-                    OpenDoor = true;
-                    ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
-                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                    api.ThirdParty.SendString("/lockon <t>");
-                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                    while (ScriptFarmDNC.TargetInfo.Distance > 4)
-                    {
-                        api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
-                        Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                    }
-
-                    api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                    while (ScriptFarmDNC.TargetInfo.ID == int.Parse(items[1]))
-                    {
-                        api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
-                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                    }
-                    lastcommandtarget = items[1];
-                    OpenDoor = false;
+                    api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
+                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
                 }
+
+                api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
+                while (ScriptFarmDNC.TargetInfo.ID == int.Parse(items[1]))
+                {
+                    api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
+                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                }
+                lastcommandtarget = items[1];
+                OpenDoor = false;
             }
-            else lastcommandtarget = "";
         }
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {

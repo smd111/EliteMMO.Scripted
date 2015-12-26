@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="Updater.exe" version="1.2.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Updater" version="1.2.0.0" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="Updater" version="1.3.0.0" language="neutral" processorArchitecture="x86" />
     <commandLine file="Updater.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Updater.exe" size="10656">
-      <assemblyIdentity name="Updater" version="1.2.0.0" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Updater.exe" size="11168">
+      <assemblyIdentity name="Updater" version="1.3.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VgYgxeEG1G+Oi7+nOMFYG3VEZas=</dsig:DigestValue>
+        <dsig:DigestValue>b9W/XbKMAhzlBTfYa8H5o4oUmwI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

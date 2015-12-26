@@ -2159,9 +2159,9 @@
             this.partyAssist.AutoSize = true;
             this.partyAssist.Location = new System.Drawing.Point(62, 66);
             this.partyAssist.Name = "partyAssist";
-            this.partyAssist.Size = new System.Drawing.Size(229, 17);
+            this.partyAssist.Size = new System.Drawing.Size(243, 17);
             this.partyAssist.TabIndex = 103;
-            this.partyAssist.Text = "Assist Party Members (uses assist distance)";
+            this.partyAssist.Text = "Assist All Party Members (uses assist distance)";
             this.partyAssist.UseVisualStyleBackColor = true;
             // 
             // facetarget
@@ -8683,12 +8683,50 @@
         #endregion
         #endregion
         #region Methods: Assist (Player/Party)
-        public void CheckPartyAssist()
+        public void Assist()
         {
-            var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
+            if (PlayerInfo.Status == 0)
+            {
+                var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
+                if (members.Count < 2)
+                    return;
+                else if (assist.Checked && assistplayer.Text != "")
+                {
+                    var member = members.SingleOrDefault(m => m.Name == assistplayer.Text);
+                    var assisted = api.Entity.GetEntity(member.Index);
+                    if (assisted.Status == 1)
+                    {
+                        RunAssist(assisted);
+                    }
+                }
+                else if (partyAssist.Checked && PartyInfo.Count("Party") > 1)
+                {
+                    foreach (var member in members)
+                    {
+                        var assisted = api.Entity.GetEntity(member.Index);
+                        if (assisted.Status == 1)
+                        {
+                            var a = RunAssist(assisted);
+                            if (a)
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+        public bool RunAssist(EliteAPI.XiEntity assisted)
+        {
+            if (assisted.Distance <= (float)assistDist.Value)
+            {
+                WindowInfo.SendText("/assist " + assisted.Name);
+                Thread.Sleep(TimeSpan.FromSeconds(0.5));
 
-            if (!partyAssist.Checked || members.Count < 2)
-                return;
+                Thread.Sleep(TimeSpan.FromSeconds(0.3));
+                WindowInfo.SendText("/attack <t>");
+                Thread.Sleep(TimeSpan.FromSeconds(5.0));
+                return true;
+            }
+            return false;
         }
         public void CheckPartyIDs()
         {
@@ -8704,29 +8742,6 @@
 
                 if (!partyIDs.Contains((int)pID.ID))
                     partyIDs.Add((int)pID.ID);
-            }
-        }
-        public void CheckPlayerAssist()
-        {
-            if (!assist.Checked || assistplayer.Text == "")
-                return;
-
-            var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
-
-            if (PlayerInfo.Status == 0)
-            {
-                var member = members.SingleOrDefault(m => m.Name == assistplayer.Text);
-                var assisted = api.Entity.GetEntity((int)member.Index);
-
-                if (assisted.Status == 1 && assisted.Distance <= (float)assistDist.Value)
-                {
-                    WindowInfo.SendText("/assist " + assistplayer.Text);
-                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
-
-                    Thread.Sleep(TimeSpan.FromSeconds(0.3));
-                    WindowInfo.SendText("/attack <t>");
-                    Thread.Sleep(TimeSpan.FromSeconds(5.0));
-                }
             }
         }
         #endregion
@@ -9201,7 +9216,6 @@
         #endregion
 
         #endregion
-
         #region JA: Magic (use)
         private void PlayerMA()
         {
@@ -9739,7 +9753,6 @@
             Thread.Sleep(TimeSpan.FromSeconds(2.0));
         }
         #endregion
-
         #region WS: WeaponSkill (use)
         private void PlayerWS()
         {
@@ -9858,7 +9871,6 @@
             }
         }
         #endregion
-
         #endregion
         #region Methods: PET
         #region PET: BST
@@ -11107,34 +11119,30 @@
         }
         public void CheckDoor(int navid)
         {
-            if (navPathdoor[navid].Contains("Door"))
+            var items = navPathdoor[navid].Split(';');
+            if (lastcommandtarget != items[1])
             {
-                var items = navPathdoor[navid].Split(';');
-                if (lastcommandtarget != items[1])
+                api.AutoFollow.IsAutoFollowing = false;
+                OpenDoor = true;
+                TargetInfo.SetTarget(int.Parse(items[1]));
+                Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                api.ThirdParty.SendString("/lockon <t>");
+                Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                while (TargetInfo.Distance > 4)
                 {
-                    api.AutoFollow.IsAutoFollowing = false;
-                    OpenDoor = true;
-                    TargetInfo.SetTarget(int.Parse(items[1]));
-                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                    api.ThirdParty.SendString("/lockon <t>");
-                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                    while (TargetInfo.Distance > 4)
-                    {
-                        api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
-                        Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                    }
-
-                    api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
-                    while (TargetInfo.ID == int.Parse(items[1]))
-                    {
-                        api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
-                        Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                    }
-                    lastcommandtarget = items[1];
-                    OpenDoor = false;
+                    api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
+                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
                 }
+
+                api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
+                while (TargetInfo.ID == int.Parse(items[1]))
+                {
+                    api.ThirdParty.KeyPress(API.Keys.NUMPADENTER);
+                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                }
+                lastcommandtarget = items[1];
+                OpenDoor = false;
             }
-            else lastcommandtarget = "";
         }
         public void FollowTarget()
         {
