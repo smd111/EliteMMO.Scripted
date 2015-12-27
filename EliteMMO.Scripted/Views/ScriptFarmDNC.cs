@@ -176,10 +176,16 @@
                     #endregion
 
                     HealingWaltz();
-                    CuringWaltzSelf();
-
+                    if (usecurev.Checked || usecureiv.Checked || usecureiii.Checked || usecureii.Checked || usecure.Checked)
+                        CuringWaltzSelf();
+                    if (ptusecurev.Checked || ptusecureiv.Checked || ptusecureiii.Checked || ptusecureii.Checked || ptusecure.Checked)
+                        CuringWaltzParty();
+                    if ((usedrain.Checked || usedrainii.Checked || usedrainiii.Checked || useaspir.Checked || useaspirii.Checked ||
+                        usehaste.Checked) && !noSamba.Checked)
                     Sambas();
-                    Steps();
+                    if ((usequickstep.Checked || useboxstep.Checked || usestutterstep.Checked || usefeatherstep.Checked) &&
+                        !NoSteps.Checked)
+                        Steps();
 
                     #region Check AutoRange Attack
                     if (autoRangeAttack.Checked && TargetInfo.ID > 0)

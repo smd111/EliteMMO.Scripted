@@ -628,8 +628,9 @@
             this.usecureii = new System.Windows.Forms.CheckBox();
             this.usecure = new System.Windows.Forms.CheckBox();
             this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.PartyWaltsList = new System.Windows.Forms.CheckedListBox();
             this.addplayertext = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.WaltzPTadd = new System.Windows.Forms.TextBox();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -650,9 +651,6 @@
             this.GetSetParty = new System.Windows.Forms.MenuStrip();
             this.loadPartyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearPartyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listView4 = new System.Windows.Forms.ListView();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label15 = new System.Windows.Forms.Label();
             this.flourish = new System.Windows.Forms.TabPage();
             this.flourishesiiigroup = new System.Windows.Forms.GroupBox();
@@ -2450,7 +2448,6 @@
             // IdleLocation
             // 
             this.IdleLocation.AutoSize = true;
-            this.IdleLocation.Enabled = false;
             this.IdleLocation.Location = new System.Drawing.Point(53, 117);
             this.IdleLocation.Name = "IdleLocation";
             this.IdleLocation.Size = new System.Drawing.Size(113, 17);
@@ -4884,17 +4881,25 @@
             // 
             // tabPage16
             // 
+            this.tabPage16.Controls.Add(this.PartyWaltsList);
             this.tabPage16.Controls.Add(this.addplayertext);
-            this.tabPage16.Controls.Add(this.textBox2);
+            this.tabPage16.Controls.Add(this.WaltzPTadd);
             this.tabPage16.Controls.Add(this.groupBox21);
             this.tabPage16.Controls.Add(this.groupBox22);
-            this.tabPage16.Controls.Add(this.listView4);
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Size = new System.Drawing.Size(418, 237);
             this.tabPage16.TabIndex = 2;
             this.tabPage16.Text = "Party Waltz";
             this.tabPage16.UseVisualStyleBackColor = true;
+            // 
+            // PartyWaltsList
+            // 
+            this.PartyWaltsList.FormattingEnabled = true;
+            this.PartyWaltsList.Location = new System.Drawing.Point(210, 27);
+            this.PartyWaltsList.Name = "PartyWaltsList";
+            this.PartyWaltsList.Size = new System.Drawing.Size(199, 139);
+            this.PartyWaltsList.TabIndex = 18;
             // 
             // addplayertext
             // 
@@ -4906,13 +4911,15 @@
             this.addplayertext.TabIndex = 17;
             this.addplayertext.Text = "Add Player";
             // 
-            // textBox2
+            // WaltzPTadd
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(274, 174);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(135, 20);
-            this.textBox2.TabIndex = 16;
+            this.WaltzPTadd.AcceptsReturn = true;
+            this.WaltzPTadd.Enabled = false;
+            this.WaltzPTadd.Location = new System.Drawing.Point(274, 174);
+            this.WaltzPTadd.Name = "WaltzPTadd";
+            this.WaltzPTadd.Size = new System.Drawing.Size(135, 20);
+            this.WaltzPTadd.TabIndex = 16;
+            this.WaltzPTadd.TextChanged += new System.EventHandler(this.WaltzPTadd_TextChanged);
             // 
             // groupBox21
             // 
@@ -5135,36 +5142,14 @@
             this.loadPartyToolStripMenuItem.Name = "loadPartyToolStripMenuItem";
             this.loadPartyToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.loadPartyToolStripMenuItem.Text = "Load Party";
+            this.loadPartyToolStripMenuItem.Click += new System.EventHandler(this.loadPartyToolStripMenuItem_Click);
             // 
             // clearPartyToolStripMenuItem
             // 
             this.clearPartyToolStripMenuItem.Name = "clearPartyToolStripMenuItem";
             this.clearPartyToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.clearPartyToolStripMenuItem.Text = "Clear Party";
-            // 
-            // listView4
-            // 
-            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader8,
-            this.columnHeader9});
-            this.listView4.FullRowSelect = true;
-            this.listView4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView4.Location = new System.Drawing.Point(206, 27);
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(203, 142);
-            this.listView4.TabIndex = 12;
-            this.listView4.UseCompatibleStateImageBehavior = false;
-            this.listView4.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "name";
-            this.columnHeader8.Width = 110;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "hp";
-            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clearPartyToolStripMenuItem.Click += new System.EventHandler(this.clearPartyToolStripMenuItem_Click);
             // 
             // label15
             // 
@@ -7571,7 +7556,7 @@
         public System.Windows.Forms.CheckBox usecure;
         public System.Windows.Forms.TabPage tabPage16;
         public System.Windows.Forms.Label addplayertext;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox WaltzPTadd;
         public System.Windows.Forms.GroupBox groupBox21;
         public System.Windows.Forms.Label label38;
         public System.Windows.Forms.Label label37;
@@ -7592,9 +7577,6 @@
         public System.Windows.Forms.MenuStrip GetSetParty;
         public System.Windows.Forms.ToolStripMenuItem loadPartyToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem clearPartyToolStripMenuItem;
-        public System.Windows.Forms.ListView listView4;
-        public System.Windows.Forms.ColumnHeader columnHeader8;
-        public System.Windows.Forms.ColumnHeader columnHeader9;
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.TabPage flourish;
         public System.Windows.Forms.GroupBox flourishesiiigroup;
@@ -8129,6 +8111,25 @@
                 SelectedTargets.Items.AddRange((from ListViewItem item in TargetList.SelectedItems
                                                 select (ListViewItem)item.Clone()).ToArray());
             }
+        }
+        private void WaltzPTadd_TextChanged(object sender, EventArgs e)
+        {
+            if (!PartyWaltsList.Items.Contains(WaltzPTadd.Text))
+                PartyWaltsList.Items.Add(WaltzPTadd.Text);
+        }
+        private void loadPartyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
+            foreach (var member in members)
+            {
+                string name = member.Name.Replace(PlayerInfo.Name, "").Trim();
+                if (PartyWaltsList.Items.Contains(name))
+                    PartyWaltsList.Items.Add(name);
+            }
+        }
+        private void clearPartyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PartyWaltsList.Items.Clear();
         }
         #endregion
         #region Methods: Start/Stop/Load
@@ -8747,8 +8748,43 @@
         #endregion
         #region Methods: DNC
         #region JA: Curing Waltz
-
         #region CuringWaltzParty
+        public void CuringWaltzParty()
+        {
+            if (!botRunning || PlayerInfo.Status != 1 || naviMove || PlayerInfo.HasBuff(16)) return;
+            var partymembers = (from object itemChecked in PartyWaltsList.Items select itemChecked.ToString()).ToList();
+            foreach(string member in partymembers)
+            {
+                if (Recast.GetAbilityRecast(217) != 0)
+                    return;
+                else if (ptusecurev.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown27.Value && PlayerInfo.TP > 800)
+                {
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz V\" {member}");
+                    break;
+                }
+                else if (ptusecureiv.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown28.Value && PlayerInfo.TP > 650)
+                {
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz IV\" {member}");
+                    break;
+                }
+                else if (ptusecureiii.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown29.Value && PlayerInfo.TP > 500)
+                {
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz III\" {member}");
+                    break;
+                }
+                else if (ptusecureii.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown32.Value && PlayerInfo.TP > 350)
+                {
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz II\" {member}");
+                    break;
+                }
+                else if (ptusecure.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown33.Value && PlayerInfo.TP > 200)
+                {
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz\" {member}");
+                    break;
+                }
+            }
+            Thread.Sleep(TimeSpan.FromSeconds(2.0));
+        }
         #endregion
         #region CuringWaltzSelf
         private void CuringWaltzSelf()
@@ -8790,7 +8826,6 @@
         }
 
         #endregion
-
         #endregion
         #region JA: Healing Waltz
         private void HealingWaltz()
@@ -11395,7 +11430,9 @@
             idleZ = PlayerInfo.Z;
             RecordIdleLocation.Text = $"X:{idleX}/Y:{idleY}/Z:{idleZ}";
         }
-        #endregion        
+
+        private CheckedListBox PartyWaltsList;
+        #endregion
         //#region Methods: NAV (new)
 
         //public class WayPoint
@@ -11633,7 +11670,8 @@
                 for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
                 {
                     var member = api.Party.GetPartyMember(x);
-                    if (member.Name == name && member.Active == 1) return true;
+                    if (member.Active != 0 && Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
+                        return true;
                 }
                 return false;
             }
@@ -11642,7 +11680,8 @@
                 for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
                 {
                     var member = api.Party.GetPartyMember(x);
-                    if (member.Name == name) return member.CurrentHPP;
+                    if (member.Active != 0 && Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
+                        return member.CurrentHPP;
                 }
                 return 0;
             }
@@ -11651,7 +11690,8 @@
                 for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
                 {
                     var member = api.Party.GetPartyMember(x);
-                    if (member.Name == name) return member.CurrentMPP;
+                    if (member.Active != 0 && Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
+                        return member.CurrentMPP;
                 }
                 return 0;
             }
