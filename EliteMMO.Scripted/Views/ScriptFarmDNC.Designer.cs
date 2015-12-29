@@ -57,7 +57,6 @@
         public int subJOB = 0;
         #endregion
         #region Variables: (Other)
-        //public double DistanceTolerance { get; set; }
         public int startzone;
         public float SetEntityX = 0;
         public float SetEntityY = 0;
@@ -394,7 +393,6 @@
             this.wsam = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label39 = new System.Windows.Forms.Label();
             this.numericUpDown40 = new System.Windows.Forms.NumericUpDown();
             this.ws = new System.Windows.Forms.CheckBox();
             this.numericUpDown24 = new System.Windows.Forms.NumericUpDown();
@@ -502,25 +500,67 @@
             this.clearMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CureConfigPage = new System.Windows.Forms.TabPage();
             this.CuraIIcount = new System.Windows.Forms.NumericUpDown();
-            this.label55 = new System.Windows.Forms.Label();
-            this.CuraIIIcount = new System.Windows.Forms.NumericUpDown();
-            this.label53 = new System.Windows.Forms.Label();
             this.Curacount = new System.Windows.Forms.NumericUpDown();
-            this.label54 = new System.Windows.Forms.Label();
-            this.FullCurecount = new System.Windows.Forms.NumericUpDown();
-            this.label52 = new System.Windows.Forms.Label();
-            this.CureVIcount = new System.Windows.Forms.NumericUpDown();
-            this.label45 = new System.Windows.Forms.Label();
-            this.CureVcount = new System.Windows.Forms.NumericUpDown();
-            this.CureIVcount = new System.Windows.Forms.NumericUpDown();
             this.CureIIIcount = new System.Windows.Forms.NumericUpDown();
             this.CureIIcount = new System.Windows.Forms.NumericUpDown();
+            this.Curecount = new System.Windows.Forms.NumericUpDown();
+            this.CuraIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.FullCurecount = new System.Windows.Forms.NumericUpDown();
+            this.CureVIcount = new System.Windows.Forms.NumericUpDown();
+            this.CureVcount = new System.Windows.Forms.NumericUpDown();
+            this.CureIVcount = new System.Windows.Forms.NumericUpDown();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Curecount = new System.Windows.Forms.NumericUpDown();
+            this.PartyCurepage = new System.Windows.Forms.TabPage();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ptCure = new System.Windows.Forms.CheckBox();
+            this.CuraIIptcount = new System.Windows.Forms.NumericUpDown();
+            this.CuraIIIptcount = new System.Windows.Forms.NumericUpDown();
+            this.Curaptcount = new System.Windows.Forms.NumericUpDown();
+            this.FullCureptcount = new System.Windows.Forms.NumericUpDown();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.CureVIptcount = new System.Windows.Forms.NumericUpDown();
+            this.label74 = new System.Windows.Forms.Label();
+            this.CureVptcount = new System.Windows.Forms.NumericUpDown();
+            this.CureIVptcount = new System.Windows.Forms.NumericUpDown();
+            this.label77 = new System.Windows.Forms.Label();
+            this.CureIIIptcount = new System.Windows.Forms.NumericUpDown();
+            this.label75 = new System.Windows.Forms.Label();
+            this.CureIIptcount = new System.Windows.Forms.NumericUpDown();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.Cureptcount = new System.Windows.Forms.NumericUpDown();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.CurePTlist = new System.Windows.Forms.CheckedListBox();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Cureagapage = new System.Windows.Forms.TabPage();
+            this.label39 = new System.Windows.Forms.Label();
+            this.CuragaVcount = new System.Windows.Forms.NumericUpDown();
+            this.CuragaIVcount = new System.Windows.Forms.NumericUpDown();
+            this.CuragaIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.CuragaIIcount = new System.Windows.Forms.NumericUpDown();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.Curagacount = new System.Windows.Forms.NumericUpDown();
             this.DrainAspirpage = new System.Windows.Forms.TabPage();
             this.Aspirgroup = new System.Windows.Forms.GroupBox();
             this.AspirIIIcount = new System.Windows.Forms.NumericUpDown();
@@ -660,7 +700,6 @@
             this.usestkflo = new System.Windows.Forms.RadioButton();
             this.useclmflo = new System.Windows.Forms.RadioButton();
             this.useterflo = new System.Windows.Forms.RadioButton();
-            this.label40 = new System.Windows.Forms.Label();
             this.finsishingmovetext = new System.Windows.Forms.Label();
             this.FlourishTPValue = new System.Windows.Forms.NumericUpDown();
             this.flourishesiigroup = new System.Windows.Forms.GroupBox();
@@ -808,6 +847,7 @@
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
+            this.bgw_script_disp = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_chat = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_pet = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
@@ -815,6 +855,13 @@
             this.DeathWarp = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.curtime = new System.Windows.Forms.Label();
+            this.curtarghpp = new System.Windows.Forms.Label();
+            this.curtarg = new System.Windows.Forms.Label();
+            this.playertp = new System.Windows.Forms.Label();
+            this.playermp = new System.Windows.Forms.Label();
+            this.playerhp = new System.Windows.Forms.Label();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -879,15 +926,37 @@
             this.GetSetMA.SuspendLayout();
             this.CureConfigPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CuraIIcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Curacount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Curecount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FullCurecount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureVIcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureVcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureIVcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Curecount)).BeginInit();
+            this.PartyCurepage.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIptcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIptcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Curaptcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FullCureptcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureVIptcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureVptcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIVptcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIIptcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIptcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cureptcount)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.Cureagapage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CuragaVcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuragaIVcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuragaIIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuragaIIcount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Curagacount)).BeginInit();
             this.DrainAspirpage.SuspendLayout();
             this.Aspirgroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AspirIIIcount)).BeginInit();
@@ -1018,6 +1087,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.groupBox18.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkZone
@@ -1514,7 +1584,6 @@
             this.groupBox20.Controls.Add(this.wsam);
             this.groupBox20.Controls.Add(this.checkBox6);
             this.groupBox20.Controls.Add(this.comboBox2);
-            this.groupBox20.Controls.Add(this.label39);
             this.groupBox20.Controls.Add(this.numericUpDown40);
             this.groupBox20.Controls.Add(this.ws);
             this.groupBox20.Controls.Add(this.numericUpDown24);
@@ -1857,15 +1926,6 @@
             this.comboBox2.Sorted = true;
             this.comboBox2.TabIndex = 102;
             // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(171, 19);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(15, 13);
-            this.label39.TabIndex = 101;
-            this.label39.Text = "%";
-            // 
             // numericUpDown40
             // 
             this.numericUpDown40.DecimalPlaces = 1;
@@ -2024,7 +2084,7 @@
             0,
             0,
             65536});
-            this.numericUpDown38.Location = new System.Drawing.Point(255, 155);
+            this.numericUpDown38.Location = new System.Drawing.Point(281, 155);
             this.numericUpDown38.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2049,7 +2109,7 @@
             0,
             0,
             65536});
-            this.aggroRange.Location = new System.Drawing.Point(255, 109);
+            this.aggroRange.Location = new System.Drawing.Point(281, 109);
             this.aggroRange.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2069,7 +2129,7 @@
             // ScanDelay
             // 
             this.ScanDelay.AutoSize = true;
-            this.ScanDelay.Location = new System.Drawing.Point(62, 157);
+            this.ScanDelay.Location = new System.Drawing.Point(88, 157);
             this.ScanDelay.Name = "ScanDelay";
             this.ScanDelay.Size = new System.Drawing.Size(125, 17);
             this.ScanDelay.TabIndex = 90;
@@ -2084,7 +2144,7 @@
             0,
             0,
             65536});
-            this.KeepTargetRange.Location = new System.Drawing.Point(255, 132);
+            this.KeepTargetRange.Location = new System.Drawing.Point(281, 132);
             this.KeepTargetRange.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2110,7 +2170,7 @@
             0,
             0,
             65536});
-            this.assistDist.Location = new System.Drawing.Point(255, 42);
+            this.assistDist.Location = new System.Drawing.Point(281, 42);
             this.assistDist.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2135,7 +2195,7 @@
             0,
             0,
             65536});
-            this.followDist.Location = new System.Drawing.Point(255, 16);
+            this.followDist.Location = new System.Drawing.Point(281, 16);
             this.followDist.Maximum = new decimal(new int[] {
             50,
             0,
@@ -2155,7 +2215,7 @@
             // partyAssist
             // 
             this.partyAssist.AutoSize = true;
-            this.partyAssist.Location = new System.Drawing.Point(62, 66);
+            this.partyAssist.Location = new System.Drawing.Point(88, 66);
             this.partyAssist.Name = "partyAssist";
             this.partyAssist.Size = new System.Drawing.Size(243, 17);
             this.partyAssist.TabIndex = 103;
@@ -2165,7 +2225,7 @@
             // facetarget
             // 
             this.facetarget.AutoSize = true;
-            this.facetarget.Location = new System.Drawing.Point(169, 88);
+            this.facetarget.Location = new System.Drawing.Point(195, 88);
             this.facetarget.Name = "facetarget";
             this.facetarget.Size = new System.Drawing.Size(120, 17);
             this.facetarget.TabIndex = 96;
@@ -2175,7 +2235,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(224, 45);
+            this.label12.Location = new System.Drawing.Point(250, 45);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(25, 13);
             this.label12.TabIndex = 101;
@@ -2184,7 +2244,7 @@
             // assist
             // 
             this.assist.AutoSize = true;
-            this.assist.Location = new System.Drawing.Point(62, 44);
+            this.assist.Location = new System.Drawing.Point(88, 44);
             this.assist.Name = "assist";
             this.assist.Size = new System.Drawing.Size(53, 17);
             this.assist.TabIndex = 100;
@@ -2195,7 +2255,7 @@
             // followplayer
             // 
             this.followplayer.AutoSize = true;
-            this.followplayer.Location = new System.Drawing.Point(62, 18);
+            this.followplayer.Location = new System.Drawing.Point(88, 18);
             this.followplayer.Name = "followplayer";
             this.followplayer.Size = new System.Drawing.Size(56, 17);
             this.followplayer.TabIndex = 95;
@@ -2204,7 +2264,7 @@
             // 
             // followName
             // 
-            this.followName.Location = new System.Drawing.Point(118, 16);
+            this.followName.Location = new System.Drawing.Point(144, 16);
             this.followName.Name = "followName";
             this.followName.Size = new System.Drawing.Size(100, 20);
             this.followName.TabIndex = 97;
@@ -2212,7 +2272,7 @@
             // useshadows
             // 
             this.useshadows.AutoSize = true;
-            this.useshadows.Location = new System.Drawing.Point(62, 88);
+            this.useshadows.Location = new System.Drawing.Point(88, 88);
             this.useshadows.Name = "useshadows";
             this.useshadows.Size = new System.Drawing.Size(92, 17);
             this.useshadows.TabIndex = 94;
@@ -2222,7 +2282,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(224, 19);
+            this.label11.Location = new System.Drawing.Point(250, 19);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(25, 13);
             this.label11.TabIndex = 98;
@@ -2230,7 +2290,7 @@
             // 
             // assistplayer
             // 
-            this.assistplayer.Location = new System.Drawing.Point(118, 42);
+            this.assistplayer.Location = new System.Drawing.Point(144, 42);
             this.assistplayer.Name = "assistplayer";
             this.assistplayer.Size = new System.Drawing.Size(100, 20);
             this.assistplayer.TabIndex = 99;
@@ -2238,7 +2298,7 @@
             // aggro
             // 
             this.aggro.AutoSize = true;
-            this.aggro.Location = new System.Drawing.Point(62, 111);
+            this.aggro.Location = new System.Drawing.Point(88, 111);
             this.aggro.Name = "aggro";
             this.aggro.Size = new System.Drawing.Size(171, 17);
             this.aggro.TabIndex = 91;
@@ -2248,7 +2308,7 @@
             // mobdist
             // 
             this.mobdist.AutoSize = true;
-            this.mobdist.Location = new System.Drawing.Point(62, 134);
+            this.mobdist.Location = new System.Drawing.Point(88, 134);
             this.mobdist.Name = "mobdist";
             this.mobdist.Size = new System.Drawing.Size(151, 17);
             this.mobdist.TabIndex = 93;
@@ -3309,6 +3369,8 @@
             // 
             this.MAtabs.Controls.Add(this.MASelectPage);
             this.MAtabs.Controls.Add(this.CureConfigPage);
+            this.MAtabs.Controls.Add(this.PartyCurepage);
+            this.MAtabs.Controls.Add(this.Cureagapage);
             this.MAtabs.Controls.Add(this.DrainAspirpage);
             this.MAtabs.Controls.Add(this.BLUCurespage);
             this.MAtabs.Controls.Add(this.MAconfigpage);
@@ -3369,25 +3431,25 @@
             // CureConfigPage
             // 
             this.CureConfigPage.Controls.Add(this.CuraIIcount);
-            this.CureConfigPage.Controls.Add(this.label55);
-            this.CureConfigPage.Controls.Add(this.CuraIIIcount);
-            this.CureConfigPage.Controls.Add(this.label53);
             this.CureConfigPage.Controls.Add(this.Curacount);
-            this.CureConfigPage.Controls.Add(this.label54);
-            this.CureConfigPage.Controls.Add(this.FullCurecount);
-            this.CureConfigPage.Controls.Add(this.label52);
-            this.CureConfigPage.Controls.Add(this.CureVIcount);
-            this.CureConfigPage.Controls.Add(this.label45);
-            this.CureConfigPage.Controls.Add(this.CureVcount);
-            this.CureConfigPage.Controls.Add(this.CureIVcount);
             this.CureConfigPage.Controls.Add(this.CureIIIcount);
             this.CureConfigPage.Controls.Add(this.CureIIcount);
+            this.CureConfigPage.Controls.Add(this.Curecount);
+            this.CureConfigPage.Controls.Add(this.CuraIIIcount);
+            this.CureConfigPage.Controls.Add(this.FullCurecount);
+            this.CureConfigPage.Controls.Add(this.CureVIcount);
+            this.CureConfigPage.Controls.Add(this.CureVcount);
+            this.CureConfigPage.Controls.Add(this.CureIVcount);
+            this.CureConfigPage.Controls.Add(this.label55);
+            this.CureConfigPage.Controls.Add(this.label53);
+            this.CureConfigPage.Controls.Add(this.label54);
+            this.CureConfigPage.Controls.Add(this.label52);
+            this.CureConfigPage.Controls.Add(this.label45);
             this.CureConfigPage.Controls.Add(this.label44);
             this.CureConfigPage.Controls.Add(this.label43);
             this.CureConfigPage.Controls.Add(this.label9);
             this.CureConfigPage.Controls.Add(this.label2);
             this.CureConfigPage.Controls.Add(this.label1);
-            this.CureConfigPage.Controls.Add(this.Curecount);
             this.CureConfigPage.Location = new System.Drawing.Point(4, 22);
             this.CureConfigPage.Name = "CureConfigPage";
             this.CureConfigPage.Padding = new System.Windows.Forms.Padding(3);
@@ -3404,14 +3466,37 @@
             this.CuraIIcount.Size = new System.Drawing.Size(44, 20);
             this.CuraIIcount.TabIndex = 19;
             // 
-            // label55
+            // Curacount
             // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(51, 116);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(46, 13);
-            this.label55.TabIndex = 18;
-            this.label55.Text = "CuraII %";
+            this.Curacount.Enabled = false;
+            this.Curacount.Location = new System.Drawing.Point(100, 92);
+            this.Curacount.Name = "Curacount";
+            this.Curacount.Size = new System.Drawing.Size(44, 20);
+            this.Curacount.TabIndex = 15;
+            // 
+            // CureIIIcount
+            // 
+            this.CureIIIcount.Enabled = false;
+            this.CureIIIcount.Location = new System.Drawing.Point(100, 66);
+            this.CureIIIcount.Name = "CureIIIcount";
+            this.CureIIIcount.Size = new System.Drawing.Size(44, 20);
+            this.CureIIIcount.TabIndex = 7;
+            // 
+            // CureIIcount
+            // 
+            this.CureIIcount.Enabled = false;
+            this.CureIIcount.Location = new System.Drawing.Point(100, 44);
+            this.CureIIcount.Name = "CureIIcount";
+            this.CureIIcount.Size = new System.Drawing.Size(44, 20);
+            this.CureIIcount.TabIndex = 6;
+            // 
+            // Curecount
+            // 
+            this.Curecount.Enabled = false;
+            this.Curecount.Location = new System.Drawing.Point(100, 22);
+            this.Curecount.Name = "Curecount";
+            this.Curecount.Size = new System.Drawing.Size(44, 20);
+            this.Curecount.TabIndex = 0;
             // 
             // CuraIIIcount
             // 
@@ -3421,32 +3506,6 @@
             this.CuraIIIcount.Size = new System.Drawing.Size(44, 20);
             this.CuraIIIcount.TabIndex = 17;
             // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(202, 91);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(49, 13);
-            this.label53.TabIndex = 16;
-            this.label53.Text = "CuraIII %";
-            // 
-            // Curacount
-            // 
-            this.Curacount.Enabled = false;
-            this.Curacount.Location = new System.Drawing.Point(100, 92);
-            this.Curacount.Name = "Curacount";
-            this.Curacount.Size = new System.Drawing.Size(44, 20);
-            this.Curacount.TabIndex = 15;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(51, 94);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(49, 13);
-            this.label54.TabIndex = 14;
-            this.label54.Text = "Cura    %";
-            // 
             // FullCurecount
             // 
             this.FullCurecount.Enabled = false;
@@ -3455,15 +3514,6 @@
             this.FullCurecount.Size = new System.Drawing.Size(44, 20);
             this.FullCurecount.TabIndex = 13;
             // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(192, 119);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(59, 13);
-            this.label52.TabIndex = 12;
-            this.label52.Text = "Full Cure %";
-            // 
             // CureVIcount
             // 
             this.CureVIcount.Enabled = false;
@@ -3471,15 +3521,6 @@
             this.CureVIcount.Name = "CureVIcount";
             this.CureVIcount.Size = new System.Drawing.Size(44, 20);
             this.CureVIcount.TabIndex = 11;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(202, 65);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(50, 13);
-            this.label45.TabIndex = 10;
-            this.label45.Text = "CureVI %";
             // 
             // CureVcount
             // 
@@ -3497,21 +3538,50 @@
             this.CureIVcount.Size = new System.Drawing.Size(44, 20);
             this.CureIVcount.TabIndex = 8;
             // 
-            // CureIIIcount
+            // label55
             // 
-            this.CureIIIcount.Enabled = false;
-            this.CureIIIcount.Location = new System.Drawing.Point(100, 66);
-            this.CureIIIcount.Name = "CureIIIcount";
-            this.CureIIIcount.Size = new System.Drawing.Size(44, 20);
-            this.CureIIIcount.TabIndex = 7;
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(51, 116);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(46, 13);
+            this.label55.TabIndex = 18;
+            this.label55.Text = "CuraII %";
             // 
-            // CureIIcount
+            // label53
             // 
-            this.CureIIcount.Enabled = false;
-            this.CureIIcount.Location = new System.Drawing.Point(100, 44);
-            this.CureIIcount.Name = "CureIIcount";
-            this.CureIIcount.Size = new System.Drawing.Size(44, 20);
-            this.CureIIcount.TabIndex = 6;
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(202, 91);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(49, 13);
+            this.label53.TabIndex = 16;
+            this.label53.Text = "CuraIII %";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(51, 94);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(49, 13);
+            this.label54.TabIndex = 14;
+            this.label54.Text = "Cura    %";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(192, 119);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(59, 13);
+            this.label52.TabIndex = 12;
+            this.label52.Text = "Full Cure %";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(202, 65);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(50, 13);
+            this.label45.TabIndex = 10;
+            this.label45.Text = "CureVI %";
             // 
             // label44
             // 
@@ -3558,13 +3628,411 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Cure    %";
             // 
-            // Curecount
+            // PartyCurepage
             // 
-            this.Curecount.Enabled = false;
-            this.Curecount.Location = new System.Drawing.Point(100, 22);
-            this.Curecount.Name = "Curecount";
-            this.Curecount.Size = new System.Drawing.Size(44, 20);
-            this.Curecount.TabIndex = 0;
+            this.PartyCurepage.Controls.Add(this.tabControl2);
+            this.PartyCurepage.Location = new System.Drawing.Point(4, 22);
+            this.PartyCurepage.Name = "PartyCurepage";
+            this.PartyCurepage.Padding = new System.Windows.Forms.Padding(3);
+            this.PartyCurepage.Size = new System.Drawing.Size(346, 158);
+            this.PartyCurepage.TabIndex = 5;
+            this.PartyCurepage.Text = "Party Cure";
+            this.PartyCurepage.UseVisualStyleBackColor = true;
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.tabPage2);
+            this.tabControl2.Location = new System.Drawing.Point(2, 5);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(342, 149);
+            this.tabControl2.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.ptCure);
+            this.tabPage1.Controls.Add(this.CuraIIptcount);
+            this.tabPage1.Controls.Add(this.CuraIIIptcount);
+            this.tabPage1.Controls.Add(this.Curaptcount);
+            this.tabPage1.Controls.Add(this.FullCureptcount);
+            this.tabPage1.Controls.Add(this.label78);
+            this.tabPage1.Controls.Add(this.label79);
+            this.tabPage1.Controls.Add(this.label80);
+            this.tabPage1.Controls.Add(this.CureVIptcount);
+            this.tabPage1.Controls.Add(this.label74);
+            this.tabPage1.Controls.Add(this.CureVptcount);
+            this.tabPage1.Controls.Add(this.CureIVptcount);
+            this.tabPage1.Controls.Add(this.label77);
+            this.tabPage1.Controls.Add(this.CureIIIptcount);
+            this.tabPage1.Controls.Add(this.label75);
+            this.tabPage1.Controls.Add(this.CureIIptcount);
+            this.tabPage1.Controls.Add(this.label66);
+            this.tabPage1.Controls.Add(this.label76);
+            this.tabPage1.Controls.Add(this.label67);
+            this.tabPage1.Controls.Add(this.label68);
+            this.tabPage1.Controls.Add(this.Cureptcount);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(334, 123);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Cure";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ptCure
+            // 
+            this.ptCure.AutoSize = true;
+            this.ptCure.Location = new System.Drawing.Point(40, 16);
+            this.ptCure.Name = "ptCure";
+            this.ptCure.Size = new System.Drawing.Size(59, 17);
+            this.ptCure.TabIndex = 28;
+            this.ptCure.Text = "Enable";
+            this.ptCure.UseVisualStyleBackColor = true;
+            // 
+            // CuraIIptcount
+            // 
+            this.CuraIIptcount.Enabled = false;
+            this.CuraIIptcount.Location = new System.Drawing.Point(284, 72);
+            this.CuraIIptcount.Name = "CuraIIptcount";
+            this.CuraIIptcount.Size = new System.Drawing.Size(44, 20);
+            this.CuraIIptcount.TabIndex = 23;
+            // 
+            // CuraIIIptcount
+            // 
+            this.CuraIIIptcount.Enabled = false;
+            this.CuraIIIptcount.Location = new System.Drawing.Point(284, 93);
+            this.CuraIIIptcount.Name = "CuraIIIptcount";
+            this.CuraIIIptcount.Size = new System.Drawing.Size(44, 20);
+            this.CuraIIIptcount.TabIndex = 27;
+            // 
+            // Curaptcount
+            // 
+            this.Curaptcount.Enabled = false;
+            this.Curaptcount.Location = new System.Drawing.Point(284, 51);
+            this.Curaptcount.Name = "Curaptcount";
+            this.Curaptcount.Size = new System.Drawing.Size(44, 20);
+            this.Curaptcount.TabIndex = 21;
+            // 
+            // FullCureptcount
+            // 
+            this.FullCureptcount.Enabled = false;
+            this.FullCureptcount.Location = new System.Drawing.Point(284, 25);
+            this.FullCureptcount.Name = "FullCureptcount";
+            this.FullCureptcount.Size = new System.Drawing.Size(44, 20);
+            this.FullCureptcount.TabIndex = 25;
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(237, 53);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(49, 13);
+            this.label78.TabIndex = 20;
+            this.label78.Text = "Cura    %";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(237, 95);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(49, 13);
+            this.label79.TabIndex = 26;
+            this.label79.Text = "CuraIII %";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(227, 27);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(59, 13);
+            this.label80.TabIndex = 24;
+            this.label80.Text = "Full Cure %";
+            // 
+            // CureVIptcount
+            // 
+            this.CureVIptcount.Enabled = false;
+            this.CureVIptcount.Location = new System.Drawing.Point(169, 93);
+            this.CureVIptcount.Name = "CureVIptcount";
+            this.CureVIptcount.Size = new System.Drawing.Size(44, 20);
+            this.CureVIptcount.TabIndex = 19;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(120, 95);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(50, 13);
+            this.label74.TabIndex = 18;
+            this.label74.Text = "CureVI %";
+            // 
+            // CureVptcount
+            // 
+            this.CureVptcount.Enabled = false;
+            this.CureVptcount.Location = new System.Drawing.Point(169, 72);
+            this.CureVptcount.Name = "CureVptcount";
+            this.CureVptcount.Size = new System.Drawing.Size(44, 20);
+            this.CureVptcount.TabIndex = 17;
+            // 
+            // CureIVptcount
+            // 
+            this.CureIVptcount.Enabled = false;
+            this.CureIVptcount.Location = new System.Drawing.Point(169, 51);
+            this.CureIVptcount.Name = "CureIVptcount";
+            this.CureIVptcount.Size = new System.Drawing.Size(44, 20);
+            this.CureIVptcount.TabIndex = 16;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(237, 74);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(49, 13);
+            this.label77.TabIndex = 22;
+            this.label77.Text = "CuraII  %";
+            // 
+            // CureIIIptcount
+            // 
+            this.CureIIIptcount.Enabled = false;
+            this.CureIIIptcount.Location = new System.Drawing.Point(55, 93);
+            this.CureIIIptcount.Name = "CureIIIptcount";
+            this.CureIIIptcount.Size = new System.Drawing.Size(44, 20);
+            this.CureIIIptcount.TabIndex = 13;
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(120, 74);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(50, 13);
+            this.label75.TabIndex = 15;
+            this.label75.Text = "CureV  %";
+            // 
+            // CureIIptcount
+            // 
+            this.CureIIptcount.Enabled = false;
+            this.CureIIptcount.Location = new System.Drawing.Point(55, 72);
+            this.CureIIptcount.Name = "CureIIptcount";
+            this.CureIIptcount.Size = new System.Drawing.Size(44, 20);
+            this.CureIIptcount.TabIndex = 12;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(6, 95);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(49, 13);
+            this.label66.TabIndex = 11;
+            this.label66.Text = "CureIII %";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(120, 53);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(50, 13);
+            this.label76.TabIndex = 14;
+            this.label76.Text = "CureIV %";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(6, 74);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(49, 13);
+            this.label67.TabIndex = 10;
+            this.label67.Text = "CureII  %";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(6, 53);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(49, 13);
+            this.label68.TabIndex = 9;
+            this.label68.Text = "Cure    %";
+            // 
+            // Cureptcount
+            // 
+            this.Cureptcount.Enabled = false;
+            this.Cureptcount.Location = new System.Drawing.Point(55, 51);
+            this.Cureptcount.Name = "Cureptcount";
+            this.Cureptcount.Size = new System.Drawing.Size(44, 20);
+            this.Cureptcount.TabIndex = 8;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.CurePTlist);
+            this.tabPage2.Controls.Add(this.groupBox17);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(334, 123);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Party Members";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // CurePTlist
+            // 
+            this.CurePTlist.CheckOnClick = true;
+            this.CurePTlist.FormattingEnabled = true;
+            this.CurePTlist.Location = new System.Drawing.Point(67, 4);
+            this.CurePTlist.Name = "CurePTlist";
+            this.CurePTlist.Size = new System.Drawing.Size(203, 79);
+            this.CurePTlist.Sorted = true;
+            this.CurePTlist.TabIndex = 22;
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.menuStrip1);
+            this.groupBox17.Location = new System.Drawing.Point(67, 84);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(203, 34);
+            this.groupBox17.TabIndex = 19;
+            this.groupBox17.TabStop = false;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.menuStrip1.Location = new System.Drawing.Point(20, 10);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(251, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(75, 20);
+            this.toolStripMenuItem1.Text = "Load Party";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(76, 20);
+            this.toolStripMenuItem2.Text = "Clear Party";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // Cureagapage
+            // 
+            this.Cureagapage.Controls.Add(this.label39);
+            this.Cureagapage.Controls.Add(this.CuragaVcount);
+            this.Cureagapage.Controls.Add(this.CuragaIVcount);
+            this.Cureagapage.Controls.Add(this.CuragaIIIcount);
+            this.Cureagapage.Controls.Add(this.CuragaIIcount);
+            this.Cureagapage.Controls.Add(this.label69);
+            this.Cureagapage.Controls.Add(this.label70);
+            this.Cureagapage.Controls.Add(this.label71);
+            this.Cureagapage.Controls.Add(this.label72);
+            this.Cureagapage.Controls.Add(this.label73);
+            this.Cureagapage.Controls.Add(this.Curagacount);
+            this.Cureagapage.Location = new System.Drawing.Point(4, 22);
+            this.Cureagapage.Name = "Cureagapage";
+            this.Cureagapage.Padding = new System.Windows.Forms.Padding(3);
+            this.Cureagapage.Size = new System.Drawing.Size(346, 158);
+            this.Cureagapage.TabIndex = 6;
+            this.Cureagapage.Text = "Curaga";
+            this.Cureagapage.UseVisualStyleBackColor = true;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(62, 12);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(223, 13);
+            this.label39.TabIndex = 30;
+            this.label39.Text = "This works on the average HP% of your party.";
+            // 
+            // CuragaVcount
+            // 
+            this.CuragaVcount.Enabled = false;
+            this.CuragaVcount.Location = new System.Drawing.Point(186, 96);
+            this.CuragaVcount.Name = "CuragaVcount";
+            this.CuragaVcount.Size = new System.Drawing.Size(44, 20);
+            this.CuragaVcount.TabIndex = 29;
+            // 
+            // CuragaIVcount
+            // 
+            this.CuragaIVcount.Enabled = false;
+            this.CuragaIVcount.Location = new System.Drawing.Point(279, 68);
+            this.CuragaIVcount.Name = "CuragaIVcount";
+            this.CuragaIVcount.Size = new System.Drawing.Size(44, 20);
+            this.CuragaIVcount.TabIndex = 28;
+            // 
+            // CuragaIIIcount
+            // 
+            this.CuragaIIIcount.Enabled = false;
+            this.CuragaIIIcount.Location = new System.Drawing.Point(94, 68);
+            this.CuragaIIIcount.Name = "CuragaIIIcount";
+            this.CuragaIIIcount.Size = new System.Drawing.Size(44, 20);
+            this.CuragaIIIcount.TabIndex = 27;
+            // 
+            // CuragaIIcount
+            // 
+            this.CuragaIIcount.Enabled = false;
+            this.CuragaIIcount.Location = new System.Drawing.Point(279, 32);
+            this.CuragaIIcount.Name = "CuragaIIcount";
+            this.CuragaIIcount.Size = new System.Drawing.Size(44, 20);
+            this.CuragaIIcount.TabIndex = 26;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(120, 98);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(62, 13);
+            this.label69.TabIndex = 25;
+            this.label69.Text = "Curaga V %";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(209, 70);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(65, 13);
+            this.label70.TabIndex = 24;
+            this.label70.Text = "Curaga IV %";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(24, 70);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(64, 13);
+            this.label71.TabIndex = 23;
+            this.label71.Text = "Curaga III %";
+            this.label71.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(209, 34);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(64, 13);
+            this.label72.TabIndex = 22;
+            this.label72.Text = "Curaga II  %";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(24, 34);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(64, 13);
+            this.label73.TabIndex = 21;
+            this.label73.Text = "Curaga     %";
+            this.label73.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Curagacount
+            // 
+            this.Curagacount.Enabled = false;
+            this.Curagacount.Location = new System.Drawing.Point(94, 32);
+            this.Curagacount.Name = "Curagacount";
+            this.Curagacount.Size = new System.Drawing.Size(44, 20);
+            this.Curagacount.TabIndex = 20;
             // 
             // DrainAspirpage
             // 
@@ -4895,31 +5363,30 @@
             // 
             // PartyWaltsList
             // 
+            this.PartyWaltsList.CheckOnClick = true;
             this.PartyWaltsList.FormattingEnabled = true;
             this.PartyWaltsList.Location = new System.Drawing.Point(210, 27);
             this.PartyWaltsList.Name = "PartyWaltsList";
             this.PartyWaltsList.Size = new System.Drawing.Size(199, 139);
+            this.PartyWaltsList.Sorted = true;
             this.PartyWaltsList.TabIndex = 18;
             // 
             // addplayertext
             // 
             this.addplayertext.AutoSize = true;
-            this.addplayertext.Enabled = false;
             this.addplayertext.Location = new System.Drawing.Point(207, 177);
             this.addplayertext.Name = "addplayertext";
             this.addplayertext.Size = new System.Drawing.Size(58, 13);
             this.addplayertext.TabIndex = 17;
             this.addplayertext.Text = "Add Player";
+            this.addplayertext.Click += new System.EventHandler(this.addplayertext_Click);
             // 
             // WaltzPTadd
             // 
-            this.WaltzPTadd.AcceptsReturn = true;
-            this.WaltzPTadd.Enabled = false;
             this.WaltzPTadd.Location = new System.Drawing.Point(274, 174);
             this.WaltzPTadd.Name = "WaltzPTadd";
             this.WaltzPTadd.Size = new System.Drawing.Size(135, 20);
             this.WaltzPTadd.TabIndex = 16;
-            this.WaltzPTadd.TextChanged += new System.EventHandler(this.WaltzPTadd_TextChanged);
             // 
             // groupBox21
             // 
@@ -5162,7 +5629,6 @@
             // flourish
             // 
             this.flourish.Controls.Add(this.flourishesiiigroup);
-            this.flourish.Controls.Add(this.label40);
             this.flourish.Controls.Add(this.finsishingmovetext);
             this.flourish.Controls.Add(this.FlourishTPValue);
             this.flourish.Controls.Add(this.flourishesiigroup);
@@ -5268,15 +5734,6 @@
             this.useterflo.TabStop = true;
             this.useterflo.Text = "Ternary Flourish";
             this.useterflo.UseVisualStyleBackColor = true;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(189, 298);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(15, 13);
-            this.label40.TabIndex = 64;
-            this.label40.Text = "%";
             // 
             // finsishingmovetext
             // 
@@ -7057,6 +7514,12 @@
             this.bgw_script_sch.WorkerSupportsCancellation = true;
             this.bgw_script_sch.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptSCHChargesDoWork);
             // 
+            // bgw_script_disp
+            // 
+            this.bgw_script_disp.WorkerReportsProgress = true;
+            this.bgw_script_disp.WorkerSupportsCancellation = true;
+            this.bgw_script_disp.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwScriptDisplayDoWork);
+            // 
             // bgw_script_chat
             // 
             this.bgw_script_chat.WorkerReportsProgress = true;
@@ -7099,10 +7562,84 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.curtime);
+            this.groupBox18.Controls.Add(this.curtarghpp);
+            this.groupBox18.Controls.Add(this.curtarg);
+            this.groupBox18.Controls.Add(this.playertp);
+            this.groupBox18.Controls.Add(this.playermp);
+            this.groupBox18.Controls.Add(this.playerhp);
+            this.groupBox18.Location = new System.Drawing.Point(463, 30);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(253, 179);
+            this.groupBox18.TabIndex = 53;
+            this.groupBox18.TabStop = false;
+            // 
+            // curtime
+            // 
+            this.curtime.AutoSize = true;
+            this.curtime.Location = new System.Drawing.Point(61, 150);
+            this.curtime.Name = "curtime";
+            this.curtime.Size = new System.Drawing.Size(131, 13);
+            this.curtime.TabIndex = 5;
+            this.curtime.Text = "Current Game Time: 00:00";
+            // 
+            // curtarghpp
+            // 
+            this.curtarghpp.AutoSize = true;
+            this.curtarghpp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.curtarghpp.Location = new System.Drawing.Point(6, 127);
+            this.curtarghpp.Name = "curtarghpp";
+            this.curtarghpp.Size = new System.Drawing.Size(76, 13);
+            this.curtarghpp.TabIndex = 4;
+            this.curtarghpp.Text = "Target HP: 0%";
+            // 
+            // curtarg
+            // 
+            this.curtarg.AutoSize = true;
+            this.curtarg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.curtarg.Location = new System.Drawing.Point(6, 103);
+            this.curtarg.Name = "curtarg";
+            this.curtarg.Size = new System.Drawing.Size(78, 13);
+            this.curtarg.TabIndex = 3;
+            this.curtarg.Text = "Current Target:";
+            // 
+            // playertp
+            // 
+            this.playertp.AutoSize = true;
+            this.playertp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playertp.Location = new System.Drawing.Point(6, 74);
+            this.playertp.Name = "playertp";
+            this.playertp.Size = new System.Drawing.Size(88, 18);
+            this.playertp.TabIndex = 2;
+            this.playertp.Text = "Player TP: 0";
+            // 
+            // playermp
+            // 
+            this.playermp.AutoSize = true;
+            this.playermp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playermp.Location = new System.Drawing.Point(6, 45);
+            this.playermp.Name = "playermp";
+            this.playermp.Size = new System.Drawing.Size(104, 18);
+            this.playermp.TabIndex = 1;
+            this.playermp.Text = "Player MP: 0/0";
+            // 
+            // playerhp
+            // 
+            this.playerhp.AutoSize = true;
+            this.playerhp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerhp.Location = new System.Drawing.Point(6, 16);
+            this.playerhp.Name = "playerhp";
+            this.playerhp.Size = new System.Drawing.Size(102, 18);
+            this.playerhp.TabIndex = 0;
+            this.playerhp.Text = "Player HP: 0/0";
+            // 
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox18);
             this.Controls.Add(this.DeathWarp);
             this.Controls.Add(this.checkZone);
             this.Controls.Add(this.StopFullInventory);
@@ -7203,15 +7740,41 @@
             this.CureConfigPage.ResumeLayout(false);
             this.CureConfigPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CuraIIcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Curacount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Curecount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FullCurecount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureVIcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureVcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureIVcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CureIIIcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CureIIcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Curecount)).EndInit();
+            this.PartyCurepage.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIptcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIptcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Curaptcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FullCureptcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureVIptcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureVptcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIVptcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIIptcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CureIIptcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cureptcount)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.Cureagapage.ResumeLayout(false);
+            this.Cureagapage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CuragaVcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuragaIVcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuragaIIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuragaIIcount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Curagacount)).EndInit();
             this.DrainAspirpage.ResumeLayout(false);
             this.Aspirgroup.ResumeLayout(false);
             this.Aspirgroup.PerformLayout();
@@ -7379,6 +7942,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7437,7 +8002,6 @@
         public System.Windows.Forms.CheckBox wsam;
         public System.Windows.Forms.CheckBox checkBox6;
         public System.Windows.Forms.ComboBox comboBox2;
-        public System.Windows.Forms.Label label39;
         public System.Windows.Forms.NumericUpDown numericUpDown40;
         public System.Windows.Forms.CheckBox ws;
         public System.Windows.Forms.NumericUpDown numericUpDown24;
@@ -7586,7 +8150,6 @@
         public System.Windows.Forms.RadioButton usestkflo;
         public System.Windows.Forms.RadioButton useclmflo;
         public System.Windows.Forms.RadioButton useterflo;
-        public System.Windows.Forms.Label label40;
         public System.Windows.Forms.Label finsishingmovetext;
         public System.Windows.Forms.NumericUpDown FlourishTPValue;
         public System.Windows.Forms.GroupBox flourishesiigroup;
@@ -7640,6 +8203,7 @@
         public System.ComponentModel.BackgroundWorker bgw_script_dnc;
         public System.ComponentModel.BackgroundWorker bgw_script_nav;
         public System.ComponentModel.BackgroundWorker bgw_script_sch;
+        public System.ComponentModel.BackgroundWorker bgw_script_disp;
         public System.ComponentModel.BackgroundWorker bgw_script_chat;
         public System.ComponentModel.BackgroundWorker bgw_script_pet;
         public System.ComponentModel.BackgroundWorker bgw_script_npc;
@@ -7859,6 +8423,56 @@
         private Label label65;
         private NumericUpDown StuckDistance;
         private CheckBox ManualTargMode;
+        private CheckedListBox PartyWaltsList;
+        private TabPage PartyCurepage;
+        private TabPage Cureagapage;
+        private Label label39;
+        private NumericUpDown CuragaVcount;
+        private NumericUpDown CuragaIVcount;
+        private NumericUpDown CuragaIIIcount;
+        private NumericUpDown CuragaIIcount;
+        private Label label69;
+        private Label label70;
+        private Label label71;
+        private Label label72;
+        private Label label73;
+        private NumericUpDown Curagacount;
+        private TabControl tabControl2;
+        private TabPage tabPage1;
+        private NumericUpDown CureVIptcount;
+        private Label label74;
+        private NumericUpDown CureVptcount;
+        private NumericUpDown CureIVptcount;
+        private Label label75;
+        private Label label76;
+        private NumericUpDown CureIIIptcount;
+        private NumericUpDown CureIIptcount;
+        private Label label66;
+        private Label label67;
+        private Label label68;
+        private NumericUpDown Cureptcount;
+        private TabPage tabPage2;
+        private CheckedListBox CurePTlist;
+        public GroupBox groupBox17;
+        public MenuStrip menuStrip1;
+        public ToolStripMenuItem toolStripMenuItem1;
+        public ToolStripMenuItem toolStripMenuItem2;
+        private NumericUpDown CuraIIIptcount;
+        private Label label79;
+        private NumericUpDown FullCureptcount;
+        private Label label80;
+        private NumericUpDown CuraIIptcount;
+        private Label label77;
+        private NumericUpDown Curaptcount;
+        private Label label78;
+        private CheckBox ptCure;
+        private GroupBox groupBox18;
+        private Label curtime;
+        private Label curtarghpp;
+        private Label curtarg;
+        private Label playertp;
+        private Label playermp;
+        private Label playerhp;
         #endregion
         #region Display: Controle
         private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
@@ -7882,8 +8496,10 @@
             string curItem = playerMA.SelectedItem.ToString();
             int index = playerMA.FindString(curItem);
             bool state = (playerMA.GetItemCheckState(index).ToString() == "Checked" ? true : false);
-
             Control c = Controls.Find(curItem.Replace(" ", "") + "count", true).SingleOrDefault();
+            if (c == null) return;
+            else c.Enabled = state;
+            c = Controls.Find(curItem.Replace(" ", "") + "ptcount", true).SingleOrDefault();
             if (c == null) return;
             else c.Enabled = state;
         }
@@ -8112,7 +8728,7 @@
                                                 select (ListViewItem)item.Clone()).ToArray());
             }
         }
-        private void WaltzPTadd_TextChanged(object sender, EventArgs e)
+        private void addplayertext_Click(object sender, EventArgs e)
         {
             if (!PartyWaltsList.Items.Contains(WaltzPTadd.Text))
                 PartyWaltsList.Items.Add(WaltzPTadd.Text);
@@ -8123,7 +8739,7 @@
             foreach (var member in members)
             {
                 string name = member.Name.Replace(PlayerInfo.Name, "").Trim();
-                if (PartyWaltsList.Items.Contains(name))
+                if (!PartyWaltsList.Items.Contains(name) && name != "")
                     PartyWaltsList.Items.Add(name);
             }
         }
@@ -8131,80 +8747,79 @@
         {
             PartyWaltsList.Items.Clear();
         }
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
+            foreach (var member in members)
+            {
+                string name = member.Name.Replace(PlayerInfo.Name, "").Trim();
+                if (!CurePTlist.Items.Contains(name) && name != "")
+                    CurePTlist.Items.Add(name);
+            }
+        }
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            CurePTlist.Items.Clear();
+        }
         #endregion
         #region Methods: Start/Stop/Load
-
         private void ScriptFarmDncLoad(object sender, EventArgs e)
         {
             dncControl.SelectTab("combat");
             PopulateTargetLists("ID");
             CharacterUpdate();
-
             if (PetInfo.Name != null)
                 pInfo();
         }
-
         private void UpdateJobToolStripMenuItemClick(object sender, EventArgs e)
         {
             CharacterUpdate();
-
             if (PetInfo.Name != null)
                 pInfo();
         }
-
         private void ToolStartClick(object sender, EventArgs e)
         {
             botRunning = true;
             startzone = api.Player.ZoneId;
             startScriptToolStripMenuItem.Enabled = false;
             stopScriptToolStripMenuItem.Enabled = true;
-
             if (!bgw_script_dnc.IsBusy)
                 bgw_script_dnc.RunWorkerAsync();
-
             if (!bgw_script_pet.IsBusy)
                 bgw_script_pet.RunWorkerAsync();
-
             if (!bgw_script_nav.IsBusy)
                 bgw_script_nav.RunWorkerAsync();
-
             if (!bgw_script_chat.IsBusy)
                 bgw_script_chat.RunWorkerAsync();
+            if (!bgw_script_disp.IsBusy)
+                bgw_script_disp.RunWorkerAsync();
         }
-
         private void ToolStopClick(object sender, EventArgs e)
         {
             botRunning = false;
-
             if (usenav.Checked && naviMove)
                 naviMove = false;
-
             if (api.AutoFollow.IsAutoFollowing)
                 api.AutoFollow.IsAutoFollowing = false;
-
             Thread.Sleep(TimeSpan.FromSeconds(0.3));
-
             startScriptToolStripMenuItem.Enabled = true;
             stopScriptToolStripMenuItem.Enabled = false;
-
             bgw_script_dnc.CancelAsync();
             bgw_script_pet.CancelAsync();
             bgw_script_nav.CancelAsync();
             bgw_script_chat.CancelAsync();
+            bgw_script_disp.CancelAsync();
         }
-
         private void PlayerDead()
         {
             ToolStopClick(null, null);
             Thread.Sleep(TimeSpan.FromSeconds(1.0));
-
             WindowInfo.KeyPress(API.Keys.NUMPADENTER);
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
             WindowInfo.KeyPress(API.Keys.RIGHT);
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
             WindowInfo.KeyPress(API.Keys.NUMPADENTER);
         }
-
         #region Trust
         private void trustMenureset_Click(object sender, EventArgs e)
         {
@@ -8252,12 +8867,10 @@
             }
         }
         #endregion
-
         private void LoadJA_Click(object sender, EventArgs e)
         {
             if (playerJA.Items.Count > 0)
                 playerJA.Items.Clear();
-
             #region Ability list
             Dictionary<uint, dynamic> abilitylist = new Dictionary<uint, dynamic>(){{528, true},{529, true},{530, true},{531, true},{532, true},{533, true},{534, true},
             {535, true},{536, true},{537, true},{538, true},{539, true},{540, true},{541, true},{543, true},{544, true},{545, true},{546, true},{548, true},{549, true},
@@ -8339,22 +8952,18 @@
             if (PlayerInfo.MainJob != 20 && PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
             else bgw_script_sch.RunWorkerAsync();
         }
-
         private void ClearJA_Click(object sender, EventArgs e)
         {
             playerJA.Items.Clear();
-
             label20.Text = "Pets Name:";
             label21.Text = @"Pet ID:";
             label22.Text = @"Pets HP%:";
             label23.Text = @"Pets TP:";
         }
-
         private void LoadMA_Click(object sender, EventArgs e)
         {
             if (playerMA.Items.Count > 0)
                 playerMA.Items.Clear();
-
             #region Skip MA List
             Dictionary<uint, dynamic> skipSpellList = new Dictionary<uint, dynamic> {{12, true},{13, true},{81, true},{82, true},{83, true},{120, true},{121, true},
             {122, true},{123, true},{124, true},{136, true},{137, true},{138, true},{139, true},{140, true},{241, true},{260, true},{261, true},{262, true},{263, true},
@@ -8364,8 +8973,7 @@
             {729, true},{730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{754, true},{755, true},{756, true},{757, true},{758, true},{759, true},
             {760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{992, true},{993, true},{994, true},{995, true},{996, true},
             {997, true},{998, true},{999, true},{1000, true},{1001, true},{1002, true},{1003, true},{1017, true},{1018, true},{1019, true},{1020, true},{1021, true},
-            {1022, true},{1023, true},{7, true},{8, true},{9, true},{10, true},{11, true},{308, true},{309, true},{318, true},{353, true},{354, true},{355, true},
-            {465, true},
+            {1022, true},{1023, true},{308, true},{309, true},{318, true},{353, true},{354, true},{355, true},{465, true},
             #region smn
             {288, true},{289, true},{290, true},{291, true},{292, true},{293, true},{294, true},{295, true},{296, true},{297, true},{298, true},{299, true},{300, true},
             {301, true},{302, true},{303, true},{304, true},{305, true},{306, true},{307, true},{847, true},
@@ -8389,7 +8997,6 @@
             #endregion
             };
             #endregion
-
             #region load MJ MA(main job)
             for (uint mm = 1; mm <= 895; mm++)
             {
@@ -8424,12 +9031,10 @@
             }
             #endregion
         }
-
         private void ClearMA_Click(object sender, EventArgs e)
         {
             playerMA.Items.Clear();
         }
-
         public void CharacterUpdate()
         {
             JAtabselect.Controls.Remove(WHMpage);
@@ -8444,6 +9049,8 @@
             petControl.Controls.Remove(puppettab);
             petControl.Controls.Remove(geopettab);
             MAtabs.Controls.Remove(CureConfigPage);
+            MAtabs.Controls.Remove(PartyCurepage);
+            MAtabs.Controls.Remove(Cureagapage);
             MAtabs.Controls.Remove(DrainAspirpage);
             MAtabs.Controls.Remove(MAconfigpage);
             MAtabs.Controls.Remove(BLUCurespage);
@@ -8466,7 +9073,12 @@
             if (MAjobs.Contains(PlayerInfo.MainJob) || MAjobs.Contains(PlayerInfo.SubJob))
             {
                 List<int> Curejobs = new List<int>(new int[] {3,5,7,20});
-                if  (Curejobs.Contains(PlayerInfo.MainJob) || Curejobs.Contains(PlayerInfo.SubJob)) MAtabs.Controls.Add(CureConfigPage);
+                if (Curejobs.Contains(PlayerInfo.MainJob) || Curejobs.Contains(PlayerInfo.SubJob))
+                {
+                    MAtabs.Controls.Add(CureConfigPage);
+                    MAtabs.Controls.Add(PartyCurepage);
+                }
+                if (PlayerInfo.MainJob == 3 || PlayerInfo.SubJob == 3) MAtabs.Controls.Add(Cureagapage);
                 List<int> Drainjobs = new List<int>(new int[] {4,8,20,21});
                 if  (Drainjobs.Contains(PlayerInfo.MainJob) || Drainjobs.Contains(PlayerInfo.SubJob)) MAtabs.Controls.Add(DrainAspirpage);
                 if  (PlayerInfo.MainJob == 16 || PlayerInfo.SubJob == 16) MAtabs.Controls.Add(BLUCurespage);
@@ -8556,11 +9168,9 @@
                 selectedHateControl.Items.Add("Flash");
             #endregion
             LoadJA_Click(null, null);
-
             LoadMA_Click(null, null);
             trustMenureset_Click(null, null);
         }
-
         #endregion
         #region Methods: Save/Load Config
         #region config: save/load (player)
@@ -9314,9 +9924,9 @@
                 "Shellra III","Shellra IV","Shellra V","Regen","Regen II","Regen III","Regen IV","Regen V","Refresh","Refresh II","Refresh III","Reraise",
                 "Reraise II","Reraise III","Reraise IV","Cure","Cure II","Cure III","Cure IV","Cure V","Cure VI","Cura","Cura II","Cura III","Full Cure",
                 "Drain","Drain II","Drain III","Aspir","Aspir II","Aspir III","Pollen","Magic Fruit","Healing Breeze","Plenilune Embrace","White Wind",
-                "Restoral","Exuviation","Wild Carrot"});
+                "Restoral","Exuviation","Wild Carrot","Cureaga","Cureaga II","Cureaga III","Cureaga IV","Cureaga V"});
                 if (Handledspells.Contains(magic.Name[0]))
-                { 
+                {
                     if (magic.Name[0].Contains("Protect") && !PlayerInfo.HasBuff(40) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
                     else if (magic.Name[0].Contains("Shell") && !PlayerInfo.HasBuff(41) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
                     else if (magic.Name[0].Contains("Regen") && !PlayerInfo.HasBuff(42) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
@@ -9346,6 +9956,28 @@
                     else if (magic.Name[0] == "Restoral" && Restoralcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
                     else if (magic.Name[0] == "Exuviation" && Exuviationcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
                     else if (magic.Name[0] == "Wild Carrot" && WildCarrotcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga" && Curagacount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga II" && CuragaIIcount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga III" && CuragaIIIcount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga IV" && CuragaIVcount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga V" && CuragaVcount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    else if (ptCure.Checked)
+                    {
+                        var partymembers = (from object itemChecked in CurePTlist.Items select itemChecked.ToString()).ToList();
+                        foreach (string member in partymembers)
+                        {
+                            if (magic.Name[0] == "Cure" && Cureptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            else if (magic.Name[0] == "Cure II" && CureIIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            else if (magic.Name[0] == "Cure III" && CureIIIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            else if (magic.Name[0] == "Cure IV" && CureIVptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            else if (magic.Name[0] == "Cure V" && CureVptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            else if (magic.Name[0] == "Cure VI" && CureVIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            else if (magic.Name[0] == "Cura" && Curaptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            else if (magic.Name[0] == "Cura II" && CuraIIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            else if (magic.Name[0] == "Cura III" && CuraIIIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            else if (magic.Name[0] == "Full Cure" && FullCureptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                        }
+                    }
                 }
                 else
                 {
@@ -9402,7 +10034,6 @@
                 }
             }
         }
-        
         private bool MAautoJA(string M)
         {
             var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
@@ -9759,7 +10390,6 @@
             #endregion
              return true;
         }
-
         private void Casting()
         {
             isCasting = true;
@@ -11431,57 +12061,8 @@
             RecordIdleLocation.Text = $"X:{idleX}/Y:{idleY}/Z:{idleZ}";
         }
 
-        private CheckedListBox PartyWaltsList;
         #endregion
-        //#region Methods: NAV (new)
 
-        //public class WayPoint
-        //{
-        //    public Zone Zone { get; set; }
-
-        //    public float X { get; set; }
-
-        //    public float Y { get; set; }
-
-        //    public float Z { get; set; }
-        //}
-
-        //public double DistanceTo(int id)
-        //{
-        //    var entity = api.Entity.GetEntity(id);
-        //    return DistanceTo(entity.X, entity.Y, entity.Z);
-        //}
-
-        //public double DistanceTo(double x, double z) => Math.Abs(x) < .00001 && Math.Abs(z) < .00001 ? 0 : DistanceTo(x, api.Player.Y, z);
-
-        //public double DistanceTo(double x, double y, double z) => Math.Sqrt(Math.Pow(api.Player.X - x, 2) +
-        //                                                                    Math.Pow(api.Player.Y - y, 2) +
-        //                                                                    Math.Pow(z - api.Player.Z, 2));
-
-        //public int GetIndexOfClosestPoint(int start = 0)
-        //{
-        //    var distance = double.MaxValue;
-        //    var index = 0;
-
-        //    for (var i = start; i < route.Count; ++i)
-        //    {
-        //        //if ((Zone)api.Player.ZoneId != route[i].Zone)
-        //        //{
-        //        //    continue;
-        //        //}
-
-        //        var d = DistanceTo(route[i].X, route[i].Z);
-        //        if (d < distance)
-        //        {
-        //            distance = d;
-        //            index = i;
-        //        }
-        //    }
-
-        //    return distance < 25 ? index : -1;
-        //}
-
-        //#endregion
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo
@@ -11492,6 +12073,8 @@
             public static int MPP => api.Party.GetPartyMembers().First().CurrentMPP;
             public static uint HP => api.Party.GetPartyMembers().First().CurrentHP;
             public static uint MP => api.Party.GetPartyMembers().First().CurrentMP;
+            public static uint MaxHP => api.Player.HPMax;
+            public static uint MaxMP => api.Player.MPMax;
             public static int TP => (int)api.Party.GetPartyMembers().First().CurrentTP;
             public static int MainJob => api.Player.GetPlayerInfo().MainJob;
             public static int MainJobLevel => api.Player.GetPlayerInfo().MainJobLevel;
@@ -11667,33 +12250,41 @@
             }
             public static bool ContainsName(string name)
             {
-                for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
+                foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
                 {
-                    var member = api.Party.GetPartyMember(x);
-                    if (member.Active != 0 && Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
+                    if (Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
                         return true;
                 }
                 return false;
             }
             public static int memberHPPbyName(string name)
             {
-                for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
+                foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
                 {
-                    var member = api.Party.GetPartyMember(x);
-                    if (member.Active != 0 && Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
+                    if (Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
                         return member.CurrentHPP;
                 }
                 return 0;
             }
             public static int memberMPPbyName(string name)
             {
-                for (var x = 0; x < api.Party.GetPartyMembers().Count; x++)
+                foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
                 {
-                    var member = api.Party.GetPartyMember(x);
-                    if (member.Active != 0 && Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
+                    if (Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
                         return member.CurrentMPP;
                 }
                 return 0;
+            }
+            public static int averageHPP()
+            {
+                int hpp = 0;
+                var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
+                foreach (var member in members)
+                {
+                    if (member.Active != 0)
+                        hpp = (hpp + member.CurrentHPP);
+                }
+                return (int)Math.Round((double)(hpp / members.Count));
             }
         }
         #endregion
@@ -11707,10 +12298,8 @@
                     var p = api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).Name;
 
                     return p != null
-                        ? System.Text.RegularExpressions.Regex.Replace(
-                            api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).Name, "([A-Z])", " $1",
-                            System.Text.RegularExpressions.RegexOptions.Compiled).Trim()
-                        : null;
+                        ? Regex.Replace(api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).Name, "([A-Z])", " $1",
+                            RegexOptions.Compiled).Trim() : null;
                 }
             }
             public static int ID => (int)api.Entity.GetEntity(api.Entity.GetLocalPlayer().PetIndex).ServerID;

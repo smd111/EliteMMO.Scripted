@@ -177,6 +177,31 @@
             <Enabled>True</Enabled>
           </Control>
         </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="Options5MainTab">
+          <Control Type="System.Windows.Forms.CheckBox" Name="ManualTargMode">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="EnableDynamis">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox16">
+            <Enabled>True</Enabled>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="StuckDistance">
+              <Value>1</Value>
+              <Enabled>True</Enabled>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="navStuckWatch">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="mobStuckWatch">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+            </Control>
+          </Control>
+        </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="Options3MainTab">
           <Control Type="System.Windows.Forms.ComboBox" Name="comboBox4">
             <Text />
@@ -220,7 +245,7 @@
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="IdleLocation">
             <Checked>False</Checked>
-            <Enabled>False</Enabled>
+            <Enabled>True</Enabled>
           </Control>
         </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="Options4MainTab">
@@ -261,31 +286,6 @@
               <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="autoRangeAttack">
-              <Checked>False</Checked>
-              <Enabled>True</Enabled>
-            </Control>
-          </Control>
-        </Control>
-        <Control Type="System.Windows.Forms.TabPage" Name="Options5MainTab">
-          <Control Type="System.Windows.Forms.CheckBox" Name="ManualTargMode">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="EnableDynamis">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox16">
-            <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.NumericUpDown" Name="StuckDistance">
-              <Value>1</Value>
-              <Enabled>True</Enabled>
-            </Control>
-            <Control Type="System.Windows.Forms.CheckBox" Name="navStuckWatch">
-              <Checked>False</Checked>
-              <Enabled>True</Enabled>
-            </Control>
-            <Control Type="System.Windows.Forms.CheckBox" Name="mobStuckWatch">
               <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
@@ -344,7 +344,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown21">
-          <Value>13.0</Value>
+          <Value>15.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.TextBox" Name="pullCommand">
@@ -386,7 +386,7 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="stopstepscount">
-              <Value>1</Value>
+              <Value>5</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usefeatherstepValue">
@@ -406,11 +406,11 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usequickstepValue">
-              <Value>1</Value>
+              <Value>5</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="StepsHP">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="NoSteps">
@@ -524,8 +524,16 @@
           </Control>
         </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="tabPage16">
-          <Control Type="System.Windows.Forms.TextBox" Name="textBox2">
-            <Text />
+          <Control Type="System.Windows.Forms.CheckedListBox" Name="PartyWaltsList">
+            <SelectedIndex0>0</SelectedIndex0>
+            <SelectedIndex1>1</SelectedIndex1>
+            <SelectedIndex2>2</SelectedIndex2>
+            <SelectedIndex3>3</SelectedIndex3>
+            <SelectedIndex4>4</SelectedIndex4>
+            <SelectedIndexcount>5</SelectedIndexcount>
+          </Control>
+          <Control Type="System.Windows.Forms.TextBox" Name="WaltzPTadd">
+            <Text>Kigensuro</Text>
           </Control>
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox21">
             <Enabled>True</Enabled>
@@ -538,7 +546,7 @@
               <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown29">
-              <Value>75</Value>
+              <Value>50</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown32">

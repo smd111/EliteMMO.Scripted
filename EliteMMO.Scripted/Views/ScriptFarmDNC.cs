@@ -307,7 +307,7 @@
                     naviMove = true;
                 }
 
-                while (PlayerInfo.Status == 33)
+                while (PlayerInfo.Status == 33 && (HealHP.Checked || HealHP.Checked))
                 {
                     Thread.Sleep(TimeSpan.FromSeconds(0.1));
                     if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
@@ -566,6 +566,21 @@
                     }
 
                 }
+            }
+        }
+        #endregion
+        #region Thread - Display Update
+        private void BgwScriptDisplayDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            while (botRunning && !bgw_script_disp.CancellationPending)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                playerhp.Text = $"Player HP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
+                playermp.Text = $"Player MP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
+                playertp.Text = $"Player TP: {PlayerInfo.TP}";
+                curtarg.Text = $"Current Target: {TargetInfo.Name}";
+                curtarghpp.Text = $"Target HP: {TargetInfo.HPP}%";
+                curtime.Text = $"Current Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute}";
             }
         }
         #endregion
