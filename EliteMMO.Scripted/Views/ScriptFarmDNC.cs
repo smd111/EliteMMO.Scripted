@@ -580,7 +580,7 @@
                 playertp.Text = $"Player TP: {PlayerInfo.TP}";
                 curtarg.Text = $"Current Target: {TargetInfo.Name}";
                 curtarghpp.Text = $"Target HP: {TargetInfo.HPP}%";
-                curtime.Text = $"Current Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute}";
+                curtime.Text = $"Current Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
             }
         }
         #endregion

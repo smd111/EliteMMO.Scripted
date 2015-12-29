@@ -11767,8 +11767,15 @@
         {
             var maxRange = 50.0;
             var outRange = -1;
+            //var navx = (runReverse.Checked ? navPathX.Reverse() : navPathX);
+            //var navy = (runReverse.Checked ? navPathY.Reverse() : navPathY);
+            //var navz = (runReverse.Checked ? navPathZ.Reverse() : navPathZ);
+            //for (int i = 0; i < navx.Count(); i++)
             for (int i = 0; i < navPathX.Count(); i++)
             {
+                //var x = Math.Pow(PlayerInfo.X - navx[i], 2.0);
+                //var z = Math.Pow(PlayerInfo.Z - navz[i], 2.0);
+                //var y = Math.Pow(PlayerInfo.Y - navy[i], 2.0);
                 var x = Math.Pow(PlayerInfo.X - navPathX[i], 2.0);
                 var z = Math.Pow(PlayerInfo.Z - navPathZ[i], 2.0);
                 var y = Math.Pow(PlayerInfo.Y - navPathY[i], 2.0);

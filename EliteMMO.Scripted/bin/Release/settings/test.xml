@@ -8,7 +8,7 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="checkZone">
-    <Checked>True</Checked>
+    <Checked>False</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="StopFullInventory">
@@ -16,30 +16,30 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.GroupBox" Name="groupBox8">
-    <Enabled>True</Enabled>
+    <Enabled>False</Enabled>
     <Control Type="System.Windows.Forms.ComboBox" Name="comboBox3">
       <Text />
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="firstPersonView">
       <Checked>False</Checked>
-      <Enabled>True</Enabled>
+      <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
-      <Checked>True</Checked>
+      <Checked>False</Checked>
       <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
-      <Checked>True</Checked>
-    </Control>
-    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
       <Checked>False</Checked>
     </Control>
+    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
+      <Checked>True</Checked>
+    </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>Dyna - Windy.Linear.xin</Text>
+      <Text />
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
-    <Checked>True</Checked>
+    <Checked>False</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.TabControl" Name="dncControl">
@@ -71,10 +71,10 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.ComboBox" Name="selectedHateControl">
-              <Text>Provoke</Text>
+              <Text />
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="tank">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
           </Control>
@@ -96,14 +96,14 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.ComboBox" Name="comboBox2">
-              <Text>Upheaval</Text>
+              <Text />
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown40">
-              <Value>3.0</Value>
+              <Value>1</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="ws">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown24">
@@ -172,11 +172,11 @@
             <Text />
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="aggro">
-            <Checked>True</Checked>
+            <Checked>False</Checked>
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="mobdist">
-            <Checked>True</Checked>
+            <Checked>False</Checked>
             <Enabled>True</Enabled>
           </Control>
         </Control>
@@ -298,15 +298,7 @@
           <Control Type="System.Windows.Forms.TabControl" Name="JAtabselect">
             <Control Type="System.Windows.Forms.TabPage" Name="selectPage">
               <Control Type="System.Windows.Forms.CheckedListBox" Name="playerJA">
-                <SelectedIndex0>0</SelectedIndex0>
-                <SelectedIndex1>2</SelectedIndex1>
-                <SelectedIndex2>4</SelectedIndex2>
-                <SelectedIndex3>5</SelectedIndex3>
-                <SelectedIndex4>7</SelectedIndex4>
-                <SelectedIndex5>8</SelectedIndex5>
-                <SelectedIndex6>9</SelectedIndex6>
-                <SelectedIndex7>10</SelectedIndex7>
-                <SelectedIndexcount>8</SelectedIndexcount>
+                <SelectedIndexcount>0</SelectedIndexcount>
               </Control>
             </Control>
           </Control>
@@ -323,11 +315,11 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="mobheightdistValue">
-          <Value>2</Value>
+          <Value>1</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="mobheightdist">
-          <Checked>True</Checked>
+          <Checked>False</Checked>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="runTarget">
@@ -335,11 +327,11 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="runPullDistance">
-          <Checked>True</Checked>
+          <Checked>False</Checked>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="targetSearchDist">
-          <Value>15.0</Value>
+          <Value>24.5</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullTolorance">
@@ -347,86 +339,11 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown21">
-          <Value>15.0</Value>
+          <Value>16</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.TextBox" Name="pullCommand">
           <Text>/ra &lt;t&gt;</Text>
-        </Control>
-      </Control>
-    </Control>
-    <Control Type="System.Windows.Forms.TabPage" Name="flourish">
-      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiiigroup">
-        <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="useclmfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="usestkfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="useterfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usestkflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="useclmflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="useterflo">
-          <Checked>False</Checked>
-        </Control>
-      </Control>
-      <Control Type="System.Windows.Forms.NumericUpDown" Name="FlourishTPValue">
-        <Value>400</Value>
-        <Enabled>True</Enabled>
-      </Control>
-      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiigroup">
-        <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="usewldfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="usebldfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="userevfloValue">
-          <Value>5</Value>
-          <Enabled>True</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usewldflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usebldflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="userevflo">
-          <Checked>True</Checked>
-        </Control>
-      </Control>
-      <Control Type="System.Windows.Forms.CheckBox" Name="FlourishTP">
-        <Checked>False</Checked>
-        <Enabled>True</Enabled>
-      </Control>
-      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesigroup">
-        <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="useviofloValue">
-          <Value>0</Value>
-          <Enabled>True</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usevioflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="usedesfloValue">
-          <Value>0</Value>
-          <Enabled>True</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usedesflo">
-          <Checked>False</Checked>
         </Control>
       </Control>
     </Control>
@@ -451,7 +368,7 @@
               <Checked>False</Checked>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="usedrainii">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="usedrain">
               <Checked>False</Checked>
@@ -484,7 +401,7 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usequickstepValue">
-              <Value>5</Value>
+              <Value>0</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="StepsHP">
@@ -495,7 +412,7 @@
               <Checked>False</Checked>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="usequickstep">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="useboxstep">
               <Checked>False</Checked>
@@ -512,49 +429,11 @@
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox7">
             <Enabled>True</Enabled>
             <Control Type="System.Windows.Forms.CheckBox" Name="HWSelectDeselectALL">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckedListBox" Name="HealingWaltzItems">
-              <SelectedIndex0>0</SelectedIndex0>
-              <SelectedIndex1>1</SelectedIndex1>
-              <SelectedIndex2>2</SelectedIndex2>
-              <SelectedIndex3>3</SelectedIndex3>
-              <SelectedIndex4>4</SelectedIndex4>
-              <SelectedIndex5>5</SelectedIndex5>
-              <SelectedIndex6>6</SelectedIndex6>
-              <SelectedIndex7>7</SelectedIndex7>
-              <SelectedIndex8>8</SelectedIndex8>
-              <SelectedIndex9>9</SelectedIndex9>
-              <SelectedIndex10>10</SelectedIndex10>
-              <SelectedIndex11>11</SelectedIndex11>
-              <SelectedIndex12>12</SelectedIndex12>
-              <SelectedIndex13>13</SelectedIndex13>
-              <SelectedIndex14>14</SelectedIndex14>
-              <SelectedIndex15>15</SelectedIndex15>
-              <SelectedIndex16>16</SelectedIndex16>
-              <SelectedIndex17>17</SelectedIndex17>
-              <SelectedIndex18>18</SelectedIndex18>
-              <SelectedIndex19>19</SelectedIndex19>
-              <SelectedIndex20>20</SelectedIndex20>
-              <SelectedIndex21>21</SelectedIndex21>
-              <SelectedIndex22>22</SelectedIndex22>
-              <SelectedIndex23>23</SelectedIndex23>
-              <SelectedIndex24>24</SelectedIndex24>
-              <SelectedIndex25>25</SelectedIndex25>
-              <SelectedIndex26>26</SelectedIndex26>
-              <SelectedIndex27>27</SelectedIndex27>
-              <SelectedIndex28>28</SelectedIndex28>
-              <SelectedIndex29>29</SelectedIndex29>
-              <SelectedIndex30>30</SelectedIndex30>
-              <SelectedIndex31>31</SelectedIndex31>
-              <SelectedIndex32>32</SelectedIndex32>
-              <SelectedIndex33>33</SelectedIndex33>
-              <SelectedIndex34>34</SelectedIndex34>
-              <SelectedIndex35>35</SelectedIndex35>
-              <SelectedIndex36>36</SelectedIndex36>
-              <SelectedIndex37>37</SelectedIndex37>
-              <SelectedIndexcount>38</SelectedIndexcount>
+              <SelectedIndexcount>0</SelectedIndexcount>
             </Control>
           </Control>
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox2">
@@ -568,15 +447,15 @@
               <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiiValue">
-              <Value>75</Value>
+              <Value>0</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiValue">
-              <Value>75</Value>
+              <Value>0</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureValue">
-              <Value>75</Value>
+              <Value>0</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecurev">
@@ -596,18 +475,12 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecure">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
           </Control>
         </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="tabPage16">
-          <Control Type="System.Windows.Forms.CheckedListBox" Name="PartyWaltsList">
-            <SelectedIndexcount>0</SelectedIndexcount>
-          </Control>
-          <Control Type="System.Windows.Forms.TextBox" Name="WaltzPTadd">
-            <Text />
-          </Control>
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox21">
             <Enabled>True</Enabled>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown27">
@@ -657,14 +530,84 @@
         </Control>
       </Control>
     </Control>
+    <Control Type="System.Windows.Forms.TabPage" Name="flourish">
+      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiiigroup">
+        <Enabled>True</Enabled>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useclmfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usestkfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useterfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usestkflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="useclmflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="useterflo">
+          <Checked>False</Checked>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.NumericUpDown" Name="FlourishTPValue">
+        <Value>400</Value>
+        <Enabled>True</Enabled>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiigroup">
+        <Enabled>True</Enabled>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usewldfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usebldfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="userevfloValue">
+          <Value>0</Value>
+          <Enabled>True</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usewldflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usebldflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="userevflo">
+          <Checked>False</Checked>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.CheckBox" Name="FlourishTP">
+        <Checked>False</Checked>
+        <Enabled>True</Enabled>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesigroup">
+        <Enabled>True</Enabled>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useviofloValue">
+          <Value>0</Value>
+          <Enabled>True</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usevioflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usedesfloValue">
+          <Value>0</Value>
+          <Enabled>True</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usedesflo">
+          <Checked>False</Checked>
+        </Control>
+      </Control>
+    </Control>
     <Control Type="System.Windows.Forms.TabPage" Name="trustControl">
       <Control Type="System.Windows.Forms.CheckedListBox" Name="Trusts">
-        <SelectedIndex0>32</SelectedIndex0>
-        <SelectedIndex1>45</SelectedIndex1>
-        <SelectedIndex2>80</SelectedIndex2>
-        <SelectedIndex3>81</SelectedIndex3>
-        <SelectedIndex4>86</SelectedIndex4>
-        <SelectedIndexcount>5</SelectedIndexcount>
+        <SelectedIndexcount>0</SelectedIndexcount>
       </Control>
     </Control>
   </Control>
