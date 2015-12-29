@@ -41,7 +41,7 @@ namespace FormSerialisation
                       childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownEdit" &&
                       childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownButtons" &&
                       childCtrl.GetType().ToString() != "System.Windows.Forms.Button" && childCtrl.Name != "WaltzPTadd" &&
-                      childCtrl.Name != "PartyWaltsList" && childCtrl.Name != "CurePTlist")
+                      childCtrl.Name != "PartyWaltsList" && childCtrl.Name != "CurePTlist" && childCtrl.Name != "shutdowngroup")
                 {
                     // serialise this control
                     xmlSerialisedForm.WriteStartElement("Control");

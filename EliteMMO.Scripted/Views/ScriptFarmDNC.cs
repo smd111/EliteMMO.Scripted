@@ -574,6 +574,7 @@
         {
             while (botRunning && !bgw_script_disp.CancellationPending)
             {
+                if (Shutdownenable.Checked) shutdowntime();
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
                 playerhp.Text = $"Player HP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
                 playermp.Text = $"Player MP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
@@ -602,5 +603,6 @@
             MonStagered = false;
         }
         #endregion
+
     }
 }

@@ -451,7 +451,21 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.autoRangeAttack = new System.Windows.Forms.CheckBox();
-            this.Options5MainTab = new System.Windows.Forms.TabPage();
+            this.selectapp = new System.Windows.Forms.TabPage();
+            this.shutdowngroup = new System.Windows.Forms.GroupBox();
+            this.selectedapp = new System.Windows.Forms.ComboBox();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.twentyfourHour = new System.Windows.Forms.RadioButton();
+            this.twelveHour = new System.Windows.Forms.RadioButton();
+            this.twelveHRgroup = new System.Windows.Forms.GroupBox();
+            this.PMtime = new System.Windows.Forms.RadioButton();
+            this.AMtime = new System.Windows.Forms.RadioButton();
+            this.label82 = new System.Windows.Forms.Label();
+            this.Shutdownenable = new System.Windows.Forms.CheckBox();
+            this.ShutdownTimeHr = new System.Windows.Forms.TextBox();
+            this.label81 = new System.Windows.Forms.Label();
+            this.ShutdownTimeMin = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
             this.ManualTargMode = new System.Windows.Forms.CheckBox();
             this.EnableDynamis = new System.Windows.Forms.CheckBox();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
@@ -898,7 +912,10 @@
             this.NotinBattle.SuspendLayout();
             this.groupBox15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).BeginInit();
-            this.Options5MainTab.SuspendLayout();
+            this.selectapp.SuspendLayout();
+            this.shutdowngroup.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            this.twelveHRgroup.SuspendLayout();
             this.groupBox16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StuckDistance)).BeginInit();
             this.OptionsJAMainTab.SuspendLayout();
@@ -1458,7 +1475,7 @@
             this.CombatSettingsTabs.Controls.Add(this.Options2MainTab);
             this.CombatSettingsTabs.Controls.Add(this.Options3MainTab);
             this.CombatSettingsTabs.Controls.Add(this.Options4MainTab);
-            this.CombatSettingsTabs.Controls.Add(this.Options5MainTab);
+            this.CombatSettingsTabs.Controls.Add(this.selectapp);
             this.CombatSettingsTabs.Controls.Add(this.OptionsJAMainTab);
             this.CombatSettingsTabs.Controls.Add(this.OptionsMAMainTab);
             this.CombatSettingsTabs.Controls.Add(this.Dynamispage);
@@ -1650,7 +1667,7 @@
             "Stringing Pummel",
             "Pyrrhic Kleos",
             "Omniscience"});
-            this.amname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.amname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.amname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.amname.FormattingEnabled = true;
             this.amname.Location = new System.Drawing.Point(188, 38);
@@ -1917,7 +1934,7 @@
             "Armor Piercer",
             "Cannibal Blade",
             "Bone Crusher"});
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(188, 15);
@@ -2700,23 +2717,181 @@
             this.autoRangeAttack.Text = "Auto (Range Attack)";
             this.autoRangeAttack.UseVisualStyleBackColor = true;
             // 
-            // Options5MainTab
+            // selectapp
             // 
-            this.Options5MainTab.Controls.Add(this.ManualTargMode);
-            this.Options5MainTab.Controls.Add(this.EnableDynamis);
-            this.Options5MainTab.Controls.Add(this.groupBox16);
-            this.Options5MainTab.Location = new System.Drawing.Point(4, 22);
-            this.Options5MainTab.Name = "Options5MainTab";
-            this.Options5MainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.Options5MainTab.Size = new System.Drawing.Size(419, 190);
-            this.Options5MainTab.TabIndex = 8;
-            this.Options5MainTab.Text = "Options 5";
-            this.Options5MainTab.UseVisualStyleBackColor = true;
+            this.selectapp.Controls.Add(this.shutdowngroup);
+            this.selectapp.Controls.Add(this.ManualTargMode);
+            this.selectapp.Controls.Add(this.EnableDynamis);
+            this.selectapp.Controls.Add(this.groupBox16);
+            this.selectapp.Location = new System.Drawing.Point(4, 22);
+            this.selectapp.Name = "selectapp";
+            this.selectapp.Padding = new System.Windows.Forms.Padding(3);
+            this.selectapp.Size = new System.Drawing.Size(419, 190);
+            this.selectapp.TabIndex = 8;
+            this.selectapp.Text = "Options 5";
+            this.selectapp.UseVisualStyleBackColor = true;
+            // 
+            // shutdowngroup
+            // 
+            this.shutdowngroup.Controls.Add(this.selectedapp);
+            this.shutdowngroup.Controls.Add(this.groupBox25);
+            this.shutdowngroup.Controls.Add(this.twelveHRgroup);
+            this.shutdowngroup.Controls.Add(this.label82);
+            this.shutdowngroup.Controls.Add(this.Shutdownenable);
+            this.shutdowngroup.Controls.Add(this.ShutdownTimeHr);
+            this.shutdowngroup.Controls.Add(this.label81);
+            this.shutdowngroup.Controls.Add(this.ShutdownTimeMin);
+            this.shutdowngroup.Controls.Add(this.label40);
+            this.shutdowngroup.Location = new System.Drawing.Point(64, 102);
+            this.shutdowngroup.Name = "shutdowngroup";
+            this.shutdowngroup.Size = new System.Drawing.Size(290, 80);
+            this.shutdowngroup.TabIndex = 3;
+            this.shutdowngroup.TabStop = false;
+            this.shutdowngroup.Text = "Shutdown @";
+            // 
+            // selectedapp
+            // 
+            this.selectedapp.AutoCompleteCustomSource.AddRange(new string[] {
+            "Scripted Only",
+            "Windower + Scripted",
+            "Ashita + Scripted"});
+            this.selectedapp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.selectedapp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.selectedapp.FormattingEnabled = true;
+            this.selectedapp.Items.AddRange(new object[] {
+            "Scripted Only",
+            "Windower + Scripted",
+            "Ashita + Scripted"});
+            this.selectedapp.Location = new System.Drawing.Point(7, 57);
+            this.selectedapp.Name = "selectedapp";
+            this.selectedapp.Size = new System.Drawing.Size(118, 21);
+            this.selectedapp.TabIndex = 10;
+            this.selectedapp.Text = "Scripted Only";
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.twentyfourHour);
+            this.groupBox25.Controls.Add(this.twelveHour);
+            this.groupBox25.Location = new System.Drawing.Point(162, 32);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(128, 25);
+            this.groupBox25.TabIndex = 9;
+            this.groupBox25.TabStop = false;
+            // 
+            // twentyfourHour
+            // 
+            this.twentyfourHour.AutoSize = true;
+            this.twentyfourHour.Location = new System.Drawing.Point(6, 7);
+            this.twentyfourHour.Name = "twentyfourHour";
+            this.twentyfourHour.Size = new System.Drawing.Size(56, 17);
+            this.twentyfourHour.TabIndex = 5;
+            this.twentyfourHour.Text = "24 HR";
+            this.twentyfourHour.UseVisualStyleBackColor = true;
+            // 
+            // twelveHour
+            // 
+            this.twelveHour.AutoSize = true;
+            this.twelveHour.Checked = true;
+            this.twelveHour.Location = new System.Drawing.Point(68, 7);
+            this.twelveHour.Name = "twelveHour";
+            this.twelveHour.Size = new System.Drawing.Size(56, 17);
+            this.twelveHour.TabIndex = 6;
+            this.twelveHour.TabStop = true;
+            this.twelveHour.Text = "12 HR";
+            this.twelveHour.UseVisualStyleBackColor = true;
+            this.twelveHour.CheckedChanged += new System.EventHandler(this.twelveHour_CheckedChanged);
+            // 
+            // twelveHRgroup
+            // 
+            this.twelveHRgroup.Controls.Add(this.PMtime);
+            this.twelveHRgroup.Controls.Add(this.AMtime);
+            this.twelveHRgroup.Location = new System.Drawing.Point(74, 32);
+            this.twelveHRgroup.Name = "twelveHRgroup";
+            this.twelveHRgroup.Size = new System.Drawing.Size(88, 25);
+            this.twelveHRgroup.TabIndex = 8;
+            this.twelveHRgroup.TabStop = false;
+            // 
+            // PMtime
+            // 
+            this.PMtime.AutoSize = true;
+            this.PMtime.Location = new System.Drawing.Point(49, 6);
+            this.PMtime.Name = "PMtime";
+            this.PMtime.Size = new System.Drawing.Size(41, 17);
+            this.PMtime.TabIndex = 1;
+            this.PMtime.Text = "PM";
+            this.PMtime.UseVisualStyleBackColor = true;
+            // 
+            // AMtime
+            // 
+            this.AMtime.AutoSize = true;
+            this.AMtime.Checked = true;
+            this.AMtime.Location = new System.Drawing.Point(4, 6);
+            this.AMtime.Name = "AMtime";
+            this.AMtime.Size = new System.Drawing.Size(41, 17);
+            this.AMtime.TabIndex = 0;
+            this.AMtime.TabStop = true;
+            this.AMtime.Text = "AM";
+            this.AMtime.UseVisualStyleBackColor = true;
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(6, 16);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(281, 13);
+            this.label82.TabIndex = 7;
+            this.label82.Text = "This will automaticaly kill FFXI and Scripted at the set time.";
+            // 
+            // Shutdownenable
+            // 
+            this.Shutdownenable.AutoSize = true;
+            this.Shutdownenable.Location = new System.Drawing.Point(9, 34);
+            this.Shutdownenable.Name = "Shutdownenable";
+            this.Shutdownenable.Size = new System.Drawing.Size(59, 17);
+            this.Shutdownenable.TabIndex = 4;
+            this.Shutdownenable.Text = "Enable";
+            this.Shutdownenable.UseVisualStyleBackColor = true;
+            // 
+            // ShutdownTimeHr
+            // 
+            this.ShutdownTimeHr.Location = new System.Drawing.Point(162, 57);
+            this.ShutdownTimeHr.Name = "ShutdownTimeHr";
+            this.ShutdownTimeHr.Size = new System.Drawing.Size(20, 20);
+            this.ShutdownTimeHr.TabIndex = 0;
+            this.ShutdownTimeHr.Text = "0";
+            this.ShutdownTimeHr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(129, 60);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(33, 13);
+            this.label81.TabIndex = 3;
+            this.label81.Text = "Hour:";
+            // 
+            // ShutdownTimeMin
+            // 
+            this.ShutdownTimeMin.Location = new System.Drawing.Point(247, 57);
+            this.ShutdownTimeMin.Name = "ShutdownTimeMin";
+            this.ShutdownTimeMin.Size = new System.Drawing.Size(20, 20);
+            this.ShutdownTimeMin.TabIndex = 1;
+            this.ShutdownTimeMin.Text = "0";
+            this.ShutdownTimeMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(208, 60);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(42, 13);
+            this.label40.TabIndex = 2;
+            this.label40.Text = "Minute:";
             // 
             // ManualTargMode
             // 
             this.ManualTargMode.AutoSize = true;
-            this.ManualTargMode.Location = new System.Drawing.Point(221, 47);
+            this.ManualTargMode.Location = new System.Drawing.Point(219, 63);
             this.ManualTargMode.Name = "ManualTargMode";
             this.ManualTargMode.Size = new System.Drawing.Size(139, 17);
             this.ManualTargMode.TabIndex = 2;
@@ -2727,7 +2902,7 @@
             // EnableDynamis
             // 
             this.EnableDynamis.AutoSize = true;
-            this.EnableDynamis.Location = new System.Drawing.Point(221, 23);
+            this.EnableDynamis.Location = new System.Drawing.Point(219, 39);
             this.EnableDynamis.Name = "EnableDynamis";
             this.EnableDynamis.Size = new System.Drawing.Size(143, 17);
             this.EnableDynamis.TabIndex = 1;
@@ -3899,7 +4074,7 @@
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(20, 10);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(251, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(159, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -7699,8 +7874,14 @@
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autoRangeDelay)).EndInit();
-            this.Options5MainTab.ResumeLayout(false);
-            this.Options5MainTab.PerformLayout();
+            this.selectapp.ResumeLayout(false);
+            this.selectapp.PerformLayout();
+            this.shutdowngroup.ResumeLayout(false);
+            this.shutdowngroup.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            this.twelveHRgroup.ResumeLayout(false);
+            this.twelveHRgroup.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StuckDistance)).EndInit();
@@ -8417,7 +8598,7 @@
         private Label label63;
         private Label label62;
         private Label label61;
-        private TabPage Options5MainTab;
+        private TabPage selectapp;
         private CheckBox EnableDynamis;
         private GroupBox groupBox16;
         private Label label65;
@@ -8761,6 +8942,10 @@
         {
             CurePTlist.Items.Clear();
         }
+        private void twelveHour_CheckedChanged(object sender, EventArgs e)
+        {
+            twelveHRgroup.Enabled = twelveHour.Checked;
+        }
         #endregion
         #region Methods: Start/Stop/Load
         private void ScriptFarmDncLoad(object sender, EventArgs e)
@@ -8819,6 +9004,29 @@
             WindowInfo.KeyPress(API.Keys.RIGHT);
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
             WindowInfo.KeyPress(API.Keys.NUMPADENTER);
+        }
+        private void shutdowntime()
+        {
+            var currenthr = DateTime.Now.Hour;
+            var currentmin = DateTime.Now.Minute;
+            var shutdownhr = int.Parse(ShutdownTimeHr.Text);
+            var shutdownmin = int.Parse(ShutdownTimeMin.Text);
+            if (twelveHour.Checked)
+            {
+                if (PMtime.Checked) shutdownhr = shutdownhr + 12;
+            }
+            if (currenthr >= shutdownhr && currentmin >= shutdownmin)
+            {
+                if (selectedapp.Text == "Windower + Scripted")
+                {
+                    api.ThirdParty.SendString("//terminate");
+                }
+                else if (selectedapp.Text == "Ashita + Scripted")
+                {
+                    api.ThirdParty.SendString("/terminate");
+                }
+                Environment.Exit(0);
+            }
         }
         #region Trust
         private void trustMenureset_Click(object sender, EventArgs e)
@@ -12067,6 +12275,21 @@
             idleZ = PlayerInfo.Z;
             RecordIdleLocation.Text = $"X:{idleX}/Y:{idleY}/Z:{idleZ}";
         }
+
+        private GroupBox groupBox25;
+        private RadioButton twentyfourHour;
+        private RadioButton twelveHour;
+        private GroupBox twelveHRgroup;
+        private RadioButton PMtime;
+        private RadioButton AMtime;
+        private Label label82;
+        private CheckBox Shutdownenable;
+        private TextBox ShutdownTimeHr;
+        private Label label81;
+        private TextBox ShutdownTimeMin;
+        private Label label40;
+        private GroupBox shutdowngroup;
+        private ComboBox selectedapp;
 
         #endregion
 

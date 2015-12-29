@@ -26,7 +26,7 @@
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
       <Checked>True</Checked>
-      <Enabled>False</Enabled>
+      <Enabled>True</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
       <Checked>True</Checked>
@@ -355,81 +355,6 @@
         </Control>
       </Control>
     </Control>
-    <Control Type="System.Windows.Forms.TabPage" Name="flourish">
-      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiiigroup">
-        <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="useclmfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="usestkfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="useterfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usestkflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="useclmflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="useterflo">
-          <Checked>False</Checked>
-        </Control>
-      </Control>
-      <Control Type="System.Windows.Forms.NumericUpDown" Name="FlourishTPValue">
-        <Value>400</Value>
-        <Enabled>True</Enabled>
-      </Control>
-      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiigroup">
-        <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="usewldfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="usebldfloValue">
-          <Value>0</Value>
-          <Enabled>False</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="userevfloValue">
-          <Value>5</Value>
-          <Enabled>True</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usewldflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usebldflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="userevflo">
-          <Checked>True</Checked>
-        </Control>
-      </Control>
-      <Control Type="System.Windows.Forms.CheckBox" Name="FlourishTP">
-        <Checked>False</Checked>
-        <Enabled>True</Enabled>
-      </Control>
-      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesigroup">
-        <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="useviofloValue">
-          <Value>0</Value>
-          <Enabled>True</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usevioflo">
-          <Checked>False</Checked>
-        </Control>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="usedesfloValue">
-          <Value>0</Value>
-          <Enabled>True</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="usedesflo">
-          <Checked>False</Checked>
-        </Control>
-      </Control>
-    </Control>
     <Control Type="System.Windows.Forms.TabPage" Name="dancer">
       <Control Type="System.Windows.Forms.TabControl" Name="tabControl3">
         <Control Type="System.Windows.Forms.TabPage" Name="tabPage14">
@@ -602,12 +527,6 @@
           </Control>
         </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="tabPage16">
-          <Control Type="System.Windows.Forms.CheckedListBox" Name="PartyWaltsList">
-            <SelectedIndexcount>0</SelectedIndexcount>
-          </Control>
-          <Control Type="System.Windows.Forms.TextBox" Name="WaltzPTadd">
-            <Text />
-          </Control>
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox21">
             <Enabled>True</Enabled>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown27">
@@ -654,6 +573,81 @@
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox22">
             <Enabled>True</Enabled>
           </Control>
+        </Control>
+      </Control>
+    </Control>
+    <Control Type="System.Windows.Forms.TabPage" Name="flourish">
+      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiiigroup">
+        <Enabled>True</Enabled>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useclmfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usestkfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useterfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usestkflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="useclmflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="useterflo">
+          <Checked>False</Checked>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.NumericUpDown" Name="FlourishTPValue">
+        <Value>400</Value>
+        <Enabled>True</Enabled>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesiigroup">
+        <Enabled>True</Enabled>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usewldfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usebldfloValue">
+          <Value>0</Value>
+          <Enabled>False</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="userevfloValue">
+          <Value>5</Value>
+          <Enabled>True</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usewldflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usebldflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="userevflo">
+          <Checked>True</Checked>
+        </Control>
+      </Control>
+      <Control Type="System.Windows.Forms.CheckBox" Name="FlourishTP">
+        <Checked>False</Checked>
+        <Enabled>True</Enabled>
+      </Control>
+      <Control Type="System.Windows.Forms.GroupBox" Name="flourishesigroup">
+        <Enabled>True</Enabled>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="useviofloValue">
+          <Value>0</Value>
+          <Enabled>True</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usevioflo">
+          <Checked>False</Checked>
+        </Control>
+        <Control Type="System.Windows.Forms.NumericUpDown" Name="usedesfloValue">
+          <Value>0</Value>
+          <Enabled>True</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.RadioButton" Name="usedesflo">
+          <Checked>False</Checked>
         </Control>
       </Control>
     </Control>

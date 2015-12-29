@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <ChildForm>
+  <Control Type="System.Windows.Forms.GroupBox" Name="groupBox18">
+    <Enabled>True</Enabled>
+  </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="DeathWarp">
     <Checked>False</Checked>
     <Enabled>True</Enabled>
@@ -13,7 +16,7 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.GroupBox" Name="groupBox8">
-    <Enabled>True</Enabled>
+    <Enabled>False</Enabled>
     <Control Type="System.Windows.Forms.ComboBox" Name="comboBox3">
       <Text />
     </Control>
@@ -22,8 +25,8 @@
       <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
-      <Checked>False</Checked>
-      <Enabled>True</Enabled>
+      <Checked>True</Checked>
+      <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
       <Checked>True</Checked>
@@ -32,12 +35,12 @@
       <Checked>False</Checked>
     </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>Dyna - Beaucedine.xin</Text>
+      <Text>Dyna - Windy.Linear.xin</Text>
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
-    <Checked>True</Checked>
-    <Enabled>True</Enabled>
+    <Checked>False</Checked>
+    <Enabled>False</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.TabControl" Name="dncControl">
     <Control Type="System.Windows.Forms.TabPage" Name="targets">
@@ -96,7 +99,7 @@
               <Text>Upheaval</Text>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown40">
-              <Value>1</Value>
+              <Value>3.0</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="ws">
@@ -117,89 +120,29 @@
             </Control>
           </Control>
         </Control>
-        <Control Type="System.Windows.Forms.TabPage" Name="Options4MainTab">
-          <Control Type="System.Windows.Forms.GroupBox" Name="NotinBattle">
+        <Control Type="System.Windows.Forms.TabPage" Name="Options5MainTab">
+          <Control Type="System.Windows.Forms.CheckBox" Name="ManualTargMode">
+            <Checked>True</Checked>
             <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.RadioButton" Name="ChocoboJigII">
-              <Checked>False</Checked>
-            </Control>
-            <Control Type="System.Windows.Forms.RadioButton" Name="ChocoboJig">
-              <Checked>False</Checked>
-            </Control>
-            <Control Type="System.Windows.Forms.RadioButton" Name="SpectralJig">
-              <Checked>False</Checked>
-            </Control>
           </Control>
-          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox15">
+          <Control Type="System.Windows.Forms.CheckBox" Name="EnableDynamis">
+            <Checked>False</Checked>
             <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.NumericUpDown" Name="autoRangeDelay">
-              <Value>5</Value>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox16">
+            <Enabled>True</Enabled>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="StuckDistance">
+              <Value>1</Value>
               <Enabled>True</Enabled>
             </Control>
-            <Control Type="System.Windows.Forms.TextBox" Name="textBox7">
-              <Text>/ra &lt;t&gt;</Text>
-            </Control>
-            <Control Type="System.Windows.Forms.CheckBox" Name="rangeaggro">
+            <Control Type="System.Windows.Forms.CheckBox" Name="navStuckWatch">
               <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
-            <Control Type="System.Windows.Forms.ComboBox" Name="comboBox1">
-              <Text />
-            </Control>
-            <Control Type="System.Windows.Forms.CheckBox" Name="checkBox4">
-              <Checked>False</Checked>
-              <Enabled>False</Enabled>
-            </Control>
-            <Control Type="System.Windows.Forms.CheckBox" Name="autoRangeAttack">
+            <Control Type="System.Windows.Forms.CheckBox" Name="mobStuckWatch">
               <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
-          </Control>
-        </Control>
-        <Control Type="System.Windows.Forms.TabPage" Name="Options3MainTab">
-          <Control Type="System.Windows.Forms.ComboBox" Name="comboBox4">
-            <Text />
-          </Control>
-          <Control Type="System.Windows.Forms.ComboBox" Name="SignetStaff">
-            <Text />
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="useStaff">
-            <Checked>False</Checked>
-            <Enabled>False</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.TextBox" Name="foodName">
-            <Text />
-          </Control>
-          <Control Type="System.Windows.Forms.NumericUpDown" Name="healMPcount">
-            <Value>40</Value>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="usefood">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="HealMP">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.NumericUpDown" Name="healHPcount">
-            <Value>40</Value>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="WeakLocation">
-            <Checked>False</Checked>
-            <Enabled>False</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="HealHP">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-          </Control>
-          <Control Type="System.Windows.Forms.TextBox" Name="textBox6">
-            <Text />
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="IdleLocation">
-            <Checked>False</Checked>
-            <Enabled>False</Enabled>
           </Control>
         </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="Options2MainTab">
@@ -262,6 +205,95 @@
             <Enabled>True</Enabled>
           </Control>
         </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="Options3MainTab">
+          <Control Type="System.Windows.Forms.ComboBox" Name="comboBox4">
+            <Text />
+          </Control>
+          <Control Type="System.Windows.Forms.ComboBox" Name="SignetStaff">
+            <Text />
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="useStaff">
+            <Checked>False</Checked>
+            <Enabled>False</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.TextBox" Name="foodName">
+            <Text />
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="healMPcount">
+            <Value>40</Value>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="usefood">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="HealMP">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.NumericUpDown" Name="healHPcount">
+            <Value>40</Value>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="WeakLocation">
+            <Checked>False</Checked>
+            <Enabled>False</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="HealHP">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+          <Control Type="System.Windows.Forms.TextBox" Name="textBox6">
+            <Text />
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="IdleLocation">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="Options4MainTab">
+          <Control Type="System.Windows.Forms.GroupBox" Name="NotinBattle">
+            <Enabled>True</Enabled>
+            <Control Type="System.Windows.Forms.CheckBox" Name="UseJigs">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="ChocoboJigII">
+              <Checked>False</Checked>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="ChocoboJig">
+              <Checked>False</Checked>
+            </Control>
+            <Control Type="System.Windows.Forms.RadioButton" Name="SpectralJig">
+              <Checked>False</Checked>
+            </Control>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox15">
+            <Enabled>True</Enabled>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="autoRangeDelay">
+              <Value>5</Value>
+              <Enabled>True</Enabled>
+            </Control>
+            <Control Type="System.Windows.Forms.TextBox" Name="textBox7">
+              <Text>/ra &lt;t&gt;</Text>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="rangeaggro">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+            </Control>
+            <Control Type="System.Windows.Forms.ComboBox" Name="comboBox1">
+              <Text />
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="checkBox4">
+              <Checked>False</Checked>
+              <Enabled>False</Enabled>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="autoRangeAttack">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+            </Control>
+          </Control>
+        </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="OptionsJAMainTab">
           <Control Type="System.Windows.Forms.TabControl" Name="JAtabselect">
             <Control Type="System.Windows.Forms.TabPage" Name="selectPage">
@@ -275,12 +307,6 @@
                 <SelectedIndex6>9</SelectedIndex6>
                 <SelectedIndex7>10</SelectedIndex7>
                 <SelectedIndexcount>8</SelectedIndexcount>
-              </Control>
-            </Control>
-            <Control Type="System.Windows.Forms.TabPage" Name="Dynamispage">
-              <Control Type="System.Windows.Forms.CheckBox" Name="staggerstopJA">
-                <Checked>False</Checked>
-                <Enabled>True</Enabled>
               </Control>
             </Control>
           </Control>
@@ -297,11 +323,11 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="mobheightdistValue">
-          <Value>1</Value>
+          <Value>2</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="mobheightdist">
-          <Checked>False</Checked>
+          <Checked>True</Checked>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="runTarget">
@@ -309,11 +335,11 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="runPullDistance">
-          <Checked>False</Checked>
+          <Checked>True</Checked>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="targetSearchDist">
-          <Value>24.5</Value>
+          <Value>15.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullTolorance">
@@ -321,7 +347,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown21">
-          <Value>16</Value>
+          <Value>15.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.TextBox" Name="pullCommand">
@@ -383,7 +409,7 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usequickstepValue">
-              <Value>1</Value>
+              <Value>5</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="StepsHP">
@@ -471,11 +497,11 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiValue">
-              <Value>0</Value>
+              <Value>75</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureValue">
-              <Value>0</Value>
+              <Value>75</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecurev">
@@ -487,7 +513,7 @@
               <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecureiii">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecureii">
@@ -495,15 +521,12 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecure">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
           </Control>
         </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="tabPage16">
-          <Control Type="System.Windows.Forms.TextBox" Name="textBox2">
-            <Text />
-          </Control>
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox21">
             <Enabled>True</Enabled>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown27">
@@ -612,13 +635,6 @@
       </Control>
       <Control Type="System.Windows.Forms.GroupBox" Name="flourishesigroup">
         <Enabled>True</Enabled>
-        <Control Type="System.Windows.Forms.NumericUpDown" Name="useanifloValue">
-          <Value>0</Value>
-          <Enabled>True</Enabled>
-        </Control>
-        <Control Type="System.Windows.Forms.RadioButton" Name="useaniflo">
-          <Checked>False</Checked>
-        </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="useviofloValue">
           <Value>0</Value>
           <Enabled>True</Enabled>
@@ -639,9 +655,9 @@
       <Control Type="System.Windows.Forms.CheckedListBox" Name="Trusts">
         <SelectedIndex0>32</SelectedIndex0>
         <SelectedIndex1>45</SelectedIndex1>
-        <SelectedIndex2>79</SelectedIndex2>
-        <SelectedIndex3>80</SelectedIndex3>
-        <SelectedIndex4>85</SelectedIndex4>
+        <SelectedIndex2>80</SelectedIndex2>
+        <SelectedIndex3>81</SelectedIndex3>
+        <SelectedIndex4>86</SelectedIndex4>
         <SelectedIndexcount>5</SelectedIndexcount>
       </Control>
     </Control>
