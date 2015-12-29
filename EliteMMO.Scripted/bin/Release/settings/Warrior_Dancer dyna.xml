@@ -35,7 +35,7 @@
       <Checked>False</Checked>
     </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>Dyna - Windy.Linear.xin</Text>
+      <Text>Dyna - Sandy.Linear.xin</Text>
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
@@ -240,7 +240,7 @@
               <Checked>False</Checked>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="SpectralJig">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
             </Control>
           </Control>
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox15">
@@ -269,7 +269,7 @@
             </Control>
           </Control>
         </Control>
-        <Control Type="System.Windows.Forms.TabPage" Name="Options5MainTab">
+        <Control Type="System.Windows.Forms.TabPage" Name="selectapp">
           <Control Type="System.Windows.Forms.CheckBox" Name="ManualTargMode">
             <Checked>False</Checked>
             <Enabled>True</Enabled>

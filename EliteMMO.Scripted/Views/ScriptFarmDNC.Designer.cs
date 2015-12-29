@@ -453,6 +453,8 @@
             this.autoRangeAttack = new System.Windows.Forms.CheckBox();
             this.selectapp = new System.Windows.Forms.TabPage();
             this.shutdowngroup = new System.Windows.Forms.GroupBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.shutdowndate = new System.Windows.Forms.DateTimePicker();
             this.selectedapp = new System.Windows.Forms.ComboBox();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
             this.twentyfourHour = new System.Windows.Forms.RadioButton();
@@ -460,12 +462,11 @@
             this.twelveHRgroup = new System.Windows.Forms.GroupBox();
             this.PMtime = new System.Windows.Forms.RadioButton();
             this.AMtime = new System.Windows.Forms.RadioButton();
-            this.label82 = new System.Windows.Forms.Label();
-            this.Shutdownenable = new System.Windows.Forms.CheckBox();
             this.ShutdownTimeHr = new System.Windows.Forms.TextBox();
+            this.Shutdownenable = new System.Windows.Forms.CheckBox();
             this.label81 = new System.Windows.Forms.Label();
-            this.ShutdownTimeMin = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
+            this.ShutdownTimeMin = new System.Windows.Forms.TextBox();
             this.ManualTargMode = new System.Windows.Forms.CheckBox();
             this.EnableDynamis = new System.Windows.Forms.CheckBox();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
@@ -2733,21 +2734,42 @@
             // 
             // shutdowngroup
             // 
+            this.shutdowngroup.Controls.Add(this.label82);
+            this.shutdowngroup.Controls.Add(this.shutdowndate);
             this.shutdowngroup.Controls.Add(this.selectedapp);
             this.shutdowngroup.Controls.Add(this.groupBox25);
             this.shutdowngroup.Controls.Add(this.twelveHRgroup);
-            this.shutdowngroup.Controls.Add(this.label82);
-            this.shutdowngroup.Controls.Add(this.Shutdownenable);
             this.shutdowngroup.Controls.Add(this.ShutdownTimeHr);
+            this.shutdowngroup.Controls.Add(this.Shutdownenable);
             this.shutdowngroup.Controls.Add(this.label81);
-            this.shutdowngroup.Controls.Add(this.ShutdownTimeMin);
             this.shutdowngroup.Controls.Add(this.label40);
-            this.shutdowngroup.Location = new System.Drawing.Point(64, 102);
+            this.shutdowngroup.Controls.Add(this.ShutdownTimeMin);
+            this.shutdowngroup.Location = new System.Drawing.Point(42, 102);
             this.shutdowngroup.Name = "shutdowngroup";
-            this.shutdowngroup.Size = new System.Drawing.Size(290, 80);
+            this.shutdowngroup.Size = new System.Drawing.Size(334, 80);
             this.shutdowngroup.TabIndex = 3;
             this.shutdowngroup.TabStop = false;
             this.shutdowngroup.Text = "Shutdown @";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(27, 16);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(281, 13);
+            this.label82.TabIndex = 7;
+            this.label82.Text = "This will automaticaly kill FFXI and Scripted at the set time.";
+            // 
+            // shutdowndate
+            // 
+            this.shutdowndate.CustomFormat = "MM/dd/yyyy";
+            this.shutdowndate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.shutdowndate.Location = new System.Drawing.Point(123, 57);
+            this.shutdowndate.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.shutdowndate.Name = "shutdowndate";
+            this.shutdowndate.Size = new System.Drawing.Size(81, 20);
+            this.shutdowndate.TabIndex = 11;
+            this.shutdowndate.Value = new System.DateTime(2015, 12, 29, 0, 0, 0, 0);
             // 
             // selectedapp
             // 
@@ -2772,7 +2794,7 @@
             // 
             this.groupBox25.Controls.Add(this.twentyfourHour);
             this.groupBox25.Controls.Add(this.twelveHour);
-            this.groupBox25.Location = new System.Drawing.Point(162, 32);
+            this.groupBox25.Location = new System.Drawing.Point(180, 26);
             this.groupBox25.Name = "groupBox25";
             this.groupBox25.Size = new System.Drawing.Size(128, 25);
             this.groupBox25.TabIndex = 9;
@@ -2805,7 +2827,7 @@
             // 
             this.twelveHRgroup.Controls.Add(this.PMtime);
             this.twelveHRgroup.Controls.Add(this.AMtime);
-            this.twelveHRgroup.Location = new System.Drawing.Point(74, 32);
+            this.twelveHRgroup.Location = new System.Drawing.Point(92, 26);
             this.twelveHRgroup.Name = "twelveHRgroup";
             this.twelveHRgroup.Size = new System.Drawing.Size(88, 25);
             this.twelveHRgroup.TabIndex = 8;
@@ -2833,60 +2855,53 @@
             this.AMtime.Text = "AM";
             this.AMtime.UseVisualStyleBackColor = true;
             // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(6, 16);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(281, 13);
-            this.label82.TabIndex = 7;
-            this.label82.Text = "This will automaticaly kill FFXI and Scripted at the set time.";
-            // 
-            // Shutdownenable
-            // 
-            this.Shutdownenable.AutoSize = true;
-            this.Shutdownenable.Location = new System.Drawing.Point(9, 34);
-            this.Shutdownenable.Name = "Shutdownenable";
-            this.Shutdownenable.Size = new System.Drawing.Size(59, 17);
-            this.Shutdownenable.TabIndex = 4;
-            this.Shutdownenable.Text = "Enable";
-            this.Shutdownenable.UseVisualStyleBackColor = true;
-            // 
             // ShutdownTimeHr
             // 
-            this.ShutdownTimeHr.Location = new System.Drawing.Point(162, 57);
+            this.ShutdownTimeHr.Location = new System.Drawing.Point(243, 57);
+            this.ShutdownTimeHr.MaxLength = 2;
             this.ShutdownTimeHr.Name = "ShutdownTimeHr";
             this.ShutdownTimeHr.Size = new System.Drawing.Size(20, 20);
             this.ShutdownTimeHr.TabIndex = 0;
             this.ShutdownTimeHr.Text = "0";
             this.ShutdownTimeHr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // Shutdownenable
+            // 
+            this.Shutdownenable.AutoSize = true;
+            this.Shutdownenable.Location = new System.Drawing.Point(27, 34);
+            this.Shutdownenable.Name = "Shutdownenable";
+            this.Shutdownenable.Size = new System.Drawing.Size(59, 17);
+            this.Shutdownenable.TabIndex = 4;
+            this.Shutdownenable.Text = "Enable";
+            this.Shutdownenable.UseVisualStyleBackColor = true;
+            // 
             // label81
             // 
             this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(129, 60);
+            this.label81.Location = new System.Drawing.Point(210, 60);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(33, 13);
             this.label81.TabIndex = 3;
             this.label81.Text = "Hour:";
             // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(269, 60);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(42, 13);
+            this.label40.TabIndex = 2;
+            this.label40.Text = "Minute:";
+            // 
             // ShutdownTimeMin
             // 
-            this.ShutdownTimeMin.Location = new System.Drawing.Point(247, 57);
+            this.ShutdownTimeMin.Location = new System.Drawing.Point(308, 57);
+            this.ShutdownTimeMin.MaxLength = 2;
             this.ShutdownTimeMin.Name = "ShutdownTimeMin";
             this.ShutdownTimeMin.Size = new System.Drawing.Size(20, 20);
             this.ShutdownTimeMin.TabIndex = 1;
             this.ShutdownTimeMin.Text = "0";
             this.ShutdownTimeMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(208, 60);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(42, 13);
-            this.label40.TabIndex = 2;
-            this.label40.Text = "Minute:";
             // 
             // ManualTargMode
             // 
@@ -9007,6 +9022,7 @@
         }
         private void shutdowntime()
         {
+            var currentdate = DateTime.Now.Date.ToString("MM/dd/yyyy");
             var currenthr = DateTime.Now.Hour;
             var currentmin = DateTime.Now.Minute;
             var shutdownhr = int.Parse(ShutdownTimeHr.Text);
@@ -9015,17 +9031,18 @@
             {
                 if (PMtime.Checked) shutdownhr = shutdownhr + 12;
             }
-            if (currenthr >= shutdownhr && currentmin >= shutdownmin)
+            if (currentdate == shutdowndate.Text && currenthr >= shutdownhr && currentmin >= shutdownmin)
             {
-                if (selectedapp.Text == "Windower + Scripted")
-                {
-                    api.ThirdParty.SendString("//terminate");
-                }
-                else if (selectedapp.Text == "Ashita + Scripted")
-                {
-                    api.ThirdParty.SendString("/terminate");
-                }
-                Environment.Exit(0);
+                api.ThirdParty.SendString("/echo test");
+                //if (selectedapp.Text == "Windower + Scripted")
+                //{
+                //    api.ThirdParty.SendString("//terminate");
+                //}
+                //else if (selectedapp.Text == "Ashita + Scripted")
+                //{
+                //    api.ThirdParty.SendString("/terminate");
+                //}
+                //Environment.Exit(0);
             }
         }
         #region Trust
@@ -12290,6 +12307,7 @@
         private Label label40;
         private GroupBox shutdowngroup;
         private ComboBox selectedapp;
+        private DateTimePicker shutdowndate;
 
         #endregion
 
