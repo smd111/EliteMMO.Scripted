@@ -11,7 +11,6 @@
     using System.Diagnostics;
     using System.IO;
     using System.Text;
-    using System.Security.Policy;
     using API;
     using System.Text.RegularExpressions;
     using FormSerialisation;
@@ -609,7 +608,6 @@
             this.Exuviationtext = new System.Windows.Forms.Label();
             this.WildCarrottext = new System.Windows.Forms.Label();
             this.MAconfigpage = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.MAreverse = new System.Windows.Forms.CheckBox();
             this.Dynamispage = new System.Windows.Forms.TabPage();
@@ -617,7 +615,6 @@
             this.NoneProcuse = new System.Windows.Forms.CheckBox();
             this.DynaProccontrole = new System.Windows.Forms.CheckBox();
             this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
             this.Dynatxt = new System.Windows.Forms.Label();
             this.staggerstopJA = new System.Windows.Forms.CheckBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
@@ -842,9 +839,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.GEOJA = new System.Windows.Forms.CheckedListBox();
             this.trustControl = new System.Windows.Forms.TabPage();
-            this.label64 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.selectedtrusts = new System.Windows.Forms.Label();
             this.maxtrustslabel = new System.Windows.Forms.Label();
@@ -4532,7 +4527,6 @@
             // 
             // MAconfigpage
             // 
-            this.MAconfigpage.Controls.Add(this.label13);
             this.MAconfigpage.Controls.Add(this.label10);
             this.MAconfigpage.Controls.Add(this.MAreverse);
             this.MAconfigpage.Location = new System.Drawing.Point(4, 22);
@@ -4543,23 +4537,17 @@
             this.MAconfigpage.Text = "MAconfig";
             this.MAconfigpage.UseVisualStyleBackColor = true;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(82, 94);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(183, 13);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "of the way its listed on the Select tab.";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(74, 75);
+            this.label10.MaximumSize = new System.Drawing.Size(200, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(199, 13);
+            this.label10.Size = new System.Drawing.Size(199, 26);
             this.label10.TabIndex = 1;
-            this.label10.Text = "This will cause all magic to run in reverse";
+            this.label10.Text = "This will cause all magic to run in reverse of the way its listed on the Select t" +
+    "ab.";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // MAreverse
             // 
@@ -4589,7 +4577,6 @@
             this.groupBox13.Controls.Add(this.NoneProcuse);
             this.groupBox13.Controls.Add(this.DynaProccontrole);
             this.groupBox13.Controls.Add(this.label59);
-            this.groupBox13.Controls.Add(this.label60);
             this.groupBox13.Location = new System.Drawing.Point(60, 52);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(299, 102);
@@ -4624,19 +4611,13 @@
             // 
             this.label59.AutoSize = true;
             this.label59.Location = new System.Drawing.Point(23, 40);
+            this.label59.MaximumSize = new System.Drawing.Size(253, 0);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(253, 13);
+            this.label59.Size = new System.Drawing.Size(253, 26);
             this.label59.TabIndex = 4;
-            this.label59.Text = "This will force you to not use non proc skills if it wont";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(93, 57);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(112, 13);
-            this.label60.TabIndex = 5;
-            this.label60.Text = "proc the current traget";
+            this.label59.Text = "This will force you to not use non proc skills if it wont proc the current traget" +
+    ".";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Dynatxt
             // 
@@ -7492,9 +7473,7 @@
             // 
             // trustControl
             // 
-            this.trustControl.Controls.Add(this.label64);
             this.trustControl.Controls.Add(this.label63);
-            this.trustControl.Controls.Add(this.label62);
             this.trustControl.Controls.Add(this.label61);
             this.trustControl.Controls.Add(this.selectedtrusts);
             this.trustControl.Controls.Add(this.maxtrustslabel);
@@ -7508,41 +7487,27 @@
             this.trustControl.Text = "Trust";
             this.trustControl.UseVisualStyleBackColor = true;
             // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(254, 153);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(131, 13);
-            this.label64.TabIndex = 19;
-            this.label64.Text = "the \"Reset Trusts\" button.";
-            // 
             // label63
             // 
             this.label63.AutoSize = true;
             this.label63.Location = new System.Drawing.Point(230, 139);
+            this.label63.MaximumSize = new System.Drawing.Size(181, 0);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(182, 13);
+            this.label63.Size = new System.Drawing.Size(170, 26);
             this.label63.TabIndex = 18;
-            this.label63.Text = "To be able to reselect Trusts click on";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(254, 113);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(131, 13);
-            this.label62.TabIndex = 17;
-            this.label62.Text = "gray out the selection box.";
+            this.label63.Text = "To be able to reselect Trusts click on the \"Reset Trusts\" button.";
+            this.label63.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label61
             // 
             this.label61.AutoSize = true;
             this.label61.Location = new System.Drawing.Point(227, 100);
+            this.label61.MaximumSize = new System.Drawing.Size(184, 0);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(184, 13);
+            this.label61.Size = new System.Drawing.Size(184, 26);
             this.label61.TabIndex = 16;
-            this.label61.Text = "Once you hit your max Trust limit it will";
+            this.label61.Text = "Once you hit your max Trust limit it will gray out the selection box.";
+            this.label61.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // selectedtrusts
             // 
@@ -8505,7 +8470,6 @@
         private Label WildCarrottext;
         private TabPage MAconfigpage;
         private CheckBox MAreverse;
-        private Label label13;
         private Label label10;
         public GroupBox SMNAbilitysgroup;
         public CheckedListBox SMNAbilityList;
@@ -8602,16 +8566,13 @@
         private RadioButton ChocoboJig;
         private RadioButton SpectralJig;
         private CheckBox UseJigs;
-        private Label label60;
         private Label label59;
         private CheckBox DynaProccontrole;
         private GroupBox groupBox13;
         private CheckBox NoneProcuse;
         private CheckBox navStuckWatch;
         private CheckBox mobStuckWatch;
-        private Label label64;
         private Label label63;
-        private Label label62;
         private Label label61;
         private TabPage selectapp;
         private CheckBox EnableDynamis;
@@ -8669,6 +8630,21 @@
         private Label playertp;
         private Label playermp;
         private Label playerhp;
+        private GroupBox groupBox25;
+        private RadioButton twentyfourHour;
+        private RadioButton twelveHour;
+        private GroupBox twelveHRgroup;
+        private RadioButton PMtime;
+        private RadioButton AMtime;
+        private Label label82;
+        private CheckBox Shutdownenable;
+        private TextBox ShutdownTimeHr;
+        private Label label81;
+        private TextBox ShutdownTimeMin;
+        private Label label40;
+        private GroupBox shutdowngroup;
+        private ComboBox selectedapp;
+        private DateTimePicker shutdowndate;
         #endregion
         #region Display: Controle
         private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
@@ -12290,24 +12266,9 @@
             idleX = PlayerInfo.X;
             idleY = PlayerInfo.Y;
             idleZ = PlayerInfo.Z;
-            RecordIdleLocation.Text = $"X:{idleX}/Y:{idleY}/Z:{idleZ}";
+            RecordIdleLocation.Text = $"X:{idleX.ToString("00.###")}/Y:{idleY.ToString("00.###")}/Z:{idleZ.ToString("00.###")}";
         }
 
-        private GroupBox groupBox25;
-        private RadioButton twentyfourHour;
-        private RadioButton twelveHour;
-        private GroupBox twelveHRgroup;
-        private RadioButton PMtime;
-        private RadioButton AMtime;
-        private Label label82;
-        private CheckBox Shutdownenable;
-        private TextBox ShutdownTimeHr;
-        private Label label81;
-        private TextBox ShutdownTimeMin;
-        private Label label40;
-        private GroupBox shutdowngroup;
-        private ComboBox selectedapp;
-        private DateTimePicker shutdowndate;
 
         #endregion
 

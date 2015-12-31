@@ -2,7 +2,6 @@
 {
     using System.Windows.Forms;
     using API;
-    using System;
 
     partial class MainWindow
     {

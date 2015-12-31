@@ -22,6 +22,8 @@
         public double[] navPathY = new double[1];
         public bool[] navPathfirst = new bool[1];
         public string[] navPathdoor = new string[1];
+        public string[] navPathzone = new string[1];
+        static float lastH = 0;
         #endregion
         #endregion
         /// <summary> 
@@ -78,12 +80,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.FirstPerson = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.AddNode = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -377,20 +375,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 15);
+            this.label2.Location = new System.Drawing.Point(4, 16);
+            this.label2.MaximumSize = new System.Drawing.Size(116, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
+            this.label2.Size = new System.Drawing.Size(116, 39);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Set selected node(s)";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 13);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "to use first person";
+            this.label2.Text = "Set selected node(s) to use first person view click set.";
             // 
             // button1
             // 
@@ -405,38 +395,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 85);
+            this.label4.Location = new System.Drawing.Point(4, 86);
+            this.label4.MaximumSize = new System.Drawing.Size(116, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 13);
+            this.label4.Size = new System.Drawing.Size(116, 39);
             this.label4.TabIndex = 19;
-            this.label4.Text = "To add a door in your ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 13);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "nav file target the";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 115);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "door and click add.";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 13);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "view click set.";
+            this.label4.Text = "To add a door in your nav file target the door and click add.";
             // 
             // groupBox2
             // 
@@ -444,11 +408,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.FirstPerson);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(441, 29);
             this.groupBox2.Name = "groupBox2";
@@ -584,12 +544,8 @@
         private System.Windows.Forms.CheckBox firstPersonView;
         private System.Windows.Forms.Button FirstPerson;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem removeNodeToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;

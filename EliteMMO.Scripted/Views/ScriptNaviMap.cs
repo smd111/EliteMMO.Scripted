@@ -27,7 +27,15 @@
                     var distance = (Math.Sqrt(Math.Pow(Math.Abs(ScriptFarmDNC.PlayerInfo.X - float.Parse(items[1])), 2) + Math.Pow(Math.Abs(ScriptFarmDNC.PlayerInfo.Y - float.Parse(items[3])), 2) + Math.Pow(Math.Abs(ScriptFarmDNC.PlayerInfo.Z - float.Parse(items[2])), 2)));
                     if (distance > (double)NodeDist.Value)
                     {
-                        WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
+                        if (ScriptFarmDNC.PlayerInfo.X == 0 && ScriptFarmDNC.PlayerInfo.Y == 0 && ScriptFarmDNC.PlayerInfo.Z == 0)
+                        {
+                            WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}:Zoning;{lastH}");
+                        }
+                        else
+                        {
+                            lastH = ScriptFarmDNC.PlayerInfo.H;
+                            WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
+                        }
                     }
                 }
                 if (isPlaying)
@@ -89,6 +97,20 @@
                         if (navPathdoor[closestWayPoint].Contains("Door"))
                         {
                             CheckDoor(closestWayPoint);
+                        }
+                        else if (navPathzone[closestWayPoint].Contains("Zoning"))
+                        {
+                            api.AutoFollow.IsAutoFollowing = false;
+                            var items = navPathzone[closestWayPoint].Split(';');
+                            api.Player.ViewMode = 1;
+                            if (runReverse.Checked)
+                                api.Entity.GetLocalPlayer().H = (float)(double.Parse(items[1])+Math.PI);
+                            else
+                                api.Entity.GetLocalPlayer().H = float.Parse(items[1]);
+                            api.ThirdParty.KeyDown(API.Keys.NUMPAD8);
+                            Thread.Sleep(TimeSpan.FromSeconds(8));
+                            api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
+
                         }
                         else lastcommandtarget = "";
 
@@ -192,11 +214,13 @@
                         Array.Resize(ref navPathY, ipos + 1);
                         Array.Resize(ref navPathfirst, ipos + 1);
                         Array.Resize(ref navPathdoor, ipos + 1);
+                        Array.Resize(ref navPathzone, ipos + 1);
                         navPathX[ipos] = double.Parse(items[1]);
                         navPathZ[ipos] = double.Parse(items[2]);
                         navPathY[ipos] = ((items.Length == 3) ? 0 : double.Parse(items[3]));
                         navPathfirst[ipos] = false;
                         navPathdoor[ipos] = "";
+                        navPathzone[ipos] = "";
                         if (items.Length > 4)
                         {
                             for (int i = 4; i <= (items.Length -1); i++)
@@ -205,6 +229,8 @@
                                     navPathfirst[ipos] = true;
                                 if (items[i].Contains("Door"))
                                     navPathdoor[ipos] = items[i];
+                                if (items[i].Contains("Zoning"))
+                                    navPathzone[ipos] = items[i];
                             }
                         }
 

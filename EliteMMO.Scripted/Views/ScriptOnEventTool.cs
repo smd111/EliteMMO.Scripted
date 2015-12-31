@@ -33,17 +33,34 @@
                 {
                     foreach (var item in from item in Events.Items.Cast<ListViewItem>().Where(item => line.Text.ToLower().Contains(item.Text.ToLower())) let scan = new Regex(Events.Text, RegexOptions.IgnoreCase) where scan.IsMatch(line.Text) select item)
                     {
-                        api.ThirdParty.SendString(item.SubItems[1].Text);
+                        if (item.SubItems[1].Text.Contains("SetTarget"))
+                        {
+                            var items = item.SubItems[1].Text.Split(';');
+                            ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
+                        }
+                        else
+                            api.ThirdParty.SendString(item.SubItems[1].Text);
                     }
                 }
                 else
                 {
                     foreach (var item in Events.Items.Cast<ListViewItem>().Where(item => line.Text.ToLower().Contains(item.Text.ToLower())))
                     {
-                        api.ThirdParty.SendString(item.SubItems[1].Text);
+                        if (item.SubItems[1].Text.Contains("SetTarget"))
+                        {
+                            var items = item.SubItems[1].Text.Split(';');
+                            ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
+                        }
+                        else
+                            api.ThirdParty.SendString(item.SubItems[1].Text);
                     }
                 }
             }
-        }  
+        }
+
+        private void addSettarget_Click(object sender, EventArgs e)
+        {
+            eCommand.Text = $"SetTarget;{ScriptFarmDNC.TargetInfo.ID}";
+        }
     }
 }

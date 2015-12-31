@@ -25,8 +25,8 @@
       <Enabled>True</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="runReverse">
-      <Checked>True</Checked>
-      <Enabled>True</Enabled>
+      <Checked>False</Checked>
+      <Enabled>False</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
       <Checked>True</Checked>
@@ -35,7 +35,7 @@
       <Checked>False</Checked>
     </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>Dyna - Sandy.Linear.xin</Text>
+      <Text>Dyna - Xarca.Linear.xin</Text>
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
@@ -323,7 +323,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="mobheightdistValue">
-          <Value>2</Value>
+          <Value>3</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="mobheightdist">
@@ -339,7 +339,7 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="targetSearchDist">
-          <Value>15.0</Value>
+          <Value>30.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullTolorance">
@@ -397,11 +397,11 @@
               <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usestutterstepValue">
-              <Value>0</Value>
+              <Value>5</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="useboxstepValue">
-              <Value>0</Value>
+              <Value>5</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="StepsHPValue">

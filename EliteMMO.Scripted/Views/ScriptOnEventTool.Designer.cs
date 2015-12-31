@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Text;
+﻿using System.Text;
 using System.Xml;
 
 namespace EliteMMO.Scripted.Views
@@ -53,6 +52,8 @@ namespace EliteMMO.Scripted.Views
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.addSettarget = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.useRegEx = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ChatType = new System.Windows.Forms.ComboBox();
@@ -85,6 +86,8 @@ namespace EliteMMO.Scripted.Views
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.addSettarget);
+            this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.useRegEx);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.ChatType);
@@ -102,6 +105,27 @@ namespace EliteMMO.Scripted.Views
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "On Event Tool";
+            // 
+            // addSettarget
+            // 
+            this.addSettarget.Location = new System.Drawing.Point(12, 311);
+            this.addSettarget.Name = "addSettarget";
+            this.addSettarget.Size = new System.Drawing.Size(40, 23);
+            this.addSettarget.TabIndex = 37;
+            this.addSettarget.Text = "ADD";
+            this.addSettarget.UseVisualStyleBackColor = true;
+            this.addSettarget.Click += new System.EventHandler(this.addSettarget_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 255);
+            this.label3.MaximumSize = new System.Drawing.Size(160, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 52);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "To SetTarget. Target what you want to target then click \"ADD\" and it will be put " +
+    "into Execute Command box.";
             // 
             // useRegEx
             // 
@@ -363,6 +387,8 @@ namespace EliteMMO.Scripted.Views
         public System.Windows.Forms.ColumnHeader CT;
         public System.Windows.Forms.ColumnHeader RE;
         public System.Windows.Forms.ToolStripMenuItem editSelectedToolStripMenuItem;
+        private Button addSettarget;
+        private Label label3;
 
         private void ToolStartClick(object sender, EventArgs e)
         {
@@ -399,6 +425,7 @@ namespace EliteMMO.Scripted.Views
                     selected.SubItems[1].Text = eCommand.Text;
                     selected.SubItems[2].Text = ChatType.Text;
                     selected.SubItems[3].Text = useRegEx.Checked.ToString();
+                    Events.SelectedItems.Clear();
                 }
                 else
                 {
@@ -661,5 +688,6 @@ namespace EliteMMO.Scripted.Views
                 useRegEx.Checked = true;
             }
         }
+
     }
 }

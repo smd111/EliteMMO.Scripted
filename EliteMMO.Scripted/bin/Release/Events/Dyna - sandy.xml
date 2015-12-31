@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OnEventsList>
+  <Event isChecked="False" ChatEvent="Death" EventCommand="/ja &quot;Violent Flourish&quot; &lt;t&gt;" ChatType="ALL" isRegEx="False" />
+  <Event isChecked="False" ChatEvent="Fanatic Dance" EventCommand="/ja &quot;Violent Flourish&quot; &lt;t&gt;" ChatType="ALL" isRegEx="False" />
+</OnEventsList>

@@ -1,34 +1,20 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using System.Reflection;
 using System.Xml;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FormSerialisation
 {
     public static class FormSerialisor
     {
-        /*
-         * Drop this class into your project, and add the following line at the top of any class/form that wishes to use it...
-           using FormSerialisation;
-           To use the code, simply call FormSerialisor.Serialise(FormOrControlToBeSerialised, FullPathToXMLFile)
-         * 
-         * For more details, see http://www.codeproject.com/KB/dialog/SavingTheStateOfAForm.aspx
-         * 
-         * Last updated 13th June '10 to account for the odd behaviour of the two Panel controls in a SplitContainer (see the article)
-         */
         public static void Serialise(Control c, string XmlFileName)
         {
             XmlTextWriter xmlSerialisedForm = new XmlTextWriter(XmlFileName, System.Text.Encoding.Default);
             xmlSerialisedForm.Formatting = Formatting.Indented;
             xmlSerialisedForm.WriteStartDocument();
             xmlSerialisedForm.WriteStartElement("ChildForm");
-            // enumerate all controls on the form, and serialise them as appropriate
             AddChildControls(xmlSerialisedForm, c);
-            xmlSerialisedForm.WriteEndElement(); // ChildForm
+            xmlSerialisedForm.WriteEndElement();
             xmlSerialisedForm.WriteEndDocument();
             xmlSerialisedForm.Flush();
             xmlSerialisedForm.Close();
@@ -43,7 +29,6 @@ namespace FormSerialisation
                       childCtrl.GetType().ToString() != "System.Windows.Forms.Button" && childCtrl.Name != "WaltzPTadd" &&
                       childCtrl.Name != "PartyWaltsList" && childCtrl.Name != "CurePTlist" && childCtrl.Name != "shutdowngroup")
                 {
-                    // serialise this control
                     xmlSerialisedForm.WriteStartElement("Control");
                     xmlSerialisedForm.WriteAttributeString("Type", childCtrl.GetType().ToString());
                     xmlSerialisedForm.WriteAttributeString("Name", childCtrl.Name);
@@ -66,13 +51,7 @@ namespace FormSerialisation
                     }
                     else if (childCtrl is CheckedListBox)
                     {
-                        // need to account for multiply selected items
                         CheckedListBox lst = (CheckedListBox)childCtrl;
-                        /*for (int i = 0; i < lst.Items.Count; i++)
-                        {
-                            xmlSerialisedForm.WriteElementString("list"+i.ToString(), (lst.Items[i].ToString()));
-                        }
-                        xmlSerialisedForm.WriteElementString("listcount", (lst.Items.Count.ToString())); */
                         for (int i = 0; i < lst.CheckedIndices.Count; i++)
                         {
                             xmlSerialisedForm.WriteElementString("SelectedIndex" + i.ToString(), (lst.CheckedIndices[i].ToString()));
@@ -82,40 +61,16 @@ namespace FormSerialisation
                     else if (childCtrl is ComboBox)
                     {
                         xmlSerialisedForm.WriteElementString("Text", ((ComboBox)childCtrl).Text);
-                        //xmlSerialisedForm.WriteElementString("SelectedIndex", ((ComboBox)childCtrl).SelectedIndex.ToString());
                     }
-                    /*else if (childCtrl is ListBox)
-                    {
-                        // need to account for multiply selected items
-                        ListBox lst = (ListBox)childCtrl;
-                        if (lst.SelectedIndex == -1)
-                        {
-                            xmlSerialisedForm.WriteElementString("SelectedIndex", "-1");
-                        }
-                        else
-                        {
-                            for (int i = 0; i < lst.SelectedIndices.Count; i++)
-                            {
-                                xmlSerialisedForm.WriteElementString("SelectedIndex", (lst.SelectedIndices[i].ToString()));
-                            }
-                        }
-                    }*/
                     else if (childCtrl is CheckBox)
                     {
                         xmlSerialisedForm.WriteElementString("Checked", ((CheckBox)childCtrl).Checked.ToString());
                         xmlSerialisedForm.WriteElementString("Enabled", ((CheckBox)childCtrl).Enabled.ToString());
                     }
-                    // this next line was taken from http://stackoverflow.com/questions/391888/how-to-get-the-real-value-of-the-visible-property
-                    // which dicusses the problem of child controls claiming to have Visible=false even when they haven't, based on the parent
-                    // having Visible=true
-                    //bool visible = (bool)typeof(Control).GetMethod("GetState", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(childCtrl, new object[] { 2 });
-                    //xmlSerialisedForm.WriteElementString("Visible", visible.ToString());
-                    // see if this control has any children, and if so, serialise them
                     if (childCtrl.HasChildren)
                     {
                         if (childCtrl is SplitContainer)
                         {
-                            // handle this one as a special case
                             AddChildControls(xmlSerialisedForm, ((SplitContainer)childCtrl).Panel1);
                             AddChildControls(xmlSerialisedForm, ((SplitContainer)childCtrl).Panel2);
                         }
@@ -124,7 +79,7 @@ namespace FormSerialisation
                             AddChildControls(xmlSerialisedForm, childCtrl);
                         }
                     }
-                    xmlSerialisedForm.WriteEndElement(); // Control
+                    xmlSerialisedForm.WriteEndElement();
                 }
             }
         }
@@ -143,16 +98,12 @@ namespace FormSerialisation
         }
         private static void SetControlProperties(Control currentCtrl, XmlNode n)
         {
-            // get the control's name and type
             string controlName = n.Attributes["Name"].Value;
             if (controlName == "") return;
             string controlType = n.Attributes["Type"].Value;
-            // find the control
             Control[] ctrl = currentCtrl.Controls.Find(controlName, true);
             if (ctrl.Length == 0)
-            {
-                // can't find the control
-            }
+            {}
             else
             {
                 Control ctrlToSet = GetImmediateChildControl(ctrl, currentCtrl);
@@ -160,20 +111,11 @@ namespace FormSerialisation
                 {
                     if (ctrlToSet.GetType().ToString() == controlType)
                     {
-                        // the right type too ;-)
                         switch (controlType)
                         {
                             case "System.Windows.Forms.CheckedListBox":
-                                // need to account for multiply selected items
                                 CheckedListBox ltr = (CheckedListBox)ctrlToSet;
-                                //var Lcount=Convert.ToInt32(n["listcount"].InnerText);
                                 var Icount=Convert.ToInt32(n["SelectedIndexcount"].InnerText);
-                                /* ltr.Items.Clear();
-                                for (int i = 0; i < Lcount; i++)
-                                {
-                                    if (!ltr.Items.Contains(n["list" + i.ToString()].InnerText))
-                                        ltr.Items.Add(n["list"+i.ToString()].InnerText);
-                                } */
                                 foreach (int i in ltr.CheckedIndices)
                                 {
                                     ltr.SetItemCheckState(i, CheckState.Unchecked);
@@ -200,23 +142,11 @@ namespace FormSerialisation
                             case "System.Windows.Forms.ComboBox":
                                 ((ComboBox)ctrlToSet).Text = "";
                                 ((ComboBox)ctrlToSet).SelectedText = n["Text"].InnerText;
-                                //((System.Windows.Forms.ComboBox)ctrlToSet).SelectedIndex = Convert.ToInt32(n["SelectedIndex"].InnerText);
                                 break;
-                            /* case "System.Windows.Forms.ListBox":
-                                // need to account for multiply selected items
-                                ListBox lst = (ListBox)ctrlToSet;
-                                XmlNodeList xnlSelectedIndex = n.SelectNodes("SelectedIndex");
-                                for (int i = 0; i < xnlSelectedIndex.Count; i++)
-                                {
-                                    lst.SelectedIndex = Convert.ToInt32(xnlSelectedIndex[i].InnerText);
-                                }
-                                break; */
                             case "System.Windows.Forms.CheckBox":
                                 ((CheckBox)ctrlToSet).Checked = Convert.ToBoolean(n["Checked"].InnerText);
                                 break;
                         }
-                        //ctrlToSet.Visible = Convert.ToBoolean(n["Visible"].InnerText);
-                        // if n has any children that are controls, deserialise them as well
                         if (n.HasChildNodes && ctrlToSet.HasChildren)
                         {
                             XmlNodeList xnlControls = n.SelectNodes("Control");
@@ -227,14 +157,10 @@ namespace FormSerialisation
                         }
                     }
                     else
-                    {
-                        // not the right type
-                    }
+                    {}
                 }
                 else
-                {
-                    // can't find a control whose parent is the current control
-                }
+                {}
             }
         }
         private static Control GetImmediateChildControl(Control[] ctrl, Control currentCtrl)
