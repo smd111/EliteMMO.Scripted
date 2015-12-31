@@ -18,43 +18,45 @@
         {
             while (botRunning || !bgw_script_events.CancellationPending)
             {
-                Thread.Sleep(TimeSpan.FromSeconds(0.1));
-
                 var onEvent = (from object itemChecked in Events.CheckedItems
                                select itemChecked.ToString()).ToList();
 
                 if (Events.Items.Count == 0 || onEvent.Count == 0)
                     continue;
-
                 var line = api.Chat.GetNextChatLine();
                 if (string.IsNullOrEmpty(line?.Text)) continue;
-
-                if (useRegEx.Checked)
+                foreach (int a in Events.CheckedIndices)
                 {
-                    foreach (var item in from item in Events.Items.Cast<ListViewItem>().Where(item => line.Text.ToLower().Contains(item.Text.ToLower())) let scan = new Regex(Events.Text, RegexOptions.IgnoreCase) where scan.IsMatch(line.Text) select item)
+                    var b = Events.Items[a];
+                    var chat = b.SubItems[0].Text;
+                    var action = b.SubItems[1].Text;
+                    var chattype = b.SubItems[2].Text;
+                    var regex = bool.Parse(b.SubItems[3].Text);
+                    if (string.IsNullOrEmpty(action)) continue;
+                    if (regex)
                     {
-                        if (item.SubItems[1].Text.Contains("SetTarget"))
+                        if (Regex.IsMatch(line.Text, chat))
                         {
-                            var items = item.SubItems[1].Text.Split(';');
-                            ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
+                            if (action.Contains("SetTarget"))
+                            {
+                                ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(action.Replace("SetTarget;", "")));
+                            }
+                            else api.ThirdParty.SendString(action);
                         }
-                        else
-                            api.ThirdParty.SendString(item.SubItems[1].Text);
+                    }
+                    else
+                    {
+                        if (line.Text.ToLower().Contains(chat.ToLower()))
+                        {
+                            if (action.Contains("SetTarget"))
+                            {
+                                ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(action.Replace("SetTarget;", "")));
+                            }
+                            else api.ThirdParty.SendString(action);
+                        }
                     }
                 }
-                else
-                {
-                    foreach (var item in Events.Items.Cast<ListViewItem>().Where(item => line.Text.ToLower().Contains(item.Text.ToLower())))
-                    {
-                        if (item.SubItems[1].Text.Contains("SetTarget"))
-                        {
-                            var items = item.SubItems[1].Text.Split(';');
-                            ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(items[1]));
-                        }
-                        else
-                            api.ThirdParty.SendString(item.SubItems[1].Text);
-                    }
-                }
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }
 

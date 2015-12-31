@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OnEventsList>
+  <Event isChecked="True" ChatEvent="test1" EventCommand="SetTarget;1161" ChatType="ALL" isRegEx="False" />
+  <Event isChecked="True" ChatEvent="test2" EventCommand="/echo test" ChatType="ALL" isRegEx="False" />
+  <Event isChecked="True" ChatEvent="test3" EventCommand="/echo test" ChatType="ALL" isRegEx="False" />
+  <Event isChecked="True" ChatEvent="test4" EventCommand="/echo test" ChatType="ALL" isRegEx="False" />
+  <Event isChecked="True" ChatEvent="test5" EventCommand="/echo test" ChatType="ALL" isRegEx="False" />
+</OnEventsList>
