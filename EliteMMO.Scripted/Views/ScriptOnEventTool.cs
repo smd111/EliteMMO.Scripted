@@ -38,9 +38,7 @@
                         if (Regex.IsMatch(line.Text, chat))
                         {
                             if (action.Contains("SetTarget"))
-                            {
                                 ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(action.Replace("SetTarget;", "")));
-                            }
                             else api.ThirdParty.SendString(action);
                         }
                     }
@@ -49,9 +47,7 @@
                         if (line.Text.ToLower().Contains(chat.ToLower()))
                         {
                             if (action.Contains("SetTarget"))
-                            {
                                 ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(action.Replace("SetTarget;", "")));
-                            }
                             else api.ThirdParty.SendString(action);
                         }
                     }

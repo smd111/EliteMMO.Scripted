@@ -8747,17 +8747,6 @@
             else if (curItem == "Repair") Repairgroup.Enabled = state;
             else if (curItem == "Ventriloquy") Ventriloquygroup.Enabled = state;
         }
-        private void Trusts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var trustcount = 0;
-            if (PlayerInfo.HasKeyItem(2156)) trustcount = 5;
-            else if (PlayerInfo.HasKeyItem(2153)) trustcount = 4;
-            else if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051)) trustcount = 3;
-
-            selectedtrusts.Text = "Selected Trusts : " + Trusts.CheckedItems.Count;
-
-            if (Trusts.CheckedItems.Count == trustcount) Trusts.Enabled = false;
-        }
         private void NoneProcuse_CheckedChanged(object sender, EventArgs e)
         {
             NoneProc = NoneProcuse.Checked;
@@ -9009,16 +8998,15 @@
             }
             if (currentdate == shutdowndate.Text && currenthr >= shutdownhr && currentmin >= shutdownmin)
             {
-                api.ThirdParty.SendString("/echo test");
-                //if (selectedapp.Text == "Windower + Scripted")
-                //{
-                //    api.ThirdParty.SendString("//terminate");
-                //}
-                //else if (selectedapp.Text == "Ashita + Scripted")
-                //{
-                //    api.ThirdParty.SendString("/terminate");
-                //}
-                //Environment.Exit(0);
+                if (selectedapp.Text == "Windower + Scripted")
+                {
+                    api.ThirdParty.SendString("//terminate");
+                }
+                else if (selectedapp.Text == "Ashita + Scripted")
+                {
+                    api.ThirdParty.SendString("/terminate");
+                }
+                Environment.Exit(0);
             }
         }
         #region Trust
@@ -9028,9 +9016,14 @@
                 Trusts.Items.Clear();
 
             var trustcount = 0;
-            if (PlayerInfo.HasKeyItem(2156)) trustcount = 5;
-            else if (PlayerInfo.HasKeyItem(2153)) trustcount = 4;
-            else if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051)) trustcount = 3;
+            if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051))
+            {
+                trustcount = 3;
+                if (PlayerInfo.HasKeyItem(2156))
+                    trustcount = 5;
+                else if (PlayerInfo.HasKeyItem(2153))
+                    trustcount = 4;
+            }
             maxtrustslabel.Text = "Max Trusts : " + trustcount;
             selectedtrusts.Text = "Selected Trusts : 0";
             Trusts.Enabled = true;
@@ -9047,6 +9040,22 @@
                 if (spellm == null) continue;
                 else if (PlayerInfo.HasSpell(i) && !Trusts.Items.Contains(spellm.Name[0])) Trusts.Items.Add(spellm.Name[0]);
             }
+        }
+        private void Trusts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var trustcount = 0;
+            if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051))
+            {
+                trustcount = 3;
+                if (PlayerInfo.HasKeyItem(2156))
+                    trustcount = 5;
+                else if (PlayerInfo.HasKeyItem(2153))
+                    trustcount = 4;
+            }
+
+            selectedtrusts.Text = "Selected Trusts : " + Trusts.CheckedItems.Count;
+
+            if (Trusts.CheckedItems.Count == trustcount) Trusts.Enabled = false;
         }
         private void useTrust()
         {
