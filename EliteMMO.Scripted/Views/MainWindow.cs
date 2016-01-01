@@ -8,7 +8,7 @@
     using System.IO;
     using System.Net;
     using System;
-
+    using System.Text.RegularExpressions;
     public partial class MainWindow : Form
     {
         ScriptFarmDNC farmbot;
@@ -53,7 +53,7 @@
             string message = "";
             if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != apidll) message = message + "\nEliteAPI.dll";
             if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v") != mmodll) message = message + "\nEliteMMO.API.dll";
-            if (GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt").Replace("\n", "") != appexe) message = message + "\nScripted";
+            if (Regex.Replace(GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt"), @"\t|\n|\r", "") != appexe) message = message + "\nScripted";
 
             DialogResult result;
             if (message != "") result = MessageBox.Show("Update Files:" + message, "Update Files", MessageBoxButtons.YesNo);
@@ -286,13 +286,13 @@
         private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (TopMostDisplay == "FarmBot")
-                farmbot.button1.PerformClick();
+                farmbot.SaveFarmSettings();
         }
 
         private void loadSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (TopMostDisplay == "FarmBot")
-                farmbot.button2.PerformClick();
+                farmbot.LoadFarmSettings();
         }
     }
 }

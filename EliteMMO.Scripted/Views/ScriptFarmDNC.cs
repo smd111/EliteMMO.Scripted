@@ -257,6 +257,8 @@
                 {
                     Thread.Sleep(TimeSpan.FromSeconds(scanInterval));
                 }
+                if (IdleLocation.Checked && PlayerInfo.Status == 0 && (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.TargetID))
+                    ReturnIdleLocation();
 
                 if (PlayerInfo.Status == 0 && isPulled)
                 {

@@ -863,8 +863,6 @@
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.curtime = new System.Windows.Forms.Label();
             this.curtarghpp = new System.Windows.Forms.Label();
@@ -7697,26 +7695,6 @@
             this.DeathWarp.Text = "Warp on Death";
             this.DeathWarp.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(463, 384);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 23);
-            this.button1.TabIndex = 53;
-            this.button1.Text = "Save Settings";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(630, 384);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 23);
-            this.button2.TabIndex = 54;
-            this.button2.Text = "Load Settings";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // groupBox18
             // 
             this.groupBox18.Controls.Add(this.curtime);
@@ -8496,8 +8474,6 @@
         private NumericUpDown ApogeeMPPset;
         private Label SMNpetMPUSEtext;
         private NumericUpDown SMNpetMPUSEset;
-        public Button button1;
-        public Button button2;
         public CheckBox AutoCallPUP;
         private NumericUpDown numericUpDown8;
         private NumericUpDown numericUpDown9;
@@ -9060,14 +9036,12 @@
         private void useTrust()
         {
             var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
-            if (PartyInfo.Count("Party") <= 6 && trust.Count == 0) return;
+            if (PartyInfo.Count(1) == 6 || trust.Count == 0) return;
             foreach (string T in trust)
             {
-                var trustname = T;
-                trustname = trustname.Replace(" ", "");
-                trustname = trustname.Replace("II", "");
-                trustname = trustname.Replace("[S]", "");
-                trustname = trustname.Replace("(UC)", "");
+                if (PartyInfo.Count(1) == 6 || PartyInfo.Count(2) > 0 || PartyInfo.Count(3) > 0) break;
+                if (TargetInfo.ID != PlayerInfo.TargetID && TargetInfo.ID != 0) break;
+                var trustname = T.Replace(" ", "").Replace("II", "").Replace("[S]", "").Replace("(UC)", "");
                 if (PartyInfo.ContainsName(trustname)) continue;
                 else
                 {
@@ -9384,7 +9358,7 @@
         #endregion
         #region Methods: Save/Load Config
         #region config: save/load (player)
-        public void button1_Click(object sender, EventArgs e)
+        public void SaveFarmSettings()
         {
             bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\settings");
             if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\settings");
@@ -9404,7 +9378,7 @@
                     break;
             }
         }
-        public void button2_Click(object sender, EventArgs e)
+        public void LoadFarmSettings()
         {
             isLoading = true;
             updatenav();
@@ -9520,7 +9494,7 @@
                         RunAssist(assisted);
                     }
                 }
-                else if (partyAssist.Checked && PartyInfo.Count("Party") > 1)
+                else if (partyAssist.Checked && PartyInfo.Count(1) > 1)
                 {
                     foreach (var member in members)
                     {
@@ -12440,7 +12414,7 @@
         #region class: PartyInfo
         public static class PartyInfo
         {
-            public static int Count(string typ)
+            public static int Count(int PartyNumber)
             {
                 var pc = 0;
                 for (var x = 0; x < 17; x++)
@@ -12448,20 +12422,19 @@
                     var member = api.Party.GetPartyMember(x);
                     if (member.Active == 1)
                     {
-                        if (typ == "") pc++;
-                        else if (typ == "Party")
+                        if (PartyNumber == 0) pc++;
+                        else if (PartyNumber == 1)
                         {
                             if (member.MemberNumber <= 5) pc++;
                         }
-                        else if (typ == "Allience 1")
+                        else if (PartyNumber == 2)
                         {
                             if (member.MemberNumber > 5 && member.MemberNumber <= 11) pc++;
                         }
-                        else if(typ == "Allience 2")
+                        else if(PartyNumber == 3)
                         {
                             if (member.MemberNumber > 11 && member.MemberNumber <= 17) pc++;
                         }
-                        else if (typ == "All") pc++;
                     }
                 }
                 return pc;
