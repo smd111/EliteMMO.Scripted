@@ -547,26 +547,28 @@
         #region Thread - SCH Charges
         private void BgwScriptSCHChargesDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            DateTime last = DateTime.Now;
             while (botRunning && !bgw_script_sch.CancellationPending)
             {
-                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                DateTime now = DateTime.Now;
                 Dictionary<int, dynamic> SCHcharges = new Dictionary<int, dynamic>()
-                {{ 90, new {time=48, charges = 5}},{ 70, new {time=60, charges = 4}},{ 50, new {time=80, charges = 3}},
-                 { 30, new {time=120, charges = 2}},{ 1, new {time=240, charges = 1}},};
+                {{ 90, new {time=48, charges=5}},{ 70, new {time=60, charges=4}},{ 50, new {time=80, charges=3}},
+                 { 30, new {time=120, charges=2}},{ 1, new {time=240, charges=1}},};
                 foreach (KeyValuePair<int, dynamic> kvp in SCHcharges)
                 {
                     var lvl = 1;
                     if (PlayerInfo.MainJob == 20) lvl = PlayerInfo.MainJobLevel;
                     else if (PlayerInfo.SubJob == 20) lvl = PlayerInfo.SubJobLevel;
-                    if (lvl >= kvp.Key)
+                    if (lvl >= kvp.Key && Math.Abs(now.Subtract(last).TotalSeconds) >= kvp.Value.time)
                     {
-                        Thread.Sleep(TimeSpan.FromSeconds(kvp.Value.time));
                         if (SchCharges < kvp.Value.charges)
                             SchCharges++;
+                        last = now;
                         break;
                     }
-
                 }
+
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }
         #endregion
@@ -575,14 +577,14 @@
         {
             while (botRunning && !bgw_script_disp.CancellationPending)
             {
-                if (Shutdownenable.Checked) shutdowntime();
-                Thread.Sleep(TimeSpan.FromSeconds(0.1));
                 playerhp.Text = $"Player HP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
                 playermp.Text = $"Player MP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
                 playertp.Text = $"Player TP: {PlayerInfo.TP}";
                 curtarg.Text = $"Current Target: {TargetInfo.Name}";
                 curtarghpp.Text = $"Target HP: {TargetInfo.HPP}%";
                 curtime.Text = $"Current Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
+                if (Shutdownenable.Checked) shutdowntime();
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }
         #endregion
@@ -591,19 +593,42 @@
         {
             while (botRunning && !bgw_script_chat.CancellationPending)
             {
-                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                Thread.Sleep(100);
                 var line = api.Chat.GetNextChatLine();
-                if (PlayerInfo.Status == 1)
+
+                if (string.IsNullOrEmpty(line?.Text) || PlayerInfo.Status != 1)
                 {
-                    if (!string.IsNullOrEmpty(line?.Text) && 
-                    line.Text.Contains(String.Format("{0}'s attack staggers the fiend!", PlayerInfo.Name))) MonStagered = true;
-                    else if (!string.IsNullOrEmpty(line?.Text) && line.Text.Contains("Auto-targeting the ")) MonStagered = false;
+                    MonStagered = false;
+                    continue;
                 }
-                else MonStagered = false;
+
+                if (line.Text.Contains($"{PlayerInfo.Name}'s attack staggers the fiend!")) MonStagered = true;
+                else if (line.Text.Contains("Auto-targeting the ")) MonStagered = false;
             }
+
             MonStagered = false;
         }
         #endregion
 
+        #region Code Testing section
+        private void Run_Test_Code(object sender, EventArgs e)
+        {
+            var text = "None";
+            if (api.Player.HasKeyItem(2497) || api.Player.HasKeyItem(2499) || api.Player.HasKeyItem(2501) ||
+                api.Player.HasKeyItem(2884) || api.Player.HasKeyItem(2887))
+                text = "";
+            if (PlayerInfo.HasKeyItem(2497))
+                text = text + "\nWindurst Trust permit";
+            if (PlayerInfo.HasKeyItem(2499))
+                text = text + "\nBastok Trust permit";
+            if (PlayerInfo.HasKeyItem(2501))
+                text = text + "\nSan d'Oria Trust permit";
+            if (PlayerInfo.HasKeyItem(2884))
+                text = text + "\nRhapsody in White";
+            if (PlayerInfo.HasKeyItem(2887))
+                text = text + "\nRhapsody in Crimson";
+            MessageBox.Show(text);
+        }
+        #endregion
     }
 }

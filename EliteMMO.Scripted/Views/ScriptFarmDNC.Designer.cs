@@ -297,6 +297,18 @@
             {"121", "\\ROM\\337\\66.DAT"},{"123", "\\ROM\\342\\94.DAT"},
             };
         #endregion
+        #region Job id to string Long/Short
+        public static Dictionary<int, dynamic> JobNames = new Dictionary<int, dynamic>()
+        {
+            {1, new{Long = "Warrior",Short="WAR"}},{2, new{Long = "Monk",Short="MNK"}},{3, new{Long = "White Mage",Short="WHM"}},
+            {4, new{Long = "Black Mage",Short="BLM"}},{5, new{Long = "Red Mage",Short="RDM"}},{6, new{Long = "Thief",Short="THF"}},
+            {7, new{Long = "Paladin",Short="PLD"}},{8, new{Long = "Dark Knight",Short="DRK"}},{9, new{Long = "Beastmaster",Short="BST"}},
+            {10, new{Long = "Bard",Short="BRD"}},{11, new{Long = "Ranger",Short="RNG"}},{12, new{Long = "Samurai",Short="SAM"}},
+            {13, new{Long = "Ninja",Short="NIN"}},{14, new{Long = "Dragoon",Short="DRG"}},{15, new{Long = "Summoner",Short="SMN"}},
+            {16, new{Long = "Blue Mage",Short="BLU"}},{17, new{Long = "Corsair",Short="COR"}},{18, new{Long = "Puppetmaster",Short="PUP"}},
+            {19, new{Long = "Dancer",Short="DNC"}},{20, new{Long = "Scholar",Short="SCHH"}},{21, new{Long = "Geomancer",Short="GEO"}},
+            {22, new{Long = "Rune Fencer",Short="RUN"}},{23, new{Long = "Monipulator",Short="MON"}},};
+        #endregion
         #region notWanted<list>
         public List<string> notWanted = new List<string>(new string[]
         {
@@ -864,6 +876,7 @@
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.curtime = new System.Windows.Forms.Label();
             this.curtarghpp = new System.Windows.Forms.Label();
             this.curtarg = new System.Windows.Forms.Label();
@@ -7491,7 +7504,7 @@
             this.label63.Location = new System.Drawing.Point(230, 139);
             this.label63.MaximumSize = new System.Drawing.Size(181, 0);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(170, 26);
+            this.label63.Size = new System.Drawing.Size(167, 26);
             this.label63.TabIndex = 18;
             this.label63.Text = "To be able to reselect Trusts click on the \"Reset Trusts\" button.";
             this.label63.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -7697,6 +7710,7 @@
             // 
             // groupBox18
             // 
+            this.groupBox18.Controls.Add(this.button1);
             this.groupBox18.Controls.Add(this.curtime);
             this.groupBox18.Controls.Add(this.curtarghpp);
             this.groupBox18.Controls.Add(this.curtarg);
@@ -7708,6 +7722,19 @@
             this.groupBox18.Size = new System.Drawing.Size(253, 179);
             this.groupBox18.TabIndex = 53;
             this.groupBox18.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(154, 89);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.TabStop = false;
+            this.button1.Text = "Run Test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.Run_Test_Code);
             // 
             // curtime
             // 
@@ -8992,12 +9019,12 @@
                 Trusts.Items.Clear();
 
             var trustcount = 0;
-            if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051))
+            if (api.Player.HasKeyItem(2497) || api.Player.HasKeyItem(2499) || api.Player.HasKeyItem(2501))
             {
                 trustcount = 3;
-                if (PlayerInfo.HasKeyItem(2156))
+                if (PlayerInfo.HasKeyItem(2887))
                     trustcount = 5;
-                else if (PlayerInfo.HasKeyItem(2153))
+                else if (PlayerInfo.HasKeyItem(2884))
                     trustcount = 4;
             }
             maxtrustslabel.Text = "Max Trusts : " + trustcount;
@@ -9020,12 +9047,12 @@
         private void Trusts_SelectedIndexChanged(object sender, EventArgs e)
         {
             var trustcount = 0;
-            if (PlayerInfo.HasKeyItem(2049) || PlayerInfo.HasKeyItem(2050) || PlayerInfo.HasKeyItem(2051))
+            if (api.Player.HasKeyItem(2497) || api.Player.HasKeyItem(2499) || api.Player.HasKeyItem(2501))
             {
                 trustcount = 3;
-                if (PlayerInfo.HasKeyItem(2156))
+                if (PlayerInfo.HasKeyItem(2887))
                     trustcount = 5;
-                else if (PlayerInfo.HasKeyItem(2153))
+                else if (PlayerInfo.HasKeyItem(2884))
                     trustcount = 4;
             }
 
@@ -9362,14 +9389,14 @@
         {
             bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\settings");
             if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\settings");
-            Dictionary<int, string> savename = new Dictionary<int, string>()
-            {{1, "Warrior"},{2, "Monk"},{3, "White_Mage"},{4, "Black_Mage"},{5, "Red_Mage"},{6, "Thief"},{7, "Paladin"},{8, "Dark_Knight"},{9, "Beastmaster"},
-             {10, "Bard"},{11, "Ranger"},{12, "Samurai"},{13, "Ninja"},{14, "Dragoon"},{15, "Summoner"},{16, "Blue_Mage"},{17, "Corsair"},{18, "Puppetmaster"},
-             {19, "Dancer"},{20, "Scholar"},{21, "Geomancer"},{22, "Rune_Fencer"},{23, "Monipulator"}};
+            //Dictionary<int, string> savename = new Dictionary<int, string>()
+            //{{1, "Warrior"},{2, "Monk"},{3, "White_Mage"},{4, "Black_Mage"},{5, "Red_Mage"},{6, "Thief"},{7, "Paladin"},{8, "Dark_Knight"},{9, "Beastmaster"},
+            // {10, "Bard"},{11, "Ranger"},{12, "Samurai"},{13, "Ninja"},{14, "Dragoon"},{15, "Summoner"},{16, "Blue_Mage"},{17, "Corsair"},{18, "Puppetmaster"},
+            // {19, "Dancer"},{20, "Scholar"},{21, "Geomancer"},{22, "Rune_Fencer"},{23, "Monipulator"}};
             var saveFile = new SaveFileDialog();
             saveFile.Filter = @"settings file (*.xml)|*.xml";
             saveFile.InitialDirectory = Application.StartupPath + @"\settings";
-            saveFile.FileName = savename[PlayerInfo.MainJob] +"_"+savename[PlayerInfo.SubJob]+".xml";
+            saveFile.FileName = JobNames[PlayerInfo.MainJob].Long.Replace(" ", "_") + "_"+ JobNames[PlayerInfo.SubJob].Long.Replace(" ", "_") + ".xml";
             saveFile.Title = @"Save your settings file";
             switch (saveFile.ShowDialog())
             {
@@ -9382,14 +9409,14 @@
         {
             isLoading = true;
             updatenav();
-            Dictionary<int, string> savename = new Dictionary<int, string>()
-            {{1, "Warrior"},{2, "Monk"},{3, "White_Mage"},{4, "Black_Mage"},{5, "Red_Mage"},{6, "Thief"},{7, "Paladin"},{8, "Dark_Knight"},{9, "Beastmaster"},
-             {10, "Bard"},{11, "Ranger"},{12, "Samurai"},{13, "Ninja"},{14, "Dragoon"},{15, "Summoner"},{16, "Blue_Mage"},{17, "Corsair"},{18, "Puppetmaster"},
-             {19, "Dancer"},{20, "Scholar"},{21, "Geomancer"},{22, "Rune_Fencer"},{23, "Monipulator"}};
+            //Dictionary<int, string> savename = new Dictionary<int, string>()
+            //{{1, "Warrior"},{2, "Monk"},{3, "White_Mage"},{4, "Black_Mage"},{5, "Red_Mage"},{6, "Thief"},{7, "Paladin"},{8, "Dark_Knight"},{9, "Beastmaster"},
+            // {10, "Bard"},{11, "Ranger"},{12, "Samurai"},{13, "Ninja"},{14, "Dragoon"},{15, "Summoner"},{16, "Blue_Mage"},{17, "Corsair"},{18, "Puppetmaster"},
+            // {19, "Dancer"},{20, "Scholar"},{21, "Geomancer"},{22, "Rune_Fencer"},{23, "Monipulator"}};
             var openFile = new OpenFileDialog();
             openFile.Filter = @"settings files (*.xml)|*.xml";
             openFile.InitialDirectory = Application.StartupPath + @"\settings";
-            openFile.FileName = savename[PlayerInfo.MainJob] +"_"+savename[PlayerInfo.SubJob]+".xml";
+            openFile.FileName = JobNames[PlayerInfo.MainJob].Long.Replace(" ", "_") + "_" + JobNames[PlayerInfo.SubJob].Long.Replace(" ", "_") + ".xml";
             openFile.Title = @"Load your settings file";
             switch (openFile.ShowDialog())
             {
@@ -12251,6 +12278,8 @@
             idleZ = PlayerInfo.Z;
             RecordIdleLocation.Text = $"X:{idleX.ToString("00.###")}/Y:{idleY.ToString("00.###")}/Z:{idleZ.ToString("00.###")}";
         }
+
+        private Button button1;
 
 
         #endregion
