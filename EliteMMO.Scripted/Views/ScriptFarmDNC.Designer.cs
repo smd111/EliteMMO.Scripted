@@ -66,9 +66,9 @@
         #endregion
         #endregion
         #region dyna mob proc data
-        public static Dictionary<string, Dictionary<string, List<string>>> DynaMobProc = new Dictionary<string, Dictionary<string, List<string>>>()
+        public static Dictionary<string, dynamic> DynaMobProc = new Dictionary<string, dynamic>()
         {
-            {"Morning", new Dictionary<string, List<string>>()
+            {"Morning", new Dictionary<string, dynamic>()
                 {
                     {"JA", new List<string>(new string[]
                     {"Kindred Thief","Kindred Beastmaster","Kindred Monk","Kindred Ninja","Kindred Ranger","Duke Gomory","Marquis Andras","Marquis Gamygyn",
@@ -116,7 +116,7 @@
                     }
                 }
             },
-            {"Noon", new Dictionary<string, List<string>>()
+            {"Noon", new Dictionary<string, dynamic>()
                 {
                     {"JA", new List<string>(new string[]
                     {"Kindred Thief","Kindred Beastmaster","Kindred Monk","Kindred Ninja","Kindred Ranger","Duke Gomory","Marquis Andras","Marquis Gamygyn",
@@ -164,7 +164,7 @@
                     }
                 }
             },
-            {"Night", new Dictionary<string, List<string>>()
+            {"Night", new Dictionary<string, dynamic>()
                 {
                     {"JA", new List<string>(new string[]
                     {"Kindred Thief","Kindred Beastmaster","Kindred Monk","Kindred Ninja","Kindred Ranger","Duke Gomory","Marquis Andras","Marquis Gamygyn",

@@ -594,19 +594,16 @@
         {
             while (botRunning && !bgw_script_chat.CancellationPending)
             {
-                Thread.Sleep(100);
-                var line = api.Chat.GetNextChatLine();
-
-                if (string.IsNullOrEmpty(line?.Text) || PlayerInfo.Status != 1)
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                if (PlayerInfo.Status == 1 && staggerstopJA.Checked)
                 {
-                    MonStagered = false;
-                    continue;
+                    var line = api.Chat.GetNextChatLine();
+                    if (!string.IsNullOrEmpty(line?.Text) &&
+                    line.Text.Contains(String.Format("{0}'s attack staggers the fiend!", PlayerInfo.Name))) MonStagered = true;
+                    else if (!string.IsNullOrEmpty(line?.Text) && line.Text.Contains("Auto-targeting the ")) MonStagered = false;
                 }
-
-                if (line.Text.Contains($"{PlayerInfo.Name}'s attack staggers the fiend!")) MonStagered = true;
-                else if (line.Text.Contains("Auto-targeting the ")) MonStagered = false;
+                else MonStagered = false;
             }
-
             MonStagered = false;
         }
         #endregion
