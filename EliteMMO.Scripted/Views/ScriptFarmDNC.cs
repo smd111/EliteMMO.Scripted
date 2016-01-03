@@ -91,6 +91,7 @@
                                             LRKey = (LRKey == API.Keys.NUMPAD4 ? API.Keys.NUMPAD6 : API.Keys.NUMPAD4);
                                             count = 0;
                                         }
+                                        if (TargetInfo.Distance <= 2) break;
                                         count++;
                                     }
                                     WindowInfo.KeyUp(LRKey);

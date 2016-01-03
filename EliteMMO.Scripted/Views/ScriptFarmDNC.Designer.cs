@@ -66,9 +66,9 @@
         #endregion
         #endregion
         #region dyna mob proc data
-        public static Dictionary<string, dynamic> DynaMobProc = new Dictionary<string, dynamic>()
+        public static Dictionary<string, Dictionary<string, List<string>>> DynaMobProc = new Dictionary<string, Dictionary<string, List<string>>>()
         {
-            {"Morning", new Dictionary<string, dynamic>()
+            {"Morning", new Dictionary<string, List<string>>()
                 {
                     {"JA", new List<string>(new string[]
                     {"Kindred Thief","Kindred Beastmaster","Kindred Monk","Kindred Ninja","Kindred Ranger","Duke Gomory","Marquis Andras","Marquis Gamygyn",
@@ -116,7 +116,7 @@
                     }
                 }
             },
-            {"Noon", new Dictionary<string, dynamic>()
+            {"Noon", new Dictionary<string, List<string>>()
                 {
                     {"JA", new List<string>(new string[]
                     {"Kindred Thief","Kindred Beastmaster","Kindred Monk","Kindred Ninja","Kindred Ranger","Duke Gomory","Marquis Andras","Marquis Gamygyn",
@@ -164,7 +164,7 @@
                     }
                 }
             },
-            {"Night", new Dictionary<string, dynamic>()
+            {"Night", new Dictionary<string, List<string>>()
                 {
                     {"JA", new List<string>(new string[]
                     {"Kindred Thief","Kindred Beastmaster","Kindred Monk","Kindred Ninja","Kindred Ranger","Duke Gomory","Marquis Andras","Marquis Gamygyn",
@@ -11743,6 +11743,8 @@
 
                 if (wantedNM.ContainsValue(entity.Name) && searchID > entity.Distance && entity.Status == 1)
                 {
+                    var vertdiff = Math.Abs((PlayerInfo.Y - entity.Y));
+                    if (vertdiff >= (mobheightdist.Checked ? (float)mobheightdistValue.Value : float.PositiveInfinity)) continue;
                     searchID = entity.Distance;
                     targetID = (int)entity.TargetID;
                 }
@@ -11752,7 +11754,7 @@
                 return;
 
             var wanted = api.Entity.GetEntity(targetID);
-
+            
             if (wanted.ClaimID != 0 || wanted.HealthPercent == 0 ||
                 targetID <= 0 || wanted.SpawnFlags != 16) return;
 
@@ -11860,6 +11862,8 @@
                                 entity.ClaimID == 0 && entity.HealthPercent != 0 &&
                                 entity.SpawnFlags == 16)
                             {
+                                var vertdiff = Math.Abs((PlayerInfo.Y - entity.Y));
+                                if (vertdiff >= (mobheightdist.Checked ? (float)mobheightdistValue.Value : float.PositiveInfinity)) continue;
                                 searchID = entity.Distance;
                                 targetID = Convert.ToInt32(entity.TargetID);
                             }
@@ -11873,8 +11877,6 @@
 
             var target = api.Entity.GetEntity(targetID);
 
-            var vertdiff = Math.Abs((PlayerInfo.Y - target.Y));
-            if (vertdiff >= (float)(mobheightdist.Checked ? mobheightdistValue.Value : 50)) return;
             if (isMoving)
                 isMoving = false;
 

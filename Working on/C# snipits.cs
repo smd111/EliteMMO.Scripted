@@ -1,5 +1,6 @@
 api.ThirdParty.SendString(String.Format("/echo {0}", kvp.Key));
 api.ThirdParty.SendString("/echo here");
+api.ThirdParty.SendString($"/echo {var}");
 api.Player.HasKeyItem(id);
 Thread.Sleep(TimeSpan.FromSeconds(0.1));
 var ability = api.Resources.GetAbility(i)
