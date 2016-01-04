@@ -223,6 +223,54 @@
             "Vanguard's Avatar","Vanguard's Avatar","Vanguard's Avatar","Vanguard's Crow","Vanguard's Hecteyes","Vanguard's Scorpion","Vanguard's Slime",
             "Vanguard's Wyvern","Vanguard's Wyvern","Vanguard's Wyvern","Vanguard's Wyvern","Warchief Tombstone"});
         #endregion
+        #region ninja tools
+        public static Dictionary<string, List<string>> nintools = new Dictionary<string, List<string>>() {
+            {"Monomi: Ichi", new List<string>(new string[]{ "Sanjaku-Tenugui", "Toolbag (Sanja)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Aisha: Ichi", new List<string>(new string[]{ "Soshi", "Toolbag (Soshi)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Katon: Ichi", new List<string>(new string[]{ "Uchitake", "Toolbag (Uchi)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Katon: Ni", new List<string>(new string[]{ "Uchitake", "Toolbag (Uchi)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Katon: San", new List<string>(new string[]{ "Uchitake", "Toolbag (Uchi)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Hyoton: Ichi", new List<string>(new string[]{ "Tsurara", "Toolbag (Tsura)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Hyoton: Ni", new List<string>(new string[]{ "Tsurara", "Toolbag (Tsura)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Hyoton: San", new List<string>(new string[]{ "Tsurara", "Toolbag (Tsura)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Huton: Ichi", new List<string>(new string[]{ "Kawahori-Ogi", "Toolbag (Kawa)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Huton: Ni", new List<string>(new string[]{ "Kawahori-Ogi", "Toolbag (Kawa)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Huton: San", new List<string>(new string[]{ "Kawahori-Ogi", "Toolbag (Kawa)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Doton: Ichi", new List<string>(new string[]{ "Makibishi", "Toolbag (Maki)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Doton: Ni", new List<string>(new string[]{ "Makibishi", "Toolbag (Maki)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Doton: San", new List<string>(new string[]{ "Makibishi", "Toolbag (Maki)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Raiton: Ichi", new List<string>(new string[]{ "Hiraishin", "Toolbag (Hira)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Raiton: Ni", new List<string>(new string[]{ "Hiraishin", "Toolbag (Hira)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Raiton: San", new List<string>(new string[]{ "Hiraishin", "Toolbag (Hira)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Suiton: Ichi", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Suiton: Ni", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Suiton: San", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Utsusemi: Ichi", new List<string>(new string[]{ "Shihei", "Toolbag (Shihe)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Utsusemi: Ni", new List<string>(new string[]{ "Shihei", "Toolbag (Shihe)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Utsusemi: San", new List<string>(new string[]{ "Shihei", "Toolbag (Shihe)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Jubaku: Ichi", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Jubaku: Ni", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Jubaku: San", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Hojo: Ichi", new List<string>(new string[]{ "Kaginawa", "Toolbag (Kagi)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Hojo: Ni", new List<string>(new string[]{ "Kaginawa", "Toolbag (Kagi)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Hojo: San", new List<string>(new string[]{ "Kaginawa", "Toolbag (Kagi)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Kurayami: Ichi", new List<string>(new string[]{ "Sairui-Ran", "Toolbag (Sai)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Kurayami: Ni", new List<string>(new string[]{ "Sairui-Ran", "Toolbag (Sai)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Kurayami: San", new List<string>(new string[]{ "Sairui-Ran", "Toolbag (Sai)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Dokumori: Ichi", new List<string>(new string[]{ "Kodoku", "Toolbag (Kodo)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Dokumori: Ni", new List<string>(new string[]{ "Kodoku", "Toolbag (Kodo)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Dokumori: San", new List<string>(new string[]{ "Kodoku", "Toolbag (Kodo)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Tonko: Ichi", new List<string>(new string[]{ "Shinobi-Tabi", "Toolbag (Shino)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Tonko: Ni", new List<string>(new string[]{ "Shinobi-Tabi", "Toolbag (Shino)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Tonko: San", new List<string>(new string[]{ "Shinobi-Tabi", "Toolbag (Shino)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Gekka: Ichi", new List<string>(new string[]{ "Ranka", "Toolbag (Ranka)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Yain: Ichi", new List<string>(new string[]{ "Furusumi", "Toolbag (Furu)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Myoshu: Ichi", new List<string>(new string[]{ "Kabenro", "Toolbg. (Kaben)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Yurin: Ichi", new List<string>(new string[]{ "Jinko", "Toolbag (Jinko)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Kakka: Ichi", new List<string>(new string[]{ "Ryuno", "Toolbag (Ryuno)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Migawari: Ichi", new List<string>(new string[]{ "Mokujin", "Toolbag (Moku)", "Shikanofuda", "Toolbag (Shika)"})},
+            };
+        #endregion
         #region zone array
         public static Dictionary<string, string> dats = new Dictionary<string, string>()
         {   {"1", "\\ROM3\\2\\111.DAT"},{"2", "\\ROM3\\2\\112.DAT"},{"3", "\\ROM3\\2\\113.DAT"},{"4", "\\ROM3\\2\\114.DAT"},
@@ -876,13 +924,16 @@
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
             this.DeathWarp = new System.Windows.Forms.CheckBox();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.playerjobpoints = new System.Windows.Forms.Label();
+            this.playermerits = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.curtime = new System.Windows.Forms.Label();
-            this.curtarghpp = new System.Windows.Forms.Label();
-            this.curtarg = new System.Windows.Forms.Label();
             this.playertp = new System.Windows.Forms.Label();
             this.playermp = new System.Windows.Forms.Label();
             this.playerhp = new System.Windows.Forms.Label();
+            this.curtime = new System.Windows.Forms.Label();
+            this.curtarghpp = new System.Windows.Forms.Label();
+            this.curtarg = new System.Windows.Forms.Label();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -1112,6 +1163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox18.SuspendLayout();
+            this.groupBox23.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkZone
@@ -3889,31 +3941,34 @@
             // CuraIIptcount
             // 
             this.CuraIIptcount.Enabled = false;
-            this.CuraIIptcount.Location = new System.Drawing.Point(284, 72);
+            this.CuraIIptcount.Location = new System.Drawing.Point(284, 39);
             this.CuraIIptcount.Name = "CuraIIptcount";
             this.CuraIIptcount.Size = new System.Drawing.Size(44, 20);
             this.CuraIIptcount.TabIndex = 23;
+            this.CuraIIptcount.Visible = false;
             // 
             // CuraIIIptcount
             // 
             this.CuraIIIptcount.Enabled = false;
-            this.CuraIIIptcount.Location = new System.Drawing.Point(284, 93);
+            this.CuraIIIptcount.Location = new System.Drawing.Point(284, 60);
             this.CuraIIIptcount.Name = "CuraIIIptcount";
             this.CuraIIIptcount.Size = new System.Drawing.Size(44, 20);
             this.CuraIIIptcount.TabIndex = 27;
+            this.CuraIIIptcount.Visible = false;
             // 
             // Curaptcount
             // 
             this.Curaptcount.Enabled = false;
-            this.Curaptcount.Location = new System.Drawing.Point(284, 51);
+            this.Curaptcount.Location = new System.Drawing.Point(284, 18);
             this.Curaptcount.Name = "Curaptcount";
             this.Curaptcount.Size = new System.Drawing.Size(44, 20);
             this.Curaptcount.TabIndex = 21;
+            this.Curaptcount.Visible = false;
             // 
             // FullCureptcount
             // 
             this.FullCureptcount.Enabled = false;
-            this.FullCureptcount.Location = new System.Drawing.Point(284, 25);
+            this.FullCureptcount.Location = new System.Drawing.Point(284, 93);
             this.FullCureptcount.Name = "FullCureptcount";
             this.FullCureptcount.Size = new System.Drawing.Size(44, 20);
             this.FullCureptcount.TabIndex = 25;
@@ -3921,7 +3976,7 @@
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(237, 53);
+            this.label78.Location = new System.Drawing.Point(237, 20);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(49, 13);
             this.label78.TabIndex = 20;
@@ -3930,7 +3985,7 @@
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(237, 95);
+            this.label79.Location = new System.Drawing.Point(237, 62);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(49, 13);
             this.label79.TabIndex = 26;
@@ -3939,7 +3994,7 @@
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(227, 27);
+            this.label80.Location = new System.Drawing.Point(227, 95);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(59, 13);
             this.label80.TabIndex = 24;
@@ -3981,7 +4036,7 @@
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(237, 74);
+            this.label77.Location = new System.Drawing.Point(237, 41);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(49, 13);
             this.label77.TabIndex = 22;
@@ -7710,23 +7765,43 @@
             // 
             // groupBox18
             // 
+            this.groupBox18.Controls.Add(this.playerjobpoints);
+            this.groupBox18.Controls.Add(this.playermerits);
             this.groupBox18.Controls.Add(this.button1);
-            this.groupBox18.Controls.Add(this.curtime);
-            this.groupBox18.Controls.Add(this.curtarghpp);
-            this.groupBox18.Controls.Add(this.curtarg);
             this.groupBox18.Controls.Add(this.playertp);
             this.groupBox18.Controls.Add(this.playermp);
             this.groupBox18.Controls.Add(this.playerhp);
             this.groupBox18.Location = new System.Drawing.Point(463, 30);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(253, 179);
+            this.groupBox18.Size = new System.Drawing.Size(253, 93);
             this.groupBox18.TabIndex = 53;
             this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Player info";
+            // 
+            // playerjobpoints
+            // 
+            this.playerjobpoints.AutoSize = true;
+            this.playerjobpoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerjobpoints.Location = new System.Drawing.Point(122, 73);
+            this.playerjobpoints.Name = "playerjobpoints";
+            this.playerjobpoints.Size = new System.Drawing.Size(109, 13);
+            this.playerjobpoints.TabIndex = 8;
+            this.playerjobpoints.Text = "Job Points: Cant Gain";
+            // 
+            // playermerits
+            // 
+            this.playermerits.AutoSize = true;
+            this.playermerits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playermerits.Location = new System.Drawing.Point(6, 73);
+            this.playermerits.Name = "playermerits";
+            this.playermerits.Size = new System.Drawing.Size(115, 13);
+            this.playermerits.TabIndex = 7;
+            this.playermerits.Text = "Merit Points: Cant Gain";
             // 
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(154, 89);
+            this.button1.Location = new System.Drawing.Point(142, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -7736,10 +7811,40 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Run_Test_Code);
             // 
+            // playertp
+            // 
+            this.playertp.AutoSize = true;
+            this.playertp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playertp.Location = new System.Drawing.Point(6, 54);
+            this.playertp.Name = "playertp";
+            this.playertp.Size = new System.Drawing.Size(33, 13);
+            this.playertp.TabIndex = 2;
+            this.playertp.Text = "TP: 0";
+            // 
+            // playermp
+            // 
+            this.playermp.AutoSize = true;
+            this.playermp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playermp.Location = new System.Drawing.Point(6, 35);
+            this.playermp.Name = "playermp";
+            this.playermp.Size = new System.Drawing.Size(46, 13);
+            this.playermp.TabIndex = 1;
+            this.playermp.Text = "MP: 0/0";
+            // 
+            // playerhp
+            // 
+            this.playerhp.AutoSize = true;
+            this.playerhp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerhp.Location = new System.Drawing.Point(6, 16);
+            this.playerhp.Name = "playerhp";
+            this.playerhp.Size = new System.Drawing.Size(45, 13);
+            this.playerhp.TabIndex = 0;
+            this.playerhp.Text = "HP: 0/0";
+            // 
             // curtime
             // 
             this.curtime.AutoSize = true;
-            this.curtime.Location = new System.Drawing.Point(61, 150);
+            this.curtime.Location = new System.Drawing.Point(61, 56);
             this.curtime.Name = "curtime";
             this.curtime.Size = new System.Drawing.Size(131, 13);
             this.curtime.TabIndex = 5;
@@ -7749,7 +7854,7 @@
             // 
             this.curtarghpp.AutoSize = true;
             this.curtarghpp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.curtarghpp.Location = new System.Drawing.Point(6, 127);
+            this.curtarghpp.Location = new System.Drawing.Point(5, 36);
             this.curtarghpp.Name = "curtarghpp";
             this.curtarghpp.Size = new System.Drawing.Size(76, 13);
             this.curtarghpp.TabIndex = 4;
@@ -7759,46 +7864,29 @@
             // 
             this.curtarg.AutoSize = true;
             this.curtarg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.curtarg.Location = new System.Drawing.Point(6, 103);
+            this.curtarg.Location = new System.Drawing.Point(5, 21);
             this.curtarg.Name = "curtarg";
             this.curtarg.Size = new System.Drawing.Size(78, 13);
             this.curtarg.TabIndex = 3;
             this.curtarg.Text = "Current Target:";
             // 
-            // playertp
+            // groupBox23
             // 
-            this.playertp.AutoSize = true;
-            this.playertp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playertp.Location = new System.Drawing.Point(6, 74);
-            this.playertp.Name = "playertp";
-            this.playertp.Size = new System.Drawing.Size(88, 18);
-            this.playertp.TabIndex = 2;
-            this.playertp.Text = "Player TP: 0";
-            // 
-            // playermp
-            // 
-            this.playermp.AutoSize = true;
-            this.playermp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playermp.Location = new System.Drawing.Point(6, 45);
-            this.playermp.Name = "playermp";
-            this.playermp.Size = new System.Drawing.Size(104, 18);
-            this.playermp.TabIndex = 1;
-            this.playermp.Text = "Player MP: 0/0";
-            // 
-            // playerhp
-            // 
-            this.playerhp.AutoSize = true;
-            this.playerhp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerhp.Location = new System.Drawing.Point(6, 16);
-            this.playerhp.Name = "playerhp";
-            this.playerhp.Size = new System.Drawing.Size(102, 18);
-            this.playerhp.TabIndex = 0;
-            this.playerhp.Text = "Player HP: 0/0";
+            this.groupBox23.Controls.Add(this.curtarg);
+            this.groupBox23.Controls.Add(this.curtime);
+            this.groupBox23.Controls.Add(this.curtarghpp);
+            this.groupBox23.Location = new System.Drawing.Point(464, 128);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(252, 81);
+            this.groupBox23.TabIndex = 54;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Other Info";
             // 
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox23);
             this.Controls.Add(this.groupBox18);
             this.Controls.Add(this.DeathWarp);
             this.Controls.Add(this.checkZone);
@@ -8110,6 +8198,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9189,6 +9279,9 @@
             {288, true},{289, true},{290, true},{291, true},{292, true},{293, true},{294, true},{295, true},{296, true},{297, true},{298, true},{299, true},{300, true},
             {301, true},{302, true},{303, true},{304, true},{305, true},{306, true},{307, true},{847, true},
             #endregion
+            #region nin
+            {338, true},{339, true},{340, true},
+            #endregion
             #region geo
             {769, true},{787, true},{788, true},{789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},
             {799, true},{800, true},{801, true},{802, true},{803, true},{804, true},{805, true},{806, true},{807, true},{808, true},{809, true},{810, true},{811, true},
@@ -9569,36 +9662,37 @@
         #endregion
         #region Methods: DNC
         #region JA: Curing Waltz
-        #region CuringWaltzParty
+        #region JA: CuringWaltzParty
         public void CuringWaltzParty()
         {
             if (!botRunning || PlayerInfo.Status != 1 || naviMove || PlayerInfo.HasBuff(16)) return;
             var partymembers = (from object itemChecked in PartyWaltsList.Items select itemChecked.ToString()).ToList();
             foreach(string member in partymembers)
             {
+                var partymember = api.Party.GetPartyMembers().Find(p => p.Name == member);
                 if (Recast.GetAbilityRecast(217) != 0)
                     return;
-                else if (ptusecurev.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown27.Value && PlayerInfo.TP > 800)
+                else if (ptusecurev.Checked && partymember.CurrentHPP <= numericUpDown27.Value && PlayerInfo.TP > 800)
                 {
                     api.ThirdParty.SendString($"/ja \"Curing Waltz V\" {member}");
                     break;
                 }
-                else if (ptusecureiv.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown28.Value && PlayerInfo.TP > 650)
+                else if (ptusecureiv.Checked && partymember.CurrentHPP <= numericUpDown28.Value && PlayerInfo.TP > 650)
                 {
                     api.ThirdParty.SendString($"/ja \"Curing Waltz IV\" {member}");
                     break;
                 }
-                else if (ptusecureiii.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown29.Value && PlayerInfo.TP > 500)
+                else if (ptusecureiii.Checked && partymember.CurrentHPP <= numericUpDown29.Value && PlayerInfo.TP > 500)
                 {
                     api.ThirdParty.SendString($"/ja \"Curing Waltz III\" {member}");
                     break;
                 }
-                else if (ptusecureii.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown32.Value && PlayerInfo.TP > 350)
+                else if (ptusecureii.Checked && partymember.CurrentHPP <= numericUpDown32.Value && PlayerInfo.TP > 350)
                 {
                     api.ThirdParty.SendString($"/ja \"Curing Waltz II\" {member}");
                     break;
                 }
-                else if (ptusecure.Checked && PartyInfo.memberHPPbyName(member) <= numericUpDown33.Value && PlayerInfo.TP > 200)
+                else if (ptusecure.Checked && partymember.CurrentHPP <= numericUpDown33.Value && PlayerInfo.TP > 200)
                 {
                     api.ThirdParty.SendString($"/ja \"Curing Waltz\" {member}");
                     break;
@@ -9607,7 +9701,7 @@
             Thread.Sleep(TimeSpan.FromSeconds(2.0));
         }
         #endregion
-        #region CuringWaltzSelf
+        #region JA: CuringWaltzSelf
         private void CuringWaltzSelf()
         {
             if (!usecurev.Checked && !usecureiv.Checked && !usecureiii.Checked && !usecureii.Checked && !usecure.Checked &&
@@ -10047,17 +10141,17 @@
 
             if (!PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(444) && !PlayerInfo.HasBuff(445) && !PlayerInfo.HasBuff(446))
             {
-                if (PlayerInfo.HasSpell(340) && Recast.GetSpellRecast(340) == 0)
+                if (PlayerInfo.HasSpell(340) && Recast.GetSpellRecast(340) == 0 && NINtoolCheck("Utsusemi: San"))
                 {
                     api.ThirdParty.SendString("/ma \"Utsusemi: San\" <me>");
                     Casting();
                 }
-                else if (PlayerInfo.HasSpell(339) && Recast.GetSpellRecast(339) == 0)
+                else if (PlayerInfo.HasSpell(339) && Recast.GetSpellRecast(339) == 0 && NINtoolCheck("Utsusemi: Ni"))
                 {
                     api.ThirdParty.SendString("/ma \"Utsusemi: Ni\" <me>");
                     Casting();
                 }
-                else if (PlayerInfo.HasSpell(338) && Recast.GetSpellRecast(338) == 0)
+                else if (PlayerInfo.HasSpell(338) && Recast.GetSpellRecast(338) == 0 && NINtoolCheck("Utsusemi: Ichi"))
                 {
                     if (PlayerInfo.HasBuff(66))
                     {
@@ -10072,7 +10166,7 @@
         #endregion
 
         #endregion
-        #region JA: Magic (use)
+        #region MA: Magic (use)
         private void PlayerMA()
         {
             var ma = (from object itemChecked in playerMA.CheckedItems select itemChecked.ToString()).ToList();
@@ -10118,7 +10212,14 @@
                 {780, new {I=0,B=550}},{781, new {I=0,B=551}},{782, new {I=0,B=552}},{783, new {I=0,B=553}},{784, new {I=0,B=554}},
                 {785, new {I=0,B=555}},{786, new {I=0,B=556}},{787, new {I=0}},{788, new {I=0}},{789, new {I=0}},{790, new {I=0}},
                 {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
-                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},
+                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},{318, new {nin=""}},{319, new {nin=""}},{320, new {nin=""}},
+                { 321, new {nin=""}},{322, new {nin=""}},{323, new {nin=""}},{324, new {nin=""}},{325, new {nin=""}},{326, new {nin=""}},
+                { 327, new {nin=""}},{328, new {nin=""}},{329, new {nin=""}},{330, new {nin=""}},{331, new {nin=""}},{332, new {nin=""}},
+                { 333, new {nin=""}},{334, new {nin=""}},{335, new {nin=""}},{336, new {nin=""}},{337, new {nin=""}},{338, new {nin=""}},
+                { 339, new {nin=""}},{340, new {nin=""}},{341, new {nin=""}},{342, new {nin=""}},{343, new {nin=""}},{344, new {nin=""}},
+                { 345, new {nin=""}},{346, new {nin=""}},{347, new {nin=""}},{348, new {nin=""}},{349, new {nin=""}},{350, new {nin=""}},
+                { 351, new {nin=""}},{352, new {nin=""}},{353, new {nin=""}},{354, new {nin=""}},{355, new {nin=""}},{505, new {nin=""}},
+                { 506, new {nin=""}},{507, new {nin=""}},{508, new {nin=""}},{509, new {nin=""}},{510, new {nin=""}},
                 };
             
             if (MAreverse.Checked) ma.Reverse();
@@ -10128,6 +10229,7 @@
                 bool castSpell = false;
                 var magic = api.Resources.GetSpell(M, 0);
                 var targ = ((magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
+                if (Recast.GetSpellRecast((int)magic.Index) != 0) continue;
                 if (!MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6)) continue;
                 if (PlayerInfo.MP < magic.MPCost && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229))) continue;
                 List<string> Handledspells = new List<string>(new string[] {"Protect","Protect II","Protect III","Protect IV","Protect V","Protectra",
@@ -10138,55 +10240,62 @@
                 "Restoral","Exuviation","Wild Carrot","Cureaga","Cureaga II","Cureaga III","Cureaga IV","Cureaga V"});
                 if (Handledspells.Contains(magic.Name[0]))
                 {
-                    if (magic.Name[0].Contains("Protect") && !PlayerInfo.HasBuff(40) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0].Contains("Shell") && !PlayerInfo.HasBuff(41) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0].Contains("Regen") && !PlayerInfo.HasBuff(42) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0].Contains("Refresh") && !PlayerInfo.HasBuff(43) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0].Contains("Reraise") && !PlayerInfo.HasBuff(113) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cure" && Curecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cure II" && CureIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cure III" && CureIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cure IV" && CureIVcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cure V" && CureVcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cure VI" && CureVIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cura" && Curacount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cura II" && CuraIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cura III" && CuraIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Full Cure" && FullCurecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Drain" && Draincount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Drain II" && DrainIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Drain III" && DrainIIIcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Aspir" && Aspircount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Aspir II" && AspirIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Aspir III" && AspirIIIcount.Value >= PlayerInfo.MPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Pollen" && Pollencount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Magic Fruit" && MagicFruitcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Healing Breeze" && HealingBreezecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Plenilune Embrace" && PleniluneEmbracecount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "White Wind" && WhiteWindcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Restoral" && Restoralcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Exuviation" && Exuviationcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Wild Carrot" && WildCarrotcount.Value >= PlayerInfo.HPP && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cureaga" && Curagacount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cureaga II" && CuragaIIcount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cureaga III" && CuragaIIIcount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cureaga IV" && CuragaIVcount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                    else if (magic.Name[0] == "Cureaga V" && CuragaVcount.Value >= PartyInfo.averageHPP() && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                    if (magic.Name[0].Contains("Protect") && !PlayerInfo.HasBuff(40)) castSpell = true;
+                    else if (magic.Name[0].Contains("Shell") && !PlayerInfo.HasBuff(41)) castSpell = true;
+                    else if (magic.Name[0].Contains("Regen") && !PlayerInfo.HasBuff(42)) castSpell = true;
+                    else if (magic.Name[0].Contains("Refresh") && !PlayerInfo.HasBuff(43)) castSpell = true;
+                    else if (magic.Name[0].Contains("Reraise") && !PlayerInfo.HasBuff(113)) castSpell = true;
+                    else if (magic.Name[0] == "Cure" && Curecount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Cure II" && CureIIcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Cure III" && CureIIIcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Cure IV" && CureIVcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Cure V" && CureVcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Cure VI" && CureVIcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Cura" && Curacount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Cura II" && CuraIIcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Cura III" && CuraIIIcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Full Cure" && FullCurecount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Drain" && Draincount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Drain II" && DrainIIcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Drain III" && DrainIIIcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Aspir" && Aspircount.Value >= PlayerInfo.MPP) castSpell = true;
+                    else if (magic.Name[0] == "Aspir II" && AspirIIcount.Value >= PlayerInfo.MPP) castSpell = true;
+                    else if (magic.Name[0] == "Aspir III" && AspirIIIcount.Value >= PlayerInfo.MPP) castSpell = true;
+                    else if (magic.Name[0] == "Pollen" && Pollencount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Magic Fruit" && MagicFruitcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Healing Breeze" && HealingBreezecount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Plenilune Embrace" && PleniluneEmbracecount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "White Wind" && WhiteWindcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Restoral" && Restoralcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Exuviation" && Exuviationcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Wild Carrot" && WildCarrotcount.Value >= PlayerInfo.HPP) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga" && Curagacount.Value >= PartyInfo.averageHPP()) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga II" && CuragaIIcount.Value >= PartyInfo.averageHPP()) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga III" && CuragaIIIcount.Value >= PartyInfo.averageHPP()) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga IV" && CuragaIVcount.Value >= PartyInfo.averageHPP()) castSpell = true;
+                    else if (magic.Name[0] == "Cureaga V" && CuragaVcount.Value >= PartyInfo.averageHPP()) castSpell = true;
                     else if (ptCure.Checked)
                     {
                         var partymembers = (from object itemChecked in CurePTlist.Items select itemChecked.ToString()).ToList();
                         foreach (string member in partymembers)
                         {
-                            if (magic.Name[0] == "Cure" && Cureptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                            else if (magic.Name[0] == "Cure II" && CureIIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                            else if (magic.Name[0] == "Cure III" && CureIIIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                            else if (magic.Name[0] == "Cure IV" && CureIVptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                            else if (magic.Name[0] == "Cure V" && CureVptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                            else if (magic.Name[0] == "Cure VI" && CureVIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                            else if (magic.Name[0] == "Cura" && Curaptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                            else if (magic.Name[0] == "Cura II" && CuraIIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                            else if (magic.Name[0] == "Cura III" && CuraIIIptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
-                            else if (magic.Name[0] == "Full Cure" && FullCureptcount.Value >= PartyInfo.memberHPPbyName(member) && Recast.GetSpellRecast((int)magic.Index) == 0) castSpell = true;
+                            var partymember = api.Party.GetPartyMembers().Find(p => p.Name == member);
+                            if (magic.Name[0] == "Cure" && Cureptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            else if (magic.Name[0] == "Cure II" && CureIIptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            else if (magic.Name[0] == "Cure III" && CureIIIptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            else if (magic.Name[0] == "Cure IV" && CureIVptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            else if (magic.Name[0] == "Cure V" && CureVptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            else if (magic.Name[0] == "Cure VI" && CureVIptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            //else if (magic.Name[0] == "Cura" && Curaptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            //else if (magic.Name[0] == "Cura II" && CuraIIptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            //else if (magic.Name[0] == "Cura III" && CuraIIIptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            else if (magic.Name[0] == "Full Cure" && FullCureptcount.Value >= partymember.CurrentHPP) castSpell = true;
+                            if (castSpell)
+                            {
+                                int slot = partymember.MemberNumber;
+                                targ = (slot > 5 ? (slot > 11 ? $"<a{((slot - 12) + 20)}>" : $"<a{((slot - 6) + 10)}>") : $"<p{slot}>");
+                                break;
+                            }
                         }
                     }
                 }
@@ -10194,55 +10303,54 @@
                 {
                     if (macontrol.ContainsKey((uint)magic.Index))
                     {
-                        if (macontrol[magic.Index].ToString().Contains("I =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        if (macontrol[magic.Index].ToString().Contains("nin ="))
+                        {
+                            if (!NINtoolCheck(magic.Name[0])) continue;
+                            else
+                                castSpell = true;
+                        }
+                        else if (macontrol[magic.Index].ToString().Contains("I ="))
                         {
                             if (!macontrol[magic.Index].ToString().Contains("B =")) continue;
                             else if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B))
-                            {
                                 castSpell = true;
-                            }
                         }
-                        else if (macontrol[magic.Index].ToString().Contains("b =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        else if (macontrol[magic.Index].ToString().Contains("b ="))
                         {
-                            if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B) && !PlayerInfo.HasBuff((short)macontrol[magic.Index].b)) castSpell = true;
+                            if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B) &&
+                                !PlayerInfo.HasBuff((short)macontrol[magic.Index].b))
+                                castSpell = true;
                         }
-                        else if (macontrol[magic.Index].ToString().Contains("H =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        else if (macontrol[magic.Index].ToString().Contains("H ="))
                         {
                             if (PlayerInfo.HasBuff((short)macontrol[magic.Index].H))
-                            {
                                 castSpell = true;
-                            }
                         }
-                        else if (macontrol[magic.Index].ToString().Contains("B =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        else if (macontrol[magic.Index].ToString().Contains("B ="))
                         {
                             if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B))
-                            {
                                 castSpell = true;
-                            }
                         }
-                        else if (macontrol[magic.Index].ToString().Contains("W =") && Recast.GetSpellRecast((int)magic.Index) == 0)
+                        else if (macontrol[magic.Index].ToString().Contains("W ="))
                         {
                             if (macontrol[magic.Index].W == api.Weather.CurrentWeather)
-                            {
                                 castSpell = true;
-                            }
                         }
                     }
                     else
                     {
                         if (Recast.GetSpellRecast((int)magic.Index) == 0)
-                        {
                             castSpell = true;
-                        }
                     }
                 }
                 if (castSpell && DynaProccontrole.Checked && targ == "<t>" && !PlayerInfo.DynaStrike("MA", PlayerInfo.DynaTime(), TargetInfo.Name))
                     castSpell = false;
                 if (castSpell)
                 {
-                    api.ThirdParty.SendString(String.Format("/ma \"{0}\" {1}", magic.Name[0], targ));
+                    api.ThirdParty.SendString($"/ma \"{magic.Name[0]}\" {targ}");
                     Casting();
                 }
+                if (PlayerInfo.MPP == 0) break;
             }
         }
         private bool MAautoJA(string M)
@@ -10601,19 +10709,37 @@
             #endregion
              return true;
         }
+        private bool NINtoolCheck(string nin)
+        {
+            if (Inventory.ItemQuantityByName(nintools[nin][1]) > 0) return true;
+            else if (Inventory.ItemQuantityByName(nintools[nin][2]) > 0)
+            {
+                WindowInfo.SendText($"/item \"{nintools[nin][2]}\"<me>");
+                Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                return true;
+            }
+            else if (PlayerInfo.MainJob == 13 && Inventory.ItemQuantityByName(nintools[nin][3]) > 0) return true;
+            else if (PlayerInfo.MainJob == 13 && Inventory.ItemQuantityByName(nintools[nin][4]) > 0)
+            {
+                WindowInfo.SendText($"/item \"{nintools[nin][4]}\"<me>");
+                Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                return true;
+            }
+            return false;
+        }
         private void Casting()
         {
             isCasting = true;
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
             var count = 0;
             float lastPercent = 0;
-            while (api.CastBar.Percent < 100)
+            while (api.CastBar.Count > 0)
             {
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                if (lastPercent != api.CastBar.Percent)
+                if (lastPercent != api.CastBar.Count)
                 {
                     count = 0;
-                    lastPercent = api.CastBar.Percent;
+                    lastPercent = api.CastBar.Count;
                 }
                 else if (count == 10)
                 {
@@ -12282,6 +12408,9 @@
         }
 
         private Button button1;
+        private GroupBox groupBox23;
+        private Label playerjobpoints;
+        private Label playermerits;
 
 
         #endregion
@@ -12445,29 +12574,16 @@
         #region class: PartyInfo
         public static class PartyInfo
         {
-            public static int Count(int PartyNumber)
+            public static int Count(int PartyNumber = 0)
             {
+                var allience = api.Party.GetAllianceInfo();
                 var pc = 0;
-                for (var x = 0; x < 17; x++)
-                {
-                    var member = api.Party.GetPartyMember(x);
-                    if (member.Active == 1)
-                    {
-                        if (PartyNumber == 0) pc++;
-                        else if (PartyNumber == 1)
-                        {
-                            if (member.MemberNumber <= 5) pc++;
-                        }
-                        else if (PartyNumber == 2)
-                        {
-                            if (member.MemberNumber > 5 && member.MemberNumber <= 11) pc++;
-                        }
-                        else if(PartyNumber == 3)
-                        {
-                            if (member.MemberNumber > 11 && member.MemberNumber <= 17) pc++;
-                        }
-                    }
-                }
+                if (PartyNumber == 1 || PartyNumber == 0)
+                    pc = pc + allience.Party0Count;
+                if (PartyNumber == 2 || PartyNumber == 0)
+                    pc = pc + allience.Party1Count;
+                if (PartyNumber == 3 || PartyNumber == 0)
+                    pc = pc + allience.Party2Count;
                 return pc;
             }
             public static bool ContainsName(string name)
@@ -12478,24 +12594,6 @@
                         return true;
                 }
                 return false;
-            }
-            public static int memberHPPbyName(string name)
-            {
-                foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
-                {
-                    if (Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
-                        return member.CurrentHPP;
-                }
-                return 0;
-            }
-            public static int memberMPPbyName(string name)
-            {
-                foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
-                {
-                    if (Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
-                        return member.CurrentMPP;
-                }
-                return 0;
             }
             public static int averageHPP()
             {

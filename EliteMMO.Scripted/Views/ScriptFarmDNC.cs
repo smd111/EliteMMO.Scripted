@@ -578,9 +578,13 @@
         {
             while (botRunning && !bgw_script_disp.CancellationPending)
             {
-                playerhp.Text = $"Player HP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
-                playermp.Text = $"Player MP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
-                playertp.Text = $"Player TP: {PlayerInfo.TP}";
+                playerhp.Text = $"HP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
+                playermp.Text = $"MP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
+                playertp.Text = $"TP: {PlayerInfo.TP}";
+                if (PlayerInfo.MainJobLevel == 99)
+                    playerjobpoints.Text = $"Job Points: {PlayerInfo.UseableJobPoints}/500";
+                if (PlayerInfo.MainJobLevel >= 75)
+                    playermerits.Text = $"Merit Points: {api.Player.MeritPoints}/75";
                 curtarg.Text = $"Current Target: {TargetInfo.Name}";
                 curtarghpp.Text = $"Target HP: {TargetInfo.HPP}%";
                 curtime.Text = $"Current Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
@@ -611,21 +615,26 @@
         #region Code Testing section
         private void Run_Test_Code(object sender, EventArgs e)
         {
-            var text = "None";
-            if (api.Player.HasKeyItem(2497) || api.Player.HasKeyItem(2499) || api.Player.HasKeyItem(2501) ||
-                api.Player.HasKeyItem(2884) || api.Player.HasKeyItem(2887))
-                text = "";
-            if (PlayerInfo.HasKeyItem(2497))
-                text = text + "\nWindurst Trust permit";
-            if (PlayerInfo.HasKeyItem(2499))
-                text = text + "\nBastok Trust permit";
-            if (PlayerInfo.HasKeyItem(2501))
-                text = text + "\nSan d'Oria Trust permit";
-            if (PlayerInfo.HasKeyItem(2884))
-                text = text + "\nRhapsody in White";
-            if (PlayerInfo.HasKeyItem(2887))
-                text = text + "\nRhapsody in Crimson";
-            MessageBox.Show(text);
+            api.ThirdParty.SendString("/item \"Antidote\" <me>");
+            Thread.Sleep(TimeSpan.FromSeconds(0.3));
+            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
+            Thread.Sleep(TimeSpan.FromSeconds(0.2));
+            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
+            Thread.Sleep(TimeSpan.FromSeconds(0.2));
+            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
+            Thread.Sleep(TimeSpan.FromSeconds(0.2));
+            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
+            Thread.Sleep(TimeSpan.FromSeconds(0.2));
+            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
+            Thread.Sleep(TimeSpan.FromSeconds(0.2));
+            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
+            Thread.Sleep(TimeSpan.FromSeconds(0.2));
+            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
+            //foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
+            //{
+            //    int slot = member.MemberNumber;
+            //    api.ThirdParty.SendString($"/echo \"{(slot > 5 ? (slot > 11 ? $"<a{((slot - 12) + 20)}>" : $"<a{((slot - 6) + 10)}>") : $"<p{slot}>")}\"");
+            //}
         }
         #endregion
     }

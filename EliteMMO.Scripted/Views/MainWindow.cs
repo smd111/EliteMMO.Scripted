@@ -12,6 +12,7 @@
     public partial class MainWindow : Form
     {
         ScriptFarmDNC farmbot;
+        ScriptNaviMap navbot;
         public MainWindow(EliteAPI core)
         {
             InitializeComponent();
@@ -44,7 +45,8 @@
             farmbot = new ScriptFarmDNC(api);
             x1 = farmbot;
             x2 = new ScriptHealing(api);
-            x3 = new ScriptNaviMap(api);
+            navbot = new ScriptNaviMap(api);
+            x3 = navbot;
             x4 = new ScriptOnEventTool(api);
 
             string apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
@@ -73,7 +75,7 @@
         }
         private string GetStringFromUrl(string location)
         {
-            System.Net.WebRequest request = WebRequest.Create(location);
+            WebRequest request = WebRequest.Create(location);
             WebResponse response = request.GetResponse();
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
@@ -122,6 +124,21 @@
         private void FarmDncToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
+
+
+            if (navbot.isRunning)
+            {   
+                string message = "The NavBot is currently running are\nyou sure you want to swith to the\nFarmBot?\n\nThis will stop your nav from runnind.";
+                string caption = "Switching to NavBot";
+                DialogResult result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    navbot.StopToolStripMenuItem.PerformClick();
+                }
+                else
+                    return;
+                
+            }
 
             //if (InventoryItems.items.Count == 0)
             //    InventoryItems.PopulateItems();
@@ -225,6 +242,19 @@
         {
             if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
 
+            if (farmbot.botRunning)
+            {
+                string message = "The FarmBot is currently running\nare you sure you want to swith\nto the NavBot?\n\nThis will stop the farmbot.";
+                string caption = "Switching to FarmBot";
+                DialogResult result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    farmbot.stopScriptToolStripMenuItem.PerformClick();
+                }
+                else
+                    return;
+
+            }
             #region show/hide objects
             xpic.Hide();
             header1.Hide();
@@ -250,6 +280,7 @@
             x3.Dock = DockStyle.Fill;
             Controls.Add(x3);
             Size = new Size(575, 400);
+            if (farmbot.botRunning) farmbot.stopScriptToolStripMenuItem.PerformClick();
         }
 
         private void OnEventToolStripMenuItemClick(object sender, EventArgs e)
