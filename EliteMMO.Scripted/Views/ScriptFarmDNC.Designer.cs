@@ -597,18 +597,12 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ptCure = new System.Windows.Forms.CheckBox();
-            this.CuraIIptcount = new System.Windows.Forms.NumericUpDown();
-            this.CuraIIIptcount = new System.Windows.Forms.NumericUpDown();
-            this.Curaptcount = new System.Windows.Forms.NumericUpDown();
             this.FullCureptcount = new System.Windows.Forms.NumericUpDown();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
             this.CureVIptcount = new System.Windows.Forms.NumericUpDown();
             this.label74 = new System.Windows.Forms.Label();
             this.CureVptcount = new System.Windows.Forms.NumericUpDown();
             this.CureIVptcount = new System.Windows.Forms.NumericUpDown();
-            this.label77 = new System.Windows.Forms.Label();
             this.CureIIIptcount = new System.Windows.Forms.NumericUpDown();
             this.label75 = new System.Windows.Forms.Label();
             this.CureIIptcount = new System.Windows.Forms.NumericUpDown();
@@ -1013,9 +1007,6 @@
             this.PartyCurepage.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CuraIIptcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIptcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Curaptcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FullCureptcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureVIptcount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureVptcount)).BeginInit();
@@ -3900,18 +3891,12 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.ptCure);
-            this.tabPage1.Controls.Add(this.CuraIIptcount);
-            this.tabPage1.Controls.Add(this.CuraIIIptcount);
-            this.tabPage1.Controls.Add(this.Curaptcount);
             this.tabPage1.Controls.Add(this.FullCureptcount);
-            this.tabPage1.Controls.Add(this.label78);
-            this.tabPage1.Controls.Add(this.label79);
             this.tabPage1.Controls.Add(this.label80);
             this.tabPage1.Controls.Add(this.CureVIptcount);
             this.tabPage1.Controls.Add(this.label74);
             this.tabPage1.Controls.Add(this.CureVptcount);
             this.tabPage1.Controls.Add(this.CureIVptcount);
-            this.tabPage1.Controls.Add(this.label77);
             this.tabPage1.Controls.Add(this.CureIIIptcount);
             this.tabPage1.Controls.Add(this.label75);
             this.tabPage1.Controls.Add(this.CureIIptcount);
@@ -3938,33 +3923,6 @@
             this.ptCure.Text = "Enable";
             this.ptCure.UseVisualStyleBackColor = true;
             // 
-            // CuraIIptcount
-            // 
-            this.CuraIIptcount.Enabled = false;
-            this.CuraIIptcount.Location = new System.Drawing.Point(284, 39);
-            this.CuraIIptcount.Name = "CuraIIptcount";
-            this.CuraIIptcount.Size = new System.Drawing.Size(44, 20);
-            this.CuraIIptcount.TabIndex = 23;
-            this.CuraIIptcount.Visible = false;
-            // 
-            // CuraIIIptcount
-            // 
-            this.CuraIIIptcount.Enabled = false;
-            this.CuraIIIptcount.Location = new System.Drawing.Point(284, 60);
-            this.CuraIIIptcount.Name = "CuraIIIptcount";
-            this.CuraIIIptcount.Size = new System.Drawing.Size(44, 20);
-            this.CuraIIIptcount.TabIndex = 27;
-            this.CuraIIIptcount.Visible = false;
-            // 
-            // Curaptcount
-            // 
-            this.Curaptcount.Enabled = false;
-            this.Curaptcount.Location = new System.Drawing.Point(284, 18);
-            this.Curaptcount.Name = "Curaptcount";
-            this.Curaptcount.Size = new System.Drawing.Size(44, 20);
-            this.Curaptcount.TabIndex = 21;
-            this.Curaptcount.Visible = false;
-            // 
             // FullCureptcount
             // 
             this.FullCureptcount.Enabled = false;
@@ -3972,24 +3930,6 @@
             this.FullCureptcount.Name = "FullCureptcount";
             this.FullCureptcount.Size = new System.Drawing.Size(44, 20);
             this.FullCureptcount.TabIndex = 25;
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(237, 20);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(49, 13);
-            this.label78.TabIndex = 20;
-            this.label78.Text = "Cura    %";
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(237, 62);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(49, 13);
-            this.label79.TabIndex = 26;
-            this.label79.Text = "CuraIII %";
             // 
             // label80
             // 
@@ -4032,15 +3972,6 @@
             this.CureIVptcount.Name = "CureIVptcount";
             this.CureIVptcount.Size = new System.Drawing.Size(44, 20);
             this.CureIVptcount.TabIndex = 16;
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(237, 41);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(49, 13);
-            this.label77.TabIndex = 22;
-            this.label77.Text = "CuraII  %";
             // 
             // CureIIIptcount
             // 
@@ -8007,9 +7938,6 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CuraIIptcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CuraIIIptcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Curaptcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FullCureptcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureVIptcount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CureVptcount)).EndInit();
@@ -8707,14 +8635,8 @@
         public MenuStrip menuStrip1;
         public ToolStripMenuItem toolStripMenuItem1;
         public ToolStripMenuItem toolStripMenuItem2;
-        private NumericUpDown CuraIIIptcount;
-        private Label label79;
         private NumericUpDown FullCureptcount;
         private Label label80;
-        private NumericUpDown CuraIIptcount;
-        private Label label77;
-        private NumericUpDown Curaptcount;
-        private Label label78;
         private CheckBox ptCure;
         private GroupBox groupBox18;
         private Label curtime;
@@ -9156,8 +9078,9 @@
             if (PartyInfo.Count(1) == 6 || trust.Count == 0) return;
             foreach (string T in trust)
             {
+                isCasting = true;
                 if (PartyInfo.Count(1) == 6 || PartyInfo.Count(2) > 0 || PartyInfo.Count(3) > 0) break;
-                if (TargetInfo.ID != PlayerInfo.TargetID && TargetInfo.ID != 0) break;
+                if (TargetInfo.ID != 0 ? TargetInfo.ID != PlayerInfo.TargetID : false) break;
                 var trustname = T.Replace(" ", "").Replace("II", "").Replace("[S]", "").Replace("(UC)", "");
                 if (PartyInfo.ContainsName(trustname)) continue;
                 else
@@ -9166,7 +9089,34 @@
                     Casting();
                 }
             }
+            isCasting = false;
         }
+        //private void TrustWatch()
+        //{
+        //    var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
+        //    foreach (string T in trust)
+        //    {
+        //        var Trustspell = api.Resources.GetSpell(T, 0);
+        //        if (Recast.GetSpellRecast((int)Trustspell.Index) != 0) continue;
+        //        var trustname = T.Replace(" ", "").Replace("II", "").Replace("[S]", "").Replace("(UC)", "");
+        //        var partymember = api.Party.GetPartyMembers().FirstOrDefault(p => p.Name == trustname);
+        //        if (Watchtrusts.Checked && !partymember.Equals(null))
+        //        {
+        //            if (partymember.CurrentMPP > TrustResetmpp.Value || partymember.CurrentHPP > TrustResethpp.Value) continue;
+        //            SetTarget(partymember.Index);
+        //            Thread.Sleep(TimeSpan.FromSeconds(0.3));
+        //            while (TargetInfo.Distance > 3)
+        //            {
+        //                api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
+        //                        TargetInfo.Y - PlayerInfo.Y, TargetInfo.Z - PlayerInfo.Z);
+        //                api.AutoFollow.IsAutoFollowing = true;
+        //                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+        //            }
+        //            api.AutoFollow.IsAutoFollowing = false;
+        //            WindowInfo.SendText("/returntrust");
+        //        }
+        //    }
+        //}
         #endregion
         private void LoadJA_Click(object sender, EventArgs e)
         {
@@ -10345,8 +10295,10 @@
                 }
                 if (castSpell && DynaProccontrole.Checked && targ == "<t>" && !PlayerInfo.DynaStrike("MA", PlayerInfo.DynaTime(), TargetInfo.Name))
                     castSpell = false;
+                if (PlayerInfo.Status != 1) break;
                 if (castSpell)
                 {
+                    isCasting = true;
                     api.ThirdParty.SendString($"/ma \"{magic.Name[0]}\" {targ}");
                     Casting();
                 }
@@ -10729,17 +10681,16 @@
         }
         private void Casting()
         {
-            isCasting = true;
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
             var count = 0;
             float lastPercent = 0;
-            while (api.CastBar.Count > 0)
+            while (api.CastBar.Percent < 100)
             {
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                if (lastPercent != api.CastBar.Count)
+                if (lastPercent != api.CastBar.Percent)
                 {
                     count = 0;
-                    lastPercent = api.CastBar.Count;
+                    lastPercent = api.CastBar.Percent;
                 }
                 else if (count == 10)
                 {
@@ -12444,6 +12395,7 @@
             public static float Z => api.Entity.GetLocalPlayer().Z;
             public static float H => api.Entity.GetLocalPlayer().H;
             public static bool HasKeyItem(uint id) => api.Player.HasKeyItem(id);
+            public static int MeritPoints => api.Player.GetPlayerInfo().MeritPoints;
             public static int UsedJobPoints => api.Player.GetJobPoints(MainJob).SpentJobPoints;
             public static int UseableJobPoints => api.Player.GetJobPoints(MainJob).JobPoints;
             public static int CapacityPoints => api.Player.GetJobPoints(MainJob).CapacityPoints;

@@ -455,6 +455,8 @@
             float dir = -45;
             while (botRunning && !bgw_script_nav.CancellationPending)
             {
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                if (isCasting) continue;
                 if (Linear.Checked)
                 {
                     runReverse.Enabled = false;
@@ -584,7 +586,7 @@
                 if (PlayerInfo.MainJobLevel == 99)
                     playerjobpoints.Text = $"Job Points: {PlayerInfo.UseableJobPoints}/500";
                 if (PlayerInfo.MainJobLevel >= 75)
-                    playermerits.Text = $"Merit Points: {api.Player.MeritPoints}/75";
+                    playermerits.Text = $"Merit Points: {PlayerInfo.MeritPoints}/75";
                 curtarg.Text = $"Current Target: {TargetInfo.Name}";
                 curtarghpp.Text = $"Target HP: {TargetInfo.HPP}%";
                 curtime.Text = $"Current Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
