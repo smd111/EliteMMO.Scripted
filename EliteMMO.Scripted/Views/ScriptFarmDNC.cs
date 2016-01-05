@@ -182,7 +182,7 @@
                         CuringWaltzParty();
                     if ((usedrain.Checked || usedrainii.Checked || usedrainiii.Checked || useaspir.Checked || useaspirii.Checked ||
                         usehaste.Checked) && !noSamba.Checked)
-                    Sambas();
+                         Sambas();
                     if ((usequickstep.Checked || useboxstep.Checked || usestutterstep.Checked || usefeatherstep.Checked) &&
                         !NoSteps.Checked)
                         Steps();
@@ -617,21 +617,8 @@
         #region Code Testing section
         private void Run_Test_Code(object sender, EventArgs e)
         {
-            api.ThirdParty.SendString("/item \"Antidote\" <me>");
-            Thread.Sleep(TimeSpan.FromSeconds(0.3));
-            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
-            Thread.Sleep(TimeSpan.FromSeconds(0.2));
-            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
-            Thread.Sleep(TimeSpan.FromSeconds(0.2));
-            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
-            Thread.Sleep(TimeSpan.FromSeconds(0.2));
-            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
-            Thread.Sleep(TimeSpan.FromSeconds(0.2));
-            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
-            Thread.Sleep(TimeSpan.FromSeconds(0.2));
-            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
-            Thread.Sleep(TimeSpan.FromSeconds(0.2));
-            api.ThirdParty.SendString($"/echo \"{api.CastBar.Count}\"");
+            var magic = api.Resources.GetSpell("Monomi: Ichi", 0);
+            api.ThirdParty.SendString($"/echo \"{magic.Skill}\"/{magic.MagicType}/{magic.Name[2]}");
             //foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
             //{
             //    int slot = member.MemberNumber;

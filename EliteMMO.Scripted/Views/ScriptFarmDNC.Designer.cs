@@ -7731,7 +7731,6 @@
             // 
             // button1
             // 
-            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(142, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -7739,7 +7738,6 @@
             this.button1.TabStop = false;
             this.button1.Text = "Run Test";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Run_Test_Code);
             // 
             // playertp
@@ -10162,14 +10160,7 @@
                 {780, new {I=0,B=550}},{781, new {I=0,B=551}},{782, new {I=0,B=552}},{783, new {I=0,B=553}},{784, new {I=0,B=554}},
                 {785, new {I=0,B=555}},{786, new {I=0,B=556}},{787, new {I=0}},{788, new {I=0}},{789, new {I=0}},{790, new {I=0}},
                 {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
-                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},{318, new {nin=""}},{319, new {nin=""}},{320, new {nin=""}},
-                { 321, new {nin=""}},{322, new {nin=""}},{323, new {nin=""}},{324, new {nin=""}},{325, new {nin=""}},{326, new {nin=""}},
-                { 327, new {nin=""}},{328, new {nin=""}},{329, new {nin=""}},{330, new {nin=""}},{331, new {nin=""}},{332, new {nin=""}},
-                { 333, new {nin=""}},{334, new {nin=""}},{335, new {nin=""}},{336, new {nin=""}},{337, new {nin=""}},{338, new {nin=""}},
-                { 339, new {nin=""}},{340, new {nin=""}},{341, new {nin=""}},{342, new {nin=""}},{343, new {nin=""}},{344, new {nin=""}},
-                { 345, new {nin=""}},{346, new {nin=""}},{347, new {nin=""}},{348, new {nin=""}},{349, new {nin=""}},{350, new {nin=""}},
-                { 351, new {nin=""}},{352, new {nin=""}},{353, new {nin=""}},{354, new {nin=""}},{355, new {nin=""}},{505, new {nin=""}},
-                { 506, new {nin=""}},{507, new {nin=""}},{508, new {nin=""}},{509, new {nin=""}},{510, new {nin=""}},
+                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},
                 };
             
             if (MAreverse.Checked) ma.Reverse();
@@ -10236,9 +10227,6 @@
                             else if (magic.Name[0] == "Cure IV" && CureIVptcount.Value >= partymember.CurrentHPP) castSpell = true;
                             else if (magic.Name[0] == "Cure V" && CureVptcount.Value >= partymember.CurrentHPP) castSpell = true;
                             else if (magic.Name[0] == "Cure VI" && CureVIptcount.Value >= partymember.CurrentHPP) castSpell = true;
-                            //else if (magic.Name[0] == "Cura" && Curaptcount.Value >= partymember.CurrentHPP) castSpell = true;
-                            //else if (magic.Name[0] == "Cura II" && CuraIIptcount.Value >= partymember.CurrentHPP) castSpell = true;
-                            //else if (magic.Name[0] == "Cura III" && CuraIIIptcount.Value >= partymember.CurrentHPP) castSpell = true;
                             else if (magic.Name[0] == "Full Cure" && FullCureptcount.Value >= partymember.CurrentHPP) castSpell = true;
                             if (castSpell)
                             {
@@ -10253,11 +10241,10 @@
                 {
                     if (macontrol.ContainsKey((uint)magic.Index))
                     {
-                        if (macontrol[magic.Index].ToString().Contains("nin ="))
+                        if (magic.Skill == 39)
                         {
                             if (!NINtoolCheck(magic.Name[0])) continue;
-                            else
-                                castSpell = true;
+                            else castSpell = true;
                         }
                         else if (macontrol[magic.Index].ToString().Contains("I ="))
                         {
