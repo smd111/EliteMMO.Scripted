@@ -245,9 +245,6 @@
             {"Suiton: Ichi", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
             {"Suiton: Ni", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
             {"Suiton: San", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Utsusemi: Ichi", new List<string>(new string[]{ "Shihei", "Toolbag (Shihe)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Utsusemi: Ni", new List<string>(new string[]{ "Shihei", "Toolbag (Shihe)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Utsusemi: San", new List<string>(new string[]{ "Shihei", "Toolbag (Shihe)", "Shikanofuda", "Toolbag (Shika)"})},
             {"Jubaku: Ichi", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
             {"Jubaku: Ni", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
             {"Jubaku: San", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
@@ -269,6 +266,103 @@
             {"Yurin: Ichi", new List<string>(new string[]{ "Jinko", "Toolbag (Jinko)", "Chonofuda", "Toolbag (Cho)"})},
             {"Kakka: Ichi", new List<string>(new string[]{ "Ryuno", "Toolbag (Ryuno)", "Shikanofuda", "Toolbag (Shika)"})},
             {"Migawari: Ichi", new List<string>(new string[]{ "Mokujin", "Toolbag (Moku)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Utsusemi", new List<string>(new string[]{ "Shihei", "Toolbag (Shihe)", "Shikanofuda", "Toolbag (Shika)"})},
+            };
+        #endregion
+        #region Magic Control
+        public static List<string> Handledspells = new List<string>(new string[] {"Protect","Protect II","Protect III","Protect IV","Protect V","Protectra",
+                "Protectra II","Protectra III","Protectra IV","Protectra V","Shell","Shell II","Shell III","Shell IV","Shell V","Shellra","Shellra II",
+                "Shellra III","Shellra IV","Shellra V","Regen","Regen II","Regen III","Regen IV","Regen V","Refresh","Refresh II","Refresh III","Reraise",
+                "Reraise II","Reraise III","Reraise IV","Cure","Cure II","Cure III","Cure IV","Cure V","Cure VI","Cura","Cura II","Cura III","Full Cure",
+                "Drain","Drain II","Drain III","Aspir","Aspir II","Aspir III","Pollen","Magic Fruit","Healing Breeze","Plenilune Embrace","White Wind",
+                "Restoral","Exuviation","Wild Carrot","Cureaga","Cureaga II","Cureaga III","Cureaga IV","Cureaga V"});
+        public static Dictionary<uint, dynamic> macontrol = new Dictionary<uint, dynamic>()
+            {
+                {14, new {H=3}},{15, new {H=4}},{16, new {H=5}},{17, new {H=6}},{18, new {H=7}},{19, new {H=8}},{20, new {H=9}},
+                {53, new {B=36}},{54, new {B=37}},{55, new {B=39}},{57, new {B=33}},{60, new {B=100}},{61, new {B=101}},{62, new {B=102}},
+                {63, new {B=103}},{64, new {B=104}},{65, new {B=105}},{66, new {B=100}},{67, new {B=101}},{68, new {B=102}},{69, new {B=103}},
+                {70, new {B=104}},{71, new {B=105}},{72, new {B=106}},{73, new {B=107}},{74, new {B=108}},{75, new {B=109}},{76, new {B=110}},
+                {77, new {B=111}},{78, new {B=112}},{84, new {B=286}},{85, new {B=286}},{86, new {B=106}},{87, new {B=107}},{88, new {B=108}},
+                {89, new {B=109}},{90, new {B=110}},{91, new {B=111}},{92, new {B=112}},{96, new {B=275}},{97, new {B=403}},{99, new {W=8}},
+                {100, new {B=94}},{101, new {B=95}},{102, new {B=96}},{103, new {B=97}},{104, new {B=98}},{105, new {B=99}},{106, new {B=116}},
+                {107, new {B=116}},{113, new {W=6}},{114, new {W=10}},{115, new {W=4}},{116, new {W=12}},{117, new {W=14}},
+                {118, new {W=18}},{119, new {W=16}},{242, new {B=90}},{249, new {B=34}},{250, new {B=35}},{251, new {B=38}},
+                {266, new {B=119}},{267, new {B=120}},{268, new {B=121}},{269, new {B=122}},{270, new {B=123}},{271, new {B=124}},
+                {272, new {B=125}},{277, new {B=173}},{287, new {B=407}},{310, new {B=274}},{311, new {B=288}},{312, new {B=277}},
+                {313, new {B=278}},{314, new {B=279}},{315, new {B=280}},{316, new {B=281}},{317, new {B=282}},{358, new {B=33}},
+                {378, new {B=195}},{379, new {B=195}},{380, new {B=195}},{381, new {B=195}},{382, new {B=195}},{383, new {B=195}},
+                {384, new {B=195}},{385, new {B=195}},{386, new {B=196}},{387, new {B=196}},{388, new {B=196}},{389, new {B=197}},
+                {390, new {B=197}},{391, new {B=197}},{392, new {B=197}},{393, new {B=197}},{394, new {B=198}},{395, new {B=198}},
+                {396, new {B=198}},{397, new {B=198}},{398, new {B=198}},{399, new {B=199}},{400, new {B=199}},{401, new {B=200}},
+                {402, new {B=200}},{403, new {B=201}},{404, new {B=201}},{405, new {B=202}},{406, new {B=203}},{407, new {B=204}},
+                {408, new {B=205}},{409, new {B=206}},{410, new {B=206}},{411, new {B=206}},{412, new {B=207}},{413, new {B=208}},
+                {414, new {B=209}},{415, new {B=210}},{416, new {B=211}},{417, new {B=212}},{418, new {B=213}},{419, new {B=214}},
+                {420, new {B=214}},{423, new {B=194}},{424, new {B=215}},{425, new {B=215}},{426, new {B=215}},{427, new {B=215}},
+                {428, new {B=215}},{429, new {B=215}},{430, new {B=215}},{431, new {B=215}},{432, new {B=215}},{433, new {B=215}},
+                {434, new {B=215}},{435, new {B=215}},{436, new {B=215}},{437, new {B=215}},{438, new {B=216}},{439, new {B=216}},
+                {440, new {B=216}},{441, new {B=216}},{442, new {B=216}},{443, new {B=216}},{444, new {B=216}},{445, new {B=216}},
+                {446, new {B=216}},{447, new {B=216}},{448, new {B=216}},{449, new {B=216}},{450, new {B=216}},{451, new {B=216}},
+                {452, new {B=216}},{453, new {B=216}},{464, new {B=218}},{468, new {B=220}},{469, new {B=221}},{470, new {B=222}},
+                {476, new {B=289}},{478, new {B=228}},{479, new {B=119}},{480, new {B=120}},{481, new {B=121}},{482, new {B=122}},
+                {483, new {B=123}},{484, new {B=124}},{485, new {B=125}},{486, new {B=119}},{487, new {B=120}},{488, new {B=121}},
+                {489, new {B=122}},{490, new {B=123}},{491, new {B=124}},{492, new {B=125}},{493, new {B=432}},{495, new {B=170}},
+                {505, new {B=289}},{506, new {B=291}},{507, new {B=290}},{509, new {B=227}},{510, new {B=471}},{511, new {B=33}},
+                {517, new {B=37}},{530, new {B=33}},{538, new {B=190}},{547, new {B=93}},{613, new {B=93}},{615, new {B=38}},
+                {636, new {B=90,b=92}},{655, new {B=91}},{662, new {B=43}},{668, new {B=152}},{679, new {B=36}},{696, new {B=486}},
+                {737, new {B=93}},{750, new {B=604}},{840, new {B=568}},{845, new {B=581}},{846, new {B=581}},{855, new {B=274}},
+                {856, new {B=288}},{857, new {B=9}},{858, new {B=7}},{859, new {B=11}},{860, new {B=5}},{861, new {B=13}},{862, new {B=15}},
+                {863, new {B=19}},{864, new {B=17}},{879, new {B=597}},{895, new {B=432}},{768, new {I=0,B=539}},{769, new {I=0}},
+                {770, new {I=0,B=541}},{771, new {I=0,B=580}},{772, new {I=0,B=542}},{773, new {I=0,B=543}},{774, new {I=0,B=544}},
+                {775, new {I=0,B=545}},{776, new {I=0,B=546}},{777, new {I=0,B=547}},{778, new {I=0,B=548}},{779, new {I=0,B=549}},
+                {780, new {I=0,B=550}},{781, new {I=0,B=551}},{782, new {I=0,B=552}},{783, new {I=0,B=553}},{784, new {I=0,B=554}},
+                {785, new {I=0,B=555}},{786, new {I=0,B=556}},{787, new {I=0}},{788, new {I=0}},{789, new {I=0}},{790, new {I=0}},
+                {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
+                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},
+                };
+        #endregion
+        #region Ability Control
+        public static List<string> HandledAbils = new List<string>(new string[] {"Manafont","Manawell","Elemental Seal","Cascade","Subtle Sorcery","Divine Seal",
+        "Divine Caress","Chainspell","Saboteur","Spontaneity","Stymie","Divine Emblem","Dark Seal","Nether Void","Futae","Unbridled Learning","Unbridled Wisdom",
+        "Soul Voice","Pianissimo","Nightingale","Troubadour","Tenuto","Marcato","Clarion Call","Tabula Rasa","Light Arts","Dark Arts","Enlightenment","Modus Veritas",
+        "Addendum: White","Penury","Celerity","Accession","Rapture","Altruism","Tranquility","Perpetuance","Addendum: Black","Parsimony","Alacrity","Manifestation",
+        "Ebullience","Focalization","Equanimity","Immanence","Bolster","Collimated Fervor","Theurgic Focus","Widened Compass","Embolden","Sekkanoki","Sekkanoki",
+        "Hagakure","Sengikori","Konzen-ittai"});
+        public static Dictionary<uint, dynamic> jacontrol = new Dictionary<uint, dynamic>()
+            {
+                    #region JA 
+                    {528, new {}}, {529, new {}}, {530, new {}}, {533, new {}}, {534, new {}}, {535, new {}}, {538, new {}}, {540, new {}}, {543, new {b1=56}},
+                    {544, new {b1=68,b2=460}}, {545, new {b1=57}}, {546, new {b1=58}}, {548, new {b1=59}}, {549, new {b1=60}}, {550, new {hp=90}},
+                    {551, new {b1=45}}, {552, new {b1=61}}, {553, new {}}, {556, new {}}, {557, new {}}, {558, new {}}, {559, new {b1=74}}, {560, new {b1=62}},
+                    {561, new {b1=63}}, {562, new {b1=75}}, {563, new {b1=64}}, {568, new {}}, {569, new {}}, {570, new {}}, {571, new {b1=172}},
+                    {572, new {b1=73}}, {574, new {b1=67}}, {575, new {name="Meditate"}}, {576, new {b1=117}}, {577, new {b1=118}}, {578, new {}},
+                    {579, new {}}, {580, new {}}, {588, new {b1=87}}, {589, new {}}, {594, new {}}, {595, new {}}, {598, new {b1=115}}, {604, new {}},
+                    {605, new {}}, {606, new {b1=164}}, {607, new {b1=165}}, {608, new {}}, {610, new {b1=310,b2=309}}, {611, new {b1=311,b2=309}},
+                    {612, new {b1=312,b2=309}}, {613, new {b1=313,b2=309}}, {614, new {b1=314,b2=309}}, {615, new {b1=315,b2=309}}, {616, new {b1=316,b2=309}},
+                    {617, new {b1=317,b2=309}}, {618, new {b1=318,b2=309}}, {619, new {b1=319,b2=309}}, {620, new {b1=320,b2=309}}, {621, new {b1=321,b2=309}},
+                    {622, new {b1=322,b2=309}}, {623, new {b1=323,b2=309}}, {624, new {b1=324,b2=309}}, {625, new {b1=325,b2=309}}, {626, new {b1=326,b2=309}},
+                    {627, new {b1=327,b2=309}}, {628, new {b1=328,b2=309}}, {629, new {b1=329,b2=309}}, {630, new {b1=330,b2=309}}, {631, new {b1=331,b2=309}},
+                    {632, new {b1=332,b2=309}}, {633, new {b1=333,b2=309}}, {634, new {b1=334,b2=309}}, {635, new {b3=308}},{637, new {item="Fire Card"}},
+                    {638, new {item="Ice Card"}},{639, new {item="Wind Card"}},{640, new {item="Earth Card"}},{641, new {item="Thunder Card"}},
+                    {642, new {item="Water Card"}},{643, new {item="Light Card"}},{644, new {item="Dark Card"}},{645, new {}}, {661, new {b1=340,b2=490}},
+                    {662, new {}}, {663, new {b1=19}}, {664, new {b1=341}}, {667, new {b1=342}}, {668, new {b1=343}},{669, new {b1=344}}, {672, new {b1=346}},
+                    {673, new {}}, {677, new {b1=350}}, {678, new {b1=351}}, {680, new {}}, {682, new {}},{683, new {b1=352}}, {685, new {b1=353}},
+                    {686, new {b1=354}}, {689, new {b1=357}}, {690, new {b3=309}}, {693, new {b1=376}},{708, new {b1=71}}, {736, new {b1=371}}, {738, new {b1=405}},
+                    {739, new {b1=406}}, {740, new {}}, {749, new {b1=410}}, {750, new {b1=411}},{757, new {b1=417}}, {758, new {b1=418}}, {759, new {b1=419}},
+                    {760, new {b1=420}}, {761, new {nuff1=421}}, {764, new {b1=435}},{765, new {b1=436}}, {769, new {b1=433}}, {772, new {}}, {773, new {b1=442}},
+                    {777, new {}}, {779, new {b1=460,b2=68}}, {781, new {b1=461}},{783, new {b1=477}}, {784, new {}}, {788, new {b1=462}}, {789, new {}},
+                    {790, new {b1=478}}, {791, new {}}, {792, new {b1=479}}, {797, new {}},{798, new {b1=482}}, {799, new {b1=465}}, {803, new {b1=484}},
+                    {804, new {}}, {805, new {}}, {813, new {b1=467}}, {814, new {b1=335,b2=309}},{815, new {b1=336,b2=309}}, {816, new {b1=337,b2=309}},
+                    {817, new {b1=338,b2=309}}, {833, new {hpt=10}}, {835, new {b1=490,b2=340}},{836, new {b1=491}}, {837, new {b1=492}}, {840, new {}},
+                    {841, new {}}, {842, new {b1=497}}, {845, new {b1=500}}, {846, new {b1=501}},{847, new {b1=502}}, {848, new {b1=503}}, {851, new {}},
+                    {853, new {b1=507}}, {856, new {}}, {868, new {}}, {870, new {b1=523}},{871, new {b1=524}}, {872, new {b1=525}}, {873, new {b1=526}},
+                    {874, new {b1=527}}, {875, new {b1=528}}, {876, new {b1=529}},{877, new {b1=530}}, {878, new {b1=531}}, {879, new {b1=532}}, {880, new {}},
+                    {881, new {b1=533}}, {883, new {b1=535}}, {884, new {}},{895, new {}}, {885, new {b1=537}}, {886, new {b1=538}}, {887, new {}},
+                    {888, new {b1=570}}, {890, new {}}, {901, new {b1=599}},{902, new {b1=339,b2=309}}, {903, new {b1=600,b2=309}}, {904, new {b1=601}},
+                    #endregion
+                    #region monJA control
+                    {1247, new {hp=75}}, {1818, new {hp=75}}, {1825, new {hp=75}},{1850, new {hp=75}}, {1856, new {hp=75}}, {1929, new {hp=75}}, {2059, new {hp=75}},
+                    {2088, new {mp=75}}, {2090, new {hp=75}}, {2113, new {hp=75}}, {2114, new {hp=75}},
+                    #endregion
             };
         #endregion
         #region zone array
@@ -450,15 +544,15 @@
             this.amname = new System.Windows.Forms.ComboBox();
             this.AfterMathTier = new System.Windows.Forms.NumericUpDown();
             this.wsam = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown40 = new System.Windows.Forms.NumericUpDown();
+            this.WSDistance = new System.Windows.Forms.CheckBox();
+            this.selectedWS = new System.Windows.Forms.ComboBox();
+            this.WSDistanceset = new System.Windows.Forms.NumericUpDown();
             this.ws = new System.Windows.Forms.CheckBox();
-            this.numericUpDown24 = new System.Windows.Forms.NumericUpDown();
+            this.WStp = new System.Windows.Forms.NumericUpDown();
             this.label29 = new System.Windows.Forms.Label();
-            this.numericUpDown22 = new System.Windows.Forms.NumericUpDown();
+            this.TragetHPPtop = new System.Windows.Forms.NumericUpDown();
             this.label28 = new System.Windows.Forms.Label();
-            this.numericUpDown23 = new System.Windows.Forms.NumericUpDown();
+            this.TragetHPPbottom = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
             this.Options2MainTab = new System.Windows.Forms.TabPage();
             this.numericUpDown38 = new System.Windows.Forms.NumericUpDown();
@@ -947,10 +1041,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
             this.groupBox20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AfterMathTier)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown40)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WSDistanceset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WStp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TragetHPPtop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TragetHPPbottom)).BeginInit();
             this.Options2MainTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aggroRange)).BeginInit();
@@ -1649,15 +1743,15 @@
             this.groupBox20.Controls.Add(this.amname);
             this.groupBox20.Controls.Add(this.AfterMathTier);
             this.groupBox20.Controls.Add(this.wsam);
-            this.groupBox20.Controls.Add(this.checkBox6);
-            this.groupBox20.Controls.Add(this.comboBox2);
-            this.groupBox20.Controls.Add(this.numericUpDown40);
+            this.groupBox20.Controls.Add(this.WSDistance);
+            this.groupBox20.Controls.Add(this.selectedWS);
+            this.groupBox20.Controls.Add(this.WSDistanceset);
             this.groupBox20.Controls.Add(this.ws);
-            this.groupBox20.Controls.Add(this.numericUpDown24);
+            this.groupBox20.Controls.Add(this.WStp);
             this.groupBox20.Controls.Add(this.label29);
-            this.groupBox20.Controls.Add(this.numericUpDown22);
+            this.groupBox20.Controls.Add(this.TragetHPPtop);
             this.groupBox20.Controls.Add(this.label28);
-            this.groupBox20.Controls.Add(this.numericUpDown23);
+            this.groupBox20.Controls.Add(this.TragetHPPbottom);
             this.groupBox20.Controls.Add(this.label27);
             this.groupBox20.Location = new System.Drawing.Point(52, 6);
             this.groupBox20.Name = "groupBox20";
@@ -1759,19 +1853,19 @@
             this.wsam.Text = "Use TP w/ AM";
             this.wsam.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // WSDistance
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(17, 62);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(89, 17);
-            this.checkBox6.TabIndex = 104;
-            this.checkBox6.Text = "WS Distance";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.WSDistance.AutoSize = true;
+            this.WSDistance.Location = new System.Drawing.Point(17, 62);
+            this.WSDistance.Name = "WSDistance";
+            this.WSDistance.Size = new System.Drawing.Size(89, 17);
+            this.WSDistance.TabIndex = 104;
+            this.WSDistance.Text = "WS Distance";
+            this.WSDistance.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // selectedWS
             // 
-            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            this.selectedWS.AutoCompleteCustomSource.AddRange(new string[] {
             "Combo",
             "Shoulder Tackle",
             "One Inch Punch",
@@ -1984,36 +2078,36 @@
             "Armor Piercer",
             "Cannibal Blade",
             "Bone Crusher"});
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(188, 15);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(112, 21);
-            this.comboBox2.Sorted = true;
-            this.comboBox2.TabIndex = 102;
+            this.selectedWS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.selectedWS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.selectedWS.FormattingEnabled = true;
+            this.selectedWS.Location = new System.Drawing.Point(188, 15);
+            this.selectedWS.Name = "selectedWS";
+            this.selectedWS.Size = new System.Drawing.Size(112, 21);
+            this.selectedWS.Sorted = true;
+            this.selectedWS.TabIndex = 102;
             // 
-            // numericUpDown40
+            // WSDistanceset
             // 
-            this.numericUpDown40.DecimalPlaces = 1;
-            this.numericUpDown40.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.numericUpDown40.Increment = new decimal(new int[] {
+            this.WSDistanceset.DecimalPlaces = 1;
+            this.WSDistanceset.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.WSDistanceset.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown40.Location = new System.Drawing.Point(124, 59);
-            this.numericUpDown40.Maximum = new decimal(new int[] {
+            this.WSDistanceset.Location = new System.Drawing.Point(124, 59);
+            this.WSDistanceset.Maximum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDown40.Name = "numericUpDown40";
-            this.numericUpDown40.Size = new System.Drawing.Size(44, 20);
-            this.numericUpDown40.TabIndex = 103;
-            this.numericUpDown40.TabStop = false;
-            this.numericUpDown40.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown40.Value = new decimal(new int[] {
+            this.WSDistanceset.Name = "WSDistanceset";
+            this.WSDistanceset.Size = new System.Drawing.Size(44, 20);
+            this.WSDistanceset.TabIndex = 103;
+            this.WSDistanceset.TabStop = false;
+            this.WSDistanceset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WSDistanceset.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -2029,25 +2123,30 @@
             this.ws.Text = "Use TP";
             this.ws.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown24
+            // WStp
             // 
-            this.numericUpDown24.Increment = new decimal(new int[] {
+            this.WStp.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown24.Location = new System.Drawing.Point(124, 15);
-            this.numericUpDown24.Maximum = new decimal(new int[] {
+            this.WStp.Location = new System.Drawing.Point(124, 15);
+            this.WStp.Maximum = new decimal(new int[] {
             3000,
             0,
             0,
             0});
-            this.numericUpDown24.Name = "numericUpDown24";
-            this.numericUpDown24.Size = new System.Drawing.Size(44, 20);
-            this.numericUpDown24.TabIndex = 95;
-            this.numericUpDown24.TabStop = false;
-            this.numericUpDown24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown24.Value = new decimal(new int[] {
+            this.WStp.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.WStp.Name = "WStp";
+            this.WStp.Size = new System.Drawing.Size(44, 20);
+            this.WStp.TabIndex = 95;
+            this.WStp.TabStop = false;
+            this.WStp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WStp.Value = new decimal(new int[] {
             1000,
             0,
             0,
@@ -2062,19 +2161,19 @@
             this.label29.TabIndex = 99;
             this.label29.Text = "MIN";
             // 
-            // numericUpDown22
+            // TragetHPPtop
             // 
-            this.numericUpDown22.Increment = new decimal(new int[] {
+            this.TragetHPPtop.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown22.Location = new System.Drawing.Point(206, 81);
-            this.numericUpDown22.Name = "numericUpDown22";
-            this.numericUpDown22.Size = new System.Drawing.Size(44, 20);
-            this.numericUpDown22.TabIndex = 98;
-            this.numericUpDown22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown22.Value = new decimal(new int[] {
+            this.TragetHPPtop.Location = new System.Drawing.Point(206, 81);
+            this.TragetHPPtop.Name = "TragetHPPtop";
+            this.TragetHPPtop.Size = new System.Drawing.Size(44, 20);
+            this.TragetHPPtop.TabIndex = 98;
+            this.TragetHPPtop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TragetHPPtop.Value = new decimal(new int[] {
             100,
             0,
             0,
@@ -2089,19 +2188,19 @@
             this.label28.TabIndex = 100;
             this.label28.Text = "MAX";
             // 
-            // numericUpDown23
+            // TragetHPPbottom
             // 
-            this.numericUpDown23.Increment = new decimal(new int[] {
+            this.TragetHPPbottom.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown23.Location = new System.Drawing.Point(124, 81);
-            this.numericUpDown23.Name = "numericUpDown23";
-            this.numericUpDown23.Size = new System.Drawing.Size(44, 20);
-            this.numericUpDown23.TabIndex = 97;
-            this.numericUpDown23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown23.Value = new decimal(new int[] {
+            this.TragetHPPbottom.Location = new System.Drawing.Point(124, 81);
+            this.TragetHPPbottom.Name = "TragetHPPbottom";
+            this.TragetHPPbottom.Size = new System.Drawing.Size(44, 20);
+            this.TragetHPPbottom.TabIndex = 97;
+            this.TragetHPPbottom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TragetHPPbottom.Value = new decimal(new int[] {
             15,
             0,
             0,
@@ -7731,6 +7830,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(142, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -7738,6 +7838,7 @@
             this.button1.TabStop = false;
             this.button1.Text = "Run Test";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Run_Test_Code);
             // 
             // playertp
@@ -7855,10 +7956,10 @@
             this.groupBox20.ResumeLayout(false);
             this.groupBox20.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AfterMathTier)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown40)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WSDistanceset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WStp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TragetHPPtop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TragetHPPbottom)).EndInit();
             this.Options2MainTab.ResumeLayout(false);
             this.Options2MainTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown38)).EndInit();
@@ -8182,15 +8283,15 @@
         public System.Windows.Forms.ComboBox amname;
         public System.Windows.Forms.NumericUpDown AfterMathTier;
         public System.Windows.Forms.CheckBox wsam;
-        public System.Windows.Forms.CheckBox checkBox6;
-        public System.Windows.Forms.ComboBox comboBox2;
-        public System.Windows.Forms.NumericUpDown numericUpDown40;
+        public System.Windows.Forms.CheckBox WSDistance;
+        public System.Windows.Forms.ComboBox selectedWS;
+        public System.Windows.Forms.NumericUpDown WSDistanceset;
         public System.Windows.Forms.CheckBox ws;
-        public System.Windows.Forms.NumericUpDown numericUpDown24;
+        public System.Windows.Forms.NumericUpDown WStp;
         public System.Windows.Forms.Label label29;
-        public System.Windows.Forms.NumericUpDown numericUpDown22;
+        public System.Windows.Forms.NumericUpDown TragetHPPtop;
         public System.Windows.Forms.Label label28;
-        public System.Windows.Forms.NumericUpDown numericUpDown23;
+        public System.Windows.Forms.NumericUpDown TragetHPPbottom;
         public System.Windows.Forms.Label label27;
         public System.Windows.Forms.TabPage Options2MainTab;
         public System.Windows.Forms.NumericUpDown numericUpDown38;
@@ -9022,7 +9123,7 @@
                 Environment.Exit(0);
             }
         }
-        #region Trust
+            #region Trust
         private void trustMenureset_Click(object sender, EventArgs e)
         {
             if (Trusts.Items.Count > 0)
@@ -9089,33 +9190,33 @@
             }
             isCasting = false;
         }
-        //private void TrustWatch()
-        //{
-        //    var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
-        //    foreach (string T in trust)
-        //    {
-        //        var Trustspell = api.Resources.GetSpell(T, 0);
-        //        if (Recast.GetSpellRecast((int)Trustspell.Index) != 0) continue;
-        //        var trustname = T.Replace(" ", "").Replace("II", "").Replace("[S]", "").Replace("(UC)", "");
-        //        var partymember = api.Party.GetPartyMembers().FirstOrDefault(p => p.Name == trustname);
-        //        if (Watchtrusts.Checked && !partymember.Equals(null))
-        //        {
-        //            if (partymember.CurrentMPP > TrustResetmpp.Value || partymember.CurrentHPP > TrustResethpp.Value) continue;
-        //            SetTarget(partymember.Index);
-        //            Thread.Sleep(TimeSpan.FromSeconds(0.3));
-        //            while (TargetInfo.Distance > 3)
-        //            {
-        //                api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
-        //                        TargetInfo.Y - PlayerInfo.Y, TargetInfo.Z - PlayerInfo.Z);
-        //                api.AutoFollow.IsAutoFollowing = true;
-        //                Thread.Sleep(TimeSpan.FromSeconds(0.1));
-        //            }
-        //            api.AutoFollow.IsAutoFollowing = false;
-        //            WindowInfo.SendText("/returntrust");
-        //        }
-        //    }
-        //}
-        #endregion
+        /* private void TrustWatch()
+        {
+            var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
+            foreach (string T in trust)
+            {
+                var Trustspell = api.Resources.GetSpell(T, 0);
+                if (Recast.GetSpellRecast((int)Trustspell.Index) != 0) continue;
+                var trustname = T.Replace(" ", "").Replace("II", "").Replace("[S]", "").Replace("(UC)", "");
+                var partymember = api.Party.GetPartyMembers().FirstOrDefault(p => p.Name == trustname);
+                if (Watchtrusts.Checked && !partymember.Equals(null))
+                {
+                    if (partymember.CurrentMPP > TrustResetmpp.Value || partymember.CurrentHPP > TrustResethpp.Value) continue;
+                    SetTarget(partymember.Index);
+                    Thread.Sleep(TimeSpan.FromSeconds(0.3));
+                    while (TargetInfo.Distance > 3)
+                    {
+                        api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
+                                TargetInfo.Y - PlayerInfo.Y, TargetInfo.Z - PlayerInfo.Z);
+                        api.AutoFollow.IsAutoFollowing = true;
+                        Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                    }
+                    api.AutoFollow.IsAutoFollowing = false;
+                    WindowInfo.SendText("/returntrust");
+                }
+            }
+        } */
+            #endregion
         private void LoadJA_Click(object sender, EventArgs e)
         {
             if (playerJA.Items.Count > 0)
@@ -9215,38 +9316,38 @@
                 playerMA.Items.Clear();
             #region Skip MA List
             Dictionary<uint, dynamic> skipSpellList = new Dictionary<uint, dynamic> {{12, true},{13, true},{81, true},{82, true},{83, true},{120, true},{121, true},
-            {122, true},{123, true},{124, true},{136, true},{137, true},{138, true},{139, true},{140, true},{241, true},{260, true},{261, true},{262, true},{263, true},
-            {264, true},{265, true},{494, true},{512, true},{514, true},{516, true},{518, true},{520, true},{523, true},{525, true},{526, true},{528, true},{546, true},
-            {550, true},{552, true},{553, true},{556, true},{558, true},{559, true},{562, true},{566, true},{568, true},{571, true},{580, true},{583, true},{586, true},
-            {590, true},{600, true},{601, true},{602, true},{607, true},{609, true},{619, true},{624, true},{625, true},{627, true},{630, true},{635, true},{639, true},
-            {729, true},{730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{754, true},{755, true},{756, true},{757, true},{758, true},{759, true},
-            {760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{992, true},{993, true},{994, true},{995, true},{996, true},
-            {997, true},{998, true},{999, true},{1000, true},{1001, true},{1002, true},{1003, true},{1017, true},{1018, true},{1019, true},{1020, true},{1021, true},
-            {1022, true},{1023, true},{308, true},{309, true},{318, true},{353, true},{354, true},{355, true},{465, true},
-            #region smn
-            {288, true},{289, true},{290, true},{291, true},{292, true},{293, true},{294, true},{295, true},{296, true},{297, true},{298, true},{299, true},{300, true},
-            {301, true},{302, true},{303, true},{304, true},{305, true},{306, true},{307, true},{847, true},
-            #endregion
-            #region nin
-            {338, true},{339, true},{340, true},
-            #endregion
-            #region geo
-            {769, true},{787, true},{788, true},{789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},
-            {799, true},{800, true},{801, true},{802, true},{803, true},{804, true},{805, true},{806, true},{807, true},{808, true},{809, true},{810, true},{811, true},
-            {812, true},{813, true},{814, true},{815, true},{816, true},{817, true},{818, true},{819, true},{820, true},{821, true},{822, true},{823, true},{824, true},
-            {825, true},{826, true},{827, true},
-            #endregion
-            #region trust
-            {896, true},{897, true},{898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true},{905, true},{906, true},{907, true},{908, true},
-            {909, true},{910, true},{911, true},{912, true},{913, true},{914, true},{915, true},{916, true},{917, true},{918, true},{919, true},{920, true},{921, true},
-            {922, true},{923, true},{924, true},{925, true},{926, true},{927, true},{928, true},{929, true},{930, true},{931, true},{932, true},{933, true},{934, true},
-            {935, true},{936, true},{937, true},{938, true},{939, true},{940, true},{941, true},{942, true},{943, true},{944, true},{945, true},{946, true},{947, true},
-            {948, true},{949, true},{950, true},{951, true},{952, true},{953, true},{954, true},{955, true},{956, true},{957, true},{958, true},{959, true},{960, true},
-            {961, true},{962, true},{963, true},{964, true},{965, true},{966, true},{967, true},{968, true},{969, true},{970, true},{971, true},{972, true},{973, true},
-            {974, true},{975, true},{976, true},{977, true},{978, true},{979, true},{980, true},{981, true},{982, true},{983, true},{984, true},{985, true},{986, true},
-            {987, true},{988, true},{989, true},{990, true},{991, true},{1004, true},{1005, true},{1006, true},{1007, true},{1008, true},{1009, true},{1010, true},
-            {1011, true},{1012, true},{1013, true},{1014, true},{1015, true},{1016, true}
-            #endregion
+                {122, true},{123, true},{124, true},{136, true},{137, true},{138, true},{139, true},{140, true},{241, true},{260, true},{261, true},{262, true},{263, true},
+                {264, true},{265, true},{494, true},{512, true},{514, true},{516, true},{518, true},{520, true},{523, true},{525, true},{526, true},{528, true},{546, true},
+                {550, true},{552, true},{553, true},{556, true},{558, true},{559, true},{562, true},{566, true},{568, true},{571, true},{580, true},{583, true},{586, true},
+                {590, true},{600, true},{601, true},{602, true},{607, true},{609, true},{619, true},{624, true},{625, true},{627, true},{630, true},{635, true},{639, true},
+                {729, true},{730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{754, true},{755, true},{756, true},{757, true},{758, true},{759, true},
+                {760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{992, true},{993, true},{994, true},{995, true},{996, true},
+                {997, true},{998, true},{999, true},{1000, true},{1001, true},{1002, true},{1003, true},{1017, true},{1018, true},{1019, true},{1020, true},{1021, true},
+                {1022, true},{1023, true},{308, true},{309, true},{318, true},{353, true},{354, true},{355, true},{465, true},
+                #region smn
+                {288, true},{289, true},{290, true},{291, true},{292, true},{293, true},{294, true},{295, true},{296, true},{297, true},{298, true},{299, true},{300, true},
+                {301, true},{302, true},{303, true},{304, true},{305, true},{306, true},{307, true},{847, true},
+                #endregion
+                #region nin
+                {338, true},{339, true},{340, true},
+                #endregion
+                #region geo
+                {769, true},{787, true},{788, true},{789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},
+                {799, true},{800, true},{801, true},{802, true},{803, true},{804, true},{805, true},{806, true},{807, true},{808, true},{809, true},{810, true},{811, true},
+                {812, true},{813, true},{814, true},{815, true},{816, true},{817, true},{818, true},{819, true},{820, true},{821, true},{822, true},{823, true},{824, true},
+                {825, true},{826, true},{827, true},
+                #endregion
+                #region trust
+                {896, true},{897, true},{898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true},{905, true},{906, true},{907, true},{908, true},
+                {909, true},{910, true},{911, true},{912, true},{913, true},{914, true},{915, true},{916, true},{917, true},{918, true},{919, true},{920, true},{921, true},
+                {922, true},{923, true},{924, true},{925, true},{926, true},{927, true},{928, true},{929, true},{930, true},{931, true},{932, true},{933, true},{934, true},
+                {935, true},{936, true},{937, true},{938, true},{939, true},{940, true},{941, true},{942, true},{943, true},{944, true},{945, true},{946, true},{947, true},
+                {948, true},{949, true},{950, true},{951, true},{952, true},{953, true},{954, true},{955, true},{956, true},{957, true},{958, true},{959, true},{960, true},
+                {961, true},{962, true},{963, true},{964, true},{965, true},{966, true},{967, true},{968, true},{969, true},{970, true},{971, true},{972, true},{973, true},
+                {974, true},{975, true},{976, true},{977, true},{978, true},{979, true},{980, true},{981, true},{982, true},{983, true},{984, true},{985, true},{986, true},
+                {987, true},{988, true},{989, true},{990, true},{991, true},{1004, true},{1005, true},{1006, true},{1007, true},{1008, true},{1009, true},{1010, true},
+                {1011, true},{1012, true},{1013, true},{1014, true},{1015, true},{1016, true}
+                #endregion
             };
             #endregion
             #region load MJ MA(main job)
@@ -9255,17 +9356,24 @@
                 var spellm = api.Resources.GetSpell(mm);
                 var spelllvl = spellm.LevelRequired[PlayerInfo.MainJob];
                 if (spellm == null || skipSpellList.ContainsKey(mm)) continue;
-                else if (PlayerInfo.HasSpell(mm))
+                else if (PlayerInfo.HasSpell(mm) && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1)
                 {
-                    if (spelllvl <= 99 && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name[0]))
+                    /*if (spellm.MagicType == 43)
                     {
-                        playerMA.Items.Add(spellm.Name[0]);
+                        setid = (mm-512)
+                        List<int> UnbridledSpells = new List<int>(new int[] {736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753});
+                        if (UnbridledSpells.Contains(mm) && !playerMA.Items.Contains(spellm.Name[0]))
+                            playerMA.Items.Add(spellm.Name[0]);
+                        else if (blusetspells(setid) && !playerMA.Items.Contains(spellm.Name[0]))
+                            playerMA.Items.Add(spellm.Name[0]);
                     }
-                    else if (PlayerInfo.MainJobLevel == 99 && PlayerInfo.UsedJobPoints >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name[0]))
+                    else*/ if (spelllvl <= 99 && !playerMA.Items.Contains(spellm.Name[0]))
                     {
                         playerMA.Items.Add(spellm.Name[0]);
                     }
                 }
+                else if (PlayerInfo.MainJobLevel == 99 && PlayerInfo.UsedJobPoints >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name[0]))
+                    playerMA.Items.Add(spellm.Name[0]);
             }
             #endregion
             #region load SJ MA(sub job)
@@ -9273,12 +9381,21 @@
             {
                 var spells = api.Resources.GetSpell(sm);
                 if (spells == null || skipSpellList.ContainsKey(sm)) continue;
-                else if (PlayerInfo.HasSpell(sm) &&
-                        PlayerInfo.SubJobLevel >= spells.LevelRequired[PlayerInfo.SubJob] &&
-                        spells.LevelRequired[PlayerInfo.SubJob] != -1 &&
-                        !playerMA.Items.Contains(spells.Name[0]))
-                {
-                    playerMA.Items.Add(spells.Name[0]);
+                if (PlayerInfo.HasSpell(sm) && PlayerInfo.SubJobLevel >= spells.LevelRequired[PlayerInfo.SubJob] &&spells.LevelRequired[PlayerInfo.SubJob] != -1)
+                { 
+                    /*if (spells.MagicType == 43)
+                    {
+                        setid = (sm-512)
+                        List<int> UnbridledSpells = new List<int>(new int[] {736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753});
+                        if (UnbridledSpells.Contains(sm) && !playerMA.Items.Contains(spells.Name[0]))
+                            playerMA.Items.Add(spells.Name[0]);
+                        else if (blusetspells(setid) && !playerMA.Items.Contains(spells.Name[0]))
+                            playerMA.Items.Add(spells.Name[0]);
+                    }
+                    else*/ if (!playerMA.Items.Contains(spells.Name[0]))
+                    {
+                        playerMA.Items.Add(spells.Name[0]);
+                    }
                 }
             }
             #endregion
@@ -9425,15 +9542,11 @@
         }
         #endregion
         #region Methods: Save/Load Config
-        #region config: save/load (player)
+            #region config: save/load (player)
         public void SaveFarmSettings()
         {
             bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\settings");
             if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\settings");
-            //Dictionary<int, string> savename = new Dictionary<int, string>()
-            //{{1, "Warrior"},{2, "Monk"},{3, "White_Mage"},{4, "Black_Mage"},{5, "Red_Mage"},{6, "Thief"},{7, "Paladin"},{8, "Dark_Knight"},{9, "Beastmaster"},
-            // {10, "Bard"},{11, "Ranger"},{12, "Samurai"},{13, "Ninja"},{14, "Dragoon"},{15, "Summoner"},{16, "Blue_Mage"},{17, "Corsair"},{18, "Puppetmaster"},
-            // {19, "Dancer"},{20, "Scholar"},{21, "Geomancer"},{22, "Rune_Fencer"},{23, "Monipulator"}};
             var saveFile = new SaveFileDialog();
             saveFile.Filter = @"settings file (*.xml)|*.xml";
             saveFile.InitialDirectory = Application.StartupPath + @"\settings";
@@ -9450,10 +9563,6 @@
         {
             isLoading = true;
             updatenav();
-            //Dictionary<int, string> savename = new Dictionary<int, string>()
-            //{{1, "Warrior"},{2, "Monk"},{3, "White_Mage"},{4, "Black_Mage"},{5, "Red_Mage"},{6, "Thief"},{7, "Paladin"},{8, "Dark_Knight"},{9, "Beastmaster"},
-            // {10, "Bard"},{11, "Ranger"},{12, "Samurai"},{13, "Ninja"},{14, "Dragoon"},{15, "Summoner"},{16, "Blue_Mage"},{17, "Corsair"},{18, "Puppetmaster"},
-            // {19, "Dancer"},{20, "Scholar"},{21, "Geomancer"},{22, "Rune_Fencer"},{23, "Monipulator"}};
             var openFile = new OpenFileDialog();
             openFile.Filter = @"settings files (*.xml)|*.xml";
             openFile.InitialDirectory = Application.StartupPath + @"\settings";
@@ -9467,8 +9576,8 @@
             }
             isLoading = false;
         }
-        #endregion
-        #region config: save/load (target)
+            #endregion
+            #region config: save/load (target)
         private void LoadToolStripMenuItemClick(object sender, EventArgs e)
         {
             var dats = new Dictionary<string, string>();
@@ -9543,7 +9652,7 @@
                     break;
             }
         }
-        #endregion
+            #endregion
         #endregion
         #region Methods: Assist (Player/Party)
         public void Assist()
@@ -9908,58 +10017,21 @@
         }
         #endregion
         #region JA: Job Abilities (use)
-
         private void PlayerJA()
         {
-
             if (!botRunning || PlayerInfo.Status != 1 || naviMove || PlayerInfo.HasBuff(16)) return;
             var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
             if (ja.Count == 0) return;
             if (MonStagered && staggerstopJA.Checked) return;
 
-            Dictionary<uint, dynamic> jacontrol = new Dictionary<uint, dynamic>()
-            {
-                    #region JA 
-                    {528, new {}}, {529, new {}}, {530, new {}}, {533, new {}}, {534, new {}}, {535, new {}}, {538, new {}}, {540, new {}}, {543, new {b1=56}},
-                    {544, new {b1=68,b2=460}}, {545, new {b1=57}}, {546, new {b1=58}}, {548, new {b1=59}}, {549, new {b1=60}}, {550, new {hp=90}},
-                    {551, new {b1=45}}, {552, new {b1=61}}, {553, new {}}, {556, new {}}, {557, new {}}, {558, new {}}, {559, new {b1=74}}, {560, new {b1=62}},
-                    {561, new {b1=63}}, {562, new {b1=75}}, {563, new {b1=64}}, {568, new {}}, {569, new {}}, {570, new {}}, {571, new {b1=172}},
-                    {572, new {b1=73}}, {574, new {b1=67}}, {575, new {name="Meditate"}}, {576, new {b1=117}}, {577, new {b1=118}}, {578, new {}},
-                    {579, new {}}, {580, new {}}, {588, new {b1=87}}, {589, new {}}, {594, new {}}, {595, new {}}, {598, new {b1=115}}, {604, new {}},
-                    {605, new {}}, {606, new {b1=164}}, {607, new {b1=165}}, {608, new {}}, {610, new {b1=310,b2=309}}, {611, new {b1=311,b2=309}},
-                    {612, new {b1=312,b2=309}}, {613, new {b1=313,b2=309}}, {614, new {b1=314,b2=309}}, {615, new {b1=315,b2=309}}, {616, new {b1=316,b2=309}},
-                    {617, new {b1=317,b2=309}}, {618, new {b1=318,b2=309}}, {619, new {b1=319,b2=309}}, {620, new {b1=320,b2=309}}, {621, new {b1=321,b2=309}},
-                    {622, new {b1=322,b2=309}}, {623, new {b1=323,b2=309}}, {624, new {b1=324,b2=309}}, {625, new {b1=325,b2=309}}, {626, new {b1=326,b2=309}},
-                    {627, new {b1=327,b2=309}}, {628, new {b1=328,b2=309}}, {629, new {b1=329,b2=309}}, {630, new {b1=330,b2=309}}, {631, new {b1=331,b2=309}},
-                    {632, new {b1=332,b2=309}}, {633, new {b1=333,b2=309}}, {634, new {b1=334,b2=309}}, {635, new {b3=308}},{637, new {item="Fire Card"}},
-                    {638, new {item="Ice Card"}},{639, new {item="Wind Card"}},{640, new {item="Earth Card"}},{641, new {item="Thunder Card"}},
-                    {642, new {item="Water Card"}},{643, new {item="Light Card"}},{644, new {item="Dark Card"}},{645, new {}}, {661, new {b1=340,b2=490}},
-                    {662, new {}}, {663, new {b1=19}}, {664, new {b1=341}}, {667, new {b1=342}}, {668, new {b1=343}},{669, new {b1=344}}, {672, new {b1=346}},
-                    {673, new {}}, {677, new {b1=350}}, {678, new {b1=351}}, {680, new {}}, {682, new {}},{683, new {b1=352}}, {685, new {b1=353}},
-                    {686, new {b1=354}}, {689, new {b1=357}}, {690, new {b3=309}}, {693, new {b1=376}},{708, new {b1=71}}, {736, new {b1=371}}, {738, new {b1=405}},
-                    {739, new {b1=406}}, {740, new {}}, {749, new {b1=410}}, {750, new {b1=411}},{757, new {b1=417}}, {758, new {b1=418}}, {759, new {b1=419}},
-                    {760, new {b1=420}}, {761, new {nuff1=421}}, {764, new {b1=435}},{765, new {b1=436}}, {769, new {b1=433}}, {772, new {}}, {773, new {b1=442}},
-                    {777, new {}}, {779, new {b1=460,b2=68}}, {781, new {b1=461}},{783, new {b1=477}}, {784, new {}}, {788, new {b1=462}}, {789, new {}},
-                    {790, new {b1=478}}, {791, new {}}, {792, new {b1=479}}, {797, new {}},{798, new {b1=482}}, {799, new {b1=465}}, {803, new {b1=484}},
-                    {804, new {}}, {805, new {}}, {813, new {b1=467}}, {814, new {b1=335,b2=309}},{815, new {b1=336,b2=309}}, {816, new {b1=337,b2=309}},
-                    {817, new {b1=338,b2=309}}, {833, new {hpt=10}}, {835, new {b1=490,b2=340}},{836, new {b1=491}}, {837, new {b1=492}}, {840, new {}},
-                    {841, new {}}, {842, new {b1=497}}, {845, new {b1=500}}, {846, new {b1=501}},{847, new {b1=502}}, {848, new {b1=503}}, {851, new {}},
-                    {853, new {b1=507}}, {856, new {}}, {868, new {}}, {870, new {b1=523}},{871, new {b1=524}}, {872, new {b1=525}}, {873, new {b1=526}},
-                    {874, new {b1=527}}, {875, new {b1=528}}, {876, new {b1=529}},{877, new {b1=530}}, {878, new {b1=531}}, {879, new {b1=532}}, {880, new {}},
-                    {881, new {b1=533}}, {883, new {b1=535}}, {884, new {}},{895, new {}}, {885, new {b1=537}}, {886, new {b1=538}}, {887, new {}},
-                    {888, new {b1=570}}, {890, new {}}, {901, new {b1=599}},{902, new {b1=339,b2=309}}, {903, new {b1=600,b2=309}}, {904, new {b1=601}},
-                    #endregion
-                    #region monJA control
-                    {1247, new {hp=75}}, {1818, new {hp=75}}, {1825, new {hp=75}},{1850, new {hp=75}}, {1856, new {hp=75}}, {1929, new {hp=75}}, {2059, new {hp=75}},
-                    {2088, new {mp=75}}, {2090, new {hp=75}}, {2113, new {hp=75}}, {2114, new {hp=75}},
-                    #endregion
-            };
-
             foreach (string J in ja)
             {
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                if (PlayerInfo.Status != 1) break;
                 var useAbility = false;
                 var ability = api.Resources.GetAbility(J, 0);
                 var targ = ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
+                if(HandledAbils.Contains(ability.Name[0])) continue;
                 if (ability == null)
                 {
                     if (ability.Name[0] == "Chivalry TP > 1000" && !PlayerInfo.HasBuff(16) &&
@@ -10055,6 +10127,7 @@
                 }
                 if (useAbility && DynaProccontrole.Checked && targ == "<t>" && !PlayerInfo.DynaStrike("JA", PlayerInfo.DynaTime(), TargetInfo.Name))
                     useAbility = false;
+                if (PlayerInfo.Status != 1) break;
                 if (useAbility)
                 {
                     var JAType = "/ja";
@@ -10068,38 +10141,22 @@
         #region JA: NIN (shadows)
         private void ninjaShadows()
         {
-            if (!useshadows.Checked)
+            if (!useshadows.Checked || !NINtoolCheck("Utsusemi"))
                 return;
-
-            #region Check Items
-            if (Inventory.ItemQuantityByName("Shihei") == 0 || Inventory.ItemQuantityByName("Shikanofuda") == 0)
-            {
-                if (Inventory.ItemQuantityByName("Toolbag (Shihe)") > 0)
-                {
-                    api.ThirdParty.SendString("/item \"Toolbag (Shihe)\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(3.0));
-                }
-                else if (Inventory.ItemQuantityByName("Toolbag (Shikanofuda)") > 0)
-                {
-                    api.ThirdParty.SendString("/item \"Toolbag (Shikanofuda)\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(3.0));
-                }
-            }
-            #endregion
 
             if (!PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(444) && !PlayerInfo.HasBuff(445) && !PlayerInfo.HasBuff(446))
             {
-                if (PlayerInfo.HasSpell(340) && Recast.GetSpellRecast(340) == 0 && NINtoolCheck("Utsusemi: San"))
+                if (PlayerInfo.HasSpell(340) && Recast.GetSpellRecast(340) == 0)
                 {
                     api.ThirdParty.SendString("/ma \"Utsusemi: San\" <me>");
                     Casting();
                 }
-                else if (PlayerInfo.HasSpell(339) && Recast.GetSpellRecast(339) == 0 && NINtoolCheck("Utsusemi: Ni"))
+                else if (PlayerInfo.HasSpell(339) && Recast.GetSpellRecast(339) == 0)
                 {
                     api.ThirdParty.SendString("/ma \"Utsusemi: Ni\" <me>");
                     Casting();
                 }
-                else if (PlayerInfo.HasSpell(338) && Recast.GetSpellRecast(338) == 0 && NINtoolCheck("Utsusemi: Ichi"))
+                else if (PlayerInfo.HasSpell(338) && Recast.GetSpellRecast(338) == 0)
                 {
                     if (PlayerInfo.HasBuff(66))
                     {
@@ -10119,66 +10176,17 @@
         {
             var ma = (from object itemChecked in playerMA.CheckedItems select itemChecked.ToString()).ToList();
             if (ma.Count == 0) return;
-            Dictionary<uint, dynamic> macontrol = new Dictionary<uint, dynamic>()
-            {
-                {14, new {H=3}},{15, new {H=4}},{16, new {H=5}},{17, new {H=6}},{18, new {H=7}},{19, new {H=8}},{20, new {H=9}},
-                {53, new {B=36}},{54, new {B=37}},{55, new {B=39}},{57, new {B=33}},{60, new {B=100}},{61, new {B=101}},{62, new {B=102}},
-                {63, new {B=103}},{64, new {B=104}},{65, new {B=105}},{66, new {B=100}},{67, new {B=101}},{68, new {B=102}},{69, new {B=103}},
-                {70, new {B=104}},{71, new {B=105}},{72, new {B=106}},{73, new {B=107}},{74, new {B=108}},{75, new {B=109}},{76, new {B=110}},
-                {77, new {B=111}},{78, new {B=112}},{84, new {B=286}},{85, new {B=286}},{86, new {B=106}},{87, new {B=107}},{88, new {B=108}},
-                {89, new {B=109}},{90, new {B=110}},{91, new {B=111}},{92, new {B=112}},{96, new {B=275}},{97, new {B=403}},{99, new {W=8}},
-                {100, new {B=94}},{101, new {B=95}},{102, new {B=96}},{103, new {B=97}},{104, new {B=98}},{105, new {B=99}},{106, new {B=116}},
-                {107, new {B=116}},{113, new {W=6}},{114, new {W=10}},{115, new {W=4}},{116, new {W=12}},{117, new {W=14}},
-                {118, new {W=18}},{119, new {W=16}},{242, new {B=90}},{249, new {B=34}},{250, new {B=35}},{251, new {B=38}},
-                {266, new {B=119}},{267, new {B=120}},{268, new {B=121}},{269, new {B=122}},{270, new {B=123}},{271, new {B=124}},
-                {272, new {B=125}},{277, new {B=173}},{287, new {B=407}},{310, new {B=274}},{311, new {B=288}},{312, new {B=277}},
-                {313, new {B=278}},{314, new {B=279}},{315, new {B=280}},{316, new {B=281}},{317, new {B=282}},{358, new {B=33}},
-                {378, new {B=195}},{379, new {B=195}},{380, new {B=195}},{381, new {B=195}},{382, new {B=195}},{383, new {B=195}},
-                {384, new {B=195}},{385, new {B=195}},{386, new {B=196}},{387, new {B=196}},{388, new {B=196}},{389, new {B=197}},
-                {390, new {B=197}},{391, new {B=197}},{392, new {B=197}},{393, new {B=197}},{394, new {B=198}},{395, new {B=198}},
-                {396, new {B=198}},{397, new {B=198}},{398, new {B=198}},{399, new {B=199}},{400, new {B=199}},{401, new {B=200}},
-                {402, new {B=200}},{403, new {B=201}},{404, new {B=201}},{405, new {B=202}},{406, new {B=203}},{407, new {B=204}},
-                {408, new {B=205}},{409, new {B=206}},{410, new {B=206}},{411, new {B=206}},{412, new {B=207}},{413, new {B=208}},
-                {414, new {B=209}},{415, new {B=210}},{416, new {B=211}},{417, new {B=212}},{418, new {B=213}},{419, new {B=214}},
-                {420, new {B=214}},{423, new {B=194}},{424, new {B=215}},{425, new {B=215}},{426, new {B=215}},{427, new {B=215}},
-                {428, new {B=215}},{429, new {B=215}},{430, new {B=215}},{431, new {B=215}},{432, new {B=215}},{433, new {B=215}},
-                {434, new {B=215}},{435, new {B=215}},{436, new {B=215}},{437, new {B=215}},{438, new {B=216}},{439, new {B=216}},
-                {440, new {B=216}},{441, new {B=216}},{442, new {B=216}},{443, new {B=216}},{444, new {B=216}},{445, new {B=216}},
-                {446, new {B=216}},{447, new {B=216}},{448, new {B=216}},{449, new {B=216}},{450, new {B=216}},{451, new {B=216}},
-                {452, new {B=216}},{453, new {B=216}},{464, new {B=218}},{468, new {B=220}},{469, new {B=221}},{470, new {B=222}},
-                {476, new {B=289}},{478, new {B=228}},{479, new {B=119}},{480, new {B=120}},{481, new {B=121}},{482, new {B=122}},
-                {483, new {B=123}},{484, new {B=124}},{485, new {B=125}},{486, new {B=119}},{487, new {B=120}},{488, new {B=121}},
-                {489, new {B=122}},{490, new {B=123}},{491, new {B=124}},{492, new {B=125}},{493, new {B=432}},{495, new {B=170}},
-                {505, new {B=289}},{506, new {B=291}},{507, new {B=290}},{509, new {B=227}},{510, new {B=471}},{511, new {B=33}},
-                {517, new {B=37}},{530, new {B=33}},{538, new {B=190}},{547, new {B=93}},{613, new {B=93}},{615, new {B=38}},
-                {636, new {B=90,b=92}},{655, new {B=91}},{662, new {B=43}},{668, new {B=152}},{679, new {B=36}},{696, new {B=486}},
-                {737, new {B=93}},{750, new {B=604}},{840, new {B=568}},{845, new {B=581}},{846, new {B=581}},{855, new {B=274}},
-                {856, new {B=288}},{857, new {B=9}},{858, new {B=7}},{859, new {B=11}},{860, new {B=5}},{861, new {B=13}},{862, new {B=15}},
-                {863, new {B=19}},{864, new {B=17}},{879, new {B=597}},{895, new {B=432}},{768, new {I=0,B=539}},{769, new {I=0}},
-                {770, new {I=0,B=541}},{771, new {I=0,B=580}},{772, new {I=0,B=542}},{773, new {I=0,B=543}},{774, new {I=0,B=544}},
-                {775, new {I=0,B=545}},{776, new {I=0,B=546}},{777, new {I=0,B=547}},{778, new {I=0,B=548}},{779, new {I=0,B=549}},
-                {780, new {I=0,B=550}},{781, new {I=0,B=551}},{782, new {I=0,B=552}},{783, new {I=0,B=553}},{784, new {I=0,B=554}},
-                {785, new {I=0,B=555}},{786, new {I=0,B=556}},{787, new {I=0}},{788, new {I=0}},{789, new {I=0}},{790, new {I=0}},
-                {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
-                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},
-                };
             
             if (MAreverse.Checked) ma.Reverse();
             foreach (string M in ma)
             {
-                if (PlayerInfo.Status != 1) break;
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                if (PlayerInfo.MPP == 0 || PlayerInfo.Status != 1) break;
                 bool castSpell = false;
                 var magic = api.Resources.GetSpell(M, 0);
                 var targ = ((magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
-                if (Recast.GetSpellRecast((int)magic.Index) != 0) continue;
-                if (!MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6)) continue;
-                if (PlayerInfo.MP < magic.MPCost && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229))) continue;
-                List<string> Handledspells = new List<string>(new string[] {"Protect","Protect II","Protect III","Protect IV","Protect V","Protectra",
-                "Protectra II","Protectra III","Protectra IV","Protectra V","Shell","Shell II","Shell III","Shell IV","Shell V","Shellra","Shellra II",
-                "Shellra III","Shellra IV","Shellra V","Regen","Regen II","Regen III","Regen IV","Regen V","Refresh","Refresh II","Refresh III","Reraise",
-                "Reraise II","Reraise III","Reraise IV","Cure","Cure II","Cure III","Cure IV","Cure V","Cure VI","Cura","Cura II","Cura III","Full Cure",
-                "Drain","Drain II","Drain III","Aspir","Aspir II","Aspir III","Pollen","Magic Fruit","Healing Breeze","Plenilune Embrace","White Wind",
-                "Restoral","Exuviation","Wild Carrot","Cureaga","Cureaga II","Cureaga III","Cureaga IV","Cureaga V"});
+                if (Recast.GetSpellRecast((int)magic.Index) != 0 || !MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6) ||
+                    PlayerInfo.MP < magic.MPCost || !PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229)) continue;
                 if (Handledspells.Contains(magic.Name[0]))
                 {
                     if (magic.Name[0].Contains("Protect") && !PlayerInfo.HasBuff(40)) castSpell = true;
@@ -10283,13 +10291,12 @@
                 if (castSpell && DynaProccontrole.Checked && targ == "<t>" && !PlayerInfo.DynaStrike("MA", PlayerInfo.DynaTime(), TargetInfo.Name))
                     castSpell = false;
                 if (PlayerInfo.Status != 1) break;
-                if (castSpell)
+                if (castSpell && PlayerInfo.MP >= magic.MPCost)
                 {
                     isCasting = true;
                     api.ThirdParty.SendString($"/ma \"{magic.Name[0]}\" {targ}");
                     Casting();
                 }
-                if (PlayerInfo.MPP == 0) break;
             }
         }
         private bool MAautoJA(string M)
@@ -10699,14 +10706,14 @@
             if (!botRunning || PlayerInfo.Status == 0 || TargetInfo.ID == 0) return;
             if (DynaProccontrole.Checked && !PlayerInfo.DynaStrike("WS", PlayerInfo.DynaTime(), TargetInfo.Name)) return;
 
-            var wsname = comboBox2.Text;
-
+            var wsname = selectedWS.Text;
+            
             if (wsam.Checked && amname.Text != "")
             {
 
                 if (AfterMathTier.Value == 1 && PlayerInfo.TP >= 1000 &&
-                   (TargetInfo.HPP >= numericUpDown23.Value &&
-                    TargetInfo.HPP <= numericUpDown22.Value) &&
+                   (TargetInfo.HPP >= TragetHPPbottom.Value &&
+                    TargetInfo.HPP <= TragetHPPtop.Value) &&
                     PlayerInfo.Status == 1 && TargetInfo.ID > 0 &&
                     !PlayerInfo.HasBuff(270))
                 {
@@ -10714,8 +10721,8 @@
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
                 }
                 else if (AfterMathTier.Value == 2 && PlayerInfo.TP >= 2000 &&
-                        (TargetInfo.HPP >= numericUpDown23.Value &&
-                         TargetInfo.HPP <= numericUpDown22.Value) &&
+                        (TargetInfo.HPP >= TragetHPPbottom.Value &&
+                         TargetInfo.HPP <= TragetHPPtop.Value) &&
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0 &&
                          !PlayerInfo.HasBuff(271))
                 {
@@ -10723,8 +10730,8 @@
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
                 }
                 else if (AfterMathTier.Value == 3 && PlayerInfo.TP >= 3000 &&
-                        (TargetInfo.HPP >= numericUpDown23.Value &&
-                         TargetInfo.HPP <= numericUpDown22.Value) &&
+                        (TargetInfo.HPP >= TragetHPPbottom.Value &&
+                         TargetInfo.HPP <= TragetHPPtop.Value) &&
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0 &&
                          !PlayerInfo.HasBuff(272))
                 {
@@ -10735,7 +10742,7 @@
 
             var ja = (from object itemChecked in playerJA.CheckedItems
                       select itemChecked.ToString()).ToList();
-            var wstp = numericUpDown24.Value;
+            var wstp = WStp.Value;
             if (ja.Contains("Sekkanoki") && !PlayerInfo.HasBuff(54) && Recast.GetAbilityRecast(140) == 0) wstp = 2000;
             if (PlayerInfo.TP >= wstp &&  api.Player.GetPlayerInfo().MainJob == 12 || api.Player.GetPlayerInfo().SubJob == 12)
             {
@@ -10771,14 +10778,14 @@
             if (ws.Checked && !wsam.Checked && PlayerInfo.Status == 1)
             {
                 if (PlayerInfo.TP >= wstp &&
-                    TargetInfo.HPP >= numericUpDown23.Value &&
-                    TargetInfo.HPP <= numericUpDown22.Value &&
+                    TargetInfo.HPP >= TragetHPPbottom.Value &&
+                    TargetInfo.HPP <= TragetHPPtop.Value &&
                     PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                 {
                     if (PlayerInfo.HasBuff(483))
                     {
                         api.ThirdParty.SendString("/ws \"" + sekkanokiWs.Text + "\" <t>");
-                        Thread.Sleep(TimeSpan.FromSeconds(5.0));
+                        Thread.Sleep(TimeSpan.FromSeconds(4.0));
                     }
                     api.ThirdParty.SendString("/ws \"" + wsname + "\" <t>");
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
@@ -10787,8 +10794,8 @@
 
             if (ws.Checked && wsam.Checked &&
                (PlayerInfo.TP >= wstp &&
-                TargetInfo.HPP >= numericUpDown23.Value &&
-                TargetInfo.HPP <= numericUpDown22.Value) &&
+                TargetInfo.HPP >= TragetHPPbottom.Value &&
+                TargetInfo.HPP <= TragetHPPtop.Value) &&
                 PlayerInfo.Status == 1 && TargetInfo.ID > 0)
             {
                 if (PlayerInfo.HasBuff(270) || PlayerInfo.HasBuff(271) ||
@@ -10801,8 +10808,8 @@
             else if (ws.Checked && wsam.Checked && amname.Text == "" && PlayerInfo.Status == 1)
             {
                 if (PlayerInfo.TP >= wstp &&
-                    TargetInfo.HPP >= numericUpDown23.Value &&
-                    TargetInfo.HPP <= numericUpDown22.Value &&
+                    TargetInfo.HPP >= TragetHPPbottom.Value &&
+                    TargetInfo.HPP <= TragetHPPtop.Value &&
                     PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                 {
                     api.ThirdParty.SendString("/ws \"" + wsname + "\" <t>");

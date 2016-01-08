@@ -18,7 +18,7 @@
         #region Thread - DNC
         private void BgwScriptDncDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            const double scanInterval = 0.1;
+            const double scanInterval = 0.3;
             
             while (botRunning && !bgw_script_dnc.CancellationPending)
             {
@@ -249,7 +249,7 @@
                 if (usenav.Checked && api.AutoFollow.IsAutoFollowing && !naviMove)
                     api.AutoFollow.IsAutoFollowing = false;
 
-
+                if (PlayerInfo.Status == 0 && PlayerInfo.Status != 0 && TargetInfo.HPP == 0) SetTarget(0);
                 if (ScanDelay.Checked && !naviMove)
                 {
                     Thread.Sleep(TimeSpan.FromSeconds((double)numericUpDown38.Value));
@@ -617,8 +617,8 @@
         #region Code Testing section
         private void Run_Test_Code(object sender, EventArgs e)
         {
-            var magic = api.Resources.GetSpell("Monomi: Ichi", 0);
-            api.ThirdParty.SendString($"/echo \"{magic.Skill}\"/{magic.MagicType}/{magic.Name[2]}");
+            var magic = api.Resources.GetAbility("Steal", 0);
+            api.ThirdParty.SendString($"/echo \"{magic.ID}\"/{magic.TimerID}/{magic.Name[2]}");
             //foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
             //{
             //    int slot = member.MemberNumber;

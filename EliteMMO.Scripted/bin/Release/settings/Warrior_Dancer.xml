@@ -7,7 +7,7 @@
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="DeathWarp">
-    <Checked>False</Checked>
+    <Checked>True</Checked>
     <Enabled>True</Enabled>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="checkZone">
@@ -32,13 +32,13 @@
       <Enabled>True</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
-      <Checked>False</Checked>
-    </Control>
-    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
       <Checked>True</Checked>
     </Control>
+    <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
+      <Checked>False</Checked>
+    </Control>
     <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-      <Text>[Farm Bot]Foret de Hennetiel cp gain(Circular).xin</Text>
+      <Text>test.Linear.xin</Text>
     </Control>
   </Control>
   <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
@@ -94,30 +94,30 @@
               <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
-            <Control Type="System.Windows.Forms.CheckBox" Name="checkBox6">
+            <Control Type="System.Windows.Forms.CheckBox" Name="WSDistance">
               <Checked>False</Checked>
               <Enabled>True</Enabled>
             </Control>
-            <Control Type="System.Windows.Forms.ComboBox" Name="comboBox2">
+            <Control Type="System.Windows.Forms.ComboBox" Name="selectedWS">
               <Text>Upheaval</Text>
             </Control>
-            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown40">
-              <Value>3.5</Value>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="WSDistanceset">
+              <Value>1</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="ws">
               <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
-            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown24">
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="WStp">
               <Value>1000</Value>
               <Enabled>True</Enabled>
             </Control>
-            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown22">
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="TragetHPPtop">
               <Value>100</Value>
               <Enabled>True</Enabled>
             </Control>
-            <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown23">
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="TragetHPPbottom">
               <Value>15</Value>
               <Enabled>True</Enabled>
             </Control>
@@ -195,14 +195,14 @@
             <Enabled>False</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.TextBox" Name="foodName">
-            <Text />
+            <Text>Silt Pouch</Text>
           </Control>
           <Control Type="System.Windows.Forms.NumericUpDown" Name="healMPcount">
             <Value>40</Value>
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="usefood">
-            <Checked>False</Checked>
+            <Checked>True</Checked>
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="HealMP">
@@ -210,7 +210,7 @@
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.NumericUpDown" Name="healHPcount">
-            <Value>20</Value>
+            <Value>40</Value>
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="WeakLocation">
@@ -218,7 +218,7 @@
             <Enabled>False</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.CheckBox" Name="HealHP">
-            <Checked>False</Checked>
+            <Checked>True</Checked>
             <Enabled>True</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.TextBox" Name="textBox6">
@@ -318,7 +318,7 @@
       <Control Type="System.Windows.Forms.GroupBox" Name="groupBox14">
         <Enabled>True</Enabled>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullDelay">
-          <Value>4</Value>
+          <Value>2.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="AutoLock">
@@ -350,11 +350,11 @@
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown21">
-          <Value>15.0</Value>
+          <Value>13.0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.TextBox" Name="pullCommand">
-          <Text>/ra &lt;t&gt;</Text>
+          <Text>/ja "Provoke" &lt;t&gt;</Text>
         </Control>
       </Control>
     </Control>
@@ -388,11 +388,11 @@
           <Control Type="System.Windows.Forms.GroupBox" Name="groupBox3">
             <Enabled>True</Enabled>
             <Control Type="System.Windows.Forms.CheckBox" Name="stopstepsat">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="stopstepscount">
-              <Value>1</Value>
+              <Value>5</Value>
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usefeatherstepValue">
@@ -420,10 +420,10 @@
               <Enabled>True</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="NoSteps">
-              <Checked>True</Checked>
+              <Checked>False</Checked>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="usequickstep">
-              <Checked>False</Checked>
+              <Checked>True</Checked>
             </Control>
             <Control Type="System.Windows.Forms.RadioButton" Name="useboxstep">
               <Checked>False</Checked>
@@ -619,7 +619,7 @@
           <Enabled>False</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="userevfloValue">
-          <Value>5</Value>
+          <Value>0</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.RadioButton" Name="usewldflo">
@@ -658,8 +658,8 @@
       <Control Type="System.Windows.Forms.CheckedListBox" Name="Trusts">
         <SelectedIndex0>32</SelectedIndex0>
         <SelectedIndex1>45</SelectedIndex1>
-        <SelectedIndex2>80</SelectedIndex2>
-        <SelectedIndex3>81</SelectedIndex3>
+        <SelectedIndex2>70</SelectedIndex2>
+        <SelectedIndex3>80</SelectedIndex3>
         <SelectedIndex4>86</SelectedIndex4>
         <SelectedIndexcount>5</SelectedIndexcount>
       </Control>
