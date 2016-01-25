@@ -9358,16 +9358,15 @@
                 if (spellm == null || skipSpellList.ContainsKey(mm)) continue;
                 else if (PlayerInfo.HasSpell(mm) && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1)
                 {
-                    /*if (spellm.MagicType == 43)
+                    if (spellm.Skill == 43 && PlayerInfo.MainJob == 16)
                     {
-                        setid = (mm-512)
-                        List<int> UnbridledSpells = new List<int>(new int[] {736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753});
+                        List<uint> UnbridledSpells = new List<uint>(new uint[] {736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753});
                         if (UnbridledSpells.Contains(mm) && !playerMA.Items.Contains(spellm.Name[0]))
                             playerMA.Items.Add(spellm.Name[0]);
-                        else if (blusetspells(setid) && !playerMA.Items.Contains(spellm.Name[0]))
+                        else if (PlayerInfo.HasBlueMagicSpellSet((int) mm) && !playerMA.Items.Contains(spellm.Name[0]))
                             playerMA.Items.Add(spellm.Name[0]);
                     }
-                    else*/ if (spelllvl <= 99 && !playerMA.Items.Contains(spellm.Name[0]))
+                    else if (spelllvl <= 99 && !playerMA.Items.Contains(spellm.Name[0]))
                     {
                         playerMA.Items.Add(spellm.Name[0]);
                     }
@@ -9382,17 +9381,16 @@
                 var spells = api.Resources.GetSpell(sm);
                 if (spells == null || skipSpellList.ContainsKey(sm)) continue;
                 if (PlayerInfo.HasSpell(sm) && PlayerInfo.SubJobLevel >= spells.LevelRequired[PlayerInfo.SubJob] &&spells.LevelRequired[PlayerInfo.SubJob] != -1)
-                { 
-                    /*if (spells.MagicType == 43)
+                {
+                    if (spells.Skill == 43 && PlayerInfo.SubJob == 16)
                     {
-                        setid = (sm-512)
-                        List<int> UnbridledSpells = new List<int>(new int[] {736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753});
+                        List<uint> UnbridledSpells = new List<uint>(new uint[] { 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753 });
                         if (UnbridledSpells.Contains(sm) && !playerMA.Items.Contains(spells.Name[0]))
                             playerMA.Items.Add(spells.Name[0]);
-                        else if (blusetspells(setid) && !playerMA.Items.Contains(spells.Name[0]))
+                        else if (PlayerInfo.HasBlueMagicSpellSet((int)sm) && !playerMA.Items.Contains(spells.Name[0]))
                             playerMA.Items.Add(spells.Name[0]);
                     }
-                    else*/ if (!playerMA.Items.Contains(spells.Name[0]))
+                    else if (!playerMA.Items.Contains(spells.Name[0]))
                     {
                         playerMA.Items.Add(spells.Name[0]);
                     }
@@ -9727,31 +9725,33 @@
             foreach(string member in partymembers)
             {
                 var partymember = api.Party.GetPartyMembers().Find(p => p.Name == member);
+                int slot = partymember.MemberNumber;
+                var targ = (slot > 5 ? (slot > 11 ? $"<a{((slot - 12) + 20)}>" : $"<a{((slot - 6) + 10)}>") : $"<p{slot}>");
                 if (Recast.GetAbilityRecast(217) != 0)
                     return;
                 else if (ptusecurev.Checked && partymember.CurrentHPP <= numericUpDown27.Value && PlayerInfo.TP > 800)
                 {
-                    api.ThirdParty.SendString($"/ja \"Curing Waltz V\" {member}");
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz V\" {targ}");
                     break;
                 }
                 else if (ptusecureiv.Checked && partymember.CurrentHPP <= numericUpDown28.Value && PlayerInfo.TP > 650)
                 {
-                    api.ThirdParty.SendString($"/ja \"Curing Waltz IV\" {member}");
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz IV\" {targ}");
                     break;
                 }
                 else if (ptusecureiii.Checked && partymember.CurrentHPP <= numericUpDown29.Value && PlayerInfo.TP > 500)
                 {
-                    api.ThirdParty.SendString($"/ja \"Curing Waltz III\" {member}");
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz III\" {targ}");
                     break;
                 }
                 else if (ptusecureii.Checked && partymember.CurrentHPP <= numericUpDown32.Value && PlayerInfo.TP > 350)
                 {
-                    api.ThirdParty.SendString($"/ja \"Curing Waltz II\" {member}");
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz II\" {targ}");
                     break;
                 }
                 else if (ptusecure.Checked && partymember.CurrentHPP <= numericUpDown33.Value && PlayerInfo.TP > 200)
                 {
-                    api.ThirdParty.SendString($"/ja \"Curing Waltz\" {member}");
+                    api.ThirdParty.SendString($"/ja \"Curing Waltz\" {targ}");
                     break;
                 }
             }
@@ -10186,7 +10186,7 @@
                 var magic = api.Resources.GetSpell(M, 0);
                 var targ = ((magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
                 if (Recast.GetSpellRecast((int)magic.Index) != 0 || !MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6) ||
-                    PlayerInfo.MP < magic.MPCost || !PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229)) continue;
+                (PlayerInfo.MP < magic.MPCost && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229)))) continue;
                 if (Handledspells.Contains(magic.Name[0]))
                 {
                     if (magic.Name[0].Contains("Protect") && !PlayerInfo.HasBuff(40)) castSpell = true;
@@ -11247,7 +11247,7 @@
         {
             var petja = (from object itemChecked in WyvernJA.CheckedItems select itemChecked.ToString()).ToList();
 
-            if (petja.Count == 0 || PlayerInfo.Status == 0 || !PlayerInfo.HasBuff(16)) return;
+            if (petja.Count == 0 || PlayerInfo.Status == 0 || PlayerInfo.HasBuff(16)) return;
 
             if (petja.Contains("Restoring Breath") && PlayerInfo.Status == 1 &&
                 PlayerInfo.HPP <= RestoringBreathHP.Value && Recast.GetAbilityRecast(239) == 0)
@@ -11257,14 +11257,9 @@
                 {
                     api.ThirdParty.SendString("/ja \"Deep Breathing\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    api.ThirdParty.SendString("/pet \"Restoring Breath\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
-                else if (Recast.GetAbilityRecast(239) == 0)
-                {
-                    api.ThirdParty.SendString("/pet \"Restoring Breath\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
+                api.ThirdParty.SendString("/pet \"Restoring Breath\" <me>");
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
 
             if (petja.Contains("Steady Wing") && PlayerInfo.Status == 1 &&
@@ -11291,25 +11286,8 @@
                 {
                     api.ThirdParty.SendString("/ja \"Deep Breathing\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
-
-                    if (TargetInfo.ID > 0 && TargetInfo.HPP > BreathMIN.Value)
-                        api.ThirdParty.SendString("/pet \"Smiting Breath\" <t>");
-
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
-                else if (Recast.GetAbilityRecast(238) == 0)
-                {
-                    if (TargetInfo.ID > 0 && TargetInfo.HPP > BreathMIN.Value)
-                        api.ThirdParty.SendString("/pet \"Smiting Breath\" <t>");
-
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                }
-            }
-
-            if (petja.Contains("Deep Breathing - (Dragoon)") && PlayerInfo.Status == 1 &&
-                Recast.GetAbilityRecast(164) == 0 && !PlayerInfo.HasBuff(16))
-            {
-                api.ThirdParty.SendString("/ja \"Deep Breathing\" <me>");
+                api.ThirdParty.SendString("/pet \"Smiting Breath\" <t>");
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
         }
@@ -12381,6 +12359,7 @@
             public static int HasBuffcount(short id) => api.Player.GetPlayerInfo().Buffs.Where(b => b == id).Count();
             public static bool HasAbility(uint id) => api.Player.HasAbility(id);
             public static bool HasSpell(uint id) => api.Player.HasSpell(id);
+            public static bool HasBlueMagicSpellSet(int id) => api.Player.HasBlueMagicSpellSet(id);
             public static bool HasWeaponSkill(uint id) => api.Player.HasWeaponSkill(id);
             public static int ServerID => (int)api.Entity.GetLocalPlayer().ServerID;
             public static int TargetID => (int)api.Entity.GetLocalPlayer().TargetID;

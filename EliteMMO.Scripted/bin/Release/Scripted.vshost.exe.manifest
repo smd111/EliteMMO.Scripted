@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EliteMMO.API.dll" size="66560">
-      <assemblyIdentity name="EliteMMO.API" version="1.1.0.1" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EliteMMO.API.dll" size="67072">
+      <assemblyIdentity name="EliteMMO.API" version="1.1.1.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>kj6a6C7jU61/guvOFxWk0nV70iE=</dsig:DigestValue>
+        <dsig:DigestValue>DHugQN9oZOTCkLF4nes+0scnypk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="744352">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="744864">
       <assemblyIdentity name="Scripted" version="0.98.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>CIDs6rY4AKHyVFx4AZMK8EGL6rk=</dsig:DigestValue>
+        <dsig:DigestValue>72Vi66/RjVDlnE0LuPxP9UQd1NI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

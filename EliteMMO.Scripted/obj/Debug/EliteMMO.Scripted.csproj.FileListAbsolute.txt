@@ -16,7 +16,6 @@ C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\S
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\Scripted.exe
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\Scripted.pdb
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.csprojResolveAssemblyReference.cache
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Properties.Resources.resources
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.MainWindow.resources
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.ScriptFarmDNC.resources
@@ -24,3 +23,9 @@ C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\E
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.ScriptNaviMap.resources
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.Views.ScriptOnEventTool.resources
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\EliteMMO.Scripted.csproj.GenerateResource.Cache
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\Scripted.exe.config
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\Scripted.exe.manifest
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\Scripted.application
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Debug\EliteMMO.API.dll
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\Scripted.exe.manifest
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Debug\Scripted.application

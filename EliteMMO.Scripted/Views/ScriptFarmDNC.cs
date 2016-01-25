@@ -617,13 +617,17 @@
         #region Code Testing section
         private void Run_Test_Code(object sender, EventArgs e)
         {
-            var magic = api.Resources.GetAbility("Steal", 0);
-            api.ThirdParty.SendString($"/echo \"{magic.ID}\"/{magic.TimerID}/{magic.Name[2]}");
-            //foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
-            //{
-            //    int slot = member.MemberNumber;
-            //    api.ThirdParty.SendString($"/echo \"{(slot > 5 ? (slot > 11 ? $"<a{((slot - 12) + 20)}>" : $"<a{((slot - 6) + 10)}>") : $"<p{slot}>")}\"");
-            //}
+            for (uint mm = 511; mm <= 700; mm++)
+            {
+                var spellm = api.Resources.GetSpell(mm);
+                var spelllvl = spellm.LevelRequired[PlayerInfo.MainJob];
+                if (spellm == null) continue;
+                api.ThirdParty.SendString($"/echo {spellm.Name[0]}/{spellm.Skill}");
+                if (spellm.Skill == 43)
+                {
+                    api.ThirdParty.SendString($"/echo {spellm.Name[0]}/{PlayerInfo.HasBlueMagicSpellSet((int)mm)}");
+                }
+            }
         }
         #endregion
     }
