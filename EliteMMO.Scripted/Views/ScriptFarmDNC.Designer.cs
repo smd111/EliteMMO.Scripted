@@ -6351,14 +6351,14 @@
             // usedpetfood
             // 
             this.usedpetfood.AutoCompleteCustomSource.AddRange(new string[] {
-            "Pet Food Alpha Biscuit",
-            "Pet Food Beta Biscuit",
-            "Pet Food Gamma Biscuit",
-            "Pet Food Delta Biscuit",
-            "Pet Food Epsilon Biscuit",
-            "Pet Food Zeta Biscuit",
-            "Pet Food Eta Biscuit",
-            "Pet Food Theta Biscuit"});
+            "Pet Food Alpha",
+            "Pet Food Beta",
+            "Pet Food Gamma",
+            "Pet Food Delta",
+            "Pet Food Epsilon",
+            "Pet Food Zeta",
+            "Pet Food Eta",
+            "Pet Food Theta"});
             this.usedpetfood.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.usedpetfood.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.usedpetfood.FormattingEnabled = true;
@@ -8759,6 +8759,10 @@
         private GroupBox shutdowngroup;
         private ComboBox selectedapp;
         private DateTimePicker shutdowndate;
+        private Button button1;
+        private GroupBox groupBox23;
+        private Label playerjobpoints;
+        private Label playermerits;
         #endregion
         #region Display: Controle
         private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
@@ -9796,7 +9800,6 @@
                 Thread.Sleep(TimeSpan.FromSeconds(2.0));
             }
         }
-
         #endregion
         #endregion
         #region JA: Healing Waltz
@@ -10137,7 +10140,6 @@
                 }
             }
         }
-
         #region JA: NIN (shadows)
         private void ninjaShadows()
         {
@@ -10169,7 +10171,6 @@
             }
         }
         #endregion
-
         #endregion
         #region MA: Magic (use)
         private void PlayerMA()
@@ -11149,7 +11150,6 @@
             label22.Text = @"Pets HP%: " + PetInfo.HPP;
             label23.Text = @"Pets TP: " + PetInfo.TPP;
         }
-
         #endregion
         #region JA: BST (use)
         private void PetReadyJA()
@@ -11219,10 +11219,8 @@
             #endregion
         }
         #endregion
-
         #endregion
         #region PET: DRG
-
         #region JA: DRG (get/set)
         private void WyvernGetJA()
         {
@@ -11240,7 +11238,6 @@
             if (PlayerInfo.MainJobLevel >= 95 && !WyvernJA.Items.Contains("Steady Wing")) WyvernJA.Items.Add("Steady Wing");
             #endregion
         }
-
         #endregion
         #region JA: DRG (use)
         private void WyvernUseJA()
@@ -11292,7 +11289,6 @@
             }
         }
         #endregion
-
         #endregion
         #region PET: SMN
         #region JA: SMN (get/set)
@@ -11349,7 +11345,6 @@
             if (joblvl >= 55) SMNAbilityList.Items.Add("Avatar's Favor");
         }
         #endregion
-        
         #region JA: SMN (use)
         private void SMNUseJA()
         {
@@ -11670,7 +11665,6 @@
             }
             return true;
         }
-
         private bool IsLower(string value)// Consider string to be lowercase if it has no uppercase letters.
         {
             for (int i = 0; i < value.Length; i++)
@@ -11803,7 +11797,33 @@
                 return;
 
             var wanted = api.Entity.GetEntity(targetID);
-            
+
+            /*if (PartyInfo.ContainsID(wanted.ClaimID) && WatchPartyAggro.Enabled)
+            {
+                SetTarget(targetID);
+
+                TargetInfo.FaceTarget(TargetInfo.X, TargetInfo.Z);
+                Thread.Sleep(TimeSpan.FromSeconds(0.4));
+                api.ThirdParty.SendString(pullCommand.Text);
+
+                var delay = DateTime.Now.AddSeconds((double)pullDelay.Value);
+
+                while (DateTime.Now < delay)
+                {
+                    TargetInfo.FaceTarget(TargetInfo.X, TargetInfo.Z);
+                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                }
+                api.ThirdParty.SendString("/lockon <t>");
+                api.ThirdParty.SendString("/attack <t>");
+                Thread.Sleep(TimeSpan.FromSeconds(4.0));
+
+                if (PlayerInfo.Status == 0)
+                {
+                    api.ThirdParty.SendString("/attack <t>");
+                    Thread.Sleep(TimeSpan.FromSeconds(4.0));
+                }
+            }*/
+
             if (wanted.ClaimID != 0 || wanted.HealthPercent == 0 ||
                 targetID <= 0 || wanted.SpawnFlags != 16) return;
 
@@ -12329,15 +12349,7 @@
             idleZ = PlayerInfo.Z;
             RecordIdleLocation.Text = $"X:{idleX.ToString("00.###")}/Y:{idleY.ToString("00.###")}/Z:{idleZ.ToString("00.###")}";
         }
-
-        private Button button1;
-        private GroupBox groupBox23;
-        private Label playerjobpoints;
-        private Label playermerits;
-
-
         #endregion
-
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo
@@ -12516,6 +12528,15 @@
                 foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
                 {
                     if (Regex.Replace(member.Name, "([A-Z])", " $1", RegexOptions.Compiled).Trim() == name)
+                        return true;
+                }
+                return false;
+            }
+            public static bool ContainsID(uint ID)
+            {
+                foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
+                {
+                    if (member.ID == ID)
                         return true;
                 }
                 return false;
