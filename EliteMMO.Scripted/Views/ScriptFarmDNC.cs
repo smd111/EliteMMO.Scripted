@@ -309,7 +309,7 @@
                     naviMove = true;
                 }
 
-                while (PlayerInfo.Status == 33 && (HealHP.Checked || HealHP.Checked))
+                while (PlayerInfo.Status == 33 && (HealHP.Checked || HealMP.Checked || healforAutomatonHP.Checked || healforAutomatonMP.Checked))
                 {
                     Thread.Sleep(TimeSpan.FromSeconds(0.1));
                     if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
