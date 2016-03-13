@@ -11547,12 +11547,12 @@
             {
                 if (Recast.GetAbilityRecast(205) == 0)
                 {    
-                    api.ThirdParty.SendString("/pet \"Activate\" <me>");
+                    api.ThirdParty.SendString("/ja \"Activate\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
                 else if(Recast.GetAbilityRecast(115) == 0 && petja.Contains("Deus Ex Automata"))
                 {    
-                    api.ThirdParty.SendString("/pet \"Deus Ex Automata\" <me>");
+                    api.ThirdParty.SendString("/ja \"Deus Ex Automata\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
@@ -11590,24 +11590,24 @@
                 }
                 if (petja.Contains("Cooldown") && Recast.GetAbilityRecast(114) == 0 && PlayerInfo.HasBuff(299))
                 {
-                    api.ThirdParty.SendString("/ja \"Cooldown\" <pet>");
+                    api.ThirdParty.SendString("/ja \"Cooldown\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
                 if (petja.Contains("Repair") && Recast.GetAbilityRecast(206) == 0 && Inventory.ItemQuantityByName(Repairselect.SelectedText) > 0 && Repairset.Value >= PetInfo.HPP)
                 {
-                    api.ThirdParty.SendString("/ja \"Repair\" <pet>");
+                    api.ThirdParty.SendString("/ja \"Repair\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
                 if (petja.Contains("Role Reversal") && Recast.GetAbilityRecast(211) == 0)
                 {
                     if (RRPlayer.Checked && RRPlayerHPPset.Value >= PlayerInfo.HPP && RRPetHPPset.Value <= PetInfo.HPP)
                     {
-                        api.ThirdParty.SendString("/ja \"Role Reversal\" <pet>");
+                        api.ThirdParty.SendString("/ja \"Role Reversal\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                     else if (RRPET.Checked && RRPlayerHPPset.Value <= PlayerInfo.HPP && RRPetHPPset.Value >= PetInfo.HPP)
                     {
-                        api.ThirdParty.SendString("/ja \"Role Reversal\" <pet>");
+                        api.ThirdParty.SendString("/ja \"Role Reversal\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                 }
@@ -11615,12 +11615,12 @@
                 {
                     if (TSPlayer.Checked && TSPlayerTPset.Value >= PlayerInfo.TP && TSPetTPset.Value <= PetInfo.TPP)
                     {
-                        api.ThirdParty.SendString("/ja \"Tactical Switch\" <pet>");
+                        api.ThirdParty.SendString("/ja \"Tactical Switch\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                     else if (TSPET.Checked && TSPlayerTPset.Value <= PlayerInfo.TP && TSPetTPset.Value >= PetInfo.TPP)
                     {
-                        api.ThirdParty.SendString("/ja \"Tactical Switch\" <pet>");
+                        api.ThirdParty.SendString("/ja \"Tactical Switch\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                 }
@@ -11633,7 +11633,7 @@
                     }
                     else if (VentriloquyPlayer.Checked && api.Entity.GetEntity(TargetInfo.ID).ClaimID != PlayerInfo.ServerID)
                     {
-                        api.ThirdParty.SendString("/ja \"Ventriloquy\" <pet>");
+                        api.ThirdParty.SendString("/ja \"Ventriloquy\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                 }
@@ -11644,7 +11644,7 @@
                 }
                 if (petja.Contains("Heady Artifice") && Recast.GetAbilityRecast(254) == 0 && !PlayerInfo.HasBuff(166))
                 {
-                    api.ThirdParty.SendString("/ja \"Heady Artifice\" <pet>");
+                    api.ThirdParty.SendString("/ja \"Heady Artifice\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
