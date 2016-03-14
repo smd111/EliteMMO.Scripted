@@ -7335,9 +7335,9 @@
             this.Repairselect.FormattingEnabled = true;
             this.Repairselect.Items.AddRange(new object[] {
             "Automaton Oil",
-            "Automaton Oil +1",
-            "Automaton Oil +2",
-            "Automaton Oil +3"});
+            "Automat. Oil +1",
+            "Automat. Oil +2",
+            "Automat. Oil +3"});
             this.Repairselect.Location = new System.Drawing.Point(45, 19);
             this.Repairselect.Name = "Repairselect";
             this.Repairselect.Size = new System.Drawing.Size(112, 21);
@@ -11543,7 +11543,7 @@
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
             }
             var petja = (from object itemChecked in PUPJA.CheckedItems select itemChecked.ToString()).ToList();
-            if (AutoCallPUP.Checked)
+            if (AutoCallPUP.Checked && PetInfo.ID == 0)
             {
                 if (Recast.GetAbilityRecast(205) == 0)
                 {    
@@ -11556,7 +11556,7 @@
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
-            if (PlayerInfo.Status == 0 || PetInfo.ID == 0 || petja.Count == 0 || PlayerInfo.HasBuff(16)) return;
+            if (PlayerInfo.Status == 0 || PetInfo.ID == 0 || PlayerInfo.HasBuff(16)) return;
             else
             {
                 Dictionary<string, short> PUPManeuverbuff = new Dictionary<string, short>()
@@ -11588,6 +11588,7 @@
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                 }
+                if (petja.Count == 0) return;
                 if (petja.Contains("Cooldown") && Recast.GetAbilityRecast(114) == 0 && PlayerInfo.HasBuff(299))
                 {
                     api.ThirdParty.SendString("/ja \"Cooldown\" <me>");
