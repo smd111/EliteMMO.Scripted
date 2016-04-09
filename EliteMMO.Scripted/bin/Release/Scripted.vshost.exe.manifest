@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EliteMMO.API.dll" size="67584">
-      <assemblyIdentity name="EliteMMO.API" version="1.2.0.0" language="neutral" processorArchitecture="x86" />
+      <assemblyIdentity name="EliteMMO.API" version="1.2.0.1" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>YLoqSIKK/foEjFAhXvi4Mf1YGOc=</dsig:DigestValue>
+        <dsig:DigestValue>dR3m8/DRvxc5GbMu5dybrB2RV6Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="744864">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="745376">
       <assemblyIdentity name="Scripted" version="0.99.3.2" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>YNNX21FN3sTRR3TzhkYuExyGGpg=</dsig:DigestValue>
+        <dsig:DigestValue>5uFIQtP0sn77EjmYZY2F+mNxNVI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -87,13 +87,13 @@
       <dsig:DigestValue>CLexPRu1a+OPCSAN15ipmO+hJn8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Scripted.exe.config" size="77">
+  <file name="Scripted.exe.config" size="75">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>w7WNgu5MxCvL4DAgISBxgwmhDzU=</dsig:DigestValue>
+      <dsig:DigestValue>0AcUefP/nEm1V9eGcuA4uxSki5c=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

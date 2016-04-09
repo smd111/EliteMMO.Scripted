@@ -28,6 +28,8 @@
         public bool isMoving = false;
         public bool isCasting = false;
         public bool isLoading = false;
+        public string PreHealMain = "";
+        public string PreHealSub = "";
         #endregion
         #region Variables: (NAV)
         public bool OpenDoor = false;
@@ -1286,6 +1288,7 @@
             this.groupBox8.Size = new System.Drawing.Size(253, 128);
             this.groupBox8.TabIndex = 49;
             this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Nav Control";
             // 
             // comboBox3
             // 
@@ -2387,6 +2390,7 @@
             this.partyAssist.TabIndex = 103;
             this.partyAssist.Text = "Assist All Party Members (uses assist distance)";
             this.partyAssist.UseVisualStyleBackColor = true;
+            this.partyAssist.CheckedChanged += new System.EventHandler(this.partyAssist_CheckedChanged);
             // 
             // facetarget
             // 
@@ -3712,7 +3716,7 @@
             this.MAtabs.Controls.Add(this.DrainAspirpage);
             this.MAtabs.Controls.Add(this.BLUCurespage);
             this.MAtabs.Controls.Add(this.MAconfigpage);
-            this.MAtabs.Location = new System.Drawing.Point(32, 6);
+            this.MAtabs.Location = new System.Drawing.Point(35, 6);
             this.MAtabs.Name = "MAtabs";
             this.MAtabs.SelectedIndex = 0;
             this.MAtabs.Size = new System.Drawing.Size(354, 184);
@@ -7830,7 +7834,6 @@
             // 
             // button1
             // 
-            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(142, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -7838,7 +7841,6 @@
             this.button1.TabStop = false;
             this.button1.Text = "Run Test";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Run_Test_Code);
             // 
             // playertp
@@ -8922,7 +8924,15 @@
         }
         private void AssistCheckedChanged(object sender, EventArgs e)
         {
+            assistplayer.Enabled = assist.Checked;
+            partyAssist.Checked = !assist.Checked;
             assistDist.Enabled = assist.Checked;
+        }
+        private void partyAssist_CheckedChanged(object sender, EventArgs e)
+        {
+            assistplayer.Enabled = !partyAssist.Checked;
+            assist.Checked = !partyAssist.Checked;
+            assistDist.Enabled = partyAssist.Checked;
         }
         private void IdToolStripMenuItemClick(object sender, EventArgs e)
         {
@@ -9654,7 +9664,7 @@
                     break;
             }
         }
-            #endregion
+        #endregion
         #endregion
         #region Methods: Assist (Player/Party)
         public void Assist()
@@ -9664,7 +9674,7 @@
                 var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
                 if (members.Count < 2)
                     return;
-                else if (assist.Checked && assistplayer.Text != "")
+                if (assist.Checked && assistplayer.Text != "")
                 {
                     var member = members.SingleOrDefault(m => m.Name == assistplayer.Text);
                     var assisted = api.Entity.GetEntity(member.Index);
@@ -9673,15 +9683,15 @@
                         RunAssist(assisted);
                     }
                 }
-                else if (partyAssist.Checked && PartyInfo.Count(1) > 1)
+                else if (partyAssist.Checked)
                 {
                     foreach (var member in members)
                     {
                         var assisted = api.Entity.GetEntity(member.Index);
                         if (assisted.Status == 1)
                         {
-                            var a = RunAssist(assisted);
-                            if (a)
+                            bool assisting = RunAssist(assisted);
+                            if (assisting)
                                 break;
                         }
                     }
@@ -9690,14 +9700,21 @@
         }
         public bool RunAssist(EliteAPI.XiEntity assisted)
         {
-            if (assisted.Distance <= (float)assistDist.Value)
+            if (Math.Truncate(assisted.Distance) <= (float)assistDist.Value)
             {
-                WindowInfo.SendText("/assist " + assisted.Name);
-                Thread.Sleep(TimeSpan.FromSeconds(0.5));
-
-                Thread.Sleep(TimeSpan.FromSeconds(0.3));
-                WindowInfo.SendText("/attack <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(5.0));
+                SetTarget((int)assisted.TargetID);
+                Thread.Sleep(TimeSpan.FromSeconds(0.4));
+                WindowInfo.SendText("/assist <t>");
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                while (PlayerInfo.Status == 0)
+                {
+                    if (assisted.Status == 0 || PlayerInfo.Status != 0)
+                        break;
+                    api.ThirdParty.SendString("/attack <t>");
+                    Thread.Sleep(TimeSpan.FromSeconds(4.0));
+                }
+                //TargetInfo.Attack();
+                Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 return true;
             }
             return false;
@@ -9942,6 +9959,11 @@
                     else if (usebldflo.Checked && (usebldfloValue.Value == retVal || usebldfloValue.Value == 7))
                     {
                         api.ThirdParty.SendString("/ja \"Building Flourish\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (usedesflo.Checked && (usedesfloValue.Value == retVal || usedesfloValue.Value == 7))
+                    {
+                        api.ThirdParty.SendString("/ja \"Desperate Flourish\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                     else if (usewldflo.Checked && (usewldfloValue.Value == retVal || usewldfloValue.Value == 7))
@@ -12121,9 +12143,7 @@
                 isMoving = true;
                 while (Math.Truncate(followed.Distance) >= (float)followDist.Value)
                 {
-                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
-                                                       TargetInfo.Y - PlayerInfo.Y,
-                                                       TargetInfo.Z - PlayerInfo.Z);
+                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X,TargetInfo.Y,TargetInfo.Z);
 
                     api.AutoFollow.IsAutoFollowing = true;
 

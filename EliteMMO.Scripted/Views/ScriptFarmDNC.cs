@@ -29,10 +29,10 @@
                     PlayerDead();
 
                 if (followplayer.Checked && PlayerInfo.Status == 0)
-                    FollowTarget();
+                    //FollowTarget();
 
                 if ((assist.Checked || partyAssist.Checked) && PlayerInfo.Status == 0)
-                    Assist();
+                    //Assist();
 
                 if (aggro.Checked && PlayerInfo.Status == 0 && !isPulled)
                     DetectAggro();
@@ -283,6 +283,13 @@
                         }
                         api.ThirdParty.SendString("/heal on");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        if (textBox6.Text != "")
+                        {
+                            PreHealMain = api.Resources.GetItem(api.Player.Main).Name[0];
+                            PreHealSub = api.Resources.GetItem(api.Player.Sub).Name[0];
+                            api.ThirdParty.SendString($"/equip Main \"{textBox6.Text}\"");
+                        }
+
                         SetTarget(0);
 
                     }
@@ -324,6 +331,12 @@
                     {
                         api.ThirdParty.SendString("/heal off");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    if (textBox6.Text != "")
+                    {
+                        api.ThirdParty.SendString($"/equip Main \"{PreHealMain}\"");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        api.ThirdParty.SendString($"/equip Sub \"{PreHealSub}\"");
                     }
                 }
                 #endregion
@@ -616,18 +629,67 @@
         #region Code Testing section
         private void Run_Test_Code(object sender, EventArgs e)
         {
-            for (uint mm = 511; mm <= 700; mm++)
+            /* if (PlayerInfo.Status == 0)
             {
-                var spellm = api.Resources.GetSpell(mm);
-                var spelllvl = spellm.LevelRequired[PlayerInfo.MainJob];
-                if (spellm == null) continue;
-                api.ThirdParty.SendString($"/echo {spellm.Name[0]}/{spellm.Skill}");
-                if (spellm.Skill == 43)
+                var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
+                if (members.Count < 2)
+                    return;
+                if (assist.Checked && assistplayer.Text != "")
                 {
-                    api.ThirdParty.SendString($"/echo {spellm.Name[0]}/{PlayerInfo.HasBlueMagicSpellSet((int)mm)}");
+                    var member = members.SingleOrDefault(m => m.Name == assistplayer.Text);
+                    var assisted = api.Entity.GetEntity(member.Index);
+                    if (assisted.Status == 1)
+                    {
+                        RunAssist(assisted);
+                    }
                 }
+                else if (partyAssist.Checked)
+                {
+                    foreach (var member in members)
+                    {
+                        var assisted = api.Entity.GetEntity(member.Index);
+                        if (assisted.Status == 1)
+                        {
+                            bool assisting = RunAssist(assisted);
+                            if (assisting)
+                                break;
+                        }
+                    }
+                }
+            } */
+            var followID = TargetInfo.GetTargetIdByName("");
+            if (followID == -1)
+                return;
+
+            var followed = api.Entity.GetEntity(Convert.ToInt32(followID));
+
+            if (followed.Distance >= 1.0 && followed.Status == 0)
+            {
+                // if (TargetInfo.ID != followed.TargetID)
+                //{
+                //    api.ThirdParty.SendString($"/echo setting target to {}");
+                //    SetTarget(followID);
+                //}
+                //
+                //if (AutoLock.Checked && !TargetInfo.LockedOn)
+                //    api.ThirdParty.SendString("/lockon <t>");
+
+                isMoving = true;
+                while (Math.Truncate(followed.Distance) >= 1.0)
+                {
+                    followed = api.Entity.GetEntity(Convert.ToInt32(followID));
+                    //api.ThirdParty.SendString("/echo Moving towards target");
+                    api.AutoFollow.SetAutoFollowCoords(followed.X,followed.Y,followed.Z);
+
+                    api.AutoFollow.IsAutoFollowing = true;
+
+                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                }
+                api.AutoFollow.IsAutoFollowing = false;
+                isMoving = false;
             }
         }
         #endregion
+
     }
 }
