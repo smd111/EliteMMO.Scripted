@@ -9677,7 +9677,7 @@
                 if (assist.Checked && assistplayer.Text != "")
                 {
                     var member = members.SingleOrDefault(m => m.Name == assistplayer.Text);
-                    var assisted = api.Entity.GetEntity(member.Index);
+                    var assisted = api.Entity.GetEntity(Convert.ToInt32(member.TargetIndex));
                     if (assisted.Status == 1)
                     {
                         RunAssist(assisted);
@@ -9711,7 +9711,7 @@
                     if (assisted.Status == 0 || PlayerInfo.Status != 0)
                         break;
                     api.ThirdParty.SendString("/attack <t>");
-                    Thread.Sleep(TimeSpan.FromSeconds(4.0));
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
                 //TargetInfo.Attack();
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -12125,25 +12125,29 @@
         {
             if (!botRunning || !followplayer.Checked || followName.Text == "")
                 return;
-
             var followID = TargetInfo.GetTargetIdByName(followName.Text);
             if (followID == -1)
                 return;
-
             var followed = api.Entity.GetEntity(Convert.ToInt32(followID));
-
-            if (followed.Distance >= (float)followDist.Value && followed.Status == 0)
+            if (followed.Status == 0 && PlayerInfo.Status == 0)
             {
-                if (TargetInfo.ID != followed.TargetID)
-                    SetTarget(followID);
+                if (TargetInfo.ID != followID)
+                {
+                    api.Target.SetTarget(Convert.ToInt32(0));
+                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                    api.Target.SetTarget(Convert.ToInt32(followID));
+                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                }
 
                 if (AutoLock.Checked && !TargetInfo.LockedOn)
                     api.ThirdParty.SendString("/lockon <t>");
-
+                
                 isMoving = true;
-                while (Math.Truncate(followed.Distance) >= (float)followDist.Value)
+                while (Math.Truncate(TargetInfo.Distance) >= (float)followDist.Value)
                 {
-                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X,TargetInfo.Y,TargetInfo.Z);
+                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
+                                                       TargetInfo.Y - PlayerInfo.Y,
+                                                       TargetInfo.Z - PlayerInfo.Z);
 
                     api.AutoFollow.IsAutoFollowing = true;
 
@@ -12472,7 +12476,18 @@
                     var ID = api.Entity.GetEntity(x);
 
                     if (ID.Name != null && ID.Name.ToLower().Equals(name.ToLower()))
-                        return (int) ID.TargetingIndex;
+                        return (int) ID.TargetID;
+                }
+                return -1;
+            }
+            public static int GetTargetIndexByName(string name)
+            {
+                for (var x = 0; x < 2048; x++)
+                {
+                    var ID = api.Entity.GetEntity(x);
+
+                    if (ID.Name != null && ID.Name.ToLower().Equals(name.ToLower()))
+                        return (int)ID.ServerID;
                 }
                 return -1;
             }

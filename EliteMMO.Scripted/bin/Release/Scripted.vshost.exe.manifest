@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="745376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="745888">
       <assemblyIdentity name="Scripted" version="0.99.3.2" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>5uFIQtP0sn77EjmYZY2F+mNxNVI=</dsig:DigestValue>
+        <dsig:DigestValue>OAFkJTqD3COdKJgJVx/1oaDnGjE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

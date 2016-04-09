@@ -325,5 +325,10 @@
             if (TopMostDisplay == "FarmBot")
                 farmbot.LoadFarmSettings();
         }
+
+        private void manualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Application.StartupPath + @"\Scripted Manual.pdf");
+        }
     }
 }

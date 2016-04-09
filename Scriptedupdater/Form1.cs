@@ -39,6 +39,7 @@ namespace WindowsFormsApplication1
             {
                 label1.Text = "Downloading : Scripted.exe";
                 Client.DownloadFile("http://github.com/smd111/EliteMMO.Scripted/blob/master/EliteMMO.Scripted/bin/Release/Scripted.exe?raw=true", Application.StartupPath + @"\Scripted.exe");
+                Client.DownloadFile("http://github.com/smd111/EliteMMO.Scripted/blob/master/EliteMMO.Scripted/bin/Release/Scripted%20Manual.pdf?raw=true", Application.StartupPath + @"\Scripted Manual.pdf");
             }
             Client.Dispose();
             bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\Events");

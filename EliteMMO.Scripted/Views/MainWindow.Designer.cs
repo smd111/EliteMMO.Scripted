@@ -78,6 +78,7 @@
             this.header5 = new System.Windows.Forms.Label();
             this.header3 = new System.Windows.Forms.Label();
             this.header4 = new System.Windows.Forms.Label();
+            this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xmenu.SuspendLayout();
             this.xstatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xpic)).BeginInit();
@@ -165,7 +166,7 @@
             this.navigationToolStripMenuItem,
             this.onEventToolStripMenuItem});
             this.scriptsToolStripMenuItem.Name = "scriptsToolStripMenuItem";
-            this.scriptsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scriptsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.scriptsToolStripMenuItem.Text = "Scripts";
             // 
             // farmDNCToolStripMenuItem
@@ -231,7 +232,7 @@
             this.zaldonToolStripMenuItem});
             this.questsToolStripMenuItem.Enabled = false;
             this.questsToolStripMenuItem.Name = "questsToolStripMenuItem";
-            this.questsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.questsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.questsToolStripMenuItem.Text = "Quests";
             this.questsToolStripMenuItem.Visible = false;
             // 
@@ -267,7 +268,7 @@
             this.enableMaintenanceModeToolStripMenuItem});
             this.optionsToolStripMenuItem.Enabled = false;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // stayOnTopToolStripMenuItem
@@ -292,7 +293,8 @@
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fAQToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.manualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -303,12 +305,15 @@
             this.fAQToolStripMenuItem.Name = "fAQToolStripMenuItem";
             this.fAQToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fAQToolStripMenuItem.Text = "FAQ";
+            this.fAQToolStripMenuItem.Visible = false;
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.Enabled = false;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Visible = false;
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
             // 
             // xstatus
@@ -405,6 +410,13 @@
             this.header4.TabIndex = 20;
             this.header4.Text = "SMD111";
             // 
+            // manualToolStripMenuItem
+            // 
+            this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.manualToolStripMenuItem.Text = "Manual";
+            this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,5 +488,6 @@
         public Label header5;
         public Label header3;
         public Label header4;
+        private ToolStripMenuItem manualToolStripMenuItem;
     }
 }

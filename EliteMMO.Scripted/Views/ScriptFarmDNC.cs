@@ -29,10 +29,10 @@
                     PlayerDead();
 
                 if (followplayer.Checked && PlayerInfo.Status == 0)
-                    //FollowTarget();
+                    FollowTarget();
 
                 if ((assist.Checked || partyAssist.Checked) && PlayerInfo.Status == 0)
-                    //Assist();
+                    Assist();
 
                 if (aggro.Checked && PlayerInfo.Status == 0 && !isPulled)
                     DetectAggro();
@@ -657,37 +657,7 @@
                     }
                 }
             } */
-            var followID = TargetInfo.GetTargetIdByName("");
-            if (followID == -1)
-                return;
-
-            var followed = api.Entity.GetEntity(Convert.ToInt32(followID));
-
-            if (followed.Distance >= 1.0 && followed.Status == 0)
-            {
-                // if (TargetInfo.ID != followed.TargetID)
-                //{
-                //    api.ThirdParty.SendString($"/echo setting target to {}");
-                //    SetTarget(followID);
-                //}
-                //
-                //if (AutoLock.Checked && !TargetInfo.LockedOn)
-                //    api.ThirdParty.SendString("/lockon <t>");
-
-                isMoving = true;
-                while (Math.Truncate(followed.Distance) >= 1.0)
-                {
-                    followed = api.Entity.GetEntity(Convert.ToInt32(followID));
-                    //api.ThirdParty.SendString("/echo Moving towards target");
-                    api.AutoFollow.SetAutoFollowCoords(followed.X,followed.Y,followed.Z);
-
-                    api.AutoFollow.IsAutoFollowing = true;
-
-                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                }
-                api.AutoFollow.IsAutoFollowing = false;
-                isMoving = false;
-            }
+            api.ThirdParty.SendString($"/echo {TargetInfo.Distance}");
         }
         #endregion
 
