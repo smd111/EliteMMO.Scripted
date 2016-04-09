@@ -629,34 +629,6 @@
         #region Code Testing section
         private void Run_Test_Code(object sender, EventArgs e)
         {
-            /* if (PlayerInfo.Status == 0)
-            {
-                var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
-                if (members.Count < 2)
-                    return;
-                if (assist.Checked && assistplayer.Text != "")
-                {
-                    var member = members.SingleOrDefault(m => m.Name == assistplayer.Text);
-                    var assisted = api.Entity.GetEntity(member.Index);
-                    if (assisted.Status == 1)
-                    {
-                        RunAssist(assisted);
-                    }
-                }
-                else if (partyAssist.Checked)
-                {
-                    foreach (var member in members)
-                    {
-                        var assisted = api.Entity.GetEntity(member.Index);
-                        if (assisted.Status == 1)
-                        {
-                            bool assisting = RunAssist(assisted);
-                            if (assisting)
-                                break;
-                        }
-                    }
-                }
-            } */
             api.ThirdParty.SendString($"/echo {TargetInfo.Distance}");
         }
         #endregion
