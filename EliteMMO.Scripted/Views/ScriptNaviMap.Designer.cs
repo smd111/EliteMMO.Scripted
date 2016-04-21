@@ -487,6 +487,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.WayPoints);
@@ -494,7 +496,8 @@
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
             this.Name = "ScriptNaviMap";
-            this.Size = new System.Drawing.Size(576, 349);
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 5, 25);
+            this.Size = new System.Drawing.Size(573, 367);
             this.Load += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();

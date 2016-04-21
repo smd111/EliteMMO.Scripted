@@ -66,7 +66,6 @@
         public Dictionary<string, string> wantedID = new Dictionary<string, string>();
         public Dictionary<string, string> wantedNM = new Dictionary<string, string>();
         #endregion
-        #endregion
         #region dyna mob proc data
         public static Dictionary<string, dynamic> DynaMobProc = new Dictionary<string, dynamic>()
         {
@@ -319,7 +318,7 @@
                 {780, new {I=0,B=550}},{781, new {I=0,B=551}},{782, new {I=0,B=552}},{783, new {I=0,B=553}},{784, new {I=0,B=554}},
                 {785, new {I=0,B=555}},{786, new {I=0,B=556}},{787, new {I=0}},{788, new {I=0}},{789, new {I=0}},{790, new {I=0}},
                 {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
-                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},
+                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},{710, new {B=33}},{685, new {B=116}},{674, new {B=45}},
                 };
         #endregion
         #region Ability Control
@@ -470,6 +469,7 @@
             "Nashmeira","Lilisette","Arciela","Aldo","Maat","Zeid","Volker","Trion","Curilla","Shantotto","Ajido-Marujido","Star Sibyl","Semih Lafihna","Gilgamesh",
             "Ovjang","Mnejing","Luzaf","Ulmia","Iroha","Shiftrix","Register of Deeds","Emblazoned Reliquary","Temprix","Emporox"
         });
+        #endregion
         #endregion
         /// <summary> 
         /// Required designer variable.
@@ -7920,6 +7920,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.groupBox23);
             this.Controls.Add(this.groupBox18);
             this.Controls.Add(this.DeathWarp);
@@ -7930,7 +7932,8 @@
             this.Controls.Add(this.StartStopScript);
             this.Controls.Add(this.dncControl);
             this.Name = "ScriptFarmDNC";
-            this.Size = new System.Drawing.Size(727, 418);
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 5, 25);
+            this.Size = new System.Drawing.Size(724, 435);
             this.Load += new System.EventHandler(this.ScriptFarmDncLoad);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -10730,19 +10733,27 @@
         {
             if (!botRunning || PlayerInfo.Status == 0 || TargetInfo.ID == 0) return;
             if (DynaProccontrole.Checked && !PlayerInfo.DynaStrike("WS", PlayerInfo.DynaTime(), TargetInfo.Name)) return;
-
+            List<string> SelfTargWS = new List<string>(new string[] { "Myrkr", "Starlight", "Moonlight", "Dagan" });
             var wsname = selectedWS.Text;
+            var wstarg = "t";
+            var amtarg = "t";
+            var sekkanokitarg = "t";
+            if (SelfTargWS.Contains(wsname))
+                wstarg = "me";
+            if (SelfTargWS.Contains(amname.Text))
+                amtarg = "me";
+            if (SelfTargWS.Contains(sekkanokiWs.Text))
+                sekkanokitarg = "me";
             
             if (wsam.Checked && amname.Text != "")
             {
-
                 if (AfterMathTier.Value == 1 && PlayerInfo.TP >= 1000 &&
                    (TargetInfo.HPP >= TragetHPPbottom.Value &&
                     TargetInfo.HPP <= TragetHPPtop.Value) &&
                     PlayerInfo.Status == 1 && TargetInfo.ID > 0 &&
                     !PlayerInfo.HasBuff(270))
                 {
-                    api.ThirdParty.SendString("/ws \"" + amname.Text + "\" <t>");
+                    api.ThirdParty.SendString("/ws \"" + amname.Text + "\" <"+amtarg+">");
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
                 }
                 else if (AfterMathTier.Value == 2 && PlayerInfo.TP >= 2000 &&
@@ -10751,7 +10762,7 @@
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0 &&
                          !PlayerInfo.HasBuff(271))
                 {
-                    api.ThirdParty.SendString("/ws \"" + amname.Text + "\" <t>");
+                    api.ThirdParty.SendString("/ws \"" + amname.Text + "\" <"+amtarg+">");
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
                 }
                 else if (AfterMathTier.Value == 3 && PlayerInfo.TP >= 3000 &&
@@ -10760,7 +10771,7 @@
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0 &&
                          !PlayerInfo.HasBuff(272))
                 {
-                    api.ThirdParty.SendString("/ws \"" + amname.Text + "\" <t>");
+                    api.ThirdParty.SendString("/ws \"" + amname.Text + "\" <"+amtarg+">");
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
                 }
             }
@@ -10809,10 +10820,10 @@
                 {
                     if (PlayerInfo.HasBuff(483))
                     {
-                        api.ThirdParty.SendString("/ws \"" + sekkanokiWs.Text + "\" <t>");
+                        api.ThirdParty.SendString("/ws \"" + sekkanokiWs.Text + "\" <"+sekkanokitarg+">");
                         Thread.Sleep(TimeSpan.FromSeconds(4.0));
                     }
-                    api.ThirdParty.SendString("/ws \"" + wsname + "\" <t>");
+                    api.ThirdParty.SendString("/ws \"" + wsname + "\" <"+wstarg+">");
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
                 }
             }
@@ -10826,7 +10837,7 @@
                 if (PlayerInfo.HasBuff(270) || PlayerInfo.HasBuff(271) ||
                     PlayerInfo.HasBuff(272) || PlayerInfo.HasBuff(273))
                 {
-                    api.ThirdParty.SendString("/ws \"" + wsname + "\" <t>");
+                    api.ThirdParty.SendString("/ws \"" + wsname + "\" <"+wstarg+">");
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
                 }
             }
@@ -10837,7 +10848,7 @@
                     TargetInfo.HPP <= TragetHPPtop.Value &&
                     PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                 {
-                    api.ThirdParty.SendString("/ws \"" + wsname + "\" <t>");
+                    api.ThirdParty.SendString("/ws \"" + wsname + "\" <"+wstarg+">");
                     Thread.Sleep(TimeSpan.FromSeconds(4.0));
                 }
             }

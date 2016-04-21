@@ -347,6 +347,7 @@ namespace EliteMMO.Scripted.Views
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label1);
             this.Name = "ScriptOnEventTool";
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 5, 25);
             this.Size = new System.Drawing.Size(474, 435);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

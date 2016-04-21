@@ -164,10 +164,13 @@
 
             TopMostDisplay = "FarmBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
-
+            
+            x1.AutoSize = true;
+            x1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             x1.Dock = DockStyle.Fill;
             Controls.Add(x1);
-            Size = new Size(734, 468);
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         private void HealingSupportToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -196,9 +199,12 @@
             TopMostDisplay = "HealingBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
 
-            x1.Dock = DockStyle.Fill;
+            x2.AutoSize = true;
+            x2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            x2.Dock = DockStyle.Fill;
             Controls.Add(x2);
-            Size = new Size(474, 435);
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         private void AboutToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -276,10 +282,13 @@
 
             TopMostDisplay = "NavBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
-
+            
+            x3.AutoSize = true;
+            x3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             x3.Dock = DockStyle.Fill;
             Controls.Add(x3);
-            Size = new Size(575, 400);
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             if (farmbot.botRunning) farmbot.stopScriptToolStripMenuItem.PerformClick();
         }
 
@@ -308,10 +317,13 @@
 
             TopMostDisplay = "OnEventBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
-
+            
+            x4.AutoSize = true;
+            x4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             x4.Dock = DockStyle.Fill;
             Controls.Add(x4);
-            Size = new Size(482, 488);
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)

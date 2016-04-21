@@ -30,8 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Right);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Right);
             this.HealingSupport = new System.Windows.Forms.TabControl();
             this.CC = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -1319,14 +1319,14 @@
             this.colName,
             this.colStatus});
             this.listView1.FullRowSelect = true;
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "listViewGroup1";
-            listViewGroup4.Header = "ListViewGroup";
-            listViewGroup4.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Right;
-            listViewGroup4.Name = "listViewGroup2";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            listViewGroup2.Name = "listViewGroup2";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup1,
+            listViewGroup2});
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listView1.Location = new System.Drawing.Point(8, 16);
             this.listView1.MultiSelect = false;
@@ -1391,11 +1391,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.HealingSupport);
             this.Name = "ScriptHealing";
-            this.Size = new System.Drawing.Size(643, 392);
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 5, 25);
+            this.Size = new System.Drawing.Size(638, 410);
             this.HealingSupport.ResumeLayout(false);
             this.CC.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

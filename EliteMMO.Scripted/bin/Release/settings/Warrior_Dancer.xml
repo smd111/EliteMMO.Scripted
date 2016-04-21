@@ -203,7 +203,7 @@
             <Enabled>False</Enabled>
           </Control>
           <Control Type="System.Windows.Forms.TextBox" Name="foodName">
-            <Text>Silt Pouch</Text>
+            <Text />
           </Control>
           <Control Type="System.Windows.Forms.NumericUpDown" Name="healMPcount">
             <Value>40</Value>
@@ -318,7 +318,7 @@
       <Control Type="System.Windows.Forms.GroupBox" Name="groupBox14">
         <Enabled>True</Enabled>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="pullDelay">
-          <Value>4.0</Value>
+          <Value>4</Value>
           <Enabled>True</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.CheckBox" Name="AutoLock">
@@ -659,8 +659,8 @@
         <SelectedIndex0>32</SelectedIndex0>
         <SelectedIndex1>45</SelectedIndex1>
         <SelectedIndex2>69</SelectedIndex2>
-        <SelectedIndex3>79</SelectedIndex3>
-        <SelectedIndex4>85</SelectedIndex4>
+        <SelectedIndex3>78</SelectedIndex3>
+        <SelectedIndex4>79</SelectedIndex4>
         <SelectedIndexcount>5</SelectedIndexcount>
       </Control>
     </Control>
