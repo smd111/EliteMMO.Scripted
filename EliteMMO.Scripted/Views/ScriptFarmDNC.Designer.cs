@@ -886,6 +886,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.petControl = new System.Windows.Forms.TabControl();
             this.bstpettab = new System.Windows.Forms.TabPage();
+            this.BstJATP = new System.Windows.Forms.NumericUpDown();
             this.usepetja = new System.Windows.Forms.GroupBox();
             this.PetJA = new System.Windows.Forms.CheckedListBox();
             this.bstpetrdygroup = new System.Windows.Forms.GroupBox();
@@ -1024,6 +1025,7 @@
             this.curtarghpp = new System.Windows.Forms.Label();
             this.curtarg = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -1192,6 +1194,7 @@
             this.groupBox19.SuspendLayout();
             this.petControl.SuspendLayout();
             this.bstpettab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BstJATP)).BeginInit();
             this.usepetja.SuspendLayout();
             this.bstpetrdygroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pethppfood)).BeginInit();
@@ -6293,6 +6296,8 @@
             // 
             // bstpettab
             // 
+            this.bstpettab.Controls.Add(this.label13);
+            this.bstpettab.Controls.Add(this.BstJATP);
             this.bstpettab.Controls.Add(this.usepetja);
             this.bstpettab.Controls.Add(this.bstpetrdygroup);
             this.bstpettab.Controls.Add(this.usedpetfood);
@@ -6309,6 +6314,35 @@
             this.bstpettab.TabIndex = 0;
             this.bstpettab.Text = "BST";
             this.bstpettab.UseVisualStyleBackColor = true;
+            // 
+            // BstJATP
+            // 
+            this.BstJATP.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.BstJATP.Location = new System.Drawing.Point(325, 103);
+            this.BstJATP.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.BstJATP.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.BstJATP.Name = "BstJATP";
+            this.BstJATP.Size = new System.Drawing.Size(44, 20);
+            this.BstJATP.TabIndex = 96;
+            this.BstJATP.TabStop = false;
+            this.BstJATP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BstJATP.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             // 
             // usepetja
             // 
@@ -7916,6 +7950,15 @@
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Other Info";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(231, 105);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 13);
+            this.label13.TabIndex = 97;
+            this.label13.Text = "Bst Ability @ TP:";
+            // 
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8158,6 +8201,7 @@
             this.petControl.ResumeLayout(false);
             this.bstpettab.ResumeLayout(false);
             this.bstpettab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BstJATP)).EndInit();
             this.usepetja.ResumeLayout(false);
             this.bstpetrdygroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pethppfood)).EndInit();
@@ -10856,6 +10900,13 @@
         #endregion
         #endregion
         #region Methods: PET
+        public void pInfo()
+        {
+            label20.Text = "Pets Name: " + PetInfo.Name;
+            label21.Text = @"Pet ID: " + PetInfo.ID;
+            label22.Text = @"Pets HP%: " + PetInfo.HPP;
+            label23.Text = @"Pets TP: " + PetInfo.TPP;
+        }
         #region PET: BST
         #region JA: BST (get/set)
         private void BSTGetJA()
@@ -11178,13 +11229,6 @@
             if (joblvl >= 96 && !PetReady.Items.Contains("Unleash")) PetReady.Items.Add("Unleash");
             #endregion
         }
-        public void pInfo()
-        {
-            label20.Text = "Pets Name: " + PetInfo.Name;
-            label21.Text = @"Pet ID: " + PetInfo.ID;
-            label22.Text = @"Pets HP%: " + PetInfo.HPP;
-            label23.Text = @"Pets TP: " + PetInfo.TPP;
-        }
         #endregion
         #region JA: BST (use)
         private void PetReadyJA()
@@ -11194,47 +11238,15 @@
             #region BST JA
             var bstja = (from object itemChecked in PetReady.CheckedItems select itemChecked.ToString()).ToList();
 
-            if (bstja.Contains("Sic") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(102) == 0)
+            foreach (string D in bstja)
             {
-                api.ThirdParty.SendString("/pet \"Sic\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            if (bstja.Contains("Snarl") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(107) == 0)
-            {
-                api.ThirdParty.SendString("/pet \"Snarl\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            if (bstja.Contains("Spur") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(45) == 0)
-            {
-                api.ThirdParty.SendString("/pet \"Spur\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            if (bstja.Contains("Feral Howl") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(105) == 0)
-            {
-                api.ThirdParty.SendString("/pet \"Feral Howl\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            if (bstja.Contains("Killer Instinct") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(106) == 0)
-            {
-                api.ThirdParty.SendString("/pet \"Killer Instinct\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            if (bstja.Contains("Run Wild") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(46) == 0)
-            {
-                api.ThirdParty.SendString("/pet \"Run Wild\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
-            }
-            if (bstja.Contains("Unleash") && !PlayerInfo.HasBuff(16) &&
-                Recast.GetAbilityRecast(254) == 0 && !PlayerInfo.HasBuff(498))
-            {
-                api.ThirdParty.SendString("/pet \"Unleash\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                if (PlayerInfo.Status == 0 || !botRunning || TargetInfo.ID == 0) break;
+                var ability = api.Resources.GetAbility(D, 0);
+                if (PlayerInfo.HasAbility(ability.ID) && Recast.GetAbilityRecast(102) == 0 && !PlayerInfo.HasBuff(16))
+                {
+                    api.ThirdParty.SendString("/pet \"" + ability.Name[0] + "\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                }
             }
             #endregion
             #region PET JA
@@ -11245,9 +11257,10 @@
             {
                 if (PlayerInfo.Status == 0 || !botRunning || TargetInfo.ID == 0) break;
                 var ability = api.Resources.GetAbility(P, 0);
-                if (PlayerInfo.HasAbility(ability.ID) && Recast.GetAbilityRecast(102) == 0 && !PlayerInfo.HasBuff(16))
+                if (PlayerInfo.HasAbility(ability.ID) && Recast.GetAbilityRecast(102) == 0 && !PlayerInfo.HasBuff(16) &&
+                        PetInfo.TPP > BstJATP.Value)
                 {
-                    api.ThirdParty.SendString("/pet \""+ability.Name[0]+"\" <me>");
+                    api.ThirdParty.SendString("/pet \"" + ability.Name[0] + "\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
@@ -11888,7 +11901,11 @@
                         api.ThirdParty.SendString(pullCommand.Text);
 
                         var delay = DateTime.Now.AddSeconds((double)pullDelay.Value);
-
+                        /*if(pullCommand.Text.Contains("/ma") || pullCommand.Text.Contains("/magic"))
+                        {
+                            Thread.Sleep(TimeSpan.FromSeconds(0.5));
+                            Casting();
+                        }*/
                         while (DateTime.Now < delay)
                         {
                             TargetInfo.FaceTarget(TargetInfo.X, TargetInfo.Z);
@@ -12387,7 +12404,11 @@
             idleZ = PlayerInfo.Z;
             RecordIdleLocation.Text = $"X:{idleX.ToString("00.###")}/Y:{idleY.ToString("00.###")}/Z:{idleZ.ToString("00.###")}";
         }
+
+        public NumericUpDown BstJATP;
+        private Label label13;
         #endregion
+
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo

@@ -360,19 +360,17 @@
                         var rangedSlot = InventoryItems.Items.FirstOrDefault(x => x.Key == api.Inventory.GetEquippedItem(2).Id.ToString()).Value;
                         var ammoSlot = InventoryItems.Items.FirstOrDefault(x => x.Key == api.Inventory.GetEquippedItem(3).Id.ToString()).Value;
                         #endregion
-
+                        var call = "";
                         if (Recast.GetAbilityRecast(94) == 0)
-                        {
-                            WindowInfo.SendText("/equip Ammo \"" + jugpet.Text + "\"");
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                            WindowInfo.SendText("/ja \"Bestial Loyalty\" <me>");
-                            Thread.Sleep(TimeSpan.FromSeconds(2.0));
-                        }
+                            call = "Bestial Loyalty";
                         else if (Recast.GetAbilityRecast(104) == 0 && Recast.GetAbilityRecast(94) != 0)
+                            call = "Call Beast";
+
+                        if (call != "")
                         {
-                            WindowInfo.SendText("/equip Ammo \"" + jugpet.Text + "\"");
+                            WindowInfo.SendText($"/equip Ammo \"{jugpet.Text}\"");
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                            WindowInfo.SendText("/ja \"Call Beast\" <me>");
+                            WindowInfo.SendText($"/ja \"{call}\" <me>");
                             Thread.Sleep(TimeSpan.FromSeconds(2.0));
                         }
 
@@ -429,11 +427,7 @@
                         #endregion
                     }
 
-                    if (PetJA.Items.Count == 0 && PetInfo.ID != 0)
-                        BSTGetJA();
-
-                    if (PetInfo.ID > 0 && PetJA.Items.Count > 0 && PetInfo.Status == 1 && 
-                        PetInfo.TPP > 1000 && TargetInfo.ID > 0)
+                    if (PetInfo.ID > 0 && PetJA.Items.Count > 0 && PetInfo.Status == 1 && TargetInfo.ID > 0)
                     {
                         PetReadyJA();
                     }
@@ -617,8 +611,7 @@
                 if (PlayerInfo.Status == 1 && staggerstopJA.Checked)
                 {
                     var line = api.Chat.GetNextChatLine();
-                    if (!string.IsNullOrEmpty(line?.Text) &&
-                    line.Text.Contains(String.Format("{0}'s attack staggers the fiend!", PlayerInfo.Name))) MonStagered = true;
+                    if (!string.IsNullOrEmpty(line?.Text) && line.Text.Contains($"{PlayerInfo.Name}'s attack staggers the fiend!")) MonStagered = true;
                     else if (!string.IsNullOrEmpty(line?.Text) && line.Text.Contains("Auto-targeting the ")) MonStagered = false;
                 }
                 else MonStagered = false;
