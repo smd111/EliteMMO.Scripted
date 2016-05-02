@@ -886,6 +886,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.petControl = new System.Windows.Forms.TabControl();
             this.bstpettab = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
             this.BstJATP = new System.Windows.Forms.NumericUpDown();
             this.usepetja = new System.Windows.Forms.GroupBox();
             this.PetJA = new System.Windows.Forms.CheckedListBox();
@@ -1025,7 +1026,6 @@
             this.curtarghpp = new System.Windows.Forms.Label();
             this.curtarg = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -5167,7 +5167,7 @@
             this.stopstepscount.Enabled = false;
             this.stopstepscount.Location = new System.Drawing.Point(130, 23);
             this.stopstepscount.Maximum = new decimal(new int[] {
-            7,
+            6,
             0,
             0,
             0});
@@ -6314,6 +6314,15 @@
             this.bstpettab.TabIndex = 0;
             this.bstpettab.Text = "BST";
             this.bstpettab.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(231, 105);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 13);
+            this.label13.TabIndex = 97;
+            this.label13.Text = "Bst Ability @ TP:";
             // 
             // BstJATP
             // 
@@ -7950,15 +7959,6 @@
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Other Info";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(231, 105);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 13);
-            this.label13.TabIndex = 97;
-            this.label13.Text = "Bst Ability @ TP:";
-            // 
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9307,8 +9307,8 @@
             {845, true},{846, true},{847, true},{848, true},{850, true},{851, true},{853, true},{854, true},{855, true},{856, true},{857, true},{858, true},{859, true},
             {860, true},{861, true},{862, true},{863, true},{864, true},{865, true},{866, true},{867, true},{868, true},{869, true},{870, true},{871, true},{872, true},
             {873, true},{874, true},{875, true},{876, true},{877, true},{878, true},{879, true},{880, true},{881, true},{882, true},{883, true},{884, true},{885, true},
-            {886, true},{887, true},{888, true},{889, true},{890, true},{891, true},{892, true},{894, true},{895, true},{896, true},{898, true},{899, true},{900, true},
-            { 901, true},{902, true},{903, true},{904, true}};
+            {886, true},{887, true},{888, true},{889, true},{890, true},{891, true},{892, true},{894, true},{895, true},{896, true},{898, true},{900, true},{901, true},
+            {902, true},{903, true},{904, true}};
             #endregion
             var Recastids = api.Recast.GetAbilityIds();
             for (uint i = 528; i <= 2227; i++)

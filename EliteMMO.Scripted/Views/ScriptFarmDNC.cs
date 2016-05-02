@@ -361,10 +361,12 @@
                         var ammoSlot = InventoryItems.Items.FirstOrDefault(x => x.Key == api.Inventory.GetEquippedItem(3).Id.ToString()).Value;
                         #endregion
                         var call = "";
-                        if (Recast.GetAbilityRecast(94) == 0)
-                            call = "Bestial Loyalty";
-                        else if (Recast.GetAbilityRecast(104) == 0 && Recast.GetAbilityRecast(94) != 0)
-                            call = "Call Beast";
+                        var call1 = api.Resources.GetAbility(899);
+                        var call2 = api.Resources.GetAbility(597);
+                        if (Recast.GetAbilityRecast(call1.TimerID) == 0)
+                            call = call1.Name[0];
+                        else if (Recast.GetAbilityRecast(call2.TimerID) == 0 && Recast.GetAbilityRecast(call1.TimerID) != 0)
+                            call = call2.Name[0];
 
                         if (call != "")
                         {
