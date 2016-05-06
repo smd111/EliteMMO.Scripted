@@ -7877,7 +7877,6 @@
             // 
             // button1
             // 
-            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(142, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -7885,7 +7884,6 @@
             this.button1.TabStop = false;
             this.button1.Text = "Run Test";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Run_Test_Code);
             // 
             // playertp
@@ -9290,25 +9288,25 @@
             {550, true},{551, true},{552, true},{553, true},{554, true},{555, true},{556, true},{557, true},{558, true},{559, true},{560, true},{561, true},{562, true},
             {563, true},{564, true},{565, true},{566, true},{567, true},{568, true},{569, true},{570, true},{571, true},{572, true},{574, true},{575, true},{576, true},
             {577, true},{578, true},{579, true},{580, true},{581, true},{582, true},{583, true},{584, true},{585, true},{586, true},{587, true},{588, true},{589, true},
-            {590, true},{591, true},{593, true},{594, true},{595, true},{596, true},{597, true},{598, true},{599, true},{600, true},{601, true},{602, true},{603, true},
-            {604, true},{605, true},{606, true},{607, true},{608, true},{610, true},{611, true},{612, true},{613, true},{614, true},{615, true},{616, true},{617, true},
-            {618, true},{619, true},{620, true},{621, true},{622, true},{623, true},{624, true},{625, true},{626, true},{627, true},{628, true},{629, true},{630, true},
-            {631, true},{632, true},{633, true},{634, true},{635, true},{636, true},{637, true},{638, true},{639, true},{640, true},{641, true},{642, true},{643, true},
-            {644, true},{645, true},{661, true},{662, true},{663, true},{664, true},{665, true},{666, true},{667, true},{668, true},{669, true},{670, true},{671, true},
-            {672, true},{673, true},{674, true},{675, true},{676, true},{677, true},{678, true},{679, true},{680, true},{682, true},{683, true},{684, true},{685, true},
-            {686, true},{687, true},{688, true},{689, true},{690, true},{693, true},{722, true},{723, true},{724, true},{726, true},{727, true},{728, true},{729, true},
-            {730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{736, true},{737, true},{738, true},{739, true},{740, true},{741, true},{742, true},
-            {745, true},{746, true},{747, true},{748, true},{749, true},{750, true},{751, true},{752, true},{753, true},{754, true},{755, true},{756, true},{757, true},
-            {758, true},{759, true},{760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{768, true},{769, true},{770, true},
-            {771, true},{772, true},{773, true},{777, true},{779, true},{781, true},{782, true},{783, true},{784, true},{785, true},{786, true},{787, true},{788, true},
-            {789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},{799, true},{800, true},{803, true},
-            {804, true},{805, true},{807, true},{809, true},{810, true},{813, true},{814, true},{815, true},{816, true},{817, true},{828, true},{829, true},{830, true},
-            {831, true},{832, true},{833, true},{835, true},{836, true},{837, true},{838, true},{839, true},{840, true},{841, true},{842, true},{843, true},{844, true},
-            {845, true},{846, true},{847, true},{848, true},{850, true},{851, true},{853, true},{854, true},{855, true},{856, true},{857, true},{858, true},{859, true},
-            {860, true},{861, true},{862, true},{863, true},{864, true},{865, true},{866, true},{867, true},{868, true},{869, true},{870, true},{871, true},{872, true},
-            {873, true},{874, true},{875, true},{876, true},{877, true},{878, true},{879, true},{880, true},{881, true},{882, true},{883, true},{884, true},{885, true},
-            {886, true},{887, true},{888, true},{889, true},{890, true},{891, true},{892, true},{894, true},{895, true},{896, true},{898, true},{900, true},{901, true},
-            {902, true},{903, true},{904, true}};
+            {590, true},{591, true},{593, true},{594, true},{595, true},{596, true},{598, true},{599, true},{600, true},{601, true},{602, true},{603, true},{604, true},
+            {605, true},{606, true},{607, true},{608, true},{610, true},{611, true},{612, true},{613, true},{614, true},{615, true},{616, true},{617, true},{618, true},
+            {619, true},{620, true},{621, true},{622, true},{623, true},{624, true},{625, true},{626, true},{627, true},{628, true},{629, true},{630, true},{631, true},
+            {632, true},{633, true},{634, true},{635, true},{636, true},{637, true},{638, true},{639, true},{640, true},{641, true},{642, true},{643, true},{644, true},
+            {645, true},{661, true},{662, true},{663, true},{664, true},{665, true},{666, true},{667, true},{668, true},{669, true},{670, true},{671, true},{672, true},
+            {673, true},{674, true},{675, true},{676, true},{677, true},{678, true},{679, true},{680, true},{682, true},{683, true},{684, true},{685, true},{686, true},
+            {687, true},{688, true},{689, true},{690, true},{693, true},{722, true},{723, true},{724, true},{726, true},{727, true},{728, true},{729, true},{730, true},
+            {731, true},{732, true},{733, true},{734, true},{735, true},{736, true},{737, true},{738, true},{739, true},{740, true},{741, true},{742, true},{745, true},
+            {746, true},{747, true},{748, true},{749, true},{750, true},{751, true},{752, true},{753, true},{754, true},{755, true},{756, true},{757, true},{758, true},
+            {759, true},{760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{768, true},{769, true},{770, true},{771, true},
+            {772, true},{773, true},{777, true},{779, true},{781, true},{782, true},{783, true},{784, true},{785, true},{786, true},{787, true},{788, true},{789, true},
+            {790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},{799, true},{800, true},{803, true},{804, true},
+            {805, true},{807, true},{809, true},{810, true},{813, true},{814, true},{815, true},{816, true},{817, true},{828, true},{829, true},{830, true},{831, true},
+            {832, true},{833, true},{835, true},{836, true},{837, true},{838, true},{839, true},{840, true},{841, true},{842, true},{843, true},{844, true},{845, true},
+            {846, true},{847, true},{848, true},{850, true},{851, true},{853, true},{854, true},{855, true},{856, true},{857, true},{858, true},{859, true},{860, true},
+            {861, true},{862, true},{863, true},{864, true},{865, true},{866, true},{867, true},{868, true},{869, true},{870, true},{871, true},{872, true},{873, true},
+            {874, true},{875, true},{876, true},{877, true},{878, true},{879, true},{880, true},{881, true},{882, true},{883, true},{884, true},{885, true},{886, true},
+            {887, true},{888, true},{889, true},{890, true},{891, true},{892, true},{894, true},{895, true},{896, true},{898, true},{900, true},{901, true},{902, true},
+            {903, true},{904, true}};
             #endregion
             var Recastids = api.Recast.GetAbilityIds();
             for (uint i = 528; i <= 2227; i++)
@@ -10729,17 +10727,18 @@
         }
         private bool NINtoolCheck(string nin)
         {
-            if (Inventory.ItemQuantityByName(nintools[nin][1]) > 0) return true;
-            else if (Inventory.ItemQuantityByName(nintools[nin][2]) > 0)
+            var item = nintools[nin];
+            if (Inventory.ItemQuantityByName(item.ElementAt(0)) > 0) return true;
+            else if (Inventory.ItemQuantityByName(item.ElementAt(1)) > 0)
             {
-                WindowInfo.SendText($"/item \"{nintools[nin][2]}\"<me>");
+                WindowInfo.SendText($"/item \"{item.ElementAt(1)}\"<me>");
                 Thread.Sleep(TimeSpan.FromSeconds(2.0));
                 return true;
             }
-            else if (PlayerInfo.MainJob == 13 && Inventory.ItemQuantityByName(nintools[nin][3]) > 0) return true;
-            else if (PlayerInfo.MainJob == 13 && Inventory.ItemQuantityByName(nintools[nin][4]) > 0)
+            else if (PlayerInfo.MainJob == 13 && Inventory.ItemQuantityByName(item.ElementAt(2)) > 0) return true;
+            else if (PlayerInfo.MainJob == 13 && Inventory.ItemQuantityByName(item.ElementAt(3)) > 0)
             {
-                WindowInfo.SendText($"/item \"{nintools[nin][4]}\"<me>");
+                WindowInfo.SendText($"/item \"{item.ElementAt(3)}\"<me>");
                 Thread.Sleep(TimeSpan.FromSeconds(2.0));
                 return true;
             }

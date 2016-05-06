@@ -624,7 +624,13 @@
         #region Code Testing section
         private void Run_Test_Code(object sender, EventArgs e)
         {
-            api.ThirdParty.SendString($"/echo {TargetInfo.Distance}");
+            var item = nintools["Utsusemi"];
+            string message = "";
+            message = message + $"\n{item.ElementAt(0)} Count:{Inventory.ItemQuantityByName(item.ElementAt(0))}";
+            message = message + $"\n{item.ElementAt(1)} Count:{Inventory.ItemQuantityByName(item.ElementAt(1))}";
+            message = message + $"\n{item.ElementAt(2)} Count:{Inventory.ItemQuantityByName(item.ElementAt(2))}";
+            message = message + $"\n{item.ElementAt(3)} Count:{Inventory.ItemQuantityByName(item.ElementAt(3))}";
+            MessageBox.Show(message);
         }
         #endregion
 
