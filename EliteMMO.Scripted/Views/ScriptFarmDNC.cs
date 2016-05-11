@@ -7,7 +7,6 @@
     using API;
     using Embedded;
     using System.Collections.Generic;
-
     public partial class ScriptFarmDNC : UserControl
     {
         public ScriptFarmDNC(EliteAPI core)
@@ -562,16 +561,17 @@
             DateTime last = DateTime.Now;
             while (botRunning && !bgw_script_sch.CancellationPending)
             {
-                DateTime now = DateTime.Now;
                 Dictionary<int, dynamic> SCHcharges = new Dictionary<int, dynamic>()
                 {{ 90, new {time=48, charges=5}},{ 70, new {time=60, charges=4}},{ 50, new {time=80, charges=3}},
                  { 30, new {time=120, charges=2}},{ 1, new {time=240, charges=1}},};
                 foreach (KeyValuePair<int, dynamic> kvp in SCHcharges)
                 {
-                    var lvl = 1;
+                    int lvl = 1;
                     if (PlayerInfo.MainJob == 20) lvl = PlayerInfo.MainJobLevel;
                     else if (PlayerInfo.SubJob == 20) lvl = PlayerInfo.SubJobLevel;
-                    if (lvl >= kvp.Key && Math.Abs(now.Subtract(last).TotalSeconds) >= kvp.Value.time)
+                    int time = (lvl == 99 && PlayerInfo.UsedJobPoints >= 550 ? 33 : kvp.Value.time);
+                    DateTime now = DateTime.Now;
+                    if (lvl >= kvp.Key && Math.Abs(now.Subtract(last).TotalSeconds) >= time)
                     {
                         if (SchCharges < kvp.Value.charges)
                             SchCharges++;
@@ -579,7 +579,6 @@
                         break;
                     }
                 }
-
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }
@@ -633,6 +632,5 @@
             MessageBox.Show(message);
         }
         #endregion
-
     }
 }

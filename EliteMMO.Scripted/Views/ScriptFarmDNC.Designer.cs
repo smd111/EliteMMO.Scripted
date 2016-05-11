@@ -53,7 +53,7 @@
         public List<string> SMNPetNames = new List<string>(new string[] {"Carbuncle","Fenrir","Ifrit","Titan","Leviathan","Garuda","Shiva","Ramuh",
                              "Diabolos","Cait Sith","Fire Spirit","Ice Spirit","Air Spirit","Earth Spirit","Thunder Spirit","Water Spirit","Light Spirit",
                              "Dark Spirit"});
-        public int SchCharges;
+        public int SchCharges = 0;
         public int mainJOB = 0;
         public int subJOB = 0;
         #endregion
@@ -284,10 +284,10 @@
                 {63, new {B=103}},{64, new {B=104}},{65, new {B=105}},{66, new {B=100}},{67, new {B=101}},{68, new {B=102}},{69, new {B=103}},
                 {70, new {B=104}},{71, new {B=105}},{72, new {B=106}},{73, new {B=107}},{74, new {B=108}},{75, new {B=109}},{76, new {B=110}},
                 {77, new {B=111}},{78, new {B=112}},{84, new {B=286}},{85, new {B=286}},{86, new {B=106}},{87, new {B=107}},{88, new {B=108}},
-                {89, new {B=109}},{90, new {B=110}},{91, new {B=111}},{92, new {B=112}},{96, new {B=275}},{97, new {B=403}},{99, new {W=8}},
+                {89, new {B=109}},{90, new {B=110}},{91, new {B=111}},{92, new {B=112}},{96, new {B=275}},{97, new {B=403}},{99, new {B=181}},
                 {100, new {B=94}},{101, new {B=95}},{102, new {B=96}},{103, new {B=97}},{104, new {B=98}},{105, new {B=99}},{106, new {B=116}},
-                {107, new {B=116}},{113, new {W=6}},{114, new {W=10}},{115, new {W=4}},{116, new {W=12}},{117, new {W=14}},
-                {118, new {W=18}},{119, new {W=16}},{242, new {B=90}},{249, new {B=34}},{250, new {B=35}},{251, new {B=38}},
+                {107, new {B=116}},{113, new {B=183}},{114, new {B=180}},{115, new {B=178}},{116, new {B=179}},{117, new {B=182}},
+                {118, new {B=185}},{119, new {B=184}},{242, new {B=90}},{249, new {B=34}},{250, new {B=35}},{251, new {B=38}},
                 {266, new {B=119}},{267, new {B=120}},{268, new {B=121}},{269, new {B=122}},{270, new {B=123}},{271, new {B=124}},
                 {272, new {B=125}},{277, new {B=173}},{287, new {B=407}},{310, new {B=274}},{311, new {B=288}},{312, new {B=277}},
                 {313, new {B=278}},{314, new {B=279}},{315, new {B=280}},{316, new {B=281}},{317, new {B=282}},{358, new {B=33}},
@@ -311,8 +311,8 @@
                 {517, new {B=37}},{530, new {B=33}},{538, new {B=190}},{547, new {B=93}},{613, new {B=93}},{615, new {B=38}},
                 {636, new {B=90,b=92}},{655, new {B=91}},{662, new {B=43}},{668, new {B=152}},{679, new {B=36}},{696, new {B=486}},
                 {737, new {B=93}},{750, new {B=604}},{840, new {B=568}},{845, new {B=581}},{846, new {B=581}},{855, new {B=274}},
-                {856, new {B=288}},{857, new {B=9}},{858, new {B=7}},{859, new {B=11}},{860, new {B=5}},{861, new {B=13}},{862, new {B=15}},
-                {863, new {B=19}},{864, new {B=17}},{879, new {B=597}},{895, new {B=432}},{768, new {I=0,B=539}},{769, new {I=0}},
+                {856, new {B=288}},{857, new {B=592}},{858, new {B=594}},{859, new {B=591}},{860, new {B=589}},{861, new {B=590}},{862, new {B=593}},
+                {863, new {B=596}},{864, new {B=595}},{879, new {B=597}},{895, new {B=432}},{768, new {I=0,B=539}},{769, new {I=0}},
                 {770, new {I=0,B=541}},{771, new {I=0,B=580}},{772, new {I=0,B=542}},{773, new {I=0,B=543}},{774, new {I=0,B=544}},
                 {775, new {I=0,B=545}},{776, new {I=0,B=546}},{777, new {I=0,B=547}},{778, new {I=0,B=548}},{779, new {I=0,B=549}},
                 {780, new {I=0,B=550}},{781, new {I=0,B=551}},{782, new {I=0,B=552}},{783, new {I=0,B=553}},{784, new {I=0,B=554}},
@@ -9135,6 +9135,8 @@
                 bgw_script_chat.RunWorkerAsync();
             if (!bgw_script_disp.IsBusy)
                 bgw_script_disp.RunWorkerAsync();
+            if (PlayerInfo.MainJob != 20 && PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
+            else bgw_script_sch.RunWorkerAsync();
         }
         private void ToolStopClick(object sender, EventArgs e)
         {
@@ -9362,8 +9364,6 @@
                 }
             }
             if (playerJA.Items.Contains("Sharpshot") && playerJA.Items.Contains("Barrage")) playerJA.Items.Add("Sharpshot + Barrage");
-            if (PlayerInfo.MainJob != 20 && PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
-            else bgw_script_sch.RunWorkerAsync();
         }
         private void ClearJA_Click(object sender, EventArgs e)
         {
@@ -10552,12 +10552,16 @@
                     api.ThirdParty.SendString("/ja \"Tabula Rasa\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
-                if (ja.Contains("Light Arts") && magic.MagicType == 1 && !PlayerInfo.HasBuff(358) && Recast.GetAbilityRecast(228) == 0)
+                if (ja.Contains("Light Arts") && magic.MagicType == 1 && !PlayerInfo.HasBuff(358) && Recast.GetAbilityRecast(228) == 0 &&
+                    !PlayerInfo.HasBuff(401) && !PlayerInfo.HasBuff(360) && !PlayerInfo.HasBuff(362) && !PlayerInfo.HasBuff(366) &&
+                     !PlayerInfo.HasBuff(364) && !PlayerInfo.HasBuff(412) && !PlayerInfo.HasBuff(414) && !PlayerInfo.HasBuff(469))
                 {
                     api.ThirdParty.SendString("/ja \"Light Arts\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
-                if (ja.Contains("Dark Arts") && magic.MagicType == 2 && !PlayerInfo.HasBuff(359) && Recast.GetAbilityRecast(228) == 0)
+                if (ja.Contains("Dark Arts") && magic.MagicType == 2 && !PlayerInfo.HasBuff(359) && Recast.GetAbilityRecast(228) == 0 &&
+                    !PlayerInfo.HasBuff(402) && !PlayerInfo.HasBuff(361) && !PlayerInfo.HasBuff(363) && !PlayerInfo.HasBuff(367) &&
+                     !PlayerInfo.HasBuff(365) && !PlayerInfo.HasBuff(413) && !PlayerInfo.HasBuff(415) && !PlayerInfo.HasBuff(470))
                 {
                     api.ThirdParty.SendString("/ja \"Dark Arts\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -10575,7 +10579,9 @@
                 } */
                 if (SchCharges >= 1 || PlayerInfo.HasBuff(377))
                 {   
-                    if (magic.MagicType == 1 && PlayerInfo.HasBuff(358))
+                    if (magic.MagicType == 1 && (PlayerInfo.HasBuff(358) || PlayerInfo.HasBuff(401) || PlayerInfo.HasBuff(360) ||
+                     PlayerInfo.HasBuff(362) || PlayerInfo.HasBuff(366) || PlayerInfo.HasBuff(364) || PlayerInfo.HasBuff(412) ||
+                     PlayerInfo.HasBuff(414) || PlayerInfo.HasBuff(469)))
                     {
                         #region SCH White MA Stragems
                         if (SchCharges >= 1 && AddendumWhite.Contains(magic.Name[0]) && ja.Contains("Addendum: White") &&
@@ -10599,7 +10605,7 @@
                             if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
                         }
                         if (SchCharges >= 1 && ja.Contains("Accession") && !PlayerInfo.HasBuff(366) &&
-                            Recast.GetAbilityRecast(231) == 0 && (magic.Skill == 33 || magic.Skill == 34))
+                           (magic.Skill == 33 || magic.Skill == 34))
                         {
                             api.ThirdParty.SendString("/ja \"Accession\" <me>");
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -10631,7 +10637,9 @@
                         }
                         #endregion
                     }
-                    else if (magic.MagicType == 2 && PlayerInfo.HasBuff(359))
+                    else if (magic.MagicType == 2 && (PlayerInfo.HasBuff(359) || PlayerInfo.HasBuff(402) || PlayerInfo.HasBuff(361) ||
+                     PlayerInfo.HasBuff(363) || PlayerInfo.HasBuff(367) || PlayerInfo.HasBuff(365) || PlayerInfo.HasBuff(413) ||
+                     PlayerInfo.HasBuff(415) || PlayerInfo.HasBuff(470)))
                     {
                         #region SCH Black MA Stragems
                         if (SchCharges >= 1 && AddendumBlack.Contains(magic.Name[0]) && ja.Contains("Addendum: Black") &&
@@ -10654,8 +10662,7 @@
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
                         }
-                        if (SchCharges >= 1 && ja.Contains("Manifestation") && !PlayerInfo.HasBuff(367) &&
-                            Recast.GetAbilityRecast(231) == 0 && magic.Skill == 35)
+                        if (SchCharges >= 1 && ja.Contains("Manifestation") && !PlayerInfo.HasBuff(367) && magic.Skill == 35)
                         {
                             api.ThirdParty.SendString("/ja \"Manifestation\" <me>");
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -10667,7 +10674,7 @@
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
                         }
-                        if (SchCharges >= 1 && ja.Contains("Focalization") && !PlayerInfo.HasBuff(412))
+                        if (SchCharges >= 1 && ja.Contains("Focalization") && !PlayerInfo.HasBuff(413))
                         {
                             api.ThirdParty.SendString("/ja \"Focalization\" <me>");
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -11726,6 +11733,14 @@
             }
             return true;
         }
+        private bool FirstIsLower(string value)// Consider string to be lowercase if it has no uppercase letters.
+        {
+            if (char.IsUpper(value[0]))
+            {
+                return false;
+            }
+            return true;
+        }
         private void PopulateTargetLists(string idType)
         {
             wantedID.Clear();
@@ -11785,6 +11800,7 @@
                 var waste = notWanted.Contains(tmp2);
                 if (!waste) waste = IsUpper(tmp2);
                 if (!waste) waste = IsLower(tmp2);
+                if (!waste) waste = FirstIsLower(tmp2);
                 if (!waste) waste = tmp2.IndexOfAny("_#[]:".ToCharArray()) != -1;
                 if (!(empty) && x != 0 && !(exist) && !(waste))
                 {
@@ -12409,7 +12425,6 @@
         public NumericUpDown BstJATP;
         private Label label13;
         #endregion
-
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo
