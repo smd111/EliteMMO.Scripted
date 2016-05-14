@@ -10257,8 +10257,8 @@
                 bool castSpell = false;
                 var magic = api.Resources.GetSpell(M, 0);
                 var targ = ((magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
-                if (Recast.GetSpellRecast((int)magic.Index) != 0 || !MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6) ||
-                (PlayerInfo.MP < magic.MPCost && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229)))) continue;
+                if (Recast.GetSpellRecast((int)magic.Index) != 0 || !MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6)) continue;
+                if (PlayerInfo.MP < magic.MPCost && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229))) continue;
                 if (Handledspells.Contains(magic.Name[0]))
                 {
                     if (magic.Name[0].Contains("Protect") && !PlayerInfo.HasBuff(40)) castSpell = true;
@@ -10348,11 +10348,11 @@
                             if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B))
                                 castSpell = true;
                         }
-                        else if (macontrol[magic.Index].ToString().Contains("W ="))
+                        /*else if (macontrol[magic.Index].ToString().Contains("W ="))
                         {
                             if (macontrol[magic.Index].W == api.Weather.CurrentWeather)
                                 castSpell = true;
-                        }
+                        }*/
                     }
                     else
                     {
@@ -10553,15 +10553,13 @@
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
                 if (ja.Contains("Light Arts") && magic.MagicType == 1 && !PlayerInfo.HasBuff(358) && Recast.GetAbilityRecast(228) == 0 &&
-                    !PlayerInfo.HasBuff(401) && !PlayerInfo.HasBuff(360) && !PlayerInfo.HasBuff(362) && !PlayerInfo.HasBuff(366) &&
-                     !PlayerInfo.HasBuff(364) && !PlayerInfo.HasBuff(412) && !PlayerInfo.HasBuff(414) && !PlayerInfo.HasBuff(469))
+                    !PlayerInfo.HasBuff(401))
                 {
                     api.ThirdParty.SendString("/ja \"Light Arts\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
                 if (ja.Contains("Dark Arts") && magic.MagicType == 2 && !PlayerInfo.HasBuff(359) && Recast.GetAbilityRecast(228) == 0 &&
-                    !PlayerInfo.HasBuff(402) && !PlayerInfo.HasBuff(361) && !PlayerInfo.HasBuff(363) && !PlayerInfo.HasBuff(367) &&
-                     !PlayerInfo.HasBuff(365) && !PlayerInfo.HasBuff(413) && !PlayerInfo.HasBuff(415) && !PlayerInfo.HasBuff(470))
+                    !PlayerInfo.HasBuff(402))
                 {
                     api.ThirdParty.SendString("/ja \"Dark Arts\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -10579,9 +10577,7 @@
                 } */
                 if (SchCharges >= 1 || PlayerInfo.HasBuff(377))
                 {   
-                    if (magic.MagicType == 1 && (PlayerInfo.HasBuff(358) || PlayerInfo.HasBuff(401) || PlayerInfo.HasBuff(360) ||
-                     PlayerInfo.HasBuff(362) || PlayerInfo.HasBuff(366) || PlayerInfo.HasBuff(364) || PlayerInfo.HasBuff(412) ||
-                     PlayerInfo.HasBuff(414) || PlayerInfo.HasBuff(469)))
+                    if (magic.MagicType == 1 && (PlayerInfo.HasBuff(358) || PlayerInfo.HasBuff(401)))
                     {
                         #region SCH White MA Stragems
                         if (SchCharges >= 1 && AddendumWhite.Contains(magic.Name[0]) && ja.Contains("Addendum: White") &&
@@ -10591,7 +10587,7 @@
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
                         }
-                        else if (AddendumWhite.Contains(magic.Name[0])) return false;
+                        else if (AddendumWhite.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(401) || !PlayerInfo.HasBuff(377))) return false;
                         if (SchCharges >= 1 && ja.Contains("Penury") && !PlayerInfo.HasBuff(360))
                         {
                             api.ThirdParty.SendString("/ja \"Penury\" <me>");
@@ -10637,9 +10633,7 @@
                         }
                         #endregion
                     }
-                    else if (magic.MagicType == 2 && (PlayerInfo.HasBuff(359) || PlayerInfo.HasBuff(402) || PlayerInfo.HasBuff(361) ||
-                     PlayerInfo.HasBuff(363) || PlayerInfo.HasBuff(367) || PlayerInfo.HasBuff(365) || PlayerInfo.HasBuff(413) ||
-                     PlayerInfo.HasBuff(415) || PlayerInfo.HasBuff(470)))
+                    else if (magic.MagicType == 2 && (PlayerInfo.HasBuff(359) || PlayerInfo.HasBuff(402)))
                     {
                         #region SCH Black MA Stragems
                         if (SchCharges >= 1 && AddendumBlack.Contains(magic.Name[0]) && ja.Contains("Addendum: Black") &&
@@ -10649,7 +10643,7 @@
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
                         }
-                        else if (AddendumBlack.Contains(magic.Name[0])) return false;
+                        else if (AddendumBlack.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(402) || !PlayerInfo.HasBuff(377))) return false;
                         if (SchCharges >= 1 && ja.Contains("Parsimony") && !PlayerInfo.HasBuff(361))
                         {
                             api.ThirdParty.SendString("/ja \"Parsimony\" <me>");
@@ -10695,8 +10689,8 @@
                         #endregion
                     }
                 }
-                if (AddendumWhite.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(401) && !PlayerInfo.HasBuff(377)) return false;
-                if (AddendumBlack.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(402) && !PlayerInfo.HasBuff(377)) return false;
+                if (AddendumWhite.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(401) || !PlayerInfo.HasBuff(377))) return false;
+                if (AddendumBlack.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(402) || !PlayerInfo.HasBuff(377))) return false;
             }
             #endregion
             #region GEO MAJA
