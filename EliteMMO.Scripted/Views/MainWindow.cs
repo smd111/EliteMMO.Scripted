@@ -171,6 +171,9 @@
             Controls.Add(x1);
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+
+            if (!farmbot.bgw_script_disp.IsBusy)
+                farmbot.bgw_script_disp.RunWorkerAsync();
         }
 
         private void HealingSupportToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -205,6 +208,8 @@
             Controls.Add(x2);
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            if (farmbot.bgw_script_disp.IsBusy)
+                farmbot.bgw_script_disp.CancelAsync();
         }
 
         private void AboutToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -290,6 +295,7 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             if (farmbot.botRunning) farmbot.stopScriptToolStripMenuItem.PerformClick();
+            if (farmbot.bgw_script_disp.IsBusy) farmbot.bgw_script_disp.CancelAsync();
         }
 
         private void OnEventToolStripMenuItemClick(object sender, EventArgs e)

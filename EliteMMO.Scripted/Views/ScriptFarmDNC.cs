@@ -586,7 +586,8 @@
         #region Thread - Display Update
         private void BgwScriptDisplayDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            while (botRunning && !bgw_script_disp.CancellationPending)
+            var lastCommand = 0;
+            while (!bgw_script_disp.CancellationPending)
             {
                 playerhp.Text = $"HP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
                 playermp.Text = $"MP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
@@ -600,6 +601,15 @@
                 curtime.Text = $"Current Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
                 if (Shutdownenable.Checked) shutdowntime();
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                var cmdTime = api.ThirdParty.ConsoleIsNewCommand();
+                var cmd1 = api.ThirdParty.ConsoleGetArg(0);
+                if (lastCommand != cmdTime && lastCommand != 0 && cmd1.ToLower() == "scripted")
+                {
+                    lastCommand = cmdTime;
+                    commandInterface();
+                }
+                else
+                    lastCommand = cmdTime;
             }
         }
         #endregion

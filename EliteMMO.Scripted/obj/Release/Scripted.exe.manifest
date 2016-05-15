@@ -4,7 +4,7 @@
   <description asmv2:iconFile="1418924805_45123.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Scripted" version="0.99.5.6" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="Scripted" version="0.99.5.7" language="neutral" processorArchitecture="x86" />
     <commandLine file="Scripted.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EliteMMO.API.dll" size="67584">
-      <assemblyIdentity name="EliteMMO.API" version="1.2.0.1" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EliteMMO.API.dll" size="68096">
+      <assemblyIdentity name="EliteMMO.API" version="1.2.1.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dR3m8/DRvxc5GbMu5dybrB2RV6Q=</dsig:DigestValue>
+        <dsig:DigestValue>c5GJLgJ/84BadEDYnkPi0N+JJZc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="745376">
-      <assemblyIdentity name="Scripted" version="0.99.5.6" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="745888">
+      <assemblyIdentity name="Scripted" version="0.99.5.7" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>vGsBpMMFohBQNZDMeCGVx9iVwZk=</dsig:DigestValue>
+        <dsig:DigestValue>PL3YFVgTFQMS8PkLfjqLgrpLKdw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -1402,7 +1402,7 @@
             this.updateJobToolStripMenuItem});
             this.StartStopScript.Location = new System.Drawing.Point(470, 378);
             this.StartStopScript.Name = "StartStopScript";
-            this.StartStopScript.Size = new System.Drawing.Size(238, 24);
+            this.StartStopScript.Size = new System.Drawing.Size(330, 24);
             this.StartStopScript.TabIndex = 47;
             this.StartStopScript.Text = "StartStopScript";
             // 
@@ -7976,7 +7976,7 @@
             this.Controls.Add(this.dncControl);
             this.Name = "ScriptFarmDNC";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 5, 25);
-            this.Size = new System.Drawing.Size(724, 435);
+            this.Size = new System.Drawing.Size(805, 435);
             this.Load += new System.EventHandler(this.ScriptFarmDncLoad);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -8814,6 +8814,8 @@
         private GroupBox groupBox23;
         private Label playerjobpoints;
         private Label playermerits;
+        public NumericUpDown BstJATP;
+        private Label label13;
         #endregion
         #region Display: Controle
         private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
@@ -9133,8 +9135,6 @@
                 bgw_script_nav.RunWorkerAsync();
             if (!bgw_script_chat.IsBusy)
                 bgw_script_chat.RunWorkerAsync();
-            if (!bgw_script_disp.IsBusy)
-                bgw_script_disp.RunWorkerAsync();
             if (PlayerInfo.MainJob != 20 && PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
             else bgw_script_sch.RunWorkerAsync();
         }
@@ -9152,7 +9152,6 @@
             bgw_script_pet.CancelAsync();
             bgw_script_nav.CancelAsync();
             bgw_script_chat.CancelAsync();
-            bgw_script_disp.CancelAsync();
         }
         private void PlayerDead()
         {
@@ -10689,8 +10688,8 @@
                         #endregion
                     }
                 }
-                if (AddendumWhite.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(401) || !PlayerInfo.HasBuff(377))) return false;
-                if (AddendumBlack.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(402) || !PlayerInfo.HasBuff(377))) return false;
+                else if (AddendumWhite.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(401) || !PlayerInfo.HasBuff(377))) return false;
+                else if (AddendumBlack.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(402) || !PlayerInfo.HasBuff(377))) return false;
             }
             #endregion
             #region GEO MAJA
@@ -12415,10 +12414,19 @@
             idleZ = PlayerInfo.Z;
             RecordIdleLocation.Text = $"X:{idleX.ToString("00.###")}/Y:{idleY.ToString("00.###")}/Z:{idleZ.ToString("00.###")}";
         }
-
-        public NumericUpDown BstJATP;
-        private Label label13;
         #endregion
+        public void commandInterface()
+        {
+            string cmd1 = api.ThirdParty.ConsoleGetArg(1).ToLower();
+            if (cmd1 == "start")
+                startScriptToolStripMenuItem.PerformClick();
+            else if (cmd1 == "stop")
+                stopScriptToolStripMenuItem.PerformClick();
+            /*else if (cmd1 == "toggle")
+            {
+                string cmd2 = api.ThirdParty.ConsoleGetArg(2).ToLower();
+            }*/
+        }
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo
