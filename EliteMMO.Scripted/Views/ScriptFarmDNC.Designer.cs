@@ -8950,11 +8950,11 @@
         }
         private void UsenavCheckedChanged(object sender, EventArgs e)
         {
+            navStuckWatch.Enabled = usenav.Checked;
+            groupBox8.Enabled = usenav.Checked;
+            runReverse.Enabled = usenav.Checked;
             if (usenav.Checked)
             {
-                groupBox8.Enabled = true;
-                runReverse.Enabled = true;
-
                 var path = string.Format("{0}\\Nav\\", Application.StartupPath);
 
                 foreach (var file in Directory.GetFiles(path, "*.xin"))
@@ -8964,13 +8964,11 @@
             }
             else
             {
+                navStuckWatch.Checked = false;
                 api.AutoFollow.IsAutoFollowing = false;
                 naviMove = false;
 
                 selectedNavi.Items.Clear();
-
-                groupBox8.Enabled = false;
-                runReverse.Enabled = false;
             }
         }
         private void AssistCheckedChanged(object sender, EventArgs e)
@@ -10347,11 +10345,6 @@
                             if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B))
                                 castSpell = true;
                         }
-                        /*else if (macontrol[magic.Index].ToString().Contains("W ="))
-                        {
-                            if (macontrol[magic.Index].W == api.Weather.CurrentWeather)
-                                castSpell = true;
-                        }*/
                     }
                     else
                     {
@@ -10586,7 +10579,7 @@
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
                         }
-                        else if (AddendumWhite.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(401) || !PlayerInfo.HasBuff(377))) return false;
+                        else if (AddendumWhite.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(401)) return false;
                         if (SchCharges >= 1 && ja.Contains("Penury") && !PlayerInfo.HasBuff(360))
                         {
                             api.ThirdParty.SendString("/ja \"Penury\" <me>");
@@ -10642,7 +10635,7 @@
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                             if (!PlayerInfo.HasBuff(377)) SchCharges -= 1;
                         }
-                        else if (AddendumBlack.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(402) || !PlayerInfo.HasBuff(377))) return false;
+                        else if (AddendumBlack.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(402)) return false;
                         if (SchCharges >= 1 && ja.Contains("Parsimony") && !PlayerInfo.HasBuff(361))
                         {
                             api.ThirdParty.SendString("/ja \"Parsimony\" <me>");
@@ -10688,8 +10681,8 @@
                         #endregion
                     }
                 }
-                else if (AddendumWhite.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(401) || !PlayerInfo.HasBuff(377))) return false;
-                else if (AddendumBlack.Contains(magic.Name[0]) && (!PlayerInfo.HasBuff(402) || !PlayerInfo.HasBuff(377))) return false;
+                else if (AddendumWhite.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(401)) return false;
+                else if (AddendumBlack.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(402)) return false;
             }
             #endregion
             #region GEO MAJA
@@ -12425,6 +12418,12 @@
             /*else if (cmd1 == "toggle")
             {
                 string cmd2 = api.ThirdParty.ConsoleGetArg(2).ToLower();
+            }*/
+            /*else if (cmd1 == "set")
+            {
+                string cmd2 = api.ThirdParty.ConsoleGetArg(2).ToLower();
+                if (cmd2 == "weaponskill" || cmd2 == "ws")
+                    
             }*/
         }
         #region Methods: EliteMMO
