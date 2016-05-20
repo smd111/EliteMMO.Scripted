@@ -7,6 +7,8 @@
     using API;
     using Embedded;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Media;
     public partial class ScriptFarmDNC : UserControl
     {
         public ScriptFarmDNC(EliteAPI core)
@@ -22,6 +24,14 @@
             while (botRunning && !bgw_script_dnc.CancellationPending)
             {
                 //TargetInfo.SetTarget(0);
+                if ((PlayerInfo.Status == 2 || PlayerInfo.Status == 3) && File.Exists(Application.StartupPath + @"\dead.wav"))
+                {
+                    using (SoundPlayer player = new SoundPlayer(Application.StartupPath + @"\dead.wav"))
+                    {
+                        player.PlaySync();
+                        player.Dispose();
+                    }
+                }
                 if (checkZone.Checked && startzone != api.Player.ZoneId) ToolStopClick(null, null);
                 if (isCasting) continue;
                 if (DeathWarp.Checked && (PlayerInfo.Status == 2 || PlayerInfo.Status == 3))
@@ -320,7 +330,7 @@
                     while (PlayerInfo.Status == 33)
                     {
                         Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                        if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
+                        if ((PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9) && PetInfo.Name != null)
                         {
                             if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 && PetInfo.MPP == 100)
                                 healdone = true;
@@ -636,13 +646,22 @@
         #region Code Testing section
         private void Run_Test_Code(object sender, EventArgs e)
         {
-            var item = nintools["Utsusemi"];
+            /*var item = nintools["Utsusemi"];
             string message = "";
             message = message + $"\n{item.ElementAt(0)} Count:{Inventory.ItemQuantityByName(item.ElementAt(0))}";
             message = message + $"\n{item.ElementAt(1)} Count:{Inventory.ItemQuantityByName(item.ElementAt(1))}";
             message = message + $"\n{item.ElementAt(2)} Count:{Inventory.ItemQuantityByName(item.ElementAt(2))}";
             message = message + $"\n{item.ElementAt(3)} Count:{Inventory.ItemQuantityByName(item.ElementAt(3))}";
-            MessageBox.Show(message);
+            MessageBox.Show(message);*/
+
+            api.ThirdParty.CreateTextObject("Window");
+            api.ThirdParty.SetLocation("Window", 10, 10);
+            api.ThirdParty.SetVisibility("Window", true);
+            api.ThirdParty.SetText("Window", $"HPtestestestest");
+            api.ThirdParty.FlushCommands();
+            Thread.Sleep(TimeSpan.FromSeconds(3));
+            api.ThirdParty.DeleteTextObject("Window");
+            api.ThirdParty.FlushCommands();
         }
         #endregion
     }

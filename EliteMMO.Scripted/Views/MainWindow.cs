@@ -171,7 +171,7 @@
             Controls.Add(x1);
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
+            Dock = DockStyle.Fill;
             if (!farmbot.bgw_script_disp.IsBusy)
                 farmbot.bgw_script_disp.RunWorkerAsync();
         }
