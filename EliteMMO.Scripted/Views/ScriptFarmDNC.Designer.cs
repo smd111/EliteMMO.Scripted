@@ -320,6 +320,9 @@
                 {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
                 {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},{710, new {B=33}},{685, new {B=116}},{674, new {B=45}},
                 };
+                
+        public static Dictionary<int, dynamic> SCHcharges = new Dictionary<int, dynamic>()
+            {{90, new {time=48,charges=5}},{70, new {time=60,charges=4}},{50, new {time=80,charges=3}},{30, new {time=120,charges=2}},{1, new {time=240,charges=1}},};
         #endregion
         #region Ability Control
         public static List<string> HandledAbils = new List<string>(new string[] {"Manafont","Manawell","Elemental Seal","Cascade","Subtle Sorcery","Divine Seal",
@@ -1402,7 +1405,7 @@
             this.updateJobToolStripMenuItem});
             this.StartStopScript.Location = new System.Drawing.Point(470, 378);
             this.StartStopScript.Name = "StartStopScript";
-            this.StartStopScript.Size = new System.Drawing.Size(330, 24);
+            this.StartStopScript.Size = new System.Drawing.Size(238, 24);
             this.StartStopScript.TabIndex = 47;
             this.StartStopScript.Text = "StartStopScript";
             // 
@@ -7921,7 +7924,7 @@
             // curtime
             // 
             this.curtime.AutoSize = true;
-            this.curtime.Location = new System.Drawing.Point(61, 56);
+            this.curtime.Location = new System.Drawing.Point(61, 64);
             this.curtime.Name = "curtime";
             this.curtime.Size = new System.Drawing.Size(131, 13);
             this.curtime.TabIndex = 5;
@@ -7931,7 +7934,7 @@
             // 
             this.curtarghpp.AutoSize = true;
             this.curtarghpp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.curtarghpp.Location = new System.Drawing.Point(5, 36);
+            this.curtarghpp.Location = new System.Drawing.Point(5, 40);
             this.curtarghpp.Name = "curtarghpp";
             this.curtarghpp.Size = new System.Drawing.Size(76, 13);
             this.curtarghpp.TabIndex = 4;
@@ -7941,7 +7944,7 @@
             // 
             this.curtarg.AutoSize = true;
             this.curtarg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.curtarg.Location = new System.Drawing.Point(5, 21);
+            this.curtarg.Location = new System.Drawing.Point(5, 16);
             this.curtarg.Name = "curtarg";
             this.curtarg.Size = new System.Drawing.Size(78, 13);
             this.curtarg.TabIndex = 3;
@@ -7976,7 +7979,7 @@
             this.Controls.Add(this.dncControl);
             this.Name = "ScriptFarmDNC";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 5, 25);
-            this.Size = new System.Drawing.Size(805, 435);
+            this.Size = new System.Drawing.Size(724, 435);
             this.Load += new System.EventHandler(this.ScriptFarmDncLoad);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -8828,11 +8831,14 @@
             if (MONCure.Contains(curItem)) MONhpCount.Enabled = state;
             else if (curItem == "Benediction") BenedictionHPPuse.Enabled = state;
             else if (curItem == "Convert") Convertgroup.Enabled = state;
+            else if (curItem == "Sublimation") Sublimationcount.Enabled = state;
             else if (curItem == "Vivacious Pulse")
             {
                 VivaciousPulse.Enabled = state;
                 VivaciousPulseHP.Enabled = state;
             }
+            
+            //api.ThirdParty.SendString($"/echo curItem=\"{curItem}\"/state={state}");
         }
         private void playerMA_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -10543,6 +10549,17 @@
                 {
                     api.ThirdParty.SendString("/ja \"Tabula Rasa\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    /*foreach (KeyValuePair<int, dynamic> kvp in SCHcharges)
+                    {
+                        int lvl = 1;
+                        if (PlayerInfo.MainJob == 20) lvl = PlayerInfo.MainJobLevel;
+                        else if (PlayerInfo.SubJob == 20) lvl = PlayerInfo.SubJobLevel;
+                        if (lvl >= kvp.Key)
+                        {
+                            SchCharges = kvp.Value.charges;
+                            break;
+                        }
+                    }*/
                 }
                 if (ja.Contains("Light Arts") && magic.MagicType == 1 && !PlayerInfo.HasBuff(358) && Recast.GetAbilityRecast(228) == 0 &&
                     !PlayerInfo.HasBuff(401))
@@ -10569,7 +10586,7 @@
                 } */
                 if (SchCharges >= 1 || PlayerInfo.HasBuff(377))
                 {   
-                    if (magic.MagicType == 1 && (PlayerInfo.HasBuff(358) || PlayerInfo.HasBuff(401)))
+                    if (magic.MagicType == 1 && (PlayerInfo.HasBuff(358) || PlayerInfo.HasBuff(401) || PlayerInfo.HasBuff(377)))
                     {
                         #region SCH White MA Stragems
                         if (SchCharges >= 1 && AddendumWhite.Contains(magic.Name[0]) && ja.Contains("Addendum: White") &&
@@ -10625,7 +10642,7 @@
                         }
                         #endregion
                     }
-                    else if (magic.MagicType == 2 && (PlayerInfo.HasBuff(359) || PlayerInfo.HasBuff(402)))
+                    else if (magic.MagicType == 2 && (PlayerInfo.HasBuff(359) || PlayerInfo.HasBuff(402) || PlayerInfo.HasBuff(377)))
                     {
                         #region SCH Black MA Stragems
                         if (SchCharges >= 1 && AddendumBlack.Contains(magic.Name[0]) && ja.Contains("Addendum: Black") &&
@@ -12408,6 +12425,7 @@
             RecordIdleLocation.Text = $"X:{idleX.ToString("00.###")}/Y:{idleY.ToString("00.###")}/Z:{idleZ.ToString("00.###")}";
         }
         #endregion
+        #region Methods: Command Interface
         public void commandInterface()
         {
             string cmd1 = api.ThirdParty.ConsoleGetArg(1).ToLower();
@@ -12426,6 +12444,7 @@
                     
             }*/
         }
+        #endregion
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo

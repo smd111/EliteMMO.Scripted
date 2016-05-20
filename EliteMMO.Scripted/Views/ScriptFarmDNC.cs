@@ -314,28 +314,34 @@
                     
                     naviMove = true;
                 }
-
-                while (PlayerInfo.Status == 33 && (HealHP.Checked || HealMP.Checked || healforAutomatonHP.Checked || healforAutomatonMP.Checked))
+                if (PlayerInfo.Status == 33)
                 {
-                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                    if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
+                    var healdone = false;
+                    while (PlayerInfo.Status == 33)
                     {
-                        if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 && PetInfo.MPP == 100)
+                        Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                        if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
                         {
-                            api.ThirdParty.SendString("/heal off");
+                            if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 && PetInfo.MPP == 100)
+                                healdone = true;
+                        }
+                        else if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100)
+                            healdone = true;
+
+                        if (healdone || PlayerInfo.Status != 33 || (!HealHP.Checked && !HealMP.Checked &&
+                                                !healforAutomatonHP.Checked && !healforAutomatonMP.Checked))
+                        {
+                            if (textBox6.Text != "")
+                            {
+                                api.ThirdParty.SendString($"/equip Main \"{PreHealMain}\"");
+                                Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                                api.ThirdParty.SendString($"/equip Sub \"{PreHealSub}\"");
+                            }
+                            if (PlayerInfo.Status == 33)
+                                api.ThirdParty.SendString("/heal off");
+
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         }
-                    }
-                    else if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100)
-                    {
-                        api.ThirdParty.SendString("/heal off");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    }
-                    if (textBox6.Text != "")
-                    {
-                        api.ThirdParty.SendString($"/equip Main \"{PreHealMain}\"");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                        api.ThirdParty.SendString($"/equip Sub \"{PreHealSub}\"");
                     }
                 }
                 #endregion
@@ -561,9 +567,6 @@
             DateTime last = DateTime.Now;
             while (botRunning && !bgw_script_sch.CancellationPending)
             {
-                Dictionary<int, dynamic> SCHcharges = new Dictionary<int, dynamic>()
-                {{ 90, new {time=48, charges=5}},{ 70, new {time=60, charges=4}},{ 50, new {time=80, charges=3}},
-                 { 30, new {time=120, charges=2}},{ 1, new {time=240, charges=1}},};
                 foreach (KeyValuePair<int, dynamic> kvp in SCHcharges)
                 {
                     int lvl = 1;
