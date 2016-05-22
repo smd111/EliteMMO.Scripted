@@ -53,12 +53,15 @@
             string mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
             string appexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Scripted.exe").FileVersion;
             string message = "";
-            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != apidll) message = message + "\nEliteAPI.dll";
-            if (GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v") != mmodll) message = message + "\nEliteMMO.API.dll";
-            if (Regex.Replace(GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt"), @"\t|\n|\r", "") != appexe) message = message + "\nScripted";
+            string ver = GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v");
+            if (ver != apidll) message = message + $"\nEliteAPI.dll version: NEW: {ver} OLD: {apidll}";
+            ver = GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v");
+            if (ver != mmodll) message = message + $"\nEliteMMO.API.dll version: NEW: {ver} OLD: {mmodll}";
+            ver = Regex.Replace(GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt"), @"\t|\n|\r", "");
+            if (ver != appexe) message = message + $"\nScripted version: NEW: {ver} OLD: {appexe}";
 
             DialogResult result;
-            if (message != "") result = MessageBox.Show("Update Files:" + message, "Update Files", MessageBoxButtons.YesNo);
+            if (message != "") result = MessageBox.Show(message, "Update Files", MessageBoxButtons.YesNo);
             else result = DialogResult.No;
             if (result == DialogResult.Yes)
             {
@@ -119,6 +122,7 @@
                 api.Reinitialize(dats.Id);
                 xStatusLabel.Text = @":: " + api.Entity.GetLocalPlayer().Name + @" ::";
             }
+            startHUD();
         }
 
         private void FarmDncToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -137,7 +141,7 @@
                 }
                 else
                     return;
-                
+
             }
 
             //if (InventoryItems.items.Count == 0)
@@ -174,6 +178,8 @@
             Dock = DockStyle.Fill;
             if (!farmbot.bgw_script_disp.IsBusy)
                 farmbot.bgw_script_disp.RunWorkerAsync();
+            api.ThirdParty.SetText("ScriptedHUD", "Scripted:FarmBot");
+            api.ThirdParty.FlushCommands();
         }
 
         private void HealingSupportToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -210,43 +216,23 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             if (farmbot.bgw_script_disp.IsBusy)
                 farmbot.bgw_script_disp.CancelAsync();
+            api.ThirdParty.SetText("ScriptedHUD", "Scripted:HealingBot");
+            api.ThirdParty.FlushCommands();
         }
 
         private void AboutToolStripMenuItemClick(object sender, System.EventArgs e)
         {
-            #region show/hide objects
-            xpic.Show();
-            header1.Show();
-            header2.Show();
-            header3.Show();
-            header4.Show();
-            header5.Show();
-            label1.Show();
-            //button1.Show();
-            EliteMMO_PROC.Show();
-
-            x4.Hide();
-            x3.Hide();
-            x2.Hide();
-            x1.Hide();
-            loadSettingsToolStripMenuItem.Enabled = false;
-            saveSettingsToolStripMenuItem.Enabled = false;
-            #endregion
-
-            TopMostDisplay = "About";
-            refreshCharactersToolStripMenuItem.Enabled = true;
-
-            Size = new Size(372, 237);
+            MessageBox.Show("A Farming/Navigaion/On-event bot\nCreated by: Cmalo/vicrelant\nUpdated by: SMD111\nFor use on FFXI\nRequires: Windower or Ashita\n\nPlease read the Manual for more info.","About");
         }
 
         private void CloseExitToolStripMenuItemClick(object sender, System.EventArgs e)
         {
-            Application.Exit();
+            close();
         }
 
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            close();
         }
 
         private void navigationToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -296,6 +282,8 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             if (farmbot.botRunning) farmbot.stopScriptToolStripMenuItem.PerformClick();
             if (farmbot.bgw_script_disp.IsBusy) farmbot.bgw_script_disp.CancelAsync();
+            api.ThirdParty.SetText("ScriptedHUD", "Scripted:NavBot");
+            api.ThirdParty.FlushCommands();
         }
 
         private void OnEventToolStripMenuItemClick(object sender, EventArgs e)
@@ -330,6 +318,8 @@
             Controls.Add(x4);
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            api.ThirdParty.SetText("ScriptedHUD", "Scripted:OnEventBot");
+            api.ThirdParty.FlushCommands();
         }
 
         private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -347,6 +337,20 @@
         private void manualToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(Application.StartupPath + @"\Scripted Manual.pdf");
+        }
+        private void startHUD()
+        {
+            api.ThirdParty.CreateTextObject("ScriptedHUD");
+            api.ThirdParty.SetVisibility("ScriptedHUD", true);
+            api.ThirdParty.SetFont("ScriptedHUD", "Arial", 10);
+            api.ThirdParty.SetText("ScriptedHUD", "Scripted:Loading...");
+            api.ThirdParty.FlushCommands();
+        }
+        private void close()
+        {
+            api.ThirdParty.DeleteTextObject("ScriptedHUD");
+            api.ThirdParty.FlushCommands();
+            Application.Exit();
         }
     }
 }

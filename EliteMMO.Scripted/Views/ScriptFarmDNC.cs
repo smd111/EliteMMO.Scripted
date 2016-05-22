@@ -327,29 +327,32 @@
                 if (PlayerInfo.Status == 33)
                 {
                     var healdone = false;
-                    while (PlayerInfo.Status == 33)
+                    while (PlayerInfo.Status == 33 && (HealHP.Checked || HealMP.Checked || healforAutomatonHP.Checked || healforAutomatonMP.Checked))
                     {
                         Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                        if ((PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9) && PetInfo.Name != null)
+                        if (fullheal.Checked)
                         {
-                            if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 && PetInfo.MPP == 100)
+                            if ((PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9) && PetInfo.Name != null)
+                            {
+                                if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100 && PetInfo.HPP == 100 && PetInfo.MPP == 100)
+                                    healdone = true;
+                            }
+                            else if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100)
                                 healdone = true;
                         }
-                        else if (PlayerInfo.HPP == 100 && PlayerInfo.MPP == 100)
-                            healdone = true;
-
-                        if (healdone || PlayerInfo.Status != 33 || (!HealHP.Checked && !HealMP.Checked &&
-                                                !healforAutomatonHP.Checked && !healforAutomatonMP.Checked))
+                        else if ((HealHP.Checked? PlayerInfo.HPP == 100 : true) && (HealMP.Checked? PlayerInfo.MPP == 100 : true) &&
+                                 (healforAutomatonHP.Checked? PetInfo.HPP == 100 : true) && (healforAutomatonMP.Checked? PetInfo.MPP == 100 : true))
+                                    healdone = true;
+                                    
+                        if (healdone)
                         {
-                            if (textBox6.Text != "")
+                            if (textBox6.Text != "" && healdone)
                             {
                                 api.ThirdParty.SendString($"/equip Main \"{PreHealMain}\"");
                                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
                                 api.ThirdParty.SendString($"/equip Sub \"{PreHealSub}\"");
                             }
-                            if (PlayerInfo.Status == 33)
-                                api.ThirdParty.SendString("/heal off");
-
+                            api.ThirdParty.SendString("/heal off");
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         }
                     }
@@ -602,6 +605,26 @@
             var lastCommand = 0;
             while (!bgw_script_disp.CancellationPending)
             {
+                var msg = $"Scripted:FarmBot|Targeting: {targeting}|Running: {(botRunning ? "YES" : "NO")}";
+                if (showadvHUD.Checked)
+                {
+                    msg = $"Scripted:FarmBot\nTargeting: {targeting}";
+                    msg = msg + $"\nHP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
+                    msg = msg + $"\nMP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
+                    msg = msg + $"\nTP: {PlayerInfo.TP}";
+                    msg = msg + $"\nHP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
+                    msg = msg + $"\nHP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
+                    if (PlayerInfo.MainJobLevel == 99)
+                        msg = msg + $"\nJob Points: {PlayerInfo.UseableJobPoints}/500";
+                    if (PlayerInfo.MainJobLevel >= 75)
+                        msg = msg + $"\nMerit Points: {PlayerInfo.MeritPoints}/75";
+                    msg = msg + $"\nCurrent Target: {TargetInfo.Name}";
+                    msg = msg + $"\nTarget HP: {TargetInfo.HPP}%";
+                    msg = msg + $"\nCurrent Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
+                    msg = msg + $"\nRunning: {(botRunning ? "YES" : "NO")}";
+                }
+                api.ThirdParty.SetText("ScriptedHUD", msg);
+                api.ThirdParty.FlushCommands();
                 playerhp.Text = $"HP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
                 playermp.Text = $"MP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
                 playertp.Text = $"TP: {PlayerInfo.TP}";
@@ -653,15 +676,6 @@
             message = message + $"\n{item.ElementAt(2)} Count:{Inventory.ItemQuantityByName(item.ElementAt(2))}";
             message = message + $"\n{item.ElementAt(3)} Count:{Inventory.ItemQuantityByName(item.ElementAt(3))}";
             MessageBox.Show(message);*/
-
-            api.ThirdParty.CreateTextObject("Window");
-            api.ThirdParty.SetLocation("Window", 10, 10);
-            api.ThirdParty.SetVisibility("Window", true);
-            api.ThirdParty.SetText("Window", $"HPtestestestest");
-            api.ThirdParty.FlushCommands();
-            Thread.Sleep(TimeSpan.FromSeconds(3));
-            api.ThirdParty.DeleteTextObject("Window");
-            api.ThirdParty.FlushCommands();
         }
         #endregion
     }

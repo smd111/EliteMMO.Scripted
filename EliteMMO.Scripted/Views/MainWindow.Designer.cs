@@ -68,6 +68,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xstatus = new System.Windows.Forms.StatusStrip();
             this.xStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.header2 = new System.Windows.Forms.Label();
@@ -78,7 +79,6 @@
             this.header5 = new System.Windows.Forms.Label();
             this.header3 = new System.Windows.Forms.Label();
             this.header4 = new System.Windows.Forms.Label();
-            this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xmenu.SuspendLayout();
             this.xstatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xpic)).BeginInit();
@@ -309,12 +309,17 @@
             // 
             // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Enabled = false;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Visible = false;
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
+            // 
+            // manualToolStripMenuItem
+            // 
+            this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.manualToolStripMenuItem.Text = "Manual";
+            this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
             // xstatus
             // 
@@ -409,13 +414,6 @@
             this.header4.Size = new System.Drawing.Size(49, 14);
             this.header4.TabIndex = 20;
             this.header4.Text = "SMD111";
-            // 
-            // manualToolStripMenuItem
-            // 
-            this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.manualToolStripMenuItem.Text = "Manual";
-            this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

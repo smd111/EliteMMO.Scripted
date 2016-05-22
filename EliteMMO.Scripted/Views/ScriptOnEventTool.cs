@@ -16,6 +16,8 @@
 
         private void BgwScriptEventsDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            api.ThirdParty.SetText("ScriptedHUD", $"Scripted:OnEvent");
+            api.ThirdParty.FlushCommands();
             while (botRunning || !bgw_script_events.CancellationPending)
             {
                 var onEvent = (from object itemChecked in Events.CheckedItems

@@ -31,6 +31,7 @@
         public bool isLoading = false;
         public string PreHealMain = "";
         public string PreHealSub = "";
+        public string targeting = "Auto";
         #endregion
         #region Variables: (NAV)
         public bool OpenDoor = false;
@@ -579,6 +580,7 @@
             this.aggro = new System.Windows.Forms.CheckBox();
             this.mobdist = new System.Windows.Forms.CheckBox();
             this.Options3MainTab = new System.Windows.Forms.TabPage();
+            this.fullheal = new System.Windows.Forms.CheckBox();
             this.verifyfood = new System.Windows.Forms.Button();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.SignetStaff = new System.Windows.Forms.ComboBox();
@@ -611,6 +613,7 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.autoRangeAttack = new System.Windows.Forms.CheckBox();
             this.selectapp = new System.Windows.Forms.TabPage();
+            this.showadvHUD = new System.Windows.Forms.CheckBox();
             this.shutdowngroup = new System.Windows.Forms.GroupBox();
             this.label82 = new System.Windows.Forms.Label();
             this.shutdowndate = new System.Windows.Forms.DateTimePicker();
@@ -1031,7 +1034,7 @@
             this.curtarg = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.Shrinkbutton = new System.Windows.Forms.Button();
-            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -1260,13 +1263,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox18.SuspendLayout();
             this.groupBox23.SuspendLayout();
-            this.groupBox24.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkZone
             // 
             this.checkZone.AutoSize = true;
-            this.checkZone.Location = new System.Drawing.Point(178, 209);
+            this.checkZone.Location = new System.Drawing.Point(167, 205);
             this.checkZone.Name = "checkZone";
             this.checkZone.Size = new System.Drawing.Size(91, 17);
             this.checkZone.TabIndex = 51;
@@ -1276,7 +1279,7 @@
             // StopFullInventory
             // 
             this.StopFullInventory.AutoSize = true;
-            this.StopFullInventory.Location = new System.Drawing.Point(24, 192);
+            this.StopFullInventory.Location = new System.Drawing.Point(13, 188);
             this.StopFullInventory.Name = "StopFullInventory";
             this.StopFullInventory.Size = new System.Drawing.Size(129, 17);
             this.StopFullInventory.TabIndex = 50;
@@ -1293,7 +1296,7 @@
             this.groupBox8.Controls.Add(this.selectedNavi);
             this.groupBox8.Controls.Add(this.GetSetNavi);
             this.groupBox8.Enabled = false;
-            this.groupBox8.Location = new System.Drawing.Point(24, 223);
+            this.groupBox8.Location = new System.Drawing.Point(13, 219);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(253, 128);
             this.groupBox8.TabIndex = 49;
@@ -1392,7 +1395,7 @@
             // usenav
             // 
             this.usenav.AutoSize = true;
-            this.usenav.Location = new System.Drawing.Point(24, 209);
+            this.usenav.Location = new System.Drawing.Point(13, 205);
             this.usenav.Name = "usenav";
             this.usenav.Size = new System.Drawing.Size(118, 17);
             this.usenav.TabIndex = 48;
@@ -1407,7 +1410,7 @@
             this.startScriptToolStripMenuItem,
             this.stopScriptToolStripMenuItem,
             this.updateJobToolStripMenuItem});
-            this.StartStopScript.Location = new System.Drawing.Point(31, 355);
+            this.StartStopScript.Location = new System.Drawing.Point(20, 351);
             this.StartStopScript.Name = "StartStopScript";
             this.StartStopScript.Size = new System.Drawing.Size(238, 24);
             this.StartStopScript.TabIndex = 47;
@@ -1443,7 +1446,7 @@
             this.dncControl.Controls.Add(this.flourish);
             this.dncControl.Controls.Add(this.pets);
             this.dncControl.Controls.Add(this.trustControl);
-            this.dncControl.Location = new System.Drawing.Point(10, 40);
+            this.dncControl.Location = new System.Drawing.Point(10, 25);
             this.dncControl.Name = "dncControl";
             this.dncControl.SelectedIndex = 0;
             this.dncControl.Size = new System.Drawing.Size(447, 387);
@@ -2497,6 +2500,7 @@
             // 
             // Options3MainTab
             // 
+            this.Options3MainTab.Controls.Add(this.fullheal);
             this.Options3MainTab.Controls.Add(this.verifyfood);
             this.Options3MainTab.Controls.Add(this.comboBox4);
             this.Options3MainTab.Controls.Add(this.SignetStaff);
@@ -2521,6 +2525,19 @@
             this.Options3MainTab.TabIndex = 0;
             this.Options3MainTab.Text = "Options 3";
             this.Options3MainTab.UseVisualStyleBackColor = true;
+            // 
+            // fullheal
+            // 
+            this.fullheal.AutoSize = true;
+            this.fullheal.Checked = true;
+            this.fullheal.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.fullheal.Location = new System.Drawing.Point(240, 69);
+            this.fullheal.Name = "fullheal";
+            this.fullheal.Size = new System.Drawing.Size(103, 17);
+            this.fullheal.TabIndex = 70;
+            this.fullheal.TabStop = false;
+            this.fullheal.Text = "Full Heal (Mode)";
+            this.fullheal.UseVisualStyleBackColor = true;
             // 
             // verifyfood
             // 
@@ -2882,6 +2899,7 @@
             // 
             // selectapp
             // 
+            this.selectapp.Controls.Add(this.showadvHUD);
             this.selectapp.Controls.Add(this.shutdowngroup);
             this.selectapp.Controls.Add(this.ManualTargMode);
             this.selectapp.Controls.Add(this.EnableDynamis);
@@ -2893,6 +2911,16 @@
             this.selectapp.TabIndex = 8;
             this.selectapp.Text = "Options 5";
             this.selectapp.UseVisualStyleBackColor = true;
+            // 
+            // showadvHUD
+            // 
+            this.showadvHUD.AutoSize = true;
+            this.showadvHUD.Location = new System.Drawing.Point(223, 70);
+            this.showadvHUD.Name = "showadvHUD";
+            this.showadvHUD.Size = new System.Drawing.Size(181, 17);
+            this.showadvHUD.TabIndex = 4;
+            this.showadvHUD.Text = "Show Advaneced In-Game HUD";
+            this.showadvHUD.UseVisualStyleBackColor = true;
             // 
             // shutdowngroup
             // 
@@ -2931,7 +2959,7 @@
             this.shutdowndate.Name = "shutdowndate";
             this.shutdowndate.Size = new System.Drawing.Size(81, 20);
             this.shutdowndate.TabIndex = 11;
-            this.shutdowndate.Value = new System.DateTime(2015, 12, 29, 0, 0, 0, 0);
+            this.shutdowndate.Value = new System.DateTime(2016, 5, 20, 0, 0, 0, 0);
             // 
             // selectedapp
             // 
@@ -3068,7 +3096,7 @@
             // ManualTargMode
             // 
             this.ManualTargMode.AutoSize = true;
-            this.ManualTargMode.Location = new System.Drawing.Point(230, 63);
+            this.ManualTargMode.Location = new System.Drawing.Point(223, 46);
             this.ManualTargMode.Name = "ManualTargMode";
             this.ManualTargMode.Size = new System.Drawing.Size(139, 17);
             this.ManualTargMode.TabIndex = 2;
@@ -3079,7 +3107,7 @@
             // EnableDynamis
             // 
             this.EnableDynamis.AutoSize = true;
-            this.EnableDynamis.Location = new System.Drawing.Point(230, 39);
+            this.EnableDynamis.Location = new System.Drawing.Point(223, 22);
             this.EnableDynamis.Name = "EnableDynamis";
             this.EnableDynamis.Size = new System.Drawing.Size(143, 17);
             this.EnableDynamis.TabIndex = 1;
@@ -7840,7 +7868,7 @@
             // DeathWarp
             // 
             this.DeathWarp.AutoSize = true;
-            this.DeathWarp.Location = new System.Drawing.Point(178, 192);
+            this.DeathWarp.Location = new System.Drawing.Point(167, 188);
             this.DeathWarp.Name = "DeathWarp";
             this.DeathWarp.Size = new System.Drawing.Size(99, 17);
             this.DeathWarp.TabIndex = 52;
@@ -7855,7 +7883,7 @@
             this.groupBox18.Controls.Add(this.playertp);
             this.groupBox18.Controls.Add(this.playermp);
             this.groupBox18.Controls.Add(this.playerhp);
-            this.groupBox18.Location = new System.Drawing.Point(24, 7);
+            this.groupBox18.Location = new System.Drawing.Point(13, 3);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(253, 93);
             this.groupBox18.TabIndex = 53;
@@ -7959,7 +7987,7 @@
             this.groupBox23.Controls.Add(this.curtarg);
             this.groupBox23.Controls.Add(this.curtime);
             this.groupBox23.Controls.Add(this.curtarghpp);
-            this.groupBox23.Location = new System.Drawing.Point(25, 105);
+            this.groupBox23.Location = new System.Drawing.Point(14, 101);
             this.groupBox23.Name = "groupBox23";
             this.groupBox23.Size = new System.Drawing.Size(252, 81);
             this.groupBox23.TabIndex = 54;
@@ -7969,7 +7997,7 @@
             // Shrinkbutton
             // 
             this.Shrinkbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Shrinkbutton.Location = new System.Drawing.Point(5, 164);
+            this.Shrinkbutton.Location = new System.Drawing.Point(0, 129);
             this.Shrinkbutton.Name = "Shrinkbutton";
             this.Shrinkbutton.Size = new System.Drawing.Size(13, 40);
             this.Shrinkbutton.TabIndex = 55;
@@ -7977,22 +8005,21 @@
             this.Shrinkbutton.UseVisualStyleBackColor = true;
             this.Shrinkbutton.Click += new System.EventHandler(this.Shrinkbutton_Click);
             // 
-            // groupBox24
+            // panel1
             // 
-            this.groupBox24.Controls.Add(this.groupBox18);
-            this.groupBox24.Controls.Add(this.Shrinkbutton);
-            this.groupBox24.Controls.Add(this.StartStopScript);
-            this.groupBox24.Controls.Add(this.groupBox23);
-            this.groupBox24.Controls.Add(this.usenav);
-            this.groupBox24.Controls.Add(this.groupBox8);
-            this.groupBox24.Controls.Add(this.DeathWarp);
-            this.groupBox24.Controls.Add(this.StopFullInventory);
-            this.groupBox24.Controls.Add(this.checkZone);
-            this.groupBox24.Location = new System.Drawing.Point(467, 40);
-            this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(283, 387);
-            this.groupBox24.TabIndex = 56;
-            this.groupBox24.TabStop = false;
+            this.panel1.Controls.Add(this.groupBox8);
+            this.panel1.Controls.Add(this.groupBox18);
+            this.panel1.Controls.Add(this.Shrinkbutton);
+            this.panel1.Controls.Add(this.checkZone);
+            this.panel1.Controls.Add(this.StartStopScript);
+            this.panel1.Controls.Add(this.StopFullInventory);
+            this.panel1.Controls.Add(this.groupBox23);
+            this.panel1.Controls.Add(this.DeathWarp);
+            this.panel1.Controls.Add(this.usenav);
+            this.panel1.Location = new System.Drawing.Point(459, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(270, 384);
+            this.panel1.TabIndex = 57;
             // 
             // ScriptFarmDNC
             // 
@@ -8000,11 +8027,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.groupBox24);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dncControl);
             this.Name = "ScriptFarmDNC";
-            this.Padding = new System.Windows.Forms.Padding(0, 0, 5, 25);
-            this.Size = new System.Drawing.Size(758, 455);
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 7, 25);
+            this.Size = new System.Drawing.Size(739, 440);
             this.Load += new System.EventHandler(this.ScriptFarmDncLoad);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -8306,8 +8333,8 @@
             this.groupBox18.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
-            this.groupBox24.ResumeLayout(false);
-            this.groupBox24.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -8974,6 +9001,10 @@
         {
             if (ManualTargMode.Checked) usenav.Checked = false;
             usenav.Enabled = !ManualTargMode.Checked;
+            if (ManualTargMode.Checked)
+                targeting = "Manual";
+            else
+                targeting = "Auto";
         }
         private void verifyfood_Click(object sender, EventArgs e)
         {
@@ -9140,13 +9171,13 @@
             if (dncControl.Visible)
             {
                 dncControl.Visible = false;
-                groupBox24.Location = new Point(10, 40);
+                panel1.Location = new Point(10, 25);
                 Shrinkbutton.Text = ">>";
             }
             else
             {
                 dncControl.Visible = true;
-                groupBox24.Location = new Point(467, 40);
+                panel1.Location = new Point(459, 25);
                 Shrinkbutton.Text = "<<";
             }
         }
@@ -12487,8 +12518,11 @@
         }
 
         private Button Shrinkbutton;
-        private GroupBox groupBox24;
+        private CheckBox showadvHUD;
+        private Panel panel1;
+        public CheckBox fullheal;
         #endregion
+
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo
