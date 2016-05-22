@@ -13,6 +13,7 @@
         private readonly UserControl x3;
         private readonly UserControl x4;
         public string TopMostDisplay = "Main";
+        public bool hudactive = false;
         /// <summary>
         /// Required designer variable.
         /// </summary>

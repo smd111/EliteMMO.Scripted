@@ -345,11 +345,15 @@
             api.ThirdParty.SetFont("ScriptedHUD", "Arial", 10);
             api.ThirdParty.SetText("ScriptedHUD", "Scripted:Loading...");
             api.ThirdParty.FlushCommands();
+            hudactive = true;
         }
         private void close()
         {
-            api.ThirdParty.DeleteTextObject("ScriptedHUD");
-            api.ThirdParty.FlushCommands();
+            if (hudactive)
+            {
+                api.ThirdParty.DeleteTextObject("ScriptedHUD");
+                api.ThirdParty.FlushCommands();
+            }
             Application.Exit();
         }
     }
