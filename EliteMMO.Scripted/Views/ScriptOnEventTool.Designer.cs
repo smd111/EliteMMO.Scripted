@@ -11,7 +11,7 @@ namespace EliteMMO.Scripted.Views
     {
         private static EliteAPI api;
 
-        public bool botRunning = false;
+        public static bool botRunning = false;
         public string fileXML;
         public string _ext;
         /// <summary> 

@@ -13,6 +13,7 @@
     {
         ScriptFarmDNC farmbot;
         ScriptNaviMap navbot;
+        ScriptOnEventTool oneventbot;
         public MainWindow(EliteAPI core)
         {
             InitializeComponent();
@@ -47,7 +48,8 @@
             x2 = new ScriptHealing(api);
             navbot = new ScriptNaviMap(api);
             x3 = navbot;
-            x4 = new ScriptOnEventTool(api);
+            oneventbot = new ScriptOnEventTool(api);
+            x4 = oneventbot;
 
             string apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
             string mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
@@ -122,7 +124,7 @@
                 api.Reinitialize(dats.Id);
                 xStatusLabel.Text = @":: " + api.Entity.GetLocalPlayer().Name + @" ::";
             }
-            startHUD();
+            //startHUD();
         }
 
         private void FarmDncToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -166,7 +168,8 @@
             saveSettingsToolStripMenuItem.Enabled = true;
             #endregion
 
-            TopMostDisplay = "FarmBot";
+            TopMostDisplay = "FarmBot"; ;
+            farmbot.currentbot = "FarmBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
             
             x1.AutoSize = true;
@@ -178,8 +181,8 @@
             Dock = DockStyle.Fill;
             if (!farmbot.bgw_script_disp.IsBusy)
                 farmbot.bgw_script_disp.RunWorkerAsync();
-            api.ThirdParty.SetText("ScriptedHUD", "Scripted:FarmBot");
-            api.ThirdParty.FlushCommands();
+            /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:FarmBot");
+            api.ThirdParty.FlushCommands();*/
         }
 
         private void HealingSupportToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -206,6 +209,7 @@
             #endregion
 
             TopMostDisplay = "HealingBot";
+            farmbot.currentbot = "HealingBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
 
             x2.AutoSize = true;
@@ -216,8 +220,8 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             if (farmbot.bgw_script_disp.IsBusy)
                 farmbot.bgw_script_disp.CancelAsync();
-            api.ThirdParty.SetText("ScriptedHUD", "Scripted:HealingBot");
-            api.ThirdParty.FlushCommands();
+            /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:HealingBot");
+            api.ThirdParty.FlushCommands();*/
         }
 
         private void AboutToolStripMenuItemClick(object sender, System.EventArgs e)
@@ -272,6 +276,7 @@
             #endregion
 
             TopMostDisplay = "NavBot";
+            farmbot.currentbot = "NavBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
             
             x3.AutoSize = true;
@@ -282,8 +287,8 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             if (farmbot.botRunning) farmbot.stopScriptToolStripMenuItem.PerformClick();
             if (farmbot.bgw_script_disp.IsBusy) farmbot.bgw_script_disp.CancelAsync();
-            api.ThirdParty.SetText("ScriptedHUD", "Scripted:NavBot");
-            api.ThirdParty.FlushCommands();
+            /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:NavBot");
+            api.ThirdParty.FlushCommands();*/
         }
 
         private void OnEventToolStripMenuItemClick(object sender, EventArgs e)
@@ -310,6 +315,7 @@
             #endregion
 
             TopMostDisplay = "OnEventBot";
+            farmbot.currentbot = "OnEventBot";
             refreshCharactersToolStripMenuItem.Enabled = false;
             
             x4.AutoSize = true;
@@ -318,8 +324,8 @@
             Controls.Add(x4);
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            api.ThirdParty.SetText("ScriptedHUD", "Scripted:OnEventBot");
-            api.ThirdParty.FlushCommands();
+            /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:OnEventBot");
+            api.ThirdParty.FlushCommands();*/
         }
 
         private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -338,7 +344,7 @@
         {
             Process.Start(Application.StartupPath + @"\Scripted Manual.pdf");
         }
-        private void startHUD()
+        /*private void startHUD()
         {
             api.ThirdParty.CreateTextObject("ScriptedHUD");
             api.ThirdParty.SetVisibility("ScriptedHUD", true);
@@ -346,14 +352,14 @@
             api.ThirdParty.SetText("ScriptedHUD", "Scripted:Loading...");
             api.ThirdParty.FlushCommands();
             hudactive = true;
-        }
+        }*/
         private void close()
         {
-            if (hudactive)
+            /*if (hudactive)
             {
                 api.ThirdParty.DeleteTextObject("ScriptedHUD");
                 api.ThirdParty.FlushCommands();
-            }
+            }*/
             Application.Exit();
         }
     }

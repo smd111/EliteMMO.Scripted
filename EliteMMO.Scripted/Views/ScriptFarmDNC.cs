@@ -605,26 +605,39 @@
             var lastCommand = 0;
             while (!bgw_script_disp.CancellationPending)
             {
-                var msg = $"Scripted:FarmBot|Targeting: {targeting}|Running: {(botRunning ? "YES" : "NO")}";
-                if (showadvHUD.Checked)
+                if (showHUD.Checked && hudshow)
                 {
-                    msg = $"Scripted:FarmBot\nTargeting: {targeting}";
-                    msg = msg + $"\nHP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
-                    msg = msg + $"\nMP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
-                    msg = msg + $"\nTP: {PlayerInfo.TP}";
-                    msg = msg + $"\nHP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
-                    msg = msg + $"\nHP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
-                    if (PlayerInfo.MainJobLevel == 99)
-                        msg = msg + $"\nJob Points: {PlayerInfo.UseableJobPoints}/500";
-                    if (PlayerInfo.MainJobLevel >= 75)
-                        msg = msg + $"\nMerit Points: {PlayerInfo.MeritPoints}/75";
-                    msg = msg + $"\nCurrent Target: {TargetInfo.Name}";
-                    msg = msg + $"\nTarget HP: {TargetInfo.HPP}%";
-                    msg = msg + $"\nCurrent Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
-                    msg = msg + $"\nRunning: {(botRunning ? "YES" : "NO")}";
+                    var msg = $"Scripted:{currentbot}|";
+                    if (currentbot == "FarmBot")
+                    {
+                        msg = msg + $"Targeting: {targeting}|Running: {(botRunning ? "YES" : "NO")}";
+                        if (showHUD.CheckState == CheckState.Indeterminate)
+                        {
+                            msg = $"Scripted:FarmBot\nTargeting: {targeting}";
+                            msg = msg + $"\nHP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
+                            msg = msg + $"\nMP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
+                            msg = msg + $"\nTP: {PlayerInfo.TP}";
+                            msg = msg + $"\nHP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
+                            msg = msg + $"\nHP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
+                            if (PlayerInfo.MainJobLevel == 99)
+                                msg = msg + $"\nJob Points: {PlayerInfo.UseableJobPoints}/500";
+                            if (PlayerInfo.MainJobLevel >= 75)
+                                msg = msg + $"\nMerit Points: {PlayerInfo.MeritPoints}/75";
+                            msg = msg + $"\nCurrent Target: {TargetInfo.Name}";
+                            msg = msg + $"\nTarget HP: {TargetInfo.HPP}%";
+                            msg = msg + $"\nCurrent Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
+                            msg = msg + $"\nRunning: {(botRunning ? "YES" : "NO")}";
+                        }
+                    }
+                    else if (currentbot == "NavBot")
+                        msg = msg + $"{(ScriptNaviMap.isPlaying ? "Runing Nav" : (ScriptNaviMap.isRecording ? "Recording Nav" : "Stopped"))}";
+                    else if (currentbot == "OnEventBot")
+                        msg = msg + $"Running: {(ScriptOnEventTool.botRunning ? "YES" : "NO")}";
+
+                    api.ThirdParty.SetText("ScriptedHUD", msg);
+                    api.ThirdParty.SetLocation("ScriptedHUD", Int32.Parse(hudX.Text), Int32.Parse(hudY.Text));
+                    api.ThirdParty.FlushCommands();
                 }
-                api.ThirdParty.SetText("ScriptedHUD", msg);
-                api.ThirdParty.FlushCommands();
                 playerhp.Text = $"HP: {PlayerInfo.HP}/{PlayerInfo.MaxHP}";
                 playermp.Text = $"MP: {PlayerInfo.MP}/{PlayerInfo.MaxMP}";
                 playertp.Text = $"TP: {PlayerInfo.TP}";
@@ -678,5 +691,24 @@
             MessageBox.Show(message);*/
         }
         #endregion
+
+        private void showHUD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showHUD.Checked)
+            {
+                api.ThirdParty.CreateTextObject("ScriptedHUD");
+                api.ThirdParty.SetVisibility("ScriptedHUD", true);
+                api.ThirdParty.SetFont("ScriptedHUD", "Arial", 10);
+                api.ThirdParty.FlushCommands();
+                hudshow = true;
+            }
+            else
+            {
+                api.ThirdParty.DeleteTextObject("ScriptedHUD");
+                api.ThirdParty.FlushCommands();
+                hudshow = false;
+            }
+
+        }
     }
 }

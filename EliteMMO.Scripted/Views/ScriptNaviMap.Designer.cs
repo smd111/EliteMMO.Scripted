@@ -10,8 +10,8 @@
         #region Variables
         #region Variables: (Controle/System)
         public bool isRunning = false;
-        public bool isRecording = false;
-        public bool isPlaying = false;
+        public static bool isRecording = false;
+        public static bool isPlaying = false;
         public bool isPaused = false;
         #endregion
         #region Variables: (NAV)

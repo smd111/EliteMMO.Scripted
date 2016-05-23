@@ -32,6 +32,8 @@
         public string PreHealMain = "";
         public string PreHealSub = "";
         public string targeting = "Auto";
+        public string currentbot = "FarmBot";
+        public bool hudshow = false;
         #endregion
         #region Variables: (NAV)
         public bool OpenDoor = false;
@@ -613,7 +615,11 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.autoRangeAttack = new System.Windows.Forms.CheckBox();
             this.selectapp = new System.Windows.Forms.TabPage();
-            this.showadvHUD = new System.Windows.Forms.CheckBox();
+            this.hudY = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.hudX = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.showHUD = new System.Windows.Forms.CheckBox();
             this.shutdowngroup = new System.Windows.Forms.GroupBox();
             this.label82 = new System.Windows.Forms.Label();
             this.shutdowndate = new System.Windows.Forms.DateTimePicker();
@@ -2899,7 +2905,11 @@
             // 
             // selectapp
             // 
-            this.selectapp.Controls.Add(this.showadvHUD);
+            this.selectapp.Controls.Add(this.hudY);
+            this.selectapp.Controls.Add(this.label62);
+            this.selectapp.Controls.Add(this.hudX);
+            this.selectapp.Controls.Add(this.label60);
+            this.selectapp.Controls.Add(this.showHUD);
             this.selectapp.Controls.Add(this.shutdowngroup);
             this.selectapp.Controls.Add(this.ManualTargMode);
             this.selectapp.Controls.Add(this.EnableDynamis);
@@ -2912,15 +2922,55 @@
             this.selectapp.Text = "Options 5";
             this.selectapp.UseVisualStyleBackColor = true;
             // 
-            // showadvHUD
+            // hudY
             // 
-            this.showadvHUD.AutoSize = true;
-            this.showadvHUD.Location = new System.Drawing.Point(223, 70);
-            this.showadvHUD.Name = "showadvHUD";
-            this.showadvHUD.Size = new System.Drawing.Size(181, 17);
-            this.showadvHUD.TabIndex = 4;
-            this.showadvHUD.Text = "Show Advaneced In-Game HUD";
-            this.showadvHUD.UseVisualStyleBackColor = true;
+            this.hudY.Location = new System.Drawing.Point(335, 77);
+            this.hudY.MaxLength = 2;
+            this.hudY.Name = "hudY";
+            this.hudY.Size = new System.Drawing.Size(27, 20);
+            this.hudY.TabIndex = 8;
+            this.hudY.Text = "0";
+            this.hudY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(319, 80);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(17, 13);
+            this.label62.TabIndex = 7;
+            this.label62.Text = "Y:";
+            // 
+            // hudX
+            // 
+            this.hudX.Location = new System.Drawing.Point(293, 77);
+            this.hudX.MaxLength = 2;
+            this.hudX.Name = "hudX";
+            this.hudX.Size = new System.Drawing.Size(27, 20);
+            this.hudX.TabIndex = 6;
+            this.hudX.Text = "0";
+            this.hudX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(247, 80);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(48, 13);
+            this.label60.TabIndex = 5;
+            this.label60.Text = "(POS) X:";
+            // 
+            // showHUD
+            // 
+            this.showHUD.AutoSize = true;
+            this.showHUD.Location = new System.Drawing.Point(223, 60);
+            this.showHUD.Name = "showHUD";
+            this.showHUD.Size = new System.Drawing.Size(181, 17);
+            this.showHUD.TabIndex = 4;
+            this.showHUD.Text = "In-Game HUD (Fill for ADV HUD)";
+            this.showHUD.ThreeState = true;
+            this.showHUD.UseVisualStyleBackColor = true;
+            this.showHUD.CheckedChanged += new System.EventHandler(this.showHUD_CheckedChanged);
             // 
             // shutdowngroup
             // 
@@ -2959,7 +3009,7 @@
             this.shutdowndate.Name = "shutdowndate";
             this.shutdowndate.Size = new System.Drawing.Size(81, 20);
             this.shutdowndate.TabIndex = 11;
-            this.shutdowndate.Value = new System.DateTime(2016, 5, 20, 0, 0, 0, 0);
+            this.shutdowndate.Value = new System.DateTime(2016, 5, 23, 0, 0, 0, 0);
             // 
             // selectedapp
             // 
@@ -3096,7 +3146,7 @@
             // ManualTargMode
             // 
             this.ManualTargMode.AutoSize = true;
-            this.ManualTargMode.Location = new System.Drawing.Point(223, 46);
+            this.ManualTargMode.Location = new System.Drawing.Point(223, 37);
             this.ManualTargMode.Name = "ManualTargMode";
             this.ManualTargMode.Size = new System.Drawing.Size(139, 17);
             this.ManualTargMode.TabIndex = 2;
@@ -3107,7 +3157,7 @@
             // EnableDynamis
             // 
             this.EnableDynamis.AutoSize = true;
-            this.EnableDynamis.Location = new System.Drawing.Point(223, 22);
+            this.EnableDynamis.Location = new System.Drawing.Point(223, 14);
             this.EnableDynamis.Name = "EnableDynamis";
             this.EnableDynamis.Size = new System.Drawing.Size(143, 17);
             this.EnableDynamis.TabIndex = 1;
@@ -12505,10 +12555,19 @@
                 startScriptToolStripMenuItem.PerformClick();
             else if (cmd1 == "stop")
                 stopScriptToolStripMenuItem.PerformClick();
-            /*else if (cmd1 == "toggle")
+            else if (cmd1 == "toggle")
             {
                 string cmd2 = api.ThirdParty.ConsoleGetArg(2).ToLower();
-            }*/
+                if (cmd2 == "farmbot")
+                {
+                    if (botRunning)
+                        stopScriptToolStripMenuItem.PerformClick();
+                    else
+                        startScriptToolStripMenuItem.PerformClick();
+                }
+                else if (cmd2 == "eventbot")
+                    ScriptOnEventTool.botRunning = !ScriptOnEventTool.botRunning;
+            }
             /*else if (cmd1 == "set")
             {
                 string cmd2 = api.ThirdParty.ConsoleGetArg(2).ToLower();
@@ -12518,9 +12577,13 @@
         }
 
         private Button Shrinkbutton;
-        private CheckBox showadvHUD;
+        private CheckBox showHUD;
         private Panel panel1;
         public CheckBox fullheal;
+        private Label label62;
+        private Label label60;
+        private TextBox hudY;
+        private TextBox hudX;
         #endregion
 
         #region Methods: EliteMMO
