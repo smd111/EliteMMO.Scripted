@@ -502,523 +502,523 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkZone = new System.Windows.Forms.CheckBox();
-            this.StopFullInventory = new System.Windows.Forms.CheckBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.firstPersonView = new System.Windows.Forms.CheckBox();
-            this.runReverse = new System.Windows.Forms.CheckBox();
-            this.Linear = new System.Windows.Forms.RadioButton();
-            this.Circular = new System.Windows.Forms.RadioButton();
-            this.selectedNavi = new System.Windows.Forms.ComboBox();
-            this.GetSetNavi = new System.Windows.Forms.MenuStrip();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.navStuckWatch = new System.Windows.Forms.CheckBox();
-            this.usenav = new System.Windows.Forms.CheckBox();
-            this.StartStopScript = new System.Windows.Forms.MenuStrip();
-            this.startScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dncControl = new System.Windows.Forms.TabControl();
-            this.targets = new System.Windows.Forms.TabPage();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.ZoneTargets = new System.Windows.Forms.MenuStrip();
-            this.NameListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.TargetList = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.GetSetTargets = new System.Windows.Forms.MenuStrip();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selecttargets = new System.Windows.Forms.GroupBox();
-            this.SelectedTargets = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.combat = new System.Windows.Forms.TabPage();
-            this.CombatSettingsTabs = new System.Windows.Forms.TabControl();
-            this.Options1MainTab = new System.Windows.Forms.TabPage();
-            this.HateControlgroup = new System.Windows.Forms.GroupBox();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.selectedHateControl = new System.Windows.Forms.ComboBox();
-            this.tank = new System.Windows.Forms.CheckBox();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.amname = new System.Windows.Forms.ComboBox();
-            this.AfterMathTier = new System.Windows.Forms.NumericUpDown();
-            this.wsam = new System.Windows.Forms.CheckBox();
-            this.WSDistance = new System.Windows.Forms.CheckBox();
-            this.selectedWS = new System.Windows.Forms.ComboBox();
-            this.WSDistanceset = new System.Windows.Forms.NumericUpDown();
-            this.ws = new System.Windows.Forms.CheckBox();
-            this.WStp = new System.Windows.Forms.NumericUpDown();
-            this.label29 = new System.Windows.Forms.Label();
-            this.TragetHPPtop = new System.Windows.Forms.NumericUpDown();
-            this.label28 = new System.Windows.Forms.Label();
-            this.TragetHPPbottom = new System.Windows.Forms.NumericUpDown();
-            this.label27 = new System.Windows.Forms.Label();
-            this.Options2MainTab = new System.Windows.Forms.TabPage();
-            this.numericUpDown38 = new System.Windows.Forms.NumericUpDown();
-            this.aggroRange = new System.Windows.Forms.NumericUpDown();
-            this.ScanDelay = new System.Windows.Forms.CheckBox();
-            this.KeepTargetRange = new System.Windows.Forms.NumericUpDown();
-            this.assistDist = new System.Windows.Forms.NumericUpDown();
-            this.followDist = new System.Windows.Forms.NumericUpDown();
-            this.partyAssist = new System.Windows.Forms.CheckBox();
-            this.facetarget = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.assist = new System.Windows.Forms.CheckBox();
-            this.followplayer = new System.Windows.Forms.CheckBox();
-            this.followName = new System.Windows.Forms.TextBox();
-            this.useshadows = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.assistplayer = new System.Windows.Forms.TextBox();
-            this.aggro = new System.Windows.Forms.CheckBox();
-            this.mobdist = new System.Windows.Forms.CheckBox();
-            this.Options3MainTab = new System.Windows.Forms.TabPage();
-            this.fullheal = new System.Windows.Forms.CheckBox();
-            this.verifyfood = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.SignetStaff = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.useStaff = new System.Windows.Forms.CheckBox();
-            this.foodName = new System.Windows.Forms.TextBox();
-            this.healMPcount = new System.Windows.Forms.NumericUpDown();
-            this.usefood = new System.Windows.Forms.CheckBox();
-            this.HealMP = new System.Windows.Forms.CheckBox();
-            this.healHPcount = new System.Windows.Forms.NumericUpDown();
-            this.RecordIdleLocation = new System.Windows.Forms.Button();
-            this.WeakLocation = new System.Windows.Forms.CheckBox();
-            this.HealHP = new System.Windows.Forms.CheckBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.IdleLocation = new System.Windows.Forms.CheckBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.Options4MainTab = new System.Windows.Forms.TabPage();
-            this.NotinBattle = new System.Windows.Forms.GroupBox();
-            this.UseJigs = new System.Windows.Forms.CheckBox();
-            this.ChocoboJigII = new System.Windows.Forms.RadioButton();
-            this.ChocoboJig = new System.Windows.Forms.RadioButton();
-            this.SpectralJig = new System.Windows.Forms.RadioButton();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.autoRangeDelay = new System.Windows.Forms.NumericUpDown();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.rangeaggro = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.autoRangeAttack = new System.Windows.Forms.CheckBox();
-            this.selectapp = new System.Windows.Forms.TabPage();
-            this.hudY = new System.Windows.Forms.TextBox();
-            this.label62 = new System.Windows.Forms.Label();
-            this.hudX = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.showHUD = new System.Windows.Forms.CheckBox();
-            this.shutdowngroup = new System.Windows.Forms.GroupBox();
-            this.label82 = new System.Windows.Forms.Label();
-            this.shutdowndate = new System.Windows.Forms.DateTimePicker();
-            this.selectedapp = new System.Windows.Forms.ComboBox();
-            this.groupBox25 = new System.Windows.Forms.GroupBox();
-            this.twentyfourHour = new System.Windows.Forms.RadioButton();
-            this.twelveHour = new System.Windows.Forms.RadioButton();
-            this.twelveHRgroup = new System.Windows.Forms.GroupBox();
-            this.PMtime = new System.Windows.Forms.RadioButton();
-            this.AMtime = new System.Windows.Forms.RadioButton();
-            this.ShutdownTimeHr = new System.Windows.Forms.TextBox();
-            this.Shutdownenable = new System.Windows.Forms.CheckBox();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.ShutdownTimeMin = new System.Windows.Forms.TextBox();
-            this.ManualTargMode = new System.Windows.Forms.CheckBox();
-            this.EnableDynamis = new System.Windows.Forms.CheckBox();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.label65 = new System.Windows.Forms.Label();
-            this.StuckDistance = new System.Windows.Forms.NumericUpDown();
-            this.mobStuckWatch = new System.Windows.Forms.CheckBox();
-            this.OptionsJAMainTab = new System.Windows.Forms.TabPage();
-            this.JAtabselect = new System.Windows.Forms.TabControl();
-            this.selectPage = new System.Windows.Forms.TabPage();
-            this.playerJA = new System.Windows.Forms.CheckedListBox();
-            this.GetSetJA = new System.Windows.Forms.MenuStrip();
-            this.loadJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WHMpage = new System.Windows.Forms.TabPage();
-            this.benedictiongroupBox = new System.Windows.Forms.GroupBox();
-            this.BenedictionHPPuse = new System.Windows.Forms.NumericUpDown();
-            this.benedictiontext = new System.Windows.Forms.Label();
-            this.RDMpage = new System.Windows.Forms.TabPage();
-            this.Convertgroup = new System.Windows.Forms.GroupBox();
-            this.ConvertHPP = new System.Windows.Forms.NumericUpDown();
-            this.ConvertMPP = new System.Windows.Forms.NumericUpDown();
-            this.ConvertMP = new System.Windows.Forms.RadioButton();
-            this.ConvertHP = new System.Windows.Forms.RadioButton();
-            this.convertmptext = new System.Windows.Forms.Label();
-            this.converthptext = new System.Windows.Forms.Label();
-            this.samPage = new System.Windows.Forms.TabPage();
-            this.label58 = new System.Windows.Forms.Label();
-            this.sekkanokiWs = new System.Windows.Forms.ComboBox();
-            this.SCHpage = new System.Windows.Forms.TabPage();
-            this.Sublimationcount = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.RUNpage = new System.Windows.Forms.TabPage();
-            this.VivaciousPulseHP = new System.Windows.Forms.NumericUpDown();
-            this.VivaciousPulse = new System.Windows.Forms.CheckBox();
-            this.MONpage = new System.Windows.Forms.TabPage();
-            this.MONmpCount = new System.Windows.Forms.NumericUpDown();
-            this.MONhpCount = new System.Windows.Forms.NumericUpDown();
-            this.monmptext = new System.Windows.Forms.Label();
-            this.monhptext = new System.Windows.Forms.Label();
-            this.OptionsMAMainTab = new System.Windows.Forms.TabPage();
-            this.MAtabs = new System.Windows.Forms.TabControl();
-            this.MASelectPage = new System.Windows.Forms.TabPage();
-            this.playerMA = new System.Windows.Forms.CheckedListBox();
-            this.GetSetMA = new System.Windows.Forms.MenuStrip();
-            this.loadMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CureConfigPage = new System.Windows.Forms.TabPage();
-            this.CuraIIcount = new System.Windows.Forms.NumericUpDown();
-            this.Curacount = new System.Windows.Forms.NumericUpDown();
-            this.CureIIIcount = new System.Windows.Forms.NumericUpDown();
-            this.CureIIcount = new System.Windows.Forms.NumericUpDown();
-            this.Curecount = new System.Windows.Forms.NumericUpDown();
-            this.CuraIIIcount = new System.Windows.Forms.NumericUpDown();
-            this.FullCurecount = new System.Windows.Forms.NumericUpDown();
-            this.CureVIcount = new System.Windows.Forms.NumericUpDown();
-            this.CureVcount = new System.Windows.Forms.NumericUpDown();
-            this.CureIVcount = new System.Windows.Forms.NumericUpDown();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PartyCurepage = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ptCure = new System.Windows.Forms.CheckBox();
-            this.FullCureptcount = new System.Windows.Forms.NumericUpDown();
-            this.label80 = new System.Windows.Forms.Label();
-            this.CureVIptcount = new System.Windows.Forms.NumericUpDown();
-            this.label74 = new System.Windows.Forms.Label();
-            this.CureVptcount = new System.Windows.Forms.NumericUpDown();
-            this.CureIVptcount = new System.Windows.Forms.NumericUpDown();
-            this.CureIIIptcount = new System.Windows.Forms.NumericUpDown();
-            this.label75 = new System.Windows.Forms.Label();
-            this.CureIIptcount = new System.Windows.Forms.NumericUpDown();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.Cureptcount = new System.Windows.Forms.NumericUpDown();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.CurePTlist = new System.Windows.Forms.CheckedListBox();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Cureagapage = new System.Windows.Forms.TabPage();
-            this.label39 = new System.Windows.Forms.Label();
-            this.CuragaVcount = new System.Windows.Forms.NumericUpDown();
-            this.CuragaIVcount = new System.Windows.Forms.NumericUpDown();
-            this.CuragaIIIcount = new System.Windows.Forms.NumericUpDown();
-            this.CuragaIIcount = new System.Windows.Forms.NumericUpDown();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.Curagacount = new System.Windows.Forms.NumericUpDown();
-            this.DrainAspirpage = new System.Windows.Forms.TabPage();
-            this.Aspirgroup = new System.Windows.Forms.GroupBox();
-            this.AspirIIIcount = new System.Windows.Forms.NumericUpDown();
-            this.AspirIIcount = new System.Windows.Forms.NumericUpDown();
-            this.AspirIIItext = new System.Windows.Forms.Label();
-            this.AspirItext = new System.Windows.Forms.Label();
-            this.AspirIItext = new System.Windows.Forms.Label();
-            this.Aspircount = new System.Windows.Forms.NumericUpDown();
-            this.Draingroup = new System.Windows.Forms.GroupBox();
-            this.DrainIItext = new System.Windows.Forms.Label();
-            this.Draincount = new System.Windows.Forms.NumericUpDown();
-            this.DrainItext = new System.Windows.Forms.Label();
-            this.DrainIIItext = new System.Windows.Forms.Label();
-            this.DrainIIIcount = new System.Windows.Forms.NumericUpDown();
-            this.DrainIIcount = new System.Windows.Forms.NumericUpDown();
-            this.BLUCurespage = new System.Windows.Forms.TabPage();
-            this.MagicFruitcount = new System.Windows.Forms.NumericUpDown();
-            this.Pollencount = new System.Windows.Forms.NumericUpDown();
-            this.HealingBreezecount = new System.Windows.Forms.NumericUpDown();
-            this.PleniluneEmbracecount = new System.Windows.Forms.NumericUpDown();
-            this.Restoralcount = new System.Windows.Forms.NumericUpDown();
-            this.WhiteWindcount = new System.Windows.Forms.NumericUpDown();
-            this.Exuviationcount = new System.Windows.Forms.NumericUpDown();
-            this.WildCarrotcount = new System.Windows.Forms.NumericUpDown();
-            this.PleniluneEmbracetext = new System.Windows.Forms.Label();
-            this.MagicFruittext = new System.Windows.Forms.Label();
-            this.HealingBreezetext = new System.Windows.Forms.Label();
-            this.Pollentext = new System.Windows.Forms.Label();
-            this.WhiteWindtext = new System.Windows.Forms.Label();
-            this.Restoraltext = new System.Windows.Forms.Label();
-            this.Exuviationtext = new System.Windows.Forms.Label();
-            this.WildCarrottext = new System.Windows.Forms.Label();
-            this.MAconfigpage = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.MAreverse = new System.Windows.Forms.CheckBox();
-            this.Dynamispage = new System.Windows.Forms.TabPage();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.NoneProcuse = new System.Windows.Forms.CheckBox();
-            this.DynaProccontrole = new System.Windows.Forms.CheckBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.Dynatxt = new System.Windows.Forms.Label();
-            this.staggerstopJA = new System.Windows.Forms.CheckBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.delaytext = new System.Windows.Forms.Label();
-            this.pullDelay = new System.Windows.Forms.NumericUpDown();
-            this.AutoLock = new System.Windows.Forms.CheckBox();
-            this.mobheightdistValue = new System.Windows.Forms.NumericUpDown();
-            this.mobheightdist = new System.Windows.Forms.CheckBox();
-            this.runTarget = new System.Windows.Forms.CheckBox();
-            this.runPullDistance = new System.Windows.Forms.CheckBox();
-            this.mobsearchdisttext = new System.Windows.Forms.Label();
-            this.targetSearchDist = new System.Windows.Forms.NumericUpDown();
-            this.pullTolorance = new System.Windows.Forms.NumericUpDown();
-            this.pulltolorancetext = new System.Windows.Forms.Label();
-            this.numericUpDown21 = new System.Windows.Forms.NumericUpDown();
-            this.pulldistance = new System.Windows.Forms.Label();
-            this.pullCommand = new System.Windows.Forms.TextBox();
-            this.pullcommandtext = new System.Windows.Forms.Label();
-            this.dancer = new System.Windows.Forms.TabPage();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.noSamba = new System.Windows.Forms.RadioButton();
-            this.usedrainiii = new System.Windows.Forms.RadioButton();
-            this.usehaste = new System.Windows.Forms.RadioButton();
-            this.useaspirii = new System.Windows.Forms.RadioButton();
-            this.useaspir = new System.Windows.Forms.RadioButton();
-            this.usedrainii = new System.Windows.Forms.RadioButton();
-            this.usedrain = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.stopstepsat = new System.Windows.Forms.CheckBox();
-            this.stopstepscount = new System.Windows.Forms.NumericUpDown();
-            this.stopstepsathptext = new System.Windows.Forms.Label();
-            this.usefeatherstepValue = new System.Windows.Forms.NumericUpDown();
-            this.usestutterstepValue = new System.Windows.Forms.NumericUpDown();
-            this.useboxstepValue = new System.Windows.Forms.NumericUpDown();
-            this.StepsHPValue = new System.Windows.Forms.NumericUpDown();
-            this.usequickstepValue = new System.Windows.Forms.NumericUpDown();
-            this.StepsHP = new System.Windows.Forms.CheckBox();
-            this.NoSteps = new System.Windows.Forms.RadioButton();
-            this.usequickstep = new System.Windows.Forms.RadioButton();
-            this.useboxstep = new System.Windows.Forms.RadioButton();
-            this.usestutterstep = new System.Windows.Forms.RadioButton();
-            this.usefeatherstep = new System.Windows.Forms.RadioButton();
-            this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.HWSelectDeselectALL = new System.Windows.Forms.CheckBox();
-            this.HealingWaltzItems = new System.Windows.Forms.CheckedListBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.usecurevValue = new System.Windows.Forms.NumericUpDown();
-            this.usecureivValue = new System.Windows.Forms.NumericUpDown();
-            this.usecureiiiValue = new System.Windows.Forms.NumericUpDown();
-            this.usecureiiValue = new System.Windows.Forms.NumericUpDown();
-            this.usecureValue = new System.Windows.Forms.NumericUpDown();
-            this.usecurev = new System.Windows.Forms.CheckBox();
-            this.usecureiv = new System.Windows.Forms.CheckBox();
-            this.usecureiii = new System.Windows.Forms.CheckBox();
-            this.usecureii = new System.Windows.Forms.CheckBox();
-            this.usecure = new System.Windows.Forms.CheckBox();
-            this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.PartyWaltsList = new System.Windows.Forms.CheckedListBox();
-            this.addplayertext = new System.Windows.Forms.Label();
-            this.WaltzPTadd = new System.Windows.Forms.TextBox();
-            this.groupBox21 = new System.Windows.Forms.GroupBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.numericUpDown27 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown28 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown29 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown32 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown33 = new System.Windows.Forms.NumericUpDown();
-            this.ptusecurev = new System.Windows.Forms.CheckBox();
-            this.ptusecureiv = new System.Windows.Forms.CheckBox();
-            this.ptusecureiii = new System.Windows.Forms.CheckBox();
-            this.ptusecureii = new System.Windows.Forms.CheckBox();
-            this.ptusecure = new System.Windows.Forms.CheckBox();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.GetSetParty = new System.Windows.Forms.MenuStrip();
-            this.loadPartyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearPartyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label15 = new System.Windows.Forms.Label();
-            this.flourish = new System.Windows.Forms.TabPage();
-            this.flourishesiiigroup = new System.Windows.Forms.GroupBox();
-            this.useclmfloValue = new System.Windows.Forms.NumericUpDown();
-            this.usestkfloValue = new System.Windows.Forms.NumericUpDown();
-            this.useterfloValue = new System.Windows.Forms.NumericUpDown();
-            this.usestkflo = new System.Windows.Forms.RadioButton();
-            this.useclmflo = new System.Windows.Forms.RadioButton();
-            this.useterflo = new System.Windows.Forms.RadioButton();
-            this.finsishingmovetext = new System.Windows.Forms.Label();
-            this.FlourishTPValue = new System.Windows.Forms.NumericUpDown();
-            this.flourishesiigroup = new System.Windows.Forms.GroupBox();
-            this.usewldfloValue = new System.Windows.Forms.NumericUpDown();
-            this.usebldfloValue = new System.Windows.Forms.NumericUpDown();
-            this.userevfloValue = new System.Windows.Forms.NumericUpDown();
-            this.usewldflo = new System.Windows.Forms.RadioButton();
-            this.usebldflo = new System.Windows.Forms.RadioButton();
-            this.userevflo = new System.Windows.Forms.RadioButton();
-            this.FlourishTP = new System.Windows.Forms.CheckBox();
-            this.flourishesigroup = new System.Windows.Forms.GroupBox();
-            this.useviofloValue = new System.Windows.Forms.NumericUpDown();
-            this.usevioflo = new System.Windows.Forms.RadioButton();
-            this.usedesfloValue = new System.Windows.Forms.NumericUpDown();
-            this.usedesflo = new System.Windows.Forms.RadioButton();
-            this.pets = new System.Windows.Forms.TabPage();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.petControl = new System.Windows.Forms.TabControl();
-            this.bstpettab = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
-            this.BstJATP = new System.Windows.Forms.NumericUpDown();
-            this.usepetja = new System.Windows.Forms.GroupBox();
-            this.PetJA = new System.Windows.Forms.CheckedListBox();
-            this.bstpetrdygroup = new System.Windows.Forms.GroupBox();
-            this.PetReady = new System.Windows.Forms.CheckedListBox();
-            this.usedpetfood = new System.Windows.Forms.ComboBox();
-            this.jugpet = new System.Windows.Forms.ComboBox();
-            this.juguse = new System.Windows.Forms.CheckBox();
-            this.pethppfood = new System.Windows.Forms.NumericUpDown();
-            this.pethptext = new System.Windows.Forms.Label();
-            this.petfooduse = new System.Windows.Forms.CheckBox();
-            this.autoengage = new System.Windows.Forms.CheckBox();
-            this.drgpettab = new System.Windows.Forms.TabPage();
-            this.DragonPetHP = new System.Windows.Forms.NumericUpDown();
-            this.drgsteadywingtext = new System.Windows.Forms.Label();
-            this.CallWyvern = new System.Windows.Forms.CheckBox();
-            this.drgspirtlinkgroup = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.PlayerSpirit = new System.Windows.Forms.NumericUpDown();
-            this.WyvernSpirit = new System.Windows.Forms.NumericUpDown();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.BreathMAX = new System.Windows.Forms.NumericUpDown();
-            this.label48 = new System.Windows.Forms.Label();
-            this.BreathMIN = new System.Windows.Forms.NumericUpDown();
-            this.drgwyvernbreathptext = new System.Windows.Forms.Label();
-            this.drgrestoringbreathgroup = new System.Windows.Forms.GroupBox();
-            this.RestoringBreathHP = new System.Windows.Forms.NumericUpDown();
-            this.label50 = new System.Windows.Forms.Label();
-            this.drgjagroup = new System.Windows.Forms.GroupBox();
-            this.WyvernJA = new System.Windows.Forms.CheckedListBox();
-            this.smnpettab = new System.Windows.Forms.TabPage();
-            this.ManaCedegroup = new System.Windows.Forms.GroupBox();
-            this.ManaCedePETTPtext = new System.Windows.Forms.Label();
-            this.ManaCedeTPset = new System.Windows.Forms.NumericUpDown();
-            this.ManaCedePMPPtext = new System.Windows.Forms.Label();
-            this.ManaCedeMPPset = new System.Windows.Forms.NumericUpDown();
-            this.Apogeetext = new System.Windows.Forms.Label();
-            this.ApogeeMPPset = new System.Windows.Forms.NumericUpDown();
-            this.SMNpetMPUSEtext = new System.Windows.Forms.Label();
-            this.SMNpetMPUSEset = new System.Windows.Forms.NumericUpDown();
-            this.SMNHPPset1 = new System.Windows.Forms.NumericUpDown();
-            this.SMNHPPset2 = new System.Windows.Forms.NumericUpDown();
-            this.SMNHealTEXT2 = new System.Windows.Forms.Label();
-            this.SMNHealTEXT1 = new System.Windows.Forms.Label();
-            this.SMNpetTPUSEtext = new System.Windows.Forms.Label();
-            this.SMNpetTPUSEset = new System.Windows.Forms.NumericUpDown();
-            this.SMNJAgroup = new System.Windows.Forms.GroupBox();
-            this.SMNJA = new System.Windows.Forms.CheckedListBox();
-            this.SelectSMNtext = new System.Windows.Forms.Label();
-            this.SMNSelect = new System.Windows.Forms.ComboBox();
-            this.SMNAbilitysgroup = new System.Windows.Forms.GroupBox();
-            this.SMNAbilityList = new System.Windows.Forms.CheckedListBox();
-            this.puppettab = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.PUPAbilitypage = new System.Windows.Forms.TabPage();
-            this.Maneuversgroup = new System.Windows.Forms.GroupBox();
-            this.Maneuver3select = new System.Windows.Forms.ComboBox();
-            this.Maneuver2select = new System.Windows.Forms.ComboBox();
-            this.Maneuver1set = new System.Windows.Forms.NumericUpDown();
-            this.Maneuver2set = new System.Windows.Forms.NumericUpDown();
-            this.Maneuver3set = new System.Windows.Forms.NumericUpDown();
-            this.Maneuver1select = new System.Windows.Forms.ComboBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.healforAutomatonMP = new System.Windows.Forms.CheckBox();
-            this.healforAutomatonHP = new System.Windows.Forms.CheckBox();
-            this.healforAutomatonMPset = new System.Windows.Forms.NumericUpDown();
-            this.healforAutomatonHPset = new System.Windows.Forms.NumericUpDown();
-            this.AutoCallPUP = new System.Windows.Forms.CheckBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.PUPJA = new System.Windows.Forms.CheckedListBox();
-            this.PUPautoengage = new System.Windows.Forms.CheckBox();
-            this.PUPOtherpage = new System.Windows.Forms.TabPage();
-            this.Ventriloquygroup = new System.Windows.Forms.GroupBox();
-            this.VentriloquyPet = new System.Windows.Forms.RadioButton();
-            this.VentriloquyPlayer = new System.Windows.Forms.RadioButton();
-            this.Repairgroup = new System.Windows.Forms.GroupBox();
-            this.Repairselect = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.Repairset = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.TacticalSwitchgroup = new System.Windows.Forms.GroupBox();
-            this.TSPET = new System.Windows.Forms.RadioButton();
-            this.TSPlayer = new System.Windows.Forms.RadioButton();
-            this.TSPetTPset = new System.Windows.Forms.NumericUpDown();
-            this.TSPlayerTPset = new System.Windows.Forms.NumericUpDown();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.RoleReversalgroup = new System.Windows.Forms.GroupBox();
-            this.RRPET = new System.Windows.Forms.RadioButton();
-            this.RRPlayer = new System.Windows.Forms.RadioButton();
-            this.RRPetHPPset = new System.Windows.Forms.NumericUpDown();
-            this.RRPlayerHPPset = new System.Windows.Forms.NumericUpDown();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.geopettab = new System.Windows.Forms.TabPage();
-            this.label57 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.GEOJA = new System.Windows.Forms.CheckedListBox();
-            this.trustControl = new System.Windows.Forms.TabPage();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.selectedtrusts = new System.Windows.Forms.Label();
-            this.maxtrustslabel = new System.Windows.Forms.Label();
-            this.Trusts = new System.Windows.Forms.CheckedListBox();
-            this.trustmenuStrip = new System.Windows.Forms.MenuStrip();
-            this.trustMenureset = new System.Windows.Forms.ToolStripMenuItem();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.checkZone = new CheckBox();
+            this.StopFullInventory = new CheckBox();
+            this.groupBox8 = new GroupBox();
+            this.comboBox3 = new ComboBox();
+            this.firstPersonView = new CheckBox();
+            this.runReverse = new CheckBox();
+            this.Linear = new RadioButton();
+            this.Circular = new RadioButton();
+            this.selectedNavi = new ComboBox();
+            this.GetSetNavi = new MenuStrip();
+            this.refreshToolStripMenuItem = new ToolStripMenuItem();
+            this.navStuckWatch = new CheckBox();
+            this.usenav = new CheckBox();
+            this.StartStopScript = new MenuStrip();
+            this.startScriptToolStripMenuItem = new ToolStripMenuItem();
+            this.stopScriptToolStripMenuItem = new ToolStripMenuItem();
+            this.updateJobToolStripMenuItem = new ToolStripMenuItem();
+            this.dncControl = new TabControl();
+            this.targets = new TabPage();
+            this.groupBox9 = new GroupBox();
+            this.ZoneTargets = new MenuStrip();
+            this.NameListToolStripMenuItem = new ToolStripMenuItem();
+            this.iDToolStripMenuItem = new ToolStripMenuItem();
+            this.groupBox11 = new GroupBox();
+            this.TargetList = new ListView();
+            this.columnHeader3 = ((ColumnHeader)(new ColumnHeader()));
+            this.columnHeader4 = ((ColumnHeader)(new ColumnHeader()));
+            this.groupBox12 = new GroupBox();
+            this.GetSetTargets = new MenuStrip();
+            this.saveToolStripMenuItem = new ToolStripMenuItem();
+            this.loadToolStripMenuItem = new ToolStripMenuItem();
+            this.clearToolStripMenuItem = new ToolStripMenuItem();
+            this.selecttargets = new GroupBox();
+            this.SelectedTargets = new ListView();
+            this.columnHeader1 = ((ColumnHeader)(new ColumnHeader()));
+            this.columnHeader2 = ((ColumnHeader)(new ColumnHeader()));
+            this.combat = new TabPage();
+            this.CombatSettingsTabs = new TabControl();
+            this.Options1MainTab = new TabPage();
+            this.HateControlgroup = new GroupBox();
+            this.numericUpDown6 = new NumericUpDown();
+            this.numericUpDown7 = new NumericUpDown();
+            this.label4 = new Label();
+            this.label5 = new Label();
+            this.label6 = new Label();
+            this.selectedHateControl = new ComboBox();
+            this.tank = new CheckBox();
+            this.groupBox20 = new GroupBox();
+            this.amname = new ComboBox();
+            this.AfterMathTier = new NumericUpDown();
+            this.wsam = new CheckBox();
+            this.WSDistance = new CheckBox();
+            this.selectedWS = new ComboBox();
+            this.WSDistanceset = new NumericUpDown();
+            this.ws = new CheckBox();
+            this.WStp = new NumericUpDown();
+            this.label29 = new Label();
+            this.TragetHPPtop = new NumericUpDown();
+            this.label28 = new Label();
+            this.TragetHPPbottom = new NumericUpDown();
+            this.label27 = new Label();
+            this.Options2MainTab = new TabPage();
+            this.numericUpDown38 = new NumericUpDown();
+            this.aggroRange = new NumericUpDown();
+            this.ScanDelay = new CheckBox();
+            this.KeepTargetRange = new NumericUpDown();
+            this.assistDist = new NumericUpDown();
+            this.followDist = new NumericUpDown();
+            this.partyAssist = new CheckBox();
+            this.facetarget = new CheckBox();
+            this.label12 = new Label();
+            this.assist = new CheckBox();
+            this.followplayer = new CheckBox();
+            this.followName = new TextBox();
+            this.useshadows = new CheckBox();
+            this.label11 = new Label();
+            this.assistplayer = new TextBox();
+            this.aggro = new CheckBox();
+            this.mobdist = new CheckBox();
+            this.Options3MainTab = new TabPage();
+            this.fullheal = new CheckBox();
+            this.verifyfood = new Button();
+            this.comboBox4 = new ComboBox();
+            this.SignetStaff = new ComboBox();
+            this.label7 = new Label();
+            this.label3 = new Label();
+            this.useStaff = new CheckBox();
+            this.foodName = new TextBox();
+            this.healMPcount = new NumericUpDown();
+            this.usefood = new CheckBox();
+            this.HealMP = new CheckBox();
+            this.healHPcount = new NumericUpDown();
+            this.RecordIdleLocation = new Button();
+            this.WeakLocation = new CheckBox();
+            this.HealHP = new CheckBox();
+            this.textBox6 = new TextBox();
+            this.IdleLocation = new CheckBox();
+            this.label35 = new Label();
+            this.Options4MainTab = new TabPage();
+            this.NotinBattle = new GroupBox();
+            this.UseJigs = new CheckBox();
+            this.ChocoboJigII = new RadioButton();
+            this.ChocoboJig = new RadioButton();
+            this.SpectralJig = new RadioButton();
+            this.groupBox15 = new GroupBox();
+            this.label42 = new Label();
+            this.autoRangeDelay = new NumericUpDown();
+            this.textBox7 = new TextBox();
+            this.rangeaggro = new CheckBox();
+            this.comboBox1 = new ComboBox();
+            this.checkBox4 = new CheckBox();
+            this.autoRangeAttack = new CheckBox();
+            this.selectapp = new TabPage();
+            this.hudY = new TextBox();
+            this.label62 = new Label();
+            this.hudX = new TextBox();
+            this.label60 = new Label();
+            this.showHUD = new CheckBox();
+            this.shutdowngroup = new GroupBox();
+            this.label82 = new Label();
+            this.shutdowndate = new DateTimePicker();
+            this.selectedapp = new ComboBox();
+            this.groupBox25 = new GroupBox();
+            this.twentyfourHour = new RadioButton();
+            this.twelveHour = new RadioButton();
+            this.twelveHRgroup = new GroupBox();
+            this.PMtime = new RadioButton();
+            this.AMtime = new RadioButton();
+            this.ShutdownTimeHr = new TextBox();
+            this.Shutdownenable = new CheckBox();
+            this.label81 = new Label();
+            this.label40 = new Label();
+            this.ShutdownTimeMin = new TextBox();
+            this.ManualTargMode = new CheckBox();
+            this.EnableDynamis = new CheckBox();
+            this.groupBox16 = new GroupBox();
+            this.label65 = new Label();
+            this.StuckDistance = new NumericUpDown();
+            this.mobStuckWatch = new CheckBox();
+            this.OptionsJAMainTab = new TabPage();
+            this.JAtabselect = new TabControl();
+            this.selectPage = new TabPage();
+            this.playerJA = new CheckedListBox();
+            this.GetSetJA = new MenuStrip();
+            this.loadJAsToolStripMenuItem = new ToolStripMenuItem();
+            this.clearJAsToolStripMenuItem = new ToolStripMenuItem();
+            this.WHMpage = new TabPage();
+            this.benedictiongroupBox = new GroupBox();
+            this.BenedictionHPPuse = new NumericUpDown();
+            this.benedictiontext = new Label();
+            this.RDMpage = new TabPage();
+            this.Convertgroup = new GroupBox();
+            this.ConvertHPP = new NumericUpDown();
+            this.ConvertMPP = new NumericUpDown();
+            this.ConvertMP = new RadioButton();
+            this.ConvertHP = new RadioButton();
+            this.convertmptext = new Label();
+            this.converthptext = new Label();
+            this.samPage = new TabPage();
+            this.label58 = new Label();
+            this.sekkanokiWs = new ComboBox();
+            this.SCHpage = new TabPage();
+            this.Sublimationcount = new NumericUpDown();
+            this.label8 = new Label();
+            this.RUNpage = new TabPage();
+            this.VivaciousPulseHP = new NumericUpDown();
+            this.VivaciousPulse = new CheckBox();
+            this.MONpage = new TabPage();
+            this.MONmpCount = new NumericUpDown();
+            this.MONhpCount = new NumericUpDown();
+            this.monmptext = new Label();
+            this.monhptext = new Label();
+            this.OptionsMAMainTab = new TabPage();
+            this.MAtabs = new TabControl();
+            this.MASelectPage = new TabPage();
+            this.playerMA = new CheckedListBox();
+            this.GetSetMA = new MenuStrip();
+            this.loadMAsToolStripMenuItem = new ToolStripMenuItem();
+            this.clearMAsToolStripMenuItem = new ToolStripMenuItem();
+            this.CureConfigPage = new TabPage();
+            this.CuraIIcount = new NumericUpDown();
+            this.Curacount = new NumericUpDown();
+            this.CureIIIcount = new NumericUpDown();
+            this.CureIIcount = new NumericUpDown();
+            this.Curecount = new NumericUpDown();
+            this.CuraIIIcount = new NumericUpDown();
+            this.FullCurecount = new NumericUpDown();
+            this.CureVIcount = new NumericUpDown();
+            this.CureVcount = new NumericUpDown();
+            this.CureIVcount = new NumericUpDown();
+            this.label55 = new Label();
+            this.label53 = new Label();
+            this.label54 = new Label();
+            this.label52 = new Label();
+            this.label45 = new Label();
+            this.label44 = new Label();
+            this.label43 = new Label();
+            this.label9 = new Label();
+            this.label2 = new Label();
+            this.label1 = new Label();
+            this.PartyCurepage = new TabPage();
+            this.tabControl2 = new TabControl();
+            this.tabPage1 = new TabPage();
+            this.ptCure = new CheckBox();
+            this.FullCureptcount = new NumericUpDown();
+            this.label80 = new Label();
+            this.CureVIptcount = new NumericUpDown();
+            this.label74 = new Label();
+            this.CureVptcount = new NumericUpDown();
+            this.CureIVptcount = new NumericUpDown();
+            this.CureIIIptcount = new NumericUpDown();
+            this.label75 = new Label();
+            this.CureIIptcount = new NumericUpDown();
+            this.label66 = new Label();
+            this.label76 = new Label();
+            this.label67 = new Label();
+            this.label68 = new Label();
+            this.Cureptcount = new NumericUpDown();
+            this.tabPage2 = new TabPage();
+            this.CurePTlist = new CheckedListBox();
+            this.groupBox17 = new GroupBox();
+            this.menuStrip1 = new MenuStrip();
+            this.toolStripMenuItem1 = new ToolStripMenuItem();
+            this.toolStripMenuItem2 = new ToolStripMenuItem();
+            this.Cureagapage = new TabPage();
+            this.label39 = new Label();
+            this.CuragaVcount = new NumericUpDown();
+            this.CuragaIVcount = new NumericUpDown();
+            this.CuragaIIIcount = new NumericUpDown();
+            this.CuragaIIcount = new NumericUpDown();
+            this.label69 = new Label();
+            this.label70 = new Label();
+            this.label71 = new Label();
+            this.label72 = new Label();
+            this.label73 = new Label();
+            this.Curagacount = new NumericUpDown();
+            this.DrainAspirpage = new TabPage();
+            this.Aspirgroup = new GroupBox();
+            this.AspirIIIcount = new NumericUpDown();
+            this.AspirIIcount = new NumericUpDown();
+            this.AspirIIItext = new Label();
+            this.AspirItext = new Label();
+            this.AspirIItext = new Label();
+            this.Aspircount = new NumericUpDown();
+            this.Draingroup = new GroupBox();
+            this.DrainIItext = new Label();
+            this.Draincount = new NumericUpDown();
+            this.DrainItext = new Label();
+            this.DrainIIItext = new Label();
+            this.DrainIIIcount = new NumericUpDown();
+            this.DrainIIcount = new NumericUpDown();
+            this.BLUCurespage = new TabPage();
+            this.MagicFruitcount = new NumericUpDown();
+            this.Pollencount = new NumericUpDown();
+            this.HealingBreezecount = new NumericUpDown();
+            this.PleniluneEmbracecount = new NumericUpDown();
+            this.Restoralcount = new NumericUpDown();
+            this.WhiteWindcount = new NumericUpDown();
+            this.Exuviationcount = new NumericUpDown();
+            this.WildCarrotcount = new NumericUpDown();
+            this.PleniluneEmbracetext = new Label();
+            this.MagicFruittext = new Label();
+            this.HealingBreezetext = new Label();
+            this.Pollentext = new Label();
+            this.WhiteWindtext = new Label();
+            this.Restoraltext = new Label();
+            this.Exuviationtext = new Label();
+            this.WildCarrottext = new Label();
+            this.MAconfigpage = new TabPage();
+            this.label10 = new Label();
+            this.MAreverse = new CheckBox();
+            this.Dynamispage = new TabPage();
+            this.groupBox13 = new GroupBox();
+            this.NoneProcuse = new CheckBox();
+            this.DynaProccontrole = new CheckBox();
+            this.label59 = new Label();
+            this.Dynatxt = new Label();
+            this.staggerstopJA = new CheckBox();
+            this.groupBox14 = new GroupBox();
+            this.delaytext = new Label();
+            this.pullDelay = new NumericUpDown();
+            this.AutoLock = new CheckBox();
+            this.mobheightdistValue = new NumericUpDown();
+            this.mobheightdist = new CheckBox();
+            this.runTarget = new CheckBox();
+            this.runPullDistance = new CheckBox();
+            this.mobsearchdisttext = new Label();
+            this.targetSearchDist = new NumericUpDown();
+            this.pullTolorance = new NumericUpDown();
+            this.pulltolorancetext = new Label();
+            this.numericUpDown21 = new NumericUpDown();
+            this.pulldistance = new Label();
+            this.pullCommand = new TextBox();
+            this.pullcommandtext = new Label();
+            this.dancer = new TabPage();
+            this.tabControl3 = new TabControl();
+            this.tabPage14 = new TabPage();
+            this.groupBox1 = new GroupBox();
+            this.noSamba = new RadioButton();
+            this.usedrainiii = new RadioButton();
+            this.usehaste = new RadioButton();
+            this.useaspirii = new RadioButton();
+            this.useaspir = new RadioButton();
+            this.usedrainii = new RadioButton();
+            this.usedrain = new RadioButton();
+            this.groupBox3 = new GroupBox();
+            this.stopstepsat = new CheckBox();
+            this.stopstepscount = new NumericUpDown();
+            this.stopstepsathptext = new Label();
+            this.usefeatherstepValue = new NumericUpDown();
+            this.usestutterstepValue = new NumericUpDown();
+            this.useboxstepValue = new NumericUpDown();
+            this.StepsHPValue = new NumericUpDown();
+            this.usequickstepValue = new NumericUpDown();
+            this.StepsHP = new CheckBox();
+            this.NoSteps = new RadioButton();
+            this.usequickstep = new RadioButton();
+            this.useboxstep = new RadioButton();
+            this.usestutterstep = new RadioButton();
+            this.usefeatherstep = new RadioButton();
+            this.tabPage15 = new TabPage();
+            this.groupBox7 = new GroupBox();
+            this.HWSelectDeselectALL = new CheckBox();
+            this.HealingWaltzItems = new CheckedListBox();
+            this.groupBox2 = new GroupBox();
+            this.label32 = new Label();
+            this.label31 = new Label();
+            this.label30 = new Label();
+            this.label25 = new Label();
+            this.label17 = new Label();
+            this.usecurevValue = new NumericUpDown();
+            this.usecureivValue = new NumericUpDown();
+            this.usecureiiiValue = new NumericUpDown();
+            this.usecureiiValue = new NumericUpDown();
+            this.usecureValue = new NumericUpDown();
+            this.usecurev = new CheckBox();
+            this.usecureiv = new CheckBox();
+            this.usecureiii = new CheckBox();
+            this.usecureii = new CheckBox();
+            this.usecure = new CheckBox();
+            this.tabPage16 = new TabPage();
+            this.PartyWaltsList = new CheckedListBox();
+            this.addplayertext = new Label();
+            this.WaltzPTadd = new TextBox();
+            this.groupBox21 = new GroupBox();
+            this.label38 = new Label();
+            this.label37 = new Label();
+            this.label36 = new Label();
+            this.label34 = new Label();
+            this.label33 = new Label();
+            this.numericUpDown27 = new NumericUpDown();
+            this.numericUpDown28 = new NumericUpDown();
+            this.numericUpDown29 = new NumericUpDown();
+            this.numericUpDown32 = new NumericUpDown();
+            this.numericUpDown33 = new NumericUpDown();
+            this.ptusecurev = new CheckBox();
+            this.ptusecureiv = new CheckBox();
+            this.ptusecureiii = new CheckBox();
+            this.ptusecureii = new CheckBox();
+            this.ptusecure = new CheckBox();
+            this.groupBox22 = new GroupBox();
+            this.GetSetParty = new MenuStrip();
+            this.loadPartyToolStripMenuItem = new ToolStripMenuItem();
+            this.clearPartyToolStripMenuItem = new ToolStripMenuItem();
+            this.label15 = new Label();
+            this.flourish = new TabPage();
+            this.flourishesiiigroup = new GroupBox();
+            this.useclmfloValue = new NumericUpDown();
+            this.usestkfloValue = new NumericUpDown();
+            this.useterfloValue = new NumericUpDown();
+            this.usestkflo = new RadioButton();
+            this.useclmflo = new RadioButton();
+            this.useterflo = new RadioButton();
+            this.finsishingmovetext = new Label();
+            this.FlourishTPValue = new NumericUpDown();
+            this.flourishesiigroup = new GroupBox();
+            this.usewldfloValue = new NumericUpDown();
+            this.usebldfloValue = new NumericUpDown();
+            this.userevfloValue = new NumericUpDown();
+            this.usewldflo = new RadioButton();
+            this.usebldflo = new RadioButton();
+            this.userevflo = new RadioButton();
+            this.FlourishTP = new CheckBox();
+            this.flourishesigroup = new GroupBox();
+            this.useviofloValue = new NumericUpDown();
+            this.usevioflo = new RadioButton();
+            this.usedesfloValue = new NumericUpDown();
+            this.usedesflo = new RadioButton();
+            this.pets = new TabPage();
+            this.groupBox10 = new GroupBox();
+            this.groupBox19 = new GroupBox();
+            this.label23 = new Label();
+            this.label22 = new Label();
+            this.label21 = new Label();
+            this.label20 = new Label();
+            this.petControl = new TabControl();
+            this.bstpettab = new TabPage();
+            this.label13 = new Label();
+            this.BstJATP = new NumericUpDown();
+            this.usepetja = new GroupBox();
+            this.PetJA = new CheckedListBox();
+            this.bstpetrdygroup = new GroupBox();
+            this.PetReady = new CheckedListBox();
+            this.usedpetfood = new ComboBox();
+            this.jugpet = new ComboBox();
+            this.juguse = new CheckBox();
+            this.pethppfood = new NumericUpDown();
+            this.pethptext = new Label();
+            this.petfooduse = new CheckBox();
+            this.autoengage = new CheckBox();
+            this.drgpettab = new TabPage();
+            this.DragonPetHP = new NumericUpDown();
+            this.drgsteadywingtext = new Label();
+            this.CallWyvern = new CheckBox();
+            this.drgspirtlinkgroup = new GroupBox();
+            this.label16 = new Label();
+            this.PlayerSpirit = new NumericUpDown();
+            this.WyvernSpirit = new NumericUpDown();
+            this.label46 = new Label();
+            this.label47 = new Label();
+            this.BreathMAX = new NumericUpDown();
+            this.label48 = new Label();
+            this.BreathMIN = new NumericUpDown();
+            this.drgwyvernbreathptext = new Label();
+            this.drgrestoringbreathgroup = new GroupBox();
+            this.RestoringBreathHP = new NumericUpDown();
+            this.label50 = new Label();
+            this.drgjagroup = new GroupBox();
+            this.WyvernJA = new CheckedListBox();
+            this.smnpettab = new TabPage();
+            this.ManaCedegroup = new GroupBox();
+            this.ManaCedePETTPtext = new Label();
+            this.ManaCedeTPset = new NumericUpDown();
+            this.ManaCedePMPPtext = new Label();
+            this.ManaCedeMPPset = new NumericUpDown();
+            this.Apogeetext = new Label();
+            this.ApogeeMPPset = new NumericUpDown();
+            this.SMNpetMPUSEtext = new Label();
+            this.SMNpetMPUSEset = new NumericUpDown();
+            this.SMNHPPset1 = new NumericUpDown();
+            this.SMNHPPset2 = new NumericUpDown();
+            this.SMNHealTEXT2 = new Label();
+            this.SMNHealTEXT1 = new Label();
+            this.SMNpetTPUSEtext = new Label();
+            this.SMNpetTPUSEset = new NumericUpDown();
+            this.SMNJAgroup = new GroupBox();
+            this.SMNJA = new CheckedListBox();
+            this.SelectSMNtext = new Label();
+            this.SMNSelect = new ComboBox();
+            this.SMNAbilitysgroup = new GroupBox();
+            this.SMNAbilityList = new CheckedListBox();
+            this.puppettab = new TabPage();
+            this.tabControl1 = new TabControl();
+            this.PUPAbilitypage = new TabPage();
+            this.Maneuversgroup = new GroupBox();
+            this.Maneuver3select = new ComboBox();
+            this.Maneuver2select = new ComboBox();
+            this.Maneuver1set = new NumericUpDown();
+            this.Maneuver2set = new NumericUpDown();
+            this.Maneuver3set = new NumericUpDown();
+            this.Maneuver1select = new ComboBox();
+            this.label49 = new Label();
+            this.label56 = new Label();
+            this.label51 = new Label();
+            this.groupBox4 = new GroupBox();
+            this.healforAutomatonMP = new CheckBox();
+            this.healforAutomatonHP = new CheckBox();
+            this.healforAutomatonMPset = new NumericUpDown();
+            this.healforAutomatonHPset = new NumericUpDown();
+            this.AutoCallPUP = new CheckBox();
+            this.groupBox5 = new GroupBox();
+            this.PUPJA = new CheckedListBox();
+            this.PUPautoengage = new CheckBox();
+            this.PUPOtherpage = new TabPage();
+            this.Ventriloquygroup = new GroupBox();
+            this.VentriloquyPet = new RadioButton();
+            this.VentriloquyPlayer = new RadioButton();
+            this.Repairgroup = new GroupBox();
+            this.Repairselect = new ComboBox();
+            this.label18 = new Label();
+            this.Repairset = new NumericUpDown();
+            this.label14 = new Label();
+            this.TacticalSwitchgroup = new GroupBox();
+            this.TSPET = new RadioButton();
+            this.TSPlayer = new RadioButton();
+            this.TSPetTPset = new NumericUpDown();
+            this.TSPlayerTPset = new NumericUpDown();
+            this.label26 = new Label();
+            this.label41 = new Label();
+            this.RoleReversalgroup = new GroupBox();
+            this.RRPET = new RadioButton();
+            this.RRPlayer = new RadioButton();
+            this.RRPetHPPset = new NumericUpDown();
+            this.RRPlayerHPPset = new NumericUpDown();
+            this.label24 = new Label();
+            this.label19 = new Label();
+            this.geopettab = new TabPage();
+            this.label57 = new Label();
+            this.comboBox5 = new ComboBox();
+            this.groupBox6 = new GroupBox();
+            this.GEOJA = new CheckedListBox();
+            this.trustControl = new TabPage();
+            this.label63 = new Label();
+            this.label61 = new Label();
+            this.selectedtrusts = new Label();
+            this.maxtrustslabel = new Label();
+            this.Trusts = new CheckedListBox();
+            this.trustmenuStrip = new MenuStrip();
+            this.trustMenureset = new ToolStripMenuItem();
+            this.numericUpDown8 = new NumericUpDown();
+            this.numericUpDown9 = new NumericUpDown();
+            this.numericUpDown10 = new NumericUpDown();
+            this.numericUpDown5 = new NumericUpDown();
+            this.numericUpDown4 = new NumericUpDown();
+            this.numericUpDown3 = new NumericUpDown();
+            this.numericUpDown2 = new NumericUpDown();
+            this.numericUpDown1 = new NumericUpDown();
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
@@ -1027,20 +1027,20 @@
             this.bgw_script_pet = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
-            this.DeathWarp = new System.Windows.Forms.CheckBox();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.playerjobpoints = new System.Windows.Forms.Label();
-            this.playermerits = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.playertp = new System.Windows.Forms.Label();
-            this.playermp = new System.Windows.Forms.Label();
-            this.playerhp = new System.Windows.Forms.Label();
-            this.curtime = new System.Windows.Forms.Label();
-            this.curtarghpp = new System.Windows.Forms.Label();
-            this.curtarg = new System.Windows.Forms.Label();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.Shrinkbutton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.DeathWarp = new CheckBox();
+            this.groupBox18 = new GroupBox();
+            this.playerjobpoints = new Label();
+            this.playermerits = new Label();
+            this.button1 = new Button();
+            this.playertp = new Label();
+            this.playermp = new Label();
+            this.playerhp = new Label();
+            this.curtime = new Label();
+            this.curtarghpp = new Label();
+            this.curtarg = new Label();
+            this.groupBox23 = new GroupBox();
+            this.Shrinkbutton = new Button();
+            this.panel1 = new Panel();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -1372,8 +1372,8 @@
             // 
             // GetSetNavi
             // 
-            this.GetSetNavi.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.GetSetNavi.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GetSetNavi.Dock = DockStyle.Bottom;
+            this.GetSetNavi.Items.AddRange(new ToolStripItem[] {
             this.refreshToolStripMenuItem});
             this.GetSetNavi.Location = new System.Drawing.Point(3, 101);
             this.GetSetNavi.Name = "GetSetNavi";
@@ -1411,8 +1411,8 @@
             // 
             // StartStopScript
             // 
-            this.StartStopScript.Dock = System.Windows.Forms.DockStyle.None;
-            this.StartStopScript.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StartStopScript.Dock = DockStyle.None;
+            this.StartStopScript.Items.AddRange(new ToolStripItem[] {
             this.startScriptToolStripMenuItem,
             this.stopScriptToolStripMenuItem,
             this.updateJobToolStripMenuItem});
@@ -1466,7 +1466,7 @@
             this.targets.Controls.Add(this.selecttargets);
             this.targets.Location = new System.Drawing.Point(4, 22);
             this.targets.Name = "targets";
-            this.targets.Padding = new System.Windows.Forms.Padding(3);
+            this.targets.Padding = new Padding(3);
             this.targets.Size = new System.Drawing.Size(439, 361);
             this.targets.TabIndex = 6;
             this.targets.Text = "Farm/Targets";
@@ -1483,7 +1483,7 @@
             // 
             // ZoneTargets
             // 
-            this.ZoneTargets.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ZoneTargets.Items.AddRange(new ToolStripItem[] {
             this.NameListToolStripMenuItem,
             this.iDToolStripMenuItem});
             this.ZoneTargets.Location = new System.Drawing.Point(3, 16);
@@ -1518,21 +1518,21 @@
             // 
             // TargetList
             // 
-            this.TargetList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TargetList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.TargetList.BorderStyle = BorderStyle.None;
+            this.TargetList.Columns.AddRange(new ColumnHeader[] {
             this.columnHeader3,
             this.columnHeader4});
-            this.TargetList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TargetList.Dock = DockStyle.Fill;
             this.TargetList.FullRowSelect = true;
-            this.TargetList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.TargetList.HeaderStyle = ColumnHeaderStyle.None;
             this.TargetList.Location = new System.Drawing.Point(3, 16);
             this.TargetList.Name = "TargetList";
             this.TargetList.Size = new System.Drawing.Size(195, 257);
             this.TargetList.TabIndex = 1;
             this.TargetList.UseCompatibleStateImageBehavior = false;
-            this.TargetList.View = System.Windows.Forms.View.Details;
+            this.TargetList.View = View.Details;
             this.TargetList.DoubleClick += new System.EventHandler(this.ListView2DoubleClick);
-            this.TargetList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListView2KeyPress);
+            this.TargetList.KeyPress += new KeyPressEventHandler(this.ListView2KeyPress);
             // 
             // columnHeader3
             // 
@@ -1555,7 +1555,7 @@
             // 
             // GetSetTargets
             // 
-            this.GetSetTargets.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GetSetTargets.Items.AddRange(new ToolStripItem[] {
             this.saveToolStripMenuItem,
             this.loadToolStripMenuItem,
             this.clearToolStripMenuItem});
@@ -1598,19 +1598,19 @@
             // 
             // SelectedTargets
             // 
-            this.SelectedTargets.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SelectedTargets.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.SelectedTargets.BorderStyle = BorderStyle.None;
+            this.SelectedTargets.Columns.AddRange(new ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.SelectedTargets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SelectedTargets.Dock = DockStyle.Fill;
             this.SelectedTargets.FullRowSelect = true;
-            this.SelectedTargets.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.SelectedTargets.HeaderStyle = ColumnHeaderStyle.None;
             this.SelectedTargets.Location = new System.Drawing.Point(3, 16);
             this.SelectedTargets.Name = "SelectedTargets";
             this.SelectedTargets.Size = new System.Drawing.Size(195, 257);
             this.SelectedTargets.TabIndex = 0;
             this.SelectedTargets.UseCompatibleStateImageBehavior = false;
-            this.SelectedTargets.View = System.Windows.Forms.View.Details;
+            this.SelectedTargets.View = View.Details;
             this.SelectedTargets.DoubleClick += new System.EventHandler(this.ListView1DoubleClick);
             // 
             // columnHeader1
@@ -1629,7 +1629,7 @@
             this.combat.Controls.Add(this.groupBox14);
             this.combat.Location = new System.Drawing.Point(4, 22);
             this.combat.Name = "combat";
-            this.combat.Padding = new System.Windows.Forms.Padding(3);
+            this.combat.Padding = new Padding(3);
             this.combat.Size = new System.Drawing.Size(439, 361);
             this.combat.TabIndex = 7;
             this.combat.Text = "Combat Settings";
@@ -1657,7 +1657,7 @@
             this.Options1MainTab.Controls.Add(this.groupBox20);
             this.Options1MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options1MainTab.Name = "Options1MainTab";
-            this.Options1MainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.Options1MainTab.Padding = new Padding(3);
             this.Options1MainTab.Size = new System.Drawing.Size(419, 197);
             this.Options1MainTab.TabIndex = 6;
             this.Options1MainTab.Text = "Options 1";
@@ -1690,7 +1690,7 @@
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown6.TabIndex = 108;
-            this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown6.TextAlign = HorizontalAlignment.Center;
             this.numericUpDown6.Value = new decimal(new int[] {
             100,
             0,
@@ -1708,7 +1708,7 @@
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown7.TabIndex = 107;
-            this.numericUpDown7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown7.TextAlign = HorizontalAlignment.Center;
             this.numericUpDown7.Value = new decimal(new int[] {
             10,
             0,
@@ -1833,8 +1833,8 @@
             "Stringing Pummel",
             "Pyrrhic Kleos",
             "Omniscience"});
-            this.amname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.amname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.amname.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.amname.AutoCompleteSource = AutoCompleteSource.CustomSource;
             this.amname.FormattingEnabled = true;
             this.amname.Location = new System.Drawing.Point(188, 38);
             this.amname.Name = "amname";
@@ -1858,7 +1858,7 @@
             this.AfterMathTier.Name = "AfterMathTier";
             this.AfterMathTier.Size = new System.Drawing.Size(44, 20);
             this.AfterMathTier.TabIndex = 108;
-            this.AfterMathTier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AfterMathTier.TextAlign = HorizontalAlignment.Center;
             this.AfterMathTier.Value = new decimal(new int[] {
             1,
             0,
@@ -2100,8 +2100,8 @@
             "Armor Piercer",
             "Cannibal Blade",
             "Bone Crusher"});
-            this.selectedWS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.selectedWS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.selectedWS.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.selectedWS.AutoCompleteSource = AutoCompleteSource.CustomSource;
             this.selectedWS.FormattingEnabled = true;
             this.selectedWS.Location = new System.Drawing.Point(188, 15);
             this.selectedWS.Name = "selectedWS";
@@ -2112,7 +2112,7 @@
             // WSDistanceset
             // 
             this.WSDistanceset.DecimalPlaces = 1;
-            this.WSDistanceset.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.WSDistanceset.ImeMode = ImeMode.Off;
             this.WSDistanceset.Increment = new decimal(new int[] {
             1,
             0,
@@ -2128,7 +2128,7 @@
             this.WSDistanceset.Size = new System.Drawing.Size(44, 20);
             this.WSDistanceset.TabIndex = 103;
             this.WSDistanceset.TabStop = false;
-            this.WSDistanceset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WSDistanceset.TextAlign = HorizontalAlignment.Center;
             this.WSDistanceset.Value = new decimal(new int[] {
             1,
             0,
@@ -2167,7 +2167,7 @@
             this.WStp.Size = new System.Drawing.Size(44, 20);
             this.WStp.TabIndex = 95;
             this.WStp.TabStop = false;
-            this.WStp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WStp.TextAlign = HorizontalAlignment.Center;
             this.WStp.Value = new decimal(new int[] {
             1000,
             0,
@@ -2194,7 +2194,7 @@
             this.TragetHPPtop.Name = "TragetHPPtop";
             this.TragetHPPtop.Size = new System.Drawing.Size(44, 20);
             this.TragetHPPtop.TabIndex = 98;
-            this.TragetHPPtop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TragetHPPtop.TextAlign = HorizontalAlignment.Center;
             this.TragetHPPtop.Value = new decimal(new int[] {
             100,
             0,
@@ -2221,7 +2221,7 @@
             this.TragetHPPbottom.Name = "TragetHPPbottom";
             this.TragetHPPbottom.Size = new System.Drawing.Size(44, 20);
             this.TragetHPPbottom.TabIndex = 97;
-            this.TragetHPPbottom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TragetHPPbottom.TextAlign = HorizontalAlignment.Center;
             this.TragetHPPbottom.Value = new decimal(new int[] {
             15,
             0,
@@ -2258,7 +2258,7 @@
             this.Options2MainTab.Controls.Add(this.mobdist);
             this.Options2MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options2MainTab.Name = "Options2MainTab";
-            this.Options2MainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.Options2MainTab.Padding = new Padding(3);
             this.Options2MainTab.Size = new System.Drawing.Size(419, 197);
             this.Options2MainTab.TabIndex = 1;
             this.Options2MainTab.Text = "Options 2";
@@ -2282,7 +2282,7 @@
             this.numericUpDown38.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown38.TabIndex = 92;
             this.numericUpDown38.TabStop = false;
-            this.numericUpDown38.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown38.TextAlign = HorizontalAlignment.Center;
             this.numericUpDown38.Value = new decimal(new int[] {
             5,
             0,
@@ -2307,7 +2307,7 @@
             this.aggroRange.Size = new System.Drawing.Size(44, 20);
             this.aggroRange.TabIndex = 107;
             this.aggroRange.TabStop = false;
-            this.aggroRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.aggroRange.TextAlign = HorizontalAlignment.Center;
             this.aggroRange.Value = new decimal(new int[] {
             85,
             0,
@@ -2342,7 +2342,7 @@
             this.KeepTargetRange.Size = new System.Drawing.Size(44, 20);
             this.KeepTargetRange.TabIndex = 106;
             this.KeepTargetRange.TabStop = false;
-            this.KeepTargetRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.KeepTargetRange.TextAlign = HorizontalAlignment.Center;
             this.KeepTargetRange.Value = new decimal(new int[] {
             3,
             0,
@@ -2368,7 +2368,7 @@
             this.assistDist.Size = new System.Drawing.Size(44, 20);
             this.assistDist.TabIndex = 105;
             this.assistDist.TabStop = false;
-            this.assistDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.assistDist.TextAlign = HorizontalAlignment.Center;
             this.assistDist.Value = new decimal(new int[] {
             5,
             0,
@@ -2393,7 +2393,7 @@
             this.followDist.Size = new System.Drawing.Size(44, 20);
             this.followDist.TabIndex = 104;
             this.followDist.TabStop = false;
-            this.followDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.followDist.TextAlign = HorizontalAlignment.Center;
             this.followDist.Value = new decimal(new int[] {
             3,
             0,
@@ -2526,7 +2526,7 @@
             this.Options3MainTab.Controls.Add(this.label35);
             this.Options3MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options3MainTab.Name = "Options3MainTab";
-            this.Options3MainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.Options3MainTab.Padding = new Padding(3);
             this.Options3MainTab.Size = new System.Drawing.Size(419, 197);
             this.Options3MainTab.TabIndex = 0;
             this.Options3MainTab.Text = "Options 3";
@@ -2536,7 +2536,7 @@
             // 
             this.fullheal.AutoSize = true;
             this.fullheal.Checked = true;
-            this.fullheal.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.fullheal.CheckState = CheckState.Checked;
             this.fullheal.Location = new System.Drawing.Point(240, 69);
             this.fullheal.Name = "fullheal";
             this.fullheal.Size = new System.Drawing.Size(103, 17);
@@ -2625,7 +2625,7 @@
             this.healMPcount.Size = new System.Drawing.Size(44, 20);
             this.healMPcount.TabIndex = 64;
             this.healMPcount.TabStop = false;
-            this.healMPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.healMPcount.TextAlign = HorizontalAlignment.Center;
             this.healMPcount.Value = new decimal(new int[] {
             40,
             0,
@@ -2661,7 +2661,7 @@
             this.healHPcount.Size = new System.Drawing.Size(44, 20);
             this.healHPcount.TabIndex = 62;
             this.healHPcount.TabStop = false;
-            this.healHPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.healHPcount.TextAlign = HorizontalAlignment.Center;
             this.healHPcount.Value = new decimal(new int[] {
             40,
             0,
@@ -2733,7 +2733,7 @@
             this.Options4MainTab.Controls.Add(this.groupBox15);
             this.Options4MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options4MainTab.Name = "Options4MainTab";
-            this.Options4MainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.Options4MainTab.Padding = new Padding(3);
             this.Options4MainTab.Size = new System.Drawing.Size(419, 197);
             this.Options4MainTab.TabIndex = 5;
             this.Options4MainTab.Text = "Options 4";
@@ -2825,9 +2825,9 @@
             // 
             // autoRangeDelay
             // 
-            this.autoRangeDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.autoRangeDelay.BorderStyle = BorderStyle.FixedSingle;
             this.autoRangeDelay.DecimalPlaces = 1;
-            this.autoRangeDelay.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.autoRangeDelay.ImeMode = ImeMode.Off;
             this.autoRangeDelay.Increment = new decimal(new int[] {
             1,
             0,
@@ -2848,7 +2848,7 @@
             this.autoRangeDelay.Size = new System.Drawing.Size(44, 20);
             this.autoRangeDelay.TabIndex = 56;
             this.autoRangeDelay.TabStop = false;
-            this.autoRangeDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.autoRangeDelay.TextAlign = HorizontalAlignment.Center;
             this.autoRangeDelay.Value = new decimal(new int[] {
             5,
             0,
@@ -2916,7 +2916,7 @@
             this.selectapp.Controls.Add(this.groupBox16);
             this.selectapp.Location = new System.Drawing.Point(4, 22);
             this.selectapp.Name = "selectapp";
-            this.selectapp.Padding = new System.Windows.Forms.Padding(3);
+            this.selectapp.Padding = new Padding(3);
             this.selectapp.Size = new System.Drawing.Size(419, 197);
             this.selectapp.TabIndex = 8;
             this.selectapp.Text = "Options 5";
@@ -2925,12 +2925,12 @@
             // hudY
             // 
             this.hudY.Location = new System.Drawing.Point(335, 77);
-            this.hudY.MaxLength = 2;
+            this.hudY.MaxLength = 4;
             this.hudY.Name = "hudY";
             this.hudY.Size = new System.Drawing.Size(27, 20);
             this.hudY.TabIndex = 8;
             this.hudY.Text = "0";
-            this.hudY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.hudY.TextAlign = HorizontalAlignment.Right;
             // 
             // label62
             // 
@@ -2944,12 +2944,12 @@
             // hudX
             // 
             this.hudX.Location = new System.Drawing.Point(293, 77);
-            this.hudX.MaxLength = 2;
+            this.hudX.MaxLength = 4;
             this.hudX.Name = "hudX";
             this.hudX.Size = new System.Drawing.Size(27, 20);
             this.hudX.TabIndex = 6;
             this.hudX.Text = "0";
-            this.hudX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.hudX.TextAlign = HorizontalAlignment.Right;
             // 
             // label60
             // 
@@ -3003,7 +3003,7 @@
             // shutdowndate
             // 
             this.shutdowndate.CustomFormat = "MM/dd/yyyy";
-            this.shutdowndate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.shutdowndate.Format = DateTimePickerFormat.Custom;
             this.shutdowndate.Location = new System.Drawing.Point(123, 57);
             this.shutdowndate.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.shutdowndate.Name = "shutdowndate";
@@ -3017,8 +3017,8 @@
             "Scripted Only",
             "Windower + Scripted",
             "Ashita + Scripted"});
-            this.selectedapp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.selectedapp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.selectedapp.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.selectedapp.AutoCompleteSource = AutoCompleteSource.ListItems;
             this.selectedapp.FormattingEnabled = true;
             this.selectedapp.Items.AddRange(new object[] {
             "Scripted Only",
@@ -3103,7 +3103,7 @@
             this.ShutdownTimeHr.Size = new System.Drawing.Size(20, 20);
             this.ShutdownTimeHr.TabIndex = 0;
             this.ShutdownTimeHr.Text = "0";
-            this.ShutdownTimeHr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ShutdownTimeHr.TextAlign = HorizontalAlignment.Right;
             // 
             // Shutdownenable
             // 
@@ -3141,7 +3141,7 @@
             this.ShutdownTimeMin.Size = new System.Drawing.Size(20, 20);
             this.ShutdownTimeMin.TabIndex = 1;
             this.ShutdownTimeMin.Text = "0";
-            this.ShutdownTimeMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ShutdownTimeMin.TextAlign = HorizontalAlignment.Right;
             // 
             // ManualTargMode
             // 
@@ -3224,7 +3224,7 @@
             this.OptionsJAMainTab.Controls.Add(this.JAtabselect);
             this.OptionsJAMainTab.Location = new System.Drawing.Point(4, 22);
             this.OptionsJAMainTab.Name = "OptionsJAMainTab";
-            this.OptionsJAMainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.OptionsJAMainTab.Padding = new Padding(3);
             this.OptionsJAMainTab.Size = new System.Drawing.Size(419, 197);
             this.OptionsJAMainTab.TabIndex = 4;
             this.OptionsJAMainTab.Text = "JA\'s";
@@ -3251,7 +3251,7 @@
             this.selectPage.Controls.Add(this.GetSetJA);
             this.selectPage.Location = new System.Drawing.Point(4, 22);
             this.selectPage.Name = "selectPage";
-            this.selectPage.Padding = new System.Windows.Forms.Padding(3);
+            this.selectPage.Padding = new Padding(3);
             this.selectPage.Size = new System.Drawing.Size(402, 160);
             this.selectPage.TabIndex = 0;
             this.selectPage.Text = "Select";
@@ -3269,8 +3269,8 @@
             // 
             // GetSetJA
             // 
-            this.GetSetJA.Dock = System.Windows.Forms.DockStyle.None;
-            this.GetSetJA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GetSetJA.Dock = DockStyle.None;
+            this.GetSetJA.Items.AddRange(new ToolStripItem[] {
             this.loadJAsToolStripMenuItem,
             this.clearJAsToolStripMenuItem});
             this.GetSetJA.Location = new System.Drawing.Point(116, 130);
@@ -3298,7 +3298,7 @@
             this.WHMpage.Controls.Add(this.benedictiongroupBox);
             this.WHMpage.Location = new System.Drawing.Point(4, 22);
             this.WHMpage.Name = "WHMpage";
-            this.WHMpage.Padding = new System.Windows.Forms.Padding(3);
+            this.WHMpage.Padding = new Padding(3);
             this.WHMpage.Size = new System.Drawing.Size(402, 160);
             this.WHMpage.TabIndex = 1;
             this.WHMpage.Text = "WHM";
@@ -3337,7 +3337,7 @@
             this.RDMpage.Controls.Add(this.Convertgroup);
             this.RDMpage.Location = new System.Drawing.Point(4, 22);
             this.RDMpage.Name = "RDMpage";
-            this.RDMpage.Padding = new System.Windows.Forms.Padding(3);
+            this.RDMpage.Padding = new Padding(3);
             this.RDMpage.Size = new System.Drawing.Size(402, 160);
             this.RDMpage.TabIndex = 2;
             this.RDMpage.Text = "RDM";
@@ -3427,7 +3427,7 @@
             this.samPage.Controls.Add(this.sekkanokiWs);
             this.samPage.Location = new System.Drawing.Point(4, 22);
             this.samPage.Name = "samPage";
-            this.samPage.Padding = new System.Windows.Forms.Padding(3);
+            this.samPage.Padding = new Padding(3);
             this.samPage.Size = new System.Drawing.Size(402, 160);
             this.samPage.TabIndex = 7;
             this.samPage.Text = "SAM";
@@ -3657,8 +3657,8 @@
             "Armor Piercer",
             "Cannibal Blade",
             "Bone Crusher"});
-            this.sekkanokiWs.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.sekkanokiWs.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.sekkanokiWs.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.sekkanokiWs.AutoCompleteSource = AutoCompleteSource.CustomSource;
             this.sekkanokiWs.FormattingEnabled = true;
             this.sekkanokiWs.Location = new System.Drawing.Point(188, 12);
             this.sekkanokiWs.Name = "sekkanokiWs";
@@ -3672,7 +3672,7 @@
             this.SCHpage.Controls.Add(this.label8);
             this.SCHpage.Location = new System.Drawing.Point(4, 22);
             this.SCHpage.Name = "SCHpage";
-            this.SCHpage.Padding = new System.Windows.Forms.Padding(3);
+            this.SCHpage.Padding = new Padding(3);
             this.SCHpage.Size = new System.Drawing.Size(402, 160);
             this.SCHpage.TabIndex = 6;
             this.SCHpage.Text = "SCH";
@@ -3701,7 +3701,7 @@
             this.RUNpage.Controls.Add(this.VivaciousPulse);
             this.RUNpage.Location = new System.Drawing.Point(4, 22);
             this.RUNpage.Name = "RUNpage";
-            this.RUNpage.Padding = new System.Windows.Forms.Padding(3);
+            this.RUNpage.Padding = new Padding(3);
             this.RUNpage.Size = new System.Drawing.Size(402, 160);
             this.RUNpage.TabIndex = 3;
             this.RUNpage.Text = "RUN";
@@ -3734,7 +3734,7 @@
             this.MONpage.Controls.Add(this.monhptext);
             this.MONpage.Location = new System.Drawing.Point(4, 22);
             this.MONpage.Name = "MONpage";
-            this.MONpage.Padding = new System.Windows.Forms.Padding(3);
+            this.MONpage.Padding = new Padding(3);
             this.MONpage.Size = new System.Drawing.Size(402, 160);
             this.MONpage.TabIndex = 4;
             this.MONpage.Text = "MON";
@@ -3789,7 +3789,7 @@
             this.OptionsMAMainTab.Controls.Add(this.MAtabs);
             this.OptionsMAMainTab.Location = new System.Drawing.Point(4, 22);
             this.OptionsMAMainTab.Name = "OptionsMAMainTab";
-            this.OptionsMAMainTab.Padding = new System.Windows.Forms.Padding(3);
+            this.OptionsMAMainTab.Padding = new Padding(3);
             this.OptionsMAMainTab.Size = new System.Drawing.Size(419, 197);
             this.OptionsMAMainTab.TabIndex = 7;
             this.OptionsMAMainTab.Text = "MA\'s";
@@ -3816,7 +3816,7 @@
             this.MASelectPage.Controls.Add(this.GetSetMA);
             this.MASelectPage.Location = new System.Drawing.Point(4, 22);
             this.MASelectPage.Name = "MASelectPage";
-            this.MASelectPage.Padding = new System.Windows.Forms.Padding(3);
+            this.MASelectPage.Padding = new Padding(3);
             this.MASelectPage.Size = new System.Drawing.Size(402, 158);
             this.MASelectPage.TabIndex = 0;
             this.MASelectPage.Text = "Select";
@@ -3834,8 +3834,8 @@
             // 
             // GetSetMA
             // 
-            this.GetSetMA.Dock = System.Windows.Forms.DockStyle.None;
-            this.GetSetMA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GetSetMA.Dock = DockStyle.None;
+            this.GetSetMA.Items.AddRange(new ToolStripItem[] {
             this.loadMAsToolStripMenuItem,
             this.clearMAsToolStripMenuItem});
             this.GetSetMA.Location = new System.Drawing.Point(117, 127);
@@ -3882,7 +3882,7 @@
             this.CureConfigPage.Controls.Add(this.label1);
             this.CureConfigPage.Location = new System.Drawing.Point(4, 22);
             this.CureConfigPage.Name = "CureConfigPage";
-            this.CureConfigPage.Padding = new System.Windows.Forms.Padding(3);
+            this.CureConfigPage.Padding = new Padding(3);
             this.CureConfigPage.Size = new System.Drawing.Size(402, 158);
             this.CureConfigPage.TabIndex = 1;
             this.CureConfigPage.Text = "Cure";
@@ -4063,7 +4063,7 @@
             this.PartyCurepage.Controls.Add(this.tabControl2);
             this.PartyCurepage.Location = new System.Drawing.Point(4, 22);
             this.PartyCurepage.Name = "PartyCurepage";
-            this.PartyCurepage.Padding = new System.Windows.Forms.Padding(3);
+            this.PartyCurepage.Padding = new Padding(3);
             this.PartyCurepage.Size = new System.Drawing.Size(402, 158);
             this.PartyCurepage.TabIndex = 5;
             this.PartyCurepage.Text = "Party Cure";
@@ -4098,7 +4098,7 @@
             this.tabPage1.Controls.Add(this.Cureptcount);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Padding = new Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(389, 123);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cure";
@@ -4239,7 +4239,7 @@
             this.tabPage2.Controls.Add(this.groupBox17);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Padding = new Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(389, 123);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Party Members";
@@ -4266,8 +4266,8 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip1.Dock = DockStyle.None;
+            this.menuStrip1.Items.AddRange(new ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(20, 10);
@@ -4305,7 +4305,7 @@
             this.Cureagapage.Controls.Add(this.Curagacount);
             this.Cureagapage.Location = new System.Drawing.Point(4, 22);
             this.Cureagapage.Name = "Cureagapage";
-            this.Cureagapage.Padding = new System.Windows.Forms.Padding(3);
+            this.Cureagapage.Padding = new Padding(3);
             this.Cureagapage.Size = new System.Drawing.Size(402, 158);
             this.Cureagapage.TabIndex = 6;
             this.Cureagapage.Text = "Curaga";
@@ -4413,7 +4413,7 @@
             this.DrainAspirpage.Controls.Add(this.Draingroup);
             this.DrainAspirpage.Location = new System.Drawing.Point(4, 22);
             this.DrainAspirpage.Name = "DrainAspirpage";
-            this.DrainAspirpage.Padding = new System.Windows.Forms.Padding(3);
+            this.DrainAspirpage.Padding = new Padding(3);
             this.DrainAspirpage.Size = new System.Drawing.Size(402, 158);
             this.DrainAspirpage.TabIndex = 2;
             this.DrainAspirpage.Text = "Drain/Aspir";
@@ -4571,7 +4571,7 @@
             this.BLUCurespage.Controls.Add(this.WildCarrottext);
             this.BLUCurespage.Location = new System.Drawing.Point(4, 22);
             this.BLUCurespage.Name = "BLUCurespage";
-            this.BLUCurespage.Padding = new System.Windows.Forms.Padding(3);
+            this.BLUCurespage.Padding = new Padding(3);
             this.BLUCurespage.Size = new System.Drawing.Size(402, 158);
             this.BLUCurespage.TabIndex = 3;
             this.BLUCurespage.Text = "BLU Cures";
@@ -4719,7 +4719,7 @@
             this.MAconfigpage.Controls.Add(this.MAreverse);
             this.MAconfigpage.Location = new System.Drawing.Point(4, 22);
             this.MAconfigpage.Name = "MAconfigpage";
-            this.MAconfigpage.Padding = new System.Windows.Forms.Padding(3);
+            this.MAconfigpage.Padding = new Padding(3);
             this.MAconfigpage.Size = new System.Drawing.Size(402, 158);
             this.MAconfigpage.TabIndex = 4;
             this.MAconfigpage.Text = "MAconfig";
@@ -4754,7 +4754,7 @@
             this.Dynamispage.Controls.Add(this.staggerstopJA);
             this.Dynamispage.Location = new System.Drawing.Point(4, 22);
             this.Dynamispage.Name = "Dynamispage";
-            this.Dynamispage.Padding = new System.Windows.Forms.Padding(3);
+            this.Dynamispage.Padding = new Padding(3);
             this.Dynamispage.Size = new System.Drawing.Size(419, 197);
             this.Dynamispage.TabIndex = 5;
             this.Dynamispage.Text = "Dynamis";
@@ -4861,9 +4861,9 @@
             // 
             // pullDelay
             // 
-            this.pullDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pullDelay.BorderStyle = BorderStyle.FixedSingle;
             this.pullDelay.DecimalPlaces = 1;
-            this.pullDelay.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.pullDelay.ImeMode = ImeMode.Off;
             this.pullDelay.Increment = new decimal(new int[] {
             1,
             0,
@@ -4884,7 +4884,7 @@
             this.pullDelay.Size = new System.Drawing.Size(44, 20);
             this.pullDelay.TabIndex = 54;
             this.pullDelay.TabStop = false;
-            this.pullDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.pullDelay.TextAlign = HorizontalAlignment.Center;
             this.pullDelay.Value = new decimal(new int[] {
             4,
             0,
@@ -4904,7 +4904,7 @@
             // mobheightdistValue
             // 
             this.mobheightdistValue.DecimalPlaces = 1;
-            this.mobheightdistValue.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.mobheightdistValue.ImeMode = ImeMode.Off;
             this.mobheightdistValue.Location = new System.Drawing.Point(282, 91);
             this.mobheightdistValue.Maximum = new decimal(new int[] {
             50,
@@ -4920,7 +4920,7 @@
             this.mobheightdistValue.Size = new System.Drawing.Size(44, 20);
             this.mobheightdistValue.TabIndex = 52;
             this.mobheightdistValue.TabStop = false;
-            this.mobheightdistValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mobheightdistValue.TextAlign = HorizontalAlignment.Center;
             this.mobheightdistValue.Value = new decimal(new int[] {
             1,
             0,
@@ -4969,7 +4969,7 @@
             // targetSearchDist
             // 
             this.targetSearchDist.DecimalPlaces = 1;
-            this.targetSearchDist.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.targetSearchDist.ImeMode = ImeMode.Off;
             this.targetSearchDist.Increment = new decimal(new int[] {
             1,
             0,
@@ -4985,7 +4985,7 @@
             this.targetSearchDist.Size = new System.Drawing.Size(44, 20);
             this.targetSearchDist.TabIndex = 47;
             this.targetSearchDist.TabStop = false;
-            this.targetSearchDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.targetSearchDist.TextAlign = HorizontalAlignment.Center;
             this.targetSearchDist.Value = new decimal(new int[] {
             245,
             0,
@@ -5010,7 +5010,7 @@
             this.pullTolorance.Size = new System.Drawing.Size(44, 20);
             this.pullTolorance.TabIndex = 43;
             this.pullTolorance.TabStop = false;
-            this.pullTolorance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.pullTolorance.TextAlign = HorizontalAlignment.Center;
             this.pullTolorance.Value = new decimal(new int[] {
             1,
             0,
@@ -5044,7 +5044,7 @@
             this.numericUpDown21.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown21.TabIndex = 9;
             this.numericUpDown21.TabStop = false;
-            this.numericUpDown21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown21.TextAlign = HorizontalAlignment.Center;
             this.numericUpDown21.Value = new decimal(new int[] {
             16,
             0,
@@ -5084,7 +5084,7 @@
             this.dancer.Controls.Add(this.label15);
             this.dancer.Location = new System.Drawing.Point(4, 22);
             this.dancer.Name = "dancer";
-            this.dancer.Padding = new System.Windows.Forms.Padding(3);
+            this.dancer.Padding = new Padding(3);
             this.dancer.Size = new System.Drawing.Size(439, 361);
             this.dancer.TabIndex = 0;
             this.dancer.Text = "Sambas/Steps/Waltz";
@@ -5107,7 +5107,7 @@
             this.tabPage14.Controls.Add(this.groupBox3);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Padding = new Padding(3);
             this.tabPage14.Size = new System.Drawing.Size(418, 237);
             this.tabPage14.TabIndex = 0;
             this.tabPage14.Text = "Sambas/Steps";
@@ -5264,7 +5264,7 @@
             this.stopstepscount.Name = "stopstepscount";
             this.stopstepscount.Size = new System.Drawing.Size(34, 20);
             this.stopstepscount.TabIndex = 16;
-            this.stopstepscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.stopstepscount.TextAlign = HorizontalAlignment.Center;
             this.stopstepscount.Value = new decimal(new int[] {
             1,
             0,
@@ -5293,7 +5293,7 @@
             this.usefeatherstepValue.Name = "usefeatherstepValue";
             this.usefeatherstepValue.Size = new System.Drawing.Size(34, 20);
             this.usefeatherstepValue.TabIndex = 14;
-            this.usefeatherstepValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usefeatherstepValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usestutterstepValue
             // 
@@ -5307,7 +5307,7 @@
             this.usestutterstepValue.Name = "usestutterstepValue";
             this.usestutterstepValue.Size = new System.Drawing.Size(34, 20);
             this.usestutterstepValue.TabIndex = 13;
-            this.usestutterstepValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usestutterstepValue.TextAlign = HorizontalAlignment.Center;
             // 
             // useboxstepValue
             // 
@@ -5321,7 +5321,7 @@
             this.useboxstepValue.Name = "useboxstepValue";
             this.useboxstepValue.Size = new System.Drawing.Size(34, 20);
             this.useboxstepValue.TabIndex = 12;
-            this.useboxstepValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.useboxstepValue.TextAlign = HorizontalAlignment.Center;
             // 
             // StepsHPValue
             // 
@@ -5336,7 +5336,7 @@
             this.StepsHPValue.Size = new System.Drawing.Size(34, 20);
             this.StepsHPValue.TabIndex = 9;
             this.StepsHPValue.TabStop = false;
-            this.StepsHPValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.StepsHPValue.TextAlign = HorizontalAlignment.Center;
             this.StepsHPValue.Value = new decimal(new int[] {
             40,
             0,
@@ -5355,7 +5355,7 @@
             this.usequickstepValue.Name = "usequickstepValue";
             this.usequickstepValue.Size = new System.Drawing.Size(34, 20);
             this.usequickstepValue.TabIndex = 11;
-            this.usequickstepValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usequickstepValue.TextAlign = HorizontalAlignment.Center;
             // 
             // StepsHP
             // 
@@ -5434,7 +5434,7 @@
             this.tabPage15.Controls.Add(this.groupBox2);
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Padding = new Padding(3);
             this.tabPage15.Size = new System.Drawing.Size(418, 237);
             this.tabPage15.TabIndex = 1;
             this.tabPage15.Text = "Waltz";
@@ -5592,7 +5592,7 @@
             this.usecurevValue.Name = "usecurevValue";
             this.usecurevValue.Size = new System.Drawing.Size(41, 20);
             this.usecurevValue.TabIndex = 9;
-            this.usecurevValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usecurevValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usecureivValue
             // 
@@ -5606,7 +5606,7 @@
             this.usecureivValue.Name = "usecureivValue";
             this.usecureivValue.Size = new System.Drawing.Size(41, 20);
             this.usecureivValue.TabIndex = 8;
-            this.usecureivValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usecureivValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usecureiiiValue
             // 
@@ -5620,7 +5620,7 @@
             this.usecureiiiValue.Name = "usecureiiiValue";
             this.usecureiiiValue.Size = new System.Drawing.Size(41, 20);
             this.usecureiiiValue.TabIndex = 7;
-            this.usecureiiiValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usecureiiiValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usecureiiValue
             // 
@@ -5634,7 +5634,7 @@
             this.usecureiiValue.Name = "usecureiiValue";
             this.usecureiiValue.Size = new System.Drawing.Size(41, 20);
             this.usecureiiValue.TabIndex = 6;
-            this.usecureiiValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usecureiiValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usecureValue
             // 
@@ -5648,7 +5648,7 @@
             this.usecureValue.Name = "usecureValue";
             this.usecureValue.Size = new System.Drawing.Size(41, 20);
             this.usecureValue.TabIndex = 5;
-            this.usecureValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usecureValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usecurev
             // 
@@ -5828,7 +5828,7 @@
             this.numericUpDown27.Name = "numericUpDown27";
             this.numericUpDown27.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown27.TabIndex = 72;
-            this.numericUpDown27.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown27.TextAlign = HorizontalAlignment.Center;
             // 
             // numericUpDown28
             // 
@@ -5842,7 +5842,7 @@
             this.numericUpDown28.Name = "numericUpDown28";
             this.numericUpDown28.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown28.TabIndex = 71;
-            this.numericUpDown28.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown28.TextAlign = HorizontalAlignment.Center;
             // 
             // numericUpDown29
             // 
@@ -5856,7 +5856,7 @@
             this.numericUpDown29.Name = "numericUpDown29";
             this.numericUpDown29.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown29.TabIndex = 70;
-            this.numericUpDown29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown29.TextAlign = HorizontalAlignment.Center;
             // 
             // numericUpDown32
             // 
@@ -5870,7 +5870,7 @@
             this.numericUpDown32.Name = "numericUpDown32";
             this.numericUpDown32.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown32.TabIndex = 69;
-            this.numericUpDown32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown32.TextAlign = HorizontalAlignment.Center;
             // 
             // numericUpDown33
             // 
@@ -5884,7 +5884,7 @@
             this.numericUpDown33.Name = "numericUpDown33";
             this.numericUpDown33.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown33.TabIndex = 68;
-            this.numericUpDown33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown33.TextAlign = HorizontalAlignment.Center;
             // 
             // ptusecurev
             // 
@@ -5953,8 +5953,8 @@
             // 
             // GetSetParty
             // 
-            this.GetSetParty.Dock = System.Windows.Forms.DockStyle.None;
-            this.GetSetParty.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GetSetParty.Dock = DockStyle.None;
+            this.GetSetParty.Items.AddRange(new ToolStripItem[] {
             this.loadPartyToolStripMenuItem,
             this.clearPartyToolStripMenuItem});
             this.GetSetParty.Location = new System.Drawing.Point(20, 10);
@@ -5995,7 +5995,7 @@
             this.flourish.Controls.Add(this.flourishesigroup);
             this.flourish.Location = new System.Drawing.Point(4, 22);
             this.flourish.Name = "flourish";
-            this.flourish.Padding = new System.Windows.Forms.Padding(3);
+            this.flourish.Padding = new Padding(3);
             this.flourish.Size = new System.Drawing.Size(439, 361);
             this.flourish.TabIndex = 2;
             this.flourish.Text = "Flourishes";
@@ -6028,7 +6028,7 @@
             this.useclmfloValue.Name = "useclmfloValue";
             this.useclmfloValue.Size = new System.Drawing.Size(31, 20);
             this.useclmfloValue.TabIndex = 21;
-            this.useclmfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.useclmfloValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usestkfloValue
             // 
@@ -6042,7 +6042,7 @@
             this.usestkfloValue.Name = "usestkfloValue";
             this.usestkfloValue.Size = new System.Drawing.Size(31, 20);
             this.usestkfloValue.TabIndex = 22;
-            this.usestkfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usestkfloValue.TextAlign = HorizontalAlignment.Center;
             // 
             // useterfloValue
             // 
@@ -6056,7 +6056,7 @@
             this.useterfloValue.Name = "useterfloValue";
             this.useterfloValue.Size = new System.Drawing.Size(31, 20);
             this.useterfloValue.TabIndex = 23;
-            this.useterfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.useterfloValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usestkflo
             // 
@@ -6120,7 +6120,7 @@
             this.FlourishTPValue.Size = new System.Drawing.Size(44, 20);
             this.FlourishTPValue.TabIndex = 63;
             this.FlourishTPValue.TabStop = false;
-            this.FlourishTPValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FlourishTPValue.TextAlign = HorizontalAlignment.Center;
             this.FlourishTPValue.Value = new decimal(new int[] {
             400,
             0,
@@ -6154,7 +6154,7 @@
             this.usewldfloValue.Name = "usewldfloValue";
             this.usewldfloValue.Size = new System.Drawing.Size(31, 20);
             this.usewldfloValue.TabIndex = 21;
-            this.usewldfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usewldfloValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usebldfloValue
             // 
@@ -6168,7 +6168,7 @@
             this.usebldfloValue.Name = "usebldfloValue";
             this.usebldfloValue.Size = new System.Drawing.Size(31, 20);
             this.usebldfloValue.TabIndex = 20;
-            this.usebldfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usebldfloValue.TextAlign = HorizontalAlignment.Center;
             // 
             // userevfloValue
             // 
@@ -6182,7 +6182,7 @@
             this.userevfloValue.Name = "userevfloValue";
             this.userevfloValue.Size = new System.Drawing.Size(31, 20);
             this.userevfloValue.TabIndex = 19;
-            this.userevfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.userevfloValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usewldflo
             // 
@@ -6255,7 +6255,7 @@
             this.useviofloValue.Name = "useviofloValue";
             this.useviofloValue.Size = new System.Drawing.Size(31, 20);
             this.useviofloValue.TabIndex = 28;
-            this.useviofloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.useviofloValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usevioflo
             // 
@@ -6281,7 +6281,7 @@
             this.usedesfloValue.Name = "usedesfloValue";
             this.usedesfloValue.Size = new System.Drawing.Size(31, 20);
             this.usedesfloValue.TabIndex = 26;
-            this.usedesfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usedesfloValue.TextAlign = HorizontalAlignment.Center;
             // 
             // usedesflo
             // 
@@ -6300,7 +6300,7 @@
             this.pets.Controls.Add(this.groupBox10);
             this.pets.Location = new System.Drawing.Point(4, 22);
             this.pets.Name = "pets";
-            this.pets.Padding = new System.Windows.Forms.Padding(3);
+            this.pets.Padding = new Padding(3);
             this.pets.Size = new System.Drawing.Size(439, 361);
             this.pets.TabIndex = 4;
             this.pets.Text = "Pets";
@@ -6310,7 +6310,7 @@
             // 
             this.groupBox10.Controls.Add(this.groupBox19);
             this.groupBox10.Controls.Add(this.petControl);
-            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox10.Dock = DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(3, 3);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(433, 355);
@@ -6394,7 +6394,7 @@
             this.bstpettab.Controls.Add(this.autoengage);
             this.bstpettab.Location = new System.Drawing.Point(4, 22);
             this.bstpettab.Name = "bstpettab";
-            this.bstpettab.Padding = new System.Windows.Forms.Padding(3);
+            this.bstpettab.Padding = new Padding(3);
             this.bstpettab.Size = new System.Drawing.Size(415, 247);
             this.bstpettab.TabIndex = 0;
             this.bstpettab.Text = "BST";
@@ -6431,7 +6431,7 @@
             this.BstJATP.Size = new System.Drawing.Size(44, 20);
             this.BstJATP.TabIndex = 96;
             this.BstJATP.TabStop = false;
-            this.BstJATP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BstJATP.TextAlign = HorizontalAlignment.Center;
             this.BstJATP.Value = new decimal(new int[] {
             1000,
             0,
@@ -6450,9 +6450,9 @@
             // 
             // PetJA
             // 
-            this.PetJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PetJA.BorderStyle = BorderStyle.None;
             this.PetJA.CheckOnClick = true;
-            this.PetJA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PetJA.Dock = DockStyle.Fill;
             this.PetJA.FormattingEnabled = true;
             this.PetJA.Location = new System.Drawing.Point(3, 16);
             this.PetJA.Name = "PetJA";
@@ -6471,9 +6471,9 @@
             // 
             // PetReady
             // 
-            this.PetReady.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PetReady.BorderStyle = BorderStyle.None;
             this.PetReady.CheckOnClick = true;
-            this.PetReady.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PetReady.Dock = DockStyle.Fill;
             this.PetReady.FormattingEnabled = true;
             this.PetReady.Location = new System.Drawing.Point(3, 16);
             this.PetReady.Name = "PetReady";
@@ -6491,8 +6491,8 @@
             "Pet Food Zeta",
             "Pet Food Eta",
             "Pet Food Theta"});
-            this.usedpetfood.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.usedpetfood.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.usedpetfood.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.usedpetfood.AutoCompleteSource = AutoCompleteSource.CustomSource;
             this.usedpetfood.FormattingEnabled = true;
             this.usedpetfood.Location = new System.Drawing.Point(92, 35);
             this.usedpetfood.Name = "usedpetfood";
@@ -6566,8 +6566,8 @@
             "Dire Broth",
             "Electrified Broth",
             "Bug-Ridden Broth"});
-            this.jugpet.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.jugpet.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.jugpet.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.jugpet.AutoCompleteSource = AutoCompleteSource.CustomSource;
             this.jugpet.FormattingEnabled = true;
             this.jugpet.Location = new System.Drawing.Point(92, 12);
             this.jugpet.Name = "jugpet";
@@ -6600,7 +6600,7 @@
             this.pethppfood.Name = "pethppfood";
             this.pethppfood.Size = new System.Drawing.Size(39, 20);
             this.pethppfood.TabIndex = 10;
-            this.pethppfood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.pethppfood.TextAlign = HorizontalAlignment.Center;
             this.pethppfood.Value = new decimal(new int[] {
             20,
             0,
@@ -6651,7 +6651,7 @@
             this.drgpettab.Controls.Add(this.drgjagroup);
             this.drgpettab.Location = new System.Drawing.Point(4, 22);
             this.drgpettab.Name = "drgpettab";
-            this.drgpettab.Padding = new System.Windows.Forms.Padding(3);
+            this.drgpettab.Padding = new Padding(3);
             this.drgpettab.Size = new System.Drawing.Size(415, 247);
             this.drgpettab.TabIndex = 3;
             this.drgpettab.Text = "DRG";
@@ -6668,7 +6668,7 @@
             this.DragonPetHP.Name = "DragonPetHP";
             this.DragonPetHP.Size = new System.Drawing.Size(44, 20);
             this.DragonPetHP.TabIndex = 118;
-            this.DragonPetHP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.DragonPetHP.TextAlign = HorizontalAlignment.Center;
             // 
             // drgsteadywingtext
             // 
@@ -6722,7 +6722,7 @@
             this.PlayerSpirit.Name = "PlayerSpirit";
             this.PlayerSpirit.Size = new System.Drawing.Size(44, 20);
             this.PlayerSpirit.TabIndex = 29;
-            this.PlayerSpirit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PlayerSpirit.TextAlign = HorizontalAlignment.Center;
             this.PlayerSpirit.Value = new decimal(new int[] {
             80,
             0,
@@ -6740,7 +6740,7 @@
             this.WyvernSpirit.Name = "WyvernSpirit";
             this.WyvernSpirit.Size = new System.Drawing.Size(44, 20);
             this.WyvernSpirit.TabIndex = 27;
-            this.WyvernSpirit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WyvernSpirit.TextAlign = HorizontalAlignment.Center;
             this.WyvernSpirit.Value = new decimal(new int[] {
             60,
             0,
@@ -6776,7 +6776,7 @@
             this.BreathMAX.Name = "BreathMAX";
             this.BreathMAX.Size = new System.Drawing.Size(44, 20);
             this.BreathMAX.TabIndex = 103;
-            this.BreathMAX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BreathMAX.TextAlign = HorizontalAlignment.Center;
             this.BreathMAX.Value = new decimal(new int[] {
             100,
             0,
@@ -6803,7 +6803,7 @@
             this.BreathMIN.Name = "BreathMIN";
             this.BreathMIN.Size = new System.Drawing.Size(44, 20);
             this.BreathMIN.TabIndex = 102;
-            this.BreathMIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BreathMIN.TextAlign = HorizontalAlignment.Center;
             this.BreathMIN.Value = new decimal(new int[] {
             15,
             0,
@@ -6841,7 +6841,7 @@
             this.RestoringBreathHP.Name = "RestoringBreathHP";
             this.RestoringBreathHP.Size = new System.Drawing.Size(44, 20);
             this.RestoringBreathHP.TabIndex = 117;
-            this.RestoringBreathHP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RestoringBreathHP.TextAlign = HorizontalAlignment.Center;
             // 
             // label50
             // 
@@ -6864,9 +6864,9 @@
             // 
             // WyvernJA
             // 
-            this.WyvernJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.WyvernJA.BorderStyle = BorderStyle.None;
             this.WyvernJA.CheckOnClick = true;
-            this.WyvernJA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WyvernJA.Dock = DockStyle.Fill;
             this.WyvernJA.FormattingEnabled = true;
             this.WyvernJA.Location = new System.Drawing.Point(3, 16);
             this.WyvernJA.Name = "WyvernJA";
@@ -7053,9 +7053,9 @@
             // 
             // SMNJA
             // 
-            this.SMNJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SMNJA.BorderStyle = BorderStyle.None;
             this.SMNJA.CheckOnClick = true;
-            this.SMNJA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SMNJA.Dock = DockStyle.Fill;
             this.SMNJA.FormattingEnabled = true;
             this.SMNJA.Location = new System.Drawing.Point(3, 16);
             this.SMNJA.Name = "SMNJA";
@@ -7092,9 +7092,9 @@
             // 
             // SMNAbilityList
             // 
-            this.SMNAbilityList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SMNAbilityList.BorderStyle = BorderStyle.None;
             this.SMNAbilityList.CheckOnClick = true;
-            this.SMNAbilityList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SMNAbilityList.Dock = DockStyle.Fill;
             this.SMNAbilityList.FormattingEnabled = true;
             this.SMNAbilityList.Location = new System.Drawing.Point(3, 16);
             this.SMNAbilityList.Name = "SMNAbilityList";
@@ -7106,7 +7106,7 @@
             this.puppettab.Controls.Add(this.tabControl1);
             this.puppettab.Location = new System.Drawing.Point(4, 22);
             this.puppettab.Name = "puppettab";
-            this.puppettab.Padding = new System.Windows.Forms.Padding(3);
+            this.puppettab.Padding = new Padding(3);
             this.puppettab.Size = new System.Drawing.Size(415, 247);
             this.puppettab.TabIndex = 1;
             this.puppettab.Text = "PUP";
@@ -7131,7 +7131,7 @@
             this.PUPAbilitypage.Controls.Add(this.PUPautoengage);
             this.PUPAbilitypage.Location = new System.Drawing.Point(4, 22);
             this.PUPAbilitypage.Name = "PUPAbilitypage";
-            this.PUPAbilitypage.Padding = new System.Windows.Forms.Padding(3);
+            this.PUPAbilitypage.Padding = new Padding(3);
             this.PUPAbilitypage.Size = new System.Drawing.Size(395, 209);
             this.PUPAbilitypage.TabIndex = 0;
             this.PUPAbilitypage.Text = "Ability\'s";
@@ -7380,9 +7380,9 @@
             // 
             // PUPJA
             // 
-            this.PUPJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PUPJA.BorderStyle = BorderStyle.None;
             this.PUPJA.CheckOnClick = true;
-            this.PUPJA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PUPJA.Dock = DockStyle.Fill;
             this.PUPJA.FormattingEnabled = true;
             this.PUPJA.Location = new System.Drawing.Point(3, 16);
             this.PUPJA.Name = "PUPJA";
@@ -7408,7 +7408,7 @@
             this.PUPOtherpage.Controls.Add(this.RoleReversalgroup);
             this.PUPOtherpage.Location = new System.Drawing.Point(4, 22);
             this.PUPOtherpage.Name = "PUPOtherpage";
-            this.PUPOtherpage.Padding = new System.Windows.Forms.Padding(3);
+            this.PUPOtherpage.Padding = new Padding(3);
             this.PUPOtherpage.Size = new System.Drawing.Size(395, 209);
             this.PUPOtherpage.TabIndex = 2;
             this.PUPOtherpage.Text = "Other";
@@ -7654,7 +7654,7 @@
             this.geopettab.Controls.Add(this.groupBox6);
             this.geopettab.Location = new System.Drawing.Point(4, 22);
             this.geopettab.Name = "geopettab";
-            this.geopettab.Padding = new System.Windows.Forms.Padding(3);
+            this.geopettab.Padding = new Padding(3);
             this.geopettab.Size = new System.Drawing.Size(415, 247);
             this.geopettab.TabIndex = 4;
             this.geopettab.Text = "GEO";
@@ -7690,9 +7690,9 @@
             // 
             // GEOJA
             // 
-            this.GEOJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GEOJA.BorderStyle = BorderStyle.None;
             this.GEOJA.CheckOnClick = true;
-            this.GEOJA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GEOJA.Dock = DockStyle.Fill;
             this.GEOJA.FormattingEnabled = true;
             this.GEOJA.Location = new System.Drawing.Point(3, 16);
             this.GEOJA.Name = "GEOJA";
@@ -7709,7 +7709,7 @@
             this.trustControl.Controls.Add(this.trustmenuStrip);
             this.trustControl.Location = new System.Drawing.Point(4, 22);
             this.trustControl.Name = "trustControl";
-            this.trustControl.Padding = new System.Windows.Forms.Padding(3);
+            this.trustControl.Padding = new Padding(3);
             this.trustControl.Size = new System.Drawing.Size(439, 361);
             this.trustControl.TabIndex = 8;
             this.trustControl.Text = "Trust";
@@ -7767,8 +7767,8 @@
             // 
             // trustmenuStrip
             // 
-            this.trustmenuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.trustmenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.trustmenuStrip.Dock = DockStyle.None;
+            this.trustmenuStrip.Items.AddRange(new ToolStripItem[] {
             this.trustMenureset});
             this.trustmenuStrip.Location = new System.Drawing.Point(56, 304);
             this.trustmenuStrip.Name = "trustmenuStrip";
@@ -8074,13 +8074,13 @@
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dncControl);
             this.Name = "ScriptFarmDNC";
-            this.Padding = new System.Windows.Forms.Padding(0, 0, 7, 25);
+            this.Padding = new Padding(0, 0, 7, 25);
             this.Size = new System.Drawing.Size(739, 440);
             this.Load += new System.EventHandler(this.ScriptFarmDncLoad);
             this.groupBox8.ResumeLayout(false);
@@ -8391,255 +8391,255 @@
 
         #endregion
         #region sysform
-        public System.Windows.Forms.CheckBox checkZone;
-        public System.Windows.Forms.CheckBox StopFullInventory;
-        public System.Windows.Forms.GroupBox groupBox8;
-        public System.Windows.Forms.CheckBox firstPersonView;
-        public System.Windows.Forms.CheckBox runReverse;
-        public System.Windows.Forms.RadioButton Linear;
-        public System.Windows.Forms.RadioButton Circular;
-        public System.Windows.Forms.ComboBox selectedNavi;
-        public System.Windows.Forms.MenuStrip GetSetNavi;
-        public System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
-        public System.Windows.Forms.CheckBox usenav;
-        public System.Windows.Forms.MenuStrip StartStopScript;
-        public System.Windows.Forms.ToolStripMenuItem startScriptToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem stopScriptToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem updateJobToolStripMenuItem;
-        public System.Windows.Forms.TabControl dncControl;
-        public System.Windows.Forms.TabPage targets;
-        public System.Windows.Forms.GroupBox groupBox9;
-        public System.Windows.Forms.MenuStrip ZoneTargets;
-        public System.Windows.Forms.ToolStripMenuItem NameListToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem iDToolStripMenuItem;
-        public System.Windows.Forms.GroupBox groupBox11;
-        public System.Windows.Forms.ListView TargetList;
-        public System.Windows.Forms.ColumnHeader columnHeader3;
-        public System.Windows.Forms.ColumnHeader columnHeader4;
-        public System.Windows.Forms.GroupBox groupBox12;
-        public System.Windows.Forms.MenuStrip GetSetTargets;
-        public System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
-        public System.Windows.Forms.GroupBox selecttargets;
-        public System.Windows.Forms.ListView SelectedTargets;
-        public System.Windows.Forms.ColumnHeader columnHeader1;
-        public System.Windows.Forms.ColumnHeader columnHeader2;
-        public System.Windows.Forms.TabPage combat;
-        public System.Windows.Forms.TabControl CombatSettingsTabs;
-        public System.Windows.Forms.TabPage Options1MainTab;
-        public System.Windows.Forms.GroupBox HateControlgroup;
-        public System.Windows.Forms.NumericUpDown numericUpDown6;
-        public System.Windows.Forms.NumericUpDown numericUpDown7;
-        public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.ComboBox selectedHateControl;
-        public System.Windows.Forms.CheckBox tank;
-        public System.Windows.Forms.GroupBox groupBox20;
-        public System.Windows.Forms.ComboBox amname;
-        public System.Windows.Forms.NumericUpDown AfterMathTier;
-        public System.Windows.Forms.CheckBox wsam;
-        public System.Windows.Forms.CheckBox WSDistance;
-        public System.Windows.Forms.ComboBox selectedWS;
-        public System.Windows.Forms.NumericUpDown WSDistanceset;
-        public System.Windows.Forms.CheckBox ws;
-        public System.Windows.Forms.NumericUpDown WStp;
-        public System.Windows.Forms.Label label29;
-        public System.Windows.Forms.NumericUpDown TragetHPPtop;
-        public System.Windows.Forms.Label label28;
-        public System.Windows.Forms.NumericUpDown TragetHPPbottom;
-        public System.Windows.Forms.Label label27;
-        public System.Windows.Forms.TabPage Options2MainTab;
-        public System.Windows.Forms.NumericUpDown numericUpDown38;
-        public System.Windows.Forms.NumericUpDown aggroRange;
-        public System.Windows.Forms.CheckBox ScanDelay;
-        public System.Windows.Forms.NumericUpDown KeepTargetRange;
-        public System.Windows.Forms.NumericUpDown assistDist;
-        public System.Windows.Forms.NumericUpDown followDist;
-        public System.Windows.Forms.CheckBox partyAssist;
-        public System.Windows.Forms.CheckBox facetarget;
-        public System.Windows.Forms.Label label12;
-        public System.Windows.Forms.CheckBox assist;
-        public System.Windows.Forms.CheckBox followplayer;
-        public System.Windows.Forms.TextBox followName;
-        public System.Windows.Forms.CheckBox useshadows;
-        public System.Windows.Forms.Label label11;
-        public System.Windows.Forms.TextBox assistplayer;
-        public System.Windows.Forms.CheckBox aggro;
-        public System.Windows.Forms.CheckBox mobdist;
-        public System.Windows.Forms.TabPage Options3MainTab;
-        public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox foodName;
-        public System.Windows.Forms.NumericUpDown healMPcount;
-        public System.Windows.Forms.CheckBox usefood;
-        public System.Windows.Forms.CheckBox HealMP;
-        public System.Windows.Forms.NumericUpDown healHPcount;
-        public System.Windows.Forms.CheckBox HealHP;
-        public System.Windows.Forms.TextBox textBox6;
-        public System.Windows.Forms.Label label35;
-        public System.Windows.Forms.TabPage Options4MainTab;
-        public System.Windows.Forms.ComboBox comboBox4;
-        public System.Windows.Forms.ComboBox SignetStaff;
-        public System.Windows.Forms.CheckBox useStaff;
-        public System.Windows.Forms.GroupBox groupBox15;
-        public System.Windows.Forms.Label label42;
-        public System.Windows.Forms.NumericUpDown autoRangeDelay;
-        public System.Windows.Forms.TextBox textBox7;
-        public System.Windows.Forms.CheckBox rangeaggro;
-        public System.Windows.Forms.ComboBox comboBox1;
-        public System.Windows.Forms.CheckBox checkBox4;
-        public System.Windows.Forms.CheckBox autoRangeAttack;
-        public System.Windows.Forms.Button RecordIdleLocation;
-        public System.Windows.Forms.CheckBox IdleLocation;
-        public System.Windows.Forms.CheckBox WeakLocation;
-        public System.Windows.Forms.TabPage OptionsJAMainTab;
-        public System.Windows.Forms.CheckedListBox playerJA;
-        public System.Windows.Forms.MenuStrip GetSetJA;
-        public System.Windows.Forms.ToolStripMenuItem loadJAsToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem clearJAsToolStripMenuItem;
-        public System.Windows.Forms.GroupBox groupBox14;
-        public System.Windows.Forms.Label delaytext;
-        public System.Windows.Forms.NumericUpDown pullDelay;
-        public System.Windows.Forms.CheckBox AutoLock;
-        public System.Windows.Forms.CheckBox mobheightdist;
-        public System.Windows.Forms.CheckBox runTarget;
-        public System.Windows.Forms.CheckBox runPullDistance;
-        public System.Windows.Forms.Label mobsearchdisttext;
-        public System.Windows.Forms.NumericUpDown targetSearchDist;
-        public System.Windows.Forms.NumericUpDown pullTolorance;
-        public System.Windows.Forms.Label pulltolorancetext;
-        public System.Windows.Forms.NumericUpDown numericUpDown21;
-        public System.Windows.Forms.Label pulldistance;
-        public System.Windows.Forms.TextBox pullCommand;
-        public System.Windows.Forms.Label pullcommandtext;
-        public System.Windows.Forms.TabPage dancer;
-        public System.Windows.Forms.TabControl tabControl3;
-        public System.Windows.Forms.TabPage tabPage14;
-        public System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.RadioButton noSamba;
-        public System.Windows.Forms.RadioButton usedrainiii;
-        public System.Windows.Forms.RadioButton usehaste;
-        public System.Windows.Forms.RadioButton useaspirii;
-        public System.Windows.Forms.RadioButton useaspir;
-        public System.Windows.Forms.RadioButton usedrainii;
-        public System.Windows.Forms.RadioButton usedrain;
-        public System.Windows.Forms.GroupBox groupBox3;
-        public System.Windows.Forms.Label stopstepsathptext;
-        public System.Windows.Forms.NumericUpDown usefeatherstepValue;
-        public System.Windows.Forms.NumericUpDown usestutterstepValue;
-        public System.Windows.Forms.NumericUpDown useboxstepValue;
-        public System.Windows.Forms.NumericUpDown StepsHPValue;
-        public System.Windows.Forms.NumericUpDown usequickstepValue;
-        public System.Windows.Forms.CheckBox StepsHP;
-        public System.Windows.Forms.RadioButton NoSteps;
-        public System.Windows.Forms.RadioButton usequickstep;
-        public System.Windows.Forms.RadioButton useboxstep;
-        public System.Windows.Forms.RadioButton usestutterstep;
-        public System.Windows.Forms.RadioButton usefeatherstep;
-        public System.Windows.Forms.TabPage tabPage15;
-        public System.Windows.Forms.GroupBox groupBox7;
-        public System.Windows.Forms.CheckBox HWSelectDeselectALL;
-        public System.Windows.Forms.CheckedListBox HealingWaltzItems;
-        public System.Windows.Forms.GroupBox groupBox2;
-        public System.Windows.Forms.Label label32;
-        public System.Windows.Forms.Label label31;
-        public System.Windows.Forms.Label label30;
-        public System.Windows.Forms.Label label25;
-        public System.Windows.Forms.Label label17;
-        public System.Windows.Forms.NumericUpDown usecurevValue;
-        public System.Windows.Forms.NumericUpDown usecureivValue;
-        public System.Windows.Forms.NumericUpDown usecureiiiValue;
-        public System.Windows.Forms.NumericUpDown usecureiiValue;
-        public System.Windows.Forms.NumericUpDown usecureValue;
-        public System.Windows.Forms.CheckBox usecurev;
-        public System.Windows.Forms.CheckBox usecureiv;
-        public System.Windows.Forms.CheckBox usecureiii;
-        public System.Windows.Forms.CheckBox usecureii;
-        public System.Windows.Forms.CheckBox usecure;
-        public System.Windows.Forms.TabPage tabPage16;
-        public System.Windows.Forms.Label addplayertext;
-        public System.Windows.Forms.TextBox WaltzPTadd;
-        public System.Windows.Forms.GroupBox groupBox21;
-        public System.Windows.Forms.Label label38;
-        public System.Windows.Forms.Label label37;
-        public System.Windows.Forms.Label label36;
-        public System.Windows.Forms.Label label34;
-        public System.Windows.Forms.Label label33;
-        public System.Windows.Forms.NumericUpDown numericUpDown27;
-        public System.Windows.Forms.NumericUpDown numericUpDown28;
-        public System.Windows.Forms.NumericUpDown numericUpDown29;
-        public System.Windows.Forms.NumericUpDown numericUpDown32;
-        public System.Windows.Forms.NumericUpDown numericUpDown33;
-        public System.Windows.Forms.CheckBox ptusecurev;
-        public System.Windows.Forms.CheckBox ptusecureiv;
-        public System.Windows.Forms.CheckBox ptusecureiii;
-        public System.Windows.Forms.CheckBox ptusecureii;
-        public System.Windows.Forms.CheckBox ptusecure;
-        public System.Windows.Forms.GroupBox groupBox22;
-        public System.Windows.Forms.MenuStrip GetSetParty;
-        public System.Windows.Forms.ToolStripMenuItem loadPartyToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem clearPartyToolStripMenuItem;
-        public System.Windows.Forms.Label label15;
-        public System.Windows.Forms.TabPage flourish;
-        public System.Windows.Forms.GroupBox flourishesiiigroup;
-        public System.Windows.Forms.NumericUpDown useclmfloValue;
-        public System.Windows.Forms.NumericUpDown usestkfloValue;
-        public System.Windows.Forms.NumericUpDown useterfloValue;
-        public System.Windows.Forms.RadioButton usestkflo;
-        public System.Windows.Forms.RadioButton useclmflo;
-        public System.Windows.Forms.RadioButton useterflo;
-        public System.Windows.Forms.Label finsishingmovetext;
-        public System.Windows.Forms.NumericUpDown FlourishTPValue;
-        public System.Windows.Forms.GroupBox flourishesiigroup;
-        public System.Windows.Forms.NumericUpDown usewldfloValue;
-        public System.Windows.Forms.NumericUpDown usebldfloValue;
-        public System.Windows.Forms.NumericUpDown userevfloValue;
-        public System.Windows.Forms.RadioButton usewldflo;
-        public System.Windows.Forms.RadioButton usebldflo;
-        public System.Windows.Forms.RadioButton userevflo;
-        public System.Windows.Forms.CheckBox FlourishTP;
-        public System.Windows.Forms.GroupBox flourishesigroup;
-        public System.Windows.Forms.NumericUpDown usedesfloValue;
-        public System.Windows.Forms.RadioButton usedesflo;
-        public System.Windows.Forms.TabPage pets;
-        public System.Windows.Forms.GroupBox groupBox10;
-        public System.Windows.Forms.GroupBox groupBox19;
-        public System.Windows.Forms.TabControl petControl;
-        public System.Windows.Forms.TabPage bstpettab;
-        public System.Windows.Forms.GroupBox usepetja;
-        public System.Windows.Forms.CheckedListBox PetJA;
-        public System.Windows.Forms.GroupBox bstpetrdygroup;
-        public System.Windows.Forms.CheckedListBox PetReady;
-        public System.Windows.Forms.ComboBox usedpetfood;
-        public System.Windows.Forms.ComboBox jugpet;
-        public System.Windows.Forms.CheckBox juguse;
-        public System.Windows.Forms.NumericUpDown pethppfood;
-        public System.Windows.Forms.Label pethptext;
-        public System.Windows.Forms.CheckBox petfooduse;
-        public System.Windows.Forms.CheckBox autoengage;
-        public System.Windows.Forms.TabPage drgpettab;
-        public System.Windows.Forms.NumericUpDown DragonPetHP;
-        public System.Windows.Forms.Label drgsteadywingtext;
-        public System.Windows.Forms.CheckBox CallWyvern;
-        public System.Windows.Forms.GroupBox drgspirtlinkgroup;
-        public System.Windows.Forms.Label label16;
-        public System.Windows.Forms.NumericUpDown PlayerSpirit;
-        public System.Windows.Forms.NumericUpDown WyvernSpirit;
-        public System.Windows.Forms.Label label46;
-        public System.Windows.Forms.Label label47;
-        public System.Windows.Forms.NumericUpDown BreathMAX;
-        public System.Windows.Forms.Label label48;
-        public System.Windows.Forms.NumericUpDown BreathMIN;
-        public System.Windows.Forms.Label drgwyvernbreathptext;
-        public System.Windows.Forms.GroupBox drgrestoringbreathgroup;
-        public System.Windows.Forms.NumericUpDown RestoringBreathHP;
-        public System.Windows.Forms.Label label50;
-        public System.Windows.Forms.GroupBox drgjagroup;
-        public System.Windows.Forms.CheckedListBox WyvernJA;
-        public System.Windows.Forms.TabPage smnpettab;
-        public System.Windows.Forms.TabPage puppettab;
+        public CheckBox checkZone;
+        public CheckBox StopFullInventory;
+        public GroupBox groupBox8;
+        public CheckBox firstPersonView;
+        public CheckBox runReverse;
+        public RadioButton Linear;
+        public RadioButton Circular;
+        public ComboBox selectedNavi;
+        public MenuStrip GetSetNavi;
+        public ToolStripMenuItem refreshToolStripMenuItem;
+        public CheckBox usenav;
+        public MenuStrip StartStopScript;
+        public ToolStripMenuItem startScriptToolStripMenuItem;
+        public ToolStripMenuItem stopScriptToolStripMenuItem;
+        public ToolStripMenuItem updateJobToolStripMenuItem;
+        public TabControl dncControl;
+        public TabPage targets;
+        public GroupBox groupBox9;
+        public MenuStrip ZoneTargets;
+        public ToolStripMenuItem NameListToolStripMenuItem;
+        public ToolStripMenuItem iDToolStripMenuItem;
+        public GroupBox groupBox11;
+        public ListView TargetList;
+        public ColumnHeader columnHeader3;
+        public ColumnHeader columnHeader4;
+        public GroupBox groupBox12;
+        public MenuStrip GetSetTargets;
+        public ToolStripMenuItem saveToolStripMenuItem;
+        public ToolStripMenuItem loadToolStripMenuItem;
+        public ToolStripMenuItem clearToolStripMenuItem;
+        public GroupBox selecttargets;
+        public ListView SelectedTargets;
+        public ColumnHeader columnHeader1;
+        public ColumnHeader columnHeader2;
+        public TabPage combat;
+        public TabControl CombatSettingsTabs;
+        public TabPage Options1MainTab;
+        public GroupBox HateControlgroup;
+        public NumericUpDown numericUpDown6;
+        public NumericUpDown numericUpDown7;
+        public Label label4;
+        public Label label5;
+        public Label label6;
+        public ComboBox selectedHateControl;
+        public CheckBox tank;
+        public GroupBox groupBox20;
+        public ComboBox amname;
+        public NumericUpDown AfterMathTier;
+        public CheckBox wsam;
+        public CheckBox WSDistance;
+        public ComboBox selectedWS;
+        public NumericUpDown WSDistanceset;
+        public CheckBox ws;
+        public NumericUpDown WStp;
+        public Label label29;
+        public NumericUpDown TragetHPPtop;
+        public Label label28;
+        public NumericUpDown TragetHPPbottom;
+        public Label label27;
+        public TabPage Options2MainTab;
+        public NumericUpDown numericUpDown38;
+        public NumericUpDown aggroRange;
+        public CheckBox ScanDelay;
+        public NumericUpDown KeepTargetRange;
+        public NumericUpDown assistDist;
+        public NumericUpDown followDist;
+        public CheckBox partyAssist;
+        public CheckBox facetarget;
+        public Label label12;
+        public CheckBox assist;
+        public CheckBox followplayer;
+        public TextBox followName;
+        public CheckBox useshadows;
+        public Label label11;
+        public TextBox assistplayer;
+        public CheckBox aggro;
+        public CheckBox mobdist;
+        public TabPage Options3MainTab;
+        public Label label7;
+        public Label label3;
+        public TextBox foodName;
+        public NumericUpDown healMPcount;
+        public CheckBox usefood;
+        public CheckBox HealMP;
+        public NumericUpDown healHPcount;
+        public CheckBox HealHP;
+        public TextBox textBox6;
+        public Label label35;
+        public TabPage Options4MainTab;
+        public ComboBox comboBox4;
+        public ComboBox SignetStaff;
+        public CheckBox useStaff;
+        public GroupBox groupBox15;
+        public Label label42;
+        public NumericUpDown autoRangeDelay;
+        public TextBox textBox7;
+        public CheckBox rangeaggro;
+        public ComboBox comboBox1;
+        public CheckBox checkBox4;
+        public CheckBox autoRangeAttack;
+        public Button RecordIdleLocation;
+        public CheckBox IdleLocation;
+        public CheckBox WeakLocation;
+        public TabPage OptionsJAMainTab;
+        public CheckedListBox playerJA;
+        public MenuStrip GetSetJA;
+        public ToolStripMenuItem loadJAsToolStripMenuItem;
+        public ToolStripMenuItem clearJAsToolStripMenuItem;
+        public GroupBox groupBox14;
+        public Label delaytext;
+        public NumericUpDown pullDelay;
+        public CheckBox AutoLock;
+        public CheckBox mobheightdist;
+        public CheckBox runTarget;
+        public CheckBox runPullDistance;
+        public Label mobsearchdisttext;
+        public NumericUpDown targetSearchDist;
+        public NumericUpDown pullTolorance;
+        public Label pulltolorancetext;
+        public NumericUpDown numericUpDown21;
+        public Label pulldistance;
+        public TextBox pullCommand;
+        public Label pullcommandtext;
+        public TabPage dancer;
+        public TabControl tabControl3;
+        public TabPage tabPage14;
+        public GroupBox groupBox1;
+        public RadioButton noSamba;
+        public RadioButton usedrainiii;
+        public RadioButton usehaste;
+        public RadioButton useaspirii;
+        public RadioButton useaspir;
+        public RadioButton usedrainii;
+        public RadioButton usedrain;
+        public GroupBox groupBox3;
+        public Label stopstepsathptext;
+        public NumericUpDown usefeatherstepValue;
+        public NumericUpDown usestutterstepValue;
+        public NumericUpDown useboxstepValue;
+        public NumericUpDown StepsHPValue;
+        public NumericUpDown usequickstepValue;
+        public CheckBox StepsHP;
+        public RadioButton NoSteps;
+        public RadioButton usequickstep;
+        public RadioButton useboxstep;
+        public RadioButton usestutterstep;
+        public RadioButton usefeatherstep;
+        public TabPage tabPage15;
+        public GroupBox groupBox7;
+        public CheckBox HWSelectDeselectALL;
+        public CheckedListBox HealingWaltzItems;
+        public GroupBox groupBox2;
+        public Label label32;
+        public Label label31;
+        public Label label30;
+        public Label label25;
+        public Label label17;
+        public NumericUpDown usecurevValue;
+        public NumericUpDown usecureivValue;
+        public NumericUpDown usecureiiiValue;
+        public NumericUpDown usecureiiValue;
+        public NumericUpDown usecureValue;
+        public CheckBox usecurev;
+        public CheckBox usecureiv;
+        public CheckBox usecureiii;
+        public CheckBox usecureii;
+        public CheckBox usecure;
+        public TabPage tabPage16;
+        public Label addplayertext;
+        public TextBox WaltzPTadd;
+        public GroupBox groupBox21;
+        public Label label38;
+        public Label label37;
+        public Label label36;
+        public Label label34;
+        public Label label33;
+        public NumericUpDown numericUpDown27;
+        public NumericUpDown numericUpDown28;
+        public NumericUpDown numericUpDown29;
+        public NumericUpDown numericUpDown32;
+        public NumericUpDown numericUpDown33;
+        public CheckBox ptusecurev;
+        public CheckBox ptusecureiv;
+        public CheckBox ptusecureiii;
+        public CheckBox ptusecureii;
+        public CheckBox ptusecure;
+        public GroupBox groupBox22;
+        public MenuStrip GetSetParty;
+        public ToolStripMenuItem loadPartyToolStripMenuItem;
+        public ToolStripMenuItem clearPartyToolStripMenuItem;
+        public Label label15;
+        public TabPage flourish;
+        public GroupBox flourishesiiigroup;
+        public NumericUpDown useclmfloValue;
+        public NumericUpDown usestkfloValue;
+        public NumericUpDown useterfloValue;
+        public RadioButton usestkflo;
+        public RadioButton useclmflo;
+        public RadioButton useterflo;
+        public Label finsishingmovetext;
+        public NumericUpDown FlourishTPValue;
+        public GroupBox flourishesiigroup;
+        public NumericUpDown usewldfloValue;
+        public NumericUpDown usebldfloValue;
+        public NumericUpDown userevfloValue;
+        public RadioButton usewldflo;
+        public RadioButton usebldflo;
+        public RadioButton userevflo;
+        public CheckBox FlourishTP;
+        public GroupBox flourishesigroup;
+        public NumericUpDown usedesfloValue;
+        public RadioButton usedesflo;
+        public TabPage pets;
+        public GroupBox groupBox10;
+        public GroupBox groupBox19;
+        public TabControl petControl;
+        public TabPage bstpettab;
+        public GroupBox usepetja;
+        public CheckedListBox PetJA;
+        public GroupBox bstpetrdygroup;
+        public CheckedListBox PetReady;
+        public ComboBox usedpetfood;
+        public ComboBox jugpet;
+        public CheckBox juguse;
+        public NumericUpDown pethppfood;
+        public Label pethptext;
+        public CheckBox petfooduse;
+        public CheckBox autoengage;
+        public TabPage drgpettab;
+        public NumericUpDown DragonPetHP;
+        public Label drgsteadywingtext;
+        public CheckBox CallWyvern;
+        public GroupBox drgspirtlinkgroup;
+        public Label label16;
+        public NumericUpDown PlayerSpirit;
+        public NumericUpDown WyvernSpirit;
+        public Label label46;
+        public Label label47;
+        public NumericUpDown BreathMAX;
+        public Label label48;
+        public NumericUpDown BreathMIN;
+        public Label drgwyvernbreathptext;
+        public GroupBox drgrestoringbreathgroup;
+        public NumericUpDown RestoringBreathHP;
+        public Label label50;
+        public GroupBox drgjagroup;
+        public CheckedListBox WyvernJA;
+        public TabPage smnpettab;
+        public TabPage puppettab;
         public System.ComponentModel.BackgroundWorker bgw_script_dnc;
         public System.ComponentModel.BackgroundWorker bgw_script_nav;
         public System.ComponentModel.BackgroundWorker bgw_script_sch;
@@ -8648,13 +8648,13 @@
         public System.ComponentModel.BackgroundWorker bgw_script_pet;
         public System.ComponentModel.BackgroundWorker bgw_script_npc;
         public System.ComponentModel.BackgroundWorker bgw_script_scn;
-        public System.Windows.Forms.GroupBox NotinBattle;
-        public System.Windows.Forms.ComboBox comboBox3;
-        public System.Windows.Forms.Label label23;
-        public System.Windows.Forms.Label label22;
-        public System.Windows.Forms.Label label21;
-        public System.Windows.Forms.Label label20;
-        public System.Windows.Forms.CheckBox DeathWarp;
+        public GroupBox NotinBattle;
+        public ComboBox comboBox3;
+        public Label label23;
+        public Label label22;
+        public Label label21;
+        public Label label20;
+        public CheckBox DeathWarp;
         public NumericUpDown stopstepscount;
         public CheckBox PUPautoengage;
         public CheckBox stopstepsat;
@@ -8696,8 +8696,8 @@
         private GroupBox Convertgroup;
         private NumericUpDown ConvertHPP;
         private NumericUpDown ConvertMPP;
-        private System.Windows.Forms.RadioButton ConvertMP;
-        private System.Windows.Forms.RadioButton ConvertHP;
+        private RadioButton ConvertMP;
+        private RadioButton ConvertHP;
         private Label convertmptext;
         private Label converthptext;
         private TabPage RUNpage;
@@ -8792,15 +8792,15 @@
         private TabPage PUPAbilitypage;
         private TabPage PUPOtherpage;
         private GroupBox RoleReversalgroup;
-        private System.Windows.Forms.RadioButton RRPET;
-        private System.Windows.Forms.RadioButton RRPlayer;
+        private RadioButton RRPET;
+        private RadioButton RRPlayer;
         private NumericUpDown RRPetHPPset;
         private NumericUpDown RRPlayerHPPset;
         private Label label24;
         private Label label19;
         private GroupBox TacticalSwitchgroup;
-        private System.Windows.Forms.RadioButton TSPET;
-        private System.Windows.Forms.RadioButton TSPlayer;
+        private RadioButton TSPET;
+        private RadioButton TSPlayer;
         private NumericUpDown TSPetTPset;
         private NumericUpDown TSPlayerTPset;
         private Label label26;
@@ -8922,6 +8922,14 @@
         private Label playermerits;
         public NumericUpDown BstJATP;
         private Label label13;
+        private Button Shrinkbutton;
+        private CheckBox showHUD;
+        private Panel panel1;
+        public CheckBox fullheal;
+        private Label label62;
+        private Label label60;
+        private TextBox hudY;
+        private TextBox hudX;
         #endregion
         #region Display: Controle
         private void playerJA_SelectedIndexChanged(object sender, EventArgs e)
@@ -12566,24 +12574,29 @@
                         startScriptToolStripMenuItem.PerformClick();
                 }
                 else if (cmd2 == "eventbot")
-                    ScriptOnEventTool.botRunning = !ScriptOnEventTool.botRunning;
+                {
+                    if (ScriptOnEventTool.botRunning)
+                        MainWindow.oneventbot.stopScriptToolStripMenuItem.PerformClick();
+                    else
+                        MainWindow.oneventbot.startScriptToolStripMenuItem.PerformClick();
+                }
+                else if (cmd2 == "hud")
+                {
+                    showHUD.Checked = !showHUD.Checked;
+                }
             }
-            /*else if (cmd1 == "set")
+            else if (cmd1 == "set")
             {
                 string cmd2 = api.ThirdParty.ConsoleGetArg(2).ToLower();
-                if (cmd2 == "weaponskill" || cmd2 == "ws")
-                    
-            }*/
+                //if (cmd2 == "weaponskill" || cmd2 == "ws")
+                if (cmd2 == "hudxy")
+                {
+                    hudX.Text = api.ThirdParty.ConsoleGetArg(3);
+                    hudY.Text = api.ThirdParty.ConsoleGetArg(4);
+                }
+            }
         }
 
-        private Button Shrinkbutton;
-        private CheckBox showHUD;
-        private Panel panel1;
-        public CheckBox fullheal;
-        private Label label62;
-        private Label label60;
-        private TextBox hudY;
-        private TextBox hudX;
         #endregion
 
         #region Methods: EliteMMO

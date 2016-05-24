@@ -11,9 +11,9 @@
     using System.Text.RegularExpressions;
     public partial class MainWindow : Form
     {
-        ScriptFarmDNC farmbot;
-        ScriptNaviMap navbot;
-        ScriptOnEventTool oneventbot;
+        public static ScriptFarmDNC farmbot;
+        public static ScriptNaviMap navbot;
+        public static ScriptOnEventTool oneventbot;
         public MainWindow(EliteAPI core)
         {
             InitializeComponent();
@@ -286,7 +286,7 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             if (farmbot.botRunning) farmbot.stopScriptToolStripMenuItem.PerformClick();
-            if (farmbot.bgw_script_disp.IsBusy) farmbot.bgw_script_disp.CancelAsync();
+            //if (farmbot.bgw_script_disp.IsBusy) farmbot.bgw_script_disp.CancelAsync();
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:NavBot");
             api.ThirdParty.FlushCommands();*/
         }
@@ -355,11 +355,11 @@
         }*/
         private void close()
         {
-            /*if (hudactive)
+            if (farmbot.hudshow)
             {
                 api.ThirdParty.DeleteTextObject("ScriptedHUD");
                 api.ThirdParty.FlushCommands();
-            }*/
+            }
             Application.Exit();
         }
     }
