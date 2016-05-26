@@ -691,24 +691,5 @@
             MessageBox.Show(message);*/
         }
         #endregion
-
-        private void showHUD_CheckedChanged(object sender, EventArgs e)
-        {
-            if (showHUD.Checked)
-            {
-                api.ThirdParty.CreateTextObject("ScriptedHUD");
-                api.ThirdParty.SetVisibility("ScriptedHUD", true);
-                api.ThirdParty.SetFont("ScriptedHUD", "Arial", 10);
-                api.ThirdParty.FlushCommands();
-                hudshow = true;
-            }
-            else
-            {
-                api.ThirdParty.DeleteTextObject("ScriptedHUD");
-                api.ThirdParty.FlushCommands();
-                hudshow = false;
-            }
-
-        }
     }
 }

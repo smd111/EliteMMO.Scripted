@@ -275,6 +275,43 @@
             };
         #endregion
         #region Magic Control
+            #region Skip MA List
+        public static Dictionary<uint, dynamic> skipSpellList = new Dictionary<uint, dynamic> {{12, true},{13, true},{81, true},{82, true},{83, true},{120, true},{121, true},
+                {122, true},{123, true},{124, true},{136, true},{137, true},{138, true},{139, true},{140, true},{241, true},{260, true},{261, true},{262, true},{263, true},
+                {264, true},{265, true},{494, true},{512, true},{514, true},{516, true},{518, true},{520, true},{523, true},{525, true},{526, true},{528, true},{546, true},
+                {550, true},{552, true},{553, true},{556, true},{558, true},{559, true},{562, true},{566, true},{568, true},{571, true},{580, true},{583, true},{586, true},
+                {590, true},{600, true},{601, true},{602, true},{607, true},{609, true},{619, true},{624, true},{625, true},{627, true},{630, true},{635, true},{639, true},
+                {729, true},{730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{754, true},{755, true},{756, true},{757, true},{758, true},{759, true},
+                {760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{992, true},{993, true},{994, true},{995, true},{996, true},
+                {997, true},{998, true},{999, true},{1000, true},{1001, true},{1002, true},{1003, true},{1017, true},{1018, true},{1019, true},{1020, true},{1021, true},
+                {1022, true},{1023, true},{308, true},{309, true},{318, true},{353, true},{354, true},{355, true},{465, true},
+                #region smn
+                {288, true},{289, true},{290, true},{291, true},{292, true},{293, true},{294, true},{295, true},{296, true},{297, true},{298, true},{299, true},{300, true},
+                {301, true},{302, true},{303, true},{304, true},{305, true},{306, true},{307, true},{847, true},
+                #endregion
+                #region nin
+                {338, true},{339, true},{340, true},
+                #endregion
+                #region geo
+                {769, true},{787, true},{788, true},{789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},
+                {799, true},{800, true},{801, true},{802, true},{803, true},{804, true},{805, true},{806, true},{807, true},{808, true},{809, true},{810, true},{811, true},
+                {812, true},{813, true},{814, true},{815, true},{816, true},{817, true},{818, true},{819, true},{820, true},{821, true},{822, true},{823, true},{824, true},
+                {825, true},{826, true},{827, true},
+                #endregion
+                #region trust
+                {896, true},{897, true},{898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true},{905, true},{906, true},{907, true},{908, true},
+                {909, true},{910, true},{911, true},{912, true},{913, true},{914, true},{915, true},{916, true},{917, true},{918, true},{919, true},{920, true},{921, true},
+                {922, true},{923, true},{924, true},{925, true},{926, true},{927, true},{928, true},{929, true},{930, true},{931, true},{932, true},{933, true},{934, true},
+                {935, true},{936, true},{937, true},{938, true},{939, true},{940, true},{941, true},{942, true},{943, true},{944, true},{945, true},{946, true},{947, true},
+                {948, true},{949, true},{950, true},{951, true},{952, true},{953, true},{954, true},{955, true},{956, true},{957, true},{958, true},{959, true},{960, true},
+                {961, true},{962, true},{963, true},{964, true},{965, true},{966, true},{967, true},{968, true},{969, true},{970, true},{971, true},{972, true},{973, true},
+                {974, true},{975, true},{976, true},{977, true},{978, true},{979, true},{980, true},{981, true},{982, true},{983, true},{984, true},{985, true},{986, true},
+                {987, true},{988, true},{989, true},{990, true},{991, true},{1004, true},{1005, true},{1006, true},{1007, true},{1008, true},{1009, true},{1010, true},
+                {1011, true},{1012, true},{1013, true},{1014, true},{1015, true},{1016, true}
+                #endregion
+            };
+            #endregion
+        public static List<uint> UnbridledSpells = new List<uint>(new uint[] {736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753});
         public static List<string> Handledspells = new List<string>(new string[] {"Protect","Protect II","Protect III","Protect IV","Protect V","Protectra",
                 "Protectra II","Protectra III","Protectra IV","Protectra V","Shell","Shell II","Shell III","Shell IV","Shell V","Shellra","Shellra II",
                 "Shellra III","Shellra IV","Shellra V","Regen","Regen II","Regen III","Regen IV","Regen V","Refresh","Refresh II","Refresh III","Reraise",
@@ -324,7 +361,6 @@
                 {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
                 {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},{710, new {B=33}},{685, new {B=116}},{674, new {B=45}},
                 };
-                
         public static Dictionary<int, dynamic> SCHcharges = new Dictionary<int, dynamic>()
             {{90, new {time=48,charges=5}},{70, new {time=60,charges=4}},{50, new {time=80,charges=3}},{30, new {time=120,charges=2}},{1, new {time=240,charges=1}},};
         #endregion
@@ -9239,6 +9275,23 @@
                 Shrinkbutton.Text = "<<";
             }
         }
+        private void showHUD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showHUD.Checked)
+            {
+                api.ThirdParty.CreateTextObject("ScriptedHUD");
+                api.ThirdParty.SetVisibility("ScriptedHUD", true);
+                api.ThirdParty.SetFont("ScriptedHUD", "Arial", 10);
+                api.ThirdParty.FlushCommands();
+                hudshow = true;
+            }
+            else
+            {
+                api.ThirdParty.DeleteTextObject("ScriptedHUD");
+                api.ThirdParty.FlushCommands();
+                hudshow = false;
+            }
+        }
         #endregion
         #region Methods: Start/Stop/Load
         private void ScriptFarmDncLoad(object sender, EventArgs e)
@@ -9510,86 +9563,50 @@
         {
             if (playerMA.Items.Count > 0)
                 playerMA.Items.Clear();
-            #region Skip MA List
-            Dictionary<uint, dynamic> skipSpellList = new Dictionary<uint, dynamic> {{12, true},{13, true},{81, true},{82, true},{83, true},{120, true},{121, true},
-                {122, true},{123, true},{124, true},{136, true},{137, true},{138, true},{139, true},{140, true},{241, true},{260, true},{261, true},{262, true},{263, true},
-                {264, true},{265, true},{494, true},{512, true},{514, true},{516, true},{518, true},{520, true},{523, true},{525, true},{526, true},{528, true},{546, true},
-                {550, true},{552, true},{553, true},{556, true},{558, true},{559, true},{562, true},{566, true},{568, true},{571, true},{580, true},{583, true},{586, true},
-                {590, true},{600, true},{601, true},{602, true},{607, true},{609, true},{619, true},{624, true},{625, true},{627, true},{630, true},{635, true},{639, true},
-                {729, true},{730, true},{731, true},{732, true},{733, true},{734, true},{735, true},{754, true},{755, true},{756, true},{757, true},{758, true},{759, true},
-                {760, true},{761, true},{762, true},{763, true},{764, true},{765, true},{766, true},{767, true},{992, true},{993, true},{994, true},{995, true},{996, true},
-                {997, true},{998, true},{999, true},{1000, true},{1001, true},{1002, true},{1003, true},{1017, true},{1018, true},{1019, true},{1020, true},{1021, true},
-                {1022, true},{1023, true},{308, true},{309, true},{318, true},{353, true},{354, true},{355, true},{465, true},
-                #region smn
-                {288, true},{289, true},{290, true},{291, true},{292, true},{293, true},{294, true},{295, true},{296, true},{297, true},{298, true},{299, true},{300, true},
-                {301, true},{302, true},{303, true},{304, true},{305, true},{306, true},{307, true},{847, true},
-                #endregion
-                #region nin
-                {338, true},{339, true},{340, true},
-                #endregion
-                #region geo
-                {769, true},{787, true},{788, true},{789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},
-                {799, true},{800, true},{801, true},{802, true},{803, true},{804, true},{805, true},{806, true},{807, true},{808, true},{809, true},{810, true},{811, true},
-                {812, true},{813, true},{814, true},{815, true},{816, true},{817, true},{818, true},{819, true},{820, true},{821, true},{822, true},{823, true},{824, true},
-                {825, true},{826, true},{827, true},
-                #endregion
-                #region trust
-                {896, true},{897, true},{898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true},{905, true},{906, true},{907, true},{908, true},
-                {909, true},{910, true},{911, true},{912, true},{913, true},{914, true},{915, true},{916, true},{917, true},{918, true},{919, true},{920, true},{921, true},
-                {922, true},{923, true},{924, true},{925, true},{926, true},{927, true},{928, true},{929, true},{930, true},{931, true},{932, true},{933, true},{934, true},
-                {935, true},{936, true},{937, true},{938, true},{939, true},{940, true},{941, true},{942, true},{943, true},{944, true},{945, true},{946, true},{947, true},
-                {948, true},{949, true},{950, true},{951, true},{952, true},{953, true},{954, true},{955, true},{956, true},{957, true},{958, true},{959, true},{960, true},
-                {961, true},{962, true},{963, true},{964, true},{965, true},{966, true},{967, true},{968, true},{969, true},{970, true},{971, true},{972, true},{973, true},
-                {974, true},{975, true},{976, true},{977, true},{978, true},{979, true},{980, true},{981, true},{982, true},{983, true},{984, true},{985, true},{986, true},
-                {987, true},{988, true},{989, true},{990, true},{991, true},{1004, true},{1005, true},{1006, true},{1007, true},{1008, true},{1009, true},{1010, true},
-                {1011, true},{1012, true},{1013, true},{1014, true},{1015, true},{1016, true}
-                #endregion
-            };
-            #endregion
             #region load MJ MA(main job)
             for (uint mm = 1; mm <= 895; mm++)
             {
                 var spellm = api.Resources.GetSpell(mm);
-                var spelllvl = spellm.LevelRequired[PlayerInfo.MainJob];
-                if (spellm == null || skipSpellList.ContainsKey(mm)) continue;
-                else if (PlayerInfo.HasSpell(mm) && PlayerInfo.MainJobLevel >= spelllvl && spelllvl != -1)
+                var spelllvlm = spellm.LevelRequired[PlayerInfo.MainJob];
+                if (spellm == null || skipSpellList.ContainsKey(mm) || playerMA.Items.Contains(spellm.Name[0])) continue;
+                if (spelllvlm != -1)
                 {
-                    if (spellm.Skill == 43 && PlayerInfo.MainJob == 16)
+                    if (PlayerInfo.HasSpell(mm) && PlayerInfo.MainJobLevel >= spelllvlm)
                     {
-                        List<uint> UnbridledSpells = new List<uint>(new uint[] {736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753});
-                        if (UnbridledSpells.Contains(mm) && !playerMA.Items.Contains(spellm.Name[0]))
+                        if (spellm.Skill == 43 && PlayerInfo.MainJob == 16)
+                        {
+                            if (UnbridledSpells.Contains(mm))
+                                playerMA.Items.Add(spellm.Name[0]);
+                            else if (PlayerInfo.HasBlueMagicSpellSet((int) mm))
+                                playerMA.Items.Add(spellm.Name[0]);
+                        }
+                        else if (spelllvlm <= 99)
+                        {
                             playerMA.Items.Add(spellm.Name[0]);
-                        else if (PlayerInfo.HasBlueMagicSpellSet((int) mm) && !playerMA.Items.Contains(spellm.Name[0]))
-                            playerMA.Items.Add(spellm.Name[0]);
+                        }
                     }
-                    else if (spelllvl <= 99 && !playerMA.Items.Contains(spellm.Name[0]))
-                    {
+                    else if (PlayerInfo.MainJobLevel == 99 && PlayerInfo.UsedJobPoints >= spelllvlm)
                         playerMA.Items.Add(spellm.Name[0]);
-                    }
                 }
-                else if (PlayerInfo.MainJobLevel == 99 && PlayerInfo.UsedJobPoints >= spelllvl && spelllvl != -1 && !playerMA.Items.Contains(spellm.Name[0]))
-                    playerMA.Items.Add(spellm.Name[0]);
             }
             #endregion
             #region load SJ MA(sub job)
             for (uint sm = 1; sm <= 895; sm++)
             {
                 var spells = api.Resources.GetSpell(sm);
-                if (spells == null || skipSpellList.ContainsKey(sm)) continue;
-                if (PlayerInfo.HasSpell(sm) && PlayerInfo.SubJobLevel >= spells.LevelRequired[PlayerInfo.SubJob] &&spells.LevelRequired[PlayerInfo.SubJob] != -1)
+                var spelllvls = spells.LevelRequired[PlayerInfo.SubJob];
+                if (spells == null || skipSpellList.ContainsKey(sm) || playerMA.Items.Contains(spells.Name[0])) continue;
+                if (PlayerInfo.HasSpell(sm) && PlayerInfo.SubJobLevel >= spelllvls && spelllvls != -1)
                 {
                     if (spells.Skill == 43 && PlayerInfo.SubJob == 16)
                     {
-                        List<uint> UnbridledSpells = new List<uint>(new uint[] { 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753 });
-                        if (UnbridledSpells.Contains(sm) && !playerMA.Items.Contains(spells.Name[0]))
+                        if (UnbridledSpells.Contains(sm))
                             playerMA.Items.Add(spells.Name[0]);
-                        else if (PlayerInfo.HasBlueMagicSpellSet((int)sm) && !playerMA.Items.Contains(spells.Name[0]))
+                        else if (PlayerInfo.HasBlueMagicSpellSet((int)sm))
                             playerMA.Items.Add(spells.Name[0]);
                     }
-                    else if (!playerMA.Items.Contains(spells.Name[0]))
-                    {
+                    else
                         playerMA.Items.Add(spells.Name[0]);
-                    }
                 }
             }
             #endregion
@@ -10302,7 +10319,7 @@
                     else if (ability.Name[0] == "Sublimation")
                     {
                         if (!PlayerInfo.HasBuff(187) && !PlayerInfo.HasBuff(188)) useAbility = true;
-                        else if (PlayerInfo.HasBuff(188) && PlayerInfo.HPP <= Sublimationcount.Value) useAbility = true;
+                        else if (PlayerInfo.HasBuff(188) && PlayerInfo.MPP <= Sublimationcount.Value) useAbility = true;
                     }
                     else if (ability.Name[0] == "Vivacious Pulse" && PlayerInfo.HPP <= VivaciousPulseHP.Value && Recast.GetAbilityRecast(242) == 0) useAbility = true;
                     else if (ability.Name[0] == "Shikikoyo" && !PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(136) == 0) useAbility = true;
@@ -12596,9 +12613,7 @@
                 }
             }
         }
-
         #endregion
-
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo

@@ -4,7 +4,7 @@
   <description asmv2:iconFile="1418924805_45123.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Scripted" version="0.99.5.14" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="Scripted" version="0.99.5.15" language="neutral" processorArchitecture="x86" />
     <commandLine file="Scripted.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EliteMMO.API.dll" size="68096">
-      <assemblyIdentity name="EliteMMO.API" version="1.2.1.1" language="neutral" processorArchitecture="x86" />
+      <assemblyIdentity name="EliteMMO.API" version="1.2.1.2" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>CKTOomgqvWXEtvSR2BhP/brssFU=</dsig:DigestValue>
+        <dsig:DigestValue>n+TzKovW9CMZQCSa8ioJ7Q2lW2I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -68,13 +68,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="750496">
-      <assemblyIdentity name="Scripted" version="0.99.5.14" language="neutral" processorArchitecture="x86" />
+      <assemblyIdentity name="Scripted" version="0.99.5.15" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>H1gd9Rdn5KFTl27g4JFVWLQ6XFM=</dsig:DigestValue>
+        <dsig:DigestValue>G9EiFdimAJFETjR6bnAUrEYMKlA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
