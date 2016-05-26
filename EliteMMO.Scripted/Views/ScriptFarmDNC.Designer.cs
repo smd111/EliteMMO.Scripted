@@ -230,47 +230,25 @@
         #endregion
         #region ninja tools
         public static Dictionary<string, List<string>> nintools = new Dictionary<string, List<string>>() {
-            {"Monomi: Ichi", new List<string>(new string[]{ "Sanjaku-Tenugui", "Toolbag (Sanja)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Aisha: Ichi", new List<string>(new string[]{ "Soshi", "Toolbag (Soshi)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Katon: Ichi", new List<string>(new string[]{ "Uchitake", "Toolbag (Uchi)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Katon: Ni", new List<string>(new string[]{ "Uchitake", "Toolbag (Uchi)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Katon: San", new List<string>(new string[]{ "Uchitake", "Toolbag (Uchi)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Hyoton: Ichi", new List<string>(new string[]{ "Tsurara", "Toolbag (Tsura)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Hyoton: Ni", new List<string>(new string[]{ "Tsurara", "Toolbag (Tsura)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Hyoton: San", new List<string>(new string[]{ "Tsurara", "Toolbag (Tsura)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Huton: Ichi", new List<string>(new string[]{ "Kawahori-Ogi", "Toolbag (Kawa)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Huton: Ni", new List<string>(new string[]{ "Kawahori-Ogi", "Toolbag (Kawa)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Huton: San", new List<string>(new string[]{ "Kawahori-Ogi", "Toolbag (Kawa)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Doton: Ichi", new List<string>(new string[]{ "Makibishi", "Toolbag (Maki)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Doton: Ni", new List<string>(new string[]{ "Makibishi", "Toolbag (Maki)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Doton: San", new List<string>(new string[]{ "Makibishi", "Toolbag (Maki)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Raiton: Ichi", new List<string>(new string[]{ "Hiraishin", "Toolbag (Hira)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Raiton: Ni", new List<string>(new string[]{ "Hiraishin", "Toolbag (Hira)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Raiton: San", new List<string>(new string[]{ "Hiraishin", "Toolbag (Hira)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Suiton: Ichi", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Suiton: Ni", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Suiton: San", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
-            {"Jubaku: Ichi", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Jubaku: Ni", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Jubaku: San", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Hojo: Ichi", new List<string>(new string[]{ "Kaginawa", "Toolbag (Kagi)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Hojo: Ni", new List<string>(new string[]{ "Kaginawa", "Toolbag (Kagi)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Hojo: San", new List<string>(new string[]{ "Kaginawa", "Toolbag (Kagi)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Kurayami: Ichi", new List<string>(new string[]{ "Sairui-Ran", "Toolbag (Sai)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Kurayami: Ni", new List<string>(new string[]{ "Sairui-Ran", "Toolbag (Sai)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Kurayami: San", new List<string>(new string[]{ "Sairui-Ran", "Toolbag (Sai)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Dokumori: Ichi", new List<string>(new string[]{ "Kodoku", "Toolbag (Kodo)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Dokumori: Ni", new List<string>(new string[]{ "Kodoku", "Toolbag (Kodo)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Dokumori: San", new List<string>(new string[]{ "Kodoku", "Toolbag (Kodo)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Tonko: Ichi", new List<string>(new string[]{ "Shinobi-Tabi", "Toolbag (Shino)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Tonko: Ni", new List<string>(new string[]{ "Shinobi-Tabi", "Toolbag (Shino)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Tonko: San", new List<string>(new string[]{ "Shinobi-Tabi", "Toolbag (Shino)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Gekka: Ichi", new List<string>(new string[]{ "Ranka", "Toolbag (Ranka)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Yain: Ichi", new List<string>(new string[]{ "Furusumi", "Toolbag (Furu)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Myoshu: Ichi", new List<string>(new string[]{ "Kabenro", "Toolbg. (Kaben)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Yurin: Ichi", new List<string>(new string[]{ "Jinko", "Toolbag (Jinko)", "Chonofuda", "Toolbag (Cho)"})},
-            {"Kakka: Ichi", new List<string>(new string[]{ "Ryuno", "Toolbag (Ryuno)", "Shikanofuda", "Toolbag (Shika)"})},
-            {"Migawari: Ichi", new List<string>(new string[]{ "Mokujin", "Toolbag (Moku)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Monomi", new List<string>(new string[]{ "Sanjaku-Tenugui", "Toolbag (Sanja)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Aisha", new List<string>(new string[]{ "Soshi", "Toolbag (Soshi)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Katon", new List<string>(new string[]{ "Uchitake", "Toolbag (Uchi)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Hyoton", new List<string>(new string[]{ "Tsurara", "Toolbag (Tsura)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Huton", new List<string>(new string[]{ "Kawahori-Ogi", "Toolbag (Kawa)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Doton", new List<string>(new string[]{ "Makibishi", "Toolbag (Maki)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Raiton", new List<string>(new string[]{ "Hiraishin", "Toolbag (Hira)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Suiton", new List<string>(new string[]{ "Mizu-Deppo", "Toolbag (Mizu)", "Inoshishinofuda", "Toolbag (Ino)"})},
+            {"Jubaku", new List<string>(new string[]{ "Jusatsu", "Toolbag (Jusa)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Hojo", new List<string>(new string[]{ "Kaginawa", "Toolbag (Kagi)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Kurayami", new List<string>(new string[]{ "Sairui-Ran", "Toolbag (Sai)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Dokumori", new List<string>(new string[]{ "Kodoku", "Toolbag (Kodo)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Tonko", new List<string>(new string[]{ "Shinobi-Tabi", "Toolbag (Shino)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Gekka", new List<string>(new string[]{ "Ranka", "Toolbag (Ranka)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Yain", new List<string>(new string[]{ "Furusumi", "Toolbag (Furu)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Myoshu", new List<string>(new string[]{ "Kabenro", "Toolbg. (Kaben)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Yurin", new List<string>(new string[]{ "Jinko", "Toolbag (Jinko)", "Chonofuda", "Toolbag (Cho)"})},
+            {"Kakka", new List<string>(new string[]{ "Ryuno", "Toolbag (Ryuno)", "Shikanofuda", "Toolbag (Shika)"})},
+            {"Migawari", new List<string>(new string[]{ "Mokujin", "Toolbag (Moku)", "Shikanofuda", "Toolbag (Shika)"})},
             {"Utsusemi", new List<string>(new string[]{ "Shihei", "Toolbag (Shihe)", "Shikanofuda", "Toolbag (Shika)"})},
             };
         #endregion
@@ -10361,6 +10339,7 @@
                 }
             }
         }
+        #endregion
         #region JA: NIN (shadows)
         private void ninjaShadows()
         {
@@ -10369,7 +10348,7 @@
 
             if (!PlayerInfo.HasBuff(16) && !PlayerInfo.HasBuff(444) && !PlayerInfo.HasBuff(445) && !PlayerInfo.HasBuff(446))
             {
-                if (PlayerInfo.HasSpell(340) && Recast.GetSpellRecast(340) == 0)
+                if (PlayerInfo.MainJob == 13 && PlayerInfo.UsedJobPoints >= 100 && PlayerInfo.HasSpell(340) && Recast.GetSpellRecast(340) == 0)
                 {
                     api.ThirdParty.SendString("/ma \"Utsusemi: San\" <me>");
                     Casting();
@@ -10383,7 +10362,7 @@
                 {
                     if (PlayerInfo.HasBuff(66))
                     {
-                        api.ThirdParty.SendString("// cancel 66");
+                        api.ThirdParty.SendString("//cancel 66");
                         Thread.Sleep(TimeSpan.FromSeconds(3.0));
                     }
                     api.ThirdParty.SendString("/ma \"Utsusemi: Ichi\" <me>");
@@ -10391,7 +10370,6 @@
                 }
             }
         }
-        #endregion
         #endregion
         #region MA: Magic (use)
         private void PlayerMA()
@@ -10473,7 +10451,7 @@
                     {
                         if (magic.Skill == 39)
                         {
-                            if (!NINtoolCheck(magic.Name[0])) continue;
+                            if (!NINtoolCheck(magic.Name[0].Replace(": Ichi", "").Replace(": Ni", "").Replace(": San", ""))) continue;
                             else castSpell = true;
                         }
                         else if (macontrol[magic.Index].ToString().Contains("I ="))
