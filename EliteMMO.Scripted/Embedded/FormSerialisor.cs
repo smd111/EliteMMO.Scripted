@@ -1,12 +1,14 @@
-﻿using System;
-using System.IO;
-using System.Windows.Forms;
-using System.Xml;
-
-namespace FormSerialisation
+﻿namespace FormSerialisation
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Windows.Forms;
+    using System.Xml;
     public static class FormSerialisor
     {
+        public static List<string> childCtrlskip = new List<string>(new string[] {"WaltzPTadd","PartyWaltsList","CurePTlist",
+            "shutdowngroup"});
         public static void Serialise(Control c, string XmlFileName)
         {
             XmlTextWriter xmlSerialisedForm = new XmlTextWriter(XmlFileName, System.Text.Encoding.Default);
@@ -26,8 +28,7 @@ namespace FormSerialisation
                 if (!(childCtrl is Label) && !(childCtrl is ListView) && !(childCtrl is MenuStrip) &&
                       childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownEdit" &&
                       childCtrl.GetType().ToString() != "System.Windows.Forms.UpDownBase+UpDownButtons" &&
-                      childCtrl.GetType().ToString() != "System.Windows.Forms.Button" && childCtrl.Name != "WaltzPTadd" &&
-                      childCtrl.Name != "PartyWaltsList" && childCtrl.Name != "CurePTlist" && childCtrl.Name != "shutdowngroup")
+                      childCtrl.GetType().ToString() != "System.Windows.Forms.Button" && !childCtrlskip.Contains(childCtrl.Name))
                 {
                     xmlSerialisedForm.WriteStartElement("Control");
                     xmlSerialisedForm.WriteAttributeString("Type", childCtrl.GetType().ToString());

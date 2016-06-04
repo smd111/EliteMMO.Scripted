@@ -516,523 +516,516 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkZone = new CheckBox();
-            this.StopFullInventory = new CheckBox();
-            this.groupBox8 = new GroupBox();
-            this.comboBox3 = new ComboBox();
-            this.firstPersonView = new CheckBox();
-            this.runReverse = new CheckBox();
-            this.Linear = new RadioButton();
-            this.Circular = new RadioButton();
-            this.selectedNavi = new ComboBox();
-            this.GetSetNavi = new MenuStrip();
-            this.refreshToolStripMenuItem = new ToolStripMenuItem();
-            this.navStuckWatch = new CheckBox();
-            this.usenav = new CheckBox();
-            this.StartStopScript = new MenuStrip();
-            this.startScriptToolStripMenuItem = new ToolStripMenuItem();
-            this.stopScriptToolStripMenuItem = new ToolStripMenuItem();
-            this.updateJobToolStripMenuItem = new ToolStripMenuItem();
-            this.dncControl = new TabControl();
-            this.targets = new TabPage();
-            this.groupBox9 = new GroupBox();
-            this.ZoneTargets = new MenuStrip();
-            this.NameListToolStripMenuItem = new ToolStripMenuItem();
-            this.iDToolStripMenuItem = new ToolStripMenuItem();
-            this.groupBox11 = new GroupBox();
-            this.TargetList = new ListView();
-            this.columnHeader3 = ((ColumnHeader)(new ColumnHeader()));
-            this.columnHeader4 = ((ColumnHeader)(new ColumnHeader()));
-            this.groupBox12 = new GroupBox();
-            this.GetSetTargets = new MenuStrip();
-            this.saveToolStripMenuItem = new ToolStripMenuItem();
-            this.loadToolStripMenuItem = new ToolStripMenuItem();
-            this.clearToolStripMenuItem = new ToolStripMenuItem();
-            this.selecttargets = new GroupBox();
-            this.SelectedTargets = new ListView();
-            this.columnHeader1 = ((ColumnHeader)(new ColumnHeader()));
-            this.columnHeader2 = ((ColumnHeader)(new ColumnHeader()));
-            this.combat = new TabPage();
-            this.CombatSettingsTabs = new TabControl();
-            this.Options1MainTab = new TabPage();
-            this.HateControlgroup = new GroupBox();
-            this.numericUpDown6 = new NumericUpDown();
-            this.numericUpDown7 = new NumericUpDown();
-            this.label4 = new Label();
-            this.label5 = new Label();
-            this.label6 = new Label();
-            this.selectedHateControl = new ComboBox();
-            this.tank = new CheckBox();
-            this.groupBox20 = new GroupBox();
-            this.amname = new ComboBox();
-            this.AfterMathTier = new NumericUpDown();
-            this.wsam = new CheckBox();
-            this.WSDistance = new CheckBox();
-            this.selectedWS = new ComboBox();
-            this.WSDistanceset = new NumericUpDown();
-            this.ws = new CheckBox();
-            this.WStp = new NumericUpDown();
-            this.label29 = new Label();
-            this.TragetHPPtop = new NumericUpDown();
-            this.label28 = new Label();
-            this.TragetHPPbottom = new NumericUpDown();
-            this.label27 = new Label();
-            this.Options2MainTab = new TabPage();
-            this.numericUpDown38 = new NumericUpDown();
-            this.aggroRange = new NumericUpDown();
-            this.ScanDelay = new CheckBox();
-            this.KeepTargetRange = new NumericUpDown();
-            this.assistDist = new NumericUpDown();
-            this.followDist = new NumericUpDown();
-            this.partyAssist = new CheckBox();
-            this.facetarget = new CheckBox();
-            this.label12 = new Label();
-            this.assist = new CheckBox();
-            this.followplayer = new CheckBox();
-            this.followName = new TextBox();
-            this.useshadows = new CheckBox();
-            this.label11 = new Label();
-            this.assistplayer = new TextBox();
-            this.aggro = new CheckBox();
-            this.mobdist = new CheckBox();
-            this.Options3MainTab = new TabPage();
-            this.fullheal = new CheckBox();
-            this.verifyfood = new Button();
-            this.comboBox4 = new ComboBox();
-            this.SignetStaff = new ComboBox();
-            this.label7 = new Label();
-            this.label3 = new Label();
-            this.useStaff = new CheckBox();
-            this.foodName = new TextBox();
-            this.healMPcount = new NumericUpDown();
-            this.usefood = new CheckBox();
-            this.HealMP = new CheckBox();
-            this.healHPcount = new NumericUpDown();
-            this.RecordIdleLocation = new Button();
-            this.WeakLocation = new CheckBox();
-            this.HealHP = new CheckBox();
-            this.textBox6 = new TextBox();
-            this.IdleLocation = new CheckBox();
-            this.label35 = new Label();
-            this.Options4MainTab = new TabPage();
-            this.NotinBattle = new GroupBox();
-            this.UseJigs = new CheckBox();
-            this.ChocoboJigII = new RadioButton();
-            this.ChocoboJig = new RadioButton();
-            this.SpectralJig = new RadioButton();
-            this.groupBox15 = new GroupBox();
-            this.label42 = new Label();
-            this.autoRangeDelay = new NumericUpDown();
-            this.textBox7 = new TextBox();
-            this.rangeaggro = new CheckBox();
-            this.comboBox1 = new ComboBox();
-            this.checkBox4 = new CheckBox();
-            this.autoRangeAttack = new CheckBox();
-            this.selectapp = new TabPage();
-            this.hudY = new TextBox();
-            this.label62 = new Label();
-            this.hudX = new TextBox();
-            this.label60 = new Label();
-            this.showHUD = new CheckBox();
-            this.shutdowngroup = new GroupBox();
-            this.label82 = new Label();
-            this.shutdowndate = new DateTimePicker();
-            this.selectedapp = new ComboBox();
-            this.groupBox25 = new GroupBox();
-            this.twentyfourHour = new RadioButton();
-            this.twelveHour = new RadioButton();
-            this.twelveHRgroup = new GroupBox();
-            this.PMtime = new RadioButton();
-            this.AMtime = new RadioButton();
-            this.ShutdownTimeHr = new TextBox();
-            this.Shutdownenable = new CheckBox();
-            this.label81 = new Label();
-            this.label40 = new Label();
-            this.ShutdownTimeMin = new TextBox();
-            this.ManualTargMode = new CheckBox();
-            this.EnableDynamis = new CheckBox();
-            this.groupBox16 = new GroupBox();
-            this.label65 = new Label();
-            this.StuckDistance = new NumericUpDown();
-            this.mobStuckWatch = new CheckBox();
-            this.OptionsJAMainTab = new TabPage();
-            this.JAtabselect = new TabControl();
-            this.selectPage = new TabPage();
-            this.playerJA = new CheckedListBox();
-            this.GetSetJA = new MenuStrip();
-            this.loadJAsToolStripMenuItem = new ToolStripMenuItem();
-            this.clearJAsToolStripMenuItem = new ToolStripMenuItem();
-            this.WHMpage = new TabPage();
-            this.benedictiongroupBox = new GroupBox();
-            this.BenedictionHPPuse = new NumericUpDown();
-            this.benedictiontext = new Label();
-            this.RDMpage = new TabPage();
-            this.Convertgroup = new GroupBox();
-            this.ConvertHPP = new NumericUpDown();
-            this.ConvertMPP = new NumericUpDown();
-            this.ConvertMP = new RadioButton();
-            this.ConvertHP = new RadioButton();
-            this.convertmptext = new Label();
-            this.converthptext = new Label();
-            this.samPage = new TabPage();
-            this.label58 = new Label();
-            this.sekkanokiWs = new ComboBox();
-            this.SCHpage = new TabPage();
-            this.Sublimationcount = new NumericUpDown();
-            this.label8 = new Label();
-            this.RUNpage = new TabPage();
-            this.VivaciousPulseHP = new NumericUpDown();
-            this.VivaciousPulse = new CheckBox();
-            this.MONpage = new TabPage();
-            this.MONmpCount = new NumericUpDown();
-            this.MONhpCount = new NumericUpDown();
-            this.monmptext = new Label();
-            this.monhptext = new Label();
-            this.OptionsMAMainTab = new TabPage();
-            this.MAtabs = new TabControl();
-            this.MASelectPage = new TabPage();
-            this.playerMA = new CheckedListBox();
-            this.GetSetMA = new MenuStrip();
-            this.loadMAsToolStripMenuItem = new ToolStripMenuItem();
-            this.clearMAsToolStripMenuItem = new ToolStripMenuItem();
-            this.CureConfigPage = new TabPage();
-            this.CuraIIcount = new NumericUpDown();
-            this.Curacount = new NumericUpDown();
-            this.CureIIIcount = new NumericUpDown();
-            this.CureIIcount = new NumericUpDown();
-            this.Curecount = new NumericUpDown();
-            this.CuraIIIcount = new NumericUpDown();
-            this.FullCurecount = new NumericUpDown();
-            this.CureVIcount = new NumericUpDown();
-            this.CureVcount = new NumericUpDown();
-            this.CureIVcount = new NumericUpDown();
-            this.label55 = new Label();
-            this.label53 = new Label();
-            this.label54 = new Label();
-            this.label52 = new Label();
-            this.label45 = new Label();
-            this.label44 = new Label();
-            this.label43 = new Label();
-            this.label9 = new Label();
-            this.label2 = new Label();
-            this.label1 = new Label();
-            this.PartyCurepage = new TabPage();
-            this.tabControl2 = new TabControl();
-            this.tabPage1 = new TabPage();
-            this.ptCure = new CheckBox();
-            this.FullCureptcount = new NumericUpDown();
-            this.label80 = new Label();
-            this.CureVIptcount = new NumericUpDown();
-            this.label74 = new Label();
-            this.CureVptcount = new NumericUpDown();
-            this.CureIVptcount = new NumericUpDown();
-            this.CureIIIptcount = new NumericUpDown();
-            this.label75 = new Label();
-            this.CureIIptcount = new NumericUpDown();
-            this.label66 = new Label();
-            this.label76 = new Label();
-            this.label67 = new Label();
-            this.label68 = new Label();
-            this.Cureptcount = new NumericUpDown();
-            this.tabPage2 = new TabPage();
-            this.CurePTlist = new CheckedListBox();
-            this.groupBox17 = new GroupBox();
-            this.menuStrip1 = new MenuStrip();
-            this.toolStripMenuItem1 = new ToolStripMenuItem();
-            this.toolStripMenuItem2 = new ToolStripMenuItem();
-            this.Cureagapage = new TabPage();
-            this.label39 = new Label();
-            this.CuragaVcount = new NumericUpDown();
-            this.CuragaIVcount = new NumericUpDown();
-            this.CuragaIIIcount = new NumericUpDown();
-            this.CuragaIIcount = new NumericUpDown();
-            this.label69 = new Label();
-            this.label70 = new Label();
-            this.label71 = new Label();
-            this.label72 = new Label();
-            this.label73 = new Label();
-            this.Curagacount = new NumericUpDown();
-            this.DrainAspirpage = new TabPage();
-            this.Aspirgroup = new GroupBox();
-            this.AspirIIIcount = new NumericUpDown();
-            this.AspirIIcount = new NumericUpDown();
-            this.AspirIIItext = new Label();
-            this.AspirItext = new Label();
-            this.AspirIItext = new Label();
-            this.Aspircount = new NumericUpDown();
-            this.Draingroup = new GroupBox();
-            this.DrainIItext = new Label();
-            this.Draincount = new NumericUpDown();
-            this.DrainItext = new Label();
-            this.DrainIIItext = new Label();
-            this.DrainIIIcount = new NumericUpDown();
-            this.DrainIIcount = new NumericUpDown();
-            this.BLUCurespage = new TabPage();
-            this.MagicFruitcount = new NumericUpDown();
-            this.Pollencount = new NumericUpDown();
-            this.HealingBreezecount = new NumericUpDown();
-            this.PleniluneEmbracecount = new NumericUpDown();
-            this.Restoralcount = new NumericUpDown();
-            this.WhiteWindcount = new NumericUpDown();
-            this.Exuviationcount = new NumericUpDown();
-            this.WildCarrotcount = new NumericUpDown();
-            this.PleniluneEmbracetext = new Label();
-            this.MagicFruittext = new Label();
-            this.HealingBreezetext = new Label();
-            this.Pollentext = new Label();
-            this.WhiteWindtext = new Label();
-            this.Restoraltext = new Label();
-            this.Exuviationtext = new Label();
-            this.WildCarrottext = new Label();
-            this.MAconfigpage = new TabPage();
-            this.label10 = new Label();
-            this.MAreverse = new CheckBox();
-            this.Dynamispage = new TabPage();
-            this.groupBox13 = new GroupBox();
-            this.NoneProcuse = new CheckBox();
-            this.DynaProccontrole = new CheckBox();
-            this.label59 = new Label();
-            this.Dynatxt = new Label();
-            this.staggerstopJA = new CheckBox();
-            this.groupBox14 = new GroupBox();
-            this.delaytext = new Label();
-            this.pullDelay = new NumericUpDown();
-            this.AutoLock = new CheckBox();
-            this.mobheightdistValue = new NumericUpDown();
-            this.mobheightdist = new CheckBox();
-            this.runTarget = new CheckBox();
-            this.runPullDistance = new CheckBox();
-            this.mobsearchdisttext = new Label();
-            this.targetSearchDist = new NumericUpDown();
-            this.pullTolorance = new NumericUpDown();
-            this.pulltolorancetext = new Label();
-            this.numericUpDown21 = new NumericUpDown();
-            this.pulldistance = new Label();
-            this.pullCommand = new TextBox();
-            this.pullcommandtext = new Label();
-            this.dancer = new TabPage();
-            this.tabControl3 = new TabControl();
-            this.tabPage14 = new TabPage();
-            this.groupBox1 = new GroupBox();
-            this.noSamba = new RadioButton();
-            this.usedrainiii = new RadioButton();
-            this.usehaste = new RadioButton();
-            this.useaspirii = new RadioButton();
-            this.useaspir = new RadioButton();
-            this.usedrainii = new RadioButton();
-            this.usedrain = new RadioButton();
-            this.groupBox3 = new GroupBox();
-            this.stopstepsat = new CheckBox();
-            this.stopstepscount = new NumericUpDown();
-            this.stopstepsathptext = new Label();
-            this.usefeatherstepValue = new NumericUpDown();
-            this.usestutterstepValue = new NumericUpDown();
-            this.useboxstepValue = new NumericUpDown();
-            this.StepsHPValue = new NumericUpDown();
-            this.usequickstepValue = new NumericUpDown();
-            this.StepsHP = new CheckBox();
-            this.NoSteps = new RadioButton();
-            this.usequickstep = new RadioButton();
-            this.useboxstep = new RadioButton();
-            this.usestutterstep = new RadioButton();
-            this.usefeatherstep = new RadioButton();
-            this.tabPage15 = new TabPage();
-            this.groupBox7 = new GroupBox();
-            this.HWSelectDeselectALL = new CheckBox();
-            this.HealingWaltzItems = new CheckedListBox();
-            this.groupBox2 = new GroupBox();
-            this.label32 = new Label();
-            this.label31 = new Label();
-            this.label30 = new Label();
-            this.label25 = new Label();
-            this.label17 = new Label();
-            this.usecurevValue = new NumericUpDown();
-            this.usecureivValue = new NumericUpDown();
-            this.usecureiiiValue = new NumericUpDown();
-            this.usecureiiValue = new NumericUpDown();
-            this.usecureValue = new NumericUpDown();
-            this.usecurev = new CheckBox();
-            this.usecureiv = new CheckBox();
-            this.usecureiii = new CheckBox();
-            this.usecureii = new CheckBox();
-            this.usecure = new CheckBox();
-            this.tabPage16 = new TabPage();
-            this.PartyWaltsList = new CheckedListBox();
-            this.addplayertext = new Label();
-            this.WaltzPTadd = new TextBox();
-            this.groupBox21 = new GroupBox();
-            this.label38 = new Label();
-            this.label37 = new Label();
-            this.label36 = new Label();
-            this.label34 = new Label();
-            this.label33 = new Label();
-            this.numericUpDown27 = new NumericUpDown();
-            this.numericUpDown28 = new NumericUpDown();
-            this.numericUpDown29 = new NumericUpDown();
-            this.numericUpDown32 = new NumericUpDown();
-            this.numericUpDown33 = new NumericUpDown();
-            this.ptusecurev = new CheckBox();
-            this.ptusecureiv = new CheckBox();
-            this.ptusecureiii = new CheckBox();
-            this.ptusecureii = new CheckBox();
-            this.ptusecure = new CheckBox();
-            this.groupBox22 = new GroupBox();
-            this.GetSetParty = new MenuStrip();
-            this.loadPartyToolStripMenuItem = new ToolStripMenuItem();
-            this.clearPartyToolStripMenuItem = new ToolStripMenuItem();
-            this.label15 = new Label();
-            this.flourish = new TabPage();
-            this.flourishesiiigroup = new GroupBox();
-            this.useclmfloValue = new NumericUpDown();
-            this.usestkfloValue = new NumericUpDown();
-            this.useterfloValue = new NumericUpDown();
-            this.usestkflo = new RadioButton();
-            this.useclmflo = new RadioButton();
-            this.useterflo = new RadioButton();
-            this.finsishingmovetext = new Label();
-            this.FlourishTPValue = new NumericUpDown();
-            this.flourishesiigroup = new GroupBox();
-            this.usewldfloValue = new NumericUpDown();
-            this.usebldfloValue = new NumericUpDown();
-            this.userevfloValue = new NumericUpDown();
-            this.usewldflo = new RadioButton();
-            this.usebldflo = new RadioButton();
-            this.userevflo = new RadioButton();
-            this.FlourishTP = new CheckBox();
-            this.flourishesigroup = new GroupBox();
-            this.useviofloValue = new NumericUpDown();
-            this.usevioflo = new RadioButton();
-            this.usedesfloValue = new NumericUpDown();
-            this.usedesflo = new RadioButton();
-            this.pets = new TabPage();
-            this.groupBox10 = new GroupBox();
-            this.groupBox19 = new GroupBox();
-            this.label23 = new Label();
-            this.label22 = new Label();
-            this.label21 = new Label();
-            this.label20 = new Label();
-            this.petControl = new TabControl();
-            this.bstpettab = new TabPage();
-            this.label13 = new Label();
-            this.BstJATP = new NumericUpDown();
-            this.usepetja = new GroupBox();
-            this.PetJA = new CheckedListBox();
-            this.bstpetrdygroup = new GroupBox();
-            this.PetReady = new CheckedListBox();
-            this.usedpetfood = new ComboBox();
-            this.jugpet = new ComboBox();
-            this.juguse = new CheckBox();
-            this.pethppfood = new NumericUpDown();
-            this.pethptext = new Label();
-            this.petfooduse = new CheckBox();
-            this.autoengage = new CheckBox();
-            this.drgpettab = new TabPage();
-            this.DragonPetHP = new NumericUpDown();
-            this.drgsteadywingtext = new Label();
-            this.CallWyvern = new CheckBox();
-            this.drgspirtlinkgroup = new GroupBox();
-            this.label16 = new Label();
-            this.PlayerSpirit = new NumericUpDown();
-            this.WyvernSpirit = new NumericUpDown();
-            this.label46 = new Label();
-            this.label47 = new Label();
-            this.BreathMAX = new NumericUpDown();
-            this.label48 = new Label();
-            this.BreathMIN = new NumericUpDown();
-            this.drgwyvernbreathptext = new Label();
-            this.drgrestoringbreathgroup = new GroupBox();
-            this.RestoringBreathHP = new NumericUpDown();
-            this.label50 = new Label();
-            this.drgjagroup = new GroupBox();
-            this.WyvernJA = new CheckedListBox();
-            this.smnpettab = new TabPage();
-            this.ManaCedegroup = new GroupBox();
-            this.ManaCedePETTPtext = new Label();
-            this.ManaCedeTPset = new NumericUpDown();
-            this.ManaCedePMPPtext = new Label();
-            this.ManaCedeMPPset = new NumericUpDown();
-            this.Apogeetext = new Label();
-            this.ApogeeMPPset = new NumericUpDown();
-            this.SMNpetMPUSEtext = new Label();
-            this.SMNpetMPUSEset = new NumericUpDown();
-            this.SMNHPPset1 = new NumericUpDown();
-            this.SMNHPPset2 = new NumericUpDown();
-            this.SMNHealTEXT2 = new Label();
-            this.SMNHealTEXT1 = new Label();
-            this.SMNpetTPUSEtext = new Label();
-            this.SMNpetTPUSEset = new NumericUpDown();
-            this.SMNJAgroup = new GroupBox();
-            this.SMNJA = new CheckedListBox();
-            this.SelectSMNtext = new Label();
-            this.SMNSelect = new ComboBox();
-            this.SMNAbilitysgroup = new GroupBox();
-            this.SMNAbilityList = new CheckedListBox();
-            this.puppettab = new TabPage();
-            this.tabControl1 = new TabControl();
-            this.PUPAbilitypage = new TabPage();
-            this.Maneuversgroup = new GroupBox();
-            this.Maneuver3select = new ComboBox();
-            this.Maneuver2select = new ComboBox();
-            this.Maneuver1set = new NumericUpDown();
-            this.Maneuver2set = new NumericUpDown();
-            this.Maneuver3set = new NumericUpDown();
-            this.Maneuver1select = new ComboBox();
-            this.label49 = new Label();
-            this.label56 = new Label();
-            this.label51 = new Label();
-            this.groupBox4 = new GroupBox();
-            this.healforAutomatonMP = new CheckBox();
-            this.healforAutomatonHP = new CheckBox();
-            this.healforAutomatonMPset = new NumericUpDown();
-            this.healforAutomatonHPset = new NumericUpDown();
-            this.AutoCallPUP = new CheckBox();
-            this.groupBox5 = new GroupBox();
-            this.PUPJA = new CheckedListBox();
-            this.PUPautoengage = new CheckBox();
-            this.PUPOtherpage = new TabPage();
-            this.Ventriloquygroup = new GroupBox();
-            this.VentriloquyPet = new RadioButton();
-            this.VentriloquyPlayer = new RadioButton();
-            this.Repairgroup = new GroupBox();
-            this.Repairselect = new ComboBox();
-            this.label18 = new Label();
-            this.Repairset = new NumericUpDown();
-            this.label14 = new Label();
-            this.TacticalSwitchgroup = new GroupBox();
-            this.TSPET = new RadioButton();
-            this.TSPlayer = new RadioButton();
-            this.TSPetTPset = new NumericUpDown();
-            this.TSPlayerTPset = new NumericUpDown();
-            this.label26 = new Label();
-            this.label41 = new Label();
-            this.RoleReversalgroup = new GroupBox();
-            this.RRPET = new RadioButton();
-            this.RRPlayer = new RadioButton();
-            this.RRPetHPPset = new NumericUpDown();
-            this.RRPlayerHPPset = new NumericUpDown();
-            this.label24 = new Label();
-            this.label19 = new Label();
-            this.geopettab = new TabPage();
-            this.label57 = new Label();
-            this.comboBox5 = new ComboBox();
-            this.groupBox6 = new GroupBox();
-            this.GEOJA = new CheckedListBox();
-            this.trustControl = new TabPage();
-            this.label63 = new Label();
-            this.label61 = new Label();
-            this.selectedtrusts = new Label();
-            this.maxtrustslabel = new Label();
-            this.Trusts = new CheckedListBox();
-            this.trustmenuStrip = new MenuStrip();
-            this.trustMenureset = new ToolStripMenuItem();
-            this.numericUpDown8 = new NumericUpDown();
-            this.numericUpDown9 = new NumericUpDown();
-            this.numericUpDown10 = new NumericUpDown();
-            this.numericUpDown5 = new NumericUpDown();
-            this.numericUpDown4 = new NumericUpDown();
-            this.numericUpDown3 = new NumericUpDown();
-            this.numericUpDown2 = new NumericUpDown();
-            this.numericUpDown1 = new NumericUpDown();
+            this.checkZone = new System.Windows.Forms.CheckBox();
+            this.StopFullInventory = new System.Windows.Forms.CheckBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.firstPersonView = new System.Windows.Forms.CheckBox();
+            this.runReverse = new System.Windows.Forms.CheckBox();
+            this.Linear = new System.Windows.Forms.RadioButton();
+            this.Circular = new System.Windows.Forms.RadioButton();
+            this.selectedNavi = new System.Windows.Forms.ComboBox();
+            this.GetSetNavi = new System.Windows.Forms.MenuStrip();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.navStuckWatch = new System.Windows.Forms.CheckBox();
+            this.usenav = new System.Windows.Forms.CheckBox();
+            this.StartStopScript = new System.Windows.Forms.MenuStrip();
+            this.startScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dncControl = new System.Windows.Forms.TabControl();
+            this.targets = new System.Windows.Forms.TabPage();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.ZoneTargets = new System.Windows.Forms.MenuStrip();
+            this.NameListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.TargetList = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.GetSetTargets = new System.Windows.Forms.MenuStrip();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selecttargets = new System.Windows.Forms.GroupBox();
+            this.SelectedTargets = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.combat = new System.Windows.Forms.TabPage();
+            this.CombatSettingsTabs = new System.Windows.Forms.TabControl();
+            this.Options1MainTab = new System.Windows.Forms.TabPage();
+            this.HateControlgroup = new System.Windows.Forms.GroupBox();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.selectedHateControl = new System.Windows.Forms.ComboBox();
+            this.tank = new System.Windows.Forms.CheckBox();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.amname = new System.Windows.Forms.ComboBox();
+            this.AfterMathTier = new System.Windows.Forms.NumericUpDown();
+            this.wsam = new System.Windows.Forms.CheckBox();
+            this.WSDistance = new System.Windows.Forms.CheckBox();
+            this.selectedWS = new System.Windows.Forms.ComboBox();
+            this.WSDistanceset = new System.Windows.Forms.NumericUpDown();
+            this.ws = new System.Windows.Forms.CheckBox();
+            this.WStp = new System.Windows.Forms.NumericUpDown();
+            this.label29 = new System.Windows.Forms.Label();
+            this.TragetHPPtop = new System.Windows.Forms.NumericUpDown();
+            this.label28 = new System.Windows.Forms.Label();
+            this.TragetHPPbottom = new System.Windows.Forms.NumericUpDown();
+            this.label27 = new System.Windows.Forms.Label();
+            this.Options2MainTab = new System.Windows.Forms.TabPage();
+            this.numericUpDown38 = new System.Windows.Forms.NumericUpDown();
+            this.aggroRange = new System.Windows.Forms.NumericUpDown();
+            this.ScanDelay = new System.Windows.Forms.CheckBox();
+            this.KeepTargetRange = new System.Windows.Forms.NumericUpDown();
+            this.assistDist = new System.Windows.Forms.NumericUpDown();
+            this.followDist = new System.Windows.Forms.NumericUpDown();
+            this.partyAssist = new System.Windows.Forms.CheckBox();
+            this.facetarget = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.assist = new System.Windows.Forms.CheckBox();
+            this.followplayer = new System.Windows.Forms.CheckBox();
+            this.followName = new System.Windows.Forms.TextBox();
+            this.useshadows = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.assistplayer = new System.Windows.Forms.TextBox();
+            this.aggro = new System.Windows.Forms.CheckBox();
+            this.mobdist = new System.Windows.Forms.CheckBox();
+            this.Options3MainTab = new System.Windows.Forms.TabPage();
+            this.fullheal = new System.Windows.Forms.CheckBox();
+            this.verifyfood = new System.Windows.Forms.Button();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.SignetStaff = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.useStaff = new System.Windows.Forms.CheckBox();
+            this.foodName = new System.Windows.Forms.TextBox();
+            this.healMPcount = new System.Windows.Forms.NumericUpDown();
+            this.usefood = new System.Windows.Forms.CheckBox();
+            this.HealMP = new System.Windows.Forms.CheckBox();
+            this.healHPcount = new System.Windows.Forms.NumericUpDown();
+            this.RecordIdleLocation = new System.Windows.Forms.Button();
+            this.WeakLocation = new System.Windows.Forms.CheckBox();
+            this.HealHP = new System.Windows.Forms.CheckBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.IdleLocation = new System.Windows.Forms.CheckBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.Options4MainTab = new System.Windows.Forms.TabPage();
+            this.NotinBattle = new System.Windows.Forms.GroupBox();
+            this.UseJigs = new System.Windows.Forms.CheckBox();
+            this.ChocoboJigII = new System.Windows.Forms.RadioButton();
+            this.ChocoboJig = new System.Windows.Forms.RadioButton();
+            this.SpectralJig = new System.Windows.Forms.RadioButton();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.autoRangeDelay = new System.Windows.Forms.NumericUpDown();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.rangeaggro = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.autoRangeAttack = new System.Windows.Forms.CheckBox();
+            this.selectapp = new System.Windows.Forms.TabPage();
+            this.hudY = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.hudX = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.showHUD = new System.Windows.Forms.CheckBox();
+            this.shutdowngroup = new System.Windows.Forms.GroupBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.shutdowndate = new System.Windows.Forms.DateTimePicker();
+            this.selectedapp = new System.Windows.Forms.ComboBox();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.twentyfourHour = new System.Windows.Forms.RadioButton();
+            this.twelveHour = new System.Windows.Forms.RadioButton();
+            this.Shutdownenable = new System.Windows.Forms.CheckBox();
+            this.ManualTargMode = new System.Windows.Forms.CheckBox();
+            this.EnableDynamis = new System.Windows.Forms.CheckBox();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.StuckDistance = new System.Windows.Forms.NumericUpDown();
+            this.mobStuckWatch = new System.Windows.Forms.CheckBox();
+            this.OptionsJAMainTab = new System.Windows.Forms.TabPage();
+            this.JAtabselect = new System.Windows.Forms.TabControl();
+            this.selectPage = new System.Windows.Forms.TabPage();
+            this.playerJA = new System.Windows.Forms.CheckedListBox();
+            this.GetSetJA = new System.Windows.Forms.MenuStrip();
+            this.loadJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearJAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WHMpage = new System.Windows.Forms.TabPage();
+            this.benedictiongroupBox = new System.Windows.Forms.GroupBox();
+            this.BenedictionHPPuse = new System.Windows.Forms.NumericUpDown();
+            this.benedictiontext = new System.Windows.Forms.Label();
+            this.RDMpage = new System.Windows.Forms.TabPage();
+            this.Convertgroup = new System.Windows.Forms.GroupBox();
+            this.ConvertHPP = new System.Windows.Forms.NumericUpDown();
+            this.ConvertMPP = new System.Windows.Forms.NumericUpDown();
+            this.ConvertMP = new System.Windows.Forms.RadioButton();
+            this.ConvertHP = new System.Windows.Forms.RadioButton();
+            this.convertmptext = new System.Windows.Forms.Label();
+            this.converthptext = new System.Windows.Forms.Label();
+            this.samPage = new System.Windows.Forms.TabPage();
+            this.label58 = new System.Windows.Forms.Label();
+            this.sekkanokiWs = new System.Windows.Forms.ComboBox();
+            this.SCHpage = new System.Windows.Forms.TabPage();
+            this.Sublimationcount = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.RUNpage = new System.Windows.Forms.TabPage();
+            this.VivaciousPulseHP = new System.Windows.Forms.NumericUpDown();
+            this.VivaciousPulse = new System.Windows.Forms.CheckBox();
+            this.MONpage = new System.Windows.Forms.TabPage();
+            this.MONmpCount = new System.Windows.Forms.NumericUpDown();
+            this.MONhpCount = new System.Windows.Forms.NumericUpDown();
+            this.monmptext = new System.Windows.Forms.Label();
+            this.monhptext = new System.Windows.Forms.Label();
+            this.OptionsMAMainTab = new System.Windows.Forms.TabPage();
+            this.MAtabs = new System.Windows.Forms.TabControl();
+            this.MASelectPage = new System.Windows.Forms.TabPage();
+            this.playerMA = new System.Windows.Forms.CheckedListBox();
+            this.GetSetMA = new System.Windows.Forms.MenuStrip();
+            this.loadMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearMAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CureConfigPage = new System.Windows.Forms.TabPage();
+            this.CuraIIcount = new System.Windows.Forms.NumericUpDown();
+            this.Curacount = new System.Windows.Forms.NumericUpDown();
+            this.CureIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.CureIIcount = new System.Windows.Forms.NumericUpDown();
+            this.Curecount = new System.Windows.Forms.NumericUpDown();
+            this.CuraIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.FullCurecount = new System.Windows.Forms.NumericUpDown();
+            this.CureVIcount = new System.Windows.Forms.NumericUpDown();
+            this.CureVcount = new System.Windows.Forms.NumericUpDown();
+            this.CureIVcount = new System.Windows.Forms.NumericUpDown();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PartyCurepage = new System.Windows.Forms.TabPage();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ptCure = new System.Windows.Forms.CheckBox();
+            this.FullCureptcount = new System.Windows.Forms.NumericUpDown();
+            this.label80 = new System.Windows.Forms.Label();
+            this.CureVIptcount = new System.Windows.Forms.NumericUpDown();
+            this.label74 = new System.Windows.Forms.Label();
+            this.CureVptcount = new System.Windows.Forms.NumericUpDown();
+            this.CureIVptcount = new System.Windows.Forms.NumericUpDown();
+            this.CureIIIptcount = new System.Windows.Forms.NumericUpDown();
+            this.label75 = new System.Windows.Forms.Label();
+            this.CureIIptcount = new System.Windows.Forms.NumericUpDown();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.Cureptcount = new System.Windows.Forms.NumericUpDown();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.CurePTlist = new System.Windows.Forms.CheckedListBox();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Cureagapage = new System.Windows.Forms.TabPage();
+            this.label39 = new System.Windows.Forms.Label();
+            this.CuragaVcount = new System.Windows.Forms.NumericUpDown();
+            this.CuragaIVcount = new System.Windows.Forms.NumericUpDown();
+            this.CuragaIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.CuragaIIcount = new System.Windows.Forms.NumericUpDown();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.Curagacount = new System.Windows.Forms.NumericUpDown();
+            this.DrainAspirpage = new System.Windows.Forms.TabPage();
+            this.Aspirgroup = new System.Windows.Forms.GroupBox();
+            this.AspirIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.AspirIIcount = new System.Windows.Forms.NumericUpDown();
+            this.AspirIIItext = new System.Windows.Forms.Label();
+            this.AspirItext = new System.Windows.Forms.Label();
+            this.AspirIItext = new System.Windows.Forms.Label();
+            this.Aspircount = new System.Windows.Forms.NumericUpDown();
+            this.Draingroup = new System.Windows.Forms.GroupBox();
+            this.DrainIItext = new System.Windows.Forms.Label();
+            this.Draincount = new System.Windows.Forms.NumericUpDown();
+            this.DrainItext = new System.Windows.Forms.Label();
+            this.DrainIIItext = new System.Windows.Forms.Label();
+            this.DrainIIIcount = new System.Windows.Forms.NumericUpDown();
+            this.DrainIIcount = new System.Windows.Forms.NumericUpDown();
+            this.BLUCurespage = new System.Windows.Forms.TabPage();
+            this.MagicFruitcount = new System.Windows.Forms.NumericUpDown();
+            this.Pollencount = new System.Windows.Forms.NumericUpDown();
+            this.HealingBreezecount = new System.Windows.Forms.NumericUpDown();
+            this.PleniluneEmbracecount = new System.Windows.Forms.NumericUpDown();
+            this.Restoralcount = new System.Windows.Forms.NumericUpDown();
+            this.WhiteWindcount = new System.Windows.Forms.NumericUpDown();
+            this.Exuviationcount = new System.Windows.Forms.NumericUpDown();
+            this.WildCarrotcount = new System.Windows.Forms.NumericUpDown();
+            this.PleniluneEmbracetext = new System.Windows.Forms.Label();
+            this.MagicFruittext = new System.Windows.Forms.Label();
+            this.HealingBreezetext = new System.Windows.Forms.Label();
+            this.Pollentext = new System.Windows.Forms.Label();
+            this.WhiteWindtext = new System.Windows.Forms.Label();
+            this.Restoraltext = new System.Windows.Forms.Label();
+            this.Exuviationtext = new System.Windows.Forms.Label();
+            this.WildCarrottext = new System.Windows.Forms.Label();
+            this.MAconfigpage = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.MAreverse = new System.Windows.Forms.CheckBox();
+            this.Dynamispage = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.NoneProcuse = new System.Windows.Forms.CheckBox();
+            this.DynaProccontrole = new System.Windows.Forms.CheckBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.Dynatxt = new System.Windows.Forms.Label();
+            this.staggerstopJA = new System.Windows.Forms.CheckBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.delaytext = new System.Windows.Forms.Label();
+            this.pullDelay = new System.Windows.Forms.NumericUpDown();
+            this.AutoLock = new System.Windows.Forms.CheckBox();
+            this.mobheightdistValue = new System.Windows.Forms.NumericUpDown();
+            this.mobheightdist = new System.Windows.Forms.CheckBox();
+            this.runTarget = new System.Windows.Forms.CheckBox();
+            this.runPullDistance = new System.Windows.Forms.CheckBox();
+            this.mobsearchdisttext = new System.Windows.Forms.Label();
+            this.targetSearchDist = new System.Windows.Forms.NumericUpDown();
+            this.pullTolorance = new System.Windows.Forms.NumericUpDown();
+            this.pulltolorancetext = new System.Windows.Forms.Label();
+            this.numericUpDown21 = new System.Windows.Forms.NumericUpDown();
+            this.pulldistance = new System.Windows.Forms.Label();
+            this.pullCommand = new System.Windows.Forms.TextBox();
+            this.pullcommandtext = new System.Windows.Forms.Label();
+            this.dancer = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.noSamba = new System.Windows.Forms.RadioButton();
+            this.usedrainiii = new System.Windows.Forms.RadioButton();
+            this.usehaste = new System.Windows.Forms.RadioButton();
+            this.useaspirii = new System.Windows.Forms.RadioButton();
+            this.useaspir = new System.Windows.Forms.RadioButton();
+            this.usedrainii = new System.Windows.Forms.RadioButton();
+            this.usedrain = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.stopstepsat = new System.Windows.Forms.CheckBox();
+            this.stopstepscount = new System.Windows.Forms.NumericUpDown();
+            this.stopstepsathptext = new System.Windows.Forms.Label();
+            this.usefeatherstepValue = new System.Windows.Forms.NumericUpDown();
+            this.usestutterstepValue = new System.Windows.Forms.NumericUpDown();
+            this.useboxstepValue = new System.Windows.Forms.NumericUpDown();
+            this.StepsHPValue = new System.Windows.Forms.NumericUpDown();
+            this.usequickstepValue = new System.Windows.Forms.NumericUpDown();
+            this.StepsHP = new System.Windows.Forms.CheckBox();
+            this.NoSteps = new System.Windows.Forms.RadioButton();
+            this.usequickstep = new System.Windows.Forms.RadioButton();
+            this.useboxstep = new System.Windows.Forms.RadioButton();
+            this.usestutterstep = new System.Windows.Forms.RadioButton();
+            this.usefeatherstep = new System.Windows.Forms.RadioButton();
+            this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.HWSelectDeselectALL = new System.Windows.Forms.CheckBox();
+            this.HealingWaltzItems = new System.Windows.Forms.CheckedListBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.usecurevValue = new System.Windows.Forms.NumericUpDown();
+            this.usecureivValue = new System.Windows.Forms.NumericUpDown();
+            this.usecureiiiValue = new System.Windows.Forms.NumericUpDown();
+            this.usecureiiValue = new System.Windows.Forms.NumericUpDown();
+            this.usecureValue = new System.Windows.Forms.NumericUpDown();
+            this.usecurev = new System.Windows.Forms.CheckBox();
+            this.usecureiv = new System.Windows.Forms.CheckBox();
+            this.usecureiii = new System.Windows.Forms.CheckBox();
+            this.usecureii = new System.Windows.Forms.CheckBox();
+            this.usecure = new System.Windows.Forms.CheckBox();
+            this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.PartyWaltsList = new System.Windows.Forms.CheckedListBox();
+            this.addplayertext = new System.Windows.Forms.Label();
+            this.WaltzPTadd = new System.Windows.Forms.TextBox();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.numericUpDown27 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown28 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown29 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown32 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown33 = new System.Windows.Forms.NumericUpDown();
+            this.ptusecurev = new System.Windows.Forms.CheckBox();
+            this.ptusecureiv = new System.Windows.Forms.CheckBox();
+            this.ptusecureiii = new System.Windows.Forms.CheckBox();
+            this.ptusecureii = new System.Windows.Forms.CheckBox();
+            this.ptusecure = new System.Windows.Forms.CheckBox();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.GetSetParty = new System.Windows.Forms.MenuStrip();
+            this.loadPartyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearPartyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label15 = new System.Windows.Forms.Label();
+            this.flourish = new System.Windows.Forms.TabPage();
+            this.flourishesiiigroup = new System.Windows.Forms.GroupBox();
+            this.useclmfloValue = new System.Windows.Forms.NumericUpDown();
+            this.usestkfloValue = new System.Windows.Forms.NumericUpDown();
+            this.useterfloValue = new System.Windows.Forms.NumericUpDown();
+            this.usestkflo = new System.Windows.Forms.RadioButton();
+            this.useclmflo = new System.Windows.Forms.RadioButton();
+            this.useterflo = new System.Windows.Forms.RadioButton();
+            this.finsishingmovetext = new System.Windows.Forms.Label();
+            this.FlourishTPValue = new System.Windows.Forms.NumericUpDown();
+            this.flourishesiigroup = new System.Windows.Forms.GroupBox();
+            this.usewldfloValue = new System.Windows.Forms.NumericUpDown();
+            this.usebldfloValue = new System.Windows.Forms.NumericUpDown();
+            this.userevfloValue = new System.Windows.Forms.NumericUpDown();
+            this.usewldflo = new System.Windows.Forms.RadioButton();
+            this.usebldflo = new System.Windows.Forms.RadioButton();
+            this.userevflo = new System.Windows.Forms.RadioButton();
+            this.FlourishTP = new System.Windows.Forms.CheckBox();
+            this.flourishesigroup = new System.Windows.Forms.GroupBox();
+            this.useviofloValue = new System.Windows.Forms.NumericUpDown();
+            this.usevioflo = new System.Windows.Forms.RadioButton();
+            this.usedesfloValue = new System.Windows.Forms.NumericUpDown();
+            this.usedesflo = new System.Windows.Forms.RadioButton();
+            this.pets = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.petControl = new System.Windows.Forms.TabControl();
+            this.bstpettab = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.BstJATP = new System.Windows.Forms.NumericUpDown();
+            this.usepetja = new System.Windows.Forms.GroupBox();
+            this.PetJA = new System.Windows.Forms.CheckedListBox();
+            this.bstpetrdygroup = new System.Windows.Forms.GroupBox();
+            this.PetReady = new System.Windows.Forms.CheckedListBox();
+            this.usedpetfood = new System.Windows.Forms.ComboBox();
+            this.jugpet = new System.Windows.Forms.ComboBox();
+            this.juguse = new System.Windows.Forms.CheckBox();
+            this.pethppfood = new System.Windows.Forms.NumericUpDown();
+            this.pethptext = new System.Windows.Forms.Label();
+            this.petfooduse = new System.Windows.Forms.CheckBox();
+            this.autoengage = new System.Windows.Forms.CheckBox();
+            this.drgpettab = new System.Windows.Forms.TabPage();
+            this.DragonPetHP = new System.Windows.Forms.NumericUpDown();
+            this.drgsteadywingtext = new System.Windows.Forms.Label();
+            this.CallWyvern = new System.Windows.Forms.CheckBox();
+            this.drgspirtlinkgroup = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.PlayerSpirit = new System.Windows.Forms.NumericUpDown();
+            this.WyvernSpirit = new System.Windows.Forms.NumericUpDown();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.BreathMAX = new System.Windows.Forms.NumericUpDown();
+            this.label48 = new System.Windows.Forms.Label();
+            this.BreathMIN = new System.Windows.Forms.NumericUpDown();
+            this.drgwyvernbreathptext = new System.Windows.Forms.Label();
+            this.drgrestoringbreathgroup = new System.Windows.Forms.GroupBox();
+            this.RestoringBreathHP = new System.Windows.Forms.NumericUpDown();
+            this.label50 = new System.Windows.Forms.Label();
+            this.drgjagroup = new System.Windows.Forms.GroupBox();
+            this.WyvernJA = new System.Windows.Forms.CheckedListBox();
+            this.smnpettab = new System.Windows.Forms.TabPage();
+            this.ManaCedegroup = new System.Windows.Forms.GroupBox();
+            this.ManaCedePETTPtext = new System.Windows.Forms.Label();
+            this.ManaCedeTPset = new System.Windows.Forms.NumericUpDown();
+            this.ManaCedePMPPtext = new System.Windows.Forms.Label();
+            this.ManaCedeMPPset = new System.Windows.Forms.NumericUpDown();
+            this.Apogeetext = new System.Windows.Forms.Label();
+            this.ApogeeMPPset = new System.Windows.Forms.NumericUpDown();
+            this.SMNpetMPUSEtext = new System.Windows.Forms.Label();
+            this.SMNpetMPUSEset = new System.Windows.Forms.NumericUpDown();
+            this.SMNHPPset1 = new System.Windows.Forms.NumericUpDown();
+            this.SMNHPPset2 = new System.Windows.Forms.NumericUpDown();
+            this.SMNHealTEXT2 = new System.Windows.Forms.Label();
+            this.SMNHealTEXT1 = new System.Windows.Forms.Label();
+            this.SMNpetTPUSEtext = new System.Windows.Forms.Label();
+            this.SMNpetTPUSEset = new System.Windows.Forms.NumericUpDown();
+            this.SMNJAgroup = new System.Windows.Forms.GroupBox();
+            this.SMNJA = new System.Windows.Forms.CheckedListBox();
+            this.SelectSMNtext = new System.Windows.Forms.Label();
+            this.SMNSelect = new System.Windows.Forms.ComboBox();
+            this.SMNAbilitysgroup = new System.Windows.Forms.GroupBox();
+            this.SMNAbilityList = new System.Windows.Forms.CheckedListBox();
+            this.puppettab = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.PUPAbilitypage = new System.Windows.Forms.TabPage();
+            this.Maneuversgroup = new System.Windows.Forms.GroupBox();
+            this.Maneuver3select = new System.Windows.Forms.ComboBox();
+            this.Maneuver2select = new System.Windows.Forms.ComboBox();
+            this.Maneuver1set = new System.Windows.Forms.NumericUpDown();
+            this.Maneuver2set = new System.Windows.Forms.NumericUpDown();
+            this.Maneuver3set = new System.Windows.Forms.NumericUpDown();
+            this.Maneuver1select = new System.Windows.Forms.ComboBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.healforAutomatonMP = new System.Windows.Forms.CheckBox();
+            this.healforAutomatonHP = new System.Windows.Forms.CheckBox();
+            this.healforAutomatonMPset = new System.Windows.Forms.NumericUpDown();
+            this.healforAutomatonHPset = new System.Windows.Forms.NumericUpDown();
+            this.AutoCallPUP = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.PUPJA = new System.Windows.Forms.CheckedListBox();
+            this.PUPautoengage = new System.Windows.Forms.CheckBox();
+            this.PUPOtherpage = new System.Windows.Forms.TabPage();
+            this.Ventriloquygroup = new System.Windows.Forms.GroupBox();
+            this.VentriloquyPet = new System.Windows.Forms.RadioButton();
+            this.VentriloquyPlayer = new System.Windows.Forms.RadioButton();
+            this.Repairgroup = new System.Windows.Forms.GroupBox();
+            this.Repairselect = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.Repairset = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TacticalSwitchgroup = new System.Windows.Forms.GroupBox();
+            this.TSPET = new System.Windows.Forms.RadioButton();
+            this.TSPlayer = new System.Windows.Forms.RadioButton();
+            this.TSPetTPset = new System.Windows.Forms.NumericUpDown();
+            this.TSPlayerTPset = new System.Windows.Forms.NumericUpDown();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.RoleReversalgroup = new System.Windows.Forms.GroupBox();
+            this.RRPET = new System.Windows.Forms.RadioButton();
+            this.RRPlayer = new System.Windows.Forms.RadioButton();
+            this.RRPetHPPset = new System.Windows.Forms.NumericUpDown();
+            this.RRPlayerHPPset = new System.Windows.Forms.NumericUpDown();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.geopettab = new System.Windows.Forms.TabPage();
+            this.label57 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.GEOJA = new System.Windows.Forms.CheckedListBox();
+            this.trustControl = new System.Windows.Forms.TabPage();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.selectedtrusts = new System.Windows.Forms.Label();
+            this.maxtrustslabel = new System.Windows.Forms.Label();
+            this.Trusts = new System.Windows.Forms.CheckedListBox();
+            this.trustmenuStrip = new System.Windows.Forms.MenuStrip();
+            this.trustMenureset = new System.Windows.Forms.ToolStripMenuItem();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.bgw_script_dnc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_nav = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_sch = new System.ComponentModel.BackgroundWorker();
@@ -1041,20 +1034,20 @@
             this.bgw_script_pet = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_npc = new System.ComponentModel.BackgroundWorker();
             this.bgw_script_scn = new System.ComponentModel.BackgroundWorker();
-            this.DeathWarp = new CheckBox();
-            this.groupBox18 = new GroupBox();
-            this.playerjobpoints = new Label();
-            this.playermerits = new Label();
-            this.button1 = new Button();
-            this.playertp = new Label();
-            this.playermp = new Label();
-            this.playerhp = new Label();
-            this.curtime = new Label();
-            this.curtarghpp = new Label();
-            this.curtarg = new Label();
-            this.groupBox23 = new GroupBox();
-            this.Shrinkbutton = new Button();
-            this.panel1 = new Panel();
+            this.DeathWarp = new System.Windows.Forms.CheckBox();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.playerjobpoints = new System.Windows.Forms.Label();
+            this.playermerits = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.playertp = new System.Windows.Forms.Label();
+            this.playermp = new System.Windows.Forms.Label();
+            this.playerhp = new System.Windows.Forms.Label();
+            this.curtime = new System.Windows.Forms.Label();
+            this.curtarghpp = new System.Windows.Forms.Label();
+            this.curtarg = new System.Windows.Forms.Label();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.Shrinkbutton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -1094,7 +1087,6 @@
             this.selectapp.SuspendLayout();
             this.shutdowngroup.SuspendLayout();
             this.groupBox25.SuspendLayout();
-            this.twelveHRgroup.SuspendLayout();
             this.groupBox16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StuckDistance)).BeginInit();
             this.OptionsJAMainTab.SuspendLayout();
@@ -1386,8 +1378,8 @@
             // 
             // GetSetNavi
             // 
-            this.GetSetNavi.Dock = DockStyle.Bottom;
-            this.GetSetNavi.Items.AddRange(new ToolStripItem[] {
+            this.GetSetNavi.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.GetSetNavi.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.refreshToolStripMenuItem});
             this.GetSetNavi.Location = new System.Drawing.Point(3, 101);
             this.GetSetNavi.Name = "GetSetNavi";
@@ -1425,8 +1417,8 @@
             // 
             // StartStopScript
             // 
-            this.StartStopScript.Dock = DockStyle.None;
-            this.StartStopScript.Items.AddRange(new ToolStripItem[] {
+            this.StartStopScript.Dock = System.Windows.Forms.DockStyle.None;
+            this.StartStopScript.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startScriptToolStripMenuItem,
             this.stopScriptToolStripMenuItem,
             this.updateJobToolStripMenuItem});
@@ -1480,7 +1472,7 @@
             this.targets.Controls.Add(this.selecttargets);
             this.targets.Location = new System.Drawing.Point(4, 22);
             this.targets.Name = "targets";
-            this.targets.Padding = new Padding(3);
+            this.targets.Padding = new System.Windows.Forms.Padding(3);
             this.targets.Size = new System.Drawing.Size(439, 361);
             this.targets.TabIndex = 6;
             this.targets.Text = "Farm/Targets";
@@ -1497,7 +1489,7 @@
             // 
             // ZoneTargets
             // 
-            this.ZoneTargets.Items.AddRange(new ToolStripItem[] {
+            this.ZoneTargets.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NameListToolStripMenuItem,
             this.iDToolStripMenuItem});
             this.ZoneTargets.Location = new System.Drawing.Point(3, 16);
@@ -1532,21 +1524,21 @@
             // 
             // TargetList
             // 
-            this.TargetList.BorderStyle = BorderStyle.None;
-            this.TargetList.Columns.AddRange(new ColumnHeader[] {
+            this.TargetList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TargetList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
             this.columnHeader4});
-            this.TargetList.Dock = DockStyle.Fill;
+            this.TargetList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TargetList.FullRowSelect = true;
-            this.TargetList.HeaderStyle = ColumnHeaderStyle.None;
+            this.TargetList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.TargetList.Location = new System.Drawing.Point(3, 16);
             this.TargetList.Name = "TargetList";
             this.TargetList.Size = new System.Drawing.Size(195, 257);
             this.TargetList.TabIndex = 1;
             this.TargetList.UseCompatibleStateImageBehavior = false;
-            this.TargetList.View = View.Details;
+            this.TargetList.View = System.Windows.Forms.View.Details;
             this.TargetList.DoubleClick += new System.EventHandler(this.ListView2DoubleClick);
-            this.TargetList.KeyPress += new KeyPressEventHandler(this.ListView2KeyPress);
+            this.TargetList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListView2KeyPress);
             // 
             // columnHeader3
             // 
@@ -1569,7 +1561,7 @@
             // 
             // GetSetTargets
             // 
-            this.GetSetTargets.Items.AddRange(new ToolStripItem[] {
+            this.GetSetTargets.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem,
             this.loadToolStripMenuItem,
             this.clearToolStripMenuItem});
@@ -1612,19 +1604,19 @@
             // 
             // SelectedTargets
             // 
-            this.SelectedTargets.BorderStyle = BorderStyle.None;
-            this.SelectedTargets.Columns.AddRange(new ColumnHeader[] {
+            this.SelectedTargets.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SelectedTargets.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.SelectedTargets.Dock = DockStyle.Fill;
+            this.SelectedTargets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SelectedTargets.FullRowSelect = true;
-            this.SelectedTargets.HeaderStyle = ColumnHeaderStyle.None;
+            this.SelectedTargets.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.SelectedTargets.Location = new System.Drawing.Point(3, 16);
             this.SelectedTargets.Name = "SelectedTargets";
             this.SelectedTargets.Size = new System.Drawing.Size(195, 257);
             this.SelectedTargets.TabIndex = 0;
             this.SelectedTargets.UseCompatibleStateImageBehavior = false;
-            this.SelectedTargets.View = View.Details;
+            this.SelectedTargets.View = System.Windows.Forms.View.Details;
             this.SelectedTargets.DoubleClick += new System.EventHandler(this.ListView1DoubleClick);
             // 
             // columnHeader1
@@ -1643,7 +1635,7 @@
             this.combat.Controls.Add(this.groupBox14);
             this.combat.Location = new System.Drawing.Point(4, 22);
             this.combat.Name = "combat";
-            this.combat.Padding = new Padding(3);
+            this.combat.Padding = new System.Windows.Forms.Padding(3);
             this.combat.Size = new System.Drawing.Size(439, 361);
             this.combat.TabIndex = 7;
             this.combat.Text = "Combat Settings";
@@ -1671,7 +1663,7 @@
             this.Options1MainTab.Controls.Add(this.groupBox20);
             this.Options1MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options1MainTab.Name = "Options1MainTab";
-            this.Options1MainTab.Padding = new Padding(3);
+            this.Options1MainTab.Padding = new System.Windows.Forms.Padding(3);
             this.Options1MainTab.Size = new System.Drawing.Size(419, 197);
             this.Options1MainTab.TabIndex = 6;
             this.Options1MainTab.Text = "Options 1";
@@ -1704,7 +1696,7 @@
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown6.TabIndex = 108;
-            this.numericUpDown6.TextAlign = HorizontalAlignment.Center;
+            this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown6.Value = new decimal(new int[] {
             100,
             0,
@@ -1722,7 +1714,7 @@
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown7.TabIndex = 107;
-            this.numericUpDown7.TextAlign = HorizontalAlignment.Center;
+            this.numericUpDown7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown7.Value = new decimal(new int[] {
             10,
             0,
@@ -1847,8 +1839,8 @@
             "Stringing Pummel",
             "Pyrrhic Kleos",
             "Omniscience"});
-            this.amname.AutoCompleteMode = AutoCompleteMode.Suggest;
-            this.amname.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.amname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.amname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.amname.FormattingEnabled = true;
             this.amname.Location = new System.Drawing.Point(188, 38);
             this.amname.Name = "amname";
@@ -1872,7 +1864,7 @@
             this.AfterMathTier.Name = "AfterMathTier";
             this.AfterMathTier.Size = new System.Drawing.Size(44, 20);
             this.AfterMathTier.TabIndex = 108;
-            this.AfterMathTier.TextAlign = HorizontalAlignment.Center;
+            this.AfterMathTier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.AfterMathTier.Value = new decimal(new int[] {
             1,
             0,
@@ -2114,8 +2106,8 @@
             "Armor Piercer",
             "Cannibal Blade",
             "Bone Crusher"});
-            this.selectedWS.AutoCompleteMode = AutoCompleteMode.Suggest;
-            this.selectedWS.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.selectedWS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.selectedWS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.selectedWS.FormattingEnabled = true;
             this.selectedWS.Location = new System.Drawing.Point(188, 15);
             this.selectedWS.Name = "selectedWS";
@@ -2126,7 +2118,7 @@
             // WSDistanceset
             // 
             this.WSDistanceset.DecimalPlaces = 1;
-            this.WSDistanceset.ImeMode = ImeMode.Off;
+            this.WSDistanceset.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.WSDistanceset.Increment = new decimal(new int[] {
             1,
             0,
@@ -2142,7 +2134,7 @@
             this.WSDistanceset.Size = new System.Drawing.Size(44, 20);
             this.WSDistanceset.TabIndex = 103;
             this.WSDistanceset.TabStop = false;
-            this.WSDistanceset.TextAlign = HorizontalAlignment.Center;
+            this.WSDistanceset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WSDistanceset.Value = new decimal(new int[] {
             1,
             0,
@@ -2181,7 +2173,7 @@
             this.WStp.Size = new System.Drawing.Size(44, 20);
             this.WStp.TabIndex = 95;
             this.WStp.TabStop = false;
-            this.WStp.TextAlign = HorizontalAlignment.Center;
+            this.WStp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WStp.Value = new decimal(new int[] {
             1000,
             0,
@@ -2208,7 +2200,7 @@
             this.TragetHPPtop.Name = "TragetHPPtop";
             this.TragetHPPtop.Size = new System.Drawing.Size(44, 20);
             this.TragetHPPtop.TabIndex = 98;
-            this.TragetHPPtop.TextAlign = HorizontalAlignment.Center;
+            this.TragetHPPtop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TragetHPPtop.Value = new decimal(new int[] {
             100,
             0,
@@ -2235,7 +2227,7 @@
             this.TragetHPPbottom.Name = "TragetHPPbottom";
             this.TragetHPPbottom.Size = new System.Drawing.Size(44, 20);
             this.TragetHPPbottom.TabIndex = 97;
-            this.TragetHPPbottom.TextAlign = HorizontalAlignment.Center;
+            this.TragetHPPbottom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TragetHPPbottom.Value = new decimal(new int[] {
             15,
             0,
@@ -2272,7 +2264,7 @@
             this.Options2MainTab.Controls.Add(this.mobdist);
             this.Options2MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options2MainTab.Name = "Options2MainTab";
-            this.Options2MainTab.Padding = new Padding(3);
+            this.Options2MainTab.Padding = new System.Windows.Forms.Padding(3);
             this.Options2MainTab.Size = new System.Drawing.Size(419, 197);
             this.Options2MainTab.TabIndex = 1;
             this.Options2MainTab.Text = "Options 2";
@@ -2296,7 +2288,7 @@
             this.numericUpDown38.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown38.TabIndex = 92;
             this.numericUpDown38.TabStop = false;
-            this.numericUpDown38.TextAlign = HorizontalAlignment.Center;
+            this.numericUpDown38.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown38.Value = new decimal(new int[] {
             5,
             0,
@@ -2321,7 +2313,7 @@
             this.aggroRange.Size = new System.Drawing.Size(44, 20);
             this.aggroRange.TabIndex = 107;
             this.aggroRange.TabStop = false;
-            this.aggroRange.TextAlign = HorizontalAlignment.Center;
+            this.aggroRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.aggroRange.Value = new decimal(new int[] {
             85,
             0,
@@ -2356,7 +2348,7 @@
             this.KeepTargetRange.Size = new System.Drawing.Size(44, 20);
             this.KeepTargetRange.TabIndex = 106;
             this.KeepTargetRange.TabStop = false;
-            this.KeepTargetRange.TextAlign = HorizontalAlignment.Center;
+            this.KeepTargetRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.KeepTargetRange.Value = new decimal(new int[] {
             3,
             0,
@@ -2382,7 +2374,7 @@
             this.assistDist.Size = new System.Drawing.Size(44, 20);
             this.assistDist.TabIndex = 105;
             this.assistDist.TabStop = false;
-            this.assistDist.TextAlign = HorizontalAlignment.Center;
+            this.assistDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.assistDist.Value = new decimal(new int[] {
             5,
             0,
@@ -2407,7 +2399,7 @@
             this.followDist.Size = new System.Drawing.Size(44, 20);
             this.followDist.TabIndex = 104;
             this.followDist.TabStop = false;
-            this.followDist.TextAlign = HorizontalAlignment.Center;
+            this.followDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.followDist.Value = new decimal(new int[] {
             3,
             0,
@@ -2540,7 +2532,7 @@
             this.Options3MainTab.Controls.Add(this.label35);
             this.Options3MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options3MainTab.Name = "Options3MainTab";
-            this.Options3MainTab.Padding = new Padding(3);
+            this.Options3MainTab.Padding = new System.Windows.Forms.Padding(3);
             this.Options3MainTab.Size = new System.Drawing.Size(419, 197);
             this.Options3MainTab.TabIndex = 0;
             this.Options3MainTab.Text = "Options 3";
@@ -2550,7 +2542,7 @@
             // 
             this.fullheal.AutoSize = true;
             this.fullheal.Checked = true;
-            this.fullheal.CheckState = CheckState.Checked;
+            this.fullheal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.fullheal.Location = new System.Drawing.Point(240, 69);
             this.fullheal.Name = "fullheal";
             this.fullheal.Size = new System.Drawing.Size(103, 17);
@@ -2639,7 +2631,7 @@
             this.healMPcount.Size = new System.Drawing.Size(44, 20);
             this.healMPcount.TabIndex = 64;
             this.healMPcount.TabStop = false;
-            this.healMPcount.TextAlign = HorizontalAlignment.Center;
+            this.healMPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.healMPcount.Value = new decimal(new int[] {
             40,
             0,
@@ -2675,7 +2667,7 @@
             this.healHPcount.Size = new System.Drawing.Size(44, 20);
             this.healHPcount.TabIndex = 62;
             this.healHPcount.TabStop = false;
-            this.healHPcount.TextAlign = HorizontalAlignment.Center;
+            this.healHPcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.healHPcount.Value = new decimal(new int[] {
             40,
             0,
@@ -2747,7 +2739,7 @@
             this.Options4MainTab.Controls.Add(this.groupBox15);
             this.Options4MainTab.Location = new System.Drawing.Point(4, 22);
             this.Options4MainTab.Name = "Options4MainTab";
-            this.Options4MainTab.Padding = new Padding(3);
+            this.Options4MainTab.Padding = new System.Windows.Forms.Padding(3);
             this.Options4MainTab.Size = new System.Drawing.Size(419, 197);
             this.Options4MainTab.TabIndex = 5;
             this.Options4MainTab.Text = "Options 4";
@@ -2839,9 +2831,9 @@
             // 
             // autoRangeDelay
             // 
-            this.autoRangeDelay.BorderStyle = BorderStyle.FixedSingle;
+            this.autoRangeDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.autoRangeDelay.DecimalPlaces = 1;
-            this.autoRangeDelay.ImeMode = ImeMode.Off;
+            this.autoRangeDelay.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.autoRangeDelay.Increment = new decimal(new int[] {
             1,
             0,
@@ -2862,7 +2854,7 @@
             this.autoRangeDelay.Size = new System.Drawing.Size(44, 20);
             this.autoRangeDelay.TabIndex = 56;
             this.autoRangeDelay.TabStop = false;
-            this.autoRangeDelay.TextAlign = HorizontalAlignment.Center;
+            this.autoRangeDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.autoRangeDelay.Value = new decimal(new int[] {
             5,
             0,
@@ -2930,7 +2922,7 @@
             this.selectapp.Controls.Add(this.groupBox16);
             this.selectapp.Location = new System.Drawing.Point(4, 22);
             this.selectapp.Name = "selectapp";
-            this.selectapp.Padding = new Padding(3);
+            this.selectapp.Padding = new System.Windows.Forms.Padding(3);
             this.selectapp.Size = new System.Drawing.Size(419, 197);
             this.selectapp.TabIndex = 8;
             this.selectapp.Text = "Options 5";
@@ -2944,7 +2936,7 @@
             this.hudY.Size = new System.Drawing.Size(27, 20);
             this.hudY.TabIndex = 8;
             this.hudY.Text = "0";
-            this.hudY.TextAlign = HorizontalAlignment.Right;
+            this.hudY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label62
             // 
@@ -2963,7 +2955,7 @@
             this.hudX.Size = new System.Drawing.Size(27, 20);
             this.hudX.TabIndex = 6;
             this.hudX.Text = "0";
-            this.hudX.TextAlign = HorizontalAlignment.Right;
+            this.hudX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label60
             // 
@@ -2992,12 +2984,7 @@
             this.shutdowngroup.Controls.Add(this.shutdowndate);
             this.shutdowngroup.Controls.Add(this.selectedapp);
             this.shutdowngroup.Controls.Add(this.groupBox25);
-            this.shutdowngroup.Controls.Add(this.twelveHRgroup);
-            this.shutdowngroup.Controls.Add(this.ShutdownTimeHr);
             this.shutdowngroup.Controls.Add(this.Shutdownenable);
-            this.shutdowngroup.Controls.Add(this.label81);
-            this.shutdowngroup.Controls.Add(this.label40);
-            this.shutdowngroup.Controls.Add(this.ShutdownTimeMin);
             this.shutdowngroup.Location = new System.Drawing.Point(53, 102);
             this.shutdowngroup.Name = "shutdowngroup";
             this.shutdowngroup.Size = new System.Drawing.Size(334, 80);
@@ -3016,14 +3003,16 @@
             // 
             // shutdowndate
             // 
-            this.shutdowndate.CustomFormat = "MM/dd/yyyy";
-            this.shutdowndate.Format = DateTimePickerFormat.Custom;
-            this.shutdowndate.Location = new System.Drawing.Point(123, 57);
+            this.shutdowndate.CustomFormat = "M/d/yyyy hh:mm:ss tt";
+            this.shutdowndate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.shutdowndate.Location = new System.Drawing.Point(172, 56);
             this.shutdowndate.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.shutdowndate.MinDate = new System.DateTime(2016, 6, 1, 0, 0, 0, 0);
             this.shutdowndate.Name = "shutdowndate";
-            this.shutdowndate.Size = new System.Drawing.Size(81, 20);
+            this.shutdowndate.ShowUpDown = true;
+            this.shutdowndate.Size = new System.Drawing.Size(153, 20);
             this.shutdowndate.TabIndex = 11;
-            this.shutdowndate.Value = new System.DateTime(2016, 5, 23, 0, 0, 0, 0);
+            this.shutdowndate.Value = new System.DateTime(2016, 6, 1, 16, 18, 1, 0);
             // 
             // selectedapp
             // 
@@ -3031,14 +3020,14 @@
             "Scripted Only",
             "Windower + Scripted",
             "Ashita + Scripted"});
-            this.selectedapp.AutoCompleteMode = AutoCompleteMode.Suggest;
-            this.selectedapp.AutoCompleteSource = AutoCompleteSource.ListItems;
+            this.selectedapp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.selectedapp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.selectedapp.FormattingEnabled = true;
             this.selectedapp.Items.AddRange(new object[] {
             "Scripted Only",
             "Windower + Scripted",
             "Ashita + Scripted"});
-            this.selectedapp.Location = new System.Drawing.Point(7, 57);
+            this.selectedapp.Location = new System.Drawing.Point(7, 56);
             this.selectedapp.Name = "selectedapp";
             this.selectedapp.Size = new System.Drawing.Size(118, 21);
             this.selectedapp.TabIndex = 10;
@@ -3048,7 +3037,7 @@
             // 
             this.groupBox25.Controls.Add(this.twentyfourHour);
             this.groupBox25.Controls.Add(this.twelveHour);
-            this.groupBox25.Location = new System.Drawing.Point(180, 26);
+            this.groupBox25.Location = new System.Drawing.Point(197, 26);
             this.groupBox25.Name = "groupBox25";
             this.groupBox25.Size = new System.Drawing.Size(128, 25);
             this.groupBox25.TabIndex = 9;
@@ -3077,85 +3066,15 @@
             this.twelveHour.UseVisualStyleBackColor = true;
             this.twelveHour.CheckedChanged += new System.EventHandler(this.twelveHour_CheckedChanged);
             // 
-            // twelveHRgroup
-            // 
-            this.twelveHRgroup.Controls.Add(this.PMtime);
-            this.twelveHRgroup.Controls.Add(this.AMtime);
-            this.twelveHRgroup.Location = new System.Drawing.Point(92, 26);
-            this.twelveHRgroup.Name = "twelveHRgroup";
-            this.twelveHRgroup.Size = new System.Drawing.Size(88, 25);
-            this.twelveHRgroup.TabIndex = 8;
-            this.twelveHRgroup.TabStop = false;
-            // 
-            // PMtime
-            // 
-            this.PMtime.AutoSize = true;
-            this.PMtime.Location = new System.Drawing.Point(49, 6);
-            this.PMtime.Name = "PMtime";
-            this.PMtime.Size = new System.Drawing.Size(41, 17);
-            this.PMtime.TabIndex = 1;
-            this.PMtime.Text = "PM";
-            this.PMtime.UseVisualStyleBackColor = true;
-            // 
-            // AMtime
-            // 
-            this.AMtime.AutoSize = true;
-            this.AMtime.Checked = true;
-            this.AMtime.Location = new System.Drawing.Point(4, 6);
-            this.AMtime.Name = "AMtime";
-            this.AMtime.Size = new System.Drawing.Size(41, 17);
-            this.AMtime.TabIndex = 0;
-            this.AMtime.TabStop = true;
-            this.AMtime.Text = "AM";
-            this.AMtime.UseVisualStyleBackColor = true;
-            // 
-            // ShutdownTimeHr
-            // 
-            this.ShutdownTimeHr.Location = new System.Drawing.Point(243, 57);
-            this.ShutdownTimeHr.MaxLength = 2;
-            this.ShutdownTimeHr.Name = "ShutdownTimeHr";
-            this.ShutdownTimeHr.Size = new System.Drawing.Size(20, 20);
-            this.ShutdownTimeHr.TabIndex = 0;
-            this.ShutdownTimeHr.Text = "0";
-            this.ShutdownTimeHr.TextAlign = HorizontalAlignment.Right;
-            // 
             // Shutdownenable
             // 
             this.Shutdownenable.AutoSize = true;
-            this.Shutdownenable.Location = new System.Drawing.Point(27, 34);
+            this.Shutdownenable.Location = new System.Drawing.Point(7, 34);
             this.Shutdownenable.Name = "Shutdownenable";
-            this.Shutdownenable.Size = new System.Drawing.Size(59, 17);
+            this.Shutdownenable.Size = new System.Drawing.Size(175, 17);
             this.Shutdownenable.TabIndex = 4;
-            this.Shutdownenable.Text = "Enable";
+            this.Shutdownenable.Text = "Enable (After you set your time.)";
             this.Shutdownenable.UseVisualStyleBackColor = true;
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(210, 60);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(33, 13);
-            this.label81.TabIndex = 3;
-            this.label81.Text = "Hour:";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(269, 60);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(42, 13);
-            this.label40.TabIndex = 2;
-            this.label40.Text = "Minute:";
-            // 
-            // ShutdownTimeMin
-            // 
-            this.ShutdownTimeMin.Location = new System.Drawing.Point(308, 57);
-            this.ShutdownTimeMin.MaxLength = 2;
-            this.ShutdownTimeMin.Name = "ShutdownTimeMin";
-            this.ShutdownTimeMin.Size = new System.Drawing.Size(20, 20);
-            this.ShutdownTimeMin.TabIndex = 1;
-            this.ShutdownTimeMin.Text = "0";
-            this.ShutdownTimeMin.TextAlign = HorizontalAlignment.Right;
             // 
             // ManualTargMode
             // 
@@ -3238,7 +3157,7 @@
             this.OptionsJAMainTab.Controls.Add(this.JAtabselect);
             this.OptionsJAMainTab.Location = new System.Drawing.Point(4, 22);
             this.OptionsJAMainTab.Name = "OptionsJAMainTab";
-            this.OptionsJAMainTab.Padding = new Padding(3);
+            this.OptionsJAMainTab.Padding = new System.Windows.Forms.Padding(3);
             this.OptionsJAMainTab.Size = new System.Drawing.Size(419, 197);
             this.OptionsJAMainTab.TabIndex = 4;
             this.OptionsJAMainTab.Text = "JA\'s";
@@ -3265,7 +3184,7 @@
             this.selectPage.Controls.Add(this.GetSetJA);
             this.selectPage.Location = new System.Drawing.Point(4, 22);
             this.selectPage.Name = "selectPage";
-            this.selectPage.Padding = new Padding(3);
+            this.selectPage.Padding = new System.Windows.Forms.Padding(3);
             this.selectPage.Size = new System.Drawing.Size(402, 160);
             this.selectPage.TabIndex = 0;
             this.selectPage.Text = "Select";
@@ -3283,8 +3202,8 @@
             // 
             // GetSetJA
             // 
-            this.GetSetJA.Dock = DockStyle.None;
-            this.GetSetJA.Items.AddRange(new ToolStripItem[] {
+            this.GetSetJA.Dock = System.Windows.Forms.DockStyle.None;
+            this.GetSetJA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadJAsToolStripMenuItem,
             this.clearJAsToolStripMenuItem});
             this.GetSetJA.Location = new System.Drawing.Point(116, 130);
@@ -3312,7 +3231,7 @@
             this.WHMpage.Controls.Add(this.benedictiongroupBox);
             this.WHMpage.Location = new System.Drawing.Point(4, 22);
             this.WHMpage.Name = "WHMpage";
-            this.WHMpage.Padding = new Padding(3);
+            this.WHMpage.Padding = new System.Windows.Forms.Padding(3);
             this.WHMpage.Size = new System.Drawing.Size(402, 160);
             this.WHMpage.TabIndex = 1;
             this.WHMpage.Text = "WHM";
@@ -3351,7 +3270,7 @@
             this.RDMpage.Controls.Add(this.Convertgroup);
             this.RDMpage.Location = new System.Drawing.Point(4, 22);
             this.RDMpage.Name = "RDMpage";
-            this.RDMpage.Padding = new Padding(3);
+            this.RDMpage.Padding = new System.Windows.Forms.Padding(3);
             this.RDMpage.Size = new System.Drawing.Size(402, 160);
             this.RDMpage.TabIndex = 2;
             this.RDMpage.Text = "RDM";
@@ -3441,7 +3360,7 @@
             this.samPage.Controls.Add(this.sekkanokiWs);
             this.samPage.Location = new System.Drawing.Point(4, 22);
             this.samPage.Name = "samPage";
-            this.samPage.Padding = new Padding(3);
+            this.samPage.Padding = new System.Windows.Forms.Padding(3);
             this.samPage.Size = new System.Drawing.Size(402, 160);
             this.samPage.TabIndex = 7;
             this.samPage.Text = "SAM";
@@ -3671,8 +3590,8 @@
             "Armor Piercer",
             "Cannibal Blade",
             "Bone Crusher"});
-            this.sekkanokiWs.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.sekkanokiWs.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.sekkanokiWs.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.sekkanokiWs.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.sekkanokiWs.FormattingEnabled = true;
             this.sekkanokiWs.Location = new System.Drawing.Point(188, 12);
             this.sekkanokiWs.Name = "sekkanokiWs";
@@ -3686,7 +3605,7 @@
             this.SCHpage.Controls.Add(this.label8);
             this.SCHpage.Location = new System.Drawing.Point(4, 22);
             this.SCHpage.Name = "SCHpage";
-            this.SCHpage.Padding = new Padding(3);
+            this.SCHpage.Padding = new System.Windows.Forms.Padding(3);
             this.SCHpage.Size = new System.Drawing.Size(402, 160);
             this.SCHpage.TabIndex = 6;
             this.SCHpage.Text = "SCH";
@@ -3715,7 +3634,7 @@
             this.RUNpage.Controls.Add(this.VivaciousPulse);
             this.RUNpage.Location = new System.Drawing.Point(4, 22);
             this.RUNpage.Name = "RUNpage";
-            this.RUNpage.Padding = new Padding(3);
+            this.RUNpage.Padding = new System.Windows.Forms.Padding(3);
             this.RUNpage.Size = new System.Drawing.Size(402, 160);
             this.RUNpage.TabIndex = 3;
             this.RUNpage.Text = "RUN";
@@ -3748,7 +3667,7 @@
             this.MONpage.Controls.Add(this.monhptext);
             this.MONpage.Location = new System.Drawing.Point(4, 22);
             this.MONpage.Name = "MONpage";
-            this.MONpage.Padding = new Padding(3);
+            this.MONpage.Padding = new System.Windows.Forms.Padding(3);
             this.MONpage.Size = new System.Drawing.Size(402, 160);
             this.MONpage.TabIndex = 4;
             this.MONpage.Text = "MON";
@@ -3803,7 +3722,7 @@
             this.OptionsMAMainTab.Controls.Add(this.MAtabs);
             this.OptionsMAMainTab.Location = new System.Drawing.Point(4, 22);
             this.OptionsMAMainTab.Name = "OptionsMAMainTab";
-            this.OptionsMAMainTab.Padding = new Padding(3);
+            this.OptionsMAMainTab.Padding = new System.Windows.Forms.Padding(3);
             this.OptionsMAMainTab.Size = new System.Drawing.Size(419, 197);
             this.OptionsMAMainTab.TabIndex = 7;
             this.OptionsMAMainTab.Text = "MA\'s";
@@ -3830,7 +3749,7 @@
             this.MASelectPage.Controls.Add(this.GetSetMA);
             this.MASelectPage.Location = new System.Drawing.Point(4, 22);
             this.MASelectPage.Name = "MASelectPage";
-            this.MASelectPage.Padding = new Padding(3);
+            this.MASelectPage.Padding = new System.Windows.Forms.Padding(3);
             this.MASelectPage.Size = new System.Drawing.Size(402, 158);
             this.MASelectPage.TabIndex = 0;
             this.MASelectPage.Text = "Select";
@@ -3848,8 +3767,8 @@
             // 
             // GetSetMA
             // 
-            this.GetSetMA.Dock = DockStyle.None;
-            this.GetSetMA.Items.AddRange(new ToolStripItem[] {
+            this.GetSetMA.Dock = System.Windows.Forms.DockStyle.None;
+            this.GetSetMA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadMAsToolStripMenuItem,
             this.clearMAsToolStripMenuItem});
             this.GetSetMA.Location = new System.Drawing.Point(117, 127);
@@ -3896,7 +3815,7 @@
             this.CureConfigPage.Controls.Add(this.label1);
             this.CureConfigPage.Location = new System.Drawing.Point(4, 22);
             this.CureConfigPage.Name = "CureConfigPage";
-            this.CureConfigPage.Padding = new Padding(3);
+            this.CureConfigPage.Padding = new System.Windows.Forms.Padding(3);
             this.CureConfigPage.Size = new System.Drawing.Size(402, 158);
             this.CureConfigPage.TabIndex = 1;
             this.CureConfigPage.Text = "Cure";
@@ -4077,7 +3996,7 @@
             this.PartyCurepage.Controls.Add(this.tabControl2);
             this.PartyCurepage.Location = new System.Drawing.Point(4, 22);
             this.PartyCurepage.Name = "PartyCurepage";
-            this.PartyCurepage.Padding = new Padding(3);
+            this.PartyCurepage.Padding = new System.Windows.Forms.Padding(3);
             this.PartyCurepage.Size = new System.Drawing.Size(402, 158);
             this.PartyCurepage.TabIndex = 5;
             this.PartyCurepage.Text = "Party Cure";
@@ -4112,7 +4031,7 @@
             this.tabPage1.Controls.Add(this.Cureptcount);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new Padding(3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(389, 123);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cure";
@@ -4253,7 +4172,7 @@
             this.tabPage2.Controls.Add(this.groupBox17);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new Padding(3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(389, 123);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Party Members";
@@ -4280,8 +4199,8 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Dock = DockStyle.None;
-            this.menuStrip1.Items.AddRange(new ToolStripItem[] {
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(20, 10);
@@ -4319,7 +4238,7 @@
             this.Cureagapage.Controls.Add(this.Curagacount);
             this.Cureagapage.Location = new System.Drawing.Point(4, 22);
             this.Cureagapage.Name = "Cureagapage";
-            this.Cureagapage.Padding = new Padding(3);
+            this.Cureagapage.Padding = new System.Windows.Forms.Padding(3);
             this.Cureagapage.Size = new System.Drawing.Size(402, 158);
             this.Cureagapage.TabIndex = 6;
             this.Cureagapage.Text = "Curaga";
@@ -4427,7 +4346,7 @@
             this.DrainAspirpage.Controls.Add(this.Draingroup);
             this.DrainAspirpage.Location = new System.Drawing.Point(4, 22);
             this.DrainAspirpage.Name = "DrainAspirpage";
-            this.DrainAspirpage.Padding = new Padding(3);
+            this.DrainAspirpage.Padding = new System.Windows.Forms.Padding(3);
             this.DrainAspirpage.Size = new System.Drawing.Size(402, 158);
             this.DrainAspirpage.TabIndex = 2;
             this.DrainAspirpage.Text = "Drain/Aspir";
@@ -4585,7 +4504,7 @@
             this.BLUCurespage.Controls.Add(this.WildCarrottext);
             this.BLUCurespage.Location = new System.Drawing.Point(4, 22);
             this.BLUCurespage.Name = "BLUCurespage";
-            this.BLUCurespage.Padding = new Padding(3);
+            this.BLUCurespage.Padding = new System.Windows.Forms.Padding(3);
             this.BLUCurespage.Size = new System.Drawing.Size(402, 158);
             this.BLUCurespage.TabIndex = 3;
             this.BLUCurespage.Text = "BLU Cures";
@@ -4733,7 +4652,7 @@
             this.MAconfigpage.Controls.Add(this.MAreverse);
             this.MAconfigpage.Location = new System.Drawing.Point(4, 22);
             this.MAconfigpage.Name = "MAconfigpage";
-            this.MAconfigpage.Padding = new Padding(3);
+            this.MAconfigpage.Padding = new System.Windows.Forms.Padding(3);
             this.MAconfigpage.Size = new System.Drawing.Size(402, 158);
             this.MAconfigpage.TabIndex = 4;
             this.MAconfigpage.Text = "MAconfig";
@@ -4768,7 +4687,7 @@
             this.Dynamispage.Controls.Add(this.staggerstopJA);
             this.Dynamispage.Location = new System.Drawing.Point(4, 22);
             this.Dynamispage.Name = "Dynamispage";
-            this.Dynamispage.Padding = new Padding(3);
+            this.Dynamispage.Padding = new System.Windows.Forms.Padding(3);
             this.Dynamispage.Size = new System.Drawing.Size(419, 197);
             this.Dynamispage.TabIndex = 5;
             this.Dynamispage.Text = "Dynamis";
@@ -4875,9 +4794,9 @@
             // 
             // pullDelay
             // 
-            this.pullDelay.BorderStyle = BorderStyle.FixedSingle;
+            this.pullDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pullDelay.DecimalPlaces = 1;
-            this.pullDelay.ImeMode = ImeMode.Off;
+            this.pullDelay.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.pullDelay.Increment = new decimal(new int[] {
             1,
             0,
@@ -4898,7 +4817,7 @@
             this.pullDelay.Size = new System.Drawing.Size(44, 20);
             this.pullDelay.TabIndex = 54;
             this.pullDelay.TabStop = false;
-            this.pullDelay.TextAlign = HorizontalAlignment.Center;
+            this.pullDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.pullDelay.Value = new decimal(new int[] {
             4,
             0,
@@ -4918,7 +4837,7 @@
             // mobheightdistValue
             // 
             this.mobheightdistValue.DecimalPlaces = 1;
-            this.mobheightdistValue.ImeMode = ImeMode.Off;
+            this.mobheightdistValue.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.mobheightdistValue.Location = new System.Drawing.Point(282, 91);
             this.mobheightdistValue.Maximum = new decimal(new int[] {
             50,
@@ -4934,7 +4853,7 @@
             this.mobheightdistValue.Size = new System.Drawing.Size(44, 20);
             this.mobheightdistValue.TabIndex = 52;
             this.mobheightdistValue.TabStop = false;
-            this.mobheightdistValue.TextAlign = HorizontalAlignment.Center;
+            this.mobheightdistValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mobheightdistValue.Value = new decimal(new int[] {
             1,
             0,
@@ -4983,7 +4902,7 @@
             // targetSearchDist
             // 
             this.targetSearchDist.DecimalPlaces = 1;
-            this.targetSearchDist.ImeMode = ImeMode.Off;
+            this.targetSearchDist.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.targetSearchDist.Increment = new decimal(new int[] {
             1,
             0,
@@ -4999,7 +4918,7 @@
             this.targetSearchDist.Size = new System.Drawing.Size(44, 20);
             this.targetSearchDist.TabIndex = 47;
             this.targetSearchDist.TabStop = false;
-            this.targetSearchDist.TextAlign = HorizontalAlignment.Center;
+            this.targetSearchDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.targetSearchDist.Value = new decimal(new int[] {
             245,
             0,
@@ -5024,7 +4943,7 @@
             this.pullTolorance.Size = new System.Drawing.Size(44, 20);
             this.pullTolorance.TabIndex = 43;
             this.pullTolorance.TabStop = false;
-            this.pullTolorance.TextAlign = HorizontalAlignment.Center;
+            this.pullTolorance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.pullTolorance.Value = new decimal(new int[] {
             1,
             0,
@@ -5058,7 +4977,7 @@
             this.numericUpDown21.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown21.TabIndex = 9;
             this.numericUpDown21.TabStop = false;
-            this.numericUpDown21.TextAlign = HorizontalAlignment.Center;
+            this.numericUpDown21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown21.Value = new decimal(new int[] {
             16,
             0,
@@ -5098,7 +5017,7 @@
             this.dancer.Controls.Add(this.label15);
             this.dancer.Location = new System.Drawing.Point(4, 22);
             this.dancer.Name = "dancer";
-            this.dancer.Padding = new Padding(3);
+            this.dancer.Padding = new System.Windows.Forms.Padding(3);
             this.dancer.Size = new System.Drawing.Size(439, 361);
             this.dancer.TabIndex = 0;
             this.dancer.Text = "Sambas/Steps/Waltz";
@@ -5121,7 +5040,7 @@
             this.tabPage14.Controls.Add(this.groupBox3);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new Padding(3);
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage14.Size = new System.Drawing.Size(418, 237);
             this.tabPage14.TabIndex = 0;
             this.tabPage14.Text = "Sambas/Steps";
@@ -5278,7 +5197,7 @@
             this.stopstepscount.Name = "stopstepscount";
             this.stopstepscount.Size = new System.Drawing.Size(34, 20);
             this.stopstepscount.TabIndex = 16;
-            this.stopstepscount.TextAlign = HorizontalAlignment.Center;
+            this.stopstepscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.stopstepscount.Value = new decimal(new int[] {
             1,
             0,
@@ -5307,7 +5226,7 @@
             this.usefeatherstepValue.Name = "usefeatherstepValue";
             this.usefeatherstepValue.Size = new System.Drawing.Size(34, 20);
             this.usefeatherstepValue.TabIndex = 14;
-            this.usefeatherstepValue.TextAlign = HorizontalAlignment.Center;
+            this.usefeatherstepValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usestutterstepValue
             // 
@@ -5321,7 +5240,7 @@
             this.usestutterstepValue.Name = "usestutterstepValue";
             this.usestutterstepValue.Size = new System.Drawing.Size(34, 20);
             this.usestutterstepValue.TabIndex = 13;
-            this.usestutterstepValue.TextAlign = HorizontalAlignment.Center;
+            this.usestutterstepValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // useboxstepValue
             // 
@@ -5335,7 +5254,7 @@
             this.useboxstepValue.Name = "useboxstepValue";
             this.useboxstepValue.Size = new System.Drawing.Size(34, 20);
             this.useboxstepValue.TabIndex = 12;
-            this.useboxstepValue.TextAlign = HorizontalAlignment.Center;
+            this.useboxstepValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // StepsHPValue
             // 
@@ -5350,7 +5269,7 @@
             this.StepsHPValue.Size = new System.Drawing.Size(34, 20);
             this.StepsHPValue.TabIndex = 9;
             this.StepsHPValue.TabStop = false;
-            this.StepsHPValue.TextAlign = HorizontalAlignment.Center;
+            this.StepsHPValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.StepsHPValue.Value = new decimal(new int[] {
             40,
             0,
@@ -5369,7 +5288,7 @@
             this.usequickstepValue.Name = "usequickstepValue";
             this.usequickstepValue.Size = new System.Drawing.Size(34, 20);
             this.usequickstepValue.TabIndex = 11;
-            this.usequickstepValue.TextAlign = HorizontalAlignment.Center;
+            this.usequickstepValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // StepsHP
             // 
@@ -5448,7 +5367,7 @@
             this.tabPage15.Controls.Add(this.groupBox2);
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new Padding(3);
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage15.Size = new System.Drawing.Size(418, 237);
             this.tabPage15.TabIndex = 1;
             this.tabPage15.Text = "Waltz";
@@ -5606,7 +5525,7 @@
             this.usecurevValue.Name = "usecurevValue";
             this.usecurevValue.Size = new System.Drawing.Size(41, 20);
             this.usecurevValue.TabIndex = 9;
-            this.usecurevValue.TextAlign = HorizontalAlignment.Center;
+            this.usecurevValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usecureivValue
             // 
@@ -5620,7 +5539,7 @@
             this.usecureivValue.Name = "usecureivValue";
             this.usecureivValue.Size = new System.Drawing.Size(41, 20);
             this.usecureivValue.TabIndex = 8;
-            this.usecureivValue.TextAlign = HorizontalAlignment.Center;
+            this.usecureivValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usecureiiiValue
             // 
@@ -5634,7 +5553,7 @@
             this.usecureiiiValue.Name = "usecureiiiValue";
             this.usecureiiiValue.Size = new System.Drawing.Size(41, 20);
             this.usecureiiiValue.TabIndex = 7;
-            this.usecureiiiValue.TextAlign = HorizontalAlignment.Center;
+            this.usecureiiiValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usecureiiValue
             // 
@@ -5648,7 +5567,7 @@
             this.usecureiiValue.Name = "usecureiiValue";
             this.usecureiiValue.Size = new System.Drawing.Size(41, 20);
             this.usecureiiValue.TabIndex = 6;
-            this.usecureiiValue.TextAlign = HorizontalAlignment.Center;
+            this.usecureiiValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usecureValue
             // 
@@ -5662,7 +5581,7 @@
             this.usecureValue.Name = "usecureValue";
             this.usecureValue.Size = new System.Drawing.Size(41, 20);
             this.usecureValue.TabIndex = 5;
-            this.usecureValue.TextAlign = HorizontalAlignment.Center;
+            this.usecureValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usecurev
             // 
@@ -5842,7 +5761,7 @@
             this.numericUpDown27.Name = "numericUpDown27";
             this.numericUpDown27.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown27.TabIndex = 72;
-            this.numericUpDown27.TextAlign = HorizontalAlignment.Center;
+            this.numericUpDown27.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDown28
             // 
@@ -5856,7 +5775,7 @@
             this.numericUpDown28.Name = "numericUpDown28";
             this.numericUpDown28.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown28.TabIndex = 71;
-            this.numericUpDown28.TextAlign = HorizontalAlignment.Center;
+            this.numericUpDown28.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDown29
             // 
@@ -5870,7 +5789,7 @@
             this.numericUpDown29.Name = "numericUpDown29";
             this.numericUpDown29.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown29.TabIndex = 70;
-            this.numericUpDown29.TextAlign = HorizontalAlignment.Center;
+            this.numericUpDown29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDown32
             // 
@@ -5884,7 +5803,7 @@
             this.numericUpDown32.Name = "numericUpDown32";
             this.numericUpDown32.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown32.TabIndex = 69;
-            this.numericUpDown32.TextAlign = HorizontalAlignment.Center;
+            this.numericUpDown32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDown33
             // 
@@ -5898,7 +5817,7 @@
             this.numericUpDown33.Name = "numericUpDown33";
             this.numericUpDown33.Size = new System.Drawing.Size(41, 20);
             this.numericUpDown33.TabIndex = 68;
-            this.numericUpDown33.TextAlign = HorizontalAlignment.Center;
+            this.numericUpDown33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ptusecurev
             // 
@@ -5967,8 +5886,8 @@
             // 
             // GetSetParty
             // 
-            this.GetSetParty.Dock = DockStyle.None;
-            this.GetSetParty.Items.AddRange(new ToolStripItem[] {
+            this.GetSetParty.Dock = System.Windows.Forms.DockStyle.None;
+            this.GetSetParty.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadPartyToolStripMenuItem,
             this.clearPartyToolStripMenuItem});
             this.GetSetParty.Location = new System.Drawing.Point(20, 10);
@@ -6009,7 +5928,7 @@
             this.flourish.Controls.Add(this.flourishesigroup);
             this.flourish.Location = new System.Drawing.Point(4, 22);
             this.flourish.Name = "flourish";
-            this.flourish.Padding = new Padding(3);
+            this.flourish.Padding = new System.Windows.Forms.Padding(3);
             this.flourish.Size = new System.Drawing.Size(439, 361);
             this.flourish.TabIndex = 2;
             this.flourish.Text = "Flourishes";
@@ -6042,7 +5961,7 @@
             this.useclmfloValue.Name = "useclmfloValue";
             this.useclmfloValue.Size = new System.Drawing.Size(31, 20);
             this.useclmfloValue.TabIndex = 21;
-            this.useclmfloValue.TextAlign = HorizontalAlignment.Center;
+            this.useclmfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usestkfloValue
             // 
@@ -6056,7 +5975,7 @@
             this.usestkfloValue.Name = "usestkfloValue";
             this.usestkfloValue.Size = new System.Drawing.Size(31, 20);
             this.usestkfloValue.TabIndex = 22;
-            this.usestkfloValue.TextAlign = HorizontalAlignment.Center;
+            this.usestkfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // useterfloValue
             // 
@@ -6070,7 +5989,7 @@
             this.useterfloValue.Name = "useterfloValue";
             this.useterfloValue.Size = new System.Drawing.Size(31, 20);
             this.useterfloValue.TabIndex = 23;
-            this.useterfloValue.TextAlign = HorizontalAlignment.Center;
+            this.useterfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usestkflo
             // 
@@ -6134,7 +6053,7 @@
             this.FlourishTPValue.Size = new System.Drawing.Size(44, 20);
             this.FlourishTPValue.TabIndex = 63;
             this.FlourishTPValue.TabStop = false;
-            this.FlourishTPValue.TextAlign = HorizontalAlignment.Center;
+            this.FlourishTPValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.FlourishTPValue.Value = new decimal(new int[] {
             400,
             0,
@@ -6168,7 +6087,7 @@
             this.usewldfloValue.Name = "usewldfloValue";
             this.usewldfloValue.Size = new System.Drawing.Size(31, 20);
             this.usewldfloValue.TabIndex = 21;
-            this.usewldfloValue.TextAlign = HorizontalAlignment.Center;
+            this.usewldfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usebldfloValue
             // 
@@ -6182,7 +6101,7 @@
             this.usebldfloValue.Name = "usebldfloValue";
             this.usebldfloValue.Size = new System.Drawing.Size(31, 20);
             this.usebldfloValue.TabIndex = 20;
-            this.usebldfloValue.TextAlign = HorizontalAlignment.Center;
+            this.usebldfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // userevfloValue
             // 
@@ -6196,7 +6115,7 @@
             this.userevfloValue.Name = "userevfloValue";
             this.userevfloValue.Size = new System.Drawing.Size(31, 20);
             this.userevfloValue.TabIndex = 19;
-            this.userevfloValue.TextAlign = HorizontalAlignment.Center;
+            this.userevfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usewldflo
             // 
@@ -6269,7 +6188,7 @@
             this.useviofloValue.Name = "useviofloValue";
             this.useviofloValue.Size = new System.Drawing.Size(31, 20);
             this.useviofloValue.TabIndex = 28;
-            this.useviofloValue.TextAlign = HorizontalAlignment.Center;
+            this.useviofloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usevioflo
             // 
@@ -6295,7 +6214,7 @@
             this.usedesfloValue.Name = "usedesfloValue";
             this.usedesfloValue.Size = new System.Drawing.Size(31, 20);
             this.usedesfloValue.TabIndex = 26;
-            this.usedesfloValue.TextAlign = HorizontalAlignment.Center;
+            this.usedesfloValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // usedesflo
             // 
@@ -6314,7 +6233,7 @@
             this.pets.Controls.Add(this.groupBox10);
             this.pets.Location = new System.Drawing.Point(4, 22);
             this.pets.Name = "pets";
-            this.pets.Padding = new Padding(3);
+            this.pets.Padding = new System.Windows.Forms.Padding(3);
             this.pets.Size = new System.Drawing.Size(439, 361);
             this.pets.TabIndex = 4;
             this.pets.Text = "Pets";
@@ -6324,7 +6243,7 @@
             // 
             this.groupBox10.Controls.Add(this.groupBox19);
             this.groupBox10.Controls.Add(this.petControl);
-            this.groupBox10.Dock = DockStyle.Fill;
+            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(3, 3);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(433, 355);
@@ -6408,7 +6327,7 @@
             this.bstpettab.Controls.Add(this.autoengage);
             this.bstpettab.Location = new System.Drawing.Point(4, 22);
             this.bstpettab.Name = "bstpettab";
-            this.bstpettab.Padding = new Padding(3);
+            this.bstpettab.Padding = new System.Windows.Forms.Padding(3);
             this.bstpettab.Size = new System.Drawing.Size(415, 247);
             this.bstpettab.TabIndex = 0;
             this.bstpettab.Text = "BST";
@@ -6437,7 +6356,7 @@
             0,
             0});
             this.BstJATP.Minimum = new decimal(new int[] {
-            1000,
+            1,
             0,
             0,
             0});
@@ -6445,7 +6364,7 @@
             this.BstJATP.Size = new System.Drawing.Size(44, 20);
             this.BstJATP.TabIndex = 96;
             this.BstJATP.TabStop = false;
-            this.BstJATP.TextAlign = HorizontalAlignment.Center;
+            this.BstJATP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BstJATP.Value = new decimal(new int[] {
             1000,
             0,
@@ -6455,7 +6374,7 @@
             // usepetja
             // 
             this.usepetja.Controls.Add(this.PetJA);
-            this.usepetja.Location = new System.Drawing.Point(220, 129);
+            this.usepetja.Location = new System.Drawing.Point(17, 129);
             this.usepetja.Name = "usepetja";
             this.usepetja.Size = new System.Drawing.Size(176, 112);
             this.usepetja.TabIndex = 12;
@@ -6464,9 +6383,9 @@
             // 
             // PetJA
             // 
-            this.PetJA.BorderStyle = BorderStyle.None;
+            this.PetJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PetJA.CheckOnClick = true;
-            this.PetJA.Dock = DockStyle.Fill;
+            this.PetJA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PetJA.FormattingEnabled = true;
             this.PetJA.Location = new System.Drawing.Point(3, 16);
             this.PetJA.Name = "PetJA";
@@ -6476,7 +6395,7 @@
             // bstpetrdygroup
             // 
             this.bstpetrdygroup.Controls.Add(this.PetReady);
-            this.bstpetrdygroup.Location = new System.Drawing.Point(14, 129);
+            this.bstpetrdygroup.Location = new System.Drawing.Point(223, 129);
             this.bstpetrdygroup.Name = "bstpetrdygroup";
             this.bstpetrdygroup.Size = new System.Drawing.Size(176, 112);
             this.bstpetrdygroup.TabIndex = 19;
@@ -6485,9 +6404,9 @@
             // 
             // PetReady
             // 
-            this.PetReady.BorderStyle = BorderStyle.None;
+            this.PetReady.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PetReady.CheckOnClick = true;
-            this.PetReady.Dock = DockStyle.Fill;
+            this.PetReady.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PetReady.FormattingEnabled = true;
             this.PetReady.Location = new System.Drawing.Point(3, 16);
             this.PetReady.Name = "PetReady";
@@ -6505,8 +6424,8 @@
             "Pet Food Zeta",
             "Pet Food Eta",
             "Pet Food Theta"});
-            this.usedpetfood.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.usedpetfood.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.usedpetfood.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.usedpetfood.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.usedpetfood.FormattingEnabled = true;
             this.usedpetfood.Location = new System.Drawing.Point(92, 35);
             this.usedpetfood.Name = "usedpetfood";
@@ -6580,8 +6499,8 @@
             "Dire Broth",
             "Electrified Broth",
             "Bug-Ridden Broth"});
-            this.jugpet.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.jugpet.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.jugpet.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.jugpet.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.jugpet.FormattingEnabled = true;
             this.jugpet.Location = new System.Drawing.Point(92, 12);
             this.jugpet.Name = "jugpet";
@@ -6614,7 +6533,7 @@
             this.pethppfood.Name = "pethppfood";
             this.pethppfood.Size = new System.Drawing.Size(39, 20);
             this.pethppfood.TabIndex = 10;
-            this.pethppfood.TextAlign = HorizontalAlignment.Center;
+            this.pethppfood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.pethppfood.Value = new decimal(new int[] {
             20,
             0,
@@ -6665,7 +6584,7 @@
             this.drgpettab.Controls.Add(this.drgjagroup);
             this.drgpettab.Location = new System.Drawing.Point(4, 22);
             this.drgpettab.Name = "drgpettab";
-            this.drgpettab.Padding = new Padding(3);
+            this.drgpettab.Padding = new System.Windows.Forms.Padding(3);
             this.drgpettab.Size = new System.Drawing.Size(415, 247);
             this.drgpettab.TabIndex = 3;
             this.drgpettab.Text = "DRG";
@@ -6682,7 +6601,7 @@
             this.DragonPetHP.Name = "DragonPetHP";
             this.DragonPetHP.Size = new System.Drawing.Size(44, 20);
             this.DragonPetHP.TabIndex = 118;
-            this.DragonPetHP.TextAlign = HorizontalAlignment.Center;
+            this.DragonPetHP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // drgsteadywingtext
             // 
@@ -6736,7 +6655,7 @@
             this.PlayerSpirit.Name = "PlayerSpirit";
             this.PlayerSpirit.Size = new System.Drawing.Size(44, 20);
             this.PlayerSpirit.TabIndex = 29;
-            this.PlayerSpirit.TextAlign = HorizontalAlignment.Center;
+            this.PlayerSpirit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.PlayerSpirit.Value = new decimal(new int[] {
             80,
             0,
@@ -6754,7 +6673,7 @@
             this.WyvernSpirit.Name = "WyvernSpirit";
             this.WyvernSpirit.Size = new System.Drawing.Size(44, 20);
             this.WyvernSpirit.TabIndex = 27;
-            this.WyvernSpirit.TextAlign = HorizontalAlignment.Center;
+            this.WyvernSpirit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WyvernSpirit.Value = new decimal(new int[] {
             60,
             0,
@@ -6790,7 +6709,7 @@
             this.BreathMAX.Name = "BreathMAX";
             this.BreathMAX.Size = new System.Drawing.Size(44, 20);
             this.BreathMAX.TabIndex = 103;
-            this.BreathMAX.TextAlign = HorizontalAlignment.Center;
+            this.BreathMAX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BreathMAX.Value = new decimal(new int[] {
             100,
             0,
@@ -6817,7 +6736,7 @@
             this.BreathMIN.Name = "BreathMIN";
             this.BreathMIN.Size = new System.Drawing.Size(44, 20);
             this.BreathMIN.TabIndex = 102;
-            this.BreathMIN.TextAlign = HorizontalAlignment.Center;
+            this.BreathMIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BreathMIN.Value = new decimal(new int[] {
             15,
             0,
@@ -6855,7 +6774,7 @@
             this.RestoringBreathHP.Name = "RestoringBreathHP";
             this.RestoringBreathHP.Size = new System.Drawing.Size(44, 20);
             this.RestoringBreathHP.TabIndex = 117;
-            this.RestoringBreathHP.TextAlign = HorizontalAlignment.Center;
+            this.RestoringBreathHP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label50
             // 
@@ -6878,9 +6797,9 @@
             // 
             // WyvernJA
             // 
-            this.WyvernJA.BorderStyle = BorderStyle.None;
+            this.WyvernJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.WyvernJA.CheckOnClick = true;
-            this.WyvernJA.Dock = DockStyle.Fill;
+            this.WyvernJA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WyvernJA.FormattingEnabled = true;
             this.WyvernJA.Location = new System.Drawing.Point(3, 16);
             this.WyvernJA.Name = "WyvernJA";
@@ -7067,9 +6986,9 @@
             // 
             // SMNJA
             // 
-            this.SMNJA.BorderStyle = BorderStyle.None;
+            this.SMNJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SMNJA.CheckOnClick = true;
-            this.SMNJA.Dock = DockStyle.Fill;
+            this.SMNJA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SMNJA.FormattingEnabled = true;
             this.SMNJA.Location = new System.Drawing.Point(3, 16);
             this.SMNJA.Name = "SMNJA";
@@ -7106,9 +7025,9 @@
             // 
             // SMNAbilityList
             // 
-            this.SMNAbilityList.BorderStyle = BorderStyle.None;
+            this.SMNAbilityList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SMNAbilityList.CheckOnClick = true;
-            this.SMNAbilityList.Dock = DockStyle.Fill;
+            this.SMNAbilityList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SMNAbilityList.FormattingEnabled = true;
             this.SMNAbilityList.Location = new System.Drawing.Point(3, 16);
             this.SMNAbilityList.Name = "SMNAbilityList";
@@ -7120,7 +7039,7 @@
             this.puppettab.Controls.Add(this.tabControl1);
             this.puppettab.Location = new System.Drawing.Point(4, 22);
             this.puppettab.Name = "puppettab";
-            this.puppettab.Padding = new Padding(3);
+            this.puppettab.Padding = new System.Windows.Forms.Padding(3);
             this.puppettab.Size = new System.Drawing.Size(415, 247);
             this.puppettab.TabIndex = 1;
             this.puppettab.Text = "PUP";
@@ -7145,7 +7064,7 @@
             this.PUPAbilitypage.Controls.Add(this.PUPautoengage);
             this.PUPAbilitypage.Location = new System.Drawing.Point(4, 22);
             this.PUPAbilitypage.Name = "PUPAbilitypage";
-            this.PUPAbilitypage.Padding = new Padding(3);
+            this.PUPAbilitypage.Padding = new System.Windows.Forms.Padding(3);
             this.PUPAbilitypage.Size = new System.Drawing.Size(395, 209);
             this.PUPAbilitypage.TabIndex = 0;
             this.PUPAbilitypage.Text = "Ability\'s";
@@ -7394,9 +7313,9 @@
             // 
             // PUPJA
             // 
-            this.PUPJA.BorderStyle = BorderStyle.None;
+            this.PUPJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PUPJA.CheckOnClick = true;
-            this.PUPJA.Dock = DockStyle.Fill;
+            this.PUPJA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PUPJA.FormattingEnabled = true;
             this.PUPJA.Location = new System.Drawing.Point(3, 16);
             this.PUPJA.Name = "PUPJA";
@@ -7422,7 +7341,7 @@
             this.PUPOtherpage.Controls.Add(this.RoleReversalgroup);
             this.PUPOtherpage.Location = new System.Drawing.Point(4, 22);
             this.PUPOtherpage.Name = "PUPOtherpage";
-            this.PUPOtherpage.Padding = new Padding(3);
+            this.PUPOtherpage.Padding = new System.Windows.Forms.Padding(3);
             this.PUPOtherpage.Size = new System.Drawing.Size(395, 209);
             this.PUPOtherpage.TabIndex = 2;
             this.PUPOtherpage.Text = "Other";
@@ -7668,7 +7587,7 @@
             this.geopettab.Controls.Add(this.groupBox6);
             this.geopettab.Location = new System.Drawing.Point(4, 22);
             this.geopettab.Name = "geopettab";
-            this.geopettab.Padding = new Padding(3);
+            this.geopettab.Padding = new System.Windows.Forms.Padding(3);
             this.geopettab.Size = new System.Drawing.Size(415, 247);
             this.geopettab.TabIndex = 4;
             this.geopettab.Text = "GEO";
@@ -7704,9 +7623,9 @@
             // 
             // GEOJA
             // 
-            this.GEOJA.BorderStyle = BorderStyle.None;
+            this.GEOJA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GEOJA.CheckOnClick = true;
-            this.GEOJA.Dock = DockStyle.Fill;
+            this.GEOJA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GEOJA.FormattingEnabled = true;
             this.GEOJA.Location = new System.Drawing.Point(3, 16);
             this.GEOJA.Name = "GEOJA";
@@ -7723,7 +7642,7 @@
             this.trustControl.Controls.Add(this.trustmenuStrip);
             this.trustControl.Location = new System.Drawing.Point(4, 22);
             this.trustControl.Name = "trustControl";
-            this.trustControl.Padding = new Padding(3);
+            this.trustControl.Padding = new System.Windows.Forms.Padding(3);
             this.trustControl.Size = new System.Drawing.Size(439, 361);
             this.trustControl.TabIndex = 8;
             this.trustControl.Text = "Trust";
@@ -7781,8 +7700,8 @@
             // 
             // trustmenuStrip
             // 
-            this.trustmenuStrip.Dock = DockStyle.None;
-            this.trustmenuStrip.Items.AddRange(new ToolStripItem[] {
+            this.trustmenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.trustmenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.trustMenureset});
             this.trustmenuStrip.Location = new System.Drawing.Point(56, 304);
             this.trustmenuStrip.Name = "trustmenuStrip";
@@ -8088,13 +8007,13 @@
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dncControl);
             this.Name = "ScriptFarmDNC";
-            this.Padding = new Padding(0, 0, 7, 25);
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 7, 25);
             this.Size = new System.Drawing.Size(739, 440);
             this.Load += new System.EventHandler(this.ScriptFarmDncLoad);
             this.groupBox8.ResumeLayout(false);
@@ -8152,8 +8071,6 @@
             this.shutdowngroup.PerformLayout();
             this.groupBox25.ResumeLayout(false);
             this.groupBox25.PerformLayout();
-            this.twelveHRgroup.ResumeLayout(false);
-            this.twelveHRgroup.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StuckDistance)).EndInit();
@@ -8918,15 +8835,8 @@
         private GroupBox groupBox25;
         private RadioButton twentyfourHour;
         private RadioButton twelveHour;
-        private GroupBox twelveHRgroup;
-        private RadioButton PMtime;
-        private RadioButton AMtime;
         private Label label82;
         private CheckBox Shutdownenable;
-        private TextBox ShutdownTimeHr;
-        private Label label81;
-        private TextBox ShutdownTimeMin;
-        private Label label40;
         private GroupBox shutdowngroup;
         private ComboBox selectedapp;
         private DateTimePicker shutdowndate;
@@ -9236,7 +9146,10 @@
         }
         private void twelveHour_CheckedChanged(object sender, EventArgs e)
         {
-            twelveHRgroup.Enabled = twelveHour.Checked;
+            if (twelveHour.Checked)
+                shutdowndate.CustomFormat = "M/d/yyyy hh:mm:ss tt";
+            else
+                shutdowndate.CustomFormat = "M/d/yyyy HH:mm:ss";
         }
         private void Shrinkbutton_Click(object sender, EventArgs e)
         {
@@ -9330,16 +9243,7 @@
         }
         private void shutdowntime()
         {
-            var currentdate = DateTime.Now.Date.ToString("MM/dd/yyyy");
-            var currenthr = DateTime.Now.Hour;
-            var currentmin = DateTime.Now.Minute;
-            var shutdownhr = int.Parse(ShutdownTimeHr.Text);
-            var shutdownmin = int.Parse(ShutdownTimeMin.Text);
-            if (twelveHour.Checked)
-            {
-                if (PMtime.Checked) shutdownhr = shutdownhr + 12;
-            }
-            if (currentdate == shutdowndate.Text && currenthr >= shutdownhr && currentmin >= shutdownmin)
+            if (DateTime.Now.CompareTo(Convert.ToDateTime(shutdowndate.Text)) >= 0)
             {
                 if (selectedapp.Text == "Windower + Scripted")
                 {
@@ -11064,51 +10968,51 @@
                     #endregion
                     #region Familiar: Adamantoise
                     case "Crude Raphie":
-                        if (!PetJA.Items.Contains("Tortoise Stomp")) PetJA.Items.Add("Tortoise Stomp");
-                        if (!PetJA.Items.Contains("Harden Shell")) PetJA.Items.Add("Harden Shell");
-                        if (!PetJA.Items.Contains("Aqua Breath")) PetJA.Items.Add("Aqua Breath");
+                        if (!PetReady.Items.Contains("Tortoise Stomp")) PetReady.Items.Add("Tortoise Stomp");
+                        if (!PetReady.Items.Contains("Harden Shell")) PetReady.Items.Add("Harden Shell");
+                        if (!PetReady.Items.Contains("Aqua Breath")) PetReady.Items.Add("Aqua Breath");
                         break;
                     #endregion
                     #region Familiar: Antlion
                     case "Antlion Familiar":
                     case "Cursed Annabelle":
                     case "Chopsuey Chucky":
-                        if (!PetJA.Items.Contains("Sandpit")) PetJA.Items.Add("Sandpit");
-                        if (!PetJA.Items.Contains("Sandblast")) PetJA.Items.Add("Sandblast");
-                        if (!PetJA.Items.Contains("Venom Spray")) PetJA.Items.Add("Venom Spray");
-                        if (!PetJA.Items.Contains("Mandibular Bite")) PetJA.Items.Add("Mandibular Bite");
+                        if (!PetReady.Items.Contains("Sandpit")) PetReady.Items.Add("Sandpit");
+                        if (!PetReady.Items.Contains("Sandblast")) PetReady.Items.Add("Sandblast");
+                        if (!PetReady.Items.Contains("Venom Spray")) PetReady.Items.Add("Venom Spray");
+                        if (!PetReady.Items.Contains("Mandibular Bite")) PetReady.Items.Add("Mandibular Bite");
                         break;
                     #endregion
                     #region Familiar: Apkallu
                     case "Surging Storm":
                     case "Submerged Iyo":
                     case "Dapper Mac":
-                        if (!PetJA.Items.Contains("Wing Slap")) PetJA.Items.Add("Wing Slap");
-                        if (!PetJA.Items.Contains("Beak Lunge")) PetJA.Items.Add("Beak Lunge");
+                        if (!PetReady.Items.Contains("Wing Slap")) PetReady.Items.Add("Wing Slap");
+                        if (!PetReady.Items.Contains("Beak Lunge")) PetReady.Items.Add("Beak Lunge");
                         break;
                     #endregion
                     #region Familiar: Beetle
                     case "Beetle Familiar":
                     case "Panzer Galahad":
                     case "Hurler Percival":
-                        if (!PetJA.Items.Contains("Spoil")) PetJA.Items.Add("Spoil");
-                        if (!PetJA.Items.Contains("Rhino Guard")) PetJA.Items.Add("Rhino Guard");
-                        if (!PetJA.Items.Contains("Rhino Attack")) PetJA.Items.Add("Rhino Attack");
-                        if (!PetJA.Items.Contains("Power Attack")) PetJA.Items.Add("Power Attack");
-                        if (!PetJA.Items.Contains("Hi-Freq Field")) PetJA.Items.Add("Hi-Freq Field");
+                        if (!PetReady.Items.Contains("Spoil")) PetReady.Items.Add("Spoil");
+                        if (!PetReady.Items.Contains("Rhino Guard")) PetReady.Items.Add("Rhino Guard");
+                        if (!PetReady.Items.Contains("Rhino Attack")) PetReady.Items.Add("Rhino Attack");
+                        if (!PetReady.Items.Contains("Power Attack")) PetReady.Items.Add("Power Attack");
+                        if (!PetReady.Items.Contains("Hi-Freq Field")) PetReady.Items.Add("Hi-Freq Field");
                         break;
                     #endregion
                     #region Familiar: Chapuli
                     case "Bouncing Bertha":
                     case "Scissorleg Xerin":
-                        if (!PetJA.Items.Contains("Sensilla Blades")) PetJA.Items.Add("Sensilla Blades");
-                        if (!PetJA.Items.Contains("Tegmina Buffet")) PetJA.Items.Add("Tegmina Buffet");
+                        if (!PetReady.Items.Contains("Sensilla Blades")) PetReady.Items.Add("Sensilla Blades");
+                        if (!PetReady.Items.Contains("Tegmina Buffet")) PetReady.Items.Add("Tegmina Buffet");
                         break;
                     #endregion
                     #region Familiar: Coeurl
                     case "Crafty Clyvonne":
-                        if (!PetJA.Items.Contains("Chaotic Eye")) PetJA.Items.Add("Chaotic Eye");
-                        if (!PetJA.Items.Contains("Blaster")) PetJA.Items.Add("Blaster");
+                        if (!PetReady.Items.Contains("Chaotic Eye")) PetReady.Items.Add("Chaotic Eye");
+                        if (!PetReady.Items.Contains("Blaster")) PetReady.Items.Add("Blaster");
                         break;
                     #endregion
                     #region Familiar: Colibri
@@ -11122,21 +11026,21 @@
                     case "Sunburst Malfik":
                     case "Herald Henry":
                     case "Aged Angus":
-                        if (!PetJA.Items.Contains("Metallic Body")) PetJA.Items.Add("Metallic Body");
-                        if (!PetJA.Items.Contains("Bubble Shower")) PetJA.Items.Add("Bubble Shower");
-                        if (!PetJA.Items.Contains("Bubble Curtain")) PetJA.Items.Add("Bubble Curtain");
-                        if (!PetJA.Items.Contains("Scissor Guard")) PetJA.Items.Add("Scissor Guard");
-                        if (!PetJA.Items.Contains("Big Scissors")) PetJA.Items.Add("Big Scissors");
+                        if (!PetReady.Items.Contains("Metallic Body")) PetReady.Items.Add("Metallic Body");
+                        if (!PetReady.Items.Contains("Bubble Shower")) PetReady.Items.Add("Bubble Shower");
+                        if (!PetReady.Items.Contains("Bubble Curtain")) PetReady.Items.Add("Bubble Curtain");
+                        if (!PetReady.Items.Contains("Scissor Guard")) PetReady.Items.Add("Scissor Guard");
+                        if (!PetReady.Items.Contains("Big Scissors")) PetReady.Items.Add("Big Scissors");
                         break;
                     #endregion
                     #region Familiar: Diremite
                     case "Anklebiter Jedd":
                     case "Diremite Familiar":
                     case "Lifedrinker Lars":
-                        if (!PetJA.Items.Contains("Grapple")) PetJA.Items.Add("Grapple");
-                        if (!PetJA.Items.Contains("Spinning Top")) PetJA.Items.Add("Spinning Top");
-                        if (!PetJA.Items.Contains("Double Claw")) PetJA.Items.Add("Double Claw");
-                        if (!PetJA.Items.Contains("Filamented Hold")) PetJA.Items.Add("Filamented Hold");
+                        if (!PetReady.Items.Contains("Grapple")) PetReady.Items.Add("Grapple");
+                        if (!PetReady.Items.Contains("Spinning Top")) PetReady.Items.Add("Spinning Top");
+                        if (!PetReady.Items.Contains("Double Claw")) PetReady.Items.Add("Double Claw");
+                        if (!PetReady.Items.Contains("Filamented Hold")) PetReady.Items.Add("Filamented Hold");
                         break;
                     #endregion
                     #region Familiar: Eft
@@ -11144,11 +11048,11 @@
                     case "Ambusher Allie":
                     case "Bugeyed Broncha":
                     case "Suspicious Alice":
-                        if (!PetJA.Items.Contains("Geist Wall")) PetJA.Items.Add("Geist Wall");
-                        if (!PetJA.Items.Contains("Toxic Spit")) PetJA.Items.Add("Toxic Spit");
-                        if (!PetJA.Items.Contains("Numbing Noise")) PetJA.Items.Add("Numbing Noise");
-                        if (!PetJA.Items.Contains("Nimble Snap")) PetJA.Items.Add("Nimble Snap");
-                        if (!PetJA.Items.Contains("Cyclotail")) PetJA.Items.Add("Cyclotail");
+                        if (!PetReady.Items.Contains("Geist Wall")) PetReady.Items.Add("Geist Wall");
+                        if (!PetReady.Items.Contains("Toxic Spit")) PetReady.Items.Add("Toxic Spit");
+                        if (!PetReady.Items.Contains("Numbing Noise")) PetReady.Items.Add("Numbing Noise");
+                        if (!PetReady.Items.Contains("Nimble Snap")) PetReady.Items.Add("Nimble Snap");
+                        if (!PetReady.Items.Contains("Cyclotail")) PetReady.Items.Add("Cyclotail");
                         break;
                     #endregion
                     #region Familiar: Fly
@@ -11156,54 +11060,54 @@
                     case "Shellbuster Orob":
                     case "Mailbuster Cetas":
                     case "Headbreaker Ken":
-                        if (!PetJA.Items.Contains("Cursed Sphere")) PetJA.Items.Add("Cursed Sphere");
-                        if (!PetJA.Items.Contains("Venom")) PetJA.Items.Add("Venom");
+                        if (!PetReady.Items.Contains("Cursed Sphere")) PetReady.Items.Add("Cursed Sphere");
+                        if (!PetReady.Items.Contains("Venom")) PetReady.Items.Add("Venom");
                         break;
                     #endregion
                     #region Familiar: Flytrap
                     case "Flytrap Familiar":
                     case "Voracious Audrey":
                     case "Presto Julio":
-                        if (!PetJA.Items.Contains("Gloeosuccus")) PetJA.Items.Add("Gloeosuccus");
-                        if (!PetJA.Items.Contains("Palsy Pollen")) PetJA.Items.Add("Palsy Pollen");
-                        if (!PetJA.Items.Contains("Soporific")) PetJA.Items.Add("Soporific");
+                        if (!PetReady.Items.Contains("Gloeosuccus")) PetReady.Items.Add("Gloeosuccus");
+                        if (!PetReady.Items.Contains("Palsy Pollen")) PetReady.Items.Add("Palsy Pollen");
+                        if (!PetReady.Items.Contains("Soporific")) PetReady.Items.Add("Soporific");
                         break;
                     #endregion
                     #region Familiar: Funguar
                     case "Funguar Familiar":
                     case "Discreet Louise":
                     case "Brainy Waluis":
-                        if (!PetJA.Items.Contains("Frog Kick")) PetJA.Items.Add("Frog Kick");
-                        if (!PetJA.Items.Contains("Queasyshroom")) PetJA.Items.Add("Queasyshroom");
-                        if (!PetJA.Items.Contains("Silence Gas")) PetJA.Items.Add("Silence Gas");
-                        if (!PetJA.Items.Contains("Numbshroom")) PetJA.Items.Add("Numbshroom");
-                        if (!PetJA.Items.Contains("Spore")) PetJA.Items.Add("Spore");
-                        if (!PetJA.Items.Contains("Dark Spore")) PetJA.Items.Add("Dark Spore");
-                        if (!PetJA.Items.Contains("Shakeshroom")) PetJA.Items.Add("Shakeshroom");
+                        if (!PetReady.Items.Contains("Frog Kick")) PetReady.Items.Add("Frog Kick");
+                        if (!PetReady.Items.Contains("Queasyshroom")) PetReady.Items.Add("Queasyshroom");
+                        if (!PetReady.Items.Contains("Silence Gas")) PetReady.Items.Add("Silence Gas");
+                        if (!PetReady.Items.Contains("Numbshroom")) PetReady.Items.Add("Numbshroom");
+                        if (!PetReady.Items.Contains("Spore")) PetReady.Items.Add("Spore");
+                        if (!PetReady.Items.Contains("Dark Spore")) PetReady.Items.Add("Dark Spore");
+                        if (!PetReady.Items.Contains("Shakeshroom")) PetReady.Items.Add("Shakeshroom");
                         break;
                     #endregion
                     #region Familiar: Hippogryph
                     case "Faithful Falcorr":
-                        if (!PetJA.Items.Contains("Back Heel")) PetJA.Items.Add("Back Heel");
-                        if (!PetJA.Items.Contains("Jettatura")) PetJA.Items.Add("Jettatura");
-                        if (!PetJA.Items.Contains("Choke Breath")) PetJA.Items.Add("Choke Breath");
-                        if (!PetJA.Items.Contains("Fantod")) PetJA.Items.Add("Fantod");
+                        if (!PetReady.Items.Contains("Back Heel")) PetReady.Items.Add("Back Heel");
+                        if (!PetReady.Items.Contains("Jettatura")) PetReady.Items.Add("Jettatura");
+                        if (!PetReady.Items.Contains("Choke Breath")) PetReady.Items.Add("Choke Breath");
+                        if (!PetReady.Items.Contains("Fantod")) PetReady.Items.Add("Fantod");
                         break;
                     #endregion
                     #region Familiar: Ladybug
                     case "Dipper Yuly":
                     case "Threestar Lynn":
-                        if (!PetJA.Items.Contains("Sudden Lunge")) PetJA.Items.Add("Sudden Lunge");
-                        if (!PetJA.Items.Contains("Spiral Spin")) PetJA.Items.Add("Spiral Spin");
-                        if (!PetJA.Items.Contains("Noisome Powder")) PetJA.Items.Add("Noisome Powder");
+                        if (!PetReady.Items.Contains("Sudden Lunge")) PetReady.Items.Add("Sudden Lunge");
+                        if (!PetReady.Items.Contains("Spiral Spin")) PetReady.Items.Add("Spiral Spin");
+                        if (!PetReady.Items.Contains("Noisome Powder")) PetReady.Items.Add("Noisome Powder");
                         break;
                     #endregion
                     #region Familiar: Leech
                     case "Fatso Fargann":
-                        if (!PetJA.Items.Contains("Suction")) PetJA.Items.Add("Suction");
-                        if (!PetJA.Items.Contains("Drainkiss")) PetJA.Items.Add("Drainkiss");
-                        if (!PetJA.Items.Contains("Acid Mist")) PetJA.Items.Add("Acid Mist");
-                        if (!PetJA.Items.Contains("TP Drainkiss")) PetJA.Items.Add("TP Drainkiss");
+                        if (!PetReady.Items.Contains("Suction")) PetReady.Items.Add("Suction");
+                        if (!PetReady.Items.Contains("Drainkiss")) PetReady.Items.Add("Drainkiss");
+                        if (!PetReady.Items.Contains("Acid Mist")) PetReady.Items.Add("Acid Mist");
+                        if (!PetReady.Items.Contains("TP Drainkiss")) PetReady.Items.Add("TP Drainkiss");
                         break;
                     #endregion
                     #region Familiar: Lizard
@@ -11211,29 +11115,29 @@
                     case "Coldblood Como":
                     case "Audacious Anna":
                     case "Warlike Patrick":
-                        if (!PetJA.Items.Contains("Blockhead")) PetJA.Items.Add("Blockhead");
-                        if (!PetJA.Items.Contains("Secretion")) PetJA.Items.Add("Secretion");
-                        if (!PetJA.Items.Contains("Baleful Gaze")) PetJA.Items.Add("Baleful Gaze");
-                        if (!PetJA.Items.Contains("Fireball")) PetJA.Items.Add("Fireball");
-                        if (!PetJA.Items.Contains("Tail Blow")) PetJA.Items.Add("Tail Blow");
-                        if (!PetJA.Items.Contains("Plague Breath")) PetJA.Items.Add("Plague Breath");
-                        if (!PetJA.Items.Contains("Brain Crush")) PetJA.Items.Add("Brain Crush");
-                        if (!PetJA.Items.Contains("Infrasonics")) PetJA.Items.Add("Infrasonics");
+                        if (!PetReady.Items.Contains("Blockhead")) PetReady.Items.Add("Blockhead");
+                        if (!PetReady.Items.Contains("Secretion")) PetReady.Items.Add("Secretion");
+                        if (!PetReady.Items.Contains("Baleful Gaze")) PetReady.Items.Add("Baleful Gaze");
+                        if (!PetReady.Items.Contains("Fireball")) PetReady.Items.Add("Fireball");
+                        if (!PetReady.Items.Contains("Tail Blow")) PetReady.Items.Add("Tail Blow");
+                        if (!PetReady.Items.Contains("Plague Breath")) PetReady.Items.Add("Plague Breath");
+                        if (!PetReady.Items.Contains("Brain Crush")) PetReady.Items.Add("Brain Crush");
+                        if (!PetReady.Items.Contains("Infrasonics")) PetReady.Items.Add("Infrasonics");
                         break;
                     #endregion
                     #region Familiar: Lycopodium
                     case "Flowerpot Merle":
-                        if (!PetJA.Items.Contains("Head Butt")) PetJA.Items.Add("Head Butt");
-                        if (!PetJA.Items.Contains("Scream")) PetJA.Items.Add("Scream");
-                        if (!PetJA.Items.Contains("Wild Oats")) PetJA.Items.Add("Wild Oats");
-                        if (!PetJA.Items.Contains("Leaf Dagger")) PetJA.Items.Add("Leaf Dagger");
+                        if (!PetReady.Items.Contains("Head Butt")) PetReady.Items.Add("Head Butt");
+                        if (!PetReady.Items.Contains("Scream")) PetReady.Items.Add("Scream");
+                        if (!PetReady.Items.Contains("Wild Oats")) PetReady.Items.Add("Wild Oats");
+                        if (!PetReady.Items.Contains("Leaf Dagger")) PetReady.Items.Add("Leaf Dagger");
                         break;
                     #endregion
                     #region Familiar: Lynx
                     case "Bloodclaw Shasra":
-                        if (!PetJA.Items.Contains("Chaotic Eye")) PetJA.Items.Add("Chaotic Eye");
-                        if (!PetJA.Items.Contains("Blaster")) PetJA.Items.Add("Blaster");
-                        if (!PetJA.Items.Contains("Charged Whisker")) PetJA.Items.Add("Charged Whisker");
+                        if (!PetReady.Items.Contains("Chaotic Eye")) PetReady.Items.Add("Chaotic Eye");
+                        if (!PetReady.Items.Contains("Blaster")) PetReady.Items.Add("Blaster");
+                        if (!PetReady.Items.Contains("Charged Whisker")) PetReady.Items.Add("Charged Whisker");
                         break;
                     #endregion
                     #region Familiar: Mandragora
@@ -11241,11 +11145,11 @@
                     case "Flowerpot Ben":
                     case "Homunculus":
                     case "Sharpwit Hermes":
-                        if (!PetJA.Items.Contains("Head Butt")) PetJA.Items.Add("Head Butt");
-                        if (!PetJA.Items.Contains("Scream")) PetJA.Items.Add("Scream");
-                        if (!PetJA.Items.Contains("Dream Flower")) PetJA.Items.Add("Dream Flower");
-                        if (!PetJA.Items.Contains("Wild Oats")) PetJA.Items.Add("Wild Oats");
-                        if (!PetJA.Items.Contains("Leaf Dagger")) PetJA.Items.Add("Leaf Dagger");
+                        if (!PetReady.Items.Contains("Head Butt")) PetReady.Items.Add("Head Butt");
+                        if (!PetReady.Items.Contains("Scream")) PetReady.Items.Add("Scream");
+                        if (!PetReady.Items.Contains("Dream Flower")) PetReady.Items.Add("Dream Flower");
+                        if (!PetReady.Items.Contains("Wild Oats")) PetReady.Items.Add("Wild Oats");
+                        if (!PetReady.Items.Contains("Leaf Dagger")) PetReady.Items.Add("Leaf Dagger");
                         break;
                     #endregion
                     #region Familiar: Mosquito
@@ -11256,16 +11160,16 @@
                     #region Familiar: Pugils
                     case "Turbid Toloi":
                     case "Amiable Roche":
-                        if (!PetJA.Items.Contains("Intimidate")) PetJA.Items.Add("Intimidate");
-                        if (!PetJA.Items.Contains("Recoil Dive")) PetJA.Items.Add("Recoil Dive");
-                        if (!PetJA.Items.Contains("Water Wall")) PetJA.Items.Add("Water Wall");
+                        if (!PetReady.Items.Contains("Intimidate")) PetReady.Items.Add("Intimidate");
+                        if (!PetReady.Items.Contains("Recoil Dive")) PetReady.Items.Add("Recoil Dive");
+                        if (!PetReady.Items.Contains("Water Wall")) PetReady.Items.Add("Water Wall");
                         break;
                     #endregion
                     #region Familiar: Raaz
                     case "Caring Kiyomaro":
                     case "Vivacious Vickie":
-                        if (!PetJA.Items.Contains("Sweeping Gouge")) PetJA.Items.Add("Sweeping Gouge");
-                        if (!PetJA.Items.Contains("Zealous Snort")) PetJA.Items.Add("Zealous Snort");
+                        if (!PetReady.Items.Contains("Sweeping Gouge")) PetReady.Items.Add("Sweeping Gouge");
+                        if (!PetReady.Items.Contains("Zealous Snort")) PetReady.Items.Add("Zealous Snort");
                         break;
                     #endregion
                     #region Familiar: Rabbit
@@ -11274,24 +11178,24 @@
                     case "Keeneared Steffi":
                     case "Droopy Dortwin":
                     case "Lucky Lulush":
-                        if (!PetJA.Items.Contains("Whirl Claws")) PetJA.Items.Add("Whirl Claws");
-                        if (!PetJA.Items.Contains("Dust Cloud")) PetJA.Items.Add("Dust Cloud");
-                        if (!PetJA.Items.Contains("Foot Kick")) PetJA.Items.Add("Foot Kick");
-                        if (!PetJA.Items.Contains("Wild Carrot")) PetJA.Items.Add("Wild Carrot");
+                        if (!PetReady.Items.Contains("Whirl Claws")) PetReady.Items.Add("Whirl Claws");
+                        if (!PetReady.Items.Contains("Dust Cloud")) PetReady.Items.Add("Dust Cloud");
+                        if (!PetReady.Items.Contains("Foot Kick")) PetReady.Items.Add("Foot Kick");
+                        if (!PetReady.Items.Contains("Wild Carrot")) PetReady.Items.Add("Wild Carrot");
                         break;
                     #endregion
                     #region Familiar: Raptor
                     case "Swift Sieghard":
                     case "Fleet Reinhard":
-                        if (!PetJA.Items.Contains("Scythe Tail")) PetJA.Items.Add("Scythe Tail");
-                        if (!PetJA.Items.Contains("Ripper Fang")) PetJA.Items.Add("Ripper Fang");
-                        if (!PetJA.Items.Contains("Chomp Rush")) PetJA.Items.Add("Chomp Rush");
+                        if (!PetReady.Items.Contains("Scythe Tail")) PetReady.Items.Add("Scythe Tail");
+                        if (!PetReady.Items.Contains("Ripper Fang")) PetReady.Items.Add("Ripper Fang");
+                        if (!PetReady.Items.Contains("Chomp Rush")) PetReady.Items.Add("Chomp Rush");
                         break;
                     #endregion
                     #region Familiar: Sabotender
                     case "Amigo Sabotender":
-                        if (!PetJA.Items.Contains("1000 Needles")) PetJA.Items.Add("1000 Needles");
-                        if (!PetJA.Items.Contains("Needleshot")) PetJA.Items.Add("Needleshot");
+                        if (!PetReady.Items.Contains("1000 Needles")) PetReady.Items.Add("1000 Needles");
+                        if (!PetReady.Items.Contains("Needleshot")) PetReady.Items.Add("Needleshot");
                         break;
                     #endregion
                     #region Familiar: Sheep
@@ -11299,17 +11203,17 @@
                     case "Nursery Nazuna":
                     case "Rhyming Shizuna":
                     case "Lullaby Melodia":
-                        if (!PetJA.Items.Contains("Sheep Song")) PetJA.Items.Add("Sheep Song");
-                        if (!PetJA.Items.Contains("Sheep Charge")) PetJA.Items.Add("Sheep Charge");
-                        if (!PetJA.Items.Contains("Lamb Chop")) PetJA.Items.Add("Lamb Chop");
-                        if (!PetJA.Items.Contains("Rage")) PetJA.Items.Add("Rage");
+                        if (!PetReady.Items.Contains("Sheep Song")) PetReady.Items.Add("Sheep Song");
+                        if (!PetReady.Items.Contains("Sheep Charge")) PetReady.Items.Add("Sheep Charge");
+                        if (!PetReady.Items.Contains("Lamb Chop")) PetReady.Items.Add("Lamb Chop");
+                        if (!PetReady.Items.Contains("Rage")) PetReady.Items.Add("Rage");
                         break;
                     #endregion
                     #region Familiar: Slug
                     case "Gooey Gerard":
                     case "Generous Arthur":
-                        if (!PetJA.Items.Contains("Purulent Ooze")) PetJA.Items.Add("Purulent Ooze");
-                        if (!PetJA.Items.Contains("Corrosive Ooze")) PetJA.Items.Add("Corrosive Ooze");
+                        if (!PetReady.Items.Contains("Purulent Ooze")) PetReady.Items.Add("Purulent Ooze");
+                        if (!PetReady.Items.Contains("Corrosive Ooze")) PetReady.Items.Add("Corrosive Ooze");
                         break;
                     #endregion
                     #region Familiar: Spider
@@ -11320,10 +11224,10 @@
                     #region Familiar: Snapweed
                     case "Redolent Candi":
                     case "Alluring Honey":
-                        if (!PetJA.Items.Contains("Tickling Tendrils")) PetJA.Items.Add("Tickling Tendrils");
-                        if (!PetJA.Items.Contains("Stink Bomb")) PetJA.Items.Add("Stink Bomb");
-                        if (!PetJA.Items.Contains("Nectarous Deluge")) PetJA.Items.Add("Nectarous Deluge");
-                        if (!PetJA.Items.Contains("Nepenthic Plunge")) PetJA.Items.Add("Nepenthic Plunge");
+                        if (!PetReady.Items.Contains("Tickling Tendrils")) PetReady.Items.Add("Tickling Tendrils");
+                        if (!PetReady.Items.Contains("Stink Bomb")) PetReady.Items.Add("Stink Bomb");
+                        if (!PetReady.Items.Contains("Nectarous Deluge")) PetReady.Items.Add("Nectarous Deluge");
+                        if (!PetReady.Items.Contains("Nepenthic Plunge")) PetReady.Items.Add("Nepenthic Plunge");
                         break;
                     #endregion
                     #region Familiar: Tiger
@@ -11331,9 +11235,9 @@
                     case "Saber Siravarde":
                     case "Gorefang Hobs":
                     case "Blackbeard Randy":
-                        if (!PetJA.Items.Contains("Claw Cyclone")) PetJA.Items.Add("Claw Cyclone");
-                        if (!PetJA.Items.Contains("Razor Fang")) PetJA.Items.Add("Razor Fang");
-                        if (!PetJA.Items.Contains("Roar")) PetJA.Items.Add("Roar");
+                        if (!PetReady.Items.Contains("Claw Cyclone")) PetReady.Items.Add("Claw Cyclone");
+                        if (!PetReady.Items.Contains("Razor Fang")) PetReady.Items.Add("Razor Fang");
+                        if (!PetReady.Items.Contains("Roar")) PetReady.Items.Add("Roar");
                         break;
                     #endregion
                     #region Familiar: Toad
@@ -11344,9 +11248,9 @@
                     #region Familiar: Tulfaires
                     case "Attentive Ibuki":
                     case "Swooping Zhivago":
-                        if (!PetJA.Items.Contains("Molting Plumage")) PetJA.Items.Add("Molting Plumage");
-                        if (!PetJA.Items.Contains("Swooping Frenzy")) PetJA.Items.Add("Swooping Frenzy");
-                        if (!PetJA.Items.Contains("Pentapeck")) PetJA.Items.Add("Pentapeck");
+                        if (!PetReady.Items.Contains("Molting Plumage")) PetReady.Items.Add("Molting Plumage");
+                        if (!PetReady.Items.Contains("Swooping Frenzy")) PetReady.Items.Add("Swooping Frenzy");
+                        if (!PetReady.Items.Contains("Pentapeck")) PetReady.Items.Add("Pentapeck");
                         break;
                     #endregion
                 }
@@ -11356,13 +11260,13 @@
             var joblvl = 0;
             if (PlayerInfo.MainJob == 9) joblvl = PlayerInfo.MainJobLevel;
             else if (PlayerInfo.SubJob == 9) joblvl = PlayerInfo.SubJobLevel;
-            if (joblvl >= 25 && !PetReady.Items.Contains("Sic")) PetReady.Items.Add("Sic");
-            if (joblvl >= 45 && !PetReady.Items.Contains("Snarl")) PetReady.Items.Add("Snarl");
-            if (joblvl >= 75 && PlayerInfo.HasAbility(162) && !PetReady.Items.Contains("Killer Instinct")) PetReady.Items.Add("Killer Instinct");
-            if (joblvl >= 75 && PlayerInfo.HasAbility(161) && !PetReady.Items.Contains("Feral Howl")) PetReady.Items.Add("Feral Howl");
-            if (joblvl >= 83 && !PetReady.Items.Contains("Spur")) PetReady.Items.Add("Spur");
-            if (joblvl >= 93 && !PetReady.Items.Contains("Run Wild")) PetReady.Items.Add("Run Wild");
-            if (joblvl >= 96 && !PetReady.Items.Contains("Unleash")) PetReady.Items.Add("Unleash");
+            if (joblvl >= 25 && !PetJA.Items.Contains("Sic")) PetJA.Items.Add("Sic");
+            if (joblvl >= 45 && !PetJA.Items.Contains("Snarl")) PetJA.Items.Add("Snarl");
+            if (joblvl >= 75 && PlayerInfo.HasAbility(162) && !PetJA.Items.Contains("Killer Instinct")) PetJA.Items.Add("Killer Instinct");
+            if (joblvl >= 75 && PlayerInfo.HasAbility(161) && !PetJA.Items.Contains("Feral Howl")) PetJA.Items.Add("Feral Howl");
+            if (joblvl >= 83 && !PetJA.Items.Contains("Spur")) PetJA.Items.Add("Spur");
+            if (joblvl >= 93 && !PetJA.Items.Contains("Run Wild")) PetJA.Items.Add("Run Wild");
+            if (joblvl >= 96 && !PetJA.Items.Contains("Unleash")) PetJA.Items.Add("Unleash");
             #endregion
         }
         #endregion
@@ -11371,8 +11275,8 @@
         {
             if (PlayerInfo.Status == 0 || !botRunning || TargetInfo.ID == 0) return;
 
-            #region BST JA
-            var bstja = (from object itemChecked in PetReady.CheckedItems select itemChecked.ToString()).ToList();
+            #region BST Pet JA
+            var bstja = (from object itemChecked in PetJA.CheckedItems select itemChecked.ToString()).ToList();
 
             foreach (string D in bstja)
             {
@@ -11385,8 +11289,8 @@
                 }
             }
             #endregion
-            #region PET JA
-            var petja = (from object itemChecked in PetJA.CheckedItems select itemChecked.ToString()).ToList();
+            #region BST Pet Ready
+            var petja = (from object itemChecked in PetReady.CheckedItems select itemChecked.ToString()).ToList();
             if (petja.Count == 0) return;
 
             foreach (string P in petja)

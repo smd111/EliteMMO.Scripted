@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices;
-
-namespace EliteMMO.Scripted.Embedded
+﻿namespace EliteMMO.Scripted.Embedded
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Runtime.InteropServices;
     public class SigScan
     {
         /// <summary> 
@@ -27,14 +26,12 @@ namespace EliteMMO.Scripted.Embedded
             int dwSize,
             out int lpNumberOfBytesRead
             );
-
         /// <summary> 
         /// m_vDumpedRegion 
         ///  
         ///     The memory dumped from the external process. 
         /// </summary> 
         private byte[] m_vDumpedRegion;
-
         #region "sigScan Class Construction"
         /// <summary> 
         /// SigScan 
@@ -66,7 +63,6 @@ namespace EliteMMO.Scripted.Embedded
             Size = size;
         }
         #endregion
-
         #region "sigScan Class Private Methods"
         /// <summary> 
         /// DumpMemory 
@@ -121,7 +117,6 @@ namespace EliteMMO.Scripted.Embedded
             !btPattern.Where((t, x) => strMask[x] != '?' && ((strMask[x] == 'x') && (t != m_vDumpedRegion[nOffset + x]))).Any();
 
         #endregion
-
         #region "sigScan Class Public Methods"
         /// <summary> 
         /// FindPattern 
@@ -175,7 +170,6 @@ namespace EliteMMO.Scripted.Embedded
             m_vDumpedRegion = null;
         }
         #endregion
-
         #region "sigScan Class Properties"
         public Process Process { get; set; }
 

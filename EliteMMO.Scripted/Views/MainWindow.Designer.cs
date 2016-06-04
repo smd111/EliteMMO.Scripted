@@ -6,19 +6,17 @@
     partial class MainWindow
     {
         private EliteAPI api;
-        
-
         private readonly UserControl x1;
         private readonly UserControl x2;
         private readonly UserControl x3;
         private readonly UserControl x4;
+        private readonly UserControl x5;
         public string TopMostDisplay = "Main";
         public bool hudactive = false;
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -31,7 +29,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -167,7 +164,7 @@
             this.navigationToolStripMenuItem,
             this.onEventToolStripMenuItem});
             this.scriptsToolStripMenuItem.Name = "scriptsToolStripMenuItem";
-            this.scriptsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scriptsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.scriptsToolStripMenuItem.Text = "Scripts";
             // 
             // farmDNCToolStripMenuItem
@@ -193,6 +190,7 @@
             this.skillupToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.skillupToolStripMenuItem.Text = "Skillup";
             this.skillupToolStripMenuItem.Visible = false;
+            this.skillupToolStripMenuItem.Click += new System.EventHandler(this.skillupToolStripMenuItem_Click);
             // 
             // synergyToolStripMenuItem
             // 
@@ -233,7 +231,7 @@
             this.zaldonToolStripMenuItem});
             this.questsToolStripMenuItem.Enabled = false;
             this.questsToolStripMenuItem.Name = "questsToolStripMenuItem";
-            this.questsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.questsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.questsToolStripMenuItem.Text = "Quests";
             this.questsToolStripMenuItem.Visible = false;
             // 
@@ -269,7 +267,7 @@
             this.enableMaintenanceModeToolStripMenuItem});
             this.optionsToolStripMenuItem.Enabled = false;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             this.optionsToolStripMenuItem.Visible = false;
             // 
@@ -362,7 +360,7 @@
             // xpic
             // 
             this.xpic.Image = global::EliteMMO.Scripted.Properties.Resources.xeyes_1_128x128x32;
-            this.xpic.Location = new System.Drawing.Point(0, 21);
+            this.xpic.Location = new System.Drawing.Point(0, 18);
             this.xpic.Name = "xpic";
             this.xpic.Size = new System.Drawing.Size(366, 163);
             this.xpic.TabIndex = 4;
@@ -449,7 +447,6 @@
         }
 
         #endregion
-
         public System.Windows.Forms.MenuStrip xmenu;
         public System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem loadSettingsToolStripMenuItem;

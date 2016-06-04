@@ -36,3 +36,5 @@ C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release\Scripted.exe.manifest
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release\Scripted.application
 C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\Scripted.application
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.Views.ScriptSkillup.resources
+C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.csprojResolveAssemblyReference.cache

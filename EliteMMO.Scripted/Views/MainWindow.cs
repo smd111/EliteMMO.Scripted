@@ -14,6 +14,7 @@
         public static ScriptFarmDNC farmbot;
         public static ScriptNaviMap navbot;
         public static ScriptOnEventTool oneventbot;
+        public static ScriptSkillup skillupbot;
         public MainWindow(EliteAPI core)
         {
             InitializeComponent();
@@ -50,6 +51,8 @@
             x3 = navbot;
             oneventbot = new ScriptOnEventTool(api);
             x4 = oneventbot;
+            skillupbot = new ScriptSkillup(api);
+            x5 = skillupbot;
 
             string apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
             string mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
@@ -87,8 +90,6 @@
             string responseFromServer = reader.ReadToEnd();
             return responseFromServer;
         }
-
-
         private void RefreshCharactersToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             var data = Process.GetProcessesByName("pol");
@@ -112,7 +113,6 @@
                     EliteMMO_PROC.Items.Clear();
             }
         }
-
         private void EliteMmoProcSelectedIndexChanged(object sender, System.EventArgs e)
         {
             var data = Process.GetProcessesByName("pol");
@@ -126,7 +126,6 @@
             }
             //startHUD();
         }
-
         private void FarmDncToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
@@ -163,6 +162,7 @@
             x4.Hide();
             x3.Hide();
             x2.Hide();
+            x5.Hide();
             x1.Show();
             loadSettingsToolStripMenuItem.Enabled = true;
             saveSettingsToolStripMenuItem.Enabled = true;
@@ -184,7 +184,6 @@
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:FarmBot");
             api.ThirdParty.FlushCommands();*/
         }
-
         private void HealingSupportToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
@@ -203,6 +202,7 @@
             x4.Hide();
             x3.Hide();
             x1.Hide();
+            x5.Hide();
             x2.Show();
             loadSettingsToolStripMenuItem.Enabled = false;
             saveSettingsToolStripMenuItem.Enabled = false;
@@ -223,22 +223,18 @@
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:HealingBot");
             api.ThirdParty.FlushCommands();*/
         }
-
         private void AboutToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             MessageBox.Show("A Farming/Navigaion/On-event bot\nCreated by: Cmalo/vicrelant\nUpdated by: SMD111\nFor use on FFXI\nRequires: Windower or Ashita\n\nPlease read the Manual for more info.","About");
         }
-
         private void CloseExitToolStripMenuItemClick(object sender, System.EventArgs e)
         {
             close();
         }
-
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             close();
         }
-
         private void navigationToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
@@ -270,6 +266,7 @@
             x2.Hide();
             x1.Hide();
             x4.Hide();
+            x5.Hide();
             x3.Show();
             loadSettingsToolStripMenuItem.Enabled = false;
             saveSettingsToolStripMenuItem.Enabled = false;
@@ -290,7 +287,6 @@
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:NavBot");
             api.ThirdParty.FlushCommands();*/
         }
-
         private void OnEventToolStripMenuItemClick(object sender, EventArgs e)
         {
             if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
@@ -310,6 +306,7 @@
             x1.Hide();
             x3.Hide();
             x4.Show();
+            x5.Hide();
             loadSettingsToolStripMenuItem.Enabled = false;
             saveSettingsToolStripMenuItem.Enabled = false;
             #endregion
@@ -327,19 +324,16 @@
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:OnEventBot");
             api.ThirdParty.FlushCommands();*/
         }
-
         private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (TopMostDisplay == "FarmBot")
                 farmbot.SaveFarmSettings();
         }
-
         private void loadSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (TopMostDisplay == "FarmBot")
                 farmbot.LoadFarmSettings();
         }
-
         private void manualToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(Application.StartupPath + @"\Scripted Manual.pdf");
@@ -361,6 +355,43 @@
                 api.ThirdParty.FlushCommands();
             }
             Application.Exit();
+        }
+        private void skillupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
+
+            #region show/hide objects
+            xpic.Hide();
+            header1.Hide();
+            header2.Hide();
+            header3.Hide();
+            header4.Hide();
+            header5.Hide();
+            label1.Hide();
+            //button1.Hide();
+            EliteMMO_PROC.Hide();
+
+            x2.Hide();
+            x1.Hide();
+            x3.Hide();
+            x4.Hide();
+            x5.Show();
+            loadSettingsToolStripMenuItem.Enabled = false;
+            saveSettingsToolStripMenuItem.Enabled = false;
+            #endregion
+
+            TopMostDisplay = "SkillUp";
+            farmbot.currentbot = "SkillUp";
+            refreshCharactersToolStripMenuItem.Enabled = false;
+
+            x5.AutoSize = true;
+            x5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            x5.Dock = DockStyle.Fill;
+            Controls.Add(x5);
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:SkillUpBot");
+            api.ThirdParty.FlushCommands();*/
         }
     }
 }

@@ -13,7 +13,6 @@
             InitializeComponent();
             api = core;
         }
-
         private void BgwScriptEventsDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             /*api.ThirdParty.SetText("ScriptedHUD", $"Scripted:OnEvent");
@@ -57,7 +56,6 @@
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }
-
         private void addSettarget_Click(object sender, EventArgs e)
         {
             eCommand.Text = $"SetTarget;{ScriptFarmDNC.TargetInfo.ID}";

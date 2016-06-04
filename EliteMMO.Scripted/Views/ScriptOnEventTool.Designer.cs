@@ -1,16 +1,14 @@
-﻿using System.Text;
-using System.Xml;
-
-namespace EliteMMO.Scripted.Views
+﻿namespace EliteMMO.Scripted.Views
 {
     using System;
     using API;
     using System.Windows.Forms;
     using System.IO;
+    using System.Text;
+    using System.Xml;
     partial class ScriptOnEventTool
     {
         private static EliteAPI api;
-
         public static bool botRunning = false;
         public string fileXML;
         public string _ext;
@@ -18,7 +16,6 @@ namespace EliteMMO.Scripted.Views
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
@@ -31,7 +28,6 @@ namespace EliteMMO.Scripted.Views
             }
             base.Dispose(disposing);
         }
-
         public enum CType : short
         {
             SentSay = 1,			    // = a say message that the user sends
@@ -42,9 +38,7 @@ namespace EliteMMO.Scripted.Views
             SentLinkShell = 6,	        // = user message to linkshell
             SentEmote = 7,			    // = user uses /emote
         }
-
         #region Component Designer generated code
-
         /// <summary> 
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
@@ -360,9 +354,7 @@ namespace EliteMMO.Scripted.Views
             this.ResumeLayout(false);
 
         }
-
         #endregion
-
         public System.Windows.Forms.GroupBox groupBox4;
         public System.Windows.Forms.Label label52;
         public System.Windows.Forms.Label label9;
@@ -390,7 +382,6 @@ namespace EliteMMO.Scripted.Views
         public System.Windows.Forms.ToolStripMenuItem editSelectedToolStripMenuItem;
         private Button addSettarget;
         private Label label3;
-
         private void ToolStartClick(object sender, EventArgs e)
         {
             botRunning = true;
@@ -401,7 +392,6 @@ namespace EliteMMO.Scripted.Views
             if (!bgw_script_events.IsBusy)
                 bgw_script_events.RunWorkerAsync();
         }
-
         private void ToolStopClick(object sender, EventArgs e)
         {
             botRunning = false;
@@ -411,7 +401,6 @@ namespace EliteMMO.Scripted.Views
 
             bgw_script_events.CancelAsync();
         }
-
         private void AddNewEventToolStripMenuItemClick(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(chatEvent.Text) ||
@@ -500,7 +489,6 @@ namespace EliteMMO.Scripted.Views
                 }
             }
         }
-
         private void Events_DoubleClick(object sender, EventArgs e)
         {
             if (Events.SelectedItems.Count <= 0) return;
@@ -517,7 +505,6 @@ namespace EliteMMO.Scripted.Views
                 editSelectedToolStripMenuItem.Enabled = false;
             }
         }
-
         private void LoadOEToolStripMenuItemClick(object sender, EventArgs e)
         {
             var eventPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Events\\";
@@ -604,7 +591,6 @@ namespace EliteMMO.Scripted.Views
                 throw;
             }
         }
-
         private void SaveOEToolStripMenuItemClick(object sender, EventArgs e)
         {
             var eventPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Events\\";
@@ -651,7 +637,6 @@ namespace EliteMMO.Scripted.Views
                 throw;
             }
         }
-
         private void RemoveCheckedOEToolStripMenuItemClick(object sender, EventArgs e)
         {
             foreach (ListViewItem items in Events.CheckedItems)
@@ -671,7 +656,6 @@ namespace EliteMMO.Scripted.Views
                     editSelectedToolStripMenuItem.Enabled = false;   
             }
         }
-
         private void EditSelectedToolStripMenuItemClick(object sender, EventArgs e)
         {
             var i = Events.Items.IndexOf(Events.SelectedItems[0]);
@@ -689,6 +673,5 @@ namespace EliteMMO.Scripted.Views
                 useRegEx.Checked = true;
             }
         }
-
     }
 }

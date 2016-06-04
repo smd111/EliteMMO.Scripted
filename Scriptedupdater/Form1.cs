@@ -1,20 +1,18 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Windows.Forms;
-
-namespace WindowsFormsApplication1
+﻿namespace WindowsFormsApplication1
 {
+    using System;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Net;
+    using System.Text.RegularExpressions;
+    using System.Threading;
+    using System.Windows.Forms;
     public partial class Form1 : Form
     {
         public Form1()
         {
             Thread.Sleep(TimeSpan.FromSeconds(0.1));
             InitializeComponent();
-
             string apidll = "";
             string mmodll = "";
             string appexe = "";
