@@ -542,10 +542,38 @@
                       ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - PlayerInfo.Y),
                       (float)navPathZ[closestWayPoint] - PlayerInfo.Z);
 
+                    if (navPathpause[closestWayPoint].Contains("Pause"))
+                    {
+                        api.AutoFollow.IsAutoFollowing = false;
+                        var items = navPathpause[closestWayPoint].Split(';');
+                        Thread.Sleep(TimeSpan.FromSeconds(double.Parse(items[1])));
+                    }
+                    //if (navPathpause[closestWayPoint] > 0 && !paused)
+                    //{
+                    //    api.AutoFollow.IsAutoFollowing = false;
+                    //    beenpaused = true;
+                    //    Thread.Sleep(TimeSpan.FromSeconds(navPathpause[closestWayPoint]));
+                    //    api.AutoFollow.IsAutoFollowing = true;
+                    //}
+                    //else if (navPathpause[closestWayPoint] == 0)
+                    //    beenpaused = false;
+                    
+                    //if (navPathForceHeal[closestWayPoint] && (PlayerInfo.HPP < 100 || PlayerInfo.MPP < 100))
+                    //{
+                    //    api.AutoFollow.IsAutoFollowing = false;
+                    //    naviMove = false;
+                    //    api.ThirdParty.SendString("/heal on");
+                    //    continue;
+                    //}
+
                     if (navPathdoor[closestWayPoint].Contains("Door"))
                     {
                         CheckDoor(closestWayPoint);
                     }
+                    //if (navPathdoor[closestWayPoint] > 0)
+                    //{
+                    //    CheckDoor(closestWayPoint);
+                    //}
                     else lastcommandtarget = "";
 
                     api.AutoFollow.IsAutoFollowing = true;
@@ -682,13 +710,7 @@
         #region Code Testing section
         private void Run_Test_Code(object sender, EventArgs e)
         {
-            /*var item = nintools["Utsusemi"];
-            string message = "";
-            message = message + $"\n{item.ElementAt(0)} Count:{Inventory.ItemQuantityByName(item.ElementAt(0))}";
-            message = message + $"\n{item.ElementAt(1)} Count:{Inventory.ItemQuantityByName(item.ElementAt(1))}";
-            message = message + $"\n{item.ElementAt(2)} Count:{Inventory.ItemQuantityByName(item.ElementAt(2))}";
-            message = message + $"\n{item.ElementAt(3)} Count:{Inventory.ItemQuantityByName(item.ElementAt(3))}";
-            MessageBox.Show(message);*/
+            //
         }
         #endregion
     }

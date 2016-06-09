@@ -23,6 +23,7 @@
         public bool[] navPathfirst = new bool[1];
         public string[] navPathdoor = new string[1];
         public string[] navPathzone = new string[1];
+        public string[] navPathpause = new string[1];
         static float lastH = 0;
         #endregion
         #endregion
@@ -78,25 +79,37 @@
             this.Circular = new System.Windows.Forms.RadioButton();
             this.WayPoints = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.FirstPerson = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.AddNode = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.EnableForceSave = new System.Windows.Forms.CheckBox();
             this.ForceLinear = new System.Windows.Forms.RadioButton();
             this.ForceCircular = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.FirstPerson = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.AddNode = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Pauseseconds = new System.Windows.Forms.NumericUpDown();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox9.SuspendLayout();
             this.menuStrip4.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.menuStrip5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NodeDist)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pauseseconds)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox9
@@ -362,80 +375,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // FirstPerson
-            // 
-            this.FirstPerson.Location = new System.Drawing.Point(41, 60);
-            this.FirstPerson.Name = "FirstPerson";
-            this.FirstPerson.Size = new System.Drawing.Size(42, 23);
-            this.FirstPerson.TabIndex = 15;
-            this.FirstPerson.Text = "Set";
-            this.FirstPerson.UseVisualStyleBackColor = true;
-            this.FirstPerson.Click += new System.EventHandler(this.First_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 16);
-            this.label2.MaximumSize = new System.Drawing.Size(116, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 39);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Set selected node(s) to use first person view click set.";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(38, 130);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Door_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 86);
-            this.label4.MaximumSize = new System.Drawing.Size(116, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 39);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "To add a door in your nav file target the door and click add.";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.AddNode);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.FirstPerson);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(441, 29);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(124, 205);
-            this.groupBox2.TabIndex = 23;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Extra Commands";
-            // 
-            // AddNode
-            // 
-            this.AddNode.Location = new System.Drawing.Point(25, 170);
-            this.AddNode.Name = "AddNode";
-            this.AddNode.Size = new System.Drawing.Size(75, 23);
-            this.AddNode.TabIndex = 24;
-            this.AddNode.Text = "Add node";
-            this.AddNode.UseVisualStyleBackColor = true;
-            this.AddNode.Click += new System.EventHandler(this.AddNode_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 155);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 13);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Add new node.";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.EnableForceSave);
@@ -483,6 +422,161 @@
             this.ForceCircular.Text = "Force Circular";
             this.ForceCircular.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 11);
+            this.label4.MaximumSize = new System.Drawing.Size(116, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 39);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "To add a door in your nav file target the door and click add.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 10);
+            this.label2.MaximumSize = new System.Drawing.Size(116, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 39);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Set selected node(s) to use first person view click set.";
+            // 
+            // FirstPerson
+            // 
+            this.FirstPerson.Location = new System.Drawing.Point(7, 52);
+            this.FirstPerson.Name = "FirstPerson";
+            this.FirstPerson.Size = new System.Drawing.Size(42, 23);
+            this.FirstPerson.TabIndex = 15;
+            this.FirstPerson.Text = "Set";
+            this.FirstPerson.UseVisualStyleBackColor = true;
+            this.FirstPerson.Click += new System.EventHandler(this.First_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(9, 53);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(48, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Door_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 13);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Add new node.";
+            // 
+            // AddNode
+            // 
+            this.AddNode.Location = new System.Drawing.Point(5, 32);
+            this.AddNode.Name = "AddNode";
+            this.AddNode.Size = new System.Drawing.Size(75, 23);
+            this.AddNode.TabIndex = 24;
+            this.AddNode.Text = "Add node";
+            this.AddNode.UseVisualStyleBackColor = true;
+            this.AddNode.Click += new System.EventHandler(this.AddNode_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Add Pause.  Sec.";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(150, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(39, 23);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Pauseseconds
+            // 
+            this.Pauseseconds.Location = new System.Drawing.Point(102, 12);
+            this.Pauseseconds.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.Pauseseconds.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Pauseseconds.Name = "Pauseseconds";
+            this.Pauseseconds.Size = new System.Drawing.Size(37, 20);
+            this.Pauseseconds.TabIndex = 37;
+            this.Pauseseconds.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Pauseseconds.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Location = new System.Drawing.Point(126, 19);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(128, 79);
+            this.groupBox4.TabIndex = 38;
+            this.groupBox4.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.FirstPerson);
+            this.groupBox5.Location = new System.Drawing.Point(1, 19);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(126, 79);
+            this.groupBox5.TabIndex = 39;
+            this.groupBox5.TabStop = false;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.AddNode);
+            this.groupBox6.Location = new System.Drawing.Point(1, 88);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(86, 61);
+            this.groupBox6.TabIndex = 40;
+            this.groupBox6.TabStop = false;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Controls.Add(this.Pauseseconds);
+            this.groupBox7.Controls.Add(this.button2);
+            this.groupBox7.Location = new System.Drawing.Point(1, 141);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(200, 41);
+            this.groupBox7.TabIndex = 41;
+            this.groupBox7.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.groupBox5);
+            this.groupBox2.Controls.Add(this.groupBox6);
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.groupBox7);
+            this.groupBox2.Location = new System.Drawing.Point(448, 22);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(258, 236);
+            this.groupBox2.TabIndex = 43;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Extra Commands";
+            // 
             // ScriptNaviMap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,14 +584,14 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.WayPoints);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
+            this.Controls.Add(this.groupBox2);
             this.Name = "ScriptNaviMap";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 5, 25);
-            this.Size = new System.Drawing.Size(573, 367);
+            this.Size = new System.Drawing.Size(714, 367);
             this.Load += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -510,10 +604,18 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NodeDist)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pauseseconds)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -545,18 +647,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.CheckBox StuckWatch;
         private System.Windows.Forms.CheckBox firstPersonView;
-        private System.Windows.Forms.Button FirstPerson;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem removeNodeToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox EnableForceSave;
         private System.Windows.Forms.RadioButton ForceLinear;
         private System.Windows.Forms.RadioButton ForceCircular;
-        private System.Windows.Forms.Button AddNode;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox StopAtEnd;
         #endregion
         #region PlayToolStrip
@@ -704,5 +799,20 @@
             return outRange;
         }
         #endregion
+
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button FirstPerson;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button AddNode;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.NumericUpDown Pauseseconds;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

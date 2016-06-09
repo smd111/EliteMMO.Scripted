@@ -95,11 +95,18 @@
                           ((navPathY[closestWayPoint] == 0) ? 0 : (float)navPathY[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Y),
                           (float)navPathZ[closestWayPoint] - ScriptFarmDNC.PlayerInfo.Z);
 
+                        //if (navPathpause[closestWayPoint].Contains("Pause"))
+                        //{
+                        //    //Do Nothing
+                        //    //var items = navPathpause[closestWayPoint].Split(';');
+                        //    //Thread.Sleep(TimeSpan.FromSeconds(int.Parse(items[1])));
+                        //}
                         if (navPathdoor[closestWayPoint].Contains("Door"))
                         {
                             CheckDoor(closestWayPoint);
                         }
-                        else if (navPathzone[closestWayPoint].Contains("Zoning"))
+
+                        if (navPathzone[closestWayPoint].Contains("Zoning"))
                         {
                             api.AutoFollow.IsAutoFollowing = false;
                             var items = navPathzone[closestWayPoint].Split(';');
@@ -216,12 +223,14 @@
                         Array.Resize(ref navPathfirst, ipos + 1);
                         Array.Resize(ref navPathdoor, ipos + 1);
                         Array.Resize(ref navPathzone, ipos + 1);
+                        Array.Resize(ref navPathpause, ipos + 1);
                         navPathX[ipos] = double.Parse(items[1]);
                         navPathZ[ipos] = double.Parse(items[2]);
                         navPathY[ipos] = ((items.Length == 3) ? 0 : double.Parse(items[3]));
                         navPathfirst[ipos] = false;
                         navPathdoor[ipos] = "";
                         navPathzone[ipos] = "";
+                        navPathpause[ipos] = "";
                         if (items.Length > 4)
                         {
                             for (int i = 4; i <= (items.Length -1); i++)
@@ -232,6 +241,8 @@
                                     navPathdoor[ipos] = items[i];
                                 if (items[i].Contains("Zoning"))
                                     navPathzone[ipos] = items[i];
+                                //if (items[i].Contains("Pause"))
+                                //    navPathpause[ipos] = items[i];
                             }
                         }
 
@@ -340,6 +351,24 @@
         private void AddNode_Click(object sender, EventArgs e)
         {
             WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var index = WayPoints.SelectedIndex;
+            if (index == -1)
+                WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}:Door;{ScriptFarmDNC.TargetInfo.ID}");
+            else
+            {
+                var old = (string)WayPoints.Items[index];
+                if (old.Split(':').Length < 4)
+                {
+                    MessageBox.Show("Can't add Door Command to old nav Files.\nPlease convert first.");
+                    return;
+                }
+                WayPoints.Items.RemoveAt(index);
+                WayPoints.Items.Insert(index, old + $":Pause;{Pauseseconds.Value}");
+            }
         }
     }
 }

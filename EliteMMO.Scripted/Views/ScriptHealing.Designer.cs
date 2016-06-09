@@ -8,7 +8,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
@@ -21,9 +20,7 @@
             }
             base.Dispose(disposing);
         }
-
         #region Component Designer generated code
-
         /// <summary> 
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
@@ -1456,9 +1453,6 @@
             this.PerformLayout();
 
         }
-
-        #endregion
-
         public System.Windows.Forms.TabControl HealingSupport;
         public System.Windows.Forms.TabPage CC;
         public System.Windows.Forms.GroupBox groupBox3;
@@ -1561,5 +1555,7 @@
         public System.Windows.Forms.ToolStripMenuItem addPlayerToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem addPartyToolStripMenuItem;
         public System.ComponentModel.BackgroundWorker bgw_script_cure;
+        #endregion
+
     }
 }

@@ -47,6 +47,11 @@
         public double[] navPathY = new double[1];
         public bool[] navPathfirst = new bool[1];
         public string[] navPathdoor = new string[1];
+        public string[] navPathpause = new string[1];
+        //public string[] navPathdoor = new int[1];
+        //public string[] navPathpause = new double[1];
+        //public string[] navPathForceHeal = new bool[1];
+        //public bool beenpaused = false;
         //List<WayPoint> route = new List<WayPoint>();
         #endregion
         #region Variables: (Dyna)
@@ -3906,9 +3911,9 @@
             this.label55.AutoSize = true;
             this.label55.Location = new System.Drawing.Point(79, 116);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(46, 13);
+            this.label55.Size = new System.Drawing.Size(49, 13);
             this.label55.TabIndex = 18;
-            this.label55.Text = "CuraII %";
+            this.label55.Text = "CuraII  %";
             // 
             // label53
             // 
@@ -9555,7 +9560,7 @@
                 dncControl.Controls.Add(flourish);
                 Dictionary<string, uint> DNCenable = new Dictionary<string, uint>()
                 {
-                    {"usedrain", 5},{"usecure", 15},{"usecureValue", 15},{"numericUpDown33", 15},{"ptusecure", 15},{"usequickstep", 20},{"usequickstepValue", 20},
+                    {"noSamba", 1},{"usedrain", 5},{"usecure", 15},{"usecureValue", 15},{"numericUpDown33", 15},{"ptusecure", 15},{"usequickstep", 20},{"usequickstepValue", 20},
                     {"StepsHP", 20},{"StepsHPValue", 20},{"stopstepsathptext", 20},{"NoSteps", 20},{"stopstepsat", 20},{"stopstepscount", 20},/*{"useanifloValue", 20},
                     {"useaniflo", 20},*/{"useaspir", 25},{"useboxstep", 30},{"useboxstepValue", 30},{"usecureii", 30},{"usecureiiValue", 30},{"ptusecureii", 30},
                     {"numericUpDown32", 30},{"usedesflo", 30},{"usedesfloValue", 30},{"usedrainii", 35},{"groupBox7", 35},{"usestutterstep", 40},
@@ -12181,6 +12186,7 @@
                 api.AutoFollow.IsAutoFollowing = false;
                 OpenDoor = true;
                 TargetInfo.SetTarget(int.Parse(items[1]));
+                //TargetInfo.SetTarget(navPathdoor[navid])
                 Thread.Sleep(TimeSpan.FromSeconds(0.5));
                 api.ThirdParty.SendString("/lockon <t>");
                 Thread.Sleep(TimeSpan.FromSeconds(0.5));
@@ -12399,11 +12405,17 @@
                         Array.Resize(ref navPathY, ipos + 1);
                         Array.Resize(ref navPathfirst, ipos + 1);
                         Array.Resize(ref navPathdoor, ipos + 1);
+                        Array.Resize(ref navPathpause, ipos + 1);
+                        //Array.Resize(ref navPathForceHeal, ipos + 1);
                         navPathX[ipos] = double.Parse(items[1]);
                         navPathZ[ipos] = double.Parse(items[2]);
                         navPathY[ipos] = ((items.Length == 3) ? 0 : double.Parse(items[3]));
                         navPathfirst[ipos] = false;
                         navPathdoor[ipos] = "";
+                        navPathpause[ipos] = "";
+                        //navPathdoor[ipos] = 0;
+                        //navPathpause[ipos] = 0;
+                        //navPathForceHeal = false;
                         if (items.Length > 4)
                         {
                             for (int i = 4; i <= (items.Length - 1); i++)
@@ -12412,6 +12424,14 @@
                                     navPathfirst[ipos] = true;
                                 if (items[i].Contains("Door"))
                                     navPathdoor[ipos] = items[i];
+                                if (items[i].Contains("Pause"))
+                                    navPathpause[ipos] = items[i];
+                                //if (items[i] == "Heal")
+                                //    navPathForceHeal[ipos] = true;
+                                //if (items[i].Contains("Door"))
+                                //    navPathdoor[ipos] = int.Parse(items[i].Split(':')[1]);
+                                //if (items[i].Contains("Pause"))
+                                //    navPathpause[ipos] = double.Parse(items[i].Split(':')[1]);
                             }
                         }
 
