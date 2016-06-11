@@ -15,8 +15,6 @@
         }
         private void BgwScriptEventsDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            /*api.ThirdParty.SetText("ScriptedHUD", $"Scripted:OnEvent");
-            api.ThirdParty.FlushCommands();*/
             while (botRunning || !bgw_script_events.CancellationPending)
             {
                 var onEvent = (from object itemChecked in Events.CheckedItems
@@ -38,6 +36,7 @@
                     {
                         if (Regex.IsMatch(line.Text, chat))
                         {
+                            triggeredline = line.Text;
                             if (action.Contains("SetTarget"))
                                 ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(action.Replace("SetTarget;", "")));
                             else api.ThirdParty.SendString(action);
@@ -47,6 +46,7 @@
                     {
                         if (line.Text.ToLower().Contains(chat.ToLower()))
                         {
+                            triggeredline = line.Text;
                             if (action.Contains("SetTarget"))
                                 ScriptFarmDNC.TargetInfo.SetTarget(int.Parse(action.Replace("SetTarget;", "")));
                             else api.ThirdParty.SendString(action);

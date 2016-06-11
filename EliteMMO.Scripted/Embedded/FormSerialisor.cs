@@ -67,6 +67,7 @@
                     {
                         xmlSerialisedForm.WriteElementString("Checked", ((CheckBox)childCtrl).Checked.ToString());
                         xmlSerialisedForm.WriteElementString("Enabled", ((CheckBox)childCtrl).Enabled.ToString());
+                        xmlSerialisedForm.WriteElementString("CheckState", ((CheckBox)childCtrl).CheckState.ToString());
                     }
                     if (childCtrl.HasChildren)
                     {
@@ -146,6 +147,7 @@
                                 break;
                             case "System.Windows.Forms.CheckBox":
                                 ((CheckBox)ctrlToSet).Checked = Convert.ToBoolean(n["Checked"].InnerText);
+                                ((CheckBox)ctrlToSet).CheckState = (CheckState)Enum.Parse(typeof(CheckState), n["CheckState"].InnerText);
                                 break;
                         }
                         if (n.HasChildNodes && ctrlToSet.HasChildren)

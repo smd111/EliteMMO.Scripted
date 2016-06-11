@@ -12,6 +12,7 @@
         public static bool botRunning = false;
         public string fileXML;
         public string _ext;
+        public static string triggeredline = "";
         /// <summary> 
         /// Required designer variable.
         /// </summary>

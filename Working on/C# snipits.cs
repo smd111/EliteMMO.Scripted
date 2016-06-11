@@ -24,3 +24,4 @@ else
 mklink /J "C:\Users\Steven\Desktop\Apps\scripted\settings" "C:\Users\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release\settings"
 
 ((Reivemode.Checked && PlayerInfo.HasBuff(511))? false : wanted.ClaimID != 0)
+MessageBox.Show(message, title)
