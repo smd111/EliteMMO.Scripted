@@ -38,12 +38,9 @@
                 label1.Text = "Downloading : Scripted.exe";
                 Client.DownloadFile("http://github.com/smd111/EliteMMO.Scripted/blob/master/EliteMMO.Scripted/bin/Release/Scripted.exe?raw=true", Application.StartupPath + @"\Scripted.exe");
             }
-            bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\ScriptedExtender");
-            if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\ScriptedExtender");
-            Client.DownloadFile("http://github.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/bin/Release/ScriptedExtender/ScriptedExtender.lua?raw=true", Application.StartupPath + @"\ScriptedExtender\ScriptedExtender.lua");
             Client.DownloadFile("https://github.com/smd111/EliteMMO.Scripted/raw/master/Working%20on/done/Scripted%20Manual.pdf", Application.StartupPath + @"\Scripted Manual.pdf");
             Client.Dispose();
-            exists = System.IO.Directory.Exists(Application.StartupPath + @"\Events");
+            bool exists = System.IO.Directory.Exists(Application.StartupPath + @"\Events");
             if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\Events");
             exists = System.IO.Directory.Exists(Application.StartupPath + @"\nav");
             if (!exists) System.IO.Directory.CreateDirectory(Application.StartupPath + @"\nav");
