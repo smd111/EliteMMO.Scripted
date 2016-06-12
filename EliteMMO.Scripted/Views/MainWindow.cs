@@ -62,31 +62,25 @@
             skillupbot = new ScriptSkillup(api);
             x5 = skillupbot;
 
-            string apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
-            string mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
-            string appexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Scripted.exe").FileVersion;
-            string message = "";
-            string ver = GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v");
-            if (ver != apidll) message = message + $"\nEliteAPI.dll version: NEW: {ver} OLD: {apidll}";
-            ver = GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v");
-            if (ver != mmodll) message = message + $"\nEliteMMO.API.dll version: NEW: {ver} OLD: {mmodll}";
-            ver = Regex.Replace(GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt"), @"\t|\n|\r", "");
-            if (ver != appexe) message = message + $"\nScripted version: NEW: {ver} OLD: {appexe}";
-            DialogResult result;
-            if (message != "") result = MessageBox.Show(message, "Update Files", MessageBoxButtons.YesNo);
-            else result = DialogResult.No;
-            if (result == DialogResult.Yes)
+            
+            string apidll = "";
+            string mmodll = "";
+            if (File.Exists(Application.StartupPath + @"\EliteAPI.dll"))
+                apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
+            if (File.Exists(Application.StartupPath + @"\EliteMMO.API.dll"))
+                mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
+            WebClient Client = new WebClient();
+            if (apidll == "" || GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != apidll)
             {
-                string updateexe = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\Updater.exe").FileVersion;
-                if (GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/Scriptedupdater/UpdaterVer.txt").Replace("\n", "") != updateexe)
-                {
-                    WebClient Client = new WebClient();
-                    Client.DownloadFile("http://github.com/smd111/EliteMMO.Scripted/blob/master/Scriptedupdater/bin/Release/Updater.exe?raw=true", Application.StartupPath + @"\Updater.exe");
-                    Client.Dispose();
-                }
-                Process.Start(Application.StartupPath + @"\Updater.exe");
-                Environment.Exit(0);
+                label1.Text = "Downloading : EliteAPI.dll";
+                Client.DownloadFile("http://ext.elitemmonetwork.com/downloads/eliteapi/EliteAPI.dll", Application.StartupPath + @"\EliteAPI.dll");
             }
+            if (mmodll == "" || GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v") != mmodll)
+            {
+                label1.Text = "Downloading : EliteMMO.API.dll";
+                Client.DownloadFile("http://ext.elitemmonetwork.com/downloads/elitemmo_api/EliteMMO.API.dll", Application.StartupPath + @"\EliteMMO.API.dll");
+            }
+            Client.Dispose();
             var symbolicLink = "";
             if (windowername == "Ashita")
                 symbolicLink = dlllocation + @"\Scripts\Addons\ScriptedExtender";
