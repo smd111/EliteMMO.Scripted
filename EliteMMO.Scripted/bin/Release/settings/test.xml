@@ -30,9 +30,9 @@
       <Enabled>True</Enabled>
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="checkZone">
-      <Checked>False</Checked>
+      <Checked>True</Checked>
       <Enabled>True</Enabled>
-      <CheckState>Unchecked</CheckState>
+      <CheckState>Checked</CheckState>
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="StopFullInventory">
       <Checked>False</Checked>
@@ -49,7 +49,7 @@
     </Control>
     <Control Type="System.Windows.Forms.CheckBox" Name="usenav">
       <Checked>False</Checked>
-      <Enabled>True</Enabled>
+      <Enabled>False</Enabled>
       <CheckState>Unchecked</CheckState>
     </Control>
   </Control>
@@ -135,28 +135,33 @@
             </Control>
           </Control>
         </Control>
-        <Control Type="System.Windows.Forms.TabPage" Name="tabPage3">
-          <Control Type="System.Windows.Forms.TextBox" Name="hudtext">
-            <Text>Scripted:{0}
-Targeting Mode: {1}
-HP: {6}/{7}
-MP: {9}/{10}
-TP: {12}
-Current Target: {24}
-Target HP: {26}%
-Current Game Time: {30}:{31}
-Running: {29}</Text>
-          </Control>
-          <Control Type="System.Windows.Forms.TextBox" Name="hudY">
-            <Text>0</Text>
-          </Control>
-          <Control Type="System.Windows.Forms.TextBox" Name="hudX">
-            <Text>0</Text>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="showHUD">
+        <Control Type="System.Windows.Forms.TabPage" Name="selectapp">
+          <Control Type="System.Windows.Forms.CheckBox" Name="ManualTargMode">
             <Checked>True</Checked>
             <Enabled>True</Enabled>
-            <CheckState>Indeterminate</CheckState>
+            <CheckState>Checked</CheckState>
+          </Control>
+          <Control Type="System.Windows.Forms.CheckBox" Name="EnableDynamis">
+            <Checked>False</Checked>
+            <Enabled>True</Enabled>
+            <CheckState>Unchecked</CheckState>
+          </Control>
+          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox16">
+            <Enabled>True</Enabled>
+            <Control Type="System.Windows.Forms.NumericUpDown" Name="StuckDistance">
+              <Value>1</Value>
+              <Enabled>True</Enabled>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="navStuckWatch">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+              <CheckState>Unchecked</CheckState>
+            </Control>
+            <Control Type="System.Windows.Forms.CheckBox" Name="mobStuckWatch">
+              <Checked>False</Checked>
+              <Enabled>True</Enabled>
+              <CheckState>Unchecked</CheckState>
+            </Control>
           </Control>
         </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="Options2MainTab">
@@ -331,40 +336,83 @@ Running: {29}</Text>
             </Control>
           </Control>
         </Control>
-        <Control Type="System.Windows.Forms.TabPage" Name="selectapp">
-          <Control Type="System.Windows.Forms.CheckBox" Name="ManualTargMode">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-            <CheckState>Unchecked</CheckState>
-          </Control>
-          <Control Type="System.Windows.Forms.CheckBox" Name="EnableDynamis">
-            <Checked>False</Checked>
-            <Enabled>True</Enabled>
-            <CheckState>Unchecked</CheckState>
-          </Control>
-          <Control Type="System.Windows.Forms.GroupBox" Name="groupBox16">
-            <Enabled>True</Enabled>
-            <Control Type="System.Windows.Forms.NumericUpDown" Name="StuckDistance">
-              <Value>1</Value>
-              <Enabled>True</Enabled>
-            </Control>
-            <Control Type="System.Windows.Forms.CheckBox" Name="navStuckWatch">
-              <Checked>False</Checked>
-              <Enabled>True</Enabled>
-              <CheckState>Unchecked</CheckState>
-            </Control>
-            <Control Type="System.Windows.Forms.CheckBox" Name="mobStuckWatch">
-              <Checked>False</Checked>
-              <Enabled>True</Enabled>
-              <CheckState>Unchecked</CheckState>
-            </Control>
-          </Control>
-        </Control>
         <Control Type="System.Windows.Forms.TabPage" Name="OptionsJAMainTab">
           <Control Type="System.Windows.Forms.TabControl" Name="JAtabselect">
             <Control Type="System.Windows.Forms.TabPage" Name="selectPage">
               <Control Type="System.Windows.Forms.CheckedListBox" Name="playerJA">
                 <SelectedIndexcount>0</SelectedIndexcount>
+              </Control>
+            </Control>
+          </Control>
+        </Control>
+        <Control Type="System.Windows.Forms.TabPage" Name="OptionsMAMainTab">
+          <Control Type="System.Windows.Forms.TabControl" Name="MAtabs">
+            <Control Type="System.Windows.Forms.TabPage" Name="MASelectPage">
+              <Control Type="System.Windows.Forms.CheckedListBox" Name="playerMA">
+                <SelectedIndex0>21</SelectedIndex0>
+                <SelectedIndex1>22</SelectedIndex1>
+                <SelectedIndex2>23</SelectedIndex2>
+                <SelectedIndex3>24</SelectedIndex3>
+                <SelectedIndex4>25</SelectedIndex4>
+                <SelectedIndex5>26</SelectedIndex5>
+                <SelectedIndex6>27</SelectedIndex6>
+                <SelectedIndex7>28</SelectedIndex7>
+                <SelectedIndex8>29</SelectedIndex8>
+                <SelectedIndex9>30</SelectedIndex9>
+                <SelectedIndex10>31</SelectedIndex10>
+                <SelectedIndex11>32</SelectedIndex11>
+                <SelectedIndex12>33</SelectedIndex12>
+                <SelectedIndex13>34</SelectedIndex13>
+                <SelectedIndex14>35</SelectedIndex14>
+                <SelectedIndex15>36</SelectedIndex15>
+                <SelectedIndex16>37</SelectedIndex16>
+                <SelectedIndex17>38</SelectedIndex17>
+                <SelectedIndex18>39</SelectedIndex18>
+                <SelectedIndex19>40</SelectedIndex19>
+                <SelectedIndex20>41</SelectedIndex20>
+                <SelectedIndex21>42</SelectedIndex21>
+                <SelectedIndex22>43</SelectedIndex22>
+                <SelectedIndex23>44</SelectedIndex23>
+                <SelectedIndexcount>24</SelectedIndexcount>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.TabPage" Name="DrainAspirpage">
+              <Control Type="System.Windows.Forms.GroupBox" Name="Aspirgroup">
+                <Enabled>True</Enabled>
+                <Control Type="System.Windows.Forms.NumericUpDown" Name="AspirIIIcount">
+                  <Value>0</Value>
+                  <Enabled>False</Enabled>
+                </Control>
+                <Control Type="System.Windows.Forms.NumericUpDown" Name="AspirIIcount">
+                  <Value>0</Value>
+                  <Enabled>False</Enabled>
+                </Control>
+                <Control Type="System.Windows.Forms.NumericUpDown" Name="Aspircount">
+                  <Value>0</Value>
+                  <Enabled>False</Enabled>
+                </Control>
+              </Control>
+              <Control Type="System.Windows.Forms.GroupBox" Name="Draingroup">
+                <Enabled>True</Enabled>
+                <Control Type="System.Windows.Forms.NumericUpDown" Name="Draincount">
+                  <Value>0</Value>
+                  <Enabled>False</Enabled>
+                </Control>
+                <Control Type="System.Windows.Forms.NumericUpDown" Name="DrainIIIcount">
+                  <Value>0</Value>
+                  <Enabled>False</Enabled>
+                </Control>
+                <Control Type="System.Windows.Forms.NumericUpDown" Name="DrainIIcount">
+                  <Value>0</Value>
+                  <Enabled>False</Enabled>
+                </Control>
+              </Control>
+            </Control>
+            <Control Type="System.Windows.Forms.TabPage" Name="MAconfigpage">
+              <Control Type="System.Windows.Forms.CheckBox" Name="MAreverse">
+                <Checked>False</Checked>
+                <Enabled>True</Enabled>
+                <CheckState>Unchecked</CheckState>
               </Control>
             </Control>
           </Control>
@@ -461,7 +509,7 @@ Running: {29}</Text>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usestutterstepValue">
               <Value>0</Value>
-              <Enabled>True</Enabled>
+              <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="useboxstepValue">
               <Value>0</Value>
@@ -521,7 +569,7 @@ Running: {29}</Text>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiiValue">
               <Value>0</Value>
-              <Enabled>True</Enabled>
+              <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="usecureiiValue">
               <Value>0</Value>
@@ -543,7 +591,7 @@ Running: {29}</Text>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecureiii">
               <Checked>False</Checked>
-              <Enabled>True</Enabled>
+              <Enabled>False</Enabled>
               <CheckState>Unchecked</CheckState>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="usecureii">
@@ -571,7 +619,7 @@ Running: {29}</Text>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown29">
               <Value>0</Value>
-              <Enabled>True</Enabled>
+              <Enabled>False</Enabled>
             </Control>
             <Control Type="System.Windows.Forms.NumericUpDown" Name="numericUpDown32">
               <Value>0</Value>
@@ -593,7 +641,7 @@ Running: {29}</Text>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="ptusecureiii">
               <Checked>False</Checked>
-              <Enabled>True</Enabled>
+              <Enabled>False</Enabled>
               <CheckState>Unchecked</CheckState>
             </Control>
             <Control Type="System.Windows.Forms.CheckBox" Name="ptusecureii">
@@ -654,7 +702,7 @@ Running: {29}</Text>
         </Control>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="userevfloValue">
           <Value>0</Value>
-          <Enabled>True</Enabled>
+          <Enabled>False</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.RadioButton" Name="usewldflo">
           <Checked>False</Checked>
@@ -675,7 +723,7 @@ Running: {29}</Text>
         <Enabled>True</Enabled>
         <Control Type="System.Windows.Forms.NumericUpDown" Name="useviofloValue">
           <Value>0</Value>
-          <Enabled>True</Enabled>
+          <Enabled>False</Enabled>
         </Control>
         <Control Type="System.Windows.Forms.RadioButton" Name="usevioflo">
           <Checked>False</Checked>
@@ -689,9 +737,44 @@ Running: {29}</Text>
         </Control>
       </Control>
     </Control>
+    <Control Type="System.Windows.Forms.TabPage" Name="pets">
+      <Control Type="System.Windows.Forms.GroupBox" Name="groupBox10">
+        <Enabled>True</Enabled>
+        <Control Type="System.Windows.Forms.GroupBox" Name="groupBox19">
+          <Enabled>True</Enabled>
+        </Control>
+        <Control Type="System.Windows.Forms.TabControl" Name="petControl" />
+      </Control>
+    </Control>
     <Control Type="System.Windows.Forms.TabPage" Name="trustControl">
       <Control Type="System.Windows.Forms.CheckedListBox" Name="Trusts">
         <SelectedIndexcount>0</SelectedIndexcount>
+      </Control>
+    </Control>
+    <Control Type="System.Windows.Forms.TabPage" Name="hudpage">
+      <Control Type="System.Windows.Forms.TextBox" Name="hudtext">
+        <Text>Scripted:{0}
+Targeting Mode: {1}
+HP: {7}/{8}
+MP: {10}/{11}
+TP: {13}
+Current Target: {25}
+Target HP: {27}%
+Current Game Time: {31}:{32}
+Running: {30}</Text>
+      </Control>
+      <Control Type="System.Windows.Forms.NumericUpDown" Name="hudY">
+        <Value>0</Value>
+        <Enabled>True</Enabled>
+      </Control>
+      <Control Type="System.Windows.Forms.NumericUpDown" Name="hudX">
+        <Value>0</Value>
+        <Enabled>True</Enabled>
+      </Control>
+      <Control Type="System.Windows.Forms.CheckBox" Name="showHUD">
+        <Checked>False</Checked>
+        <Enabled>True</Enabled>
+        <CheckState>Unchecked</CheckState>
       </Control>
     </Control>
   </Control>

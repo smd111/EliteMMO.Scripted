@@ -70,6 +70,7 @@
         public int startzone;
         public float SetEntityX = 0;
         public float SetEntityY = 0;
+        public int indi = 0;
         public List<int> partyIDs = new List<int>();
         public List<int> ignoreTarget = new List<int>();
         public Dictionary<string, string> wantedID = new Dictionary<string, string>();
@@ -281,10 +282,9 @@
                 {338, true},{339, true},{340, true},
                 #endregion
                 #region geo
-                {769, true},{787, true},{788, true},{789, true},{790, true},{791, true},{792, true},{793, true},{794, true},{795, true},{796, true},{797, true},{798, true},
-                {799, true},{800, true},{801, true},{802, true},{803, true},{804, true},{805, true},{806, true},{807, true},{808, true},{809, true},{810, true},{811, true},
-                {812, true},{813, true},{814, true},{815, true},{816, true},{817, true},{818, true},{819, true},{820, true},{821, true},{822, true},{823, true},{824, true},
-                {825, true},{826, true},{827, true},
+                {798, true},{799, true},{800, true},{801, true},{802, true},{803, true},{804, true},{805, true},{806, true},{807, true},{808, true},{809, true},{810, true},
+                {811, true},{812, true},{813, true},{814, true},{815, true},{816, true},{817, true},{818, true},{819, true},{820, true},{821, true},{822, true},{823, true},
+                {824, true},{825, true},{826, true},{827, true},
                 #endregion
                 #region trust
                 {896, true},{897, true},{898, true},{899, true},{900, true},{901, true},{902, true},{903, true},{904, true},{905, true},{906, true},{907, true},{908, true},
@@ -341,12 +341,11 @@
                 {636, new {B=90,b=92}},{655, new {B=91}},{662, new {B=43}},{668, new {B=152}},{679, new {B=36}},{696, new {B=486}},
                 {737, new {B=93}},{750, new {B=604}},{840, new {B=568}},{845, new {B=581}},{846, new {B=581}},{855, new {B=274}},
                 {856, new {B=288}},{857, new {B=592}},{858, new {B=594}},{859, new {B=591}},{860, new {B=589}},{861, new {B=590}},{862, new {B=593}},
-                {863, new {B=596}},{864, new {B=595}},{879, new {B=597}},{895, new {B=432}},{768, new {I=0,B=539}},{769, new {I=0}},
-                {770, new {I=0,B=541}},{771, new {I=0,B=580}},{772, new {I=0,B=542}},{773, new {I=0,B=543}},{774, new {I=0,B=544}},
-                {775, new {I=0,B=545}},{776, new {I=0,B=546}},{777, new {I=0,B=547}},{778, new {I=0,B=548}},{779, new {I=0,B=549}},
-                {780, new {I=0,B=550}},{781, new {I=0,B=551}},{782, new {I=0,B=552}},{783, new {I=0,B=553}},{784, new {I=0,B=554}},
-                {785, new {I=0,B=555}},{786, new {I=0,B=556}},{787, new {I=0}},{788, new {I=0}},{789, new {I=0}},{790, new {I=0}},
-                {791, new {I=0}},{792, new {I=0}},{793, new {I=0}},{794, new {I=0}},{795, new {I=0}},{796, new {I=0}},{797, new {I=0}},
+                {863, new {B=596}},{864, new {B=595}},{879, new {B=597}},{895, new {B=432}},{768, new {I=86}},{769, new {I=93}},
+                {770, new {I=86}},{771, new {I=82}},{772, new {I=80}},{773, new {I=84}},{774, new {I=83}},{775, new {I=82}},{776, new {I=81}},
+                {777, new {I=85}},{778, new {I=86}},{779, new {I=80}},{780, new {I=83}},{781, new {I=81}},{782, new {I=85}},{783, new {I=84}},
+                {784, new {I=82}},{785, new {I=87}},{786, new {I=86}},{787, new {I=93}},{788, new {I=90}},{789, new {I=88}},{790, new {I=92}},
+                {791, new {I=91}},{792, new {I=89}},{793, new {I=94}},{794, new {I=95}},{795, new {I=91}},{796, new {I=89}},{797, new {I=90}},
                 {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},{710, new {B=33}},{685, new {B=116}},{674, new {B=45}},
                 };
         public static Dictionary<int, dynamic> SCHcharges = new Dictionary<int, dynamic>()
@@ -1038,6 +1037,7 @@
             this.trustmenuStrip = new System.Windows.Forms.MenuStrip();
             this.trustMenureset = new System.Windows.Forms.ToolStripMenuItem();
             this.hudpage = new System.Windows.Forms.TabPage();
+            this.hudinfobutton = new System.Windows.Forms.Button();
             this.advhudtext = new System.Windows.Forms.Label();
             this.hudtext = new System.Windows.Forms.TextBox();
             this.hudY = new System.Windows.Forms.NumericUpDown();
@@ -1076,7 +1076,6 @@
             this.curtargid = new System.Windows.Forms.Label();
             this.Shrinkbutton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.hudinfobutton = new System.Windows.Forms.Button();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -3005,8 +3004,7 @@
             this.selectedapp.FormattingEnabled = true;
             this.selectedapp.Items.AddRange(new object[] {
             "Scripted Only",
-            "Windower + Scripted",
-            "Ashita + Scripted"});
+            "Windowing App + Scripted"});
             this.selectedapp.Location = new System.Drawing.Point(7, 56);
             this.selectedapp.Name = "selectedapp";
             this.selectedapp.Size = new System.Drawing.Size(118, 21);
@@ -7714,6 +7712,16 @@
             this.hudpage.Text = "In-Game HUD";
             this.hudpage.UseVisualStyleBackColor = true;
             // 
+            // hudinfobutton
+            // 
+            this.hudinfobutton.Location = new System.Drawing.Point(343, 43);
+            this.hudinfobutton.Name = "hudinfobutton";
+            this.hudinfobutton.Size = new System.Drawing.Size(39, 20);
+            this.hudinfobutton.TabIndex = 24;
+            this.hudinfobutton.Text = "Info";
+            this.hudinfobutton.UseVisualStyleBackColor = true;
+            this.hudinfobutton.Click += new System.EventHandler(this.hudinfobutton_Click);
+            // 
             // advhudtext
             // 
             this.advhudtext.AutoSize = true;
@@ -7970,7 +7978,6 @@
             // 
             // button1
             // 
-            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(142, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -7978,7 +7985,6 @@
             this.button1.TabStop = false;
             this.button1.Text = "Run Test";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Run_Test_Code);
             // 
             // playertp
@@ -8089,16 +8095,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(270, 384);
             this.panel1.TabIndex = 57;
-            // 
-            // hudinfobutton
-            // 
-            this.hudinfobutton.Location = new System.Drawing.Point(343, 43);
-            this.hudinfobutton.Name = "hudinfobutton";
-            this.hudinfobutton.Size = new System.Drawing.Size(39, 20);
-            this.hudinfobutton.TabIndex = 24;
-            this.hudinfobutton.Text = "Info";
-            this.hudinfobutton.UseVisualStyleBackColor = true;
-            this.hudinfobutton.Click += new System.EventHandler(this.hudinfobutton_Click);
             // 
             // ScriptFarmDNC
             // 
@@ -9390,13 +9386,12 @@
         {
             if (DateTime.Now.CompareTo(Convert.ToDateTime(shutdowndate.Text)) >= 0)
             {
-                if (selectedapp.Text == "Windower + Scripted")
+                if (selectedapp.Text == "Windowing App + Scripted")
                 {
-                    api.ThirdParty.SendString("//terminate");
-                }
-                else if (selectedapp.Text == "Ashita + Scripted")
-                {
-                    api.ThirdParty.SendString("/terminate");
+                    if (MainWindow.windowername == "Windower")
+                        api.ThirdParty.SendString("//terminate");
+                    else if ((MainWindow.windowername == "Ashita"))
+                        api.ThirdParty.SendString("/terminate");
                 }
                 Environment.Exit(0);
             }
@@ -10507,8 +10502,7 @@
                         }
                         else if (macontrol[magic.Index].ToString().Contains("I ="))
                         {
-                            if (!macontrol[magic.Index].ToString().Contains("B =")) continue;
-                            else if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B))
+                            //if (macontrol[magic.Index].I == indi)
                                 castSpell = true;
                         }
                         else if (macontrol[magic.Index].ToString().Contains("b ="))
@@ -10542,6 +10536,7 @@
                     isCasting = true;
                     api.ThirdParty.SendString($"/ma \"{magic.Name[0]}\" {targ}");
                     Casting();
+                    api.ThirdParty.SendString($"//console_echo {magic.Index} {indi}");
                 }
             }
         }
@@ -12654,6 +12649,16 @@
                 {
                     hudX.Value = decimal.Parse(api.ThirdParty.ConsoleGetArg(3));
                     hudY.Value = decimal.Parse(api.ThirdParty.ConsoleGetArg(4));
+                }
+            }
+            else if (cmd1 == "extravariables")
+            {
+                foreach (string str in api.ThirdParty.ConsoleGetArg(2).Split(';'))
+                {
+                    
+                    var sstr = str.Split(':');
+                    if (sstr[0] == "INDI")
+                        indi = int.Parse(sstr[1]);
                 }
             }
         }

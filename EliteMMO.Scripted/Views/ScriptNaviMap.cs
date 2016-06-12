@@ -19,8 +19,6 @@
             float dir = -90;
             while (isRunning || !bgw_navi.CancellationPending)
             {
-                /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:Navbot");
-                api.ThirdParty.FlushCommands();*/
                 if (isRecording)
                 {
                     var last = (string)WayPoints.Items[WayPoints.Items.Count - 1];

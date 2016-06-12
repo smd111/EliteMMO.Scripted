@@ -3,7 +3,6 @@
     using System.Windows.Forms;
     using System.Diagnostics;
     using System.Linq;
-    using System.Drawing;
     using API;
     using System.IO;
     using System.Net;
@@ -15,6 +14,15 @@
         public static ScriptNaviMap navbot;
         public static ScriptOnEventTool oneventbot;
         public static ScriptSkillup skillupbot;
+
+        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+        static extern bool CreateSymbolicLink(
+        string lpSymlinkFileName, string lpTargetFileName, SymbolicLink dwFlags);
+        enum SymbolicLink
+        {
+            File = 0,
+            Directory = 1
+        }
         public MainWindow(EliteAPI core)
         {
             InitializeComponent();
@@ -64,7 +72,6 @@
             if (ver != mmodll) message = message + $"\nEliteMMO.API.dll version: NEW: {ver} OLD: {mmodll}";
             ver = Regex.Replace(GetStringFromUrl("https://raw.githubusercontent.com/smd111/EliteMMO.Scripted/master/EliteMMO.Scripted/ScriptedVer.txt"), @"\t|\n|\r", "");
             if (ver != appexe) message = message + $"\nScripted version: NEW: {ver} OLD: {appexe}";
-
             DialogResult result;
             if (message != "") result = MessageBox.Show(message, "Update Files", MessageBoxButtons.YesNo);
             else result = DialogResult.No;
@@ -80,6 +87,19 @@
                 Process.Start(Application.StartupPath + @"\Updater.exe");
                 Environment.Exit(0);
             }
+            var symbolicLink = "";
+            if (windowername == "Ashita")
+                symbolicLink = dlllocation + @"\Scripts\Addons\ScriptedExtender";
+            else if (windowername == "Windower")
+                symbolicLink = dlllocation + @"\addons\ScriptedExtender";
+            if (symbolicLink != "" && !System.IO.Directory.Exists(symbolicLink))
+                CreateSymbolicLink(symbolicLink, Application.StartupPath + @"\ScriptedExtender", SymbolicLink.Directory);
+            if (!farmbot.bgw_script_disp.IsBusy)
+                farmbot.bgw_script_disp.RunWorkerAsync();
+            if (windowername == "Ashita")
+                api.ThirdParty.SendString("/addon load ScriptedExtender");
+            else if (windowername == "Windower")
+                api.ThirdParty.SendString("//lua load ScriptedExtender");
         }
         private string GetStringFromUrl(string location)
         {
@@ -123,8 +143,20 @@
             {
                 api.Reinitialize(dats.Id);
                 xStatusLabel.Text = @":: " + api.Entity.GetLocalPlayer().Name + @" ::";
+                for (int i = 0; i < dats.Modules.Count; i++)
+                {
+                    if (dats.Modules[i].FileName.Contains("Ashita.dll"))
+                    {
+                        windowername = "Ashita";
+                        dlllocation = dats.Modules[i].FileName.Replace(@"\Ashita.dll", "");
+                    }
+                    else if (dats.Modules[i].FileName.Contains("Hook.dll"))
+                    {
+                        windowername = "Windower";
+                        dlllocation = dats.Modules[i].FileName.Replace(@"\Hook.dll", "");
+                    }
+                }
             }
-            //startHUD();
         }
         private void FarmDncToolStripMenuItemClick(object sender, System.EventArgs e)
         {
@@ -179,8 +211,6 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Dock = DockStyle.Fill;
-            if (!farmbot.bgw_script_disp.IsBusy)
-                farmbot.bgw_script_disp.RunWorkerAsync();
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:FarmBot");
             api.ThirdParty.FlushCommands();*/
         }
@@ -218,8 +248,6 @@
             Controls.Add(x2);
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            if (farmbot.bgw_script_disp.IsBusy)
-                farmbot.bgw_script_disp.CancelAsync();
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:HealingBot");
             api.ThirdParty.FlushCommands();*/
         }
@@ -338,15 +366,6 @@
         {
             Process.Start(Application.StartupPath + @"\Scripted Manual.pdf");
         }
-        /*private void startHUD()
-        {
-            api.ThirdParty.CreateTextObject("ScriptedHUD");
-            api.ThirdParty.SetVisibility("ScriptedHUD", true);
-            api.ThirdParty.SetFont("ScriptedHUD", "Arial", 10);
-            api.ThirdParty.SetText("ScriptedHUD", "Scripted:Loading...");
-            api.ThirdParty.FlushCommands();
-            hudactive = true;
-        }*/
         private void close()
         {
             if (farmbot.hudshow)
@@ -354,6 +373,12 @@
                 api.ThirdParty.DeleteTextObject("ScriptedHUD");
                 api.ThirdParty.FlushCommands();
             }
+            if (farmbot.bgw_script_disp.IsBusy)
+                farmbot.bgw_script_disp.CancelAsync();
+            if (windowername == "Ashita")
+                api.ThirdParty.SendString("/addon unload ScriptedExtender");
+            else if (windowername == "Windower")
+                api.ThirdParty.SendString("//lua unload ScriptedExtender");
             Application.Exit();
         }
         private void skillupToolStripMenuItem_Click(object sender, EventArgs e)

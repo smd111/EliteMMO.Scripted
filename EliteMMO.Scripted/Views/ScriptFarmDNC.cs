@@ -9,7 +9,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Media;
-    using System.Collections;
+    using System.Net;
     public partial class ScriptFarmDNC : UserControl
     {
         public ScriptFarmDNC(EliteAPI core)
@@ -706,6 +706,7 @@
         private void Run_Test_Code(object sender, EventArgs e)
         {
             //
+            api.ThirdParty.SendString($"/echo {indi}");
         }
         #endregion
     }

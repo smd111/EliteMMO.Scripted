@@ -12,6 +12,8 @@
         private readonly UserControl x4;
         private readonly UserControl x5;
         public string TopMostDisplay = "Main";
+        public static string windowername = "Windower";
+        public string dlllocation = "";
         public bool hudactive = false;
         /// <summary>
         /// Required designer variable.
