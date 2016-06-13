@@ -21,7 +21,7 @@
         enum SymbolicLink
         {
             File = 0,
-            Directory = 1
+            Directory = 1,
         }
         public MainWindow(EliteAPI core)
         {
@@ -88,12 +88,6 @@
                 symbolicLink = dlllocation + @"\addons\ScriptedExtender";
             if (symbolicLink != "" && !System.IO.Directory.Exists(symbolicLink))
                 CreateSymbolicLink(symbolicLink, Application.StartupPath + @"\ScriptedExtender", SymbolicLink.Directory);
-            if (!farmbot.bgw_script_disp.IsBusy)
-                farmbot.bgw_script_disp.RunWorkerAsync();
-            if (windowername == "Ashita")
-                api.ThirdParty.SendString("/addon load ScriptedExtender");
-            else if (windowername == "Windower")
-                api.ThirdParty.SendString("//lua load ScriptedExtender");
         }
         private string GetStringFromUrl(string location)
         {
@@ -135,19 +129,22 @@
 
             foreach (var dats in data.Where(dats => EliteMMO_PROC.Text == dats.MainWindowTitle))
             {
-                api.Reinitialize(dats.Id);
+                bool a = api.Reinitialize(dats.Id);
                 xStatusLabel.Text = @":: " + api.Entity.GetLocalPlayer().Name + @" ::";
-                for (int i = 0; i < dats.Modules.Count; i++)
+                if (a)
                 {
-                    if (dats.Modules[i].FileName.Contains("Ashita.dll"))
+                    for (int i = 0; i < dats.Modules.Count; i++)
                     {
-                        windowername = "Ashita";
-                        dlllocation = dats.Modules[i].FileName.Replace(@"\Ashita.dll", "");
-                    }
-                    else if (dats.Modules[i].FileName.Contains("Hook.dll"))
-                    {
-                        windowername = "Windower";
-                        dlllocation = dats.Modules[i].FileName.Replace(@"\Hook.dll", "");
+                        if (dats.Modules[i].FileName.Contains("Ashita.dll"))
+                        {
+                            windowername = "Ashita";
+                            dlllocation = dats.Modules[i].FileName.Replace(@"\Ashita.dll", "");
+                        }
+                        else if (dats.Modules[i].FileName.Contains("Hook.dll"))
+                        {
+                            windowername = "Windower";
+                            dlllocation = dats.Modules[i].FileName.Replace(@"\Hook.dll", "");
+                        }
                     }
                 }
             }
@@ -205,6 +202,12 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Dock = DockStyle.Fill;
+            if (!farmbot.bgw_script_disp.IsBusy)
+                farmbot.bgw_script_disp.RunWorkerAsync();
+            if (windowername == "Ashita")
+                api.ThirdParty.SendString("/addon load ScriptedExtender");
+            else if (windowername == "Windower")
+                api.ThirdParty.SendString("//lua load ScriptedExtender");
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:FarmBot");
             api.ThirdParty.FlushCommands();*/
         }
