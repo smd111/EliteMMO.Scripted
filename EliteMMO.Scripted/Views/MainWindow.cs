@@ -7,7 +7,6 @@
     using System.IO;
     using System.Net;
     using System;
-    using System.Text.RegularExpressions;
     public partial class MainWindow : Form
     {
         public static ScriptFarmDNC farmbot;
@@ -16,8 +15,7 @@
         public static ScriptSkillup skillupbot;
 
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
-        static extern bool CreateSymbolicLink(
-        string lpSymlinkFileName, string lpTargetFileName, SymbolicLink dwFlags);
+        static extern bool CreateSymbolicLink(string lpSymlinkFileName, string lpTargetFileName, SymbolicLink dwFlags);
         enum SymbolicLink
         {
             File = 0,
@@ -62,25 +60,23 @@
             skillupbot = new ScriptSkillup(api);
             x5 = skillupbot;
 
-            
             string apidll = "";
             string mmodll = "";
             if (File.Exists(Application.StartupPath + @"\EliteAPI.dll"))
-                apidll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion;
+                apidll = (FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteAPI.dll").FileVersion ?? "");
             if (File.Exists(Application.StartupPath + @"\EliteMMO.API.dll"))
-                mmodll = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion;
-            WebClient Client = new WebClient();
+                mmodll = (FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\EliteMMO.API.dll").FileVersion ?? "");
+            string memmo = "";
             if (apidll == "" || GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/eliteapi/index.php?v") != apidll)
             {
-                label1.Text = "Downloading : EliteAPI.dll";
-                Client.DownloadFile("http://ext.elitemmonetwork.com/downloads/eliteapi/EliteAPI.dll", Application.StartupPath + @"\EliteAPI.dll");
+                memmo = "\nEliteAPI.dll";
             }
             if (mmodll == "" || GetStringFromUrl("http://ext.elitemmonetwork.com/downloads/elitemmo_api/index.php?v") != mmodll)
             {
-                label1.Text = "Downloading : EliteMMO.API.dll";
-                Client.DownloadFile("http://ext.elitemmonetwork.com/downloads/elitemmo_api/EliteMMO.API.dll", Application.StartupPath + @"\EliteMMO.API.dll");
+                memmo = "\nEliteMMO.API.dll";
             }
-            Client.Dispose();
+            if (memmo != "")
+                MessageBox.Show("You Need To Update" + memmo + "\nThen Restart Scripted", "!UPDATE NEEDED!");
             var symbolicLink = "";
             if (windowername == "Ashita")
                 symbolicLink = dlllocation + @"\Scripts\Addons\ScriptedExtender";
@@ -129,9 +125,9 @@
 
             foreach (var dats in data.Where(dats => EliteMMO_PROC.Text == dats.MainWindowTitle))
             {
-                bool a = api.Reinitialize(dats.Id);
+                bool initialized = api.Reinitialize(dats.Id);
                 xStatusLabel.Text = @":: " + api.Entity.GetLocalPlayer().Name + @" ::";
-                if (a)
+                if (initialized)
                 {
                     for (int i = 0; i < dats.Modules.Count; i++)
                     {
@@ -205,9 +201,15 @@
             if (!farmbot.bgw_script_disp.IsBusy)
                 farmbot.bgw_script_disp.RunWorkerAsync();
             if (windowername == "Ashita")
+            {
                 api.ThirdParty.SendString("/addon load ScriptedExtender");
+                extenderactive = true;
+            }
             else if (windowername == "Windower")
+            {
                 api.ThirdParty.SendString("//lua load ScriptedExtender");
+                extenderactive = true;
+            }
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:FarmBot");
             api.ThirdParty.FlushCommands();*/
         }
@@ -372,10 +374,13 @@
             }
             if (farmbot.bgw_script_disp.IsBusy)
                 farmbot.bgw_script_disp.CancelAsync();
-            if (windowername == "Ashita")
-                api.ThirdParty.SendString("/addon unload ScriptedExtender");
-            else if (windowername == "Windower")
-                api.ThirdParty.SendString("//lua unload ScriptedExtender");
+            if (extenderactive)
+            {
+                if (windowername == "Ashita")
+                    api.ThirdParty.SendString("/addon unload ScriptedExtender");
+                else if (windowername == "Windower")
+                    api.ThirdParty.SendString("//lua unload ScriptedExtender");
+            }
             Application.Exit();
         }
         private void skillupToolStripMenuItem_Click(object sender, EventArgs e)

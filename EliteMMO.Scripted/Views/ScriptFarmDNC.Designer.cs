@@ -9721,7 +9721,7 @@
             }
             #endregion
             #region Pet Tabs Add
-            List<int> PETjobs = new List<int>(new int[] { 9, 14, 15, 18, 21 });
+            List<int> PETjobs = new List<int>(new int[] { 9, 14, 15, 18/*, 21*/ });
             if (PETjobs.Contains(PlayerInfo.MainJob) || PETjobs.Contains(PlayerInfo.SubJob))
             {
                 if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
@@ -10277,7 +10277,7 @@
             foreach (string J in ja)
             {
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                if (PlayerInfo.Status != 1) break;
+                if (PlayerInfo.Status != 1 || bgw_script_disp.CancellationPending) break;
                 var useAbility = false;
                 var ability = api.Resources.GetAbility(J, 0);
                 var targ = ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
@@ -10429,7 +10429,7 @@
             foreach (string M in ma)
             {
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                if (PlayerInfo.MPP == 0 || PlayerInfo.Status != 1) break;
+                if (PlayerInfo.MPP == 0 || PlayerInfo.Status != 1 || bgw_script_disp.CancellationPending) break;
                 bool castSpell = false;
                 var magic = api.Resources.GetSpell(M, 0);
                 var targ = ((magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
@@ -10504,7 +10504,7 @@
                         }
                         else if (macontrol[magic.Index].ToString().Contains("I ="))
                         {
-                            //if (macontrol[magic.Index].I == indi)
+                            if (macontrol[magic.Index].I != indi)
                                 castSpell = true;
                         }
                         else if (macontrol[magic.Index].ToString().Contains("b ="))
@@ -10538,7 +10538,6 @@
                     isCasting = true;
                     api.ThirdParty.SendString($"/ma \"{magic.Name[0]}\" {targ}");
                     Casting();
-                    api.ThirdParty.SendString($"//console_echo {magic.Index} {indi}");
                 }
             }
         }

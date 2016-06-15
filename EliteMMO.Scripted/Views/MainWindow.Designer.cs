@@ -15,6 +15,7 @@
         public static string windowername = "Windower";
         public string dlllocation = "";
         public bool hudactive = false;
+        public bool extenderactive = false;
         /// <summary>
         /// Required designer variable.
         /// </summary>
