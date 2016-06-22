@@ -1,8 +1,7 @@
 ﻿namespace EliteMMO.Scripted.Views
 {
-    using System.Windows.Forms;
     using API;
-
+    using System.Windows.Forms;
     partial class MainWindow
     {
         private EliteAPI api;

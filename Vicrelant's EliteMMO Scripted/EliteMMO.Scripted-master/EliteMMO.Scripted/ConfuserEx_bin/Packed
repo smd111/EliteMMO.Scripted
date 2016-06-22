@@ -1,6 +1,0 @@
-<project outputDir="C:\Program Files (x86)\Ashita\e_apps\Scripted" baseDir="C:\Users\Christopher Malo\Documents\Visual Studio 2013\Projects\EliteMMO.Scripted\EliteMMO.Scripted\bin\Release" xmlns="http://confuser.codeplex.com">
-  <packer id="compressor" />
-  <module path="Scripted.exe">
-    <rule pattern="true" inherit="false" />
-  </module>
-</project>

@@ -9,7 +9,6 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Media;
-    using System.Net;
     public partial class ScriptFarmDNC : UserControl
     {
         public ScriptFarmDNC(EliteAPI core)
@@ -600,6 +599,7 @@
                         count = 0;
                     }
                 }
+                WindowInfo.KeyUp(API.Keys.NUMPAD8);
             }
         }
         #endregion
@@ -636,6 +636,7 @@
             {
                 if (showHUD.Checked && hudshow)
                 {
+                    var CFD = (PlayerInfo.Status == 1 && botRunning && TargetInfo.ID > 0 ? "Engaged" : "NotEngaged") + "/" + LastFunction + (isCasting ? "/Casting" : "");
                     var msg = $"Scripted:{currentbot}|";
                     if (currentbot == "FarmBot")
                     {
@@ -651,9 +652,9 @@
                                 PlayerInfo.MainJobLevel, JobNames[PlayerInfo.SubJob].Long, PlayerInfo.SubJobLevel, Statuses[PlayerInfo.Status], PlayerInfo.HP,
                                 PlayerInfo.MaxHP, PlayerInfo.HPP, PlayerInfo.MP, PlayerInfo.MaxMP, PlayerInfo.MPP, PlayerInfo.TP, PlayerInfo.UseableJobPoints,
                                 PlayerInfo.CapacityPoints, PlayerInfo.MeritPoints, PetInfo.Name, PetInfo.ID, PetInfo.HPP, PetInfo.MPP,
-                                PetInfo.TPP, Statuses[PetInfo.Status], PartyInfo.Count(), PartyInfo.averageHPP(), TargetInfo.Name, TargetInfo.ID,
+                                PetInfo.TPP, Statuses[PetInfo.Status], PartyInfo.Count(), PartyInfo.averageHPP(), TargetInfo.Name, TargetInfo.ID.ToString("X"),
                                 TargetInfo.HPP, TargetInfo.Distance, (TargetInfo.LockedOn ? "YES" : "NO"), (botRunning ? "YES" : "NO"),
-                                api.VanaTime.CurrentHour, api.VanaTime.CurrentMinute.ToString("00"), ScriptOnEventTool.triggeredline);
+                                api.VanaTime.CurrentHour, api.VanaTime.CurrentMinute.ToString("00"), ScriptOnEventTool.triggeredline, CFD);
                     }
 
                     api.ThirdParty.SetText("ScriptedHUD", msg);
@@ -668,7 +669,7 @@
                 if (PlayerInfo.MainJobLevel >= 75)
                     playermerits.Text = $"Merit Points: {PlayerInfo.MeritPoints}/75";
                 curtarg.Text = $"Current Target: {TargetInfo.Name}";
-                curtargid.Text = $"ID:{TargetInfo.ID}";
+                curtargid.Text = $"ID:{TargetInfo.ID.ToString("X")}";
                 curtarghpp.Text = $"Target HP: {TargetInfo.HPP}%";
                 curtime.Text = $"Current Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
                 if (Shutdownenable.Checked) shutdowntime();

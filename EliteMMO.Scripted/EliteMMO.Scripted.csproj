@@ -168,6 +168,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1418924805_45123.ico" />
+    <Content Include="Resources\BST.jpg" />
+    <Content Include="Resources\DRG.jpg" />
+    <Content Include="Resources\PUP.jpg" />
+    <Content Include="Resources\SMN.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\xeyes_1_128x128x32.png" />

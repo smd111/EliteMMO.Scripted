@@ -1,11 +1,11 @@
 ﻿namespace EliteMMO.Scripted.Views
 {
-    using System.Windows.Forms;
     using API;
-    using System.Threading;
     using System;
     using System.IO;
     using System.Linq;
+    using System.Threading;
+    using System.Windows.Forms;
     public partial class ScriptNaviMap : UserControl
     {
         public ScriptNaviMap(EliteAPI core)
@@ -350,7 +350,6 @@
         {
             WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             var index = WayPoints.SelectedIndex;

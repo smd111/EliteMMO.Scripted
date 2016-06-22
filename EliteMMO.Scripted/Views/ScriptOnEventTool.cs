@@ -1,11 +1,11 @@
 ﻿namespace EliteMMO.Scripted.Views
 {
-    using System;
-    using System.Windows.Forms;
     using API;
+    using System;
     using System.Linq;
-    using System.Threading;
     using System.Text.RegularExpressions;
+    using System.Threading;
+    using System.Windows.Forms;
     public partial class ScriptOnEventTool : UserControl
     {
         public ScriptOnEventTool(EliteAPI core)

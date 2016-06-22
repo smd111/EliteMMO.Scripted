@@ -1,20 +1,20 @@
 ﻿namespace EliteMMO.Scripted.Views
 {
-    using System;
-    using System.Windows.Forms;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading;
-    using System.Xml.Linq;
-    using System.Xml;
-    using System.Collections;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Text;
     using API;
-    using System.Text.RegularExpressions;
     using FormSerialisation;
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Drawing;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Threading;
+    using System.Windows.Forms;
+    using System.Xml;
+    using System.Xml.Linq;
     partial class ScriptFarmDNC
     {
         private static EliteAPI api;
@@ -34,6 +34,7 @@
         public string targeting = "Auto";
         public string currentbot = "FarmBot";
         public bool hudshow = false;
+        public string LastFunction = "";
         #endregion
         #region Variables: (NAV)
         public bool OpenDoor = false;
@@ -522,16 +523,16 @@
             BitArray ba = new BitArray(new int[] { b });
             return ba.Get(bitNumber);
         }
-        public static int GetBitsToInt(int b, int start, int end)
-        {
-            BitArray ba = new BitArray(new int[] { b });
-            var bin = "";
-            for (var x = start; x < end; x++)
-            {
-                bin = bin+$"{(ba.Get(x) ? 1 : 0)}";
-            }
-            return Convert.ToInt32(bin, 2);
-        }
+        //public static int GetBitsToInt(int b, int start, int end)
+        //{
+        //    BitArray ba = new BitArray(new int[] { b });
+        //    var bin = "";
+        //    for (var x = start; x < end; x++)
+        //    {
+        //        bin = bin+$"{(ba.Get(x) ? 1 : 0)}";
+        //    }
+        //    return Convert.ToInt32(bin, 2);
+        //}
         #region Component Designer generated code
         /// <summary> 
         /// Required method for Designer support - do not modify 
@@ -1024,6 +1025,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.geopettab = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label40 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -1290,6 +1293,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RRPetHPPset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RRPlayerHPPset)).BeginInit();
             this.geopettab.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.trustControl.SuspendLayout();
             this.trustmenuStrip.SuspendLayout();
@@ -7560,6 +7564,7 @@
             // 
             // geopettab
             // 
+            this.geopettab.Controls.Add(this.panel2);
             this.geopettab.Controls.Add(this.label57);
             this.geopettab.Controls.Add(this.comboBox5);
             this.geopettab.Controls.Add(this.groupBox6);
@@ -7570,6 +7575,26 @@
             this.geopettab.TabIndex = 4;
             this.geopettab.Text = "GEO";
             this.geopettab.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label40);
+            this.panel2.Location = new System.Drawing.Point(4, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(405, 237);
+            this.panel2.TabIndex = 17;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Enabled = false;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label40.Location = new System.Drawing.Point(116, 106);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(173, 25);
+            this.label40.TabIndex = 0;
+            this.label40.Text = "Not Implemented";
             // 
             // label57
             // 
@@ -7740,7 +7765,7 @@
             this.hudtext.TabIndex = 22;
             this.hudtext.TabStop = false;
             this.hudtext.Text = "Scripted:{0}\r\nTargeting Mode: {1}\r\nHP: {7}/{8}\r\nMP: {10}/{11}\r\nTP: {13}\r\nCurrent " +
-    "Target: {25}\r\nTarget HP: {27}%\r\nCurrent Game Time: {31}:{32}\r\nRunning: {30}";
+    "Target: {25}\r\nTarget HP: {27}%\r\nCurrent Game Time: {31}:{32}\r\nRunning: {30}\r\n\r\n";
             this.hudtext.WordWrap = false;
             // 
             // hudY
@@ -8391,6 +8416,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.RRPlayerHPPset)).EndInit();
             this.geopettab.ResumeLayout(false);
             this.geopettab.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.trustControl.ResumeLayout(false);
             this.trustControl.PerformLayout();
@@ -8995,6 +9022,7 @@
                 "        31 = In-Game Hour\n" +
                 "        32 = In-Game Minute\n" +
                 "        33 = OnEvent Last Chat Line Triggered On\n" +
+                "        34 = Last Function Reached\n" +
                 "" +
                 "Example:\n" +
                 "    For players current hp/maxhp use: {7}/{8}\n", "In-Game HUD varables");
@@ -9448,6 +9476,34 @@
         }
         private void useTrust()
         {
+            LastFunction = "useTrust";
+            var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
+            if (PartyInfo.Count(1) == 6 || trust.Count == 0) return;
+            foreach (string T in trust)
+            {
+                isCasting = true;
+                if (PartyInfo.Count(1) == 6 || PartyInfo.Count(2) > 0 || PartyInfo.Count(3) > 0) break;
+                if (TargetInfo.ID != 0 ? TargetInfo.ID != PlayerInfo.TargetID : false) break;
+                var trustname = T.Replace(" ", "").Replace("II", "").Replace("[S]", "").Replace("(UC)", "");
+                if (PartyInfo.ContainsName(trustname)) continue;
+                else
+                {
+                    api.ThirdParty.SendString("/ma \"" + T + "\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                    SetTarget(0);
+                    Casting(true);
+                    if (TargetInfo.ID == PlayerInfo.TargetID)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                        SetTarget(0);
+                    }
+                }
+            }
+            
+            isCasting = false;
+        }
+        /*private void useTrust()
+        {
             var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
             if (PartyInfo.Count(1) == 6 || trust.Count == 0) return;
             foreach (string T in trust)
@@ -9463,8 +9519,9 @@
                     Casting();
                 }
             }
+           
             isCasting = false;
-        }
+        }*/
         /* private void TrustWatch()
         {
             var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
@@ -9721,7 +9778,7 @@
             }
             #endregion
             #region Pet Tabs Add
-            List<int> PETjobs = new List<int>(new int[] { 9, 14, 15, 18/*, 21*/ });
+            List<int> PETjobs = new List<int>(new int[] { 9, 14, 15, 18, 21 });
             if (PETjobs.Contains(PlayerInfo.MainJob) || PETjobs.Contains(PlayerInfo.SubJob))
             {
                 if (PlayerInfo.MainJob == 9 || PlayerInfo.SubJob == 9)
@@ -9755,7 +9812,7 @@
                 }
                 if (PlayerInfo.MainJob == 21 || PlayerInfo.SubJob == 21) 
                 {
-                    //petControl.Controls.Add(geopettab);
+                    petControl.Controls.Add(geopettab);
                     //GEOGetJA()
                 }
                 dncControl.Controls.Add(pets);
@@ -9894,6 +9951,7 @@
         #region Methods: Assist (Player/Party)
         public void Assist()
         {
+            LastFunction = "Assist";
             if (PlayerInfo.Status == 0)
             {
                 var members = api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList();
@@ -9966,6 +10024,7 @@
         #region JA: CuringWaltzParty
         public void CuringWaltzParty()
         {
+            LastFunction = "CuringWaltzParty";
             if (!botRunning || PlayerInfo.Status != 1 || naviMove || PlayerInfo.HasBuff(16)) return;
             var partymembers = (from object itemChecked in PartyWaltsList.Items select itemChecked.ToString()).ToList();
             foreach(string member in partymembers)
@@ -10007,6 +10066,7 @@
         #region JA: CuringWaltzSelf
         private void CuringWaltzSelf()
         {
+            LastFunction = "CuringWaltzSelf";
             if (!usecurev.Checked && !usecureiv.Checked && !usecureiii.Checked && !usecureii.Checked && !usecure.Checked &&
                (PlayerInfo.Status != 1 || !botRunning || PlayerInfo.HasBuff(16)))
                 return;
@@ -10047,6 +10107,7 @@
         #region JA: Healing Waltz
         private void HealingWaltz()
         {
+            LastFunction = "HealingWaltz";
             var hw = (from object itemChecked in HealingWaltzItems.CheckedItems
                       select itemChecked.ToString()).ToList();
 
@@ -10101,6 +10162,7 @@
         #region JA: Drain/Aspir/Haste Samba
         private void Sambas()
         {
+            LastFunction = "Sambas";
             if (!usedrain.Checked && !usedrainii.Checked && !usedrainiii.Checked && !useaspir.Checked && !useaspirii.Checked && !usehaste.Checked &&
                (PlayerInfo.Status != 1 || !botRunning || PlayerInfo.HasBuff(16) || PlayerInfo.HasBuff(411)))
                 return;
@@ -10146,6 +10208,7 @@
         #region JA: Flourishe (I,II,III)
         private void UseFlourish()
         {
+            LastFunction = "UseFlourish";
             if (!botRunning || PlayerInfo.Status != 1 || PlayerInfo.HasBuff(16))
                 return; ;
 
@@ -10218,6 +10281,7 @@
         #region JA: Steps
         private void Steps()
         {
+            LastFunction = "Steps";
             if (!usequickstep.Checked && !useboxstep.Checked && !usestutterstep.Checked && !usefeatherstep.Checked &&
                (!botRunning || NoSteps.Checked || PlayerInfo.Status == 0 || Recast.GetAbilityRecast(220) != 0 || PlayerInfo.HasBuff(588)
                || PlayerInfo.HasBuff(16)))
@@ -10269,6 +10333,7 @@
         #region JA: Job Abilities (use)
         private void PlayerJA()
         {
+            LastFunction = "PlayerJA";
             if (!botRunning || PlayerInfo.Status != 1 || naviMove || PlayerInfo.HasBuff(16)) return;
             var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
             if (ja.Count == 0) return;
@@ -10391,6 +10456,7 @@
         #region JA: NIN (shadows)
         private void ninjaShadows()
         {
+            LastFunction = "ninjaShadows";
             if (!useshadows.Checked || !NINtoolCheck("Utsusemi"))
                 return;
 
@@ -10422,6 +10488,7 @@
         #region MA: Magic (use)
         private void PlayerMA()
         {
+            LastFunction = "PlayerMA";
             var ma = (from object itemChecked in playerMA.CheckedItems select itemChecked.ToString()).ToList();
             if (ma.Count == 0) return;
             
@@ -10432,7 +10499,7 @@
                 if (PlayerInfo.MPP == 0 || PlayerInfo.Status != 1 || bgw_script_disp.CancellationPending) break;
                 bool castSpell = false;
                 var magic = api.Resources.GetSpell(M, 0);
-                var targ = ((magic.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
+                var targ = (GetBit(magic.ValidTargets, 0)/*(magic.ValidTargets & (1 << 0)) != 0*/ ? "<me>" : "<t>");
                 if (Recast.GetSpellRecast((int)magic.Index) != 0 || !MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6)) continue;
                 if (PlayerInfo.MP < magic.MPCost && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229))) continue;
                 if (Handledspells.Contains(magic.Name[0]))
@@ -10928,7 +10995,40 @@
             }
             return false;
         }
-        private void Casting()
+        private void Casting(bool trust = false)
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(0.5));
+            var count = 0;
+            float lastPercent = 0;
+            var castingbreak = false;
+            while (api.CastBar.Percent < 100)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                var castPercent = api.CastBar.Percent;
+                if (lastPercent != castPercent)
+                {
+                    count = 0;
+                    lastPercent = castPercent;
+                }
+                else if (count == 10)
+                {
+                    if (trust)
+                        castingbreak = true;
+                    
+                    break;
+                }
+                else
+                {
+                    count++;
+                    lastPercent = castPercent;
+                }
+            }
+            isCasting = false;
+            if (castingbreak && trust)
+                return;
+            Thread.Sleep(TimeSpan.FromSeconds(2.0));
+        }
+        /*private void Casting()
         {
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
             var count = 0;
@@ -10953,11 +11053,12 @@
             }
             isCasting = false;
             Thread.Sleep(TimeSpan.FromSeconds(2.0));
-        }
+        }*/
         #endregion
         #region WS: WeaponSkill (use)
         private void PlayerWS()
         {
+            LastFunction = "PlayerWS";
             if (!botRunning || PlayerInfo.Status == 0 || TargetInfo.ID == 0) return;
             if (DynaProccontrole.Checked && !PlayerInfo.DynaStrike("WS", PlayerInfo.DynaTime(), TargetInfo.Name)) return;
             List<string> SelfTargWS = new List<string>(new string[] { "Myrkr", "Starlight", "Moonlight", "Dagan" });
@@ -11416,6 +11517,7 @@
         #region JA: BST (use)
         private void PetReadyJA()
         {
+            LastFunction = "PetReadyJA";
             if (PlayerInfo.Status == 0 || !botRunning || TargetInfo.ID == 0) return;
 
             #region BST Pet JA
@@ -11473,6 +11575,7 @@
         #region JA: DRG (use)
         private void WyvernUseJA()
         {
+            LastFunction = "WyvernUseJA";
             var petja = (from object itemChecked in WyvernJA.CheckedItems select itemChecked.ToString()).ToList();
 
             if (petja.Count == 0 || PlayerInfo.Status == 0 || PlayerInfo.HasBuff(16)) return;
@@ -11579,6 +11682,7 @@
         #region JA: SMN (use)
         private void SMNUseJA()
         {
+            LastFunction = "SMNUseJA";
             if (PlayerInfo.Status == 0 || PlayerInfo.Status == 33) return;
             var petja = (from object itemChecked in SMNAbilityList.CheckedItems select itemChecked.ToString()).ToList();
             var ja = (from object itemChecked in SMNJA.CheckedItems select itemChecked.ToString()).ToList();
@@ -11768,6 +11872,7 @@
         #region JA: PUP (use)
         private void PUPUseJA()
         {
+            LastFunction = "PUPUseJA";
             if (PetInfo.ID != 0 && PetInfo.Status == 0 && PlayerInfo.Status == 1 && PUPautoengage.Checked && Recast.GetAbilityRecast(207) == 0)
             {
                 api.ThirdParty.SendString("/pet \"Deploy\" <t>");
@@ -12665,6 +12770,8 @@
         }
 
         private Button hudinfobutton;
+        private Panel panel2;
+        private Label label40;
         #endregion
         #region Methods: EliteMMO
         #region class: PlayerInfo

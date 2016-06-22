@@ -1,12 +1,13 @@
 ﻿namespace EliteMMO.Scripted.Views
 {
-    using System.Windows.Forms;
-    using System.Diagnostics;
-    using System.Linq;
     using API;
-    using System.IO;
-    using System.Net;
     using System;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
+    using System.Runtime.InteropServices;
+    using System.Windows.Forms;
     public partial class MainWindow : Form
     {
         public static ScriptFarmDNC farmbot;
@@ -14,7 +15,7 @@
         public static ScriptOnEventTool oneventbot;
         public static ScriptSkillup skillupbot;
 
-        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+        [DllImport("kernel32")]
         static extern bool CreateSymbolicLink(string lpSymlinkFileName, string lpTargetFileName, SymbolicLink dwFlags);
         enum SymbolicLink
         {
