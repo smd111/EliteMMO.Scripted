@@ -86,23 +86,7 @@
                                     break;
                                 if (mobStuckWatch.Checked && isStuck(1))
                                 {
-                                    var count = 0;
-                                    while (isStuck(1))
-                                    {
-                                        if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
-                                            break;
-                                        api.Entity.GetLocalPlayer().H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
-                                        WindowInfo.KeyDown(API.Keys.NUMPAD8);
-                                        Thread.Sleep(TimeSpan.FromSeconds(2));
-                                        WindowInfo.KeyUp(API.Keys.NUMPAD8);
-                                        count++;
-                                        if (count == 4)
-                                        {
-                                            dir = (dir == -45 ? 45 : -45);
-                                            count = 0;
-                                        }
-                                    }
-                                    WindowInfo.KeyUp(API.Keys.NUMPAD8);
+                                    stuckRun(1);
                                 }
                             }
                             api.AutoFollow.IsAutoFollowing = false;
@@ -579,18 +563,8 @@
                     api.AutoFollow.IsAutoFollowing && isStuck(0))
                 {
                     api.AutoFollow.IsAutoFollowing = false;
-                    api.Entity.GetLocalPlayer().H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
-                    WindowInfo.KeyDown(API.Keys.NUMPAD8);
-                    Thread.Sleep(TimeSpan.FromSeconds(2));
-                    WindowInfo.KeyUp(API.Keys.NUMPAD8);
-                    count++;
-                    if (count == 4)
-                    {
-                        dir = (dir == -45 ? 45 : -45);
-                        count = 0;
-                    }
+                    stuckRun();
                 }
-                WindowInfo.KeyUp(API.Keys.NUMPAD8);
             }
         }
         #endregion

@@ -12493,10 +12493,11 @@
             var entity = api.Entity.GetEntity(TargetID);
             var search = 0;
 
-            if (runPullDistance.Checked && ID == 1 && TargetInfo.ID > 0)
+            if ((runPullDistance.Checked && ID == 1 && TargetInfo.ID > 0) || (runTarget.Checked && ID == 2 && TargetInfo.ID > 0))
             {
                 isMoving = true;
-                while (Math.Truncate(entity.Distance) >= (float)numericUpDown21.Value && entity.ClaimID == 0)
+                while ((Math.Truncate(entity.Distance) >= (float)numericUpDown21.Value && entity.ClaimID == 0 && ID == 1) ||
+                       (Math.Truncate(entity.Distance) >= (float)KeepTargetRange.Value && entity.ClaimID == 0 && ID == 2))
                 {
                     api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
                                                        TargetInfo.Y - PlayerInfo.Y,
@@ -12508,91 +12509,40 @@
                     if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
                         break;
 
-                    if (Math.Abs(entity.Distance - search) < 1)
+                    if (Math.Abs(entity.Distance - search) < 1 && ID == 1)
                     {
                         api.AutoFollow.IsAutoFollowing = false;
                         isMoving = false;
                     }
-                }
-                api.AutoFollow.IsAutoFollowing = false;
-                isMoving = false;
-            }
-            else if (runTarget.Checked && ID == 2 && TargetInfo.ID > 0)
-            {
-                var dist = Math.Round(api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance, 1);
-                var last = Math.Round(api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance, 1);
-
-                var move = true;
-                var time = 15;
-
-                isMoving = true;
-                while (Math.Truncate(entity.Distance) >= (float)KeepTargetRange.Value && entity.ClaimID == 0)
-                {
-                    api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
-                                                       TargetInfo.Y - PlayerInfo.Y,
-                                                       TargetInfo.Z - PlayerInfo.Z);
-
-                    api.AutoFollow.IsAutoFollowing = true;
-                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
-
-                    if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
-                        break;
-
-                    dist = Math.Round(api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance, 1);
-
-                    if (Math.Abs(last - dist) < 0.1)
+                    if (mobStuckWatch.Checked && isStuck(1))
                     {
-                        if (move)
-                        {
-                            move = false;
-
-                            if (time != 15)
-                                time = time + 10;
-
-                            for (var x = 0; x < 15; x++)
-                            {
-                                WindowInfo.KeyPress(API.Keys.NUMPAD2);
-                                x++;
-                            }
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                            for (var x = 0; x < time; x++)
-                            {
-                                WindowInfo.KeyPress(API.Keys.NUMPAD6);
-                                x++;
-                            }
-                        }
-                        else if (!move)
-                        {
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
-
-                            move = true;
-                            if (time == 15)
-                                time = time + 10;
-                            else
-                                time = time + 10;
-
-                            for (var x = 0; x < 15; x++)
-                            {
-                                WindowInfo.KeyPress(API.Keys.NUMPAD2);
-                                x++;
-                            }
-                            Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                            for (var x = 0; x < time; x++)
-                            {
-                                WindowInfo.KeyPress(API.Keys.NUMPAD4);
-                                x++;
-                            }
-                        }
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        api.AutoFollow.IsAutoFollowing = false;
+                        stuckRun(1);
                     }
-                    last = Math.Round(api.Entity.GetEntity((int)api.Target.GetTargetInfo().TargetIndex).Distance, 1);
                 }
                 api.AutoFollow.IsAutoFollowing = false;
                 isMoving = false;
             }
-
-            if (api.AutoFollow.IsAutoFollowing)
-                api.AutoFollow.IsAutoFollowing = false;
+        }
+        public void stuckRun(int ID = 0)
+        {
+            var count = 0;
+            float mobdir = -45;
+            while (isStuck(1))
+            {
+                if (ID == 1 && (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID))
+                    break;
+                api.Entity.GetLocalPlayer().H = PlayerInfo.H + (float)((Math.PI / 180) * mobdir);
+                WindowInfo.KeyDown(API.Keys.NUMPAD8);
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                if (count == 4)
+                {
+                    mobdir = (mobdir == -45 ? 45 : -45);
+                    count = 0;
+                }
+                count++;
+            }
+            WindowInfo.KeyUp(API.Keys.NUMPAD8);
         }
         public bool isStuck(int a)
         {
