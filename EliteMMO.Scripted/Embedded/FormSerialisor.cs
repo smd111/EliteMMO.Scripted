@@ -53,9 +53,11 @@
                     else if (childCtrl is CheckedListBox)
                     {
                         CheckedListBox lst = (CheckedListBox)childCtrl;
-                        for (int i = 0; i < lst.CheckedIndices.Count; i++)
+                        var count = 0;
+                        foreach (string i in lst.CheckedItems)
                         {
-                            xmlSerialisedForm.WriteElementString("SelectedIndex" + i.ToString(), (lst.CheckedIndices[i].ToString()));
+                            xmlSerialisedForm.WriteElementString("SelectedItem" + count, i);
+                            count++;
                         }
                         xmlSerialisedForm.WriteElementString("SelectedIndexcount", (lst.CheckedIndices.Count.ToString()));
                     }
@@ -103,10 +105,9 @@
             string controlName = n.Attributes["Name"].Value;
             if (controlName == "") return;
             string controlType = n.Attributes["Type"].Value;
+            if (controlType == "") return;
             Control[] ctrl = currentCtrl.Controls.Find(controlName, true);
-            if (ctrl.Length == 0)
-            {}
-            else
+            if (ctrl.Length > 0)
             {
                 Control ctrlToSet = GetImmediateChildControl(ctrl, currentCtrl);
                 if (ctrlToSet != null)
@@ -124,8 +125,13 @@
                                 }
                                 for (int i = 0; i < (Icount); i++)
                                 {
-                                    ltr.SetItemCheckState(Convert.ToInt16(n["SelectedIndex" + i.ToString()].InnerText), CheckState.Checked);
-                                    ltr.SetSelected(Convert.ToInt16(n["SelectedIndex" + i.ToString()].InnerText), true);
+                                    var sitem = n["SelectedItem" + i.ToString()].InnerText;
+                                    if (sitem != null && ltr.Items.Contains(sitem))
+                                    {
+                                        var index = ltr.Items.IndexOf(sitem);
+                                        ltr.SetItemCheckState(index, CheckState.Checked);
+                                        ltr.SetSelected(index, true);
+                                    }
                                 }
                                 break;
                             case "System.Windows.Forms.RadioButton":
@@ -159,11 +165,7 @@
                             }
                         }
                     }
-                    else
-                    {}
                 }
-                else
-                {}
             }
         }
         private static Control GetImmediateChildControl(Control[] ctrl, Control currentCtrl)

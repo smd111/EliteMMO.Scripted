@@ -91,29 +91,20 @@
                                     {
                                         if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
                                             break;
-                                        WindowInfo.KeyDown(LRKey);
+                                        api.Entity.GetLocalPlayer().H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
                                         WindowInfo.KeyDown(API.Keys.NUMPAD8);
-                                        Thread.Sleep(TimeSpan.FromSeconds(1));
-                                        if (count == 5)
+                                        Thread.Sleep(TimeSpan.FromSeconds(2));
+                                        WindowInfo.KeyUp(API.Keys.NUMPAD8);
+                                        count++;
+                                        if (count == 4)
                                         {
-                                            WindowInfo.KeyUp(LRKey);
-                                            LRKey = (LRKey == API.Keys.NUMPAD4 ? API.Keys.NUMPAD6 : API.Keys.NUMPAD4);
+                                            dir = (dir == -45 ? 45 : -45);
                                             count = 0;
                                         }
-                                        if (TargetInfo.Distance <= 2) break;
-                                        count++;
                                     }
-                                    WindowInfo.KeyUp(LRKey);
-                                    WindowInfo.KeyUp(API.Keys.NUMPAD8);
-                                }
-                                else
-                                {
-                                    WindowInfo.KeyUp(LRKey);
                                     WindowInfo.KeyUp(API.Keys.NUMPAD8);
                                 }
                             }
-                            WindowInfo.KeyUp(LRKey);
-                            WindowInfo.KeyUp(API.Keys.NUMPAD8);
                             api.AutoFollow.IsAutoFollowing = false;
                             isMoving = false;
 
