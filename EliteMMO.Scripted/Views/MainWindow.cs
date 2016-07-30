@@ -26,7 +26,6 @@
         {
             InitializeComponent();
             api = core;
-            Text = $"Scripted - (open source ßeta v{Application.ProductVersion})";
             #region Final Fantasy XI [POL]
             var data = Process.GetProcessesByName("pol");
 
@@ -420,6 +419,18 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:SkillUpBot");
             api.ThirdParty.FlushCommands();*/
+        }
+
+        private void releasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
+            api.ThirdParty.KeyUp(API.Keys.RETURN);
+            api.ThirdParty.KeyUp(API.Keys.NUMPAD2);
+            api.ThirdParty.KeyUp(API.Keys.NUMPADENTER);
+            api.ThirdParty.KeyUp(API.Keys.NUMPAD6);
+            api.ThirdParty.KeyUp(API.Keys.NUMPAD4);
+            api.ThirdParty.KeyUp(API.Keys.RIGHT);
+            api.AutoFollow.IsAutoFollowing = false;
         }
     }
 }

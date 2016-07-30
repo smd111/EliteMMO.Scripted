@@ -33,10 +33,10 @@
                     }
                 }
                 if (checkZone.Checked && startzone != api.Player.ZoneId) ToolStopClick(null, null);
-                if (isCasting) continue;
                 if (DeathWarp.Checked && (PlayerInfo.Status == 2 || PlayerInfo.Status == 3))
                     PlayerDead();
 
+                if (isCasting) continue;
                 if (followplayer.Checked && PlayerInfo.Status == 0)
                     FollowTarget();
 
@@ -86,7 +86,8 @@
                                     break;
                                 if (mobStuckWatch.Checked && isStuck(1))
                                 {
-                                    var count = 0;
+                                    int count = 0;
+                                    float dir = -45;
                                     while (isStuck(1))
                                     {
                                         if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
@@ -113,15 +114,17 @@
                             PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                         {
                             while (TargetInfo.Distance < 2 && TargetInfo.HPP > 1 &&
-                                   PlayerInfo.Status == 1)
+                                   PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                             {
-                                api.ThirdParty.KeyPress(API.Keys.NUMPAD2);
+                                WindowInfo.KeyDown(API.Keys.NUMPAD2);
+                                Thread.Sleep(TimeSpan.FromSeconds(0.1));
                             }
+                            WindowInfo.KeyUp(API.Keys.NUMPAD2);
                         }
                     }
                     #endregion
-                    WindowInfo.KeyUp(LRKey);
                     WindowInfo.KeyUp(API.Keys.NUMPAD8);
+                    WindowInfo.KeyUp(API.Keys.NUMPAD2);
 
                     if (!TargetInfo.IsFacingTarget(PlayerInfo.X, PlayerInfo.Z, PlayerInfo.H, TargetInfo.X, TargetInfo.Z) &&
                         facetarget.Checked && TargetInfo.HPP > 1)
@@ -350,6 +353,10 @@
                 }
                 #endregion
             }
+            WindowInfo.KeyUp(API.Keys.NUMPAD8);
+            WindowInfo.KeyUp(API.Keys.NUMPAD2);
+            api.AutoFollow.IsAutoFollowing = false;
+            isMoving = false;
         }
         #endregion
         #region Thread - PET
@@ -460,8 +467,13 @@
                     }
                 }
                 #endregion;
-                if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15 && SMNSelect.SelectedItem.ToString() != "") SMNUseJA();
-                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18) PUPUseJA();
+                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18)
+                {
+                    if (SMNSelect.SelectedItem.ToString() != "")
+                         SMNUseJA();
+                    
+                    PUPUseJA();
+                }
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }

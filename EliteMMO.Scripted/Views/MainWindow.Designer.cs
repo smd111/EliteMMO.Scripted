@@ -65,6 +65,7 @@
             this.stayOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToSysTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enableMaintenanceModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.releasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,7 +151,8 @@
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.scriptsToolStripMenuItem,
             this.questsToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.optionsToolStripMenuItem,
+            this.releasToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -166,7 +168,7 @@
             this.navigationToolStripMenuItem,
             this.onEventToolStripMenuItem});
             this.scriptsToolStripMenuItem.Name = "scriptsToolStripMenuItem";
-            this.scriptsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.scriptsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.scriptsToolStripMenuItem.Text = "Scripts";
             // 
             // farmDNCToolStripMenuItem
@@ -233,7 +235,7 @@
             this.zaldonToolStripMenuItem});
             this.questsToolStripMenuItem.Enabled = false;
             this.questsToolStripMenuItem.Name = "questsToolStripMenuItem";
-            this.questsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.questsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.questsToolStripMenuItem.Text = "Quests";
             this.questsToolStripMenuItem.Visible = false;
             // 
@@ -269,7 +271,7 @@
             this.enableMaintenanceModeToolStripMenuItem});
             this.optionsToolStripMenuItem.Enabled = false;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             this.optionsToolStripMenuItem.Visible = false;
             // 
@@ -290,6 +292,15 @@
             this.enableMaintenanceModeToolStripMenuItem.Name = "enableMaintenanceModeToolStripMenuItem";
             this.enableMaintenanceModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.enableMaintenanceModeToolStripMenuItem.Text = "Maintenance Mode";
+            // 
+            // releasToolStripMenuItem
+            // 
+            this.releasToolStripMenuItem.Enabled = false;
+            this.releasToolStripMenuItem.Name = "releasToolStripMenuItem";
+            this.releasToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.releasToolStripMenuItem.Text = "Release Controles";
+            this.releasToolStripMenuItem.Visible = false;
+            this.releasToolStripMenuItem.Click += new System.EventHandler(this.releasToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -436,7 +447,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.Text = "Scripted - (open source ßeta v)";
+            this.Text = "Scripted OSS v1.0 Final";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.xmenu.ResumeLayout(false);
             this.xmenu.PerformLayout();
@@ -488,5 +499,6 @@
         public Label header3;
         public Label header4;
         private ToolStripMenuItem manualToolStripMenuItem;
+        private ToolStripMenuItem releasToolStripMenuItem;
     }
 }

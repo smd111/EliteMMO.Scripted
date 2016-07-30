@@ -38,7 +38,6 @@
         #endregion
         #region Variables: (NAV)
         public bool OpenDoor = false;
-        public dynamic LRKey = API.Keys.NUMPAD4;
         public string lastcommandtarget = "";
         public float idleX;
         public float idleY;
@@ -10223,6 +10222,8 @@
             else if (PlayerInfo.HasBuff(385)) { retVal = 5; }
             else if (PlayerInfo.HasBuff(588)) { retVal = 6; }
 
+            if (retVal == 0)
+                return;
 
             if (PlayerInfo.Status == 1 && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
                 Recast.GetAbilityRecast(222) == 0 && Recast.GetAbilityRecast(226) == 0)
@@ -10236,12 +10237,12 @@
                     }
                     //else if (useaniflo.Checked && (useanifloValue.Value == retVal || useanifloValue.Value == 7))
                     //{
-                    //    api.ThirdParty.SendString("/ja \"Animated Flourish\" <me>");
+                    //    api.ThirdParty.SendString("/ja \"Animated Flourish\" <t>");
                     //    Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     //}
                     else if (usevioflo.Checked && (useviofloValue.Value == retVal || useviofloValue.Value == 7))
                     {
-                        api.ThirdParty.SendString("/ja \"Violent Flourish\" <me>");
+                        api.ThirdParty.SendString("/ja \"Violent Flourish\" <t>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                     else if (usebldflo.Checked && (usebldfloValue.Value == retVal || usebldfloValue.Value == 7))
@@ -10251,12 +10252,12 @@
                     }
                     else if (usedesflo.Checked && (usedesfloValue.Value == retVal || usedesfloValue.Value == 7))
                     {
-                        api.ThirdParty.SendString("/ja \"Desperate Flourish\" <me>");
+                        api.ThirdParty.SendString("/ja \"Desperate Flourish\" <t>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                     else if (usewldflo.Checked && (usewldfloValue.Value == retVal || usewldfloValue.Value == 7))
                     {
-                        api.ThirdParty.SendString("/ja \"Wild Flourish\" <me>");
+                        api.ThirdParty.SendString("/ja \"Wild Flourish\" <t>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
                     else if (useclmflo.Checked && (useclmfloValue.Value == retVal || useclmfloValue.Value == 7))
@@ -11001,10 +11002,11 @@
             var count = 0;
             float lastPercent = 0;
             var castingbreak = false;
-            while (api.CastBar.Percent < 100)
+            var castPercent = api.CastBar.Percent;
+            while (castPercent < 1)
             {
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                var castPercent = api.CastBar.Percent;
+                castPercent = api.CastBar.Percent;
                 if (lastPercent != castPercent)
                 {
                     count = 0;
@@ -11012,7 +11014,7 @@
                 }
                 else if (count == 10)
                 {
-                    if (trust)
+                    if (trust && castPercent != 1)
                         castingbreak = true;
                     
                     break;
@@ -11028,32 +11030,6 @@
                 return;
             Thread.Sleep(TimeSpan.FromSeconds(2.0));
         }
-        /*private void Casting()
-        {
-            Thread.Sleep(TimeSpan.FromSeconds(0.5));
-            var count = 0;
-            float lastPercent = 0;
-            while (api.CastBar.Percent < 100)
-            {
-                Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                if (lastPercent != api.CastBar.Percent)
-                {
-                    count = 0;
-                    lastPercent = api.CastBar.Percent;
-                }
-                else if (count == 10)
-                {
-                    break;
-                }
-                else
-                {
-                    count++;
-                    lastPercent = api.CastBar.Percent;
-                }
-            }
-            isCasting = false;
-            Thread.Sleep(TimeSpan.FromSeconds(2.0));
-        }*/
         #endregion
         #region WS: WeaponSkill (use)
         private void PlayerWS()
@@ -12399,15 +12375,8 @@
         {
             var maxRange = 50.0;
             var outRange = -1;
-            //var navx = (runReverse.Checked ? navPathX.Reverse() : navPathX);
-            //var navy = (runReverse.Checked ? navPathY.Reverse() : navPathY);
-            //var navz = (runReverse.Checked ? navPathZ.Reverse() : navPathZ);
-            //for (int i = 0; i < navx.Count(); i++)
             for (int i = 0; i < navPathX.Count(); i++)
             {
-                //var x = Math.Pow(PlayerInfo.X - navx[i], 2.0);
-                //var z = Math.Pow(PlayerInfo.Z - navz[i], 2.0);
-                //var y = Math.Pow(PlayerInfo.Y - navy[i], 2.0);
                 var x = Math.Pow(PlayerInfo.X - navPathX[i], 2.0);
                 var z = Math.Pow(PlayerInfo.Z - navPathZ[i], 2.0);
                 var y = Math.Pow(PlayerInfo.Y - navPathY[i], 2.0);
@@ -12429,7 +12398,6 @@
                 api.AutoFollow.IsAutoFollowing = false;
                 OpenDoor = true;
                 TargetInfo.SetTarget(int.Parse(items[1]));
-                //TargetInfo.SetTarget(navPathdoor[navid])
                 Thread.Sleep(TimeSpan.FromSeconds(0.5));
                 api.ThirdParty.SendString("/lockon <t>");
                 Thread.Sleep(TimeSpan.FromSeconds(0.5));

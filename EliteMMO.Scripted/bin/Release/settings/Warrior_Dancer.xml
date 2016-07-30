@@ -17,13 +17,13 @@
         <CheckState>Unchecked</CheckState>
       </Control>
       <Control Type="System.Windows.Forms.RadioButton" Name="Linear">
-        <Checked>True</Checked>
-      </Control>
-      <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
         <Checked>False</Checked>
       </Control>
+      <Control Type="System.Windows.Forms.RadioButton" Name="Circular">
+        <Checked>True</Checked>
+      </Control>
       <Control Type="System.Windows.Forms.ComboBox" Name="selectedNavi">
-        <Text>test.Linear.xin</Text>
+        <Text>[Farm Bot]Foret de Hennetiel cp gain(Circular).xin</Text>
       </Control>
     </Control>
     <Control Type="System.Windows.Forms.GroupBox" Name="groupBox18">
