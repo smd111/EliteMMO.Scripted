@@ -12667,8 +12667,8 @@
         private void SelectedNaviSelectedIndexChanged(object sender, EventArgs e)
         {
             if (selectedNavi.Text == "") return;
-            if (selectedNavi.Text.Contains(".Linear.")) Linear.Checked = true;
-            else if (selectedNavi.Text.Contains(".Circular.")) Circular.Checked = true;
+            if (selectedNavi.Text.Contains("Linear")) Linear.Checked = true;
+            else if (selectedNavi.Text.Contains("Circular")) Circular.Checked = true;
             var path = string.Format("{0}\\Nav\\", Application.StartupPath);
             var navi = new FileInfo(path + selectedNavi.Text);
 

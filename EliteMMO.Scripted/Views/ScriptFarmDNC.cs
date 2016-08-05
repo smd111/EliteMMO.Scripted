@@ -467,11 +467,13 @@
                     }
                 }
                 #endregion;
-                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18)
+                if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15)
                 {
                     if (SMNSelect.SelectedItem.ToString() != "")
-                         SMNUseJA();
-                    
+                        SMNUseJA();
+                }
+                if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18)
+                {
                     PUPUseJA();
                 }
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));

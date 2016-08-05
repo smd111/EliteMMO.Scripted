@@ -148,7 +148,13 @@
                                 ((TextBox)ctrlToSet).Text = n["Text"].InnerText;
                                 break;
                             case "System.Windows.Forms.ComboBox":
-                                ((ComboBox)ctrlToSet).Text = "";
+                                if (((ComboBox)ctrlToSet).Text == "Not Selected")
+                                {
+                                    ((ComboBox)ctrlToSet).Text = n["Text"].InnerText;
+                                }
+                                else
+                                    ((ComboBox)ctrlToSet).Text = "";
+
                                 ((ComboBox)ctrlToSet).SelectedText = n["Text"].InnerText;
                                 break;
                             case "System.Windows.Forms.CheckBox":
