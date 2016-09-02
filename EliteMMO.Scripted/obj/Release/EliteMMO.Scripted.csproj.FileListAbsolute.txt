@@ -54,3 +54,4 @@ F:\User\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\
 F:\User\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.csproj.GenerateResource.Cache
 F:\User\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\Scripted.exe.manifest
 F:\User\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\Scripted.application
+F:\User\Steven\Documents\GitHub\EliteMMO.Scripted\EliteMMO.Scripted\obj\Release\EliteMMO.Scripted.csprojResolveAssemblyReference.cache

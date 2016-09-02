@@ -39,9 +39,9 @@
         #region Variables: (NAV)
         public bool OpenDoor = false;
         public string lastcommandtarget = "";
-        public float idleX;
-        public float idleY;
-        public float idleZ;
+        public static float idleX = float.NaN;
+        public static float idleY = float.NaN;
+        public static float idleZ = float.NaN;
         public double[] navPathX = new double[1];
         public double[] navPathZ = new double[1];
         public double[] navPathY = new double[1];
@@ -71,6 +71,7 @@
         public float SetEntityX = 0;
         public float SetEntityY = 0;
         public int indi = 0;
+        public Dictionary<string, dynamic> IndiDic = new Dictionary<string, dynamic>(){{"Active", false},{"Size", 0},{"Enemy", false},{"Element", 0}};
         public List<int> partyIDs = new List<int>();
         public List<int> ignoreTarget = new List<int>();
         public Dictionary<string, string> wantedID = new Dictionary<string, string>();
@@ -264,7 +265,7 @@
             };
         #endregion
         #region Magic Control
-            #region Skip MA List
+        #region Skip MA List
         public static Dictionary<uint, dynamic> skipSpellList = new Dictionary<uint, dynamic> {{12, true},{13, true},{81, true},{82, true},{83, true},{120, true},{121, true},
                 {122, true},{123, true},{124, true},{136, true},{137, true},{138, true},{139, true},{140, true},{241, true},{260, true},{261, true},{262, true},{263, true},
                 {264, true},{265, true},{494, true},{512, true},{514, true},{516, true},{518, true},{520, true},{523, true},{525, true},{526, true},{528, true},{546, true},
@@ -298,8 +299,8 @@
                 {1011, true},{1012, true},{1013, true},{1014, true},{1015, true},{1016, true}
                 #endregion
             };
-            #endregion
-        public static List<uint> UnbridledSpells = new List<uint>(new uint[] {736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753});
+        #endregion
+        public static List<uint> UnbridledSpells = new List<uint>(new uint[] { 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753 });
         public static List<string> Handledspells = new List<string>(new string[] {"Protect","Protect II","Protect III","Protect IV","Protect V","Protectra",
                 "Protectra II","Protectra III","Protectra IV","Protectra V","Shell","Shell II","Shell III","Shell IV","Shell V","Shellra","Shellra II",
                 "Shellra III","Shellra IV","Shellra V","Regen","Regen II","Regen III","Regen IV","Regen V","Refresh","Refresh II","Refresh III","Reraise",
@@ -341,13 +342,15 @@
                 {636, new {B=90,b=92}},{655, new {B=91}},{662, new {B=43}},{668, new {B=152}},{679, new {B=36}},{696, new {B=486}},
                 {737, new {B=93}},{750, new {B=604}},{840, new {B=568}},{845, new {B=581}},{846, new {B=581}},{855, new {B=274}},
                 {856, new {B=288}},{857, new {B=592}},{858, new {B=594}},{859, new {B=591}},{860, new {B=589}},{861, new {B=590}},{862, new {B=593}},
-                {863, new {B=596}},{864, new {B=595}},{879, new {B=597}},{895, new {B=432}},{768, new {I=86}},{769, new {I=93}},
-                {770, new {I=86}},{771, new {I=82}},{772, new {I=80}},{773, new {I=84}},{774, new {I=83}},{775, new {I=82}},{776, new {I=81}},
-                {777, new {I=85}},{778, new {I=86}},{779, new {I=80}},{780, new {I=83}},{781, new {I=81}},{782, new {I=85}},{783, new {I=84}},
-                {784, new {I=82}},{785, new {I=87}},{786, new {I=86}},{787, new {I=93}},{788, new {I=90}},{789, new {I=88}},{790, new {I=92}},
-                {791, new {I=91}},{792, new {I=89}},{793, new {I=94}},{794, new {I=95}},{795, new {I=91}},{796, new {I=89}},{797, new {I=90}},
-                {700, new {B=91}},{661, new {B=33}},{664, new {B=42}},{710, new {B=33}},{685, new {B=116}},{674, new {B=45}},
-                };
+                {863, new {B=596}},{864, new {B=595}},{879, new {B=597}},{895, new {B=432}},{768, new {I=86,P=0,B=539}},{769, new {I=93,E=0}},
+                {770, new {I=86,P=0,B=541}},{771, new {I=82,P=0,B=580}},{772, new {I=80,P=0,B=542}},{773, new {I=84,P=0,B=543}},
+                {774, new {I=83,P=0,B=544}},{775, new {I=82,P=0,B=545}},{776, new {I=81,P=0,B=546}},{777, new {I=85,P=0,B=547}},
+                {778, new {I=86,P=0,B=548}},{779, new {I=80,P=0,B=549}},{780, new {I=83,P=0,B=550}},{781, new {I=81,P=0,B=551}},
+                {782, new {I=85,P=0,B=552}},{783, new {I=84,P=0,B=553}},{784, new {I=82,P=0,B=554}},{785, new {I=87,P=0,B=555}},
+                {786, new {I=86,P=0,B=556}},{787, new {I=93,E=0}},{788, new {I=90,E=0}},{789, new {I=88,E=0}},{790, new {I=92,E=0}},
+                {791, new {I=91,E=0}},{792, new {I=89,E=0}},{793, new {I=94,E=0}},{794, new {I=95,E=0}},{795, new {I=91,E=0}},
+                {796, new {I=89,E=0}},{797, new {I=90,E=0}},{700, new {B=91}},{661, new {B=33}},{664, new {B=42}},{710, new {B=33}},
+                {685, new {B=116}},{674, new {B=45}},};
         public static Dictionary<int, dynamic> SCHcharges = new Dictionary<int, dynamic>()
             {{90, new {time=48,charges=5}},{70, new {time=60,charges=4}},{50, new {time=80,charges=3}},{30, new {time=120,charges=2}},{1, new {time=240,charges=1}},};
         #endregion
@@ -386,8 +389,8 @@
                     {817, new {b1=338,b2=309}}, {833, new {hpt=10}}, {835, new {b1=490,b2=340}},{836, new {b1=491}}, {837, new {b1=492}}, {840, new {}},
                     {841, new {}}, {842, new {b1=497}}, {845, new {b1=500}}, {846, new {b1=501}},{847, new {b1=502}}, {848, new {b1=503}}, {851, new {}},
                     {853, new {b1=507}}, {856, new {}}, {868, new {}}, {870, new {b1=523}},{871, new {b1=524}}, {872, new {b1=525}}, {873, new {b1=526}},
-                    {874, new {b1=527}}, {875, new {b1=528}}, {876, new {b1=529}},{877, new {b1=530}}, {878, new {b1=531}}, {879, new {b1=532}}, {880, new {}},
-                    {881, new {b1=533}}, {883, new {b1=535}}, {884, new {}},{895, new {}}, {885, new {b1=537}}, {886, new {b1=538}}, {887, new {}},
+                    {874, new {b1=527}}, {875, new {b1=528}}, {876, new {b1=529}},{877, new {b1=530}}, {878, new {b1=531,b2=535}}, {879, new {b1=532}}, {880, new {}},
+                    {881, new {b1=533}}, {883, new {b1=535,b2=531}}, {884, new {}},{895, new {}}, {885, new {b1=537}}, {886, new {b1=538}}, {887, new {}},
                     {888, new {b1=570}}, {890, new {}}, {901, new {b1=599}},{902, new {b1=339,b2=309}}, {903, new {b1=600,b2=309}}, {904, new {b1=601}},
                     #endregion
                     #region monJA control
@@ -521,6 +524,23 @@
         {
             BitArray ba = new BitArray(new int[] { b });
             return ba.Get(bitNumber);
+        }
+        public void IntToIndiStat(int number)//public Dictionary<string, dynamic> IntToIndiStat(int number)
+        {
+            var binary = string.Empty;
+            while (number > 0)
+            {
+                binary = (number & 1) + binary;
+                number = number >> 1;
+            }
+            binary = binary.PadLeft(8, '0');
+            IndiDic.Clear();
+            //Dictionary<string, dynamic> IndiDic = new Dictionary<string, dynamic>();
+            IndiDic.Add("Active", Convert.ToBoolean(Convert.ToInt16(binary.Substring(1, 1))));
+            IndiDic.Add("Size", Convert.ToInt32(binary.Substring(2, 2), 2));
+            IndiDic.Add("Enemy", Convert.ToBoolean(Convert.ToInt16(binary.Substring(4, 1))));
+            IndiDic.Add("Element", Convert.ToInt32(binary.Substring(5, 3), 2));
+            //return IndiDic;
         }
         //public static int GetBitsToInt(int b, int start, int end)
         //{
@@ -7764,7 +7784,8 @@
             this.hudtext.TabIndex = 22;
             this.hudtext.TabStop = false;
             this.hudtext.Text = "Scripted:{0}\r\nTargeting Mode: {1}\r\nHP: {7}/{8}\r\nMP: {10}/{11}\r\nTP: {13}\r\nCurrent " +
-    "Target: {25}\r\nTarget HP: {27}%\r\nCurrent Game Time: {31}:{32}\r\nRunning: {30}\r\n\r\n";
+    "Target: {25}\r\nTarget HP: {27}%\r\nCurrent Game Time: {31}:{32}\r\nRunning: {30}\r\nInd" +
+    "i- info: {35}\r\n\r\n";
             this.hudtext.WordWrap = false;
             // 
             // hudY
@@ -9022,6 +9043,7 @@
                 "        32 = In-Game Minute\n" +
                 "        33 = OnEvent Last Chat Line Triggered On\n" +
                 "        34 = Last Function Reached\n" +
+                "        35 = Indi- Info\n" +
                 "" +
                 "Example:\n" +
                 "    For players current hp/maxhp use: {7}/{8}\n", "In-Game HUD varables");
@@ -9865,6 +9887,10 @@
             {
                 case DialogResult.OK:
                     FormSerialisor.Deserialise(this, openFile.FileName);
+                    if (!float.IsNaN(idleX) || !float.IsNaN(idleY) || !float.IsNaN(idleZ))
+                    {
+                        RecordIdleLocation.Text = $"X:{idleX.ToString("00.###")}/Y:{idleY.ToString("00.###")}/Z:{idleZ.ToString("00.###")}";
+                    }
                     break;
             }
             isLoading = false;
@@ -10570,10 +10596,31 @@
                             if (!NINtoolCheck(magic.Name[0].Replace(": Ichi", "").Replace(": Ni", "").Replace(": San", ""))) continue;
                             else castSpell = true;
                         }
+                        //else if (macontrol[magic.Index].ToString().Contains("I ="))
+                        //{
+                        //    if (macontrol[magic.Index].I != indi)
+                        //        castSpell = true;
+                        //}
                         else if (macontrol[magic.Index].ToString().Contains("I ="))
                         {
-                            if (macontrol[magic.Index].I != indi)
+                            if (IndiDic["Active"])
+                            {
+                                if (macontrol[magic.Index].ToString().Contains("P ="))
+                                {
+                                    if (IndiDic["Element"] != magic.Element || IndiDic["Enemy"] ||
+                                       !PlayerInfo.HasBuff((short)macontrol[magic.Index].B))
+                                        castSpell = true;
+                                }
+                                else if (macontrol[magic.Index].ToString().Contains("E ="))
+                                {
+                                    if (IndiDic["Element"] != magic.Element || !IndiDic["Enemy"])
+                                        castSpell = true;
+                                }
+                            }
+                            else
+                            {
                                 castSpell = true;
+                            }
                         }
                         else if (macontrol[magic.Index].ToString().Contains("b ="))
                         {
@@ -12732,11 +12779,10 @@
                     
                     var sstr = str.Split(':');
                     if (sstr[0] == "INDI")
-                        indi = int.Parse(sstr[1]);
+                        IntToIndiStat(int.Parse(sstr[1]));//indi = int.Parse(sstr[1]);
                 }
             }
         }
-
         private Button hudinfobutton;
         private Panel panel2;
         private Label label40;

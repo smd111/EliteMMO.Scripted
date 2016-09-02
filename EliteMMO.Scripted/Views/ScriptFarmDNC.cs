@@ -466,16 +466,20 @@
                         WyvernUseJA();
                     }
                 }
-                #endregion;
+                #endregion
+                #region pet: SMN
                 if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15)
                 {
                     if (SMNSelect.SelectedItem.ToString() != "")
                         SMNUseJA();
                 }
+                #endregion
+                #region pet: PUP
                 if (PlayerInfo.MainJob == 18 || PlayerInfo.SubJob == 18)
                 {
                     PUPUseJA();
                 }
+                #endregion
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
             }
         }
@@ -659,7 +663,8 @@
                                 PlayerInfo.CapacityPoints, PlayerInfo.MeritPoints, PetInfo.Name, PetInfo.ID, PetInfo.HPP, PetInfo.MPP,
                                 PetInfo.TPP, Statuses[PetInfo.Status], PartyInfo.Count(), PartyInfo.averageHPP(), TargetInfo.Name, TargetInfo.ID.ToString("X"),
                                 TargetInfo.HPP, TargetInfo.Distance, (TargetInfo.LockedOn ? "YES" : "NO"), (botRunning ? "YES" : "NO"),
-                                api.VanaTime.CurrentHour, api.VanaTime.CurrentMinute.ToString("00"), ScriptOnEventTool.triggeredline, CFD);
+                                api.VanaTime.CurrentHour, api.VanaTime.CurrentMinute.ToString("00"), ScriptOnEventTool.triggeredline, CFD,
+                                (IndiDic["Active"] ? $"Element ID {IndiDic["Element"]}:Target {(IndiDic["Enemy"] ? "Enemy" : "Party")}" : "Not Active"));
                     }
 
                     api.ThirdParty.SetText("ScriptedHUD", msg);

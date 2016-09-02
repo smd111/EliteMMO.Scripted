@@ -1,5 +1,6 @@
 ﻿namespace FormSerialisation
 {
+    using EliteMMO.Scripted.Views;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -16,10 +17,16 @@
             xmlSerialisedForm.WriteStartDocument();
             xmlSerialisedForm.WriteStartElement("ChildForm");
             AddChildControls(xmlSerialisedForm, c);
+            xmlSerialisedForm.WriteStartElement("Extra");
+            xmlSerialisedForm.WriteAttributeString("idleX", ScriptFarmDNC.idleX.ToString());
+            xmlSerialisedForm.WriteAttributeString("idleY", ScriptFarmDNC.idleY.ToString());
+            xmlSerialisedForm.WriteAttributeString("idleZ", ScriptFarmDNC.idleZ.ToString());
+            xmlSerialisedForm.WriteEndElement();
             xmlSerialisedForm.WriteEndElement();
             xmlSerialisedForm.WriteEndDocument();
             xmlSerialisedForm.Flush();
             xmlSerialisedForm.Close();
+            
         }
         private static void AddChildControls(XmlTextWriter xmlSerialisedForm, Control c)
         {
@@ -98,10 +105,18 @@
                 {
                     SetControlProperties((Control)c, n);
                 }
+                XmlNode secondLevel = xmlSerialisedForm.ChildNodes[2];
             }
         }
         private static void SetControlProperties(Control currentCtrl, XmlNode n)
         {
+            if (n.Name == "Extra")
+            {
+                ScriptFarmDNC.idleX = float.Parse(n["idleX"].InnerText);
+                ScriptFarmDNC.idleY = float.Parse(n["idleY"].InnerText);
+                ScriptFarmDNC.idleZ = float.Parse(n["idleZ"].InnerText);
+                return;
+            }
             string controlName = n.Attributes["Name"].Value;
             if (controlName == "") return;
             string controlType = n.Attributes["Type"].Value;

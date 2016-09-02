@@ -8,6 +8,7 @@
     using System.Net;
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
+    using System.Xml;
     public partial class MainWindow : Form
     {
         public static ScriptFarmDNC farmbot;
@@ -420,7 +421,6 @@
             /*api.ThirdParty.SetText("ScriptedHUD", "Scripted:SkillUpBot");
             api.ThirdParty.FlushCommands();*/
         }
-
         private void releasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             api.ThirdParty.KeyUp(API.Keys.NUMPAD8);
