@@ -9,6 +9,8 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Media;
+    using System.Text.RegularExpressions;
+    using System.ComponentModel;
     public partial class ScriptFarmDNC : UserControl
     {
         public ScriptFarmDNC(EliteAPI core)
@@ -705,8 +707,24 @@
                 if (PlayerInfo.Status == 1 && staggerstopJA.Checked)
                 {
                     var line = api.Chat.GetNextChatLine();
-                    if (!string.IsNullOrEmpty(line?.Text) && line.Text.Contains($"{PlayerInfo.Name}'s attack staggers the fiend!")) MonStagered = true;
-                    else if (!string.IsNullOrEmpty(line?.Text) && line.Text.Contains("Auto-targeting the ")) MonStagered = false;
+                    if (!string.IsNullOrEmpty(line?.Text))
+                    {
+                        //if (line.Text.Contains("attack staggers the fiend!"))
+                        //{
+                        //    if (PartyInfo.Count() > 1)
+                        //    {
+                        //        foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
+                        //        {
+                        //            if (line.Text.Contains($"{member.Name}'s attack staggers the fiend!"))
+                        //                MonStagered = true;
+                        //        }
+                        //    }
+                        //    else if (line.Text.Contains($"{PlayerInfo.Name}'s attack staggers the fiend!")) MonStagered = true;
+
+                        //}
+                        if (line.Text.Contains($"{PlayerInfo.Name}'s attack staggers the fiend!")) MonStagered = true;
+                        else if (line.Text.Contains("Auto-targeting the ")) MonStagered = false;
+                    }
                 }
                 else MonStagered = false;
             }
@@ -717,7 +735,6 @@
         private void Run_Test_Code(object sender, EventArgs e)
         {
             //
-            api.ThirdParty.SendString($"/echo {indi}");
         }
         #endregion
     }

@@ -17,10 +17,12 @@
             xmlSerialisedForm.WriteStartDocument();
             xmlSerialisedForm.WriteStartElement("ChildForm");
             AddChildControls(xmlSerialisedForm, c);
-            xmlSerialisedForm.WriteStartElement("Extra");
-            xmlSerialisedForm.WriteAttributeString("idleX", ScriptFarmDNC.idleX.ToString());
-            xmlSerialisedForm.WriteAttributeString("idleY", ScriptFarmDNC.idleY.ToString());
-            xmlSerialisedForm.WriteAttributeString("idleZ", ScriptFarmDNC.idleZ.ToString());
+            xmlSerialisedForm.WriteStartElement("Control");
+            xmlSerialisedForm.WriteAttributeString("Type", "Extra");
+            xmlSerialisedForm.WriteAttributeString("Name", "Extra");
+            xmlSerialisedForm.WriteElementString("idleX", ScriptFarmDNC.idleX.ToString());
+            xmlSerialisedForm.WriteElementString("idleY", ScriptFarmDNC.idleY.ToString());
+            xmlSerialisedForm.WriteElementString("idleZ", ScriptFarmDNC.idleZ.ToString());
             xmlSerialisedForm.WriteEndElement();
             xmlSerialisedForm.WriteEndElement();
             xmlSerialisedForm.WriteEndDocument();
@@ -110,14 +112,13 @@
         }
         private static void SetControlProperties(Control currentCtrl, XmlNode n)
         {
-            if (n.Name == "Extra")
+            string controlName = n.Attributes["Name"].Value;
+            if (controlName == "Extra")
             {
                 ScriptFarmDNC.idleX = float.Parse(n["idleX"].InnerText);
                 ScriptFarmDNC.idleY = float.Parse(n["idleY"].InnerText);
                 ScriptFarmDNC.idleZ = float.Parse(n["idleZ"].InnerText);
-                return;
             }
-            string controlName = n.Attributes["Name"].Value;
             if (controlName == "") return;
             string controlType = n.Attributes["Type"].Value;
             if (controlType == "") return;
@@ -131,6 +132,8 @@
                     {
                         switch (controlType)
                         {
+                            case "Extra":
+                                break;
                             case "System.Windows.Forms.CheckedListBox":
                                 CheckedListBox ltr = (CheckedListBox)ctrlToSet;
                                 var Icount=Convert.ToInt32(n["SelectedIndexcount"].InnerText);

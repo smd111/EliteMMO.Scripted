@@ -525,7 +525,7 @@
             BitArray ba = new BitArray(new int[] { b });
             return ba.Get(bitNumber);
         }
-        public void IntToIndiStat(int number)//public Dictionary<string, dynamic> IntToIndiStat(int number)
+        public void IntToIndiStat(int number)
         {
             var binary = string.Empty;
             while (number > 0)
@@ -535,23 +535,11 @@
             }
             binary = binary.PadLeft(8, '0');
             IndiDic.Clear();
-            //Dictionary<string, dynamic> IndiDic = new Dictionary<string, dynamic>();
             IndiDic.Add("Active", Convert.ToBoolean(Convert.ToInt16(binary.Substring(1, 1))));
             IndiDic.Add("Size", Convert.ToInt32(binary.Substring(2, 2), 2));
             IndiDic.Add("Enemy", Convert.ToBoolean(Convert.ToInt16(binary.Substring(4, 1))));
             IndiDic.Add("Element", Convert.ToInt32(binary.Substring(5, 3), 2));
-            //return IndiDic;
         }
-        //public static int GetBitsToInt(int b, int start, int end)
-        //{
-        //    BitArray ba = new BitArray(new int[] { b });
-        //    var bin = "";
-        //    for (var x = start; x < end; x++)
-        //    {
-        //        bin = bin+$"{(ba.Get(x) ? 1 : 0)}";
-        //    }
-        //    return Convert.ToInt32(bin, 2);
-        //}
         #region Component Designer generated code
         /// <summary> 
         /// Required method for Designer support - do not modify 
@@ -8023,15 +8011,12 @@
             // 
             // button1
             // 
-            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(142, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
-            this.button1.TabStop = false;
             this.button1.Text = "Run Test";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Run_Test_Code);
             // 
             // playertp
@@ -9422,6 +9407,7 @@
             bgw_script_pet.CancelAsync();
             bgw_script_nav.CancelAsync();
             bgw_script_chat.CancelAsync();
+            bgw_script_sch.CancelAsync();
         }
         private void PlayerDead()
         {
@@ -10096,35 +10082,33 @@
                (PlayerInfo.Status != 1 || !botRunning || PlayerInfo.HasBuff(16)))
                 return;
 
-            if (usecurev.Checked && TargetInfo.ID > 0 && Recast.GetAbilityRecast(217) == 0 &&
-                PlayerInfo.HPP <= usecurevValue.Value && PlayerInfo.TP > 800)
+            if (TargetInfo.ID > 0 && Recast.GetAbilityRecast(217) == 0)
             {
-                api.ThirdParty.SendString("/ja \"Curing Waltz V\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (usecureiv.Checked && TargetInfo.ID > 0 && Recast.GetAbilityRecast(217) == 0 &&
-                     PlayerInfo.HPP <= usecureivValue.Value && PlayerInfo.TP > 650)
-            {
-                api.ThirdParty.SendString("/ja \"Curing Waltz IV\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (usecureiii.Checked && Recast.GetAbilityRecast(217) == 0 && PlayerInfo.TP > 500 &&
-                     PlayerInfo.HPP <= usecureiiiValue.Value && TargetInfo.ID > 0)
-            {
-                api.ThirdParty.SendString("/ja \"Curing Waltz III\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (usecureii.Checked && TargetInfo.ID > 0 && Recast.GetAbilityRecast(217) == 0 &&
-                     PlayerInfo.HPP <= usecureiiValue.Value && PlayerInfo.TP > 350)
-            {
-                api.ThirdParty.SendString("/ja \"Curing Waltz II\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (usecure.Checked && TargetInfo.ID > 0 && Recast.GetAbilityRecast(217) == 0 &&
-                     PlayerInfo.HPP <= usecureValue.Value && PlayerInfo.TP > 200)
-            {
-                api.ThirdParty.SendString("/ja \"Curing Waltz\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                if (usecurev.Checked && PlayerInfo.HPP <= usecurevValue.Value && PlayerInfo.TP > 800)
+                {
+                    api.ThirdParty.SendString("/ja \"Curing Waltz V\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (usecureiv.Checked && PlayerInfo.HPP <= usecureivValue.Value && PlayerInfo.TP > 650)
+                {
+                    api.ThirdParty.SendString("/ja \"Curing Waltz IV\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (usecureiii.Checked && PlayerInfo.HPP <= usecureiiiValue.Value && PlayerInfo.TP > 500)
+                {
+                    api.ThirdParty.SendString("/ja \"Curing Waltz III\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (usecureii.Checked && PlayerInfo.HPP <= usecureiiValue.Value && PlayerInfo.TP > 350)
+                {
+                    api.ThirdParty.SendString("/ja \"Curing Waltz II\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (usecure.Checked && PlayerInfo.HPP <= usecureValue.Value && PlayerInfo.TP > 200)
+                {
+                    api.ThirdParty.SendString("/ja \"Curing Waltz\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
             }
         }
         #endregion
@@ -10192,41 +10176,38 @@
                (PlayerInfo.Status != 1 || !botRunning || PlayerInfo.HasBuff(16) || PlayerInfo.HasBuff(411)))
                 return;
 
-            if (usedrain.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                !PlayerInfo.HasBuff(368) && Recast.GetAbilityRecast(216) == 0 && PlayerInfo.TP > 100)
+            if (Recast.GetAbilityRecast(216) == 0 && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID))
             {
-                api.ThirdParty.SendString("/ja \"Drain Samba\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (usedrainii.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                     !PlayerInfo.HasBuff(368) && Recast.GetAbilityRecast(216) == 0 && PlayerInfo.TP > 250)
-            {
-                api.ThirdParty.SendString("/ja \"Drain Samba II\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (usedrainiii.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                     !PlayerInfo.HasBuff(368) && Recast.GetAbilityRecast(216) == 0 && PlayerInfo.TP > 300)
-            {
-                api.ThirdParty.SendString("/ja \"Drain Samba III\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (useaspir.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                     !PlayerInfo.HasBuff(369) && Recast.GetAbilityRecast(216) == 0 && PlayerInfo.TP > 100)
-            {
-                api.ThirdParty.SendString("/ja \"Aspir Samba\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (useaspirii.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                     !PlayerInfo.HasBuff(369) && Recast.GetAbilityRecast(216) == 0 && PlayerInfo.TP > 250)
-            {
-                api.ThirdParty.SendString("/ja \"Aspir Samba II\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (usehaste.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                     !PlayerInfo.HasBuff(370) && Recast.GetAbilityRecast(216) == 0 && PlayerInfo.TP > 350)
-            {
-                api.ThirdParty.SendString("/ja \"Haste Samba\" <me>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                if (usedrain.Checked && !PlayerInfo.HasBuff(368) && PlayerInfo.TP > 100)
+                {
+                    api.ThirdParty.SendString("/ja \"Drain Samba\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (usedrainii.Checked && !PlayerInfo.HasBuff(368) && PlayerInfo.TP > 250)
+                {
+                    api.ThirdParty.SendString("/ja \"Drain Samba II\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (usedrainiii.Checked && !PlayerInfo.HasBuff(368) && PlayerInfo.TP > 300)
+                {
+                    api.ThirdParty.SendString("/ja \"Drain Samba III\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (useaspir.Checked && !PlayerInfo.HasBuff(369) && PlayerInfo.TP > 100)
+                {
+                    api.ThirdParty.SendString("/ja \"Aspir Samba\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (useaspirii.Checked && !PlayerInfo.HasBuff(369) && PlayerInfo.TP > 250)
+                {
+                    api.ThirdParty.SendString("/ja \"Aspir Samba II\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (usehaste.Checked && !PlayerInfo.HasBuff(370) && PlayerInfo.TP > 350)
+                {
+                    api.ThirdParty.SendString("/ja \"Haste Samba\" <me>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
             }
         }
         #endregion
@@ -10252,7 +10233,7 @@
                 return;
 
             if (PlayerInfo.Status == 1 && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                Recast.GetAbilityRecast(222) == 0 && Recast.GetAbilityRecast(226) == 0)
+                Recast.GetAbilityRecast(221) == 0 && Recast.GetAbilityRecast(222) == 0 && Recast.GetAbilityRecast(226) == 0)
             {
                 if (!FlourishTP.Checked || (FlourishTP.Checked && PlayerInfo.TP > FlourishTPValue.Value))
                 {
@@ -10261,11 +10242,6 @@
                         api.ThirdParty.SendString("/ja \"Reverse Flourish\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    //else if (useaniflo.Checked && (useanifloValue.Value == retVal || useanifloValue.Value == 7))
-                    //{
-                    //    api.ThirdParty.SendString("/ja \"Animated Flourish\" <t>");
-                    //    Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    //}
                     else if (usevioflo.Checked && (useviofloValue.Value == retVal || useviofloValue.Value == 7))
                     {
                         api.ThirdParty.SendString("/ja \"Violent Flourish\" <t>");
@@ -10281,7 +10257,7 @@
                         api.ThirdParty.SendString("/ja \"Desperate Flourish\" <t>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    else if (usewldflo.Checked && (usewldfloValue.Value == retVal || usewldfloValue.Value == 7))
+                    else if (usewldflo.Checked && (usewldfloValue.Value == retVal || usewldfloValue.Value == 7) && retVal >= 2)
                     {
                         api.ThirdParty.SendString("/ja \"Wild Flourish\" <t>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -10291,12 +10267,12 @@
                         api.ThirdParty.SendString("/ja \"Climactic Flourish\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    else if (usestkflo.Checked && (usestkfloValue.Value == retVal || usestkfloValue.Value == 7))
+                    else if (usestkflo.Checked && (usestkfloValue.Value == retVal || usestkfloValue.Value == 7) && retVal >= 2)
                     {
                         api.ThirdParty.SendString("/ja \"Striking Flourish\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
                     }
-                    else if (useterflo.Checked && (useterfloValue.Value == retVal || useterfloValue.Value == 7))
+                    else if (useterflo.Checked && (useterfloValue.Value == retVal || useterfloValue.Value == 7) && retVal >= 3)
                     {
                         api.ThirdParty.SendString("/ja \"Ternary Flourish\" <me>");
                         Thread.Sleep(TimeSpan.FromSeconds(1.0));
@@ -10331,29 +10307,28 @@
 
             if (stopstepsat.Checked && retVal >= stopstepscount.Value) return;
 
-            if (usequickstep.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                !PlayerInfo.HasBuff(588) && Recast.GetAbilityRecast(220) == 0)
+            if (!PlayerInfo.HasBuff(588) && Recast.GetAbilityRecast(220) == 0 && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID))
             {
-                api.ThirdParty.SendString("/ja \"Quickstep\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (useboxstep.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                     !PlayerInfo.HasBuff(588) && Recast.GetAbilityRecast(220) == 0)
-            {
-                api.ThirdParty.SendString("/ja \"Box Step\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (usestutterstep.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                     !PlayerInfo.HasBuff(588) && Recast.GetAbilityRecast(220) == 0)
-            {
-                api.ThirdParty.SendString("/ja \"Stutter Step\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
-            }
-            else if (usefeatherstep.Checked && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID) &&
-                     !PlayerInfo.HasBuff(588) && Recast.GetAbilityRecast(220) == 0)
-            {
-                api.ThirdParty.SendString("/ja \"Feather Step\" <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                if (usequickstep.Checked)
+                {
+                    api.ThirdParty.SendString("/ja \"Quickstep\" <t>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (useboxstep.Checked)
+                {
+                    api.ThirdParty.SendString("/ja \"Box Step\" <t>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (usestutterstep.Checked)
+                {
+                    api.ThirdParty.SendString("/ja \"Stutter Step\" <t>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }
+                else if (usefeatherstep.Checked)
+                {
+                    api.ThirdParty.SendString("/ja \"Feather Step\" <t>");
+                    Thread.Sleep(TimeSpan.FromSeconds(2.0));
+                }                
             }
         }
         #endregion
@@ -11053,6 +11028,8 @@
             while (castPercent < 1)
             {
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                if (TargetInfo.ID == PlayerInfo.ServerID)
+                    SetTarget(0);
                 castPercent = api.CastBar.Percent;
                 if (lastPercent != castPercent)
                 {
@@ -11061,7 +11038,7 @@
                 }
                 else if (count == 10)
                 {
-                    if (trust && castPercent != 1)
+                    if (trust && TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID)
                         castingbreak = true;
                     
                     break;

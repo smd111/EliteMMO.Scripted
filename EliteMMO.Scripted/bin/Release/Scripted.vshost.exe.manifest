@@ -4,7 +4,7 @@
   <description asmv2:iconFile="1418924805_45123.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Scripted" version="1.0.0.2" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="Scripted" version="1.0.0.4" language="neutral" processorArchitecture="x86" />
     <commandLine file="Scripted.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -68,13 +68,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="762784">
-      <assemblyIdentity name="Scripted" version="1.0.0.2" language="neutral" processorArchitecture="x86" />
+      <assemblyIdentity name="Scripted" version="1.0.0.4" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9Hknxh5BDTQ/vO3cnYQCKaRt6b0=</dsig:DigestValue>
+        <dsig:DigestValue>K9At19K3tlcMF+NX3tMwENVTVZg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
