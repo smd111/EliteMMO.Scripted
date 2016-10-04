@@ -9,8 +9,6 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Media;
-    using System.Text.RegularExpressions;
-    using System.ComponentModel;
     public partial class ScriptFarmDNC : UserControl
     {
         public ScriptFarmDNC(EliteAPI core)
@@ -86,11 +84,11 @@
 
                                 if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
                                     break;
-                                if (mobStuckWatch.Checked && isStuck(1))
+                                if (mobStuckWatch.Checked && isStuck(true))
                                 {
                                     int count = 0;
                                     float dir = -45;
-                                    while (isStuck(1))
+                                    while (isStuck(true))
                                     {
                                         if (TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.ServerID)
                                             break;
@@ -139,12 +137,7 @@
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                     {
                         if (selectedHateControl.Text == @"Animated Flourish" &&
-                           (PlayerInfo.HasBuff(381) ||
-                            PlayerInfo.HasBuff(382) ||
-                            PlayerInfo.HasBuff(383) ||
-                            PlayerInfo.HasBuff(384) ||
-                            PlayerInfo.HasBuff(385) ||
-                            PlayerInfo.HasBuff(588)) &&
+                           PlayerInfo.GetFinishingMoves() > 0 &&
                             Recast.GetAbilityRecast(221) == 0)
                         {
                             if (TargetInfo.HPP >= numericUpDown7.Value &&
@@ -227,12 +220,7 @@
                     PlayerWS();
                     PlayerMA();
 
-                    if (PlayerInfo.HasBuff(381) ||
-                        PlayerInfo.HasBuff(382) ||
-                        PlayerInfo.HasBuff(383) ||
-                        PlayerInfo.HasBuff(384) ||
-                        PlayerInfo.HasBuff(385) ||
-                        PlayerInfo.HasBuff(588))
+                    if (PlayerInfo.GetFinishingMoves() > 0)
                     {
                         if (userevfloValue.Value > 0 ||
                             usebldfloValue.Value > 0 ||
@@ -596,7 +584,7 @@
 
                 Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 if (navStuckWatch.Checked && naviMove && usenav.Checked && selectedNavi.Text != "" &&
-                    api.AutoFollow.IsAutoFollowing && isStuck(0))
+                    api.AutoFollow.IsAutoFollowing && isStuck())
                 {
                     api.AutoFollow.IsAutoFollowing = false;
                     api.Entity.GetLocalPlayer().H = PlayerInfo.H + (float)((Math.PI / 180) * dir);
@@ -620,19 +608,22 @@
             DateTime last = DateTime.Now;
             while (botRunning && !bgw_script_sch.CancellationPending)
             {
-                foreach (KeyValuePair<int, dynamic> kvp in SCHcharges)
+                if (PlayerInfo.MainJob == 20 || PlayerInfo.SubJob == 20)
                 {
-                    int lvl = 1;
-                    if (PlayerInfo.MainJob == 20) lvl = PlayerInfo.MainJobLevel;
-                    else if (PlayerInfo.SubJob == 20) lvl = PlayerInfo.SubJobLevel;
-                    int time = (lvl == 99 && PlayerInfo.UsedJobPoints >= 550 ? 33 : kvp.Value.time);
-                    DateTime now = DateTime.Now;
-                    if (lvl >= kvp.Key && Math.Abs(now.Subtract(last).TotalSeconds) >= time)
+                    foreach (KeyValuePair<int, dynamic> kvp in SCHcharges)
                     {
-                        if (SchCharges < kvp.Value.charges)
-                            SchCharges++;
-                        last = now;
-                        break;
+                        int lvl = 1;
+                        if (PlayerInfo.MainJob == 20) lvl = PlayerInfo.MainJobLevel;
+                        else if (PlayerInfo.SubJob == 20) lvl = PlayerInfo.SubJobLevel;
+                        int time = (lvl == 99 && PlayerInfo.UsedJobPoints >= 550 ? 33 : kvp.Value.time);
+                        DateTime now = DateTime.Now;
+                        if (lvl >= kvp.Key && Math.Abs(now.Subtract(last).TotalSeconds) >= time)
+                        {
+                            if (SchCharges < kvp.Value.charges)
+                                SchCharges++;
+                            last = now;
+                            break;
+                        }
                     }
                 }
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
@@ -645,7 +636,8 @@
             var lastCommand = 0;
             while (!bgw_script_disp.CancellationPending)
             {
-                if (showHUD.Checked && hudshow)
+                Thread.Sleep(TimeSpan.FromSeconds(0.1));
+                if (showHUD.Checked)
                 {
                     var CFD = (PlayerInfo.Status == 1 && botRunning && TargetInfo.ID > 0 ? "Engaged" : "NotEngaged") + "/" + LastFunction + (isCasting ? "/Casting" : "");
                     var msg = $"Scripted:{currentbot}|";
@@ -681,10 +673,11 @@
                 if (PlayerInfo.MainJobLevel >= 75)
                     playermerits.Text = $"Merit Points: {PlayerInfo.MeritPoints}/75";
                 curtarg.Text = $"Current Target: {TargetInfo.Name}";
-                curtargid.Text = $"ID:{TargetInfo.ID.ToString("X")}";
+                curtargid.Text = $"ID: {TargetInfo.ID.ToString("X")}";
                 curtarghpp.Text = $"Target HP: {TargetInfo.HPP}%";
                 curtime.Text = $"Current Game Time: {api.VanaTime.CurrentHour}:{api.VanaTime.CurrentMinute.ToString("00")}";
-                if (Shutdownenable.Checked) shutdowntime();
+                if (Shutdownenable.Checked)
+                    shutdowntime();
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
                 var cmdTime = api.ThirdParty.ConsoleIsNewCommand();
                 var cmd1 = api.ThirdParty.ConsoleGetArg(0);
@@ -709,26 +702,17 @@
                     var line = api.Chat.GetNextChatLine();
                     if (!string.IsNullOrEmpty(line?.Text))
                     {
-                        //if (line.Text.Contains("attack staggers the fiend!"))
-                        //{
-                        //    if (PartyInfo.Count() > 1)
-                        //    {
-                        //        foreach (var member in api.Party.GetPartyMembers().Where(p => p.Active != 0).ToList())
-                        //        {
-                        //            if (line.Text.Contains($"{member.Name}'s attack staggers the fiend!"))
-                        //                MonStagered = true;
-                        //        }
-                        //    }
-                        //    else if (line.Text.Contains($"{PlayerInfo.Name}'s attack staggers the fiend!")) MonStagered = true;
-
-                        //}
-                        if (line.Text.Contains($"{PlayerInfo.Name}'s attack staggers the fiend!")) MonStagered = true;
-                        else if (line.Text.Contains("Auto-targeting the ")) MonStagered = false;
+                        if (line.Text.Contains($"{PlayerInfo.Name}'s attack staggers the fiend!"))
+                            MonStagered = true;
+                        else if (line.Text.Contains("Auto-targeting the "))
+                            MonStagered = false;
                     }
                 }
-                else MonStagered = false;
+                else if (MonStagered)
+                    MonStagered = false;
             }
-            MonStagered = false;
+            if (MonStagered)
+                MonStagered = false;
         }
         #endregion
         #region Code Testing section

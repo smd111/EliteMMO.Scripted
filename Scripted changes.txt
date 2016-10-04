@@ -1,0 +1,6 @@
+OSS v1.0.0.5 Final
+-farmbot
+--code clean-up
+--assist now blocks nav's and target seraches when in use
+--Sekkanoki will now default to your normal WS in none is selected
+--added Dimidiation WS to list

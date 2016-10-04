@@ -33,7 +33,6 @@
         public string PreHealSub = "";
         public string targeting = "Auto";
         public string currentbot = "FarmBot";
-        public bool hudshow = false;
         public string LastFunction = "";
         #endregion
         #region Variables: (NAV)
@@ -2150,7 +2149,8 @@
             "Daze",
             "Armor Piercer",
             "Cannibal Blade",
-            "Bone Crusher"});
+            "Bone Crusher",
+            "Dimidiation"});
             this.selectedWS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.selectedWS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.selectedWS.FormattingEnabled = true;
@@ -3578,7 +3578,8 @@
             "Daze",
             "Armor Piercer",
             "Cannibal Blade",
-            "Bone Crusher"});
+            "Bone Crusher",
+            "Dimidiation"});
             this.sekkanokiWs.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.sekkanokiWs.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.sekkanokiWs.FormattingEnabled = true;
@@ -8011,12 +8012,14 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(142, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "Run Test";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Run_Test_Code);
             // 
             // playertp
@@ -9049,8 +9052,6 @@
                 VivaciousPulse.Enabled = state;
                 VivaciousPulseHP.Enabled = state;
             }
-            
-            //api.ThirdParty.SendString($"/echo curItem=\"{curItem}\"/state={state}");
         }
         private void playerMA_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -9160,10 +9161,11 @@
         {
             if (ManualTargMode.Checked) usenav.Checked = false;
             usenav.Enabled = !ManualTargMode.Checked;
-            if (ManualTargMode.Checked)
+            /* if (ManualTargMode.Checked)
                 targeting = "Manual";
             else
-                targeting = "Auto";
+                targeting = "Auto"; */
+            targeting = (ManualTargMode.Checked ? "Manual" : "Auto");
         }
         private void verifyfood_Click(object sender, EventArgs e)
         {
@@ -9198,12 +9200,20 @@
             assistplayer.Enabled = assist.Checked;
             partyAssist.Checked = !assist.Checked;
             assistDist.Enabled = assist.Checked;
+            if (usenav.Checked)
+                usenav.Checked = false;
+            usenav.Enabled = !assist.Checked;
+            selectedNavi.Enabled = !assist.Checked;
         }
         private void partyAssist_CheckedChanged(object sender, EventArgs e)
         {
             assistplayer.Enabled = !partyAssist.Checked;
             assist.Checked = !partyAssist.Checked;
             assistDist.Enabled = partyAssist.Checked;
+            if (usenav.Checked)
+                usenav.Checked = false;
+            usenav.Enabled = !partyAssist.Checked;
+            selectedNavi.Enabled = !partyAssist.Checked;
         }
         private void IdToolStripMenuItemClick(object sender, EventArgs e)
         {
@@ -9330,18 +9340,19 @@
         }
         private void Shrinkbutton_Click(object sender, EventArgs e)
         {
-            if (dncControl.Visible)
+            /* if (dncControl.Visible)
             {
-                dncControl.Visible = false;
                 panel1.Location = new Point(10, 25);
                 Shrinkbutton.Text = ">>";
             }
             else
             {
-                dncControl.Visible = true;
                 panel1.Location = new Point(459, 25);
                 Shrinkbutton.Text = "<<";
-            }
+            } */
+            panel1.Location = new Point((dncControl.Visible ? 10 : 459), 25);
+            Shrinkbutton.Text = (dncControl.Visible ? ">>" : "<<");
+            dncControl.Visible = !dncControl.Visible;
         }
         private void showHUD_CheckedChanged(object sender, EventArgs e)
         {
@@ -9350,15 +9361,11 @@
                 api.ThirdParty.CreateTextObject("ScriptedHUD");
                 api.ThirdParty.SetVisibility("ScriptedHUD", true);
                 api.ThirdParty.SetFont("ScriptedHUD", "Arial", 10);
-                api.ThirdParty.FlushCommands();
-                hudshow = true;
             }
             else
-            {
                 api.ThirdParty.DeleteTextObject("ScriptedHUD");
-                api.ThirdParty.FlushCommands();
-                hudshow = false;
-            }
+            
+            api.ThirdParty.FlushCommands();
         }
         #endregion
         #region Methods: Start/Stop/Load
@@ -9382,6 +9389,10 @@
             startzone = api.Player.ZoneId;
             startScriptToolStripMenuItem.Enabled = false;
             stopScriptToolStripMenuItem.Enabled = true;
+            /* if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.TargetID) && PlayerInfo.Status == 0)
+            {
+                useTrust();
+            } */
             if (!bgw_script_dnc.IsBusy)
                 bgw_script_dnc.RunWorkerAsync();
             if (!bgw_script_pet.IsBusy)
@@ -9390,8 +9401,13 @@
                 bgw_script_nav.RunWorkerAsync();
             if (!bgw_script_chat.IsBusy)
                 bgw_script_chat.RunWorkerAsync();
-            if (PlayerInfo.MainJob != 20 && PlayerInfo.SubJob != 20) bgw_script_sch.CancelAsync();
-            else bgw_script_sch.RunWorkerAsync();
+            if (PlayerInfo.MainJob == 20 || PlayerInfo.SubJob == 20)
+            {
+                if (!bgw_script_sch.IsBusy)
+                    bgw_script_sch.RunWorkerAsync();
+            }
+            else
+                bgw_script_sch.CancelAsync();
         }
         private void ToolStopClick(object sender, EventArgs e)
         {
@@ -9651,53 +9667,39 @@
         {
             if (playerMA.Items.Count > 0)
                 playerMA.Items.Clear();
-            #region load MJ MA(main job)
             for (uint mm = 1; mm <= 895; mm++)
             {
-                var spellm = api.Resources.GetSpell(mm);
-                var spelllvlm = spellm.LevelRequired[PlayerInfo.MainJob];
-                if (spellm == null || skipSpellList.ContainsKey(mm) || playerMA.Items.Contains(spellm.Name[0])) continue;
-                if (spelllvlm != -1)
-                {
-                    if (PlayerInfo.HasSpell(mm) && PlayerInfo.MainJobLevel >= spelllvlm)
-                    {
-                        if (spellm.Skill == 43 && PlayerInfo.MainJob == 16)
-                        {
-                            if (UnbridledSpells.Contains(mm))
-                                playerMA.Items.Add(spellm.Name[0]);
-                            else if (PlayerInfo.HasBlueMagicSpellSet((int) mm))
-                                playerMA.Items.Add(spellm.Name[0]);
-                        }
-                        else if (spelllvlm <= 99)
-                        {
-                            playerMA.Items.Add(spellm.Name[0]);
-                        }
-                    }
-                    else if (PlayerInfo.MainJobLevel == 99 && PlayerInfo.UsedJobPoints >= spelllvlm)
-                        playerMA.Items.Add(spellm.Name[0]);
-                }
+                Check_Set_Spells(mm, PlayerInfo.MainJobLevel, PlayerInfo.MainJob);
             }
-            #endregion
-            #region load SJ MA(sub job)
             for (uint sm = 1; sm <= 895; sm++)
             {
-                var spells = api.Resources.GetSpell(sm);
-                var spelllvls = spells.LevelRequired[PlayerInfo.SubJob];
-                if (spells == null || skipSpellList.ContainsKey(sm) || playerMA.Items.Contains(spells.Name[0])) continue;
-                if (PlayerInfo.HasSpell(sm) && PlayerInfo.SubJobLevel >= spelllvls && spelllvls != -1)
-                {
-                    if (spells.Skill == 43 && PlayerInfo.SubJob == 16)
-                    {
-                        if (UnbridledSpells.Contains(sm))
-                            playerMA.Items.Add(spells.Name[0]);
-                        else if (PlayerInfo.HasBlueMagicSpellSet((int)sm))
-                            playerMA.Items.Add(spells.Name[0]);
-                    }
-                    else
-                        playerMA.Items.Add(spells.Name[0]);
-                }
+                Check_Set_Spells(sm, PlayerInfo.SubJobLevel, PlayerInfo.SubJob);
             }
-            #endregion
+        }
+        private void Check_Set_Spells(uint SpellID, int JobLvl, int Job)
+        {
+            var spell = api.Resources.GetSpell(SpellID);
+            var spelllvl = spell.LevelRequired[Job];
+            if (spell == null || skipSpellList.ContainsKey(spell.Index) || playerMA.Items.Contains(spell.Name[0])) return;
+            if (spelllvl != -1)
+            {
+                if (PlayerInfo.HasSpell(spell.Index) && JobLvl >= spelllvl)
+                {
+                    if (spell.Skill == 43 && Job == 16)
+                    {
+                        if (UnbridledSpells.Contains(spell.Index))
+                            playerMA.Items.Add(spell.Name[0]);
+                        else if (PlayerInfo.HasBlueMagicSpellSet((int)spell.Index))
+                            playerMA.Items.Add(spell.Name[0]);
+                    }
+                    else if (spelllvl <= 99)
+                    {
+                        playerMA.Items.Add(spell.Name[0]);
+                    }
+                }
+                else if (JobLvl == 99 && PlayerInfo.UsedJobPoints >= spelllvl)
+                    playerMA.Items.Add(spell.Name[0]);
+            }
         }
         private void ClearMA_Click(object sender, EventArgs e)
         {
@@ -10220,14 +10222,7 @@
 
             if (MonStagered && staggerstopJA.Checked) return;
 
-            var retVal = 0;
-
-            if (PlayerInfo.HasBuff(381)) { retVal = 1; }
-            else if (PlayerInfo.HasBuff(382)) { retVal = 2; }
-            else if (PlayerInfo.HasBuff(383)) { retVal = 3; }
-            else if (PlayerInfo.HasBuff(384)) { retVal = 4; }
-            else if (PlayerInfo.HasBuff(385)) { retVal = 5; }
-            else if (PlayerInfo.HasBuff(588)) { retVal = 6; }
+            var retVal = PlayerInfo.GetFinishingMoves();
 
             if (retVal == 0)
                 return;
@@ -10296,14 +10291,7 @@
             if (MonStagered && staggerstopJA.Checked) return;
 
             if (DynaProccontrole.Checked && !PlayerInfo.DynaStrike("JA", PlayerInfo.DynaTime(), TargetInfo.Name)) return;
-            var retVal = 0;
-
-            if (PlayerInfo.HasBuff(381)) { retVal = 1; }
-            else if (PlayerInfo.HasBuff(382)) { retVal = 2; }
-            else if (PlayerInfo.HasBuff(383)) { retVal = 3; }
-            else if (PlayerInfo.HasBuff(384)) { retVal = 4; }
-            else if (PlayerInfo.HasBuff(385)) { retVal = 5; }
-            else if (PlayerInfo.HasBuff(588)) { retVal = 6; }
+            var retVal = PlayerInfo.GetFinishingMoves();
 
             if (stopstepsat.Checked && retVal >= stopstepscount.Value) return;
 
@@ -10571,11 +10559,6 @@
                             if (!NINtoolCheck(magic.Name[0].Replace(": Ichi", "").Replace(": Ni", "").Replace(": San", ""))) continue;
                             else castSpell = true;
                         }
-                        //else if (macontrol[magic.Index].ToString().Contains("I ="))
-                        //{
-                        //    if (macontrol[magic.Index].I != indi)
-                        //        castSpell = true;
-                        //}
                         else if (macontrol[magic.Index].ToString().Contains("I ="))
                         {
                             if (IndiDic["Active"])
@@ -11029,7 +11012,7 @@
             {
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
                 if (TargetInfo.ID == PlayerInfo.ServerID)
-                    SetTarget(0);
+                    TargetInfo.SetTarget(0);
                 castPercent = api.CastBar.Percent;
                 if (lastPercent != castPercent)
                 {
@@ -11148,7 +11131,10 @@
                 {
                     if (PlayerInfo.HasBuff(483))
                     {
-                        api.ThirdParty.SendString("/ws \"" + sekkanokiWs.Text + "\" <"+sekkanokitarg+">");
+                        string WSSekkanoki = wsname;
+                        if (sekkanokiWs.Text != "")
+                            WSSekkanoki = sekkanokiWs.Text;
+                        api.ThirdParty.SendString("/ws \"" + WSSekkanoki + "\" <"+sekkanokitarg+">");
                         Thread.Sleep(TimeSpan.FromSeconds(4.0));
                     }
                     api.ThirdParty.SendString("/ws \"" + wsname + "\" <"+wstarg+">");
@@ -12255,7 +12241,7 @@
         }
         public void FindTarget()
         {
-            if (SelectedTargets.Items.Count == 0 || PlayerInfo.Status == 1 || isPulled)
+            if (SelectedTargets.Items.Count == 0 || PlayerInfo.Status == 1 || isPulled || partyAssist.Checked || assist.Checked)
                 return;
             float searchID = 999;
             var targetID = -1;
@@ -12586,9 +12572,9 @@
             if (api.AutoFollow.IsAutoFollowing)
                 api.AutoFollow.IsAutoFollowing = false;
         }
-        public bool isStuck(int a)
+        public bool isStuck(bool a = false)
         {
-            if (a == 1 && (TargetInfo.ID <= 0 || TargetInfo.HPP == 0))
+            if (a && (TargetInfo.ID <= 0 || TargetInfo.HPP == 0))
                 return false;
             var FirstX = PlayerInfo.X;
             var FirstZ = PlayerInfo.Z;
@@ -12751,13 +12737,12 @@
             }
             else if (cmd1 == "extravariables")
             {
-                foreach (string str in api.ThirdParty.ConsoleGetArg(2).Split(';'))
-                {
-                    
-                    var sstr = str.Split(':');
+                    var sstr = api.ThirdParty.ConsoleGetArg(2).Split(':');
                     if (sstr[0] == "INDI")
-                        IntToIndiStat(int.Parse(sstr[1]));//indi = int.Parse(sstr[1]);
-                }
+                        IntToIndiStat(int.Parse(sstr[1]));
+                /* foreach (string str in api.ThirdParty.ConsoleGetArg(2).Split(';'))
+                {
+                } */
             }
         }
         private Button hudinfobutton;
@@ -12826,6 +12811,17 @@
                 else if (NoProcDynaMobs.Contains(target)) return NoneProc;
                 else if (DynaMobProc[time][typ].Contains(target)) return true;
                 return false;
+            }
+            public static int GetFinishingMoves()
+            {
+                var retVal = 0;
+                if (PlayerInfo.HasBuff(381)) { retVal = 1; }
+                else if (PlayerInfo.HasBuff(382)) { retVal = 2; }
+                else if (PlayerInfo.HasBuff(383)) { retVal = 3; }
+                else if (PlayerInfo.HasBuff(384)) { retVal = 4; }
+                else if (PlayerInfo.HasBuff(385)) { retVal = 5; }
+                else if (PlayerInfo.HasBuff(588)) { retVal = 6; }
+                return retVal;
             }
         }
         #endregion
