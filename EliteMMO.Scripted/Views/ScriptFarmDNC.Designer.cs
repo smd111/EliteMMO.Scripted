@@ -34,6 +34,7 @@
         public string targeting = "Auto";
         public string currentbot = "FarmBot";
         public string LastFunction = "";
+        public bool hudshow = false;
         #endregion
         #region Variables: (NAV)
         public bool OpenDoor = false;
@@ -369,17 +370,17 @@
                     {561, new {b1=63}}, {562, new {b1=75}}, {563, new {b1=64}}, {568, new {}}, {569, new {}}, {570, new {}}, {571, new {b1=172}},
                     {572, new {b1=73}}, {574, new {b1=67}}, {575, new {name="Meditate"}}, {576, new {b1=117}}, {577, new {b1=118}}, {578, new {}},
                     {579, new {}}, {580, new {}}, {588, new {b1=87}}, {589, new {}}, {594, new {}}, {595, new {}}, {598, new {b1=115}}, {604, new {}},
-                    {605, new {}}, {606, new {b1=164}}, {607, new {b1=165}}, {608, new {}}, {610, new {b1=310,b2=309}}, {611, new {b1=311,b2=309}},
+                    {605, new {}}, {608, new {}}, {610, new {b1=310,b2=309}}, {611, new {b1=311,b2=309}},
                     {612, new {b1=312,b2=309}}, {613, new {b1=313,b2=309}}, {614, new {b1=314,b2=309}}, {615, new {b1=315,b2=309}}, {616, new {b1=316,b2=309}},
                     {617, new {b1=317,b2=309}}, {618, new {b1=318,b2=309}}, {619, new {b1=319,b2=309}}, {620, new {b1=320,b2=309}}, {621, new {b1=321,b2=309}},
                     {622, new {b1=322,b2=309}}, {623, new {b1=323,b2=309}}, {624, new {b1=324,b2=309}}, {625, new {b1=325,b2=309}}, {626, new {b1=326,b2=309}},
                     {627, new {b1=327,b2=309}}, {628, new {b1=328,b2=309}}, {629, new {b1=329,b2=309}}, {630, new {b1=330,b2=309}}, {631, new {b1=331,b2=309}},
-                    {632, new {b1=332,b2=309}}, {633, new {b1=333,b2=309}}, {634, new {b1=334,b2=309}}, {635, new {b3=308}},{637, new {item="Fire Card"}},
+                    {632, new {b1=332,b2=309}}, {633, new {b1=333,b2=309}}, {634, new {b1=334,b2=309}}, {635, new {b1=308}},{637, new {item="Fire Card"}},
                     {638, new {item="Ice Card"}},{639, new {item="Wind Card"}},{640, new {item="Earth Card"}},{641, new {item="Thunder Card"}},
                     {642, new {item="Water Card"}},{643, new {item="Light Card"}},{644, new {item="Dark Card"}},{645, new {}}, {661, new {b1=340,b2=490}},
                     {662, new {}}, {663, new {b1=19}}, {664, new {b1=341}}, {667, new {b1=342}}, {668, new {b1=343}},{669, new {b1=344}}, {672, new {b1=346}},
                     {673, new {}}, {677, new {b1=350}}, {678, new {b1=351}}, {680, new {}}, {682, new {}},{683, new {b1=352}}, {685, new {b1=353}},
-                    {686, new {b1=354}}, {689, new {b1=357}}, {690, new {b3=309}}, {693, new {b1=376}},{708, new {b1=71}}, {736, new {b1=371}}, {738, new {b1=405}},
+                    {686, new {b1=354}}, {689, new {b1=357}}, {690, new {b1=309}}, {693, new {b1=376}},{708, new {b1=71}}, {736, new {b1=371}}, {738, new {b1=405}},
                     {739, new {b1=406}}, {740, new {}}, {749, new {b1=410}}, {750, new {b1=411}},{757, new {b1=417}}, {758, new {b1=418}}, {759, new {b1=419}},
                     {760, new {b1=420}}, {761, new {nuff1=421}}, {764, new {b1=435}},{765, new {b1=436}}, {769, new {b1=433}}, {772, new {}}, {773, new {b1=442}},
                     {777, new {}}, {779, new {b1=460,b2=68}}, {781, new {b1=461}},{783, new {b1=477}}, {784, new {}}, {788, new {b1=462}}, {789, new {}},
@@ -1074,7 +1075,7 @@
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.playerjobpoints = new System.Windows.Forms.Label();
             this.playermerits = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Runtest = new System.Windows.Forms.Button();
             this.playertp = new System.Windows.Forms.Label();
             this.playermp = new System.Windows.Forms.Label();
             this.playerhp = new System.Windows.Forms.Label();
@@ -7979,7 +7980,7 @@
             // 
             this.groupBox18.Controls.Add(this.playerjobpoints);
             this.groupBox18.Controls.Add(this.playermerits);
-            this.groupBox18.Controls.Add(this.button1);
+            this.groupBox18.Controls.Add(this.Runtest);
             this.groupBox18.Controls.Add(this.playertp);
             this.groupBox18.Controls.Add(this.playermp);
             this.groupBox18.Controls.Add(this.playerhp);
@@ -8010,17 +8011,17 @@
             this.playermerits.TabIndex = 7;
             this.playermerits.Text = "Merit Points: Cant Gain";
             // 
-            // button1
+            // Runtest
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(142, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Run Test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.Run_Test_Code);
+            this.Runtest.Enabled = false;
+            this.Runtest.Location = new System.Drawing.Point(142, 25);
+            this.Runtest.Name = "Runtest";
+            this.Runtest.Size = new System.Drawing.Size(75, 23);
+            this.Runtest.TabIndex = 6;
+            this.Runtest.Text = "Run Test";
+            this.Runtest.UseVisualStyleBackColor = true;
+            this.Runtest.Visible = false;
+            this.Runtest.Click += new System.EventHandler(this.Run_Test_Code);
             // 
             // playertp
             // 
@@ -8972,7 +8973,7 @@
         private GroupBox shutdowngroup;
         private ComboBox selectedapp;
         private DateTimePicker shutdowndate;
-        private Button button1;
+        public Button Runtest;
         private GroupBox groupBox23;
         private Label playerjobpoints;
         private Label playermerits;
@@ -9161,10 +9162,6 @@
         {
             if (ManualTargMode.Checked) usenav.Checked = false;
             usenav.Enabled = !ManualTargMode.Checked;
-            /* if (ManualTargMode.Checked)
-                targeting = "Manual";
-            else
-                targeting = "Auto"; */
             targeting = (ManualTargMode.Checked ? "Manual" : "Auto");
         }
         private void verifyfood_Click(object sender, EventArgs e)
@@ -9197,8 +9194,8 @@
         }
         private void AssistCheckedChanged(object sender, EventArgs e)
         {
-            assistplayer.Enabled = assist.Checked;
-            partyAssist.Checked = !assist.Checked;
+            if (partyAssist.Checked)
+                partyAssist.Checked = false;
             assistDist.Enabled = assist.Checked;
             if (usenav.Checked)
                 usenav.Checked = false;
@@ -9207,8 +9204,8 @@
         }
         private void partyAssist_CheckedChanged(object sender, EventArgs e)
         {
-            assistplayer.Enabled = !partyAssist.Checked;
-            assist.Checked = !partyAssist.Checked;
+            if (assist.Checked)
+                assist.Checked = false;
             assistDist.Enabled = partyAssist.Checked;
             if (usenav.Checked)
                 usenav.Checked = false;
@@ -9340,16 +9337,6 @@
         }
         private void Shrinkbutton_Click(object sender, EventArgs e)
         {
-            /* if (dncControl.Visible)
-            {
-                panel1.Location = new Point(10, 25);
-                Shrinkbutton.Text = ">>";
-            }
-            else
-            {
-                panel1.Location = new Point(459, 25);
-                Shrinkbutton.Text = "<<";
-            } */
             panel1.Location = new Point((dncControl.Visible ? 10 : 459), 25);
             Shrinkbutton.Text = (dncControl.Visible ? ">>" : "<<");
             dncControl.Visible = !dncControl.Visible;
@@ -9364,7 +9351,8 @@
             }
             else
                 api.ThirdParty.DeleteTextObject("ScriptedHUD");
-            
+
+            hudshow = showHUD.Checked;
             api.ThirdParty.FlushCommands();
         }
         #endregion
@@ -9389,10 +9377,6 @@
             startzone = api.Player.ZoneId;
             startScriptToolStripMenuItem.Enabled = false;
             stopScriptToolStripMenuItem.Enabled = true;
-            /* if ((TargetInfo.ID == 0 || TargetInfo.ID == PlayerInfo.TargetID) && PlayerInfo.Status == 0)
-            {
-                useTrust();
-            } */
             if (!bgw_script_dnc.IsBusy)
                 bgw_script_dnc.RunWorkerAsync();
             if (!bgw_script_pet.IsBusy)
@@ -9525,52 +9509,6 @@
             
             isCasting = false;
         }
-        /*private void useTrust()
-        {
-            var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
-            if (PartyInfo.Count(1) == 6 || trust.Count == 0) return;
-            foreach (string T in trust)
-            {
-                isCasting = true;
-                if (PartyInfo.Count(1) == 6 || PartyInfo.Count(2) > 0 || PartyInfo.Count(3) > 0) break;
-                if (TargetInfo.ID != 0 ? TargetInfo.ID != PlayerInfo.TargetID : false) break;
-                var trustname = T.Replace(" ", "").Replace("II", "").Replace("[S]", "").Replace("(UC)", "");
-                if (PartyInfo.ContainsName(trustname)) continue;
-                else
-                {
-                    api.ThirdParty.SendString("/ma \"" + T + "\" <me>");
-                    Casting();
-                }
-            }
-           
-            isCasting = false;
-        }*/
-        /* private void TrustWatch()
-        {
-            var trust = (from object itemChecked in Trusts.CheckedItems select itemChecked.ToString()).ToList();
-            foreach (string T in trust)
-            {
-                var Trustspell = api.Resources.GetSpell(T, 0);
-                if (Recast.GetSpellRecast((int)Trustspell.Index) != 0) continue;
-                var trustname = T.Replace(" ", "").Replace("II", "").Replace("[S]", "").Replace("(UC)", "");
-                var partymember = api.Party.GetPartyMembers().FirstOrDefault(p => p.Name == trustname);
-                if (Watchtrusts.Checked && !partymember.Equals(null))
-                {
-                    if (partymember.CurrentMPP > TrustResetmpp.Value || partymember.CurrentHPP > TrustResethpp.Value) continue;
-                    SetTarget(partymember.Index);
-                    Thread.Sleep(TimeSpan.FromSeconds(0.3));
-                    while (TargetInfo.Distance > 3)
-                    {
-                        api.AutoFollow.SetAutoFollowCoords(TargetInfo.X - PlayerInfo.X,
-                                TargetInfo.Y - PlayerInfo.Y, TargetInfo.Z - PlayerInfo.Z);
-                        api.AutoFollow.IsAutoFollowing = true;
-                        Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                    }
-                    api.AutoFollow.IsAutoFollowing = false;
-                    WindowInfo.SendText("/returntrust");
-                }
-            }
-        } */
             #endregion
         private void LoadJA_Click(object sender, EventArgs e)
         {
@@ -10336,31 +10274,21 @@
                 var useAbility = false;
                 var ability = api.Resources.GetAbility(J, 0);
                 var targ = ((ability.ValidTargets & (1 << 0)) != 0 ? "<me>" : "<t>");
-                if(HandledAbils.Contains(ability.Name[0])) continue;
+                if (HandledAbils.Contains(ability.Name[0])) continue;
                 if (ability == null)
                 {
-                    if (ability.Name[0] == "Chivalry TP > 1000" && !PlayerInfo.HasBuff(16) &&
-                        PlayerInfo.TP >= 1000 && Recast.GetAbilityRecast(79) == 0 &&
-                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                    if (J.Contains("Chivalry TP"))
                     {
-                        api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                        var chivalry = J.Split(new string[] { "TP > " }, StringSplitOptions.RemoveEmptyEntries);
+                        if (!PlayerInfo.HasBuff(16) &&  PlayerInfo.TP >= int.Parse(chivalry[1]) && Recast.GetAbilityRecast(79) == 0 &&
+                            PlayerInfo.Status == 1 && TargetInfo.ID > 0)
+                        {
+                            ability = api.Resources.GetAbility(chivalry[0], 0);
+                            targ = "<me>";
+                            useAbility = true;
+                        }
                     }
-                    else if (ability.Name[0] == "Chivalry TP > 2000" && !PlayerInfo.HasBuff(16) &&
-                        PlayerInfo.TP >= 2000 && Recast.GetAbilityRecast(79) == 0 &&
-                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-                    {
-                        api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    }
-                    else if (ability.Name[0] == "Chivalry TP > 3000" && !PlayerInfo.HasBuff(16) &&
-                        PlayerInfo.TP >= 3000 && Recast.GetAbilityRecast(79) == 0 &&
-                        PlayerInfo.Status == 1 && TargetInfo.ID > 0)
-                    {
-                        api.ThirdParty.SendString("/ja \"Chivalry\" <me>");
-                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    }
-                    else if (ability.Name[0] == "Sharpshot + Barrage" && !PlayerInfo.HasBuff(16) &&
+                    else if (J == "Sharpshot + Barrage" && !PlayerInfo.HasBuff(16) &&
                         !PlayerInfo.HasBuff(73) && Recast.GetAbilityRecast(125) == 0 &&
                         !PlayerInfo.HasBuff(72) && Recast.GetAbilityRecast(124) == 0 &&
                         PlayerInfo.Status == 1 && TargetInfo.ID > 0)
@@ -10416,10 +10344,6 @@
                     {
                         if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1)) useAbility = true;
                     }
-                    else if (jacontrol[ability.ID].ToString().Contains("b3 ="))
-                    {
-                        if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b3)) useAbility = true;
-                    }
                     else if (jacontrol[ability.ID].ToString().Contains("hp ="))
                     {
                         if (PlayerInfo.HPP <= jacontrol[ability.ID].hp) useAbility = true;
@@ -10435,9 +10359,8 @@
                 if (PlayerInfo.Status != 1) break;
                 if (useAbility)
                 {
-                    var JAType = "/ja";
-                    if (ability.ID >= 1024) JAType = "/ms";
-                    api.ThirdParty.SendString(String.Format("{0} \"{1}\" {2}", JAType, ability.Name[0], targ));
+                    var JAType = (ability.ID >= 1024 ? "/ms" : "/ja");
+                    api.ThirdParty.SendString($"{JAType} \"{ability.Name[0]}\" {targ}");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
             }
@@ -10489,7 +10412,7 @@
                 if (PlayerInfo.MPP == 0 || PlayerInfo.Status != 1 || bgw_script_disp.CancellationPending) break;
                 bool castSpell = false;
                 var magic = api.Resources.GetSpell(M, 0);
-                var targ = (GetBit(magic.ValidTargets, 0)/*(magic.ValidTargets & (1 << 0)) != 0*/ ? "<me>" : "<t>");
+                var targ = (GetBit(magic.ValidTargets, 0) ? "<me>" : "<t>");
                 if (Recast.GetSpellRecast((int)magic.Index) != 0 || !MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6)) continue;
                 if (PlayerInfo.MP < magic.MPCost && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229))) continue;
                 if (Handledspells.Contains(magic.Name[0]))
@@ -10726,25 +10649,63 @@
             }
             #endregion
             #region BLU MAJA
-            List<string> UnbridledLearningList = new List<string>(new string[] {"Harden Shell", "Thunderbolt", "Absolute Terror", "Gates of Hades", "Tourbillion",
-            "Pyric Bulwark", "Bilgestorm", "Bloodrake", "Droning Whirlwind", "Carcharian Verve", "Blistering Roar", "Mighty Guard", "Cruel Joke", "Cesspool",
-            "Tearing Gust"});
-            if (UnbridledLearningList.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(485) && !PlayerInfo.HasBuff(505))
+            if (magic.Skill == 43)
             {
-                if (ja.Contains("Unbridled Learning") && Recast.GetAbilityRecast(81) == 0)
+                List<string> UnbridledLearningList = new List<string>(new string[] {"Harden Shell", "Thunderbolt", "Absolute Terror", "Gates of Hades", "Tourbillion",
+                "Pyric Bulwark", "Bilgestorm", "Bloodrake", "Droning Whirlwind", "Carcharian Verve", "Blistering Roar", "Mighty Guard", "Cruel Joke", "Cesspool",
+                "Tearing Gust"});
+                if (UnbridledLearningList.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(485) && !PlayerInfo.HasBuff(505))
                 {
-                    api.ThirdParty.SendString("/ja \"Unbridled Learning\" <me>");
+                    if (ja.Contains("Unbridled Learning") && Recast.GetAbilityRecast(81) == 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Unbridled Learning\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else if (ja.Contains("Unbridled Wisdom") && Recast.GetAbilityRecast(254) == 0)
+                    {
+                        api.ThirdParty.SendString("/ja \"Unbridled Wisdom\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    else return false;
+                }
+                List<string> blusupportspells = new List<string>(new string[] { "Metallic Body","Cocoon","Refueling","Feather Barrier","Memento Mori","Zephyr Mantle",
+                "Warm-Up","Amplification","Triumphant Roar","Saline Coat","Reactor Cool","Exuviation","Plasma Charge","Regeneration","Battery Charge","Animating Wail",
+                "Magic Barrier","Fantod","Occultation", "Mighty Guard"});
+                if (ja.Contains("Diffusion") && Recast.GetAbilityRecast(184) == 0 && blusupportspells.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(356))
+                {
+                    api.ThirdParty.SendString("/ja \"Diffusion\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
                 }
-                else if (ja.Contains("Unbridled Wisdom") && Recast.GetAbilityRecast(254) == 0)
+                if (magic.Element == 15)
                 {
-                    api.ThirdParty.SendString("/ja \"Unbridled Wisdom\" <me>");
-                    Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    if (ja.Contains("Efflux") && Recast.GetAbilityRecast(185) == 0 && !PlayerInfo.HasBuff(457))
+                    {
+                        api.ThirdParty.SendString("/ja \"Efflux\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    if (ja.Contains("Burst Affinity") && Recast.GetAbilityRecast(182) == 0 && !PlayerInfo.HasBuff(165))
+                    {
+                        api.ThirdParty.SendString("/ja \"Burst Affinity\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                }
+                else
+                {
+                    if (ja.Contains("Convergence") && Recast.GetAbilityRecast(183) == 0 && !PlayerInfo.HasBuff(355))
+                    {
+                        api.ThirdParty.SendString("/ja \"Convergence\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
+                    if (ja.Contains("Chain Affinity") && Recast.GetAbilityRecast(181) == 0 && !PlayerInfo.HasBuff(164))
+                    {
+                        api.ThirdParty.SendString("/ja \"Chain Affinity\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
                 }
             }
             #endregion
             #region BRD MAJA
-            if (magic.Skill == 41 || magic.Skill == 42)
+            if (magic.Skill == 40 || magic.Skill == 41 || magic.Skill == 42)
             {
                 if (ja.Contains("Soul Voice") && !PlayerInfo.HasBuff(52) && Recast.GetAbilityRecast(0) == 0)
                 {
@@ -10794,17 +10755,6 @@
                 {
                     api.ThirdParty.SendString("/ja \"Tabula Rasa\" <me>");
                     Thread.Sleep(TimeSpan.FromSeconds(1.0));
-                    /*foreach (KeyValuePair<int, dynamic> kvp in SCHcharges)
-                    {
-                        int lvl = 1;
-                        if (PlayerInfo.MainJob == 20) lvl = PlayerInfo.MainJobLevel;
-                        else if (PlayerInfo.SubJob == 20) lvl = PlayerInfo.SubJobLevel;
-                        if (lvl >= kvp.Key)
-                        {
-                            SchCharges = kvp.Value.charges;
-                            break;
-                        }
-                    }*/
                 }
                 if (ja.Contains("Light Arts") && magic.MagicType == 1 && !PlayerInfo.HasBuff(358) && Recast.GetAbilityRecast(228) == 0 &&
                     !PlayerInfo.HasBuff(401))
@@ -12009,6 +11959,7 @@
         }
         private void PopulateTargetLists(string idType)
         {
+            if (MainWindow.TESTMODE && MainWindow.STATUS.Contains(@":: Final Fantasy Not Found ::")) return;
             wantedID.Clear();
             wantedNM.Clear();
 
@@ -12129,32 +12080,7 @@
                 return;
 
             var wanted = api.Entity.GetEntity(targetID);
-
-            /*if (PartyInfo.ContainsID(wanted.ClaimID) && WatchPartyAggro.Enabled)
-            {
-                SetTarget(targetID);
-
-                TargetInfo.FaceTarget(TargetInfo.X, TargetInfo.Z);
-                Thread.Sleep(TimeSpan.FromSeconds(0.4));
-                api.ThirdParty.SendString(pullCommand.Text);
-
-                var delay = DateTime.Now.AddSeconds((double)pullDelay.Value);
-
-                while (DateTime.Now < delay)
-                {
-                    TargetInfo.FaceTarget(TargetInfo.X, TargetInfo.Z);
-                    Thread.Sleep(TimeSpan.FromSeconds(0.1));
-                }
-                api.ThirdParty.SendString("/lockon <t>");
-                api.ThirdParty.SendString("/attack <t>");
-                Thread.Sleep(TimeSpan.FromSeconds(4.0));
-
-                if (PlayerInfo.Status == 0)
-                {
-                    api.ThirdParty.SendString("/attack <t>");
-                    Thread.Sleep(TimeSpan.FromSeconds(4.0));
-                }
-            }*/
+            
 
             if (wanted.ClaimID != 0 || wanted.HealthPercent == 0 ||
                 targetID <= 0 || !GetBit(wanted.SpawnFlags, 4)) return;
@@ -12184,11 +12110,6 @@
                         api.ThirdParty.SendString(pullCommand.Text);
 
                         var delay = DateTime.Now.AddSeconds((double)pullDelay.Value);
-                        /*if(pullCommand.Text.Contains("/ma") || pullCommand.Text.Contains("/magic"))
-                        {
-                            Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                            Casting();
-                        }*/
                         while (DateTime.Now < delay)
                         {
                             TargetInfo.FaceTarget(TargetInfo.X, TargetInfo.Z);

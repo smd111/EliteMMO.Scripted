@@ -5,11 +5,13 @@
     partial class MainWindow
     {
         private EliteAPI api;
+        public static bool TESTMODE = false;
         private readonly UserControl x1;
         private readonly UserControl x2;
         private readonly UserControl x3;
         private readonly UserControl x4;
         private readonly UserControl x5;
+        public static string STATUS = "";
         public string TopMostDisplay = "Main";
         public static string windowername = "Windower";
         public string dlllocation = "";
@@ -349,6 +351,7 @@
             this.xStatusLabel.Name = "xStatusLabel";
             this.xStatusLabel.Size = new System.Drawing.Size(72, 17);
             this.xStatusLabel.Text = "xStatusLabel";
+            this.xStatusLabel.TextChanged += new System.EventHandler(this.xStatusLabel_Changed);
             // 
             // header2
             // 

@@ -4,7 +4,7 @@
   <description asmv2:iconFile="1418924805_45123.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Scripted" version="1.0.0.6" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="Scripted" version="1.0.0.8" language="neutral" processorArchitecture="x86" />
     <commandLine file="Scripted.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="762784">
-      <assemblyIdentity name="Scripted" version="1.0.0.6" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scripted.exe" size="763808">
+      <assemblyIdentity name="Scripted" version="1.0.0.8" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7ZoMh7C3GzXztpBVRLLSe2NHmOM=</dsig:DigestValue>
+        <dsig:DigestValue>qfMFqoGONRZUY7yNz11TVenTQ2w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -123,13 +123,13 @@
       <dsig:DigestValue>MdvW+J9tBB/670Eijtym7E1aaC4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Scripted.exe.config" size="75">
+  <file name="Scripted.exe.config" size="77">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>0AcUefP/nEm1V9eGcuA4uxSki5c=</dsig:DigestValue>
+      <dsig:DigestValue>w7WNgu5MxCvL4DAgISBxgwmhDzU=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -49,6 +49,8 @@
             {
                 xStatusLabel.Text = @":: Final Fantasy Not Found ::";
             }
+            if (TESTMODE)
+                xStatusLabel.Text = xStatusLabel.Text + @"- TEST MODE ENABLED";
             #endregion
 
             farmbot = new ScriptFarmDNC(api);
@@ -85,6 +87,8 @@
                 symbolicLink = dlllocation + @"\addons\ScriptedExtender";
             if (symbolicLink != "" && !System.IO.Directory.Exists(symbolicLink))
                 CreateSymbolicLink(symbolicLink, Application.StartupPath + @"\ScriptedExtender", SymbolicLink.Directory);
+            if (TESTMODE)
+                farmbot.enableTestmode();
         }
         private string GetStringFromUrl(string location)
         {
@@ -128,6 +132,8 @@
             {
                 bool initialized = api.Reinitialize(dats.Id);
                 xStatusLabel.Text = @":: " + api.Entity.GetLocalPlayer().Name + @" ::";
+                if (TESTMODE)
+                    xStatusLabel.Text = xStatusLabel.Text+@"- TEST MODE ENABLED";
                 if (initialized)
                 {
                     for (int i = 0; i < dats.Modules.Count; i++)
@@ -148,7 +154,7 @@
         }
         private void FarmDncToolStripMenuItemClick(object sender, System.EventArgs e)
         {
-            if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
+            if (xStatusLabel.Text.Contains(@":: Final Fantasy Not Found ::")) return;
 
 
             if (navbot.isRunning)
@@ -216,7 +222,7 @@
         }
         private void HealingSupportToolStripMenuItemClick(object sender, System.EventArgs e)
         {
-            if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
+            if (xStatusLabel.Text.Contains(@":: Final Fantasy Not Found ::") && !TESTMODE) return;
 
             #region show/hide objects
             xpic.Hide();
@@ -265,7 +271,7 @@
         }
         private void navigationToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
+            if (xStatusLabel.Text.Contains(@":: Final Fantasy Not Found ::") && !TESTMODE) return;
 
             if (farmbot.botRunning)
             {
@@ -317,7 +323,7 @@
         }
         private void OnEventToolStripMenuItemClick(object sender, EventArgs e)
         {
-            if (xStatusLabel.Text == @":: Final Fantasy Not Found ::") return;
+            if (xStatusLabel.Text.Contains(@":: Final Fantasy Not Found ::") && !TESTMODE) return;
 
             #region show/hide objects
             xpic.Hide();
@@ -431,6 +437,11 @@
             api.ThirdParty.KeyUp(API.Keys.NUMPAD4);
             api.ThirdParty.KeyUp(API.Keys.RIGHT);
             api.AutoFollow.IsAutoFollowing = false;
+        }
+
+        private void xStatusLabel_Changed(object sender, EventArgs e)
+        {
+            STATUS = xStatusLabel.Text;
         }
     }
 }

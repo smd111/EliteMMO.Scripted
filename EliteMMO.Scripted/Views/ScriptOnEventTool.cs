@@ -58,7 +58,12 @@
         }
         private void addSettarget_Click(object sender, EventArgs e)
         {
-            eCommand.Text = $"SetTarget;{ScriptFarmDNC.TargetInfo.ID}";
+            if (MainWindow.TESTMODE && MainWindow.STATUS.Contains(@":: Final Fantasy Not Found ::"))
+            {
+                eCommand.Text = $"SetTarget;{"test"}";
+            }
+            else
+                eCommand.Text = $"SetTarget;{ScriptFarmDNC.TargetInfo.ID}";
         }
     }
 }

@@ -615,7 +615,7 @@
                         int lvl = 1;
                         if (PlayerInfo.MainJob == 20) lvl = PlayerInfo.MainJobLevel;
                         else if (PlayerInfo.SubJob == 20) lvl = PlayerInfo.SubJobLevel;
-                        int time = (lvl == 99 && PlayerInfo.UsedJobPoints >= 550 ? 33 : kvp.Value.time);
+                        int time = (kvp.Key == 99 && lvl == 99 && PlayerInfo.UsedJobPoints >= 550 ? 33 : kvp.Value.time);
                         DateTime now = DateTime.Now;
                         if (lvl >= kvp.Key && Math.Abs(now.Subtract(last).TotalSeconds) >= time)
                         {
@@ -716,6 +716,11 @@
         }
         #endregion
         #region Code Testing section
+        public void enableTestmode()
+        {
+            Runtest.Enabled = MainWindow.TESTMODE;
+            Runtest.Visible = MainWindow.TESTMODE;
+        }
         private void Run_Test_Code(object sender, EventArgs e)
         {
             //

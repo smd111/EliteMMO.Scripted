@@ -97,6 +97,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.SpectralJig = new System.Windows.Forms.CheckBox();
             this.groupBox9.SuspendLayout();
             this.menuStrip4.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -253,6 +254,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.SpectralJig);
             this.groupBox1.Controls.Add(this.StopAtEnd);
             this.groupBox1.Controls.Add(this.firstPersonView);
             this.groupBox1.Controls.Add(this.StuckWatch);
@@ -263,7 +265,7 @@
             this.groupBox1.Controls.Add(this.Circular);
             this.groupBox1.Location = new System.Drawing.Point(194, 258);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(262, 81);
+            this.groupBox1.Size = new System.Drawing.Size(289, 81);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
@@ -380,7 +382,7 @@
             this.groupBox3.Controls.Add(this.EnableForceSave);
             this.groupBox3.Controls.Add(this.ForceLinear);
             this.groupBox3.Controls.Add(this.ForceCircular);
-            this.groupBox3.Location = new System.Drawing.Point(462, 264);
+            this.groupBox3.Location = new System.Drawing.Point(489, 265);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(103, 75);
             this.groupBox3.TabIndex = 24;
@@ -558,11 +560,13 @@
             this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Controls.Add(this.Pauseseconds);
             this.groupBox7.Controls.Add(this.button2);
+            this.groupBox7.Enabled = false;
             this.groupBox7.Location = new System.Drawing.Point(1, 141);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(200, 41);
             this.groupBox7.TabIndex = 41;
             this.groupBox7.TabStop = false;
+            this.groupBox7.Visible = false;
             // 
             // groupBox2
             // 
@@ -576,6 +580,16 @@
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Extra Commands";
+            // 
+            // SpectralJig
+            // 
+            this.SpectralJig.AutoSize = true;
+            this.SpectralJig.Location = new System.Drawing.Point(207, 54);
+            this.SpectralJig.Name = "SpectralJig";
+            this.SpectralJig.Size = new System.Drawing.Size(81, 17);
+            this.SpectralJig.TabIndex = 44;
+            this.SpectralJig.Text = "Spectral Jig";
+            this.SpectralJig.UseVisualStyleBackColor = true;
             // 
             // ScriptNaviMap
             // 
@@ -591,7 +605,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "ScriptNaviMap";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 5, 25);
-            this.Size = new System.Drawing.Size(714, 367);
+            this.Size = new System.Drawing.Size(714, 368);
             this.Load += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -814,5 +828,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox SpectralJig;
     }
 }

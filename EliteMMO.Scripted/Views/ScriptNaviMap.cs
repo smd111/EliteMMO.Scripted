@@ -138,6 +138,13 @@
                             count = 0;
                         }
                     }
+                    if (SpectralJig.Checked && !ScriptFarmDNC.PlayerInfo.HasBuff(69))
+                    {
+                        api.AutoFollow.IsAutoFollowing = false;
+                        api.ThirdParty.SendString("/ja \"Spectral Jig\" <me>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1));
+                        api.AutoFollow.IsAutoFollowing = true;
+                    }
                 }
 
                 Thread.Sleep(TimeSpan.FromSeconds(0.1));
@@ -311,7 +318,14 @@
         {
             var index = WayPoints.SelectedIndex;
             if (index == -1)
-                WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}:Door;{ScriptFarmDNC.TargetInfo.ID}");
+            {
+                if (MainWindow.TESTMODE && MainWindow.STATUS.Contains(@":: Final Fantasy Not Found ::"))
+                {
+                    WayPoints.Items.Add($"WAYPOINT:{0}:{0}:{0}:Door;{"test"}");
+                }
+                else
+                    WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}:Door;{ScriptFarmDNC.TargetInfo.ID}");
+            }
             else
             {
                 var old = (string)WayPoints.Items[index];
@@ -348,13 +362,23 @@
         }
         private void AddNode_Click(object sender, EventArgs e)
         {
-            WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
+            if (MainWindow.TESTMODE && MainWindow.STATUS.Contains(@":: Final Fantasy Not Found ::"))
+            {
+                WayPoints.Items.Add($"WAYPOINT:{0}:{0}:{0}");
+            }
+            else
+                WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}");
         }
         private void button2_Click(object sender, EventArgs e)
         {
             var index = WayPoints.SelectedIndex;
             if (index == -1)
-                WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}:Door;{ScriptFarmDNC.TargetInfo.ID}");
+                if (MainWindow.TESTMODE && MainWindow.STATUS == @":: Final Fantasy Not Found ::")
+                {
+                    WayPoints.Items.Add($"WAYPOINT:{0}:{0}:{0}:Pause;{"TEST"}");
+                }
+                else
+                    WayPoints.Items.Add($"WAYPOINT:{ScriptFarmDNC.PlayerInfo.X}:{ScriptFarmDNC.PlayerInfo.Z}:{ScriptFarmDNC.PlayerInfo.Y}:Pause;{Pauseseconds.Value}");
             else
             {
                 var old = (string)WayPoints.Items[index];
