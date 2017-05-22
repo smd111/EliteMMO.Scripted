@@ -965,6 +965,7 @@
             this.drgjagroup = new System.Windows.Forms.GroupBox();
             this.WyvernJA = new System.Windows.Forms.CheckedListBox();
             this.smnpettab = new System.Windows.Forms.TabPage();
+            this.autoengageAvatar = new System.Windows.Forms.CheckBox();
             this.ManaCedegroup = new System.Windows.Forms.GroupBox();
             this.ManaCedePETTPtext = new System.Windows.Forms.Label();
             this.ManaCedeTPset = new System.Windows.Forms.NumericUpDown();
@@ -1086,6 +1087,7 @@
             this.curtargid = new System.Windows.Forms.Label();
             this.Shrinkbutton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.IdleLocationDist = new System.Windows.Forms.NumericUpDown();
             this.groupBox8.SuspendLayout();
             this.GetSetNavi.SuspendLayout();
             this.StartStopScript.SuspendLayout();
@@ -1318,6 +1320,7 @@
             this.groupBox18.SuspendLayout();
             this.groupBox23.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IdleLocationDist)).BeginInit();
             this.SuspendLayout();
             // 
             // checkZone
@@ -2558,6 +2561,7 @@
             // 
             // Options3MainTab
             // 
+            this.Options3MainTab.Controls.Add(this.IdleLocationDist);
             this.Options3MainTab.Controls.Add(this.fullheal);
             this.Options3MainTab.Controls.Add(this.verifyfood);
             this.Options3MainTab.Controls.Add(this.comboBox4);
@@ -2722,7 +2726,7 @@
             // 
             // RecordIdleLocation
             // 
-            this.RecordIdleLocation.Location = new System.Drawing.Point(214, 115);
+            this.RecordIdleLocation.Location = new System.Drawing.Point(226, 115);
             this.RecordIdleLocation.Name = "RecordIdleLocation";
             this.RecordIdleLocation.Size = new System.Drawing.Size(152, 21);
             this.RecordIdleLocation.TabIndex = 14;
@@ -2763,11 +2767,11 @@
             // IdleLocation
             // 
             this.IdleLocation.AutoSize = true;
-            this.IdleLocation.Location = new System.Drawing.Point(53, 117);
+            this.IdleLocation.Location = new System.Drawing.Point(40, 118);
             this.IdleLocation.Name = "IdleLocation";
-            this.IdleLocation.Size = new System.Drawing.Size(113, 17);
+            this.IdleLocation.Size = new System.Drawing.Size(140, 17);
             this.IdleLocation.TabIndex = 12;
-            this.IdleLocation.Text = "Idle return location";
+            this.IdleLocation.Text = "Idle return location  Dist:";
             this.IdleLocation.UseVisualStyleBackColor = true;
             // 
             // label35
@@ -6799,6 +6803,7 @@
             // 
             // smnpettab
             // 
+            this.smnpettab.Controls.Add(this.autoengageAvatar);
             this.smnpettab.Controls.Add(this.ManaCedegroup);
             this.smnpettab.Controls.Add(this.Apogeetext);
             this.smnpettab.Controls.Add(this.ApogeeMPPset);
@@ -6820,6 +6825,16 @@
             this.smnpettab.TabIndex = 2;
             this.smnpettab.Text = "SMN";
             this.smnpettab.UseVisualStyleBackColor = true;
+            // 
+            // autoengageAvatar
+            // 
+            this.autoengageAvatar.AutoSize = true;
+            this.autoengageAvatar.Location = new System.Drawing.Point(276, 6);
+            this.autoengageAvatar.Name = "autoengageAvatar";
+            this.autoengageAvatar.Size = new System.Drawing.Size(122, 17);
+            this.autoengageAvatar.TabIndex = 29;
+            this.autoengageAvatar.Text = "Auto Engage Avatar";
+            this.autoengageAvatar.UseVisualStyleBackColor = true;
             // 
             // ManaCedegroup
             // 
@@ -8132,6 +8147,30 @@
             this.panel1.Size = new System.Drawing.Size(270, 384);
             this.panel1.TabIndex = 57;
             // 
+            // IdleLocationDist
+            // 
+            this.IdleLocationDist.Location = new System.Drawing.Point(176, 116);
+            this.IdleLocationDist.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.IdleLocationDist.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.IdleLocationDist.Name = "IdleLocationDist";
+            this.IdleLocationDist.Size = new System.Drawing.Size(44, 20);
+            this.IdleLocationDist.TabIndex = 71;
+            this.IdleLocationDist.TabStop = false;
+            this.IdleLocationDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.IdleLocationDist.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // ScriptFarmDNC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8450,6 +8489,7 @@
             this.groupBox23.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IdleLocationDist)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -10218,22 +10258,17 @@
         private void Steps()
         {
             LastFunction = "Steps";
-            if (!usequickstep.Checked && !useboxstep.Checked && !usestutterstep.Checked && !usefeatherstep.Checked &&
-               (!botRunning || NoSteps.Checked || PlayerInfo.Status == 0 || Recast.GetAbilityRecast(220) != 0 || PlayerInfo.HasBuff(588)
-               || PlayerInfo.HasBuff(16)))
-                return;
-            if (PlayerInfo.TP < 100) return;
-            if (StepsHP.Checked && PlayerInfo.HPP < StepsHPValue.Value)
-                return;
-
-            if (MonStagered && staggerstopJA.Checked) return;
-
-            if (DynaProccontrole.Checked && !PlayerInfo.DynaStrike("JA", PlayerInfo.DynaTime(), TargetInfo.Name)) return;
+            if ((!usequickstep.Checked && !useboxstep.Checked && !usestutterstep.Checked && !usefeatherstep.Checked &&
+               (!botRunning || NoSteps.Checked || PlayerInfo.Status == 0 || Recast.GetAbilityRecast(220) != 0 || PlayerInfo.HasBuff(16)) ||
+               (PlayerInfo.TP < 100) || (StepsHP.Checked && PlayerInfo.HPP < StepsHPValue.Value) || MonStagered && staggerstopJA.Checked) ||
+               (DynaProccontrole.Checked && !PlayerInfo.DynaStrike("JA", PlayerInfo.DynaTime(), TargetInfo.Name)))
+               return;
+               
             var retVal = PlayerInfo.GetFinishingMoves();
 
             if (stopstepsat.Checked && retVal >= stopstepscount.Value) return;
 
-            if (!PlayerInfo.HasBuff(588) && Recast.GetAbilityRecast(220) == 0 && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID))
+            if (Recast.GetAbilityRecast(220) == 0 && (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID))
             {
                 if (usequickstep.Checked)
                 {
@@ -10669,8 +10704,8 @@
                     else return false;
                 }
                 List<string> blusupportspells = new List<string>(new string[] { "Metallic Body","Cocoon","Refueling","Feather Barrier","Memento Mori","Zephyr Mantle",
-                "Warm-Up","Amplification","Triumphant Roar","Saline Coat","Reactor Cool","Exuviation","Plasma Charge","Regeneration","Battery Charge","Animating Wail",
-                "Magic Barrier","Fantod","Occultation", "Mighty Guard"});
+                "Warm-Up","Amplification","Triumphant Roar","Saline Coat","Reactor Cool","Exuviation","Plasma Charge","Regeneration","Battery Charge",
+                "Animating Wail","Magic Barrier","Fantod","Occultation", "Mighty Guard"});
                 if (ja.Contains("Diffusion") && Recast.GetAbilityRecast(184) == 0 && blusupportspells.Contains(magic.Name[0]) && !PlayerInfo.HasBuff(356))
                 {
                     api.ThirdParty.SendString("/ja \"Diffusion\" <me>");
@@ -12508,15 +12543,13 @@
         }
         public void ReturnIdleLocation()
         {
-            var dist = Math.Truncate(Math.Sqrt(Math.Pow((idleX - PlayerInfo.X), 2) +
-                                               Math.Pow((idleZ - PlayerInfo.Z), 2)));
+            var dist = Math.Truncate(Math.Sqrt((idleX - PlayerInfo.X) + (idleZ - PlayerInfo.Z) + (idleY - PlayerInfo.Y)));
 
             if (IdleLocation.Checked && dist > 1 && PlayerInfo.Status == 0)
             {
-                while (dist > 1 && PlayerInfo.Status == 0)
+                while (dist > (double)IdleLocationDist.Value && PlayerInfo.Status == 0)
                 {
-                    dist = Math.Truncate(Math.Sqrt(Math.Pow((idleX - PlayerInfo.X), 2) +
-                                                       Math.Pow((idleZ - PlayerInfo.Z), 2)));
+                    dist = Math.Truncate(Math.Sqrt((idleX - PlayerInfo.X) + (idleZ - PlayerInfo.Z) + (idleY - PlayerInfo.Y)));
 
                     api.AutoFollow.SetAutoFollowCoords(idleX - PlayerInfo.X,
                                                        idleY - PlayerInfo.Y,
@@ -12669,7 +12702,10 @@
         private Button hudinfobutton;
         private Panel panel2;
         private Label label40;
+        public CheckBox autoengageAvatar;
+        public NumericUpDown IdleLocationDist;
         #endregion
+
         #region Methods: EliteMMO
         #region class: PlayerInfo
         public static class PlayerInfo

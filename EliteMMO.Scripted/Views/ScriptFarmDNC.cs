@@ -460,6 +460,11 @@
                 #region pet: SMN
                 if (PlayerInfo.MainJob == 15 || PlayerInfo.SubJob == 15)
                 {
+                    if (autoengageAvatar.Checked && PetInfo.ID > 0 && PlayerInfo.Status == 1 && PetInfo.Status == 0 && TargetInfo.ID > 0)
+                    {
+                        api.ThirdParty.SendString("/pet \"Assault\" <t>");
+                        Thread.Sleep(TimeSpan.FromSeconds(1.0));
+                    }
                     if (SMNSelect.SelectedItem.ToString() != "")
                         SMNUseJA();
                 }

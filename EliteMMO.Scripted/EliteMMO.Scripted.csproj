@@ -51,10 +51,11 @@
     <ApplicationIcon>1418924805_45123.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4C5242537EA79639283C2418E3F46034826F4906</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>4420A8F5C3E88B36FB3801805DC370F1D8445071</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>EliteMMO.Scripted_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -155,6 +156,7 @@
       <DependentUpon>ScriptSkillup.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="EliteMMO.Scripted_1_TemporaryKey.pfx" />
     <None Include="EliteMMO.Scripted_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
