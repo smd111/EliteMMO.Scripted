@@ -1,3 +1,7 @@
 OSS v1.0.0.9 Final
 -farmbot
+--fixed BST Auto-lock bug
+--SMN pet ability continuous trigger bug
+--fixed Gate of Tartarus ws misspelling
 -Manual Update
+--NONE

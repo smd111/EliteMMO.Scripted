@@ -5,7 +5,7 @@
     partial class MainWindow
     {
         private EliteAPI api;
-        public static bool TESTMODE = true;
+        public static bool TESTMODE = false;
         private readonly UserControl x1;
         private readonly UserControl x2;
         private readonly UserControl x3;

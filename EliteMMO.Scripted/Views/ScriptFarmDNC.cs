@@ -395,8 +395,8 @@
                         }
                         #endregion
 
-                        if (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID && !TargetInfo.LockedOn)
-                            WindowInfo.SendText("/lockon <t>");
+                        if (TargetInfo.ID > 0 && TargetInfo.ID != PlayerInfo.ServerID)
+                            LockOn();
                     }
 
                     if (PetInfo.ID > 0 && autoengage.Checked &&

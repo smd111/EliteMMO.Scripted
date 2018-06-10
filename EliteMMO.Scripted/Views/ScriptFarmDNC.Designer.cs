@@ -2113,7 +2113,7 @@
             "Full Swing",
             "Spirit Taker",
             "Retribution",
-            "Gates of Tartarus",
+            "Gate of Tartarus",
             "Vidohunir",
             "Garland of Bliss",
             "Omniscience",
@@ -3543,7 +3543,7 @@
             "Full Swing",
             "Spirit Taker",
             "Retribution",
-            "Gates of Tartarus",
+            "Gate of Tartarus",
             "Vidohunir",
             "Garland of Bliss",
             "Omniscience",
@@ -9552,6 +9552,7 @@
             #endregion
         private void LoadJA_Click(object sender, EventArgs e)
         {
+            //Builds ability list
             if (playerJA.Items.Count > 0)
                 playerJA.Items.Clear();
             #region Ability list
@@ -9656,6 +9657,7 @@
         }
         private void Check_Set_Spells(uint SpellID, int JobLvl, int Job)
         {
+            //builds the list of currently set blu spells
             var spell = api.Resources.GetSpell(SpellID);
             var spelllvl = spell.LevelRequired[Job];
             if (spell == null || skipSpellList.ContainsKey(spell.Index) || playerMA.Items.Contains(spell.Name[0])) return;
@@ -9685,6 +9687,7 @@
         }
         public void CharacterUpdate()
         {
+            //sets up the Gui with only the tabs/spells/abilities need for current job setup
             JAtabselect.Controls.Remove(WHMpage);
             JAtabselect.Controls.Remove(RDMpage);
             JAtabselect.Controls.Remove(SCHpage);
@@ -10312,6 +10315,7 @@
                 if (HandledAbils.Contains(ability.Name[0])) continue;
                 if (ability == null)
                 {
+                    //the are these asre combined abilities
                     if (J.Contains("Chivalry TP"))
                     {
                         var chivalry = J.Split(new string[] { "TP > " }, StringSplitOptions.RemoveEmptyEntries);
@@ -10336,15 +10340,18 @@
                 }
                 else if (ability.ID >= 1024 && PlayerInfo.MainJob == 23)
                 {
+                    //the are MON abilitie controls
                     if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0 && ability.TP <= PlayerInfo.TP)
                     {
                         if (jacontrol[ability.ID].ToString().Contains("mp ="))
                         {
+                            //the are MOn abilities with MP settings in the Gui
                             if (PlayerInfo.MPP <= MONmpCount.Value) useAbility = true;
                         }
                         else if (jacontrol[ability.ID].ToString().Contains("hp ="))
                         {
+                            //the are MON abilities with Mp settings in the Gui
                             if (PlayerInfo.HPP <= MONhpCount.Value) useAbility = true;
                         }
                         else useAbility = true;
@@ -10354,6 +10361,7 @@
                 else if (!PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(ability.TimerID) == 0 &&
                          PlayerInfo.Status == 1 && TargetInfo.ID > 0)
                 {
+                    //these abilitys have Gui settings
                     if (ability.Name[0] == "Benediction" && PlayerInfo.HPP <= BenedictionHPPuse.Value) useAbility = true;
                     else if (ability.Name[0] == "Convert")
                     {
@@ -10367,30 +10375,38 @@
                     }
                     else if (ability.Name[0] == "Vivacious Pulse" && PlayerInfo.HPP <= VivaciousPulseHP.Value && Recast.GetAbilityRecast(242) == 0) useAbility = true;
                     else if (ability.Name[0] == "Shikikoyo" && !PlayerInfo.HasBuff(16) && Recast.GetAbilityRecast(136) == 0) useAbility = true;
+                    //end
                     else if (jacontrol[ability.ID].ToString().Contains("item ="))
                     {
+                        //check to make sure that the players has the items needed for the ability
                         if (Inventory.ItemQuantityByName(jacontrol[ability.ID].item) > 0 || Inventory.ItemQuantityByName("Trump Card") > 0) useAbility = true;
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("b2 ="))
                     {
+                        //(b1)check to make sure that the buff the spell gives does not exist
+                        //(b2)check to make sure that the buff the spell cannot be used with does not exist
                         if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1) && !PlayerInfo.HasBuff((short)jacontrol[ability.ID].b2)) useAbility = true;
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("b1 ="))
                     {
+                        //(b1)check to make sure that the buff the spell gives does not exist
                         if (!PlayerInfo.HasBuff((short)jacontrol[ability.ID].b1)) useAbility = true;
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("hp ="))
                     {
+                        //check to make sure that the players hp is below the hp needed for the ability
                         if (PlayerInfo.HPP <= jacontrol[ability.ID].hp) useAbility = true;
                     }
                     else if (jacontrol[ability.ID].ToString().Contains("hpt ="))
                     {
+                        //check to make sure that the players hp is below the hp needed for the ability
                         if (TargetInfo.HPP <= jacontrol[ability.ID].hpt) useAbility = true;
                     }
                     else useAbility = true;
                 }
                 if (useAbility && DynaProccontrole.Checked && targ == "<t>" && !PlayerInfo.DynaStrike("JA", PlayerInfo.DynaTime(), TargetInfo.Name))
                     useAbility = false;
+                //stops processing abilitys if the player is no longer in combat
                 if (PlayerInfo.Status != 1) break;
                 if (useAbility)
                 {
@@ -10450,13 +10466,17 @@
                 var targ = (GetBit(magic.ValidTargets, 0) ? "<me>" : "<t>");
                 if (Recast.GetSpellRecast((int)magic.Index) != 0 || !MAautoJA(magic.Name[0]) || PlayerInfo.HasBuff(6)) continue;
                 if (PlayerInfo.MP < magic.MPCost && (!PlayerInfo.HasBuff(47) || !PlayerInfo.HasBuff(229))) continue;
+                if (magic.Skill == 39 && !NINtoolCheck(magic.Name[0].Replace(": Ichi", "").Replace(": Ni", "").Replace(": San", ""))) continue;
+                        
                 if (Handledspells.Contains(magic.Name[0]))
                 {
+                    //these spells have multipul varents that give the same buff
                     if (magic.Name[0].Contains("Protect") && !PlayerInfo.HasBuff(40)) castSpell = true;
                     else if (magic.Name[0].Contains("Shell") && !PlayerInfo.HasBuff(41)) castSpell = true;
                     else if (magic.Name[0].Contains("Regen") && !PlayerInfo.HasBuff(42)) castSpell = true;
                     else if (magic.Name[0].Contains("Refresh") && !PlayerInfo.HasBuff(43)) castSpell = true;
                     else if (magic.Name[0].Contains("Reraise") && !PlayerInfo.HasBuff(113)) castSpell = true;
+                    //all these spells use the GUI to set needed varables for when to use
                     else if (magic.Name[0] == "Cure" && Curecount.Value >= PlayerInfo.HPP) castSpell = true;
                     else if (magic.Name[0] == "Cure II" && CureIIcount.Value >= PlayerInfo.HPP) castSpell = true;
                     else if (magic.Name[0] == "Cure III" && CureIIIcount.Value >= PlayerInfo.HPP) castSpell = true;
@@ -10512,15 +10532,12 @@
                 {
                     if (macontrol.ContainsKey((uint)magic.Index))
                     {
-                        if (magic.Skill == 39)
+                        if (macontrol[magic.Index].ToString().Contains("I ="))
                         {
-                            if (!NINtoolCheck(magic.Name[0].Replace(": Ichi", "").Replace(": Ni", "").Replace(": San", ""))) continue;
-                            else castSpell = true;
-                        }
-                        else if (macontrol[magic.Index].ToString().Contains("I ="))
-                        {
+                            //check to if Indi is active
                             if (IndiDic["Active"])
                             {
+                                //check to if Indi the same element or target type spell
                                 if (macontrol[magic.Index].ToString().Contains("P ="))
                                 {
                                     if (IndiDic["Element"] != magic.Element || IndiDic["Enemy"] ||
@@ -10535,22 +10552,27 @@
                             }
                             else
                             {
+                                //if Indi is not active
                                 castSpell = true;
                             }
                         }
                         else if (macontrol[magic.Index].ToString().Contains("b ="))
                         {
+                            //(B)check to make sure that the buff the spell gives does not exist
+                            //(b)check to make sure that the buff the spell cannot be used with does not exist
                             if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B) &&
                                 !PlayerInfo.HasBuff((short)macontrol[magic.Index].b))
                                 castSpell = true;
                         }
                         else if (macontrol[magic.Index].ToString().Contains("H ="))
                         {
+                            //check to make sure that the buff the spell needs does exist
                             if (PlayerInfo.HasBuff((short)macontrol[magic.Index].H))
                                 castSpell = true;
                         }
                         else if (macontrol[magic.Index].ToString().Contains("B ="))
                         {
+                            //check to make sure that the buff the spell gives does not exist
                             if (!PlayerInfo.HasBuff((short)macontrol[magic.Index].B))
                                 castSpell = true;
                         }
@@ -10563,6 +10585,7 @@
                 }
                 if (castSpell && DynaProccontrole.Checked && targ == "<t>" && !PlayerInfo.DynaStrike("MA", PlayerInfo.DynaTime(), TargetInfo.Name))
                     castSpell = false;
+                //stops processing spells if the player is no longer in combat
                 if (PlayerInfo.Status != 1) break;
                 if (castSpell && PlayerInfo.MP >= magic.MPCost)
                 {
@@ -10574,6 +10597,7 @@
         }
         private bool MAautoJA(string M)
         {
+            //all these are abilities used to augment spells and are only needed before the spell is cast
             var ja = (from object itemChecked in playerJA.CheckedItems select itemChecked.ToString()).ToList();
             var magic = api.Resources.GetSpell(M, 0);
             #region BLK MAJA
@@ -10969,6 +10993,8 @@
         }
         private bool NINtoolCheck(string nin)
         {
+            //this checks to see if the player has the correct nin tool
+            //if not but thay have the nin tool bag it uses the bag to get more tools then continues the nin spell
             var item = nintools[nin];
             if (Inventory.ItemQuantityByName(item.ElementAt(0)) > 0) return true;
             else if (Inventory.ItemQuantityByName(item.ElementAt(1)) > 0)
@@ -10988,6 +11014,7 @@
         }
         private void Casting(bool trust = false)
         {
+            //this is the way scripted watches to see if the spell is done casting and if the spell has ben interupted
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
             var count = 0;
             float lastPercent = 0;
@@ -11776,8 +11803,8 @@
                     }
                     if (kvp.Value.ToString().Contains("af =") && petja.Contains(kvp.Key) && ja.Contains("Astral Flow"))
                     {
-                        if (kvp.Value.ToString().Contains("rage =") && Recast.GetAbilityRecast(174) != 0) continue;
-                        if (kvp.Value.ToString().Contains("ward =") && Recast.GetAbilityRecast(173) != 0) continue;
+                        if (kvp.Value.ToString().Contains("rage =") && Recast.GetAbilityRecast(173) != 0) continue;
+                        if (kvp.Value.ToString().Contains("ward =") && Recast.GetAbilityRecast(174) != 0) continue;
                         if ((joblvl * 2) <= PlayerInfo.MP) useAbility = true;
                         {
                             useAbility = true;
@@ -11785,11 +11812,11 @@
                             Thread.Sleep(TimeSpan.FromSeconds(1.0));
                         }
                     }
-                    else if (kvp.Value.ToString().Contains("rage =") && petja.Contains(kvp.Key) && Recast.GetAbilityRecast(174) == 0)
+                    else if (kvp.Value.ToString().Contains("rage =") && petja.Contains(kvp.Key) && Recast.GetAbilityRecast(173) == 0)
                     {
                         if (Ability.MP <= PlayerInfo.MP) useAbility = true;
                     }
-                    else if (kvp.Value.ToString().Contains("ward =") && petja.Contains(kvp.Key) && Recast.GetAbilityRecast(173) == 0)
+                    else if (kvp.Value.ToString().Contains("ward =") && petja.Contains(kvp.Key) && Recast.GetAbilityRecast(174) == 0)
                     {
                         if (kvp.Value.ToString().Contains("hp1 =") && SMNHPPset1.Value >= PlayerInfo.HPP && Ability.MP <= PlayerInfo.MP) useAbility = true;
                         else if (kvp.Value.ToString().Contains("hp2 =") && SMNHPPset2.Value >= PlayerInfo.HPP && Ability.MP <= PlayerInfo.MP) useAbility = true;
@@ -12152,8 +12179,7 @@
                         }
                     }
 
-                    if (!TargetInfo.LockedOn && AutoLock.Checked)
-                        api.ThirdParty.SendString("/lockon <t>");
+                    LockOn();
 
                     if (wanted.ClaimID == PlayerInfo.ServerID ||
                         wanted.ClaimID == 0 && wanted.TargetID > 0)
@@ -12261,8 +12287,7 @@
             TargetInfo.FaceTarget(target.X, target.Z);
             Thread.Sleep(TimeSpan.FromSeconds(0.4));
 
-            if (!TargetInfo.LockedOn && AutoLock.Checked)
-                WindowInfo.SendText("/lockon <t>");
+            LockOn();
 
             if (runPullDistance.Checked && target.TargetID != PlayerInfo.ServerID && target.TargetID != 0)
                 TargetDist(1, (int)target.TargetID);
@@ -12401,8 +12426,7 @@
                     Thread.Sleep(TimeSpan.FromSeconds(0.5));
                 }
 
-                if (AutoLock.Checked && !TargetInfo.LockedOn)
-                    api.ThirdParty.SendString("/lockon <t>");
+                LockOn();
                 
                 isMoving = true;
                 while (Math.Truncate(TargetInfo.Distance) >= (float)followDist.Value)
@@ -12647,6 +12671,11 @@
             idleY = PlayerInfo.Y;
             idleZ = PlayerInfo.Z;
             RecordIdleLocation.Text = $"X:{idleX.ToString("00.###")}/Y:{idleY.ToString("00.###")}/Z:{idleZ.ToString("00.###")}";
+        }
+        private void LockOn()
+        {
+            if(!TargetInfo.LockedOn && AutoLock.Checked)
+                WindowInfo.SendText("/lockon <t>");
         }
         #endregion
         #region Methods: Command Interface
